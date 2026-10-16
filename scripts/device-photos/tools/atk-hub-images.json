@@ -1,0 +1,482 @@
+[
+ {
+  "kind": "keyboard",
+  "model": "a87",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-dIkKrUSA.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "a98",
+  "file": "polar-region.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/polar-region-DI5WLviO.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "a98",
+  "file": "sea-salt.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/sea-salt-zt22t-yB.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "acheron108",
+  "file": "acheron108.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/acheron108-BbbOYL3n.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "acheron87",
+  "file": "acheron87.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/acheron87-O89F1REN.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "atk68rx",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-BIQj5cvM.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "atk68v2-pro",
+  "file": "v2pro-whiteBlue.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/v2pro-whiteBlue-FA5yjoVO.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "atk68v2",
+  "file": "black-berry.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-berry-DxSSlccY.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "edge60",
+  "file": "wolf.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/wolf-BnlWz3Nx.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "edge63",
+  "file": "wolf.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/wolf-_xYXfZ_l.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "edge75",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-S07TT8I4.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "gtech68",
+  "file": "mg68-white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/mg68-white-DSaq6MdM.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "gtech75",
+  "file": "mg75-white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/mg75-white-CtGai6Nu.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "hex80",
+  "file": "anode-gold.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/anode-gold-C8zLbEbV.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "kafka108",
+  "file": "kafka108.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/kafka108-DX2KXnaM.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "kafka87",
+  "file": "kafka87.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/kafka87-CVf_6smU.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "kokomi",
+  "file": "kokomi.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/kokomi-CZ3HOYhD.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "rs6",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-QalpxokY.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "rs6",
+  "file": "rs6-air-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/rs6-air-black-Q95sePZJ.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "rs7",
+  "file": "rs7-rainbow.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/rs7-rainbow-D6D8vh2r.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "rs7v2",
+  "file": "black-ts.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-ts-eUyODUB8.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "s87",
+  "file": "s87-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/s87-black-BlWfCx-N.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "shenhe108",
+  "file": "shenhe108.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/shenhe108-2x2DzBTZ.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "tv88",
+  "file": "abyss-blue.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/abyss-blue-CnM4ceP_.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "tv99",
+  "file": "blue.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/blue-BlP8E7yl.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v100",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-CcNhTvL4.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "RotateCCW.png",
+  "url": null
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "RotateCW.png",
+  "url": null
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "pmimg1.png",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/pmimg1-D6Iqkb6U.png"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "pmimg2.png",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/pmimg2-BVfj6Sim.png"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "pmimg3.png",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/pmimg3-BCSZS8Cf.png"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "zoom-in.png",
+  "url": null
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75pro",
+  "file": "zoom-out.png",
+  "url": null
+ },
+ {
+  "kind": "keyboard",
+  "model": "v75x",
+  "file": "v75x-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/v75x-black-C5wf6NNr.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v87",
+  "file": "v87-ck.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/v87-ck-DiqCDVR-.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "v98prov2",
+  "file": "v98prov2-Polar-fox.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/v98prov2-Polar-fox-DsI_ZbnI.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "vxe75-skin",
+  "file": "vxe75-pink.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/vxe75-pink-dz-TiTMq.webp"
+ },
+ {
+  "kind": "keyboard",
+  "model": "z87",
+  "file": "z87-sy.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/z87-sy-cOVvk30Y.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "a9",
+  "file": "a9-x-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/a9-x-black-BVFKK3du.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "a9",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-DnZlczbq.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "duck-bill",
+  "file": "purple.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/purple-DpbLwWsF.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-D-g07huf.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "dan-zi.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/dan-zi-B-GJdHg1.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "lemon-yellow.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/lemon-yellow-CFn97PRx.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "orange.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/orange-C-o2tjgs.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "pink.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/pink-CdaSgV28.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "purple.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/purple-Bhy2MrKb.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-moba",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-BkYvVLnK.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-D-g07huf.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "jolyne-cujoh.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/jolyne-cujoh-OILWgDBV.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "jotaro-kujo.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/jotaro-kujo-C0qlXB8B.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "ranni.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/ranni-B29UHRlx.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "tarnished.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/tarnished-DE7hoSbI.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1-pro-max",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-BkYvVLnK.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1",
+  "file": "black-ultimate.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-ultimate-DEN0qvsS.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-kLVeKquv.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1",
+  "file": "lev.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/lev-fqHhofih.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1",
+  "file": "white-ultimate.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-ultimate-CZy_4Uk9.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "f1",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-CnM8dqcL.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "fierce-x",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-CDKCqxhs.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "fierce-x",
+  "file": "gray.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/gray-DeUg3Pt1.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "fierce-x",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-CExDBJvE.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "mad-r",
+  "file": "black-major.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-major-CERxIHv7.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "mad-r",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-DCbDiXsF.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "mad-r",
+  "file": "white-major.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-major-7RsTKpoX.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "mad-r",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-mYWaqE2h.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "r1",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-CouMf0ND.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "u2",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-Dq9lEwbQ.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "v1",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-BN_gdzUF.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "v1",
+  "file": "orange.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/orange-BW8imBzH.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "v1",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-BZtO5Fj8.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "x1",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-CG5UcNJQ.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "x1",
+  "file": "sky-x1-v2-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/sky-x1-v2-black-CVWe6xmG.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "z1",
+  "file": "black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/black-Bgku7NgY.webp"
+ },
+ {
+  "kind": "mouse",
+  "model": "z1",
+  "file": "sky-z1-v2-black.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/sky-z1-v2-black-BS3--PUt.webp"
+ },
+ {
+  "kind": "sound",
+  "model": "skyline",
+  "file": "gray-line.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/gray-line--K51mfP3.webp"
+ },
+ {
+  "kind": "sound",
+  "model": "skyline",
+  "file": "gray.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/gray-CXObgnRq.webp"
+ },
+ {
+  "kind": "sound",
+  "model": "skyline",
+  "file": "skyline-guide.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/skyline-guide-BSb-GiAT.webp"
+ },
+ {
+  "kind": "sound",
+  "model": "skyline",
+  "file": "white-line.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-line-CjwctLmc.webp"
+ },
+ {
+  "kind": "sound",
+  "model": "skyline",
+  "file": "white.webp",
+  "url": "https://bpcdn.atkgear.com/hub-v3/production/3.2.27/static/white-BTya24kv.webp"
+ }
+]

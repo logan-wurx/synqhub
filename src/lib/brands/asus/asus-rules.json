@@ -1,0 +1,2189 @@
+{
+ "note": "ASUS Gear Link allowlist. Blocked rules first, then allowed; no match = refused. Frames are output report 0, 64 bytes (63 on some mice). See src/lib/brands/rules.ts for the matcher.",
+ "vendorId": "0b05",
+ "bootloaderPids": [
+  "1948",
+  "194a",
+  "1aaf",
+  "1ab6",
+  "1acf",
+  "1ad1",
+  "1b40",
+  "1b7f",
+  "1c11",
+  "1c6a",
+  "1c7e",
+  "1cad",
+  "1ce9",
+  "1cf0",
+  "1d46",
+  "1d4d",
+  "1d69",
+  "1d6d",
+  "1d7b",
+  "1da3",
+  "1ddf",
+  "1de1",
+  "1df4",
+  "1df6",
+  "1e0b",
+  "1e4d",
+  "1e5c"
+ ],
+ "familyByPid": {
+  "1a83": "mech",
+  "1a85": "mech",
+  "1a92": "mouse",
+  "1a94": "mouse",
+  "1aae": "mech",
+  "1ab0": "mech",
+  "1ab5": "mech",
+  "1ace": "receiver",
+  "1ad0": "receiver",
+  "1b16": "mouse",
+  "1b18": "mouse",
+  "1b3f": "mech",
+  "1b42": "mech",
+  "1b63": "mouse",
+  "1b65": "mouse",
+  "1b67": "mouse",
+  "1b69": "mouse",
+  "1b7e": "hfx",
+  "1c0c": "mouse",
+  "1c0e": "mouse",
+  "1c10": "he-v1",
+  "1c12": "he-v1",
+  "1c24": "mech",
+  "1c25": "mech",
+  "1c2f": "he-v1",
+  "1c31": "he-v1",
+  "1c69": "mouse",
+  "1c6b": "mouse",
+  "1c7d": "he-v1",
+  "1c8d": "mouse",
+  "1c8f": "mouse",
+  "1cd3": "mouse",
+  "1cd5": "mouse",
+  "1ce8": "mech",
+  "1cea": "mech",
+  "1cef": "mech",
+  "1cf1": "mech",
+  "1d1d": "hfx",
+  "1d45": "mech",
+  "1d47": "mech",
+  "1d4c": "mouse",
+  "1d4e": "mouse",
+  "1d54": "receiver",
+  "1d68": "he-v2",
+  "1d6a": "he-v2",
+  "1d7a": "mouse",
+  "1d7c": "mouse",
+  "1da2": "mech",
+  "1da4": "mech",
+  "1db0": "mouse",
+  "1dbf": "mouse",
+  "1dde": "mouse",
+  "1de0": "mouse",
+  "1df3": "he-v2",
+  "1df5": "he-v2",
+  "1e0a": "mech",
+  "1e0c": "mech",
+  "1e2f": "mouse",
+  "1e32": "mouse",
+  "1e4a": "mouse",
+  "1e4b": "mouse",
+  "1e4e": "mouse",
+  "1e4f": "mouse",
+  "1e51": "mouse",
+  "1e52": "mouse",
+  "1e5b": "mech",
+  "1e5d": "mech"
+ },
+ "rules": [
+  {
+   "id": "boot-jump",
+   "what": "jump to bootloader `7B AA 'ASUS' AA`",
+   "verdict": "blocked",
+   "why": "bootloader",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 123
+    },
+    {
+     "at": 1,
+     "eq": 170
+    },
+    {
+     "at": 2,
+     "eq": 65
+    },
+    {
+     "at": 3,
+     "eq": 83
+    },
+    {
+     "at": 4,
+     "eq": 85
+    },
+    {
+     "at": 5,
+     "eq": 83
+    },
+    {
+     "at": 6,
+     "eq": 170
+    }
+   ]
+  },
+  {
+   "id": "enter-boot",
+   "what": "ENTER_BOOT `7F 55 AA 55 AA` (TX75 Analog, same collection as settings)",
+   "verdict": "blocked",
+   "why": "bootloader",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 127
+    },
+    {
+     "at": 1,
+     "eq": 85
+    },
+    {
+     "at": 2,
+     "eq": 170
+    },
+    {
+     "at": 3,
+     "eq": 85
+    },
+    {
+     "at": 4,
+     "eq": 170
+    }
+   ]
+  },
+  {
+   "id": "radio-isp",
+   "what": "2.4 GHz radio ISP `43 55 AA 55 AA` (TX75 Analog)",
+   "verdict": "blocked",
+   "why": "bootloader",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 67
+    },
+    {
+     "at": 1,
+     "eq": 85
+    },
+    {
+     "at": 2,
+     "eq": 170
+    },
+    {
+     "at": 3,
+     "eq": 85
+    },
+    {
+     "at": 4,
+     "eq": 170
+    }
+   ]
+  },
+  {
+   "id": "fwu-magic",
+   "what": "anything carrying the `ASUSHIDFWU` updater magic",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [],
+   "contains": [
+    65,
+    83,
+    85,
+    83,
+    72,
+    73,
+    68,
+    70,
+    87,
+    85
+   ]
+  },
+  {
+   "id": "fwu-init",
+   "what": "updater INIT `10 ...`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 16
+    }
+   ]
+  },
+  {
+   "id": "fwu-leave",
+   "what": "updater LEAVE `11 FF`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 17
+    }
+   ]
+  },
+  {
+   "id": "fwu-erase",
+   "what": "updater ERASE / PROGRAM `1F 01` / `1F 51`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 31
+    }
+   ]
+  },
+  {
+   "id": "fwu-addr",
+   "what": "updater SET_ADDR `20 ...`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 32
+    }
+   ]
+  },
+  {
+   "id": "fwu-len",
+   "what": "updater SET_LEN `21 ...` (21 00 is also an OLED read SYNQ does not need)",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 33
+    }
+   ]
+  },
+  {
+   "id": "fwu-data",
+   "what": "updater SET_DATA `22 ...` (22 01 is also the HFX lever read SYNQ does not need)",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 34
+    }
+   ]
+  },
+  {
+   "id": "fwu-boot-ver",
+   "what": "updater get_boot_ver `82`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 130
+    }
+   ]
+  },
+  {
+   "id": "fwu-checksum",
+   "what": "updater CHECKSUM `8E`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 142
+    }
+   ]
+  },
+  {
+   "id": "fwu-status",
+   "what": "updater status `8F`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 143
+    }
+   ]
+  },
+  {
+   "id": "ry-boot",
+   "what": "ry5088 bootloader `BA C0` / `BA C2`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 186
+    }
+   ]
+  },
+  {
+   "id": "ry-radio",
+   "what": "TX75 radio ISP `C3` / `44` / `C4`",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "in": [
+      195,
+      68,
+      196
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fota-7d",
+   "what": "TX75 Core FOTA `7D xx` (only the 7D 20 reads are harmless; SYNQ sends none)",
+   "verdict": "blocked",
+   "why": "firmware",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 125
+    }
+   ]
+  },
+  {
+   "id": "device-reset",
+   "what": "deviceReset / resetDongle `B0 00 'reset'`",
+   "verdict": "blocked",
+   "why": "factory-reset",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 176
+    }
+   ]
+  },
+  {
+   "id": "profile-reset",
+   "what": "reset current / all profiles `50 40`",
+   "verdict": "blocked",
+   "why": "profile-wipe",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 80
+    },
+    {
+     "at": 1,
+     "eq": 64
+    }
+   ]
+  },
+  {
+   "id": "binding-reset",
+   "what": "reset key bindings / lighting `50 60` / `50 61`",
+   "verdict": "blocked",
+   "why": "profile-wipe",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 80
+    },
+    {
+     "at": 1,
+     "in": [
+      96,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gamepad-reset",
+   "what": "gamepad reset all / current `52 02` / `52 03`",
+   "verdict": "blocked",
+   "why": "factory-reset",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 82
+    }
+   ]
+  },
+  {
+   "id": "analog-reset",
+   "what": "reset analog trigger `51 52`",
+   "verdict": "blocked",
+   "why": "profile-wipe",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 82
+    }
+   ]
+  },
+  {
+   "id": "speedtap-reset",
+   "what": "reset Speed Tap `51 56`",
+   "verdict": "blocked",
+   "why": "profile-wipe",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 86
+    }
+   ]
+  },
+  {
+   "id": "kb-calibrate",
+   "what": "analog key calibration `80 26`",
+   "verdict": "blocked",
+   "why": "calibration",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 128
+    },
+    {
+     "at": 1,
+     "eq": 38
+    }
+   ]
+  },
+  {
+   "id": "kb-calibration-mode",
+   "what": "calibration mode `80 27` (V2 adds switch type)",
+   "verdict": "blocked",
+   "why": "calibration",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 128
+    },
+    {
+     "at": 1,
+     "eq": 39
+    }
+   ]
+  },
+  {
+   "id": "switch-type",
+   "what": "select key switch type `51 27` (changes the analog curve)",
+   "verdict": "blocked",
+   "why": "calibration",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 39
+    }
+   ]
+  },
+  {
+   "id": "mouse-calibration",
+   "what": "mouse surface / LOD / track-on-glass `51 35` (arg 1 is LOD on some models and manual calibration on others)",
+   "verdict": "blocked",
+   "why": "calibration",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 53
+    }
+   ]
+  },
+  {
+   "id": "gamepad-mode",
+   "what": "gamepad mode / input mode / response `80 00..02` (changes the USB identity)",
+   "verdict": "blocked",
+   "why": "identity",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 128
+    },
+    {
+     "at": 1,
+     "min": 0,
+     "max": 2
+    }
+   ]
+  },
+  {
+   "id": "kb-demo",
+   "what": "keyboard demo mode `51 42`",
+   "verdict": "blocked",
+   "why": "demo",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 66
+    }
+   ]
+  },
+  {
+   "id": "mouse-demo",
+   "what": "mouse demo mode `51 41`",
+   "verdict": "blocked",
+   "why": "demo",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 65
+    }
+   ]
+  },
+  {
+   "id": "pairing",
+   "what": "receiver pairing mode / unpair `A2 00` / `A2 01`",
+   "verdict": "blocked",
+   "why": "pairing",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 162
+    }
+   ]
+  },
+  {
+   "id": "sw-mode",
+   "what": "software mode `74 00` (keyboard) / `51 30` (mouse): the device stops using its own settings",
+   "verdict": "blocked",
+   "why": "identity",
+   "families": [
+    "*"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "in": [
+      116
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mouse-sw-mode",
+   "what": "mouse software mode `51 30`",
+   "verdict": "blocked",
+   "why": "identity",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 48
+    }
+   ]
+  },
+  {
+   "id": "kb-info",
+   "what": "device info read 12 00/01/03/12/15/16",
+   "verdict": "read",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "in": [
+      0,
+      1,
+      3,
+      18,
+      21,
+      22
+     ]
+    }
+   ],
+   "zeroFrom": 2
+  },
+  {
+   "id": "kb-fwinfo",
+   "what": "FW info / serial read 12 14 00..02",
+   "verdict": "read",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "eq": 20
+    },
+    {
+     "at": 2,
+     "max": 2
+    }
+   ],
+   "zeroFrom": 3
+  },
+  {
+   "id": "kb-state",
+   "what": "RT mode / Speed Tap state read 25 00 / 25 01",
+   "verdict": "read",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 37
+    },
+    {
+     "at": 1,
+     "in": [
+      0,
+      1
+     ]
+    }
+   ],
+   "zeroFrom": 2
+  },
+  {
+   "id": "he-global-reads",
+   "what": "global actuation / dead zone / RT reads 25 05, 25 0A, 25 22, 25 A5, 25 AA",
+   "verdict": "read",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 37
+    },
+    {
+     "at": 1,
+     "in": [
+      5,
+      10,
+      34,
+      165,
+      170
+     ]
+    }
+   ],
+   "zeroFrom": 2
+  },
+  {
+   "id": "he-key-reads-v1",
+   "what": "per-key trigger / actuation / RT / dead zone / binding reads 25 02/04/06/09/0D",
+   "verdict": "read",
+   "families": [
+    "he-v1"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 37
+    },
+    {
+     "at": 1,
+     "in": [
+      2,
+      4,
+      6,
+      9,
+      13
+     ]
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 40959
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "he-key-reads-v2",
+   "what": "per-key V2 reads 25 A2/A4/A6/A9",
+   "verdict": "read",
+   "families": [
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 37
+    },
+    {
+     "at": 1,
+     "in": [
+      162,
+      164,
+      166,
+      169
+     ]
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 40959
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "he-speedtap-pairs",
+   "what": "Speed Tap pair table read 25 08 00|01",
+   "verdict": "read",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 37
+    },
+    {
+     "at": 1,
+     "eq": 8
+    },
+    {
+     "at": 2,
+     "max": 1
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "zeroFrom": 4
+  },
+  {
+   "id": "kb-save",
+   "what": "save current profile 50 55",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 80
+    },
+    {
+     "at": 1,
+     "eq": 85
+    }
+   ],
+   "zeroFrom": 2
+  },
+  {
+   "id": "kb-profile",
+   "what": "select profile 51 00 00 00 <1..6>",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2",
+    "mech"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 0
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "min": 1,
+     "max": 6
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "he-actuation",
+   "what": "global actuation 51 50 (0.01 mm u16)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 80
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 400
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "hfx-actuation",
+   "what": "global actuation 51 50 (0.1 mm u16)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 80
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 40
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "he-key-actuation",
+   "what": "per-key actuation 51 4F (0.01 mm)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 79
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 400
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "hfx-key-actuation",
+   "what": "per-key actuation 51 4F (0.1 mm)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 79
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 40
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "he-deadzone",
+   "what": "global dead zones 51 58 <bottom> <top> (0.01 mm, <= 1.0 mm)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 88
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 100
+    },
+    {
+     "at": 5,
+     "max": 100
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "hfx-deadzone",
+   "what": "global dead zones 51 58 <bottom> <top> (0.1 mm, <= 1.0 mm)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 88
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 10
+    },
+    {
+     "at": 5,
+     "max": 10
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "he-key-deadzone",
+   "what": "per-key dead zones 51 59 (0.01 mm)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 89
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 6,
+     "max": 100
+    },
+    {
+     "at": 7,
+     "max": 100
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "hfx-key-deadzone",
+   "what": "per-key dead zones 51 59 (0.1 mm)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 89
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 6,
+     "max": 10
+    },
+    {
+     "at": 7,
+     "max": 10
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "he-rt-combined",
+   "what": "per-key rapid trigger 51 54 00 (combined, u16 0.01 mm)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 84
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 6,
+     "max": 1
+    },
+    {
+     "at": 7,
+     "max": 1
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 8,
+     "min": 1,
+     "max": 250
+    }
+   ],
+   "zeroFrom": 10
+  },
+  {
+   "id": "he-rt-independent",
+   "what": "per-key rapid trigger 51 54 01 (press + release, u16 0.01 mm)",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 84
+    },
+    {
+     "at": 2,
+     "eq": 1
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 6,
+     "max": 1
+    },
+    {
+     "at": 7,
+     "max": 1
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 8,
+     "min": 1,
+     "max": 250
+    },
+    {
+     "at": 10,
+     "min": 1,
+     "max": 250
+    }
+   ],
+   "zeroFrom": 12
+  },
+  {
+   "id": "hfx-rt",
+   "what": "per-key rapid trigger 51 54 <0|1|2> (u8 0.1 mm, captured)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 84
+    },
+    {
+     "at": 2,
+     "max": 2
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 25
+    },
+    {
+     "at": 7,
+     "max": 1
+    },
+    {
+     "at": 8,
+     "max": 1
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    }
+   ],
+   "zeroFrom": 9
+  },
+  {
+   "id": "he-rt-enable",
+   "what": "rapid-trigger mode 51 5C (Azoth 96 HE)",
+   "verdict": "write",
+   "families": [
+    "he-v1"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 92
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "kb-speedtap",
+   "what": "Speed Tap on/off 51 57 00",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 87
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "kb-speedtap-pair",
+   "what": "Speed Tap pair 51 55",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 85
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 8,
+     "max": 1
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 255
+    }
+   ],
+   "zeroFrom": 9
+  },
+  {
+   "id": "he-remap",
+   "what": "key remap 51 21 <src> <tgt u16> <act u16>",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 33
+    }
+   ],
+   "u16": [
+    {
+     "at": 2,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 4,
+     "min": 0,
+     "max": 4095
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 400
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "he-remap-fn",
+   "what": "Fn-layer key remap 51 21 <0x9Fxx> <tgt u16> <act u16>",
+   "verdict": "write",
+   "families": [
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 33
+    }
+   ],
+   "u16": [
+    {
+     "at": 2,
+     "min": 40705,
+     "max": 40959
+    },
+    {
+     "at": 4,
+     "min": 0,
+     "max": 4095
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 400
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "hfx-remap",
+   "what": "key remap 51 21 <src> <tgt u16> <act u8> (captured)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 33
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 40
+    }
+   ],
+   "u16": [
+    {
+     "at": 2,
+     "min": 1,
+     "max": 255
+    },
+    {
+     "at": 4,
+     "min": 0,
+     "max": 4095
+    }
+   ],
+   "zeroFrom": 7
+  },
+  {
+   "id": "hfx-remap-fn",
+   "what": "Fn-layer key remap 51 21 <0x9Fxx> <tgt u16> <act u8>",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 33
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 40
+    }
+   ],
+   "u16": [
+    {
+     "at": 2,
+     "min": 40705,
+     "max": 40959
+    },
+    {
+     "at": 4,
+     "min": 0,
+     "max": 4095
+    }
+   ],
+   "zeroFrom": 7
+  },
+  {
+   "id": "kb-polling",
+   "what": "polling rate 51 31 00 00 <0..3>",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 3
+    }
+   ],
+   "zeroFrom": 5,
+   "note": "Azoth 96 HE and Falcata use the 80 2x mode system instead; the backend never sends 51 31 to them."
+  },
+  {
+   "id": "kb-lighting",
+   "what": "lighting effect 51 2C <effect 0..9> <packets left 0..2>",
+   "verdict": "write",
+   "families": [
+    "hfx",
+    "he-v1",
+    "he-v2"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 44
+    },
+    {
+     "at": 2,
+     "max": 9
+    },
+    {
+     "at": 3,
+     "max": 2
+    }
+   ],
+   "zeroFrom": 32
+  },
+  {
+   "id": "hfx-analog-lighting",
+   "what": "analog lighting toggle 51 2D 00 00 <effect> <0|1> (captured)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 45
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 9
+    },
+    {
+     "at": 5,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "hfx-lever",
+   "what": "touch panel function / mode 71 00 / 71 02 (captured Sync)",
+   "verdict": "write",
+   "families": [
+    "hfx"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 113
+    },
+    {
+     "at": 1,
+     "in": [
+      0,
+      2
+     ]
+    },
+    {
+     "at": 2,
+     "eq": 0
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 4
+    },
+    {
+     "at": 5,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 6
+  },
+  {
+   "id": "mouse-info",
+   "what": "mouse info read 12 00 00/02/0E",
+   "verdict": "read",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "eq": 0
+    },
+    {
+     "at": 2,
+     "in": [
+      0,
+      2,
+      14
+     ]
+    }
+   ],
+   "zeroFrom": 3
+  },
+  {
+   "id": "mouse-perf-read",
+   "what": "performance read 12 04 00..05",
+   "verdict": "read",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "eq": 4
+    },
+    {
+     "at": 2,
+     "max": 5
+    }
+   ],
+   "zeroFrom": 3
+  },
+  {
+   "id": "mouse-lod-read",
+   "what": "calibration / LOD / glass read 12 06 00..02",
+   "verdict": "read",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "eq": 6
+    },
+    {
+     "at": 2,
+     "max": 2
+    }
+   ],
+   "zeroFrom": 3
+  },
+  {
+   "id": "mouse-battery-read",
+   "what": "battery read 12 07 00",
+   "verdict": "read",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 18
+    },
+    {
+     "at": 1,
+     "eq": 7
+    },
+    {
+     "at": 2,
+     "eq": 0
+    }
+   ],
+   "zeroFrom": 3
+  },
+  {
+   "id": "mouse-dpi",
+   "what": "DPI stage 51 31 <0..3> RAW16 [RGB]",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "max": 3
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 64999
+    }
+   ],
+   "zeroFrom": 9
+  },
+  {
+   "id": "mouse-dpi-xy",
+   "what": "split X/Y DPI 51 31 <12..15> X16 Y16",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "min": 12,
+     "max": 15
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "u16": [
+    {
+     "at": 4,
+     "min": 1,
+     "max": 64999
+    },
+    {
+     "at": 6,
+     "min": 1,
+     "max": 64999
+    }
+   ],
+   "zeroFrom": 8
+  },
+  {
+   "id": "mouse-polling",
+   "what": "polling 51 31 04 <0..6>",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "eq": 4
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 6
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "mouse-debounce",
+   "what": "button response 51 31 05 <0..7>",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "eq": 5
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 7
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "mouse-toggles",
+   "what": "angle snap / motion sync 51 31 06|18 <0|1>",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "in": [
+      6,
+      18
+     ]
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "mouse-active-stage",
+   "what": "active DPI stage 51 31 09 <1..4>",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 81
+    },
+    {
+     "at": 1,
+     "eq": 49
+    },
+    {
+     "at": 2,
+     "eq": 9
+    },
+    {
+     "at": 3,
+     "eq": 0
+    },
+    {
+     "at": 4,
+     "min": 1,
+     "max": 4
+    }
+   ],
+   "zeroFrom": 5
+  },
+  {
+   "id": "mouse-profile",
+   "what": "select profile 50 02 <0..4>",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 80
+    },
+    {
+     "at": 1,
+     "eq": 2
+    },
+    {
+     "at": 2,
+     "max": 4
+    },
+    {
+     "at": 3,
+     "eq": 0
+    }
+   ],
+   "zeroFrom": 4
+  },
+  {
+   "id": "mouse-save",
+   "what": "save profile 50 03",
+   "verdict": "write",
+   "families": [
+    "mouse"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "eq": 80
+    },
+    {
+     "at": 1,
+     "eq": 3
+    }
+   ],
+   "zeroFrom": 2
+  },
+  {
+   "id": "receiver-reads",
+   "what": "receiver serial / firmware / paired list A1 00, A1 01, A0 00",
+   "verdict": "read",
+   "families": [
+    "receiver"
+   ],
+   "bytes": [
+    {
+     "at": 0,
+     "in": [
+      160,
+      161
+     ]
+    },
+    {
+     "at": 1,
+     "max": 1
+    }
+   ],
+   "zeroFrom": 2
+  }
+ ]
+}

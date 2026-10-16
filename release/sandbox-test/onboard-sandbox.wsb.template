@@ -1,0 +1,36 @@
+<!--
+  Windows Sandbox config for the SYNQ beta fresh-install test. Double-click it (Windows Sandbox must
+  be turned on once; see README.md next to this file).
+
+  Host folders (edit the two HostFolder paths if the onboard folder is somewhere else):
+    release          -> C:\SYNQRelease  READ-ONLY  the installer, SHA256SUMS.txt and run-test.ps1
+    sandbox-results  -> C:\Results         read/write where RESULTS.md and the raw files are written
+
+  Nothing from this PC is shared except those two folders (no clipboard, no printers, no camera or
+  microphone). Everything inside the Sandbox is thrown away when its window is closed.
+-->
+<Configuration>
+  <VGpu>Disable</VGpu>
+  <Networking>Enable</Networking>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <ProtectedClient>Disable</ProtectedClient>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Disable</ClipboardRedirection>
+  <MemoryInMB>4096</MemoryInMB>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>{{REPO}}\release</HostFolder>
+      <SandboxFolder>C:\SYNQRelease</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>{{REPO}}\sandbox-results</HostFolder>
+      <SandboxFolder>C:\Results</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -NoExit -File C:\SYNQRelease\sandbox-test\run-test.ps1</Command>
+  </LogonCommand>
+</Configuration>

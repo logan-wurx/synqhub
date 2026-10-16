@@ -1,0 +1,2416 @@
+vcp 2 0 0 absent 0 0
+vcp 2 0 0 absent 1 0
+vcp 2 0 100 absent 0 0
+vcp 2 0 100 absent 1 0
+vcp 2 1 0 absent 0 0
+vcp 2 1 0 absent 1 0
+vcp 2 1 100 absent 0 0
+vcp 2 1 100 absent 1 0
+vcp 2 2 0 absent 0 0
+vcp 2 2 0 absent 1 0
+vcp 2 2 100 absent 0 0
+vcp 2 2 100 absent 1 0
+vcp 2 3 0 absent 0 0
+vcp 2 3 0 absent 1 0
+vcp 2 3 100 absent 0 0
+vcp 2 3 100 absent 1 0
+vcp 2 5 0 absent 0 0
+vcp 2 5 0 absent 1 0
+vcp 2 5 100 absent 0 0
+vcp 2 5 100 absent 1 0
+vcp 2 6 0 absent 0 0
+vcp 2 6 0 absent 1 0
+vcp 2 6 100 absent 0 0
+vcp 2 6 100 absent 1 0
+vcp 2 7 0 absent 0 0
+vcp 2 7 0 absent 1 0
+vcp 2 7 100 absent 0 0
+vcp 2 7 100 absent 1 0
+vcp 2 17 0 absent 0 0
+vcp 2 17 0 absent 1 0
+vcp 2 17 100 absent 0 0
+vcp 2 17 100 absent 1 0
+vcp 2 50 0 absent 0 0
+vcp 2 50 0 absent 1 0
+vcp 2 50 100 absent 0 0
+vcp 2 50 100 absent 1 0
+vcp 2 100 0 absent 0 0
+vcp 2 100 0 absent 1 0
+vcp 2 100 100 absent 0 0
+vcp 2 100 100 absent 1 0
+vcp 2 101 0 absent 0 0
+vcp 2 101 0 absent 1 0
+vcp 2 101 100 absent 0 0
+vcp 2 101 100 absent 1 0
+vcp 2 255 0 absent 0 0
+vcp 2 255 0 absent 1 0
+vcp 2 255 100 absent 0 0
+vcp 2 255 100 absent 1 0
+vcp 4 0 0 - 0 0
+vcp 4 0 0 absent 0 0
+vcp 4 0 0 - 1 0
+vcp 4 0 0 absent 1 0
+vcp 4 0 100 - 0 0
+vcp 4 0 100 absent 0 0
+vcp 4 0 100 - 1 0
+vcp 4 0 100 absent 1 0
+vcp 4 1 0 - 0 0
+vcp 4 1 0 absent 0 0
+vcp 4 1 0 - 1 0
+vcp 4 1 0 absent 1 0
+vcp 4 1 100 - 0 0
+vcp 4 1 100 absent 0 0
+vcp 4 1 100 - 1 0
+vcp 4 1 100 absent 1 0
+vcp 4 2 0 - 0 0
+vcp 4 2 0 absent 0 0
+vcp 4 2 0 - 1 0
+vcp 4 2 0 absent 1 0
+vcp 4 2 100 - 0 0
+vcp 4 2 100 absent 0 0
+vcp 4 2 100 - 1 0
+vcp 4 2 100 absent 1 0
+vcp 4 3 0 - 0 0
+vcp 4 3 0 absent 0 0
+vcp 4 3 0 - 1 0
+vcp 4 3 0 absent 1 0
+vcp 4 3 100 - 0 0
+vcp 4 3 100 absent 0 0
+vcp 4 3 100 - 1 0
+vcp 4 3 100 absent 1 0
+vcp 4 5 0 - 0 0
+vcp 4 5 0 absent 0 0
+vcp 4 5 0 - 1 0
+vcp 4 5 0 absent 1 0
+vcp 4 5 100 - 0 0
+vcp 4 5 100 absent 0 0
+vcp 4 5 100 - 1 0
+vcp 4 5 100 absent 1 0
+vcp 4 6 0 - 0 0
+vcp 4 6 0 absent 0 0
+vcp 4 6 0 - 1 0
+vcp 4 6 0 absent 1 0
+vcp 4 6 100 - 0 0
+vcp 4 6 100 absent 0 0
+vcp 4 6 100 - 1 0
+vcp 4 6 100 absent 1 0
+vcp 4 7 0 - 0 0
+vcp 4 7 0 absent 0 0
+vcp 4 7 0 - 1 0
+vcp 4 7 0 absent 1 0
+vcp 4 7 100 - 0 0
+vcp 4 7 100 absent 0 0
+vcp 4 7 100 - 1 0
+vcp 4 7 100 absent 1 0
+vcp 4 17 0 - 0 0
+vcp 4 17 0 absent 0 0
+vcp 4 17 0 - 1 0
+vcp 4 17 0 absent 1 0
+vcp 4 17 100 - 0 0
+vcp 4 17 100 absent 0 0
+vcp 4 17 100 - 1 0
+vcp 4 17 100 absent 1 0
+vcp 4 50 0 - 0 0
+vcp 4 50 0 absent 0 0
+vcp 4 50 0 - 1 0
+vcp 4 50 0 absent 1 0
+vcp 4 50 100 - 0 0
+vcp 4 50 100 absent 0 0
+vcp 4 50 100 - 1 0
+vcp 4 50 100 absent 1 0
+vcp 4 100 0 - 0 0
+vcp 4 100 0 absent 0 0
+vcp 4 100 0 - 1 0
+vcp 4 100 0 absent 1 0
+vcp 4 100 100 - 0 0
+vcp 4 100 100 absent 0 0
+vcp 4 100 100 - 1 0
+vcp 4 100 100 absent 1 0
+vcp 4 101 0 - 0 0
+vcp 4 101 0 absent 0 0
+vcp 4 101 0 - 1 0
+vcp 4 101 0 absent 1 0
+vcp 4 101 100 - 0 0
+vcp 4 101 100 absent 0 0
+vcp 4 101 100 - 1 0
+vcp 4 101 100 absent 1 0
+vcp 4 255 0 - 0 0
+vcp 4 255 0 absent 0 0
+vcp 4 255 0 - 1 0
+vcp 4 255 0 absent 1 0
+vcp 4 255 100 - 0 0
+vcp 4 255 100 absent 0 0
+vcp 4 255 100 - 1 0
+vcp 4 255 100 absent 1 0
+vcp 5 0 0 absent 0 0
+vcp 5 0 0 absent 1 0
+vcp 5 0 100 absent 0 0
+vcp 5 0 100 absent 1 0
+vcp 5 1 0 absent 0 0
+vcp 5 1 0 absent 1 0
+vcp 5 1 100 absent 0 0
+vcp 5 1 100 absent 1 0
+vcp 5 2 0 absent 0 0
+vcp 5 2 0 absent 1 0
+vcp 5 2 100 absent 0 0
+vcp 5 2 100 absent 1 0
+vcp 5 3 0 absent 0 0
+vcp 5 3 0 absent 1 0
+vcp 5 3 100 absent 0 0
+vcp 5 3 100 absent 1 0
+vcp 5 5 0 absent 0 0
+vcp 5 5 0 absent 1 0
+vcp 5 5 100 absent 0 0
+vcp 5 5 100 absent 1 0
+vcp 5 6 0 absent 0 0
+vcp 5 6 0 absent 1 0
+vcp 5 6 100 absent 0 0
+vcp 5 6 100 absent 1 0
+vcp 5 7 0 absent 0 0
+vcp 5 7 0 absent 1 0
+vcp 5 7 100 absent 0 0
+vcp 5 7 100 absent 1 0
+vcp 5 17 0 absent 0 0
+vcp 5 17 0 absent 1 0
+vcp 5 17 100 absent 0 0
+vcp 5 17 100 absent 1 0
+vcp 5 50 0 absent 0 0
+vcp 5 50 0 absent 1 0
+vcp 5 50 100 absent 0 0
+vcp 5 50 100 absent 1 0
+vcp 5 100 0 absent 0 0
+vcp 5 100 0 absent 1 0
+vcp 5 100 100 absent 0 0
+vcp 5 100 100 absent 1 0
+vcp 5 101 0 absent 0 0
+vcp 5 101 0 absent 1 0
+vcp 5 101 100 absent 0 0
+vcp 5 101 100 absent 1 0
+vcp 5 255 0 absent 0 0
+vcp 5 255 0 absent 1 0
+vcp 5 255 100 absent 0 0
+vcp 5 255 100 absent 1 0
+vcp 6 0 0 absent 0 0
+vcp 6 0 0 absent 1 0
+vcp 6 0 100 absent 0 0
+vcp 6 0 100 absent 1 0
+vcp 6 1 0 absent 0 0
+vcp 6 1 0 absent 1 0
+vcp 6 1 100 absent 0 0
+vcp 6 1 100 absent 1 0
+vcp 6 2 0 absent 0 0
+vcp 6 2 0 absent 1 0
+vcp 6 2 100 absent 0 0
+vcp 6 2 100 absent 1 0
+vcp 6 3 0 absent 0 0
+vcp 6 3 0 absent 1 0
+vcp 6 3 100 absent 0 0
+vcp 6 3 100 absent 1 0
+vcp 6 5 0 absent 0 0
+vcp 6 5 0 absent 1 0
+vcp 6 5 100 absent 0 0
+vcp 6 5 100 absent 1 0
+vcp 6 6 0 absent 0 0
+vcp 6 6 0 absent 1 0
+vcp 6 6 100 absent 0 0
+vcp 6 6 100 absent 1 0
+vcp 6 7 0 absent 0 0
+vcp 6 7 0 absent 1 0
+vcp 6 7 100 absent 0 0
+vcp 6 7 100 absent 1 0
+vcp 6 17 0 absent 0 0
+vcp 6 17 0 absent 1 0
+vcp 6 17 100 absent 0 0
+vcp 6 17 100 absent 1 0
+vcp 6 50 0 absent 0 0
+vcp 6 50 0 absent 1 0
+vcp 6 50 100 absent 0 0
+vcp 6 50 100 absent 1 0
+vcp 6 100 0 absent 0 0
+vcp 6 100 0 absent 1 0
+vcp 6 100 100 absent 0 0
+vcp 6 100 100 absent 1 0
+vcp 6 101 0 absent 0 0
+vcp 6 101 0 absent 1 0
+vcp 6 101 100 absent 0 0
+vcp 6 101 100 absent 1 0
+vcp 6 255 0 absent 0 0
+vcp 6 255 0 absent 1 0
+vcp 6 255 100 absent 0 0
+vcp 6 255 100 absent 1 0
+vcp 8 0 0 absent 0 0
+vcp 8 0 0 absent 1 0
+vcp 8 0 100 absent 0 0
+vcp 8 0 100 absent 1 0
+vcp 8 1 0 absent 0 0
+vcp 8 1 0 absent 1 0
+vcp 8 1 100 absent 0 0
+vcp 8 1 100 absent 1 0
+vcp 8 2 0 absent 0 0
+vcp 8 2 0 absent 1 0
+vcp 8 2 100 absent 0 0
+vcp 8 2 100 absent 1 0
+vcp 8 3 0 absent 0 0
+vcp 8 3 0 absent 1 0
+vcp 8 3 100 absent 0 0
+vcp 8 3 100 absent 1 0
+vcp 8 5 0 absent 0 0
+vcp 8 5 0 absent 1 0
+vcp 8 5 100 absent 0 0
+vcp 8 5 100 absent 1 0
+vcp 8 6 0 absent 0 0
+vcp 8 6 0 absent 1 0
+vcp 8 6 100 absent 0 0
+vcp 8 6 100 absent 1 0
+vcp 8 7 0 absent 0 0
+vcp 8 7 0 absent 1 0
+vcp 8 7 100 absent 0 0
+vcp 8 7 100 absent 1 0
+vcp 8 17 0 absent 0 0
+vcp 8 17 0 absent 1 0
+vcp 8 17 100 absent 0 0
+vcp 8 17 100 absent 1 0
+vcp 8 50 0 absent 0 0
+vcp 8 50 0 absent 1 0
+vcp 8 50 100 absent 0 0
+vcp 8 50 100 absent 1 0
+vcp 8 100 0 absent 0 0
+vcp 8 100 0 absent 1 0
+vcp 8 100 100 absent 0 0
+vcp 8 100 100 absent 1 0
+vcp 8 101 0 absent 0 0
+vcp 8 101 0 absent 1 0
+vcp 8 101 100 absent 0 0
+vcp 8 101 100 absent 1 0
+vcp 8 255 0 absent 0 0
+vcp 8 255 0 absent 1 0
+vcp 8 255 100 absent 0 0
+vcp 8 255 100 absent 1 0
+vcp 10 0 0 absent 0 0
+vcp 10 0 0 absent 1 0
+vcp 10 0 100 absent 0 0
+vcp 10 0 100 absent 1 0
+vcp 10 1 0 absent 0 0
+vcp 10 1 0 absent 1 0
+vcp 10 1 100 absent 0 0
+vcp 10 1 100 absent 1 0
+vcp 10 2 0 absent 0 0
+vcp 10 2 0 absent 1 0
+vcp 10 2 100 absent 0 0
+vcp 10 2 100 absent 1 0
+vcp 10 3 0 absent 0 0
+vcp 10 3 0 absent 1 0
+vcp 10 3 100 absent 0 0
+vcp 10 3 100 absent 1 0
+vcp 10 5 0 absent 0 0
+vcp 10 5 0 absent 1 0
+vcp 10 5 100 absent 0 0
+vcp 10 5 100 absent 1 0
+vcp 10 6 0 absent 0 0
+vcp 10 6 0 absent 1 0
+vcp 10 6 100 absent 0 0
+vcp 10 6 100 absent 1 0
+vcp 10 7 0 absent 0 0
+vcp 10 7 0 absent 1 0
+vcp 10 7 100 absent 0 0
+vcp 10 7 100 absent 1 0
+vcp 10 17 0 absent 0 0
+vcp 10 17 0 absent 1 0
+vcp 10 17 100 absent 0 0
+vcp 10 17 100 absent 1 0
+vcp 10 50 0 absent 0 0
+vcp 10 50 0 absent 1 0
+vcp 10 50 100 absent 0 0
+vcp 10 50 100 absent 1 0
+vcp 10 100 0 absent 0 0
+vcp 10 100 0 absent 1 0
+vcp 10 100 100 absent 0 0
+vcp 10 100 100 absent 1 0
+vcp 10 101 0 absent 0 0
+vcp 10 101 0 absent 1 0
+vcp 10 101 100 absent 0 0
+vcp 10 101 100 absent 1 0
+vcp 10 255 0 absent 0 0
+vcp 10 255 0 absent 1 0
+vcp 10 255 100 absent 0 0
+vcp 10 255 100 absent 1 0
+vcp 12 0 0 absent 0 0
+vcp 12 0 0 absent 1 0
+vcp 12 0 100 absent 0 0
+vcp 12 0 100 absent 1 0
+vcp 12 1 0 absent 0 0
+vcp 12 1 0 absent 1 0
+vcp 12 1 100 absent 0 0
+vcp 12 1 100 absent 1 0
+vcp 12 2 0 absent 0 0
+vcp 12 2 0 absent 1 0
+vcp 12 2 100 absent 0 0
+vcp 12 2 100 absent 1 0
+vcp 12 3 0 absent 0 0
+vcp 12 3 0 absent 1 0
+vcp 12 3 100 absent 0 0
+vcp 12 3 100 absent 1 0
+vcp 12 5 0 absent 0 0
+vcp 12 5 0 absent 1 0
+vcp 12 5 100 absent 0 0
+vcp 12 5 100 absent 1 0
+vcp 12 6 0 absent 0 0
+vcp 12 6 0 absent 1 0
+vcp 12 6 100 absent 0 0
+vcp 12 6 100 absent 1 0
+vcp 12 7 0 absent 0 0
+vcp 12 7 0 absent 1 0
+vcp 12 7 100 absent 0 0
+vcp 12 7 100 absent 1 0
+vcp 12 17 0 absent 0 0
+vcp 12 17 0 absent 1 0
+vcp 12 17 100 absent 0 0
+vcp 12 17 100 absent 1 0
+vcp 12 50 0 absent 0 0
+vcp 12 50 0 absent 1 0
+vcp 12 50 100 absent 0 0
+vcp 12 50 100 absent 1 0
+vcp 12 100 0 absent 0 0
+vcp 12 100 0 absent 1 0
+vcp 12 100 100 absent 0 0
+vcp 12 100 100 absent 1 0
+vcp 12 101 0 absent 0 0
+vcp 12 101 0 absent 1 0
+vcp 12 101 100 absent 0 0
+vcp 12 101 100 absent 1 0
+vcp 12 255 0 absent 0 0
+vcp 12 255 0 absent 1 0
+vcp 12 255 100 absent 0 0
+vcp 12 255 100 absent 1 0
+vcp 16 0 0 - 0 0
+vcp 16 0 0 - 1 0
+vcp 16 0 100 - 0 1
+vcp 16 0 100 - 1 1
+vcp 16 1 0 - 0 0
+vcp 16 1 0 - 1 0
+vcp 16 1 100 - 0 1
+vcp 16 1 100 - 1 1
+vcp 16 2 0 - 0 0
+vcp 16 2 0 - 1 0
+vcp 16 2 100 - 0 1
+vcp 16 2 100 - 1 1
+vcp 16 3 0 - 0 0
+vcp 16 3 0 - 1 0
+vcp 16 3 100 - 0 1
+vcp 16 3 100 - 1 1
+vcp 16 5 0 - 0 0
+vcp 16 5 0 - 1 0
+vcp 16 5 100 - 0 1
+vcp 16 5 100 - 1 1
+vcp 16 6 0 - 0 0
+vcp 16 6 0 - 1 0
+vcp 16 6 100 - 0 1
+vcp 16 6 100 - 1 1
+vcp 16 7 0 - 0 0
+vcp 16 7 0 - 1 0
+vcp 16 7 100 - 0 1
+vcp 16 7 100 - 1 1
+vcp 16 17 0 - 0 0
+vcp 16 17 0 - 1 0
+vcp 16 17 100 - 0 1
+vcp 16 17 100 - 1 1
+vcp 16 50 0 - 0 0
+vcp 16 50 0 - 1 0
+vcp 16 50 100 - 0 1
+vcp 16 50 100 - 1 1
+vcp 16 100 0 - 0 0
+vcp 16 100 0 - 1 0
+vcp 16 100 100 - 0 1
+vcp 16 100 100 - 1 1
+vcp 16 101 0 - 0 0
+vcp 16 101 0 - 1 0
+vcp 16 101 100 - 0 0
+vcp 16 101 100 - 1 0
+vcp 16 255 0 - 0 0
+vcp 16 255 0 - 1 0
+vcp 16 255 100 - 0 0
+vcp 16 255 100 - 1 0
+vcp 18 0 0 - 0 0
+vcp 18 0 0 - 1 0
+vcp 18 0 100 - 0 1
+vcp 18 0 100 - 1 1
+vcp 18 1 0 - 0 0
+vcp 18 1 0 - 1 0
+vcp 18 1 100 - 0 1
+vcp 18 1 100 - 1 1
+vcp 18 2 0 - 0 0
+vcp 18 2 0 - 1 0
+vcp 18 2 100 - 0 1
+vcp 18 2 100 - 1 1
+vcp 18 3 0 - 0 0
+vcp 18 3 0 - 1 0
+vcp 18 3 100 - 0 1
+vcp 18 3 100 - 1 1
+vcp 18 5 0 - 0 0
+vcp 18 5 0 - 1 0
+vcp 18 5 100 - 0 1
+vcp 18 5 100 - 1 1
+vcp 18 6 0 - 0 0
+vcp 18 6 0 - 1 0
+vcp 18 6 100 - 0 1
+vcp 18 6 100 - 1 1
+vcp 18 7 0 - 0 0
+vcp 18 7 0 - 1 0
+vcp 18 7 100 - 0 1
+vcp 18 7 100 - 1 1
+vcp 18 17 0 - 0 0
+vcp 18 17 0 - 1 0
+vcp 18 17 100 - 0 1
+vcp 18 17 100 - 1 1
+vcp 18 50 0 - 0 0
+vcp 18 50 0 - 1 0
+vcp 18 50 100 - 0 1
+vcp 18 50 100 - 1 1
+vcp 18 100 0 - 0 0
+vcp 18 100 0 - 1 0
+vcp 18 100 100 - 0 1
+vcp 18 100 100 - 1 1
+vcp 18 101 0 - 0 0
+vcp 18 101 0 - 1 0
+vcp 18 101 100 - 0 0
+vcp 18 101 100 - 1 0
+vcp 18 255 0 - 0 0
+vcp 18 255 0 - 1 0
+vcp 18 255 100 - 0 0
+vcp 18 255 100 - 1 0
+vcp 20 0 0 5,6,8,11 0 0
+vcp 20 0 0 absent 0 0
+vcp 20 0 0 5,6,8,11 1 0
+vcp 20 0 0 absent 1 0
+vcp 20 0 100 5,6,8,11 0 0
+vcp 20 0 100 absent 0 0
+vcp 20 0 100 5,6,8,11 1 0
+vcp 20 0 100 absent 1 0
+vcp 20 1 0 5,6,8,11 0 0
+vcp 20 1 0 absent 0 0
+vcp 20 1 0 5,6,8,11 1 0
+vcp 20 1 0 absent 1 0
+vcp 20 1 100 5,6,8,11 0 0
+vcp 20 1 100 absent 0 0
+vcp 20 1 100 5,6,8,11 1 0
+vcp 20 1 100 absent 1 0
+vcp 20 2 0 5,6,8,11 0 0
+vcp 20 2 0 absent 0 0
+vcp 20 2 0 5,6,8,11 1 0
+vcp 20 2 0 absent 1 0
+vcp 20 2 100 5,6,8,11 0 0
+vcp 20 2 100 absent 0 0
+vcp 20 2 100 5,6,8,11 1 0
+vcp 20 2 100 absent 1 0
+vcp 20 3 0 5,6,8,11 0 0
+vcp 20 3 0 absent 0 0
+vcp 20 3 0 5,6,8,11 1 0
+vcp 20 3 0 absent 1 0
+vcp 20 3 100 5,6,8,11 0 0
+vcp 20 3 100 absent 0 0
+vcp 20 3 100 5,6,8,11 1 0
+vcp 20 3 100 absent 1 0
+vcp 20 5 0 5,6,8,11 0 1
+vcp 20 5 0 absent 0 0
+vcp 20 5 0 5,6,8,11 1 1
+vcp 20 5 0 absent 1 0
+vcp 20 5 100 5,6,8,11 0 1
+vcp 20 5 100 absent 0 0
+vcp 20 5 100 5,6,8,11 1 1
+vcp 20 5 100 absent 1 0
+vcp 20 6 0 5,6,8,11 0 1
+vcp 20 6 0 absent 0 0
+vcp 20 6 0 5,6,8,11 1 1
+vcp 20 6 0 absent 1 0
+vcp 20 6 100 5,6,8,11 0 1
+vcp 20 6 100 absent 0 0
+vcp 20 6 100 5,6,8,11 1 1
+vcp 20 6 100 absent 1 0
+vcp 20 7 0 5,6,8,11 0 0
+vcp 20 7 0 absent 0 0
+vcp 20 7 0 5,6,8,11 1 0
+vcp 20 7 0 absent 1 0
+vcp 20 7 100 5,6,8,11 0 0
+vcp 20 7 100 absent 0 0
+vcp 20 7 100 5,6,8,11 1 0
+vcp 20 7 100 absent 1 0
+vcp 20 17 0 5,6,8,11 0 0
+vcp 20 17 0 absent 0 0
+vcp 20 17 0 5,6,8,11 1 0
+vcp 20 17 0 absent 1 0
+vcp 20 17 100 5,6,8,11 0 0
+vcp 20 17 100 absent 0 0
+vcp 20 17 100 5,6,8,11 1 0
+vcp 20 17 100 absent 1 0
+vcp 20 50 0 5,6,8,11 0 0
+vcp 20 50 0 absent 0 0
+vcp 20 50 0 5,6,8,11 1 0
+vcp 20 50 0 absent 1 0
+vcp 20 50 100 5,6,8,11 0 0
+vcp 20 50 100 absent 0 0
+vcp 20 50 100 5,6,8,11 1 0
+vcp 20 50 100 absent 1 0
+vcp 20 100 0 5,6,8,11 0 0
+vcp 20 100 0 absent 0 0
+vcp 20 100 0 5,6,8,11 1 0
+vcp 20 100 0 absent 1 0
+vcp 20 100 100 5,6,8,11 0 0
+vcp 20 100 100 absent 0 0
+vcp 20 100 100 5,6,8,11 1 0
+vcp 20 100 100 absent 1 0
+vcp 20 101 0 5,6,8,11 0 0
+vcp 20 101 0 absent 0 0
+vcp 20 101 0 5,6,8,11 1 0
+vcp 20 101 0 absent 1 0
+vcp 20 101 100 5,6,8,11 0 0
+vcp 20 101 100 absent 0 0
+vcp 20 101 100 5,6,8,11 1 0
+vcp 20 101 100 absent 1 0
+vcp 20 255 0 5,6,8,11 0 0
+vcp 20 255 0 absent 0 0
+vcp 20 255 0 5,6,8,11 1 0
+vcp 20 255 0 absent 1 0
+vcp 20 255 100 5,6,8,11 0 0
+vcp 20 255 100 absent 0 0
+vcp 20 255 100 5,6,8,11 1 0
+vcp 20 255 100 absent 1 0
+vcp 22 0 0 - 0 0
+vcp 22 0 0 absent 0 0
+vcp 22 0 0 - 1 0
+vcp 22 0 0 absent 1 0
+vcp 22 0 100 - 0 1
+vcp 22 0 100 absent 0 0
+vcp 22 0 100 - 1 1
+vcp 22 0 100 absent 1 0
+vcp 22 1 0 - 0 0
+vcp 22 1 0 absent 0 0
+vcp 22 1 0 - 1 0
+vcp 22 1 0 absent 1 0
+vcp 22 1 100 - 0 1
+vcp 22 1 100 absent 0 0
+vcp 22 1 100 - 1 1
+vcp 22 1 100 absent 1 0
+vcp 22 2 0 - 0 0
+vcp 22 2 0 absent 0 0
+vcp 22 2 0 - 1 0
+vcp 22 2 0 absent 1 0
+vcp 22 2 100 - 0 1
+vcp 22 2 100 absent 0 0
+vcp 22 2 100 - 1 1
+vcp 22 2 100 absent 1 0
+vcp 22 3 0 - 0 0
+vcp 22 3 0 absent 0 0
+vcp 22 3 0 - 1 0
+vcp 22 3 0 absent 1 0
+vcp 22 3 100 - 0 1
+vcp 22 3 100 absent 0 0
+vcp 22 3 100 - 1 1
+vcp 22 3 100 absent 1 0
+vcp 22 5 0 - 0 0
+vcp 22 5 0 absent 0 0
+vcp 22 5 0 - 1 0
+vcp 22 5 0 absent 1 0
+vcp 22 5 100 - 0 1
+vcp 22 5 100 absent 0 0
+vcp 22 5 100 - 1 1
+vcp 22 5 100 absent 1 0
+vcp 22 6 0 - 0 0
+vcp 22 6 0 absent 0 0
+vcp 22 6 0 - 1 0
+vcp 22 6 0 absent 1 0
+vcp 22 6 100 - 0 1
+vcp 22 6 100 absent 0 0
+vcp 22 6 100 - 1 1
+vcp 22 6 100 absent 1 0
+vcp 22 7 0 - 0 0
+vcp 22 7 0 absent 0 0
+vcp 22 7 0 - 1 0
+vcp 22 7 0 absent 1 0
+vcp 22 7 100 - 0 1
+vcp 22 7 100 absent 0 0
+vcp 22 7 100 - 1 1
+vcp 22 7 100 absent 1 0
+vcp 22 17 0 - 0 0
+vcp 22 17 0 absent 0 0
+vcp 22 17 0 - 1 0
+vcp 22 17 0 absent 1 0
+vcp 22 17 100 - 0 1
+vcp 22 17 100 absent 0 0
+vcp 22 17 100 - 1 1
+vcp 22 17 100 absent 1 0
+vcp 22 50 0 - 0 0
+vcp 22 50 0 absent 0 0
+vcp 22 50 0 - 1 0
+vcp 22 50 0 absent 1 0
+vcp 22 50 100 - 0 1
+vcp 22 50 100 absent 0 0
+vcp 22 50 100 - 1 1
+vcp 22 50 100 absent 1 0
+vcp 22 100 0 - 0 0
+vcp 22 100 0 absent 0 0
+vcp 22 100 0 - 1 0
+vcp 22 100 0 absent 1 0
+vcp 22 100 100 - 0 1
+vcp 22 100 100 absent 0 0
+vcp 22 100 100 - 1 1
+vcp 22 100 100 absent 1 0
+vcp 22 101 0 - 0 0
+vcp 22 101 0 absent 0 0
+vcp 22 101 0 - 1 0
+vcp 22 101 0 absent 1 0
+vcp 22 101 100 - 0 0
+vcp 22 101 100 absent 0 0
+vcp 22 101 100 - 1 0
+vcp 22 101 100 absent 1 0
+vcp 22 255 0 - 0 0
+vcp 22 255 0 absent 0 0
+vcp 22 255 0 - 1 0
+vcp 22 255 0 absent 1 0
+vcp 22 255 100 - 0 0
+vcp 22 255 100 absent 0 0
+vcp 22 255 100 - 1 0
+vcp 22 255 100 absent 1 0
+vcp 24 0 0 - 0 0
+vcp 24 0 0 absent 0 0
+vcp 24 0 0 - 1 0
+vcp 24 0 0 absent 1 0
+vcp 24 0 100 - 0 1
+vcp 24 0 100 absent 0 0
+vcp 24 0 100 - 1 1
+vcp 24 0 100 absent 1 0
+vcp 24 1 0 - 0 0
+vcp 24 1 0 absent 0 0
+vcp 24 1 0 - 1 0
+vcp 24 1 0 absent 1 0
+vcp 24 1 100 - 0 1
+vcp 24 1 100 absent 0 0
+vcp 24 1 100 - 1 1
+vcp 24 1 100 absent 1 0
+vcp 24 2 0 - 0 0
+vcp 24 2 0 absent 0 0
+vcp 24 2 0 - 1 0
+vcp 24 2 0 absent 1 0
+vcp 24 2 100 - 0 1
+vcp 24 2 100 absent 0 0
+vcp 24 2 100 - 1 1
+vcp 24 2 100 absent 1 0
+vcp 24 3 0 - 0 0
+vcp 24 3 0 absent 0 0
+vcp 24 3 0 - 1 0
+vcp 24 3 0 absent 1 0
+vcp 24 3 100 - 0 1
+vcp 24 3 100 absent 0 0
+vcp 24 3 100 - 1 1
+vcp 24 3 100 absent 1 0
+vcp 24 5 0 - 0 0
+vcp 24 5 0 absent 0 0
+vcp 24 5 0 - 1 0
+vcp 24 5 0 absent 1 0
+vcp 24 5 100 - 0 1
+vcp 24 5 100 absent 0 0
+vcp 24 5 100 - 1 1
+vcp 24 5 100 absent 1 0
+vcp 24 6 0 - 0 0
+vcp 24 6 0 absent 0 0
+vcp 24 6 0 - 1 0
+vcp 24 6 0 absent 1 0
+vcp 24 6 100 - 0 1
+vcp 24 6 100 absent 0 0
+vcp 24 6 100 - 1 1
+vcp 24 6 100 absent 1 0
+vcp 24 7 0 - 0 0
+vcp 24 7 0 absent 0 0
+vcp 24 7 0 - 1 0
+vcp 24 7 0 absent 1 0
+vcp 24 7 100 - 0 1
+vcp 24 7 100 absent 0 0
+vcp 24 7 100 - 1 1
+vcp 24 7 100 absent 1 0
+vcp 24 17 0 - 0 0
+vcp 24 17 0 absent 0 0
+vcp 24 17 0 - 1 0
+vcp 24 17 0 absent 1 0
+vcp 24 17 100 - 0 1
+vcp 24 17 100 absent 0 0
+vcp 24 17 100 - 1 1
+vcp 24 17 100 absent 1 0
+vcp 24 50 0 - 0 0
+vcp 24 50 0 absent 0 0
+vcp 24 50 0 - 1 0
+vcp 24 50 0 absent 1 0
+vcp 24 50 100 - 0 1
+vcp 24 50 100 absent 0 0
+vcp 24 50 100 - 1 1
+vcp 24 50 100 absent 1 0
+vcp 24 100 0 - 0 0
+vcp 24 100 0 absent 0 0
+vcp 24 100 0 - 1 0
+vcp 24 100 0 absent 1 0
+vcp 24 100 100 - 0 1
+vcp 24 100 100 absent 0 0
+vcp 24 100 100 - 1 1
+vcp 24 100 100 absent 1 0
+vcp 24 101 0 - 0 0
+vcp 24 101 0 absent 0 0
+vcp 24 101 0 - 1 0
+vcp 24 101 0 absent 1 0
+vcp 24 101 100 - 0 0
+vcp 24 101 100 absent 0 0
+vcp 24 101 100 - 1 0
+vcp 24 101 100 absent 1 0
+vcp 24 255 0 - 0 0
+vcp 24 255 0 absent 0 0
+vcp 24 255 0 - 1 0
+vcp 24 255 0 absent 1 0
+vcp 24 255 100 - 0 0
+vcp 24 255 100 absent 0 0
+vcp 24 255 100 - 1 0
+vcp 24 255 100 absent 1 0
+vcp 26 0 0 - 0 0
+vcp 26 0 0 absent 0 0
+vcp 26 0 0 - 1 0
+vcp 26 0 0 absent 1 0
+vcp 26 0 100 - 0 1
+vcp 26 0 100 absent 0 0
+vcp 26 0 100 - 1 1
+vcp 26 0 100 absent 1 0
+vcp 26 1 0 - 0 0
+vcp 26 1 0 absent 0 0
+vcp 26 1 0 - 1 0
+vcp 26 1 0 absent 1 0
+vcp 26 1 100 - 0 1
+vcp 26 1 100 absent 0 0
+vcp 26 1 100 - 1 1
+vcp 26 1 100 absent 1 0
+vcp 26 2 0 - 0 0
+vcp 26 2 0 absent 0 0
+vcp 26 2 0 - 1 0
+vcp 26 2 0 absent 1 0
+vcp 26 2 100 - 0 1
+vcp 26 2 100 absent 0 0
+vcp 26 2 100 - 1 1
+vcp 26 2 100 absent 1 0
+vcp 26 3 0 - 0 0
+vcp 26 3 0 absent 0 0
+vcp 26 3 0 - 1 0
+vcp 26 3 0 absent 1 0
+vcp 26 3 100 - 0 1
+vcp 26 3 100 absent 0 0
+vcp 26 3 100 - 1 1
+vcp 26 3 100 absent 1 0
+vcp 26 5 0 - 0 0
+vcp 26 5 0 absent 0 0
+vcp 26 5 0 - 1 0
+vcp 26 5 0 absent 1 0
+vcp 26 5 100 - 0 1
+vcp 26 5 100 absent 0 0
+vcp 26 5 100 - 1 1
+vcp 26 5 100 absent 1 0
+vcp 26 6 0 - 0 0
+vcp 26 6 0 absent 0 0
+vcp 26 6 0 - 1 0
+vcp 26 6 0 absent 1 0
+vcp 26 6 100 - 0 1
+vcp 26 6 100 absent 0 0
+vcp 26 6 100 - 1 1
+vcp 26 6 100 absent 1 0
+vcp 26 7 0 - 0 0
+vcp 26 7 0 absent 0 0
+vcp 26 7 0 - 1 0
+vcp 26 7 0 absent 1 0
+vcp 26 7 100 - 0 1
+vcp 26 7 100 absent 0 0
+vcp 26 7 100 - 1 1
+vcp 26 7 100 absent 1 0
+vcp 26 17 0 - 0 0
+vcp 26 17 0 absent 0 0
+vcp 26 17 0 - 1 0
+vcp 26 17 0 absent 1 0
+vcp 26 17 100 - 0 1
+vcp 26 17 100 absent 0 0
+vcp 26 17 100 - 1 1
+vcp 26 17 100 absent 1 0
+vcp 26 50 0 - 0 0
+vcp 26 50 0 absent 0 0
+vcp 26 50 0 - 1 0
+vcp 26 50 0 absent 1 0
+vcp 26 50 100 - 0 1
+vcp 26 50 100 absent 0 0
+vcp 26 50 100 - 1 1
+vcp 26 50 100 absent 1 0
+vcp 26 100 0 - 0 0
+vcp 26 100 0 absent 0 0
+vcp 26 100 0 - 1 0
+vcp 26 100 0 absent 1 0
+vcp 26 100 100 - 0 1
+vcp 26 100 100 absent 0 0
+vcp 26 100 100 - 1 1
+vcp 26 100 100 absent 1 0
+vcp 26 101 0 - 0 0
+vcp 26 101 0 absent 0 0
+vcp 26 101 0 - 1 0
+vcp 26 101 0 absent 1 0
+vcp 26 101 100 - 0 0
+vcp 26 101 100 absent 0 0
+vcp 26 101 100 - 1 0
+vcp 26 101 100 absent 1 0
+vcp 26 255 0 - 0 0
+vcp 26 255 0 absent 0 0
+vcp 26 255 0 - 1 0
+vcp 26 255 0 absent 1 0
+vcp 26 255 100 - 0 0
+vcp 26 255 100 absent 0 0
+vcp 26 255 100 - 1 0
+vcp 26 255 100 absent 1 0
+vcp 82 0 0 absent 0 0
+vcp 82 0 0 absent 1 0
+vcp 82 0 100 absent 0 0
+vcp 82 0 100 absent 1 0
+vcp 82 1 0 absent 0 0
+vcp 82 1 0 absent 1 0
+vcp 82 1 100 absent 0 0
+vcp 82 1 100 absent 1 0
+vcp 82 2 0 absent 0 0
+vcp 82 2 0 absent 1 0
+vcp 82 2 100 absent 0 0
+vcp 82 2 100 absent 1 0
+vcp 82 3 0 absent 0 0
+vcp 82 3 0 absent 1 0
+vcp 82 3 100 absent 0 0
+vcp 82 3 100 absent 1 0
+vcp 82 5 0 absent 0 0
+vcp 82 5 0 absent 1 0
+vcp 82 5 100 absent 0 0
+vcp 82 5 100 absent 1 0
+vcp 82 6 0 absent 0 0
+vcp 82 6 0 absent 1 0
+vcp 82 6 100 absent 0 0
+vcp 82 6 100 absent 1 0
+vcp 82 7 0 absent 0 0
+vcp 82 7 0 absent 1 0
+vcp 82 7 100 absent 0 0
+vcp 82 7 100 absent 1 0
+vcp 82 17 0 absent 0 0
+vcp 82 17 0 absent 1 0
+vcp 82 17 100 absent 0 0
+vcp 82 17 100 absent 1 0
+vcp 82 50 0 absent 0 0
+vcp 82 50 0 absent 1 0
+vcp 82 50 100 absent 0 0
+vcp 82 50 100 absent 1 0
+vcp 82 100 0 absent 0 0
+vcp 82 100 0 absent 1 0
+vcp 82 100 100 absent 0 0
+vcp 82 100 100 absent 1 0
+vcp 82 101 0 absent 0 0
+vcp 82 101 0 absent 1 0
+vcp 82 101 100 absent 0 0
+vcp 82 101 100 absent 1 0
+vcp 82 255 0 absent 0 0
+vcp 82 255 0 absent 1 0
+vcp 82 255 100 absent 0 0
+vcp 82 255 100 absent 1 0
+vcp 96 0 0 1,3,17 0 0
+vcp 96 0 0 absent 0 0
+vcp 96 0 0 1,3,17 1 0
+vcp 96 0 0 absent 1 0
+vcp 96 0 100 1,3,17 0 0
+vcp 96 0 100 absent 0 0
+vcp 96 0 100 1,3,17 1 0
+vcp 96 0 100 absent 1 0
+vcp 96 1 0 1,3,17 0 0
+vcp 96 1 0 absent 0 0
+vcp 96 1 0 1,3,17 1 1
+vcp 96 1 0 absent 1 0
+vcp 96 1 100 1,3,17 0 0
+vcp 96 1 100 absent 0 0
+vcp 96 1 100 1,3,17 1 1
+vcp 96 1 100 absent 1 0
+vcp 96 2 0 1,3,17 0 0
+vcp 96 2 0 absent 0 0
+vcp 96 2 0 1,3,17 1 0
+vcp 96 2 0 absent 1 0
+vcp 96 2 100 1,3,17 0 0
+vcp 96 2 100 absent 0 0
+vcp 96 2 100 1,3,17 1 0
+vcp 96 2 100 absent 1 0
+vcp 96 3 0 1,3,17 0 0
+vcp 96 3 0 absent 0 0
+vcp 96 3 0 1,3,17 1 1
+vcp 96 3 0 absent 1 0
+vcp 96 3 100 1,3,17 0 0
+vcp 96 3 100 absent 0 0
+vcp 96 3 100 1,3,17 1 1
+vcp 96 3 100 absent 1 0
+vcp 96 5 0 1,3,17 0 0
+vcp 96 5 0 absent 0 0
+vcp 96 5 0 1,3,17 1 0
+vcp 96 5 0 absent 1 0
+vcp 96 5 100 1,3,17 0 0
+vcp 96 5 100 absent 0 0
+vcp 96 5 100 1,3,17 1 0
+vcp 96 5 100 absent 1 0
+vcp 96 6 0 1,3,17 0 0
+vcp 96 6 0 absent 0 0
+vcp 96 6 0 1,3,17 1 0
+vcp 96 6 0 absent 1 0
+vcp 96 6 100 1,3,17 0 0
+vcp 96 6 100 absent 0 0
+vcp 96 6 100 1,3,17 1 0
+vcp 96 6 100 absent 1 0
+vcp 96 7 0 1,3,17 0 0
+vcp 96 7 0 absent 0 0
+vcp 96 7 0 1,3,17 1 0
+vcp 96 7 0 absent 1 0
+vcp 96 7 100 1,3,17 0 0
+vcp 96 7 100 absent 0 0
+vcp 96 7 100 1,3,17 1 0
+vcp 96 7 100 absent 1 0
+vcp 96 17 0 1,3,17 0 0
+vcp 96 17 0 absent 0 0
+vcp 96 17 0 1,3,17 1 1
+vcp 96 17 0 absent 1 0
+vcp 96 17 100 1,3,17 0 0
+vcp 96 17 100 absent 0 0
+vcp 96 17 100 1,3,17 1 1
+vcp 96 17 100 absent 1 0
+vcp 96 50 0 1,3,17 0 0
+vcp 96 50 0 absent 0 0
+vcp 96 50 0 1,3,17 1 0
+vcp 96 50 0 absent 1 0
+vcp 96 50 100 1,3,17 0 0
+vcp 96 50 100 absent 0 0
+vcp 96 50 100 1,3,17 1 0
+vcp 96 50 100 absent 1 0
+vcp 96 100 0 1,3,17 0 0
+vcp 96 100 0 absent 0 0
+vcp 96 100 0 1,3,17 1 0
+vcp 96 100 0 absent 1 0
+vcp 96 100 100 1,3,17 0 0
+vcp 96 100 100 absent 0 0
+vcp 96 100 100 1,3,17 1 0
+vcp 96 100 100 absent 1 0
+vcp 96 101 0 1,3,17 0 0
+vcp 96 101 0 absent 0 0
+vcp 96 101 0 1,3,17 1 0
+vcp 96 101 0 absent 1 0
+vcp 96 101 100 1,3,17 0 0
+vcp 96 101 100 absent 0 0
+vcp 96 101 100 1,3,17 1 0
+vcp 96 101 100 absent 1 0
+vcp 96 255 0 1,3,17 0 0
+vcp 96 255 0 absent 0 0
+vcp 96 255 0 1,3,17 1 0
+vcp 96 255 0 absent 1 0
+vcp 96 255 100 1,3,17 0 0
+vcp 96 255 100 absent 0 0
+vcp 96 255 100 1,3,17 1 0
+vcp 96 255 100 absent 1 0
+vcp 98 0 0 - 0 0
+vcp 98 0 0 absent 0 0
+vcp 98 0 0 - 1 0
+vcp 98 0 0 absent 1 0
+vcp 98 0 100 - 0 1
+vcp 98 0 100 absent 0 0
+vcp 98 0 100 - 1 1
+vcp 98 0 100 absent 1 0
+vcp 98 1 0 - 0 0
+vcp 98 1 0 absent 0 0
+vcp 98 1 0 - 1 0
+vcp 98 1 0 absent 1 0
+vcp 98 1 100 - 0 1
+vcp 98 1 100 absent 0 0
+vcp 98 1 100 - 1 1
+vcp 98 1 100 absent 1 0
+vcp 98 2 0 - 0 0
+vcp 98 2 0 absent 0 0
+vcp 98 2 0 - 1 0
+vcp 98 2 0 absent 1 0
+vcp 98 2 100 - 0 1
+vcp 98 2 100 absent 0 0
+vcp 98 2 100 - 1 1
+vcp 98 2 100 absent 1 0
+vcp 98 3 0 - 0 0
+vcp 98 3 0 absent 0 0
+vcp 98 3 0 - 1 0
+vcp 98 3 0 absent 1 0
+vcp 98 3 100 - 0 1
+vcp 98 3 100 absent 0 0
+vcp 98 3 100 - 1 1
+vcp 98 3 100 absent 1 0
+vcp 98 5 0 - 0 0
+vcp 98 5 0 absent 0 0
+vcp 98 5 0 - 1 0
+vcp 98 5 0 absent 1 0
+vcp 98 5 100 - 0 1
+vcp 98 5 100 absent 0 0
+vcp 98 5 100 - 1 1
+vcp 98 5 100 absent 1 0
+vcp 98 6 0 - 0 0
+vcp 98 6 0 absent 0 0
+vcp 98 6 0 - 1 0
+vcp 98 6 0 absent 1 0
+vcp 98 6 100 - 0 1
+vcp 98 6 100 absent 0 0
+vcp 98 6 100 - 1 1
+vcp 98 6 100 absent 1 0
+vcp 98 7 0 - 0 0
+vcp 98 7 0 absent 0 0
+vcp 98 7 0 - 1 0
+vcp 98 7 0 absent 1 0
+vcp 98 7 100 - 0 1
+vcp 98 7 100 absent 0 0
+vcp 98 7 100 - 1 1
+vcp 98 7 100 absent 1 0
+vcp 98 17 0 - 0 0
+vcp 98 17 0 absent 0 0
+vcp 98 17 0 - 1 0
+vcp 98 17 0 absent 1 0
+vcp 98 17 100 - 0 1
+vcp 98 17 100 absent 0 0
+vcp 98 17 100 - 1 1
+vcp 98 17 100 absent 1 0
+vcp 98 50 0 - 0 0
+vcp 98 50 0 absent 0 0
+vcp 98 50 0 - 1 0
+vcp 98 50 0 absent 1 0
+vcp 98 50 100 - 0 1
+vcp 98 50 100 absent 0 0
+vcp 98 50 100 - 1 1
+vcp 98 50 100 absent 1 0
+vcp 98 100 0 - 0 0
+vcp 98 100 0 absent 0 0
+vcp 98 100 0 - 1 0
+vcp 98 100 0 absent 1 0
+vcp 98 100 100 - 0 1
+vcp 98 100 100 absent 0 0
+vcp 98 100 100 - 1 1
+vcp 98 100 100 absent 1 0
+vcp 98 101 0 - 0 0
+vcp 98 101 0 absent 0 0
+vcp 98 101 0 - 1 0
+vcp 98 101 0 absent 1 0
+vcp 98 101 100 - 0 0
+vcp 98 101 100 absent 0 0
+vcp 98 101 100 - 1 0
+vcp 98 101 100 absent 1 0
+vcp 98 255 0 - 0 0
+vcp 98 255 0 absent 0 0
+vcp 98 255 0 - 1 0
+vcp 98 255 0 absent 1 0
+vcp 98 255 100 - 0 0
+vcp 98 255 100 absent 0 0
+vcp 98 255 100 - 1 0
+vcp 98 255 100 absent 1 0
+vcp 108 0 0 absent 0 0
+vcp 108 0 0 absent 1 0
+vcp 108 0 100 absent 0 0
+vcp 108 0 100 absent 1 0
+vcp 108 1 0 absent 0 0
+vcp 108 1 0 absent 1 0
+vcp 108 1 100 absent 0 0
+vcp 108 1 100 absent 1 0
+vcp 108 2 0 absent 0 0
+vcp 108 2 0 absent 1 0
+vcp 108 2 100 absent 0 0
+vcp 108 2 100 absent 1 0
+vcp 108 3 0 absent 0 0
+vcp 108 3 0 absent 1 0
+vcp 108 3 100 absent 0 0
+vcp 108 3 100 absent 1 0
+vcp 108 5 0 absent 0 0
+vcp 108 5 0 absent 1 0
+vcp 108 5 100 absent 0 0
+vcp 108 5 100 absent 1 0
+vcp 108 6 0 absent 0 0
+vcp 108 6 0 absent 1 0
+vcp 108 6 100 absent 0 0
+vcp 108 6 100 absent 1 0
+vcp 108 7 0 absent 0 0
+vcp 108 7 0 absent 1 0
+vcp 108 7 100 absent 0 0
+vcp 108 7 100 absent 1 0
+vcp 108 17 0 absent 0 0
+vcp 108 17 0 absent 1 0
+vcp 108 17 100 absent 0 0
+vcp 108 17 100 absent 1 0
+vcp 108 50 0 absent 0 0
+vcp 108 50 0 absent 1 0
+vcp 108 50 100 absent 0 0
+vcp 108 50 100 absent 1 0
+vcp 108 100 0 absent 0 0
+vcp 108 100 0 absent 1 0
+vcp 108 100 100 absent 0 0
+vcp 108 100 100 absent 1 0
+vcp 108 101 0 absent 0 0
+vcp 108 101 0 absent 1 0
+vcp 108 101 100 absent 0 0
+vcp 108 101 100 absent 1 0
+vcp 108 255 0 absent 0 0
+vcp 108 255 0 absent 1 0
+vcp 108 255 100 absent 0 0
+vcp 108 255 100 absent 1 0
+vcp 141 0 0 1,2 0 0
+vcp 141 0 0 absent 0 0
+vcp 141 0 0 1,2 1 0
+vcp 141 0 0 absent 1 0
+vcp 141 0 100 1,2 0 0
+vcp 141 0 100 absent 0 0
+vcp 141 0 100 1,2 1 0
+vcp 141 0 100 absent 1 0
+vcp 141 1 0 1,2 0 1
+vcp 141 1 0 absent 0 0
+vcp 141 1 0 1,2 1 1
+vcp 141 1 0 absent 1 0
+vcp 141 1 100 1,2 0 1
+vcp 141 1 100 absent 0 0
+vcp 141 1 100 1,2 1 1
+vcp 141 1 100 absent 1 0
+vcp 141 2 0 1,2 0 1
+vcp 141 2 0 absent 0 0
+vcp 141 2 0 1,2 1 1
+vcp 141 2 0 absent 1 0
+vcp 141 2 100 1,2 0 1
+vcp 141 2 100 absent 0 0
+vcp 141 2 100 1,2 1 1
+vcp 141 2 100 absent 1 0
+vcp 141 3 0 1,2 0 0
+vcp 141 3 0 absent 0 0
+vcp 141 3 0 1,2 1 0
+vcp 141 3 0 absent 1 0
+vcp 141 3 100 1,2 0 0
+vcp 141 3 100 absent 0 0
+vcp 141 3 100 1,2 1 0
+vcp 141 3 100 absent 1 0
+vcp 141 5 0 1,2 0 0
+vcp 141 5 0 absent 0 0
+vcp 141 5 0 1,2 1 0
+vcp 141 5 0 absent 1 0
+vcp 141 5 100 1,2 0 0
+vcp 141 5 100 absent 0 0
+vcp 141 5 100 1,2 1 0
+vcp 141 5 100 absent 1 0
+vcp 141 6 0 1,2 0 0
+vcp 141 6 0 absent 0 0
+vcp 141 6 0 1,2 1 0
+vcp 141 6 0 absent 1 0
+vcp 141 6 100 1,2 0 0
+vcp 141 6 100 absent 0 0
+vcp 141 6 100 1,2 1 0
+vcp 141 6 100 absent 1 0
+vcp 141 7 0 1,2 0 0
+vcp 141 7 0 absent 0 0
+vcp 141 7 0 1,2 1 0
+vcp 141 7 0 absent 1 0
+vcp 141 7 100 1,2 0 0
+vcp 141 7 100 absent 0 0
+vcp 141 7 100 1,2 1 0
+vcp 141 7 100 absent 1 0
+vcp 141 17 0 1,2 0 0
+vcp 141 17 0 absent 0 0
+vcp 141 17 0 1,2 1 0
+vcp 141 17 0 absent 1 0
+vcp 141 17 100 1,2 0 0
+vcp 141 17 100 absent 0 0
+vcp 141 17 100 1,2 1 0
+vcp 141 17 100 absent 1 0
+vcp 141 50 0 1,2 0 0
+vcp 141 50 0 absent 0 0
+vcp 141 50 0 1,2 1 0
+vcp 141 50 0 absent 1 0
+vcp 141 50 100 1,2 0 0
+vcp 141 50 100 absent 0 0
+vcp 141 50 100 1,2 1 0
+vcp 141 50 100 absent 1 0
+vcp 141 100 0 1,2 0 0
+vcp 141 100 0 absent 0 0
+vcp 141 100 0 1,2 1 0
+vcp 141 100 0 absent 1 0
+vcp 141 100 100 1,2 0 0
+vcp 141 100 100 absent 0 0
+vcp 141 100 100 1,2 1 0
+vcp 141 100 100 absent 1 0
+vcp 141 101 0 1,2 0 0
+vcp 141 101 0 absent 0 0
+vcp 141 101 0 1,2 1 0
+vcp 141 101 0 absent 1 0
+vcp 141 101 100 1,2 0 0
+vcp 141 101 100 absent 0 0
+vcp 141 101 100 1,2 1 0
+vcp 141 101 100 absent 1 0
+vcp 141 255 0 1,2 0 0
+vcp 141 255 0 absent 0 0
+vcp 141 255 0 1,2 1 0
+vcp 141 255 0 absent 1 0
+vcp 141 255 100 1,2 0 0
+vcp 141 255 100 absent 0 0
+vcp 141 255 100 1,2 1 0
+vcp 141 255 100 absent 1 0
+vcp 176 0 0 absent 0 0
+vcp 176 0 0 absent 1 0
+vcp 176 0 100 absent 0 0
+vcp 176 0 100 absent 1 0
+vcp 176 1 0 absent 0 0
+vcp 176 1 0 absent 1 0
+vcp 176 1 100 absent 0 0
+vcp 176 1 100 absent 1 0
+vcp 176 2 0 absent 0 0
+vcp 176 2 0 absent 1 0
+vcp 176 2 100 absent 0 0
+vcp 176 2 100 absent 1 0
+vcp 176 3 0 absent 0 0
+vcp 176 3 0 absent 1 0
+vcp 176 3 100 absent 0 0
+vcp 176 3 100 absent 1 0
+vcp 176 5 0 absent 0 0
+vcp 176 5 0 absent 1 0
+vcp 176 5 100 absent 0 0
+vcp 176 5 100 absent 1 0
+vcp 176 6 0 absent 0 0
+vcp 176 6 0 absent 1 0
+vcp 176 6 100 absent 0 0
+vcp 176 6 100 absent 1 0
+vcp 176 7 0 absent 0 0
+vcp 176 7 0 absent 1 0
+vcp 176 7 100 absent 0 0
+vcp 176 7 100 absent 1 0
+vcp 176 17 0 absent 0 0
+vcp 176 17 0 absent 1 0
+vcp 176 17 100 absent 0 0
+vcp 176 17 100 absent 1 0
+vcp 176 50 0 absent 0 0
+vcp 176 50 0 absent 1 0
+vcp 176 50 100 absent 0 0
+vcp 176 50 100 absent 1 0
+vcp 176 100 0 absent 0 0
+vcp 176 100 0 absent 1 0
+vcp 176 100 100 absent 0 0
+vcp 176 100 100 absent 1 0
+vcp 176 101 0 absent 0 0
+vcp 176 101 0 absent 1 0
+vcp 176 101 100 absent 0 0
+vcp 176 101 100 absent 1 0
+vcp 176 255 0 absent 0 0
+vcp 176 255 0 absent 1 0
+vcp 176 255 100 absent 0 0
+vcp 176 255 100 absent 1 0
+vcp 214 0 0 1,4,5 0 0
+vcp 214 0 0 absent 0 0
+vcp 214 0 0 1,4,5 1 0
+vcp 214 0 0 absent 1 0
+vcp 214 0 100 1,4,5 0 0
+vcp 214 0 100 absent 0 0
+vcp 214 0 100 1,4,5 1 0
+vcp 214 0 100 absent 1 0
+vcp 214 1 0 1,4,5 0 0
+vcp 214 1 0 absent 0 0
+vcp 214 1 0 1,4,5 1 0
+vcp 214 1 0 absent 1 0
+vcp 214 1 100 1,4,5 0 0
+vcp 214 1 100 absent 0 0
+vcp 214 1 100 1,4,5 1 0
+vcp 214 1 100 absent 1 0
+vcp 214 2 0 1,4,5 0 0
+vcp 214 2 0 absent 0 0
+vcp 214 2 0 1,4,5 1 0
+vcp 214 2 0 absent 1 0
+vcp 214 2 100 1,4,5 0 0
+vcp 214 2 100 absent 0 0
+vcp 214 2 100 1,4,5 1 0
+vcp 214 2 100 absent 1 0
+vcp 214 3 0 1,4,5 0 0
+vcp 214 3 0 absent 0 0
+vcp 214 3 0 1,4,5 1 0
+vcp 214 3 0 absent 1 0
+vcp 214 3 100 1,4,5 0 0
+vcp 214 3 100 absent 0 0
+vcp 214 3 100 1,4,5 1 0
+vcp 214 3 100 absent 1 0
+vcp 214 5 0 1,4,5 0 0
+vcp 214 5 0 absent 0 0
+vcp 214 5 0 1,4,5 1 0
+vcp 214 5 0 absent 1 0
+vcp 214 5 100 1,4,5 0 0
+vcp 214 5 100 absent 0 0
+vcp 214 5 100 1,4,5 1 0
+vcp 214 5 100 absent 1 0
+vcp 214 6 0 1,4,5 0 0
+vcp 214 6 0 absent 0 0
+vcp 214 6 0 1,4,5 1 0
+vcp 214 6 0 absent 1 0
+vcp 214 6 100 1,4,5 0 0
+vcp 214 6 100 absent 0 0
+vcp 214 6 100 1,4,5 1 0
+vcp 214 6 100 absent 1 0
+vcp 214 7 0 1,4,5 0 0
+vcp 214 7 0 absent 0 0
+vcp 214 7 0 1,4,5 1 0
+vcp 214 7 0 absent 1 0
+vcp 214 7 100 1,4,5 0 0
+vcp 214 7 100 absent 0 0
+vcp 214 7 100 1,4,5 1 0
+vcp 214 7 100 absent 1 0
+vcp 214 17 0 1,4,5 0 0
+vcp 214 17 0 absent 0 0
+vcp 214 17 0 1,4,5 1 0
+vcp 214 17 0 absent 1 0
+vcp 214 17 100 1,4,5 0 0
+vcp 214 17 100 absent 0 0
+vcp 214 17 100 1,4,5 1 0
+vcp 214 17 100 absent 1 0
+vcp 214 50 0 1,4,5 0 0
+vcp 214 50 0 absent 0 0
+vcp 214 50 0 1,4,5 1 0
+vcp 214 50 0 absent 1 0
+vcp 214 50 100 1,4,5 0 0
+vcp 214 50 100 absent 0 0
+vcp 214 50 100 1,4,5 1 0
+vcp 214 50 100 absent 1 0
+vcp 214 100 0 1,4,5 0 0
+vcp 214 100 0 absent 0 0
+vcp 214 100 0 1,4,5 1 0
+vcp 214 100 0 absent 1 0
+vcp 214 100 100 1,4,5 0 0
+vcp 214 100 100 absent 0 0
+vcp 214 100 100 1,4,5 1 0
+vcp 214 100 100 absent 1 0
+vcp 214 101 0 1,4,5 0 0
+vcp 214 101 0 absent 0 0
+vcp 214 101 0 1,4,5 1 0
+vcp 214 101 0 absent 1 0
+vcp 214 101 100 1,4,5 0 0
+vcp 214 101 100 absent 0 0
+vcp 214 101 100 1,4,5 1 0
+vcp 214 101 100 absent 1 0
+vcp 214 255 0 1,4,5 0 0
+vcp 214 255 0 absent 0 0
+vcp 214 255 0 1,4,5 1 0
+vcp 214 255 0 absent 1 0
+vcp 214 255 100 1,4,5 0 0
+vcp 214 255 100 absent 0 0
+vcp 214 255 100 1,4,5 1 0
+vcp 214 255 100 absent 1 0
+vcp 223 0 0 - 0 0
+vcp 223 0 0 absent 0 0
+vcp 223 0 0 - 1 0
+vcp 223 0 0 absent 1 0
+vcp 223 0 100 - 0 0
+vcp 223 0 100 absent 0 0
+vcp 223 0 100 - 1 0
+vcp 223 0 100 absent 1 0
+vcp 223 1 0 - 0 0
+vcp 223 1 0 absent 0 0
+vcp 223 1 0 - 1 0
+vcp 223 1 0 absent 1 0
+vcp 223 1 100 - 0 0
+vcp 223 1 100 absent 0 0
+vcp 223 1 100 - 1 0
+vcp 223 1 100 absent 1 0
+vcp 223 2 0 - 0 0
+vcp 223 2 0 absent 0 0
+vcp 223 2 0 - 1 0
+vcp 223 2 0 absent 1 0
+vcp 223 2 100 - 0 0
+vcp 223 2 100 absent 0 0
+vcp 223 2 100 - 1 0
+vcp 223 2 100 absent 1 0
+vcp 223 3 0 - 0 0
+vcp 223 3 0 absent 0 0
+vcp 223 3 0 - 1 0
+vcp 223 3 0 absent 1 0
+vcp 223 3 100 - 0 0
+vcp 223 3 100 absent 0 0
+vcp 223 3 100 - 1 0
+vcp 223 3 100 absent 1 0
+vcp 223 5 0 - 0 0
+vcp 223 5 0 absent 0 0
+vcp 223 5 0 - 1 0
+vcp 223 5 0 absent 1 0
+vcp 223 5 100 - 0 0
+vcp 223 5 100 absent 0 0
+vcp 223 5 100 - 1 0
+vcp 223 5 100 absent 1 0
+vcp 223 6 0 - 0 0
+vcp 223 6 0 absent 0 0
+vcp 223 6 0 - 1 0
+vcp 223 6 0 absent 1 0
+vcp 223 6 100 - 0 0
+vcp 223 6 100 absent 0 0
+vcp 223 6 100 - 1 0
+vcp 223 6 100 absent 1 0
+vcp 223 7 0 - 0 0
+vcp 223 7 0 absent 0 0
+vcp 223 7 0 - 1 0
+vcp 223 7 0 absent 1 0
+vcp 223 7 100 - 0 0
+vcp 223 7 100 absent 0 0
+vcp 223 7 100 - 1 0
+vcp 223 7 100 absent 1 0
+vcp 223 17 0 - 0 0
+vcp 223 17 0 absent 0 0
+vcp 223 17 0 - 1 0
+vcp 223 17 0 absent 1 0
+vcp 223 17 100 - 0 0
+vcp 223 17 100 absent 0 0
+vcp 223 17 100 - 1 0
+vcp 223 17 100 absent 1 0
+vcp 223 50 0 - 0 0
+vcp 223 50 0 absent 0 0
+vcp 223 50 0 - 1 0
+vcp 223 50 0 absent 1 0
+vcp 223 50 100 - 0 0
+vcp 223 50 100 absent 0 0
+vcp 223 50 100 - 1 0
+vcp 223 50 100 absent 1 0
+vcp 223 100 0 - 0 0
+vcp 223 100 0 absent 0 0
+vcp 223 100 0 - 1 0
+vcp 223 100 0 absent 1 0
+vcp 223 100 100 - 0 0
+vcp 223 100 100 absent 0 0
+vcp 223 100 100 - 1 0
+vcp 223 100 100 absent 1 0
+vcp 223 101 0 - 0 0
+vcp 223 101 0 absent 0 0
+vcp 223 101 0 - 1 0
+vcp 223 101 0 absent 1 0
+vcp 223 101 100 - 0 0
+vcp 223 101 100 absent 0 0
+vcp 223 101 100 - 1 0
+vcp 223 101 100 absent 1 0
+vcp 223 255 0 - 0 0
+vcp 223 255 0 absent 0 0
+vcp 223 255 0 - 1 0
+vcp 223 255 0 absent 1 0
+vcp 223 255 100 - 0 0
+vcp 223 255 100 absent 0 0
+vcp 223 255 100 - 1 0
+vcp 223 255 100 absent 1 0
+vcp 224 0 0 absent 0 0
+vcp 224 0 0 absent 1 0
+vcp 224 0 100 absent 0 0
+vcp 224 0 100 absent 1 0
+vcp 224 1 0 absent 0 0
+vcp 224 1 0 absent 1 0
+vcp 224 1 100 absent 0 0
+vcp 224 1 100 absent 1 0
+vcp 224 2 0 absent 0 0
+vcp 224 2 0 absent 1 0
+vcp 224 2 100 absent 0 0
+vcp 224 2 100 absent 1 0
+vcp 224 3 0 absent 0 0
+vcp 224 3 0 absent 1 0
+vcp 224 3 100 absent 0 0
+vcp 224 3 100 absent 1 0
+vcp 224 5 0 absent 0 0
+vcp 224 5 0 absent 1 0
+vcp 224 5 100 absent 0 0
+vcp 224 5 100 absent 1 0
+vcp 224 6 0 absent 0 0
+vcp 224 6 0 absent 1 0
+vcp 224 6 100 absent 0 0
+vcp 224 6 100 absent 1 0
+vcp 224 7 0 absent 0 0
+vcp 224 7 0 absent 1 0
+vcp 224 7 100 absent 0 0
+vcp 224 7 100 absent 1 0
+vcp 224 17 0 absent 0 0
+vcp 224 17 0 absent 1 0
+vcp 224 17 100 absent 0 0
+vcp 224 17 100 absent 1 0
+vcp 224 50 0 absent 0 0
+vcp 224 50 0 absent 1 0
+vcp 224 50 100 absent 0 0
+vcp 224 50 100 absent 1 0
+vcp 224 100 0 absent 0 0
+vcp 224 100 0 absent 1 0
+vcp 224 100 100 absent 0 0
+vcp 224 100 100 absent 1 0
+vcp 224 101 0 absent 0 0
+vcp 224 101 0 absent 1 0
+vcp 224 101 100 absent 0 0
+vcp 224 101 100 absent 1 0
+vcp 224 255 0 absent 0 0
+vcp 224 255 0 absent 1 0
+vcp 224 255 100 absent 0 0
+vcp 224 255 100 absent 1 0
+vcp 240 0 0 absent 0 0
+vcp 240 0 0 absent 1 0
+vcp 240 0 100 absent 0 0
+vcp 240 0 100 absent 1 0
+vcp 240 1 0 absent 0 0
+vcp 240 1 0 absent 1 0
+vcp 240 1 100 absent 0 0
+vcp 240 1 100 absent 1 0
+vcp 240 2 0 absent 0 0
+vcp 240 2 0 absent 1 0
+vcp 240 2 100 absent 0 0
+vcp 240 2 100 absent 1 0
+vcp 240 3 0 absent 0 0
+vcp 240 3 0 absent 1 0
+vcp 240 3 100 absent 0 0
+vcp 240 3 100 absent 1 0
+vcp 240 5 0 absent 0 0
+vcp 240 5 0 absent 1 0
+vcp 240 5 100 absent 0 0
+vcp 240 5 100 absent 1 0
+vcp 240 6 0 absent 0 0
+vcp 240 6 0 absent 1 0
+vcp 240 6 100 absent 0 0
+vcp 240 6 100 absent 1 0
+vcp 240 7 0 absent 0 0
+vcp 240 7 0 absent 1 0
+vcp 240 7 100 absent 0 0
+vcp 240 7 100 absent 1 0
+vcp 240 17 0 absent 0 0
+vcp 240 17 0 absent 1 0
+vcp 240 17 100 absent 0 0
+vcp 240 17 100 absent 1 0
+vcp 240 50 0 absent 0 0
+vcp 240 50 0 absent 1 0
+vcp 240 50 100 absent 0 0
+vcp 240 50 100 absent 1 0
+vcp 240 100 0 absent 0 0
+vcp 240 100 0 absent 1 0
+vcp 240 100 100 absent 0 0
+vcp 240 100 100 absent 1 0
+vcp 240 101 0 absent 0 0
+vcp 240 101 0 absent 1 0
+vcp 240 101 100 absent 0 0
+vcp 240 101 100 absent 1 0
+vcp 240 255 0 absent 0 0
+vcp 240 255 0 absent 1 0
+vcp 240 255 100 absent 0 0
+vcp 240 255 100 absent 1 0
+vcp 255 0 0 absent 0 0
+vcp 255 0 0 absent 1 0
+vcp 255 0 100 absent 0 0
+vcp 255 0 100 absent 1 0
+vcp 255 1 0 absent 0 0
+vcp 255 1 0 absent 1 0
+vcp 255 1 100 absent 0 0
+vcp 255 1 100 absent 1 0
+vcp 255 2 0 absent 0 0
+vcp 255 2 0 absent 1 0
+vcp 255 2 100 absent 0 0
+vcp 255 2 100 absent 1 0
+vcp 255 3 0 absent 0 0
+vcp 255 3 0 absent 1 0
+vcp 255 3 100 absent 0 0
+vcp 255 3 100 absent 1 0
+vcp 255 5 0 absent 0 0
+vcp 255 5 0 absent 1 0
+vcp 255 5 100 absent 0 0
+vcp 255 5 100 absent 1 0
+vcp 255 6 0 absent 0 0
+vcp 255 6 0 absent 1 0
+vcp 255 6 100 absent 0 0
+vcp 255 6 100 absent 1 0
+vcp 255 7 0 absent 0 0
+vcp 255 7 0 absent 1 0
+vcp 255 7 100 absent 0 0
+vcp 255 7 100 absent 1 0
+vcp 255 17 0 absent 0 0
+vcp 255 17 0 absent 1 0
+vcp 255 17 100 absent 0 0
+vcp 255 17 100 absent 1 0
+vcp 255 50 0 absent 0 0
+vcp 255 50 0 absent 1 0
+vcp 255 50 100 absent 0 0
+vcp 255 50 100 absent 1 0
+vcp 255 100 0 absent 0 0
+vcp 255 100 0 absent 1 0
+vcp 255 100 100 absent 0 0
+vcp 255 100 100 absent 1 0
+vcp 255 101 0 absent 0 0
+vcp 255 101 0 absent 1 0
+vcp 255 101 100 absent 0 0
+vcp 255 101 100 absent 1 0
+vcp 255 255 0 absent 0 0
+vcp 255 255 0 absent 1 0
+vcp 255 255 100 absent 0 0
+vcp 255 255 100 absent 1 0
+uvc exposure -11 -2 1 1 -12 0 0
+uvc exposure -11 -2 1 1 -12 1 1
+uvc exposure -11 -2 1 1 -11 0 1
+uvc exposure -11 -2 1 1 -11 1 1
+uvc exposure -11 -2 1 1 -10 0 1
+uvc exposure -11 -2 1 1 -10 1 1
+uvc exposure -11 -2 1 1 -6 0 1
+uvc exposure -11 -2 1 1 -6 1 1
+uvc exposure -11 -2 1 1 -2 0 1
+uvc exposure -11 -2 1 1 -2 1 1
+uvc exposure -11 -2 1 1 -1 0 0
+uvc exposure -11 -2 1 1 -1 1 1
+uvc exposure -11 -2 1 1 4005 0 0
+uvc exposure -11 -2 1 1 4005 1 1
+uvc exposure 2800 6500 10 0 2799 0 0
+uvc exposure 2800 6500 10 0 2799 1 0
+uvc exposure 2800 6500 10 0 2800 0 1
+uvc exposure 2800 6500 10 0 2800 1 0
+uvc exposure 2800 6500 10 0 2801 0 0
+uvc exposure 2800 6500 10 0 2801 1 0
+uvc exposure 2800 6500 10 0 4650 0 1
+uvc exposure 2800 6500 10 0 4650 1 0
+uvc exposure 2800 6500 10 0 6500 0 1
+uvc exposure 2800 6500 10 0 6500 1 0
+uvc exposure 2800 6500 10 0 6501 0 0
+uvc exposure 2800 6500 10 0 6501 1 0
+uvc exposure 2800 6500 10 0 4005 0 0
+uvc exposure 2800 6500 10 0 4005 1 0
+uvc exposure 0 255 1 0 -1 0 0
+uvc exposure 0 255 1 0 -1 1 0
+uvc exposure 0 255 1 0 0 0 1
+uvc exposure 0 255 1 0 0 1 0
+uvc exposure 0 255 1 0 1 0 1
+uvc exposure 0 255 1 0 1 1 0
+uvc exposure 0 255 1 0 128 0 1
+uvc exposure 0 255 1 0 128 1 0
+uvc exposure 0 255 1 0 255 0 1
+uvc exposure 0 255 1 0 255 1 0
+uvc exposure 0 255 1 0 256 0 0
+uvc exposure 0 255 1 0 256 1 0
+uvc exposure 0 255 1 0 4005 0 0
+uvc exposure 0 255 1 0 4005 1 0
+uvc exposure 0 3 1 0 -1 0 0
+uvc exposure 0 3 1 0 -1 1 0
+uvc exposure 0 3 1 0 0 0 1
+uvc exposure 0 3 1 0 0 1 0
+uvc exposure 0 3 1 0 1 0 1
+uvc exposure 0 3 1 0 1 1 0
+uvc exposure 0 3 1 0 2 0 1
+uvc exposure 0 3 1 0 2 1 0
+uvc exposure 0 3 1 0 3 0 1
+uvc exposure 0 3 1 0 3 1 0
+uvc exposure 0 3 1 0 4 0 0
+uvc exposure 0 3 1 0 4 1 0
+uvc exposure 0 3 1 0 4005 0 0
+uvc exposure 0 3 1 0 4005 1 0
+uvc focus -11 -2 1 1 -12 0 0
+uvc focus -11 -2 1 1 -12 1 1
+uvc focus -11 -2 1 1 -11 0 1
+uvc focus -11 -2 1 1 -11 1 1
+uvc focus -11 -2 1 1 -10 0 1
+uvc focus -11 -2 1 1 -10 1 1
+uvc focus -11 -2 1 1 -6 0 1
+uvc focus -11 -2 1 1 -6 1 1
+uvc focus -11 -2 1 1 -2 0 1
+uvc focus -11 -2 1 1 -2 1 1
+uvc focus -11 -2 1 1 -1 0 0
+uvc focus -11 -2 1 1 -1 1 1
+uvc focus -11 -2 1 1 4005 0 0
+uvc focus -11 -2 1 1 4005 1 1
+uvc focus 2800 6500 10 0 2799 0 0
+uvc focus 2800 6500 10 0 2799 1 0
+uvc focus 2800 6500 10 0 2800 0 1
+uvc focus 2800 6500 10 0 2800 1 0
+uvc focus 2800 6500 10 0 2801 0 0
+uvc focus 2800 6500 10 0 2801 1 0
+uvc focus 2800 6500 10 0 4650 0 1
+uvc focus 2800 6500 10 0 4650 1 0
+uvc focus 2800 6500 10 0 6500 0 1
+uvc focus 2800 6500 10 0 6500 1 0
+uvc focus 2800 6500 10 0 6501 0 0
+uvc focus 2800 6500 10 0 6501 1 0
+uvc focus 2800 6500 10 0 4005 0 0
+uvc focus 2800 6500 10 0 4005 1 0
+uvc focus 0 255 1 0 -1 0 0
+uvc focus 0 255 1 0 -1 1 0
+uvc focus 0 255 1 0 0 0 1
+uvc focus 0 255 1 0 0 1 0
+uvc focus 0 255 1 0 1 0 1
+uvc focus 0 255 1 0 1 1 0
+uvc focus 0 255 1 0 128 0 1
+uvc focus 0 255 1 0 128 1 0
+uvc focus 0 255 1 0 255 0 1
+uvc focus 0 255 1 0 255 1 0
+uvc focus 0 255 1 0 256 0 0
+uvc focus 0 255 1 0 256 1 0
+uvc focus 0 255 1 0 4005 0 0
+uvc focus 0 255 1 0 4005 1 0
+uvc focus 0 3 1 0 -1 0 0
+uvc focus 0 3 1 0 -1 1 0
+uvc focus 0 3 1 0 0 0 1
+uvc focus 0 3 1 0 0 1 0
+uvc focus 0 3 1 0 1 0 1
+uvc focus 0 3 1 0 1 1 0
+uvc focus 0 3 1 0 2 0 1
+uvc focus 0 3 1 0 2 1 0
+uvc focus 0 3 1 0 3 0 1
+uvc focus 0 3 1 0 3 1 0
+uvc focus 0 3 1 0 4 0 0
+uvc focus 0 3 1 0 4 1 0
+uvc focus 0 3 1 0 4005 0 0
+uvc focus 0 3 1 0 4005 1 0
+uvc zoom -11 -2 1 1 -12 0 0
+uvc zoom -11 -2 1 1 -12 1 1
+uvc zoom -11 -2 1 1 -11 0 1
+uvc zoom -11 -2 1 1 -11 1 1
+uvc zoom -11 -2 1 1 -10 0 1
+uvc zoom -11 -2 1 1 -10 1 1
+uvc zoom -11 -2 1 1 -6 0 1
+uvc zoom -11 -2 1 1 -6 1 1
+uvc zoom -11 -2 1 1 -2 0 1
+uvc zoom -11 -2 1 1 -2 1 1
+uvc zoom -11 -2 1 1 -1 0 0
+uvc zoom -11 -2 1 1 -1 1 1
+uvc zoom -11 -2 1 1 4005 0 0
+uvc zoom -11 -2 1 1 4005 1 1
+uvc zoom 2800 6500 10 0 2799 0 0
+uvc zoom 2800 6500 10 0 2799 1 0
+uvc zoom 2800 6500 10 0 2800 0 1
+uvc zoom 2800 6500 10 0 2800 1 0
+uvc zoom 2800 6500 10 0 2801 0 0
+uvc zoom 2800 6500 10 0 2801 1 0
+uvc zoom 2800 6500 10 0 4650 0 1
+uvc zoom 2800 6500 10 0 4650 1 0
+uvc zoom 2800 6500 10 0 6500 0 1
+uvc zoom 2800 6500 10 0 6500 1 0
+uvc zoom 2800 6500 10 0 6501 0 0
+uvc zoom 2800 6500 10 0 6501 1 0
+uvc zoom 2800 6500 10 0 4005 0 0
+uvc zoom 2800 6500 10 0 4005 1 0
+uvc zoom 0 255 1 0 -1 0 0
+uvc zoom 0 255 1 0 -1 1 0
+uvc zoom 0 255 1 0 0 0 1
+uvc zoom 0 255 1 0 0 1 0
+uvc zoom 0 255 1 0 1 0 1
+uvc zoom 0 255 1 0 1 1 0
+uvc zoom 0 255 1 0 128 0 1
+uvc zoom 0 255 1 0 128 1 0
+uvc zoom 0 255 1 0 255 0 1
+uvc zoom 0 255 1 0 255 1 0
+uvc zoom 0 255 1 0 256 0 0
+uvc zoom 0 255 1 0 256 1 0
+uvc zoom 0 255 1 0 4005 0 0
+uvc zoom 0 255 1 0 4005 1 0
+uvc zoom 0 3 1 0 -1 0 0
+uvc zoom 0 3 1 0 -1 1 0
+uvc zoom 0 3 1 0 0 0 1
+uvc zoom 0 3 1 0 0 1 0
+uvc zoom 0 3 1 0 1 0 1
+uvc zoom 0 3 1 0 1 1 0
+uvc zoom 0 3 1 0 2 0 1
+uvc zoom 0 3 1 0 2 1 0
+uvc zoom 0 3 1 0 3 0 1
+uvc zoom 0 3 1 0 3 1 0
+uvc zoom 0 3 1 0 4 0 0
+uvc zoom 0 3 1 0 4 1 0
+uvc zoom 0 3 1 0 4005 0 0
+uvc zoom 0 3 1 0 4005 1 0
+uvc pan -11 -2 1 1 -12 0 0
+uvc pan -11 -2 1 1 -12 1 1
+uvc pan -11 -2 1 1 -11 0 1
+uvc pan -11 -2 1 1 -11 1 1
+uvc pan -11 -2 1 1 -10 0 1
+uvc pan -11 -2 1 1 -10 1 1
+uvc pan -11 -2 1 1 -6 0 1
+uvc pan -11 -2 1 1 -6 1 1
+uvc pan -11 -2 1 1 -2 0 1
+uvc pan -11 -2 1 1 -2 1 1
+uvc pan -11 -2 1 1 -1 0 0
+uvc pan -11 -2 1 1 -1 1 1
+uvc pan -11 -2 1 1 4005 0 0
+uvc pan -11 -2 1 1 4005 1 1
+uvc pan 2800 6500 10 0 2799 0 0
+uvc pan 2800 6500 10 0 2799 1 0
+uvc pan 2800 6500 10 0 2800 0 1
+uvc pan 2800 6500 10 0 2800 1 0
+uvc pan 2800 6500 10 0 2801 0 0
+uvc pan 2800 6500 10 0 2801 1 0
+uvc pan 2800 6500 10 0 4650 0 1
+uvc pan 2800 6500 10 0 4650 1 0
+uvc pan 2800 6500 10 0 6500 0 1
+uvc pan 2800 6500 10 0 6500 1 0
+uvc pan 2800 6500 10 0 6501 0 0
+uvc pan 2800 6500 10 0 6501 1 0
+uvc pan 2800 6500 10 0 4005 0 0
+uvc pan 2800 6500 10 0 4005 1 0
+uvc pan 0 255 1 0 -1 0 0
+uvc pan 0 255 1 0 -1 1 0
+uvc pan 0 255 1 0 0 0 1
+uvc pan 0 255 1 0 0 1 0
+uvc pan 0 255 1 0 1 0 1
+uvc pan 0 255 1 0 1 1 0
+uvc pan 0 255 1 0 128 0 1
+uvc pan 0 255 1 0 128 1 0
+uvc pan 0 255 1 0 255 0 1
+uvc pan 0 255 1 0 255 1 0
+uvc pan 0 255 1 0 256 0 0
+uvc pan 0 255 1 0 256 1 0
+uvc pan 0 255 1 0 4005 0 0
+uvc pan 0 255 1 0 4005 1 0
+uvc pan 0 3 1 0 -1 0 0
+uvc pan 0 3 1 0 -1 1 0
+uvc pan 0 3 1 0 0 0 1
+uvc pan 0 3 1 0 0 1 0
+uvc pan 0 3 1 0 1 0 1
+uvc pan 0 3 1 0 1 1 0
+uvc pan 0 3 1 0 2 0 1
+uvc pan 0 3 1 0 2 1 0
+uvc pan 0 3 1 0 3 0 1
+uvc pan 0 3 1 0 3 1 0
+uvc pan 0 3 1 0 4 0 0
+uvc pan 0 3 1 0 4 1 0
+uvc pan 0 3 1 0 4005 0 0
+uvc pan 0 3 1 0 4005 1 0
+uvc tilt -11 -2 1 1 -12 0 0
+uvc tilt -11 -2 1 1 -12 1 1
+uvc tilt -11 -2 1 1 -11 0 1
+uvc tilt -11 -2 1 1 -11 1 1
+uvc tilt -11 -2 1 1 -10 0 1
+uvc tilt -11 -2 1 1 -10 1 1
+uvc tilt -11 -2 1 1 -6 0 1
+uvc tilt -11 -2 1 1 -6 1 1
+uvc tilt -11 -2 1 1 -2 0 1
+uvc tilt -11 -2 1 1 -2 1 1
+uvc tilt -11 -2 1 1 -1 0 0
+uvc tilt -11 -2 1 1 -1 1 1
+uvc tilt -11 -2 1 1 4005 0 0
+uvc tilt -11 -2 1 1 4005 1 1
+uvc tilt 2800 6500 10 0 2799 0 0
+uvc tilt 2800 6500 10 0 2799 1 0
+uvc tilt 2800 6500 10 0 2800 0 1
+uvc tilt 2800 6500 10 0 2800 1 0
+uvc tilt 2800 6500 10 0 2801 0 0
+uvc tilt 2800 6500 10 0 2801 1 0
+uvc tilt 2800 6500 10 0 4650 0 1
+uvc tilt 2800 6500 10 0 4650 1 0
+uvc tilt 2800 6500 10 0 6500 0 1
+uvc tilt 2800 6500 10 0 6500 1 0
+uvc tilt 2800 6500 10 0 6501 0 0
+uvc tilt 2800 6500 10 0 6501 1 0
+uvc tilt 2800 6500 10 0 4005 0 0
+uvc tilt 2800 6500 10 0 4005 1 0
+uvc tilt 0 255 1 0 -1 0 0
+uvc tilt 0 255 1 0 -1 1 0
+uvc tilt 0 255 1 0 0 0 1
+uvc tilt 0 255 1 0 0 1 0
+uvc tilt 0 255 1 0 1 0 1
+uvc tilt 0 255 1 0 1 1 0
+uvc tilt 0 255 1 0 128 0 1
+uvc tilt 0 255 1 0 128 1 0
+uvc tilt 0 255 1 0 255 0 1
+uvc tilt 0 255 1 0 255 1 0
+uvc tilt 0 255 1 0 256 0 0
+uvc tilt 0 255 1 0 256 1 0
+uvc tilt 0 255 1 0 4005 0 0
+uvc tilt 0 255 1 0 4005 1 0
+uvc tilt 0 3 1 0 -1 0 0
+uvc tilt 0 3 1 0 -1 1 0
+uvc tilt 0 3 1 0 0 0 1
+uvc tilt 0 3 1 0 0 1 0
+uvc tilt 0 3 1 0 1 0 1
+uvc tilt 0 3 1 0 1 1 0
+uvc tilt 0 3 1 0 2 0 1
+uvc tilt 0 3 1 0 2 1 0
+uvc tilt 0 3 1 0 3 0 1
+uvc tilt 0 3 1 0 3 1 0
+uvc tilt 0 3 1 0 4 0 0
+uvc tilt 0 3 1 0 4 1 0
+uvc tilt 0 3 1 0 4005 0 0
+uvc tilt 0 3 1 0 4005 1 0
+uvc brightness -11 -2 1 1 -12 0 0
+uvc brightness -11 -2 1 1 -12 1 1
+uvc brightness -11 -2 1 1 -11 0 1
+uvc brightness -11 -2 1 1 -11 1 1
+uvc brightness -11 -2 1 1 -10 0 1
+uvc brightness -11 -2 1 1 -10 1 1
+uvc brightness -11 -2 1 1 -6 0 1
+uvc brightness -11 -2 1 1 -6 1 1
+uvc brightness -11 -2 1 1 -2 0 1
+uvc brightness -11 -2 1 1 -2 1 1
+uvc brightness -11 -2 1 1 -1 0 0
+uvc brightness -11 -2 1 1 -1 1 1
+uvc brightness -11 -2 1 1 4005 0 0
+uvc brightness -11 -2 1 1 4005 1 1
+uvc brightness 2800 6500 10 0 2799 0 0
+uvc brightness 2800 6500 10 0 2799 1 0
+uvc brightness 2800 6500 10 0 2800 0 1
+uvc brightness 2800 6500 10 0 2800 1 0
+uvc brightness 2800 6500 10 0 2801 0 0
+uvc brightness 2800 6500 10 0 2801 1 0
+uvc brightness 2800 6500 10 0 4650 0 1
+uvc brightness 2800 6500 10 0 4650 1 0
+uvc brightness 2800 6500 10 0 6500 0 1
+uvc brightness 2800 6500 10 0 6500 1 0
+uvc brightness 2800 6500 10 0 6501 0 0
+uvc brightness 2800 6500 10 0 6501 1 0
+uvc brightness 2800 6500 10 0 4005 0 0
+uvc brightness 2800 6500 10 0 4005 1 0
+uvc brightness 0 255 1 0 -1 0 0
+uvc brightness 0 255 1 0 -1 1 0
+uvc brightness 0 255 1 0 0 0 1
+uvc brightness 0 255 1 0 0 1 0
+uvc brightness 0 255 1 0 1 0 1
+uvc brightness 0 255 1 0 1 1 0
+uvc brightness 0 255 1 0 128 0 1
+uvc brightness 0 255 1 0 128 1 0
+uvc brightness 0 255 1 0 255 0 1
+uvc brightness 0 255 1 0 255 1 0
+uvc brightness 0 255 1 0 256 0 0
+uvc brightness 0 255 1 0 256 1 0
+uvc brightness 0 255 1 0 4005 0 0
+uvc brightness 0 255 1 0 4005 1 0
+uvc brightness 0 3 1 0 -1 0 0
+uvc brightness 0 3 1 0 -1 1 0
+uvc brightness 0 3 1 0 0 0 1
+uvc brightness 0 3 1 0 0 1 0
+uvc brightness 0 3 1 0 1 0 1
+uvc brightness 0 3 1 0 1 1 0
+uvc brightness 0 3 1 0 2 0 1
+uvc brightness 0 3 1 0 2 1 0
+uvc brightness 0 3 1 0 3 0 1
+uvc brightness 0 3 1 0 3 1 0
+uvc brightness 0 3 1 0 4 0 0
+uvc brightness 0 3 1 0 4 1 0
+uvc brightness 0 3 1 0 4005 0 0
+uvc brightness 0 3 1 0 4005 1 0
+uvc contrast -11 -2 1 1 -12 0 0
+uvc contrast -11 -2 1 1 -12 1 1
+uvc contrast -11 -2 1 1 -11 0 1
+uvc contrast -11 -2 1 1 -11 1 1
+uvc contrast -11 -2 1 1 -10 0 1
+uvc contrast -11 -2 1 1 -10 1 1
+uvc contrast -11 -2 1 1 -6 0 1
+uvc contrast -11 -2 1 1 -6 1 1
+uvc contrast -11 -2 1 1 -2 0 1
+uvc contrast -11 -2 1 1 -2 1 1
+uvc contrast -11 -2 1 1 -1 0 0
+uvc contrast -11 -2 1 1 -1 1 1
+uvc contrast -11 -2 1 1 4005 0 0
+uvc contrast -11 -2 1 1 4005 1 1
+uvc contrast 2800 6500 10 0 2799 0 0
+uvc contrast 2800 6500 10 0 2799 1 0
+uvc contrast 2800 6500 10 0 2800 0 1
+uvc contrast 2800 6500 10 0 2800 1 0
+uvc contrast 2800 6500 10 0 2801 0 0
+uvc contrast 2800 6500 10 0 2801 1 0
+uvc contrast 2800 6500 10 0 4650 0 1
+uvc contrast 2800 6500 10 0 4650 1 0
+uvc contrast 2800 6500 10 0 6500 0 1
+uvc contrast 2800 6500 10 0 6500 1 0
+uvc contrast 2800 6500 10 0 6501 0 0
+uvc contrast 2800 6500 10 0 6501 1 0
+uvc contrast 2800 6500 10 0 4005 0 0
+uvc contrast 2800 6500 10 0 4005 1 0
+uvc contrast 0 255 1 0 -1 0 0
+uvc contrast 0 255 1 0 -1 1 0
+uvc contrast 0 255 1 0 0 0 1
+uvc contrast 0 255 1 0 0 1 0
+uvc contrast 0 255 1 0 1 0 1
+uvc contrast 0 255 1 0 1 1 0
+uvc contrast 0 255 1 0 128 0 1
+uvc contrast 0 255 1 0 128 1 0
+uvc contrast 0 255 1 0 255 0 1
+uvc contrast 0 255 1 0 255 1 0
+uvc contrast 0 255 1 0 256 0 0
+uvc contrast 0 255 1 0 256 1 0
+uvc contrast 0 255 1 0 4005 0 0
+uvc contrast 0 255 1 0 4005 1 0
+uvc contrast 0 3 1 0 -1 0 0
+uvc contrast 0 3 1 0 -1 1 0
+uvc contrast 0 3 1 0 0 0 1
+uvc contrast 0 3 1 0 0 1 0
+uvc contrast 0 3 1 0 1 0 1
+uvc contrast 0 3 1 0 1 1 0
+uvc contrast 0 3 1 0 2 0 1
+uvc contrast 0 3 1 0 2 1 0
+uvc contrast 0 3 1 0 3 0 1
+uvc contrast 0 3 1 0 3 1 0
+uvc contrast 0 3 1 0 4 0 0
+uvc contrast 0 3 1 0 4 1 0
+uvc contrast 0 3 1 0 4005 0 0
+uvc contrast 0 3 1 0 4005 1 0
+uvc saturation -11 -2 1 1 -12 0 0
+uvc saturation -11 -2 1 1 -12 1 1
+uvc saturation -11 -2 1 1 -11 0 1
+uvc saturation -11 -2 1 1 -11 1 1
+uvc saturation -11 -2 1 1 -10 0 1
+uvc saturation -11 -2 1 1 -10 1 1
+uvc saturation -11 -2 1 1 -6 0 1
+uvc saturation -11 -2 1 1 -6 1 1
+uvc saturation -11 -2 1 1 -2 0 1
+uvc saturation -11 -2 1 1 -2 1 1
+uvc saturation -11 -2 1 1 -1 0 0
+uvc saturation -11 -2 1 1 -1 1 1
+uvc saturation -11 -2 1 1 4005 0 0
+uvc saturation -11 -2 1 1 4005 1 1
+uvc saturation 2800 6500 10 0 2799 0 0
+uvc saturation 2800 6500 10 0 2799 1 0
+uvc saturation 2800 6500 10 0 2800 0 1
+uvc saturation 2800 6500 10 0 2800 1 0
+uvc saturation 2800 6500 10 0 2801 0 0
+uvc saturation 2800 6500 10 0 2801 1 0
+uvc saturation 2800 6500 10 0 4650 0 1
+uvc saturation 2800 6500 10 0 4650 1 0
+uvc saturation 2800 6500 10 0 6500 0 1
+uvc saturation 2800 6500 10 0 6500 1 0
+uvc saturation 2800 6500 10 0 6501 0 0
+uvc saturation 2800 6500 10 0 6501 1 0
+uvc saturation 2800 6500 10 0 4005 0 0
+uvc saturation 2800 6500 10 0 4005 1 0
+uvc saturation 0 255 1 0 -1 0 0
+uvc saturation 0 255 1 0 -1 1 0
+uvc saturation 0 255 1 0 0 0 1
+uvc saturation 0 255 1 0 0 1 0
+uvc saturation 0 255 1 0 1 0 1
+uvc saturation 0 255 1 0 1 1 0
+uvc saturation 0 255 1 0 128 0 1
+uvc saturation 0 255 1 0 128 1 0
+uvc saturation 0 255 1 0 255 0 1
+uvc saturation 0 255 1 0 255 1 0
+uvc saturation 0 255 1 0 256 0 0
+uvc saturation 0 255 1 0 256 1 0
+uvc saturation 0 255 1 0 4005 0 0
+uvc saturation 0 255 1 0 4005 1 0
+uvc saturation 0 3 1 0 -1 0 0
+uvc saturation 0 3 1 0 -1 1 0
+uvc saturation 0 3 1 0 0 0 1
+uvc saturation 0 3 1 0 0 1 0
+uvc saturation 0 3 1 0 1 0 1
+uvc saturation 0 3 1 0 1 1 0
+uvc saturation 0 3 1 0 2 0 1
+uvc saturation 0 3 1 0 2 1 0
+uvc saturation 0 3 1 0 3 0 1
+uvc saturation 0 3 1 0 3 1 0
+uvc saturation 0 3 1 0 4 0 0
+uvc saturation 0 3 1 0 4 1 0
+uvc saturation 0 3 1 0 4005 0 0
+uvc saturation 0 3 1 0 4005 1 0
+uvc whiteBalance -11 -2 1 1 -12 0 0
+uvc whiteBalance -11 -2 1 1 -12 1 1
+uvc whiteBalance -11 -2 1 1 -11 0 1
+uvc whiteBalance -11 -2 1 1 -11 1 1
+uvc whiteBalance -11 -2 1 1 -10 0 1
+uvc whiteBalance -11 -2 1 1 -10 1 1
+uvc whiteBalance -11 -2 1 1 -6 0 1
+uvc whiteBalance -11 -2 1 1 -6 1 1
+uvc whiteBalance -11 -2 1 1 -2 0 1
+uvc whiteBalance -11 -2 1 1 -2 1 1
+uvc whiteBalance -11 -2 1 1 -1 0 0
+uvc whiteBalance -11 -2 1 1 -1 1 1
+uvc whiteBalance -11 -2 1 1 4005 0 0
+uvc whiteBalance -11 -2 1 1 4005 1 1
+uvc whiteBalance 2800 6500 10 0 2799 0 0
+uvc whiteBalance 2800 6500 10 0 2799 1 0
+uvc whiteBalance 2800 6500 10 0 2800 0 1
+uvc whiteBalance 2800 6500 10 0 2800 1 0
+uvc whiteBalance 2800 6500 10 0 2801 0 0
+uvc whiteBalance 2800 6500 10 0 2801 1 0
+uvc whiteBalance 2800 6500 10 0 4650 0 1
+uvc whiteBalance 2800 6500 10 0 4650 1 0
+uvc whiteBalance 2800 6500 10 0 6500 0 1
+uvc whiteBalance 2800 6500 10 0 6500 1 0
+uvc whiteBalance 2800 6500 10 0 6501 0 0
+uvc whiteBalance 2800 6500 10 0 6501 1 0
+uvc whiteBalance 2800 6500 10 0 4005 0 0
+uvc whiteBalance 2800 6500 10 0 4005 1 0
+uvc whiteBalance 0 255 1 0 -1 0 0
+uvc whiteBalance 0 255 1 0 -1 1 0
+uvc whiteBalance 0 255 1 0 0 0 1
+uvc whiteBalance 0 255 1 0 0 1 0
+uvc whiteBalance 0 255 1 0 1 0 1
+uvc whiteBalance 0 255 1 0 1 1 0
+uvc whiteBalance 0 255 1 0 128 0 1
+uvc whiteBalance 0 255 1 0 128 1 0
+uvc whiteBalance 0 255 1 0 255 0 1
+uvc whiteBalance 0 255 1 0 255 1 0
+uvc whiteBalance 0 255 1 0 256 0 0
+uvc whiteBalance 0 255 1 0 256 1 0
+uvc whiteBalance 0 255 1 0 4005 0 0
+uvc whiteBalance 0 255 1 0 4005 1 0
+uvc whiteBalance 0 3 1 0 -1 0 0
+uvc whiteBalance 0 3 1 0 -1 1 0
+uvc whiteBalance 0 3 1 0 0 0 1
+uvc whiteBalance 0 3 1 0 0 1 0
+uvc whiteBalance 0 3 1 0 1 0 1
+uvc whiteBalance 0 3 1 0 1 1 0
+uvc whiteBalance 0 3 1 0 2 0 1
+uvc whiteBalance 0 3 1 0 2 1 0
+uvc whiteBalance 0 3 1 0 3 0 1
+uvc whiteBalance 0 3 1 0 3 1 0
+uvc whiteBalance 0 3 1 0 4 0 0
+uvc whiteBalance 0 3 1 0 4 1 0
+uvc whiteBalance 0 3 1 0 4005 0 0
+uvc whiteBalance 0 3 1 0 4005 1 0
+uvc powerline -11 -2 1 1 -12 0 0
+uvc powerline -11 -2 1 1 -12 1 1
+uvc powerline -11 -2 1 1 -11 0 1
+uvc powerline -11 -2 1 1 -11 1 1
+uvc powerline -11 -2 1 1 -10 0 1
+uvc powerline -11 -2 1 1 -10 1 1
+uvc powerline -11 -2 1 1 -6 0 1
+uvc powerline -11 -2 1 1 -6 1 1
+uvc powerline -11 -2 1 1 -2 0 1
+uvc powerline -11 -2 1 1 -2 1 1
+uvc powerline -11 -2 1 1 -1 0 0
+uvc powerline -11 -2 1 1 -1 1 1
+uvc powerline -11 -2 1 1 4005 0 0
+uvc powerline -11 -2 1 1 4005 1 1
+uvc powerline 2800 6500 10 0 2799 0 0
+uvc powerline 2800 6500 10 0 2799 1 0
+uvc powerline 2800 6500 10 0 2800 0 1
+uvc powerline 2800 6500 10 0 2800 1 0
+uvc powerline 2800 6500 10 0 2801 0 0
+uvc powerline 2800 6500 10 0 2801 1 0
+uvc powerline 2800 6500 10 0 4650 0 1
+uvc powerline 2800 6500 10 0 4650 1 0
+uvc powerline 2800 6500 10 0 6500 0 1
+uvc powerline 2800 6500 10 0 6500 1 0
+uvc powerline 2800 6500 10 0 6501 0 0
+uvc powerline 2800 6500 10 0 6501 1 0
+uvc powerline 2800 6500 10 0 4005 0 0
+uvc powerline 2800 6500 10 0 4005 1 0
+uvc powerline 0 255 1 0 -1 0 0
+uvc powerline 0 255 1 0 -1 1 0
+uvc powerline 0 255 1 0 0 0 1
+uvc powerline 0 255 1 0 0 1 0
+uvc powerline 0 255 1 0 1 0 1
+uvc powerline 0 255 1 0 1 1 0
+uvc powerline 0 255 1 0 128 0 1
+uvc powerline 0 255 1 0 128 1 0
+uvc powerline 0 255 1 0 255 0 1
+uvc powerline 0 255 1 0 255 1 0
+uvc powerline 0 255 1 0 256 0 0
+uvc powerline 0 255 1 0 256 1 0
+uvc powerline 0 255 1 0 4005 0 0
+uvc powerline 0 255 1 0 4005 1 0
+uvc powerline 0 3 1 0 -1 0 0
+uvc powerline 0 3 1 0 -1 1 0
+uvc powerline 0 3 1 0 0 0 1
+uvc powerline 0 3 1 0 0 1 0
+uvc powerline 0 3 1 0 1 0 1
+uvc powerline 0 3 1 0 1 1 0
+uvc powerline 0 3 1 0 2 0 1
+uvc powerline 0 3 1 0 2 1 0
+uvc powerline 0 3 1 0 3 0 1
+uvc powerline 0 3 1 0 3 1 0
+uvc powerline 0 3 1 0 4 0 0
+uvc powerline 0 3 1 0 4 1 0
+uvc powerline 0 3 1 0 4005 0 0
+uvc powerline 0 3 1 0 4005 1 0
+uvc gain -11 -2 1 1 -12 0 0
+uvc gain -11 -2 1 1 -12 1 0
+uvc gain -11 -2 1 1 -11 0 0
+uvc gain -11 -2 1 1 -11 1 0
+uvc gain -11 -2 1 1 -10 0 0
+uvc gain -11 -2 1 1 -10 1 0
+uvc gain -11 -2 1 1 -6 0 0
+uvc gain -11 -2 1 1 -6 1 0
+uvc gain -11 -2 1 1 -2 0 0
+uvc gain -11 -2 1 1 -2 1 0
+uvc gain -11 -2 1 1 -1 0 0
+uvc gain -11 -2 1 1 -1 1 0
+uvc gain -11 -2 1 1 4005 0 0
+uvc gain -11 -2 1 1 4005 1 0
+uvc gain 2800 6500 10 0 2799 0 0
+uvc gain 2800 6500 10 0 2799 1 0
+uvc gain 2800 6500 10 0 2800 0 0
+uvc gain 2800 6500 10 0 2800 1 0
+uvc gain 2800 6500 10 0 2801 0 0
+uvc gain 2800 6500 10 0 2801 1 0
+uvc gain 2800 6500 10 0 4650 0 0
+uvc gain 2800 6500 10 0 4650 1 0
+uvc gain 2800 6500 10 0 6500 0 0
+uvc gain 2800 6500 10 0 6500 1 0
+uvc gain 2800 6500 10 0 6501 0 0
+uvc gain 2800 6500 10 0 6501 1 0
+uvc gain 2800 6500 10 0 4005 0 0
+uvc gain 2800 6500 10 0 4005 1 0
+uvc gain 0 255 1 0 -1 0 0
+uvc gain 0 255 1 0 -1 1 0
+uvc gain 0 255 1 0 0 0 0
+uvc gain 0 255 1 0 0 1 0
+uvc gain 0 255 1 0 1 0 0
+uvc gain 0 255 1 0 1 1 0
+uvc gain 0 255 1 0 128 0 0
+uvc gain 0 255 1 0 128 1 0
+uvc gain 0 255 1 0 255 0 0
+uvc gain 0 255 1 0 255 1 0
+uvc gain 0 255 1 0 256 0 0
+uvc gain 0 255 1 0 256 1 0
+uvc gain 0 255 1 0 4005 0 0
+uvc gain 0 255 1 0 4005 1 0
+uvc gain 0 3 1 0 -1 0 0
+uvc gain 0 3 1 0 -1 1 0
+uvc gain 0 3 1 0 0 0 0
+uvc gain 0 3 1 0 0 1 0
+uvc gain 0 3 1 0 1 0 0
+uvc gain 0 3 1 0 1 1 0
+uvc gain 0 3 1 0 2 0 0
+uvc gain 0 3 1 0 2 1 0
+uvc gain 0 3 1 0 3 0 0
+uvc gain 0 3 1 0 3 1 0
+uvc gain 0 3 1 0 4 0 0
+uvc gain 0 3 1 0 4 1 0
+uvc gain 0 3 1 0 4005 0 0
+uvc gain 0 3 1 0 4005 1 0
+uvc roll -11 -2 1 1 -12 0 0
+uvc roll -11 -2 1 1 -12 1 0
+uvc roll -11 -2 1 1 -11 0 0
+uvc roll -11 -2 1 1 -11 1 0
+uvc roll -11 -2 1 1 -10 0 0
+uvc roll -11 -2 1 1 -10 1 0
+uvc roll -11 -2 1 1 -6 0 0
+uvc roll -11 -2 1 1 -6 1 0
+uvc roll -11 -2 1 1 -2 0 0
+uvc roll -11 -2 1 1 -2 1 0
+uvc roll -11 -2 1 1 -1 0 0
+uvc roll -11 -2 1 1 -1 1 0
+uvc roll -11 -2 1 1 4005 0 0
+uvc roll -11 -2 1 1 4005 1 0
+uvc roll 2800 6500 10 0 2799 0 0
+uvc roll 2800 6500 10 0 2799 1 0
+uvc roll 2800 6500 10 0 2800 0 0
+uvc roll 2800 6500 10 0 2800 1 0
+uvc roll 2800 6500 10 0 2801 0 0
+uvc roll 2800 6500 10 0 2801 1 0
+uvc roll 2800 6500 10 0 4650 0 0
+uvc roll 2800 6500 10 0 4650 1 0
+uvc roll 2800 6500 10 0 6500 0 0
+uvc roll 2800 6500 10 0 6500 1 0
+uvc roll 2800 6500 10 0 6501 0 0
+uvc roll 2800 6500 10 0 6501 1 0
+uvc roll 2800 6500 10 0 4005 0 0
+uvc roll 2800 6500 10 0 4005 1 0
+uvc roll 0 255 1 0 -1 0 0
+uvc roll 0 255 1 0 -1 1 0
+uvc roll 0 255 1 0 0 0 0
+uvc roll 0 255 1 0 0 1 0
+uvc roll 0 255 1 0 1 0 0
+uvc roll 0 255 1 0 1 1 0
+uvc roll 0 255 1 0 128 0 0
+uvc roll 0 255 1 0 128 1 0
+uvc roll 0 255 1 0 255 0 0
+uvc roll 0 255 1 0 255 1 0
+uvc roll 0 255 1 0 256 0 0
+uvc roll 0 255 1 0 256 1 0
+uvc roll 0 255 1 0 4005 0 0
+uvc roll 0 255 1 0 4005 1 0
+uvc roll 0 3 1 0 -1 0 0
+uvc roll 0 3 1 0 -1 1 0
+uvc roll 0 3 1 0 0 0 0
+uvc roll 0 3 1 0 0 1 0
+uvc roll 0 3 1 0 1 0 0
+uvc roll 0 3 1 0 1 1 0
+uvc roll 0 3 1 0 2 0 0
+uvc roll 0 3 1 0 2 1 0
+uvc roll 0 3 1 0 3 0 0
+uvc roll 0 3 1 0 3 1 0
+uvc roll 0 3 1 0 4 0 0
+uvc roll 0 3 1 0 4 1 0
+uvc roll 0 3 1 0 4005 0 0
+uvc roll 0 3 1 0 4005 1 0
+uvc iris -11 -2 1 1 -12 0 0
+uvc iris -11 -2 1 1 -12 1 0
+uvc iris -11 -2 1 1 -11 0 0
+uvc iris -11 -2 1 1 -11 1 0
+uvc iris -11 -2 1 1 -10 0 0
+uvc iris -11 -2 1 1 -10 1 0
+uvc iris -11 -2 1 1 -6 0 0
+uvc iris -11 -2 1 1 -6 1 0
+uvc iris -11 -2 1 1 -2 0 0
+uvc iris -11 -2 1 1 -2 1 0
+uvc iris -11 -2 1 1 -1 0 0
+uvc iris -11 -2 1 1 -1 1 0
+uvc iris -11 -2 1 1 4005 0 0
+uvc iris -11 -2 1 1 4005 1 0
+uvc iris 2800 6500 10 0 2799 0 0
+uvc iris 2800 6500 10 0 2799 1 0
+uvc iris 2800 6500 10 0 2800 0 0
+uvc iris 2800 6500 10 0 2800 1 0
+uvc iris 2800 6500 10 0 2801 0 0
+uvc iris 2800 6500 10 0 2801 1 0
+uvc iris 2800 6500 10 0 4650 0 0
+uvc iris 2800 6500 10 0 4650 1 0
+uvc iris 2800 6500 10 0 6500 0 0
+uvc iris 2800 6500 10 0 6500 1 0
+uvc iris 2800 6500 10 0 6501 0 0
+uvc iris 2800 6500 10 0 6501 1 0
+uvc iris 2800 6500 10 0 4005 0 0
+uvc iris 2800 6500 10 0 4005 1 0
+uvc iris 0 255 1 0 -1 0 0
+uvc iris 0 255 1 0 -1 1 0
+uvc iris 0 255 1 0 0 0 0
+uvc iris 0 255 1 0 0 1 0
+uvc iris 0 255 1 0 1 0 0
+uvc iris 0 255 1 0 1 1 0
+uvc iris 0 255 1 0 128 0 0
+uvc iris 0 255 1 0 128 1 0
+uvc iris 0 255 1 0 255 0 0
+uvc iris 0 255 1 0 255 1 0
+uvc iris 0 255 1 0 256 0 0
+uvc iris 0 255 1 0 256 1 0
+uvc iris 0 255 1 0 4005 0 0
+uvc iris 0 255 1 0 4005 1 0
+uvc iris 0 3 1 0 -1 0 0
+uvc iris 0 3 1 0 -1 1 0
+uvc iris 0 3 1 0 0 0 0
+uvc iris 0 3 1 0 0 1 0
+uvc iris 0 3 1 0 1 0 0
+uvc iris 0 3 1 0 1 1 0
+uvc iris 0 3 1 0 2 0 0
+uvc iris 0 3 1 0 2 1 0
+uvc iris 0 3 1 0 3 0 0
+uvc iris 0 3 1 0 3 1 0
+uvc iris 0 3 1 0 4 0 0
+uvc iris 0 3 1 0 4 1 0
+uvc iris 0 3 1 0 4005 0 0
+uvc iris 0 3 1 0 4005 1 0
+uvc hue -11 -2 1 1 -12 0 0
+uvc hue -11 -2 1 1 -12 1 0
+uvc hue -11 -2 1 1 -11 0 0
+uvc hue -11 -2 1 1 -11 1 0
+uvc hue -11 -2 1 1 -10 0 0
+uvc hue -11 -2 1 1 -10 1 0
+uvc hue -11 -2 1 1 -6 0 0
+uvc hue -11 -2 1 1 -6 1 0
+uvc hue -11 -2 1 1 -2 0 0
+uvc hue -11 -2 1 1 -2 1 0
+uvc hue -11 -2 1 1 -1 0 0
+uvc hue -11 -2 1 1 -1 1 0
+uvc hue -11 -2 1 1 4005 0 0
+uvc hue -11 -2 1 1 4005 1 0
+uvc hue 2800 6500 10 0 2799 0 0
+uvc hue 2800 6500 10 0 2799 1 0
+uvc hue 2800 6500 10 0 2800 0 0
+uvc hue 2800 6500 10 0 2800 1 0
+uvc hue 2800 6500 10 0 2801 0 0
+uvc hue 2800 6500 10 0 2801 1 0
+uvc hue 2800 6500 10 0 4650 0 0
+uvc hue 2800 6500 10 0 4650 1 0
+uvc hue 2800 6500 10 0 6500 0 0
+uvc hue 2800 6500 10 0 6500 1 0
+uvc hue 2800 6500 10 0 6501 0 0
+uvc hue 2800 6500 10 0 6501 1 0
+uvc hue 2800 6500 10 0 4005 0 0
+uvc hue 2800 6500 10 0 4005 1 0
+uvc hue 0 255 1 0 -1 0 0
+uvc hue 0 255 1 0 -1 1 0
+uvc hue 0 255 1 0 0 0 0
+uvc hue 0 255 1 0 0 1 0
+uvc hue 0 255 1 0 1 0 0
+uvc hue 0 255 1 0 1 1 0
+uvc hue 0 255 1 0 128 0 0
+uvc hue 0 255 1 0 128 1 0
+uvc hue 0 255 1 0 255 0 0
+uvc hue 0 255 1 0 255 1 0
+uvc hue 0 255 1 0 256 0 0
+uvc hue 0 255 1 0 256 1 0
+uvc hue 0 255 1 0 4005 0 0
+uvc hue 0 255 1 0 4005 1 0
+uvc hue 0 3 1 0 -1 0 0
+uvc hue 0 3 1 0 -1 1 0
+uvc hue 0 3 1 0 0 0 0
+uvc hue 0 3 1 0 0 1 0
+uvc hue 0 3 1 0 1 0 0
+uvc hue 0 3 1 0 1 1 0
+uvc hue 0 3 1 0 2 0 0
+uvc hue 0 3 1 0 2 1 0
+uvc hue 0 3 1 0 3 0 0
+uvc hue 0 3 1 0 3 1 0
+uvc hue 0 3 1 0 4 0 0
+uvc hue 0 3 1 0 4 1 0
+uvc hue 0 3 1 0 4005 0 0
+uvc hue 0 3 1 0 4005 1 0

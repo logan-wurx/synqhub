@@ -1,0 +1,11 @@
+[
+ ["8BitDo", "8bitdo-ultimate", "8BitDo Ultimate 2.4G", ["2dc8:3106", "2dc8:3012", "2dc8:3011", "2dc8:3109", "2dc8:6007"], ["8bitdo ultimate", "ultimate wireless controller", "ultimate 2 4g", "ultimate 2 4g wireless controller"], ["8bitdo.com/ultimate-2.4g-wireless-controller*", "shop.8bitdo.com/products/8bitdo-ultimate-2-4g-wireless-controller*"], "ultimate|cdn\\.shopify"],
+ ["Razer", "razer-wolverine-v2-chroma", "Razer Wolverine V2 Chroma", ["1532:0a2e", "1532:0a29"], ["wolverine v2 chroma", "razer wolverine v2 chroma", "wolverine v2", "razer wolverine v2"], ["razer.com/console-controllers/razer-wolverine-v2-chroma*"], "wolverine[^/]*chroma|wolverine-v2"],
+ ["Razer", "razer-wolverine-v2-pro", "Razer Wolverine V2 Pro", ["1532:100b", "1532:100c"], ["wolverine v2 pro", "razer wolverine v2 pro"], ["razer.com/console-controllers/razer-wolverine-v2-pro*"], "wolverine[^/]*v2[^/]*pro|wolverine-v2-pro"],
+ ["Flydigi", "flydigi-vader-4-pro", "Flydigi Vader 4 Pro", [], ["vader 4 pro", "flydigi vader 4 pro"], ["shops.flydigi.com/products/vader4pro*", "shops.flydigi.com/products/vader-4-pro*"], "cdn\\.shopify"],
+ ["Flydigi", "flydigi-vader-3-pro", "Flydigi Vader 3 Pro", [], ["vader 3 pro", "vader 3", "flydigi vader 3 pro", "flydigi vader 3"], ["shops.flydigi.com/products/vader3pro*", "shops.flydigi.com/products/vader-3-pro*"], "cdn\\.shopify"],
+ ["Flydigi", "flydigi-apex-4", "Flydigi Apex 4", [], ["apex 4", "flydigi apex 4"], ["shops.flydigi.com/products/apex4*", "shops.flydigi.com/products/apex-4*"], "cdn\\.shopify"],
+ ["Turtle Beach", "turtle-beach-recon-controller", "Turtle Beach Recon Controller", ["10f5:7005", "10f5:7008", "10f5:7009"], ["recon controller", "turtle beach recon controller"], ["turtlebeach.com/products/recon-controller*"], "[Rr]econ"],
+ ["Turtle Beach", "turtle-beach-react-r", "Turtle Beach REACT-R", ["10f5:7013"], ["react r", "react r controller", "turtle beach react r"], ["turtlebeach.com/products/react-r-controller*"], "[Rr]eact"],
+ ["HORI", "hori-fighting-commander-octa", "HORI Fighting Commander OCTA", ["0f0d:0150", "0f0d:0162", "0f0d:0163", "0f0d:0164"], ["fighting commander octa", "hori fighting commander octa"], ["stores.horiusa.com/fighting-commander-octa*", "horiusa.com/products/fighting-commander-octa*"], "octa|cdn\\.shopify|bigcommerce"]
+]

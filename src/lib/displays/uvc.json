@@ -1,0 +1,15 @@
+{
+  "note": "The webcam (UVC) controls SYNQ may set, shared by src/lib/displays/uvc.ts and src-tauri/src/webcams.rs: IAMCameraControl (iface camera) and IAMVideoProcAmp (iface proc) property numbers from ksmedia.h. A value must be inside the range and on the step the camera reports; auto only where the camera says it has one. Vendor extension units, factory defaults and anything else are never sent.",
+  "allowed": [
+    { "id": "exposure", "label": "Exposure", "iface": "camera", "prop": 4 },
+    { "id": "focus", "label": "Focus", "iface": "camera", "prop": 6 },
+    { "id": "zoom", "label": "Zoom", "iface": "camera", "prop": 3 },
+    { "id": "pan", "label": "Pan", "iface": "camera", "prop": 0 },
+    { "id": "tilt", "label": "Tilt", "iface": "camera", "prop": 1 },
+    { "id": "brightness", "label": "Brightness", "iface": "proc", "prop": 0 },
+    { "id": "contrast", "label": "Contrast", "iface": "proc", "prop": 1 },
+    { "id": "saturation", "label": "Saturation", "iface": "proc", "prop": 3 },
+    { "id": "whiteBalance", "label": "White balance", "iface": "proc", "prop": 7, "unit": "K" },
+    { "id": "powerline", "label": "Power line frequency", "iface": "proc", "prop": 13, "labels": { "0": "Off", "1": "50 Hz", "2": "60 Hz", "3": "Auto" } }
+  ]
+}

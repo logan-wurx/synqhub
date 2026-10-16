@@ -1,0 +1,28 @@
+name: Support my device
+description: Ask for a mouse, keyboard, controller, headset, light, monitor or webcam SYNQ doesn't handle yet.
+labels: [device support]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Device
+      description: Maker and exact model.
+      placeholder: Razer Viper V3 Pro
+    validations:
+      required: true
+  - type: input
+    id: ids
+    attributes:
+      label: USB id or Bluetooth name
+      description: Windows Device Manager › the device › Details › Hardware Ids (VID_xxxx&PID_xxxx), or the name it shows in Bluetooth.
+  - type: textarea
+    id: want
+    attributes:
+      label: What you'd like to change
+      description: The settings you use most, and where you change them today (the maker's app, a website, the device's buttons).
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help test?
+      options:
+        - label: I can try a test build on this device and send a diagnostics file.

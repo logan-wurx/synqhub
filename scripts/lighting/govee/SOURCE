@@ -1,0 +1,6 @@
+catalogue.json: every Govee model's scene catalogue (codes, names, groups, parameter data, deduplicated) as Govee publishes
+it per SKU and Beshelmek/govee_ble_lights mirrors it in custom_components/govee-ble-lights/jsons/<SKU>.json, commit
+fc13097ef54c7b4a77f044659c138965e8b2d91a (MIT licence, (c) 2021 Vladimir Votyakov). Made by extract-catalogue.ts from
+those files; SYNQ reads it at build time only (scripts/gen-govee-scenes.ts); nothing is fetched at run time.
+
+models.json: SYNQ's own table of the models it drives and how each takes colour (see its "about").

@@ -1,0 +1,39 @@
+{
+  "source": "HeadsetControl (https://github.com/Sapd/HeadsetControl, GPL-3.0), lib/devices/*.hpp, master 2026-10-14",
+  "families": {
+    "ss-nova7": {"brand": "SteelSeries", "collections": [[65472, 1]], "transport": "output", "reports": [0], "length": 64},
+    "logi-g535": {"brand": "Logitech", "collections": [[12, 1]], "transport": "output", "reports": [17], "length": 20},
+    "logi-gpro": {"brand": "Logitech", "collections": [[65347, 514]], "transport": "output", "reports": [17], "length": 20},
+    "logi-g633": {"brand": "Logitech", "collections": [[65347, 514]], "transport": "output", "reports": [17], "length": 20},
+    "hyperx-cloud2w": {"brand": "HyperX", "collections": [[65424, 771]], "transport": "output", "reports": [6], "length": 52}
+  },
+  "models": [
+    {"vid": "1038", "pid": "2202", "family": "ss-nova7", "name": "Arctis Nova 7", "battery": "levels"},
+    {"vid": "1038", "pid": "22a1", "family": "ss-nova7", "name": "Arctis Nova 7", "battery": "percent"},
+    {"vid": "1038", "pid": "227e", "family": "ss-nova7", "name": "Arctis Nova 7 Wireless Gen 2", "battery": "percent", "saveAfterSidetone": true},
+    {"vid": "1038", "pid": "2206", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "levels"},
+    {"vid": "1038", "pid": "2258", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "percent"},
+    {"vid": "1038", "pid": "229e", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "percent"},
+    {"vid": "1038", "pid": "22ad", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "percent"},
+    {"vid": "1038", "pid": "223a", "family": "ss-nova7", "name": "Arctis Nova 7 Diablo IV", "battery": "levels"},
+    {"vid": "1038", "pid": "22a9", "family": "ss-nova7", "name": "Arctis Nova 7 Diablo IV", "battery": "percent"},
+    {"vid": "1038", "pid": "227a", "family": "ss-nova7", "name": "Arctis Nova 7 WoW Edition", "battery": "levels"},
+    {"vid": "1038", "pid": "22a4", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "levels"},
+    {"vid": "1038", "pid": "22a5", "family": "ss-nova7", "name": "Arctis Nova 7X", "battery": "percent"},
+    {"vid": "046d", "pid": "0ac4", "family": "logi-g535", "name": "G535", "battery": "voltage", "calibration": "g535"},
+    {"vid": "046d", "pid": "0aa7", "family": "logi-gpro", "name": "PRO Wireless Headset", "battery": "voltage", "calibration": "gpro"},
+    {"vid": "046d", "pid": "0aaa", "family": "logi-gpro", "name": "PRO X Wireless", "battery": "voltage", "calibration": "gpro"},
+    {"vid": "046d", "pid": "0aba", "family": "logi-gpro", "name": "PRO X Wireless", "battery": "voltage", "calibration": "gpro"},
+    {"vid": "046d", "pid": "0afb", "family": "logi-gpro", "name": "PRO X 2", "battery": "voltage", "calibration": "gpro"},
+    {"vid": "046d", "pid": "0afc", "family": "logi-gpro", "name": "PRO X 2", "battery": "voltage", "calibration": "gpro"},
+    {"vid": "046d", "pid": "0a5c", "family": "logi-g633", "name": "G633", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0a89", "family": "logi-g633", "name": "G635", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0a5b", "family": "logi-g633", "name": "G933", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0a87", "family": "logi-g633", "name": "G935", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0ab5", "family": "logi-g633", "name": "G733", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0afe", "family": "logi-g633", "name": "G733", "battery": "voltage", "calibration": "g633"},
+    {"vid": "046d", "pid": "0b1f", "family": "logi-g633", "name": "G733", "battery": "voltage", "calibration": "g633"},
+    {"vid": "03f0", "pid": "0696", "family": "hyperx-cloud2w", "name": "Cloud II Wireless", "battery": "percent"},
+    {"vid": "03f0", "pid": "018b", "family": "hyperx-cloud2w", "name": "Cloud II Wireless", "battery": "percent"}
+  ]
+}

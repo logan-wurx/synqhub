@@ -1,0 +1,39 @@
+name: Bug report
+description: Something on a device or a page doesn't work the way it says.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! If this could damage a device or your PC, please don't post it here: see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: SYNQ version
+      description: Settings › About › Version.
+      placeholder: 0.1.0-beta.6
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: The model, how it's connected (cable, receiver, Bluetooth), and its USB id if you know it.
+      placeholder: Logitech PRO X 2 DEX, receiver, 046d:c54d
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: If the device's page has **Save diagnostics**, attach the file here. It holds only what SYNQ sent to and heard from the device.
+  - type: dropdown
+    id: os
+    attributes:
+      label: System
+      options: [Windows 11, Windows 10, Linux, Website (browser)]

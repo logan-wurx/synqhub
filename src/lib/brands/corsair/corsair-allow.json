@@ -1,0 +1,318 @@
+{
+ "note": "CORSAIR allow spec. Bragi: output report 0 on 0xFF42 usage 1 (length from the descriptor, 64). Sabre v2: output report 8, 16 bytes, checksum to 0x55. Anything not listed is refused.",
+ "vendorId": "1b1c",
+ "framingByPid": {
+  "2b00": "v1",
+  "2b04": "v1",
+  "2b0c": "v15",
+  "2b0d": "v15",
+  "2b0e": "v15",
+  "2b0f": "v15",
+  "2b1a": "v1",
+  "2b1b": "v15",
+  "2b1c": "v15",
+  "2b21": "v15",
+  "2b22": "v1",
+  "2b25": "sabre-eeprom",
+  "2b28": "sabre-eeprom",
+  "2b29": "sabre-eeprom",
+  "2b2a": "sabre-eeprom",
+  "2b2e": "v1",
+  "2b30": "v15",
+  "2b31": "v1",
+  "2b33": "v15",
+  "2b34": "sabre-eeprom",
+  "2b35": "sabre-eeprom",
+  "2b3c": "v15",
+  "2b3d": "v1",
+  "2b3e": "v1",
+  "2b3f": "v15",
+  "2b40": "v15",
+  "2b41": "v15",
+  "2b42": "v15",
+  "2b43": "v15",
+  "2b44": "v15",
+  "2b45": "v15",
+  "2b54": "v15",
+  "2b5b": "v1"
+ },
+ "familyByPid": {
+  "2b00": "receiver",
+  "2b04": "kb",
+  "2b0c": "kb",
+  "2b0d": "kb",
+  "2b0e": "kb-he",
+  "2b0f": "kb",
+  "2b1a": "kb-he",
+  "2b1b": "receiver",
+  "2b1c": "mouse-bragi",
+  "2b21": "kb",
+  "2b22": "mouse-bragi",
+  "2b25": "mouse-sabre",
+  "2b28": "mouse-sabre",
+  "2b29": "mouse-sabre",
+  "2b2a": "mouse-sabre",
+  "2b2e": "mouse-bragi",
+  "2b30": "kb-he",
+  "2b31": "kb-he",
+  "2b33": "mouse-bragi",
+  "2b34": "mouse-sabre",
+  "2b35": "mouse-sabre",
+  "2b3c": "receiver",
+  "2b3d": "kb",
+  "2b3e": "kb",
+  "2b3f": "mouse-bragi",
+  "2b40": "mouse-bragi",
+  "2b41": "mouse-bragi",
+  "2b42": "receiver",
+  "2b43": "mouse-bragi",
+  "2b44": "mouse-bragi",
+  "2b45": "mouse-bragi",
+  "2b54": "kb-he",
+  "2b5b": "kb-he"
+ },
+ "bragi": {
+  "commandsAllowed": {
+   "0x01": "SET (setAllowed only)",
+   "0x02": "GET (getAllowed only)",
+   "0x05": "close buffer 0 (01 00)",
+   "0x06": "write begin (buffer 0, open writable file, total <= 4096)",
+   "0x07": "write continue (same)",
+   "0x08": "read buffer 0",
+   "0x09": "describe buffer 0",
+   "0x0D": "open (buffer 0, readable file)",
+   "0x12": "ping, empty payload only",
+   "0x1B": "session start, or stop of our own session (v1.5)"
+  },
+  "commandsBlocked": {
+   "0x03": "get multiple",
+   "0x0A": "calibration",
+   "0x0B": "create file",
+   "0x0C": "delete file",
+   "0x0F": "factory reset",
+   "0x10": "apply firmware",
+   "0x11": "pairing",
+   "0x16": "apply firmware extended"
+  },
+  "setAllowed": {
+   "0x1": {
+    "what": "polling rate (1..7 = 125..8000 Hz)",
+    "min": 1,
+    "max": 7,
+    "families": [
+     "kb-he",
+     "kb",
+     "mouse-bragi",
+     "receiver"
+    ]
+   },
+   "0x2": {
+    "what": "brightness (0..1000)",
+    "min": 0,
+    "max": 1000,
+    "families": [
+     "kb-he",
+     "kb"
+    ]
+   },
+   "0x3": {
+    "what": "operating mode (1 self-operated / 2 host-controlled)",
+    "min": 1,
+    "max": 2,
+    "families": [
+     "kb-he",
+     "kb",
+     "mouse-bragi",
+     "receiver"
+    ]
+   },
+   "0x6e": {
+    "what": "active hardware profile (0..4)",
+    "min": 0,
+    "max": 4,
+    "families": [
+     "kb-he",
+     "kb",
+     "mouse-bragi"
+    ]
+   },
+   "0x6": {
+    "what": "lift height (1..7)",
+    "min": 1,
+    "max": 7,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x7": {
+    "what": "angle snapping (0/1)",
+    "min": 0,
+    "max": 1,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0xa": {
+    "what": "debounce (5..14)",
+    "min": 5,
+    "max": 14,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x38": {
+    "what": "debounce, second property (5..14)",
+    "min": 5,
+    "max": 14,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x18": {
+    "what": "DPI stage 1",
+    "min": 100,
+    "max": 65535,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x19": {
+    "what": "DPI stage 2",
+    "min": 100,
+    "max": 65535,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x1a": {
+    "what": "DPI stage 3",
+    "min": 100,
+    "max": 65535,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x1b": {
+    "what": "DPI stage 4",
+    "min": 100,
+    "max": 65535,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x1c": {
+    "what": "DPI stage 5",
+    "min": 100,
+    "max": 65535,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x1e": {
+    "what": "active DPI stage (0..4)",
+    "min": 0,
+    "max": 4,
+    "families": [
+     "mouse-bragi"
+    ]
+   },
+   "0x113": {
+    "what": "motion sync (0/1)",
+    "min": 0,
+    "max": 1,
+    "families": [
+     "mouse-bragi"
+    ]
+   }
+  },
+  "getAllowed": [
+   "0x1",
+   "0x2",
+   "0x3",
+   "0x6",
+   "0x7",
+   "0x8",
+   "0xa",
+   "0xf",
+   "0x10",
+   "0x11",
+   "0x12",
+   "0x13",
+   "0x14",
+   "0x18",
+   "0x19",
+   "0x1a",
+   "0x1b",
+   "0x1c",
+   "0x1d",
+   "0x1e",
+   "0x1f",
+   "0x36",
+   "0x38",
+   "0x3a",
+   "0x41",
+   "0x6e",
+   "0x96",
+   "0xdf",
+   "0x105",
+   "0x113"
+  ],
+  "readableFiles": {
+   "fixed": [
+    15,
+    38
+   ],
+   "hostRange": [
+    28000,
+    32767
+   ],
+   "excluded": [
+    31000,
+    30999,
+    30998,
+    30997,
+    30996,
+    28399,
+    28398,
+    28397,
+    28396
+   ]
+  },
+  "writableFiles": {
+   "hostRange": [
+    28000,
+    32767
+   ],
+   "excluded": [
+    31000,
+    30999,
+    30998,
+    30997,
+    30996,
+    28399,
+    28398,
+    28397,
+    28396
+   ]
+  },
+  "operatingModeValues": [
+   1,
+   2
+  ]
+ },
+ "sabre": {
+  "commandsAllowed": [
+   "0x04 battery",
+   "0x08 EEPROM read (len 1..10, addr <= 0x2FF)",
+   "0x12 / 0x1D versions",
+   "0x07 EEPROM write: 0x00 polling {1,16,32,64}, 0x04 stage, 0x0A LOD {0,3,4}, 0x0C+4i DPI rows, 0xAB / 0xAF / 0xB1 toggles"
+  ],
+  "blocked": [
+   "0x01",
+   "0x02",
+   "0x09",
+   "writes 0xDB-0xDF",
+   "feature report 6"
+  ]
+ }
+}

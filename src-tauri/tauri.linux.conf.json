@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "app": {
+    "windows": [
+      {
+        "title": "SYNQ",
+        "width": 1240,
+        "height": 860,
+        "minWidth": 1040,
+        "minHeight": 640,
+        "center": true,
+        "backgroundColor": "#121113"
+      }
+    ]
+  },
+  "bundle": {
+    "targets": ["deb", "appimage"],
+    "category": "Utility",
+    "resources": {
+      "eq-engine/EqualizerAPO-x64-1.4.2.exe": null
+    },
+    "linux": {
+      "deb": {
+        "depends": ["libudev1"],
+        "recommends": ["pipewire-bin", "curl"],
+        "files": {
+          "/usr/bin/synq-helper": "target/release/synq-helper",
+          "/usr/lib/udev/rules.d/70-onboard-hub.rules": "linux/70-onboard-hub.rules"
+        },
+        "postInstallScript": "linux/deb/postinst.sh",
+        "preRemoveScript": "linux/deb/prerm.sh",
+        "postRemoveScript": "linux/deb/postrm.sh"
+      },
+      "appimage": {
+        "bundleMediaFramework": false,
+        "files": {
+          "/usr/bin/synq-helper": "target/release/synq-helper",
+          "/usr/share/onboard-hub/70-onboard-hub.rules": "linux/70-onboard-hub.rules"
+        }
+      }
+    }
+  }
+}

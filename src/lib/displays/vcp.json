@@ -1,0 +1,15 @@
+{
+  "note": "The DDC/CI (MCCS) codes SYNQ may write, shared by src/lib/displays/vcp.ts and src-tauri/src/monitors.rs. continuous: 0..the maximum the monitor reports. listed: one of the values the monitor's capabilities string lists. Everything else is never written: the factory and restore codes (0x04, 0x05, 0x06, 0x08, 0x0A, 0x0C), power mode 0xD6, manufacturer codes 0xE0-0xFF and anything unknown.",
+  "allowed": [
+    { "code": 16, "id": "brightness", "label": "Brightness", "rule": "continuous" },
+    { "code": 18, "id": "contrast", "label": "Contrast", "rule": "continuous" },
+    { "code": 20, "id": "colorPreset", "label": "Colour preset", "rule": "listed" },
+    { "code": 22, "id": "redGain", "label": "Red", "rule": "continuous" },
+    { "code": 24, "id": "greenGain", "label": "Green", "rule": "continuous" },
+    { "code": 26, "id": "blueGain", "label": "Blue", "rule": "continuous" },
+    { "code": 98, "id": "volume", "label": "Speaker volume", "rule": "continuous" },
+    { "code": 141, "id": "mute", "label": "Speaker mute", "rule": "listed" },
+    { "code": 96, "id": "input", "label": "Input", "rule": "listed", "confirm": true }
+  ],
+  "readOnly": [214, 223]
+}

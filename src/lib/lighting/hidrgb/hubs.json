@@ -1,0 +1,32 @@
+{
+  "source": "OpenRGB (GPL-2.0, gitlab.com/CalcProgrammer1/OpenRGB): Controllers/NZXTHue2Controller, CorsairLightingNodeController, LianLiController/LianLiUniHubSLController. Protocol facts only; no code copied.",
+  "families": {
+    "nzxt-hue2": { "brand": "NZXT", "maxLeds": 40, "collection": null },
+    "corsair-node": { "brand": "Corsair", "maxLeds": 204, "collection": null },
+    "lianli-sl": { "brand": "Lian Li", "maxLeds": 64, "collection": [65394, 161] }
+  },
+  "models": [
+    { "vid": "1e71", "pid": "2001", "family": "nzxt-hue2", "name": "NZXT HUE 2", "channels": 4 },
+    { "vid": "1e71", "pid": "2002", "family": "nzxt-hue2", "name": "NZXT HUE 2 Ambient", "channels": 2 },
+    { "vid": "1e71", "pid": "2006", "family": "nzxt-hue2", "name": "NZXT Smart Device V2", "channels": 2 },
+    { "vid": "1e71", "pid": "2009", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 2 },
+    { "vid": "1e71", "pid": "200e", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 2 },
+    { "vid": "1e71", "pid": "2010", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 2 },
+    { "vid": "1e71", "pid": "2011", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 6 },
+    { "vid": "1e71", "pid": "2019", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 6 },
+    { "vid": "1e71", "pid": "201f", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 6 },
+    { "vid": "1e71", "pid": "2020", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller", "channels": 6 },
+    { "vid": "1e71", "pid": "2022", "family": "nzxt-hue2", "name": "NZXT RGB & Fan Controller (2024)", "channels": 6 },
+    { "vid": "1e71", "pid": "2012", "family": "nzxt-hue2", "name": "NZXT RGB Controller", "channels": 3 },
+    { "vid": "1e71", "pid": "2021", "family": "nzxt-hue2", "name": "NZXT RGB Controller", "channels": 3 },
+    { "vid": "1b1c", "pid": "0c0b", "family": "corsair-node", "name": "Corsair Lighting Node Pro", "channels": 2 },
+    { "vid": "1b1c", "pid": "0c1a", "family": "corsair-node", "name": "Corsair Lighting Node Core", "channels": 1 },
+    { "vid": "1b1c", "pid": "0c10", "family": "corsair-node", "name": "Corsair Commander Pro", "channels": 2 },
+    { "vid": "1b1c", "pid": "0c1e", "family": "corsair-node", "name": "Corsair LS100 Lighting Kit", "channels": 1 },
+    { "vid": "1b1c", "pid": "0c23", "family": "corsair-node", "name": "Corsair LT100", "channels": 2 },
+    { "vid": "0cf2", "pid": "a100", "family": "lianli-sl", "name": "Lian Li Uni Hub SL", "channels": 4 }
+  ],
+  "identifyOnly": [
+    { "vid": "1b1c", "pid": "0c57", "name": "Corsair Nautilus LCD Cap", "what": "The screen cap of a Corsair Nautilus liquid cooler.", "why": "It shows only a consumer-control collection, and no open project documents its screen or lighting, so SYNQ lists it and sends it nothing." }
+  ]
+}

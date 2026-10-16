@@ -1,0 +1,4913 @@
+[
+ {
+  "brand": "Logitech",
+  "model": "G502 (all variants)",
+  "status": "supported",
+  "pids": [
+   49277,
+   49291
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G203 LIGHTSYNC",
+  "status": "supported",
+  "pids": [
+   49298
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G203 PRODIGY",
+  "status": "supported",
+  "pids": [
+   49284
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G102 LIGHTSYNC",
+  "status": "supported",
+  "pids": [
+   49289
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G402 Hyperion Fury",
+  "status": "supported",
+  "pids": [
+   49278
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G303 Daedalus Apex",
+  "status": "supported",
+  "pids": [
+   49280
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G303 Shroud Edition",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro (2017)",
+  "status": "supported",
+  "pids": [
+   49285
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 HERO (wired)",
+  "status": "supported",
+  "pids": [
+   49291
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro Hero",
+  "status": "supported",
+  "pids": [
+   49292
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX518 (Legendary)",
+  "status": "supported",
+  "pids": [
+   49294
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G903 Lightspeed",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G403 HERO (wired)",
+  "status": "supported",
+  "pids": [
+   49295
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G703 (wired)",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G703 Lightspeed",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro X Superlight",
+  "status": "supported",
+  "pids": [
+   49300
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "PRO X SUPERLIGHT 2",
+  "status": "supported",
+  "pids": [
+   49307
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "PRO X SUPERLIGHT 2 SE",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "PRO X SUPERLIGHT 2 DEX",
+  "status": "supported",
+  "pids": [
+   49312
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "PRO X2 SUPERSTRIKE",
+  "status": "supported",
+  "pids": [
+   49320,
+   16573
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "PRO X3 SUPERSTRIKE",
+  "status": "supported",
+  "pids": [
+   50511
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G305",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 3S",
+  "status": "supported",
+  "pids": [
+   50504
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X (wired)",
+  "status": "supported",
+  "pids": [
+   49305
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X PLUS (wireless)",
+  "status": "supported",
+  "pids": [
+   49301
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 X LIGHTSPEED",
+  "status": "supported",
+  "pids": [
+   49304
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Vertical",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 4",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 4S",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G304",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro Wireless",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G300s",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G600",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G603 LIGHTSPEED",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G604 LIGHTSPEED",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G Pro 2 Lightspeed",
+  "status": "supported",
+  "pids": [
+   49306
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G502 Lightspeed",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 2S",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Anywhere 3",
+  "status": "supported",
+  "pids": [
+   50504
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Anywhere 3S",
+  "status": "supported",
+  "pids": [
+   50504
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "G309 Lightspeed",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Ergo S",
+  "status": "supported",
+  "pids": [
+   50504
+  ]
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Anywhere 2",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "Compact Wireless",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G700s",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M171 Wireless",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Kone Pro Air",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Kone XP Air",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Tyon",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Nyth",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Kain 100 AIMO",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Kone Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M725 Honeycomb",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "Impact Elite M913",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "PREDATOR M612",
+  "status": "supported",
+  "pids": [
+   64609
+  ]
+ },
+ {
+  "brand": "Redragon",
+  "model": "K1ng M916 Pro 4K",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M711 Cobra",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M917 Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M991",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M703",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "TAIPAN PRO M810",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "Ranger Lite",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "Infernal Dragon",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M696 Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M721 Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M724 K1NG 1K",
+  "status": "supported",
+  "pids": [
+   64634
+  ]
+ },
+ {
+  "brand": "Fater",
+  "model": "MCR-9000B",
+  "status": "pr",
+  "pids": [
+   41119
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ07 MC",
+  "status": "pr",
+  "pids": [
+   8551
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ08 MC",
+  "status": "pr",
+  "pids": [
+   8552
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ07 MC PRO",
+  "status": "pr",
+  "pids": [
+   8567
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ08 MC PRO",
+  "status": "pr",
+  "pids": [
+   8568
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ07",
+  "status": "pr",
+  "pids": [
+   8535
+  ]
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "NJ08",
+  "status": "pr",
+  "pids": [
+   8536
+  ]
+ },
+ {
+  "brand": "Ryunix",
+  "model": "KYU Pro MX1",
+  "status": "supported",
+  "pids": [
+   622,
+   623
+  ]
+ },
+ {
+  "brand": "Delux",
+  "model": "M800 Mini",
+  "status": "supported",
+  "pids": [
+   64096,
+   64085
+  ]
+ },
+ {
+  "brand": "Dareu",
+  "model": "A950 PRO Mg",
+  "status": "supported",
+  "pids": [
+   4372,
+   4375
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X3",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X11",
+  "status": "bridge",
+  "pids": [
+   64096,
+   64085
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R5 Ultra",
+  "status": "supported",
+  "pids": [
+   70,
+   71
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X6",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R3",
+  "status": "likely",
+  "pids": [
+   16429,
+   16422
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R1",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X8 Ultra",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X8 SE",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X1",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "V3 Pro",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X3 Pro",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X11 SE",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X8 PLUS",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X12",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R6",
+  "status": "likely",
+  "pids": [
+   33,
+   34
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R8",
+  "status": "likely",
+  "pids": [
+   58,
+   59
+  ]
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "G3",
+  "status": "bridge",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R2",
+  "status": "supported",
+  "pids": [
+   16429,
+   16422
+  ]
+ },
+ {
+  "brand": "Lingbao",
+  "model": "M5 Pro",
+  "status": "supported",
+  "pids": [
+   16429,
+   16422
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V3 (wired)",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2 (wired)",
+  "status": "supported",
+  "pids": [
+   132
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2 Pro",
+  "status": "supported",
+  "pids": [
+   124,
+   125
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Cobra",
+  "status": "supported",
+  "pids": [
+   163
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V3 Pro",
+  "status": "supported",
+  "pids": [
+   192,
+   193
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V2 Pro",
+  "status": "supported",
+  "pids": [
+   165,
+   166
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V2 Pro (HyperPolling 8000 Hz)",
+  "status": "likely",
+  "pids": [
+   179
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder Essential",
+  "status": "supported",
+  "pids": [
+   110,
+   113,
+   152
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper Mini",
+  "status": "supported",
+  "pids": [
+   138
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V3 HyperSpeed",
+  "status": "supported",
+  "pids": [
+   184
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V4 Pro",
+  "status": "supported",
+  "pids": [
+   229,
+   230
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 (wired)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 Pro",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper Ultimate",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 X HyperSpeed",
+  "status": "likely",
+  "pids": [
+   185
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2 X HyperSpeed",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper 8KHz",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga V2 Pro",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V3 Pro",
+  "status": "supported",
+  "pids": [
+   182,
+   183
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V4 Pro",
+  "status": "supported",
+  "pids": [
+   190,
+   191
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V4 Pro Carbon Fiber Edition",
+  "status": "supported",
+  "pids": [
+   239,
+   240
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Trinity",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga X",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk Essential",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Orochi V2",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Cobra Pro",
+  "status": "likely",
+  "pids": [
+   175,
+   176
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper V3 Pro SE",
+  "status": "likely",
+  "pids": [
+   222,
+   223
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk X HyperSpeed",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga V2 HyperSpeed",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk Ultimate",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder Elite",
+  "status": "likely",
+  "pids": [
+   92
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus 1800",
+  "status": "likely",
+  "pids": [
+   32
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus 2000",
+  "status": "likely",
+  "pids": [
+   94
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus 2014",
+  "status": "likely",
+  "pids": [
+   66
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus Elite (D.Va Edition)",
+  "status": "likely",
+  "pids": [
+   106
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus Essential",
+  "status": "likely",
+  "pids": [
+   107
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Abyssus V2",
+  "status": "likely",
+  "pids": [
+   91
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Atheris",
+  "status": "likely",
+  "pids": [
+   98
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk Mobile",
+  "status": "likely",
+  "pids": [
+   211,
+   212
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V2",
+  "status": "likely",
+  "pids": [
+   133
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 35K",
+  "status": "likely",
+  "pids": [
+   203
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 Pro 35K",
+  "status": "likely",
+  "pids": [
+   204,
+   205
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Basilisk V3 Pro 35K Phantom Green",
+  "status": "likely",
+  "pids": [
+   214,
+   215
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder 1800",
+  "status": "likely",
+  "pids": [
+   56
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder 2000",
+  "status": "likely",
+  "pids": [
+   79
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder 2013",
+  "status": "likely",
+  "pids": [
+   55
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder 3500",
+  "status": "likely",
+  "pids": [
+   84
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder Chroma",
+  "status": "likely",
+  "pids": [
+   67
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2 Lite",
+  "status": "likely",
+  "pids": [
+   161
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V2 Mini",
+  "status": "likely",
+  "pids": [
+   140
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder V3 HyperSpeed",
+  "status": "likely",
+  "pids": [
+   196,
+   197
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Diamondback Chroma",
+  "status": "supported",
+  "pids": [
+   76
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Imperator 2012",
+  "status": "likely",
+  "pids": [
+   47
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Lancehead",
+  "status": "likely",
+  "pids": [
+   89,
+   90
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Lancehead Tournament Edition",
+  "status": "likely",
+  "pids": [
+   96
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Lancehead Wireless",
+  "status": "likely",
+  "pids": [
+   111,
+   112
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Mamba",
+  "status": "likely",
+  "pids": [
+   68,
+   69
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Mamba 2012",
+  "status": "likely",
+  "pids": [
+   36,
+   37
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Mamba Elite",
+  "status": "likely",
+  "pids": [
+   108
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Mamba Tournament Edition",
+  "status": "likely",
+  "pids": [
+   70
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Mamba Wireless",
+  "status": "likely",
+  "pids": [
+   114,
+   115
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga",
+  "status": "likely",
+  "pids": [
+   21
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga 2012",
+  "status": "likely",
+  "pids": [
+   46
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga 2014",
+  "status": "likely",
+  "pids": [
+   64
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Chroma",
+  "status": "likely",
+  "pids": [
+   83
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Epic",
+  "status": "likely",
+  "pids": [
+   31
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Epic Chroma",
+  "status": "likely",
+  "pids": [
+   62,
+   63
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Hex",
+  "status": "likely",
+  "pids": [
+   65
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Hex (Red)",
+  "status": "likely",
+  "pids": [
+   54
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Hex V2",
+  "status": "likely",
+  "pids": [
+   80
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Left-Handed Edition 2020",
+  "status": "likely",
+  "pids": [
+   141
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Naga Pro",
+  "status": "likely",
+  "pids": [
+   143,
+   144
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Orochi",
+  "status": "likely",
+  "pids": [
+   72
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Orochi 2013",
+  "status": "likely",
+  "pids": [
+   57
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Ouroboros 2012",
+  "status": "likely",
+  "pids": [
+   50
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Pro Click",
+  "status": "likely",
+  "pids": [
+   119,
+   128
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Pro Click Mini",
+  "status": "likely",
+  "pids": [
+   154
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Pro Click V2",
+  "status": "likely",
+  "pids": [
+   208,
+   209
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Pro Click V2 Vertical Edition",
+  "status": "likely",
+  "pids": [
+   199,
+   200
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Taipan",
+  "status": "likely",
+  "pids": [
+   52
+  ]
+ },
+ {
+  "brand": "Razer",
+  "model": "Viper Mini Signature Edition",
+  "status": "likely",
+  "pids": [
+   158,
+   159
+  ]
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste",
+  "status": "likely",
+  "pids": [
+   5927,
+   3983,
+   1166,
+   654
+  ]
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste 2",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste 2 Wireless",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire FPS Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Fuse",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 9 Wireless",
+  "status": "supported",
+  "pids": [
+   6234,
+   6262,
+   6232,
+   6260
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Sensei Ten",
+  "status": "supported",
+  "pids": [
+   6194,
+   6196
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 5",
+  "status": "supported",
+  "pids": [
+   6224,
+   6228,
+   6238,
+   6242,
+   6226,
+   6236,
+   6240
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 3 Wireless",
+  "status": "supported",
+  "pids": [
+   6192
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 3 (wired)",
+  "status": "supported",
+  "pids": [
+   6180,
+   6220
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 650 Wireless",
+  "status": "supported",
+  "pids": [
+   5931,
+   5926
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 3",
+  "status": "supported",
+  "pids": [
+   6198
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Prime+",
+  "status": "supported",
+  "pids": [
+   6188
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 310",
+  "status": "supported",
+  "pids": [
+   5920,
+   5918,
+   5942
+  ]
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Prime Mini Wireless",
+  "status": "supported",
+  "pids": [
+   6218,
+   6216
+  ]
+ },
+ {
+  "brand": "Corsair",
+  "model": "NIGHTSWORD RGB",
+  "status": "supported",
+  "pids": [
+   7004
+  ]
+ },
+ {
+  "brand": "Corsair",
+  "model": "Harpoon RGB Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Katar Pro",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "M65 Pro RGB",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Sabre V2 Pro Ultralight",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Scimitar Elite Wireless SE",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "M65 RGB Elite",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Scimitar RGB Elite",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Ironclaw RGB",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Ironclaw RGB Wireless",
+  "status": "pr",
+  "pids": [
+   6988,
+   7014,
+   7132
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O 2 PRO",
+  "status": "supported",
+  "pids": [
+   8217,
+   8243
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O",
+  "status": "supported",
+  "pids": [
+   8209,
+   8226
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D Wireless",
+  "status": "supported",
+  "pids": [
+   8210,
+   8227
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D",
+  "status": "supported",
+  "pids": [
+   8210
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O2 Pro 4K/8K",
+  "status": "pr",
+  "pids": [
+   8219,
+   8245
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O Pro",
+  "status": "supported",
+  "pids": [
+   8213,
+   8231
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D2 Pro 4K/8K",
+  "status": "pr",
+  "pids": [
+   8220,
+   8246
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Series 2 PRO",
+  "status": "likely",
+  "pids": [
+   8221,
+   8249
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O 2 Mini",
+  "status": "likely",
+  "pids": [
+   33386,
+   33387,
+   33389,
+   33402
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D 2 Wireless",
+  "status": "likely",
+  "pids": [
+   33354,
+   33355,
+   33357
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D 2 Wired",
+  "status": "likely",
+  "pids": [
+   33370
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D- 2 Wired",
+  "status": "likely",
+  "pids": [
+   33578
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model I 2",
+  "status": "likely",
+  "pids": [
+   33306,
+   33307,
+   33309,
+   33562
+  ]
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model O3 Wireless",
+  "status": "likely",
+  "pids": [
+   41746,
+   41728
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1",
+  "status": "supported",
+  "pids": [
+   6406
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1 RGB",
+  "status": "supported",
+  "pids": [
+   6405
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM1r",
+  "status": "supported",
+  "pids": [
+   6403
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1 8K",
+  "status": "supported",
+  "pids": [
+   6500
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1 8K Purple Frost",
+  "status": "supported",
+  "pids": [
+   6518
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1 8K v2",
+  "status": "supported",
+  "pids": [
+   6520
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1w 4K",
+  "status": "supported",
+  "pids": [
+   6514,
+   6512
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1w 4K v2",
+  "status": "supported",
+  "pids": [
+   6532,
+   6512
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "OP1we",
+  "status": "supported",
+  "pids": [
+   6497,
+   6498
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM2 8K",
+  "status": "supported",
+  "pids": [
+   6502
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM2 8K v2",
+  "status": "supported",
+  "pids": [
+   6528
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM2w 4K",
+  "status": "supported",
+  "pids": [
+   6504,
+   6512
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM2w 4K v2",
+  "status": "supported",
+  "pids": [
+   6530,
+   6512
+  ]
+ },
+ {
+  "brand": "Endgame Gear",
+  "model": "XM2we",
+  "status": "supported",
+  "pids": [
+   6496
+  ]
+ },
+ {
+  "brand": "ATK",
+  "model": "F1 V2 Ultra Max",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "VXE Dragonfly R1 Pro",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "VXE",
+  "model": "R1 Pro Max",
+  "status": "supported",
+  "pids": [
+   62858,
+   62860
+  ]
+ },
+ {
+  "brand": "VXE",
+  "model": "R1 (SE)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "VXE",
+  "model": "R1 SE+",
+  "status": "supported",
+  "pids": [
+   62862,
+   62863
+  ]
+ },
+ {
+  "brand": "ATK",
+  "model": "X1 V2 Ultimate",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "A9 Air",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "F1 Ultimate",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "F1 Ultimate 2.0",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "A9 Mini +",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "A9 Plus",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "VXE Mad R Major",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "ZERO",
+  "status": "supported",
+  "pids": [
+   4436,
+   4437
+  ]
+ },
+ {
+  "brand": "ATK",
+  "model": "VXE Zero Normal",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "VGN",
+  "model": "Dragonfly F2 Master+",
+  "status": "supported",
+  "pids": [
+   64342,
+   64343
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Beast X",
+  "status": "supported",
+  "pids": [
+   43139,
+   43140
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Beast Mini",
+  "status": "supported",
+  "pids": [
+   43141,
+   43142
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Beast X Pro",
+  "status": "supported",
+  "pids": [
+   43120,
+   43121
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Sword X",
+  "status": "supported",
+  "pids": [
+   43128,
+   43129
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Beast Max",
+  "status": "supported",
+  "pids": [
+   43136,
+   43137
+  ]
+ },
+ {
+  "brand": "WLMouse",
+  "model": "Beast X 4K",
+  "status": "pr",
+  "pids": [
+   43143
+  ]
+ },
+ {
+  "brand": "Pulsar",
+  "model": "Tenz Signature",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2h",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2 V3 ES Mini",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X3 Medium",
+  "status": "supported",
+  "pids": [
+   13321,
+   13328,
+   21506,
+   21507
+  ]
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2F",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "VAXEE",
+  "model": "XE Wireless",
+  "status": "supported",
+  "pids": [
+   4099
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01S Wireless",
+  "status": "supported",
+  "pids": [
+   4100
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "AX Wireless",
+  "status": "supported",
+  "pids": [
+   4101
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01 Wireless",
+  "status": "supported",
+  "pids": [
+   4102
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "XE-S Wireless",
+  "status": "supported",
+  "pids": [
+   4103
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "XE-S-L Wireless",
+  "status": "supported",
+  "pids": [
+   4104
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "VAXEE x Ninjutso Sora",
+  "status": "supported",
+  "pids": [
+   4105
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "E1 Wireless",
+  "status": "supported",
+  "pids": [
+   4112
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01S V2 Wireless",
+  "status": "supported",
+  "pids": [
+   4113
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "XE V2 Wireless",
+  "status": "supported",
+  "pids": [
+   4114
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01S Ergo Wireless",
+  "status": "supported",
+  "pids": [
+   4115
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01S V3 Wireless",
+  "status": "supported",
+  "pids": [
+   4116
+  ]
+ },
+ {
+  "brand": "VAXEE",
+  "model": "NP-01 Ergo Wireless",
+  "status": "supported",
+  "pids": [
+   4117
+  ]
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Maya X",
+  "status": "supported",
+  "pids": [
+   28,
+   29,
+   30
+  ]
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Inca",
+  "status": "supported",
+  "pids": [
+   9,
+   15,
+   16
+  ]
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Atlantis (shared family ids)",
+  "status": "likely",
+  "pids": [
+   62735
+  ]
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Thorn",
+  "status": "quickwin",
+  "pids": []
+ },
+ {
+  "brand": "CRDRAKO",
+  "model": "KO-ONE",
+  "status": "supported",
+  "pids": [
+   106,
+   107
+  ]
+ },
+ {
+  "brand": "LunaFury",
+  "model": "LUNA33",
+  "status": "supported",
+  "pids": [
+   50,
+   51
+  ]
+ },
+ {
+  "brand": "LunaFury",
+  "model": "TYPE33",
+  "status": "likely",
+  "pids": [
+   84,
+   132
+  ]
+ },
+ {
+  "brand": "Ninjutso",
+  "model": "Sora V2",
+  "status": "supported",
+  "pids": [
+   44561,
+   44562,
+   44563,
+   44564,
+   44565,
+   44566
+  ]
+ },
+ {
+  "brand": "Ninjutso",
+  "model": "Sora V3",
+  "status": "supported",
+  "pids": [
+   57360
+  ]
+ },
+ {
+  "brand": "Ninjutso",
+  "model": "TEN",
+  "status": "supported",
+  "pids": [
+   57376,
+   59905
+  ]
+ },
+ {
+  "brand": "Ninjutso",
+  "model": "Sora",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Teevolution",
+  "model": "Terra Pro",
+  "status": "supported",
+  "pids": [
+   62752,
+   62755,
+   62907,
+   62754
+  ]
+ },
+ {
+  "brand": "WALLHACK",
+  "model": "M-001",
+  "status": "supported",
+  "pids": [
+   4368,
+   2055
+  ]
+ },
+ {
+  "brand": "Finalmouse",
+  "model": "Starlight-12 / ULX",
+  "status": "supported",
+  "pids": [
+   256
+  ]
+ },
+ {
+  "brand": "Zaunkoenig",
+  "model": "M3K",
+  "status": "supported",
+  "pids": [
+   42082
+  ]
+ },
+ {
+  "brand": "Zaunkoenig",
+  "model": "M2K",
+  "status": "supported",
+  "pids": [
+   41935
+  ]
+ },
+ {
+  "brand": "moddoMOUSE",
+  "model": "moddoMOUSE",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Orbital",
+  "model": "Ghost / Pathfinder V2",
+  "status": "supported",
+  "pids": [
+   2060
+  ]
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Pro Intellimouse",
+  "status": "supported",
+  "pids": [
+   2090
+  ]
+ },
+ {
+  "brand": "Microsoft",
+  "model": "Classic Intellimouse",
+  "status": "supported",
+  "pids": [
+   2083
+  ]
+ },
+ {
+  "brand": "Keychron",
+  "model": "Nape Pro",
+  "status": "supported",
+  "pids": [
+   1088
+  ]
+ },
+ {
+  "brand": "Keychron",
+  "model": "M6",
+  "status": "supported",
+  "pids": [
+   53344,
+   53289
+  ]
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M1",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 Mini",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2 Mini",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M4",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M7",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M5 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M6 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 KM",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 Combo",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2 Mini Combo",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 Mini 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M4 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M1 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2 Mini 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M7 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM22",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM24",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM25",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM26",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M6 SE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M5",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "LM7",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "LM7 Ultra",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G4",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G3",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G5",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM27",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M5 SE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G3 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M8",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 V2",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM28",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G4 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "BM28 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "T1 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G6 HE 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G5 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M6 HE 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G10 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M8 HE",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G9 HE 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M4 4K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M6 4K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 4K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M3 Mini 4K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "M2 4K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Keychron",
+  "model": "G3 Air",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "Harpe Ace Aim Lab",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "TUF Gaming M5",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "Gladius II Core",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "Strix Impact III",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "TUF Gaming M3 Gen 1",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "ROG Gladius II P502",
+  "status": "supported",
+  "pids": [
+   6213
+  ]
+ },
+ {
+  "brand": "Incott",
+  "model": "G23 V2 (SE / Pro)",
+  "status": "supported",
+  "pids": [
+   21036,
+   25132
+  ]
+ },
+ {
+  "brand": "Incott",
+  "model": "GHERO (and Pro)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Incott",
+  "model": "G23 (and Pro)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Incott",
+  "model": "G24 (and Pro)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Incott",
+  "model": "Zero 29 (and Pro)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Incott",
+  "model": "Zero 39 (and Pro)",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "RAWM",
+  "model": "Blade 1",
+  "status": "supported",
+  "pids": [
+   9000
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ML01",
+  "status": "supported",
+  "pids": [
+   9001
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "MH01",
+  "status": "supported",
+  "pids": [
+   9004
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "SL01",
+  "status": "supported",
+  "pids": [
+   9005
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "SH01",
+  "status": "supported",
+  "pids": [
+   9006,
+   9007
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "SH01 Pro",
+  "status": "supported",
+  "pids": [
+   9008,
+   9010
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "MH01 Pro",
+  "status": "supported",
+  "pids": [
+   9009
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ES21",
+  "status": "supported",
+  "pids": [
+   9011
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ES21 Pro",
+  "status": "supported",
+  "pids": [
+   9012
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ES21M",
+  "status": "supported",
+  "pids": [
+   9015
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ER21 Pro",
+  "status": "supported",
+  "pids": [
+   9016
+  ]
+ },
+ {
+  "brand": "RAWM",
+  "model": "ER21M",
+  "status": "supported",
+  "pids": [
+   9017
+  ]
+ },
+ {
+  "brand": "Bloody",
+  "model": "Max W95",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "THOR II X16",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Cooler Master",
+  "model": "MasterMouse MM720",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "Cooler Master",
+  "model": "MM711",
+  "status": "driver",
+  "pids": []
+ },
+ {
+  "brand": "K-snake",
+  "model": "X11",
+  "status": "supported",
+  "pids": [
+   8789
+  ]
+ },
+ {
+  "brand": "Noir Gear",
+  "model": "M2-NEX",
+  "status": "supported",
+  "pids": []
+ },
+ {
+  "brand": "Hitscan",
+  "model": "Hyperlight",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "RAWM",
+  "model": "Leviathan V4",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ159 Apex",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Furycube",
+  "model": "G11",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V2 Ultra+",
+  "status": "supported",
+  "pids": [
+   16417,
+   4107
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "MagDock (charging base)",
+  "status": "supported",
+  "pids": [
+   4114
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V2 Ultra",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V2 Pro+",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V2 Pro",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V3 Ultra+",
+  "status": "likely",
+  "pids": [
+   16435,
+   4116,
+   4120
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V3 Pro+",
+  "status": "likely",
+  "pids": [
+   16434
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V3 Pro",
+  "status": "likely",
+  "pids": [
+   16433
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7 V3",
+  "status": "likely",
+  "pids": [
+   16432
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "A5 Pro Max",
+  "status": "supported",
+  "pids": [
+   61465,
+   61459,
+   61461
+  ]
+ },
+ {
+  "brand": "Mchose",
+  "model": "K7 Ultra",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "L7 Ultra+",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "G-Wolves",
+  "model": "HTX Mini 8K",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Angry Miao",
+  "model": "Infinity .97",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Dark Project",
+  "model": "Novus SE",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Scyrox",
+  "model": "V8",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "AX5",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ139 Pro",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ199",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Gravastar",
+  "model": "Mercury X Pro",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Gravastar",
+  "model": "M1",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Gravastar",
+  "model": "M2",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Gravastar",
+  "model": "Mercury M1 Pro",
+  "status": "likely",
+  "pids": []
+ },
+ {
+  "brand": "G-Wolves",
+  "model": "HT-M-H ACE Wireless",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Angry Miao",
+  "model": "Infinity Mouse",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "VortexSeries",
+  "model": "IGNIX F3",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Darmoshark",
+  "model": "M3S",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Swiftpoint",
+  "model": "Z2",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Swiftpoint",
+  "model": "Z3",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Chimera V2 Wireless",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Harpy",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "ipi",
+  "model": "Float 3950",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Solakaka",
+  "model": "SM802 Pro",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "E-YOOSO",
+  "model": "X-44 Lite",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "HAVIT",
+  "model": "Gamenote",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "Empire Gaming",
+  "model": "RF906 Wireless",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "DeadSkull",
+  "model": "Orbit Wired",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "ISY",
+  "model": "IGM-6000",
+  "status": "unknown",
+  "pids": []
+ },
+ {
+  "brand": "2E Gaming",
+  "model": "MG355 WL",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Acer",
+  "model": "OMW950",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Acer",
+  "model": "Predator Cestus 353",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Acer",
+  "model": "Easy Fit",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Acer",
+  "model": "Nitro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Acer",
+  "model": "Wireless Optical",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ139 V2 MC",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ159 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ179 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ159P MC",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AM3 Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AJAZZ",
+  "model": "AJ159 V2 MC",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Alienware",
+  "model": "AW610M",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Amkette",
+  "model": "XS Series Flow Plus",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Andowl",
+  "model": "Q-144",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Ant Esports",
+  "model": "GM320",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Ant Esports",
+  "model": "GM40",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "AQIRYS",
+  "model": "NYX",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Arbiter Studio",
+  "model": "Akitsu Carbon Fiber 8K",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Armaggeddon",
+  "model": "Textron Scorpion 7",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "ROG Harpe Ace Mini",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "P513",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "P709",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "ROG Harpe II Ace",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Asus",
+  "model": "ROG Keris Wireless AimPoint",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "A9",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "A9 Ultimate+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "G3 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "Blazing Sky X1 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "Ghost",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "VXE Mad R Major+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "X3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ATK",
+  "model": "X1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X3 Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "G3 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "V6",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X11 Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "R11 Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "V3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Attack Shark",
+  "model": "X5",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Aula",
+  "model": "SC900 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Aula",
+  "model": "SC620",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Aula",
+  "model": "SC380 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Aula",
+  "model": "SC680",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Baracuda",
+  "model": "BGM-121",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Battletron",
+  "model": "3218230",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Bloody",
+  "model": "A70",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Bloody",
+  "model": "ES7",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Bloody",
+  "model": "P90 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Bloody",
+  "model": "X5MAX",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Bloody",
+  "model": "J90S",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cepter",
+  "model": "Falco",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cepter",
+  "model": "Falco Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cooler Master",
+  "model": "MM310 (SF6 Chun-Li)",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cooler Master",
+  "model": "MM730",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Harpoon RGB Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Corsair",
+  "model": "Sabre RGB Pro Champion Series",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cosmic Byte",
+  "model": "Firestorm",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cosmic Byte",
+  "model": "Kilonova 3389IC",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Cosmic Byte",
+  "model": "Raptor",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "CyberPower",
+  "model": "MO-131-302",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dareu",
+  "model": "EM901",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dark Project",
+  "model": "Nexus",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dark Project",
+  "model": "Novus Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "DarkFlash",
+  "model": "DFM80",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Darmoshark",
+  "model": "M3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Darmoshark",
+  "model": "M3 4K",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Darmoshark",
+  "model": "M3 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Darmoshark",
+  "model": "M5 V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dell",
+  "model": "MS116",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dell",
+  "model": "MS900",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Delux",
+  "model": "M900 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Delux",
+  "model": "M700 Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Delux",
+  "model": "Seeker M618XSD",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Delux",
+  "model": "M900 Mini",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "DEVO",
+  "model": "Solis Black",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "DEXP",
+  "model": "DGSAdept 66662",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Drakar",
+  "model": "Asgard",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Dune Voyager",
+  "model": "DV-GE4",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Endorfy",
+  "model": "EY6A016",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Epomaker",
+  "model": "NEX Lite",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Epomaker",
+  "model": "Carbon X",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "EVGA",
+  "model": "X12",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Evofox",
+  "model": "Shadow X Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Evofox",
+  "model": "Banshee 3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Evofox",
+  "model": "Banshee",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Evofox",
+  "model": "Blaze",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "EWEADN",
+  "model": "S9 Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "EWEADN",
+  "model": "GS01",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "EWEADN",
+  "model": "L1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "EWEADN",
+  "model": "S9 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "Crypto II VX7V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "X9 Thor",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "Phantom II VX6",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "Venom I WGC",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "Venom II WGC2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fantech",
+  "model": "Zeus X5s",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Finalmouse",
+  "model": "Starlight Pro Tenz",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Finalmouse",
+  "model": "UltraX",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Fnatic",
+  "model": "Bolt",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Furycube",
+  "model": "G13 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "G-Wolves",
+  "model": "Lycan 8K",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "G-Wolves",
+  "model": "WARG",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "G-Wolves",
+  "model": "Fenrir Asym",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Gamen",
+  "model": "GM1200",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Garuda Gear",
+  "model": "Hawk 1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Genesis",
+  "model": "Krypton 555",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Genesis",
+  "model": "Krypton 750",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Genesis",
+  "model": "Zircon XIII",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Genesis",
+  "model": "Krypton 290",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Gigabyte",
+  "model": "Aorus M5",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Gigabyte",
+  "model": "Aorus M6",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Glorious",
+  "model": "Model D-",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Hator",
+  "model": "Pulsar 3 Ultra 4K Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HAVIT",
+  "model": "MS1035",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HAVIT",
+  "model": "MS974WB",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HAVIT",
+  "model": "MS966",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HXSJ",
+  "model": "J900",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HXSJ",
+  "model": "A869",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "HXMS235",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "Pulsefire Haste 2 Mini Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "HyperX",
+  "model": "HXMS231",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Incott",
+  "model": "HPC02 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "INPHIC",
+  "model": "IN9 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "INPHIC",
+  "model": "09 Tri-Mode Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "INPHIC",
+  "model": "A9 Explorer V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "INPHIC",
+  "model": "F9",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "INPHIC",
+  "model": "F9-MECHA",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ipi",
+  "model": "Float 88",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ipi",
+  "model": "QI Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ipi",
+  "model": "Fly",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "ISY",
+  "model": "IWM 1000",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "JLab",
+  "model": "GO",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "KeepOut",
+  "model": "X9 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kensington",
+  "model": "Expert Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kensington",
+  "model": "Orbit Trackball With Scroll Ring",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Hawk",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Ikarus",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Chimera V1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kreo",
+  "model": "Pegasus",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Krux",
+  "model": "KRX0115",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kysona",
+  "model": "Mercury Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kysona",
+  "model": "Aztec",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Kysona",
+  "model": "M600 V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Maya",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Maya Champion Edition",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lamzu",
+  "model": "Thorn V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lenovo",
+  "model": "IdeaPad Gaming M100",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lenovo",
+  "model": "Legion M410",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lenovo",
+  "model": "Legion M600",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Lenovo",
+  "model": "Legion M600s",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master 3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M510",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "Signature M650 / M650 L",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MR0083",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "Pebble M350s",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G302 Daedalus Prime",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M90",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G602",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "Lift Vertical",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "Ergo M575S",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G700",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "G900 Chaos Spectrum",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M-R0057",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M170",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M220",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M330",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M590",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M705",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M185",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M190",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M317",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "M550 L",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Logitech",
+  "model": "MX Master",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mad Catz",
+  "model": "MMO TE",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mad Catz",
+  "model": "RAT 4+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Madlions",
+  "model": "MAD G+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mambasnake",
+  "model": "M3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mambasnake",
+  "model": "M2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Marvo",
+  "model": "G912W",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "A7X Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "G3 V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mchose",
+  "model": "G7",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mistel",
+  "model": "Md750 Delight",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mloong",
+  "model": "MX301",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Mloong",
+  "model": "MX302",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Monka",
+  "model": "M1 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Monster Notebook",
+  "model": "Pusat One Shot Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "MSI",
+  "model": "Clutch GM08",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "MSI",
+  "model": "Clutch GM41 Lightweight Wireless (Stalker 2 Edition)",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "MSI",
+  "model": "GM340",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "MSI",
+  "model": "Versa 300",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Noir Gear",
+  "model": "S1 Series",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "NOS",
+  "model": "M750",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "NOS",
+  "model": "M800",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Novotek",
+  "model": "MA-120",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "NYK",
+  "model": "Nemesis Neon MQ-32",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "NYK",
+  "model": "Nemesis Razor MQ-11",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Onikuma",
+  "model": "CW917",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Onikuma",
+  "model": "CW921",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Onikuma",
+  "model": "DM02",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pichau",
+  "model": "Netuno Rainbow 01",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pictek",
+  "model": "T18",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pictek",
+  "model": "T7",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Portronics",
+  "model": "Vader Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2A V3",
+  "status": "pr",
+  "pids": [
+   13316,
+   21507
+  ]
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2 Mini",
+  "status": "pr",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2 V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2H V3 ES",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X3 CrazyLight",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pulsar",
+  "model": "X2N CrazyLight",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Pwnage",
+  "model": "Symm 3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rakk",
+  "model": "Dasig",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rakk",
+  "model": "Gahum",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT9 Pro",
+  "status": "supported",
+  "pids": [
+   4613,
+   17413
+  ]
+ },
+ {
+  "brand": "Rapoo",
+  "model": "M1620",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "MT760 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT7 Air Max V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "V25",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "V25S",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT200",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rapoo",
+  "model": "VT7 Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Raptor",
+  "model": "Storm Grip Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "DeathAdder Essential (2021)",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "RC30-030501",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Razer",
+  "model": "RZ01-0385",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redgear",
+  "model": "A10",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redgear",
+  "model": "X12 V2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redgear",
+  "model": "A20",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redgear",
+  "model": "F-15",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M607",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "Phaser M609",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M712-RGB",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M811-RGB",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M908",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M916 Pro 1K",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M919-ULT",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M994",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M998-ULT",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Redragon",
+  "model": "M808-KS",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "RedThunder",
+  "model": "M10",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Renew Force",
+  "model": "Viper Wireless BM-800",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "TP10",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "Daxa Air II Wired",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "DX-V1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "RX-115",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "Clif II",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rexus",
+  "model": "Daxa Air Mini",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "Kone AIMO",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Roccat",
+  "model": "XP",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Rokytop",
+  "model": "TA1726492",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Royal Kludge",
+  "model": "M3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Sades",
+  "model": "Kojin MX10",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Sades",
+  "model": "Raiden Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Scyrox",
+  "model": "V6",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Shenzhen",
+  "model": "DZK01",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Skyshiu",
+  "model": "M3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Smailwolf",
+  "model": "M3+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Smailwolf",
+  "model": "M3 Pro+",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Solakaka",
+  "model": "Sm600",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Solakaka",
+  "model": "SM809 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Solakaka",
+  "model": "E9 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Solakaka",
+  "model": "SM822",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Sprime",
+  "model": "PM1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 3 Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 5",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 3 Wireless Gen 2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Aerox 5 Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "M-00029",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "SteelSeries",
+  "model": "Rival 600",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "T-Dagger",
+  "model": "T-TGM205",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "T-Wolf",
+  "model": "G590",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "T-Wolf",
+  "model": "Q13",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "T-Wolf",
+  "model": "X9",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "T-Wolf",
+  "model": "X3",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Tecknet",
+  "model": "TK-MS009",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Tecknet",
+  "model": "UM013",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Tecware",
+  "model": "EX2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "The G-Lab",
+  "model": "Kult 170",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "TIETI",
+  "model": "M01R",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "TRONIC",
+  "model": "HG06607E",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Trust",
+  "model": "GXT 109 Felox",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Trust",
+  "model": "GXT 111 Neebo",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Trust",
+  "model": "21090",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Trust",
+  "model": "GST 170",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Trust",
+  "model": "GXT 144 Rexx",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Turbo-X",
+  "model": "Erebus EM10",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Unctrl",
+  "model": "M1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Urage",
+  "model": "Reaper 410",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "URX",
+  "model": "M1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "UtechSmart",
+  "model": "Venus",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "UtechSmart",
+  "model": "Venus Pro Wireless",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VGN",
+  "model": "F2 Pro Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VGN",
+  "model": "Y2 Ultra",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VGN",
+  "model": "F1 MOBA",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VGUARD",
+  "model": "V6",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VortexSeries",
+  "model": "Oni R1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VortexSeries",
+  "model": "Ignix F7",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VortexSeries",
+  "model": "Ignix F5 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "VortexSeries",
+  "model": "Inno X3 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Wraith",
+  "model": "W1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Xtrfy",
+  "model": "MZ1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Xtrfy",
+  "model": "M8",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Yeah Magic",
+  "model": "Tyrfig V1",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zaopin",
+  "model": "Z1 Pro",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zaopin",
+  "model": "Z1 Pro Max",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zaopin",
+  "model": "Z2",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zebronics",
+  "model": "Transformer-M",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zowie",
+  "model": "ZA13-DW",
+  "status": "pending",
+  "pids": []
+ },
+ {
+  "brand": "Zowie",
+  "model": "EC1-CW",
+  "status": "pending",
+  "pids": []
+ }
+]

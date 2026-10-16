@@ -1,0 +1,309 @@
+/* Elements from uiverse.io (MIT License), ported to scoped class names and SYNQ's palette.
+   - Power switch: vinodjangid07 / quick-moth-22
+   - Rocker switch: Nawsome / empty-snail-69
+   - Glass glider radio: chase2k25 / slimy-chipmunk-97
+   - Transport keys radio: m1her / splendid-rat-12 */
+
+/* ---------------------------------------------------------------- power switch */
+.uv-power input {
+  display: none;
+}
+.uv-power label {
+  position: relative;
+  width: var(--uv-size, 56px);
+  height: var(--uv-size, 56px);
+  background-color: rgb(70, 68, 72);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(110, 108, 112);
+  box-shadow: 0 0 3px rgb(2, 2, 2) inset;
+  transition: box-shadow 0.25s, background-color 0.25s, border-color 0.25s;
+}
+.uv-power svg {
+  width: 1.1em;
+}
+.uv-power svg path {
+  fill: rgb(40, 40, 42);
+  transition: fill 0.25s;
+}
+.uv-power input:checked + label {
+  box-shadow:
+    0 0 0 1px var(--uv-glow) inset,
+    0 0 10px color-mix(in srgb, var(--uv-glow) 55%, transparent) inset,
+    0 0 16px color-mix(in srgb, var(--uv-glow) 45%, transparent);
+  border: 2px solid rgb(255, 236, 222);
+  background-color: color-mix(in srgb, var(--uv-glow) 65%, #3a2a20);
+}
+.uv-power input:checked + label svg {
+  filter: drop-shadow(0 0 5px var(--uv-glow));
+}
+.uv-power input:checked + label svg path {
+  fill: #fff;
+}
+
+/* ---------------------------------------------------------------- rocker switch */
+.uv-rocker {
+  display: block;
+  background-color: black;
+  width: var(--uv-w, 120px);
+  height: var(--uv-h, 156px);
+  box-shadow:
+    0 0 10px 2px rgba(0, 0, 0, 0.2),
+    0 0 1px 2px black,
+    inset 0 2px 2px -2px white,
+    inset 0 0 2px 12px #47434c,
+    inset 0 0 2px 18px black;
+  border-radius: 5px;
+  padding: 16px;
+  perspective: 700px;
+}
+.uv-rocker input {
+  display: none;
+}
+.uv-rocker input:checked + .uv-rocker-button {
+  transform: translateZ(20px) rotateX(25deg);
+  box-shadow: 0 -10px 20px #ff1818;
+}
+/* Dark for the 0.3 s flip, then lit. The flicker is stepped from index.tsx through --uv-flicker
+   (same dip, five times a second) instead of an infinite keyframe loop. 0.88 is its average. */
+.uv-rocker input:checked + .uv-rocker-button .uv-light {
+  opacity: var(--uv-flicker, 0.88);
+  animation: uv-light-on 0.3s step-end;
+}
+.uv-rocker input:checked + .uv-rocker-button .uv-shine {
+  opacity: 1;
+}
+.uv-rocker input:checked + .uv-rocker-button .uv-shadow {
+  opacity: 0;
+}
+.uv-rocker .uv-rocker-button {
+  display: block;
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  transform-origin: center center -20px;
+  transform: translateZ(20px) rotateX(-25deg);
+  transform-style: preserve-3d;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(#980000 0%, #6f0000 30%, #6f0000 70%, #980000 100%);
+  background-repeat: no-repeat;
+}
+.uv-rocker .uv-rocker-button::before {
+  content: "";
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.3) 30%, #650000 75%, #320000) 50% 50%/97% 97%,
+    #b10000;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40px;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+  position: absolute;
+  top: 0;
+}
+.uv-rocker .uv-rocker-button::after {
+  content: "";
+  background-image: linear-gradient(#650000, #320000);
+  width: 100%;
+  height: 40px;
+  transform-origin: top;
+  transform: translateY(40px) rotateX(-90deg);
+  position: absolute;
+  bottom: 0;
+  box-shadow:
+    0 40px 8px 0 black,
+    0 64px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.uv-rocker .uv-light {
+  opacity: 0;
+  animation: uv-light-off 1s;
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ffc97e, #ff1818 40%, transparent 70%);
+}
+.uv-rocker .uv-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(transparent 30%, rgba(101, 0, 0, 0.7) 70%);
+  background-size: 10px 10px;
+}
+.uv-rocker .uv-characters {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(white, white) 50% 20%/5% 20%,
+    radial-gradient(circle, transparent 50%, white 52%, white 70%, transparent 72%) 50% 80%/33% 25%;
+  background-repeat: no-repeat;
+}
+.uv-rocker .uv-shine {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 0.3;
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(white, transparent 3%) 50% 50%/97% 97%,
+    linear-gradient(rgba(255, 255, 255, 0.5), transparent 50%, transparent 80%, rgba(255, 255, 255, 0.5)) 50% 50%/97% 97%;
+  background-repeat: no-repeat;
+}
+.uv-rocker .uv-shadow {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.8));
+  background-repeat: no-repeat;
+}
+@keyframes uv-light-on {
+  from, to { opacity: 0; }
+}
+@keyframes uv-light-off {
+  0% { opacity: 1; }
+  80% { opacity: 0; }
+}
+
+/* ---------------------------------------------------------------- glass glider radio */
+.uv-glass {
+  display: flex;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.8rem;
+  /* The original's backdrop-filter: blur(12px) is dropped: this always sits on a flat card plate,
+     where a blurred backdrop looks exactly like the plain one but costs a GPU surface per control.
+     isolation keeps the stacking context the blur used to create. */
+  isolation: isolate;
+  box-shadow:
+    inset 1px 1px 4px rgba(255, 255, 255, 0.14),
+    inset -1px -1px 6px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 100%;
+}
+.uv-glass input {
+  display: none;
+}
+.uv-glass label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  font-size: 12px;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #bdbdbd;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease-in-out;
+}
+.uv-glass label small {
+  font-weight: 400;
+  font-size: 10px;
+  opacity: 0.7;
+}
+.uv-glass label:hover {
+  color: white;
+}
+.uv-glass input:checked + label {
+  color: #fff;
+}
+.uv-glass .uv-glider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(100% / var(--uv-count));
+  border-radius: 0.8rem;
+  z-index: 1;
+  transform: translateX(calc(100% * var(--uv-index)));
+  background: color-mix(in srgb, var(--uv-tint) 72%, #000);
+  box-shadow:
+    0 0 12px color-mix(in srgb, var(--uv-tint) 35%, transparent),
+    0 1px 0 rgb(255 255 255 / 0.25) inset;
+  transition:
+    transform 0.5s cubic-bezier(0.37, 1.95, 0.66, 0.56),
+    background 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
+}
+
+/* ---------------------------------------------------------------- transport keys radio */
+.uv-transport {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background-color: black;
+  padding: 4px;
+  border-radius: 10px;
+  isolation: isolate;
+}
+.uv-transport input {
+  display: none;
+}
+.uv-transport .uv-key {
+  width: var(--uv-key-w, 76px);
+  height: 46px;
+  background: linear-gradient(to bottom, #333333, rgb(36, 35, 35));
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: all 0.1s linear;
+  border-top: 1px solid #4e4d4d;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 12px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.uv-transport .uv-key:has(input:checked) {
+  box-shadow: 0 12px 5px 1px rgba(0, 0, 0, 0);
+  background: linear-gradient(to bottom, #1d1d1d, #1d1d1d);
+  border-top: none;
+}
+.uv-transport .uv-key:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.uv-transport .uv-key:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.uv-transport .uv-key::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 103%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, transparent 10%, transparent, transparent 90%);
+  transition: all 0.1s linear;
+  z-index: -1;
+}
+.uv-transport .uv-key:has(input:checked)::before {
+  background: linear-gradient(to bottom, transparent 10%, color-mix(in srgb, var(--uv-lit) 40%, transparent), transparent 90%);
+}
+.uv-transport .uv-text {
+  color: black;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.1s linear;
+  text-shadow:
+    -1px -1px 1px rgb(224 224 224 / 0.1),
+    0 2px 3px rgb(0 0 0 / 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.uv-transport .uv-key input:checked + .uv-text {
+  color: var(--uv-lit);
+  text-shadow: 0 0 12px var(--uv-lit);
+}

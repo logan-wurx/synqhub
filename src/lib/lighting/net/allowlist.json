@@ -1,0 +1,74 @@
+{
+  "about": [
+    "What SYNQ may send the Wi-Fi lights of wave L3, one entry per brand, judged the same way by the app",
+    "(src/lib/lighting/net/guard.ts) and the bridge (src-tauri/src/lighting/net/guard.rs), which has the last word; the",
+    "fixture src-tauri/src/lighting/net/messages.txt holds the two to the same verdicts. A message is allowed only when",
+    "a rule matches it whole: the HTTP method and path (placeholders {token}: the pairing key the bridge fills in itself;",
+    "{n}: a light number), and every body field against its shape: \"bool\", [min, max] (an integer), [\"float\", min, max],",
+    "[\"pair\", min, max] (two floats), [\"enum\", ...], a string pattern (\"^...$\"), [\"tuple\", shape, ...] (a",
+    "positional list), [\"list\", shape, most] or a nested object. `required` keys must be there; a body never has keys",
+    "outside its rule. LIFX's binary messages are judged by type and payload layout (`lifx`). Everything else is",
+    "refused: firmware updates, network and Wi-Fi settings, renaming, resets, deleting keys or devices, schedules, rules.",
+    "Hue Entertainment (wave L5): listing the bridge's groups, making an area named SYNQ, deleting a group by its",
+    "number (the bridge allows only the one SYNQ made: net/mod.rs) and starting or stopping a stream on one.",
+    "Scenes: reading Hue's scenes and recalling one by its id through a group's action, and Nanoleaf's effects list (in",
+    "its state) and selecting one by name. Never creating, editing or deleting a scene or an effect."
+  ],
+  "http": {
+    "hue": [
+      { "method": "POST", "path": "^/api$", "body": { "devicetype": "^onboard#[A-Za-z0-9 _.-]{1,19}$", "generateclientkey": "bool" }, "required": ["devicetype"] },
+      { "method": "GET", "path": "^/api/config$" },
+      { "method": "GET", "path": "^/api/\\{token\\}/lights$" },
+      { "method": "GET", "path": "^/api/\\{token\\}/config$" },
+      { "method": "GET", "path": "^/api/\\{token\\}/scenes$" },
+      { "method": "GET", "path": "^/api/\\{token\\}/scenes/[A-Za-z0-9-]{1,32}$" },
+      { "method": "PUT", "path": "^/api/\\{token\\}/groups/[0-9]{1,3}/action$", "body": { "scene": "^[A-Za-z0-9-]{1,32}$" }, "required": ["scene"] },
+      { "method": "GET", "path": "^/api/\\{token\\}/groups$" },
+      { "method": "POST", "path": "^/api/\\{token\\}/groups$", "body": { "name": "^SYNQ$", "type": ["enum", "Entertainment"], "class": ["enum", "TV", "Free"], "lights": ["list", "^[0-9]{1,3}$", 20] }, "required": ["name", "type", "class", "lights"] },
+      { "method": "DELETE", "path": "^/api/\\{token\\}/groups/[0-9]{1,3}$" },
+      { "method": "PUT", "path": "^/api/\\{token\\}/groups/[0-9]{1,3}$", "body": { "stream": { "active": "bool" } }, "required": ["stream"] },
+      { "method": "PUT", "path": "^/api/\\{token\\}/lights/[0-9]{1,3}/state$", "body": { "on": "bool", "bri": [1, 254], "hue": [0, 65535], "sat": [0, 254], "ct": [153, 500], "transitiontime": [0, 100] } }
+    ],
+    "nanoleaf": [
+      { "method": "POST", "path": "^/api/v1/new$" },
+      { "method": "GET", "path": "^/api/v1/\\{token\\}/$" },
+      { "method": "PUT", "path": "^/api/v1/\\{token\\}/state$", "body": { "on": { "value": "bool" }, "brightness": { "value": [0, 100], "duration": [0, 60] }, "hue": { "value": [0, 360] }, "sat": { "value": [0, 100] }, "ct": { "value": [1200, 6500] } } },
+      { "method": "PUT", "path": "^/api/v1/\\{token\\}/effects$", "body": { "select": "^[^\\u0000-\\u001f\"]{1,60}$" }, "required": ["select"] }
+    ],
+    "elgato": [
+      { "method": "GET", "path": "^/elgato/accessory-info$" },
+      { "method": "GET", "path": "^/elgato/lights$" },
+      { "method": "PUT", "path": "^/elgato/lights$", "body": { "numberOfLights": [1, 1], "lights": ["list", { "on": [0, 1], "brightness": [0, 100], "temperature": [143, 344], "hue": [0, 360], "saturation": [0, 100] }, 1] }, "required": ["numberOfLights", "lights"] }
+    ],
+    "twinkly": [
+      { "method": "GET", "path": "^/xled/v1/gestalt$" },
+      { "method": "GET", "path": "^/xled/v1/led/mode$" },
+      { "method": "GET", "path": "^/xled/v1/led/out/brightness$" },
+      { "method": "POST", "path": "^/xled/v1/led/mode$", "body": { "mode": ["enum", "off", "color", "movie", "effect", "playlist"] }, "required": ["mode"] },
+      { "method": "POST", "path": "^/xled/v1/led/out/brightness$", "body": { "mode": ["enum", "enabled"], "type": ["enum", "A"], "value": [0, 100] }, "required": ["mode", "type", "value"] },
+      { "method": "POST", "path": "^/xled/v1/led/color$", "body": { "red": [0, 255], "green": [0, 255], "blue": [0, 255] }, "required": ["red", "green", "blue"] }
+    ]
+  },
+  "json": {
+    "wiz": [
+      { "body": { "id": [0, 65535], "method": ["enum", "getPilot", "getSystemConfig"], "params": {} }, "required": ["method", "params"] },
+      { "body": { "id": [0, 65535], "method": ["enum", "setPilot"], "params": { "state": "bool", "dimming": [10, 100], "r": [0, 255], "g": [0, 255], "b": [0, 255], "temp": [2200, 6500], "sceneId": [1, 32], "speed": [10, 200] } }, "required": ["method", "params"] }
+    ],
+    "yeelight": [
+      { "body": { "id": [0, 65535], "method": ["enum", "get_prop"], "params": ["list", ["enum", "power", "bright", "ct", "rgb", "hue", "sat", "color_mode", "name"], 8] }, "required": ["id", "method", "params"] },
+      { "body": { "id": [0, 65535], "method": ["enum", "set_power"], "params": ["tuple", ["enum", "on", "off"], ["enum", "smooth", "sudden"], [30, 5000]] }, "required": ["id", "method", "params"] },
+      { "body": { "id": [0, 65535], "method": ["enum", "set_bright"], "params": ["tuple", [1, 100], ["enum", "smooth", "sudden"], [30, 5000]] }, "required": ["id", "method", "params"] },
+      { "body": { "id": [0, 65535], "method": ["enum", "set_rgb"], "params": ["tuple", [0, 16777215], ["enum", "smooth", "sudden"], [30, 5000]] }, "required": ["id", "method", "params"] },
+      { "body": { "id": [0, 65535], "method": ["enum", "set_ct_abx"], "params": ["tuple", [1700, 6500], ["enum", "smooth", "sudden"], [30, 5000]] }, "required": ["id", "method", "params"] }
+    ]
+  },
+  "lifx": {
+    "about": "Message type -> payload layout as [field width in bytes, min, max]; the 36-byte header must be a unicast, addressable LIFX frame (protocol 1024; GetService alone may be tagged, for discovery).",
+    "2": [],
+    "23": [],
+    "32": [],
+    "101": [],
+    "102": [[1, 0, 0], [2, 0, 65535], [2, 0, 65535], [2, 0, 65535], [2, 1500, 9000], [4, 0, 60000]],
+    "117": [[2, 0, 65535], [4, 0, 60000]]
+  }
+}

@@ -1,0 +1,1902 @@
+{
+ "source": "torvalds/linux drivers/input/joystick/xpad.c (xpad_device[]; GPL-2.0-or-later, ids and names used as facts)",
+ "commit": "2f2f7eeef8b0a1a9b9ca998231419873ccae8d4e",
+ "rows": [
+  [
+   121,
+   6356,
+   "GPD Win 2 X-Box Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   849,
+   4096,
+   "CRKD LP Blueberry Burst Pro Edition (Xbox)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   849,
+   8192,
+   "CRKD LP Black Tribal Edition (Xbox)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1003,
+   65281,
+   "Wooting One (Legacy)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1003,
+   65282,
+   "Wooting Two (Legacy)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1008,
+   909,
+   "HyperX Clutch",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1008,
+   1165,
+   "HyperX Clutch",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1008,
+   1173,
+   "HyperX Clutch Gladiate",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1008,
+   1952,
+   "HyperX Clutch Gladiate RGB",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1008,
+   2230,
+   "HyperX Clutch Gladiate",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1008,
+   2484,
+   "HyperX Clutch Tanto",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1103,
+   3840,
+   "Thrustmaster Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1103,
+   3843,
+   "Thrustmaster Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1103,
+   3847,
+   "Thrustmaster, Inc. Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1103,
+   3856,
+   "Thrustmaster Modena GT Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1103,
+   45862,
+   "Thrustmaster Gamepad GP XID",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1103,
+   53278,
+   "ThrustMaster, Inc. ESWAP X 2 ELDEN RING EDITION",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   514,
+   "Microsoft X-Box pad v1 (US)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1118,
+   645,
+   "Microsoft X-Box pad (Japan)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1118,
+   647,
+   "Microsoft Xbox Controller S",
+   "XTYPE_XBOX"
+  ],
+  [
+   1118,
+   648,
+   "Microsoft Xbox Controller S v2",
+   "XTYPE_XBOX"
+  ],
+  [
+   1118,
+   649,
+   "Microsoft X-Box pad v2 (US)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1118,
+   654,
+   "Microsoft X-Box 360 pad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1118,
+   655,
+   "Microsoft X-Box 360 pad v2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1118,
+   657,
+   "Xbox 360 Wireless Receiver (XBOX)",
+   "XTYPE_XBOX360W"
+  ],
+  [
+   1118,
+   681,
+   "Xbox 360 Wireless Receiver (Unofficial)",
+   "XTYPE_XBOX360W"
+  ],
+  [
+   1118,
+   721,
+   "Microsoft X-Box One pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   733,
+   "Microsoft X-Box One pad (Firmware 2015)",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   739,
+   "Microsoft X-Box One Elite pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   746,
+   "Microsoft X-Box One S pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   1817,
+   "Xbox 360 Wireless Receiver",
+   "XTYPE_XBOX360W"
+  ],
+  [
+   1118,
+   2816,
+   "Microsoft X-Box One Elite 2 pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   2826,
+   "Microsoft X-Box Adaptive Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1118,
+   2834,
+   "Microsoft Xbox Series S|X Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1133,
+   49693,
+   "Logitech Gamepad F310",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1133,
+   49694,
+   "Logitech Gamepad F510",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1133,
+   49695,
+   "Logitech Gamepad F710",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1133,
+   49730,
+   "Logitech Chillstream Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1133,
+   51844,
+   "Logitech Xbox Cordless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1133,
+   51848,
+   "Logitech Compact Controller for Xbox",
+   "XTYPE_XBOX"
+  ],
+  [
+   1133,
+   51850,
+   "Logitech Precision Vibration Feedback Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1133,
+   51875,
+   "Logitech DriveFx Racing Wheel",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1282,
+   4869,
+   "Acer NGR200",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1390,
+   8196,
+   "Elecom JC-U3613M",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1533,
+   4103,
+   "Mad Catz Controller (unverified)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1533,
+   4218,
+   "InterAct 'PowerPad Pro' X-Box pad (Germany)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1534,
+   12336,
+   "Chic Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1534,
+   12337,
+   "Chic Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1578,
+   32,
+   "Logic3 Xbox GamePad",
+   "XTYPE_XBOX"
+  ],
+  [
+   1578,
+   51,
+   "Competition Pro Steering Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1699,
+   512,
+   "Saitek Racing Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   1699,
+   513,
+   "Saitek Adrenalin",
+   "XTYPE_XBOX"
+  ],
+  [
+   1699,
+   62746,
+   "Saitek P3600",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   17667,
+   "Mad Catz Racing Wheel",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1848,
+   17670,
+   "Mad Catz 4506 Wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17686,
+   "Mad Catz Control Pad",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17696,
+   "Mad Catz Control Pad Pro",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17698,
+   "Mad Catz LumiCON",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17702,
+   "Mad Catz Control Pad Pro",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17712,
+   "Mad Catz Universal MC2 Racing Wheel and Pedals",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17718,
+   "Mad Catz MicroCON",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17728,
+   "Mad Catz Beat Pad",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17750,
+   "Mad Catz Lynx Wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17798,
+   "Mad Catz MicroCon Wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17800,
+   "Mad Catz Blaster",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   17919,
+   "Mad Catz Beat Pad (w/ Handle)",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   18198,
+   "Mad Catz Wired Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18200,
+   "Mad Catz Street Fighter IV FightStick SE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18214,
+   "Mad Catz Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18216,
+   "Mad Catz Street Fighter IV FightPad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18230,
+   "Mad Catz MicroCon Gamepad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18232,
+   "Mad Catz Wired Xbox 360 Controller (SFIV)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18240,
+   "Mad Catz Beat Pad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18243,
+   "Mad Catz Beat Pad Pro",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   18264,
+   "Mad Catz Arcade Game Stick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   18945,
+   "Mad Catz FightStick TE 2",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   1848,
+   24640,
+   "Mad Catz Beat Pad Pro",
+   "XTYPE_XBOX"
+  ],
+  [
+   1848,
+   39025,
+   "Mad Catz Portable Drum",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   46886,
+   "Mad Catz Xbox controller - MW2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   46904,
+   "Mad Catz MVC2TE Stick 2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   48879,
+   "Mad Catz JOYTECH NEO SE Advanced GamePad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   51970,
+   "Saitek Cyborg Rumble Pad - PC/Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   51971,
+   "Saitek P3200 Rumble Pad - PC/Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   52009,
+   "Saitek Aviator Stick AV8R02",
+   "XTYPE_XBOX360"
+  ],
+  [
+   1848,
+   63288,
+   "Super SFIV FightStick TE S",
+   "XTYPE_XBOX360"
+  ],
+  [
+   2047,
+   65535,
+   "Mad Catz GamePad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   2821,
+   6712,
+   "ASUS ROG RAIKIRI",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   2821,
+   6843,
+   "ASUS ROG RAIKIRI PRO",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   2821,
+   7313,
+   "ASUS ROG RAIKIRI II",
+   "XTYPE_XBOX360"
+  ],
+  [
+   2821,
+   7314,
+   "ASUS ROG RAIKIRI II WIRELESS",
+   "XTYPE_XBOX360"
+  ],
+  [
+   2821,
+   7318,
+   "ASUS ROG RAIKIRI II XBOX",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   2821,
+   7428,
+   "ASUS ROG RAIKIRI II XBOX WIRELESS",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3090,
+   5,
+   "Intec wireless",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   34817,
+   "Nyko Xbox Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   34818,
+   "Zeroplus Xbox Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   34825,
+   "RedOctane Xbox Dance Pad",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   34826,
+   "Pelican Eclipse PL-2023",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   34832,
+   "Zeroplus Xbox Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3090,
+   39170,
+   "HAMA VibraX - *FAULTY HARDWARE*",
+   "XTYPE_XBOX"
+  ],
+  [
+   3375,
+   2,
+   "Andamiro Pump It Up pad",
+   "XTYPE_XBOX"
+  ],
+  [
+   3504,
+   6401,
+   "Micro Star International Xbox360 Controller for Windows",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3660,
+   4247,
+   "Radica Gamester Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3660,
+   4355,
+   "Radica Gamester Reflex",
+   "XTYPE_XBOX"
+  ],
+  [
+   3660,
+   9104,
+   "Radica Games Jtech Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3660,
+   13584,
+   "Radica Gamester",
+   "XTYPE_XBOX"
+  ],
+  [
+   3695,
+   3,
+   "Logic3 Freebird wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3695,
+   5,
+   "Eclipse wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3695,
+   6,
+   "Edge wireless Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3695,
+   8,
+   "After Glow Pro Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3695,
+   261,
+   "HSM3 Xbox360 dancepad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   275,
+   "Afterglow AX.1 Gamepad for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   287,
+   "Rock Candy Gamepad Wired Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   305,
+   "PDP EA Sports Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   307,
+   "Xbox 360 Wired Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   313,
+   "Afterglow Prismatic Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   314,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   326,
+   "Rock Candy Wired Controller for Xbox One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   327,
+   "PDP Marvel Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   348,
+   "PDP Xbox One Arcade Stick",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   349,
+   "PDP Mirror's Edge Official Wired Controller for Xbox One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   353,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   354,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   355,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   356,
+   "PDP Battlefield One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   357,
+   "PDP Titanfall 2",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   513,
+   "Pelican PL-3601 'TSZ' Wired Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   531,
+   "Afterglow Gamepad for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   543,
+   "Rock Candy Gamepad for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   582,
+   "Rock Candy Gamepad for Xbox One 2015",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   588,
+   "PDP Victrix Pro BFG Wired Controller for Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   672,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   673,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   674,
+   "PDP Wired Controller for Xbox One - Crimson Red",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   676,
+   "PDP Wired Controller for Xbox One - Stealth Series",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   678,
+   "PDP Wired Controller for Xbox One - Camo Series",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   679,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   680,
+   "PDP Xbox One Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   683,
+   "PDP Controller for Xbox One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   685,
+   "PDP Wired Controller for Xbox One - Stealth Series",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   691,
+   "Afterglow Prismatic Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   696,
+   "Afterglow Prismatic Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   769,
+   "Logic3 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   838,
+   "Rock Candy Gamepad for Xbox One 2016",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3695,
+   1025,
+   "Logic3 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   1043,
+   "Afterglow AX.1 Gamepad for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   1281,
+   "PDP Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3695,
+   63744,
+   "PDP Afterglow AX.1",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3727,
+   513,
+   "SmartJoy Frag Xpad/PS2 adaptor",
+   "XTYPE_XBOX"
+  ],
+  [
+   3727,
+   12296,
+   "Generic xbox control (dealextreme)",
+   "XTYPE_XBOX"
+  ],
+  [
+   3853,
+   10,
+   "Hori Co. DOA4 FightStick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   12,
+   "Hori PadEX Turbo",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   13,
+   "Hori Fighting Stick EX2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   22,
+   "Hori Real Arcade Pro.EX",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   27,
+   "Hori Real Arcade Pro VX",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   99,
+   "Hori Real Arcade Pro Hayabusa (USA) Xbox One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   103,
+   "HORIPAD ONE",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   120,
+   "Hori Real Arcade Pro V Kai Xbox One",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   197,
+   "Hori Fighting Commander ONE",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   220,
+   "HORIPAD FPS for Nintendo Switch",
+   "XTYPE_XBOX360"
+  ],
+  [
+   3853,
+   337,
+   "Hori Racing Wheel Overdrive for Xbox Series X",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   338,
+   "Hori Racing Wheel Overdrive for Xbox Series X",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3853,
+   434,
+   "HORI Taiko No Tatsujin Drum Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   3888,
+   267,
+   "Philips Recoil",
+   "XTYPE_XBOX"
+  ],
+  [
+   3888,
+   514,
+   "Joytech Advanced Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   3888,
+   34952,
+   "BigBen XBMiniPad Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   4140,
+   65292,
+   "Joytech Wireless Advanced Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   4152,
+   5168,
+   "SteelSeries Stratus Duo",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4152,
+   5169,
+   "SteelSeries Stratus Duo",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4341,
+   28677,
+   "Turtle Beach Recon Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   4341,
+   28680,
+   "Turtle Beach Recon Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   4341,
+   28787,
+   "Turtle Beach Stealth Ultra Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   4553,
+   22000,
+   "Nacon GC-100XF",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4607,
+   1297,
+   "PXN V900",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4617,
+   10370,
+   "Ardwiino Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4779,
+   4,
+   "Honey Bee Xbox360 dancepad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4779,
+   769,
+   "PDP AFTERGLOW AX.1",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4779,
+   771,
+   "Mortal Kombat Klassic FightStick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   4779,
+   34825,
+   "Xbox DDR dancepad",
+   "XTYPE_XBOX"
+  ],
+  [
+   5168,
+   18248,
+   "RedOctane Guitar Hero X-plorer",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5168,
+   34952,
+   "TX6500+ Dance Pad (first generation)",
+   "XTYPE_XBOX"
+  ],
+  [
+   5168,
+   63489,
+   "RedOctane Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5227,
+   1537,
+   "BigBen Interactive XBOX 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5227,
+   1540,
+   "Bigben Interactive DAIJA Arcade Stick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5426,
+   2560,
+   "Razer Atrox Arcade Stick",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   5426,
+   2563,
+   "Razer Wildcat",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   5426,
+   2601,
+   "Razer Wolverine V2",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   5426,
+   2647,
+   "Razer Wolverine V3 Pro (Wired)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5426,
+   2649,
+   "Razer Wolverine V3 Pro (2.4 GHz Dongle)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5604,
+   16128,
+   "Power A Mini Pro Elite",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5604,
+   16138,
+   "Xbox Airflo wired controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5604,
+   16144,
+   "Batarang Xbox 360 controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5678,
+   48879,
+   "Joytech Neo-Se Take2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5769,
+   64768,
+   "Razer Onza Tournament Edition",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5769,
+   64769,
+   "Razer Onza Classic Edition",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5769,
+   65024,
+   "Razer Sabertooth",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   4355,
+   "Azeron Cyro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   4412,
+   "Azeron Cyborg",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   4498,
+   "Azeron Classic/Compact",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   4626,
+   "Azeron Cyro Lefty",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   4855,
+   "Azeron Cyborg II",
+   "XTYPE_XBOX360"
+  ],
+  [
+   5840,
+   5098,
+   "Azeron Keyzen",
+   "XTYPE_XBOX360"
+  ],
+  [
+   6127,
+   24962,
+   "Lenovo Legion Controller for Windows",
+   "XTYPE_XBOX360"
+  ],
+  [
+   6473,
+   1050,
+   "Amazon Game Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   6790,
+   58128,
+   "Legion Go S",
+   "XTYPE_XBOX360"
+  ],
+  [
+   6940,
+   11039,
+   "Corsair Novablade Pro (Wired)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   6940,
+   11051,
+   "Corsair Novablade Pro (2.4 GHz Receiver)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   2,
+   "Harmonix Rock Band Guitar",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   3,
+   "Harmonix Rock Band Drumkit",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   304,
+   "Ion Drum Rocker",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61462,
+   "Mad Catz Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61464,
+   "Mad Catz Street Fighter IV SE Fighting Stick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61465,
+   "Mad Catz Brawlstick for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61473,
+   "Mad Cats Ghost Recon FS GamePad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61475,
+   "MLG Pro Circuit Controller (Xbox)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61477,
+   "Mad Catz Call Of Duty",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61479,
+   "Mad Catz FPS Pro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61480,
+   "Street Fighter IV FightPad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61486,
+   "Mad Catz Fightpad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61488,
+   "Mad Catz Xbox 360 MC2 MicroCon Racing Wheel",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61494,
+   "Mad Catz MicroCon GamePad Pro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61496,
+   "Street Fighter IV FightStick TE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61497,
+   "Mad Catz MvC2 TE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61498,
+   "Mad Catz SFxT Fightstick Pro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61501,
+   "Street Fighter IV Arcade Stick TE - Chun Li",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61502,
+   "Mad Catz MLG FightStick TE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61503,
+   "Mad Catz FightStick SoulCaliber",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61506,
+   "Mad Catz FightStick TES+",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   61568,
+   "Mad Catz FightStick TE2",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62721,
+   "HoriPad EX2 Turbo",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62722,
+   "Hori Real Arcade Pro.VX SA",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62723,
+   "Hori Fighting Stick VX",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62724,
+   "Hori Real Arcade Pro. EX",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62725,
+   "Hori Fighting Stick EX2B",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   62726,
+   "Hori Real Arcade Pro.EX Premium VLX",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   63744,
+   "Harmonix Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   63745,
+   "Gamestop Xbox 360 Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   63747,
+   "Tron Xbox 360 controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   63748,
+   "PDP Versus Fighting Pad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   63750,
+   "MortalKombat FightStick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   64001,
+   "MadCatz GamePad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   64768,
+   "Razer Onza TE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7085,
+   64769,
+   "Razer Onza",
+   "XTYPE_XBOX360"
+  ],
+  [
+   7913,
+   5520,
+   "ZOTAC Gaming Zone",
+   "XTYPE_XBOX360"
+  ],
+  [
+   8380,
+   20788,
+   "BETOP BTP-KP50B Xinput Dongle",
+   "XTYPE_XBOX360"
+  ],
+  [
+   8380,
+   20810,
+   "BETOP BTP-KP50C Xinput Dongle",
+   "XTYPE_XBOX360"
+  ],
+  [
+   8406,
+   8193,
+   "BDA Xbox Series X Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   8406,
+   8201,
+   "PowerA Enhanced Wired Controller for Xbox Series X|S",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   8406,
+   8292,
+   "PowerA Wired Controller for Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   8406,
+   10271,
+   "PowerA Wired Controller For Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   8406,
+   16395,
+   "PowerA FUSION Pro 4 Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   8406,
+   35083,
+   "PowerA MOGA XP-Ultra Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9029,
+   57355,
+   "Machenike G5 Pro Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   20480,
+   "Razer Atrox Arcade Stick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21248,
+   "PowerA MINI PROEX Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21251,
+   "Xbox Airflo wired controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21258,
+   "Xbox 360 Pro EX Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21274,
+   "PowerA Pro Ex",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21399,
+   "FUS1ON Tournament Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21530,
+   "PowerA Xbox One Mini Wired Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   21546,
+   "Xbox ONE spectra",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   21562,
+   "PowerA Xbox One wired controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   21760,
+   "Hori XBOX 360 EX 2 with Turbo",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21761,
+   "Hori Real Arcade Pro VX-SA",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21762,
+   "Hori Fighting Stick VX Alt",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21763,
+   "Hori Fighting Edge",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21766,
+   "Hori SOULCALIBUR V Stick",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21773,
+   "Hori GEM Xbox controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21774,
+   "Hori Real Arcade Pro V Kai 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21776,
+   "Hori Fighting Commander ONE (Xbox 360/PC Mode)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   21786,
+   "PowerA FUSION Pro Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   22042,
+   "PowerA FUSION Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   22554,
+   "ThrustMaster XB1 Classic Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   9414,
+   23296,
+   "ThrustMaster Ferrari 458 Racing Wheel",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   23298,
+   "Thrustmaster, Inc. GPX Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   23299,
+   "Thrustmaster Ferrari 458 Racing Wheel",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   23812,
+   "Razer Sabertooth",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9414,
+   64254,
+   "Rock Candy Gamepad for Xbox 360",
+   "XTYPE_XBOX360"
+  ],
+  [
+   9571,
+   1421,
+   "OneXPlayer Gamepad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   10571,
+   13059,
+   "Snakebyte GAMEPAD BASE X",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   10571,
+   13316,
+   "Snakebyte GAMEPAD RGB X",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   10643,
+   8193,
+   "TECNO Pocket Go",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11720,
+   8192,
+   "8BitDo Pro 2 Wired Controller fox Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11720,
+   8207,
+   "8BitDo Ultimate 3-mode Controller for Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11720,
+   8222,
+   "8BitDo Pro 2 Wired Controller for Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11720,
+   12550,
+   "8BitDo Ultimate Wireless / Pro 2 Wired Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11720,
+   12553,
+   "8BitDo Ultimate Wireless Bluetooth",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11720,
+   12554,
+   "8BitDo Ultimate 2C Wireless Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11720,
+   12555,
+   "8BitDo Ultimate 2 Wireless Controller",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11720,
+   24577,
+   "8BitDo SN30 Pro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   11812,
+   1059,
+   "Hyperkin DuchesS Xbox One pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11812,
+   1618,
+   "Hyperkin Duke X-Box One pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11812,
+   5768,
+   "Hyperkin X91 X-Box One pad",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   11925,
+   1284,
+   "SCUF Gaming Controller",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   12771,
+   4352,
+   "Wooting One",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4608,
+   "Wooting Two",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4624,
+   "Wooting Lekker",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4640,
+   "Wooting Two HE",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4656,
+   "Wooting Two HE (ARM)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4864,
+   "Wooting 60HE (AVR)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12771,
+   4880,
+   "Wooting 60HE (ARM)",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12933,
+   1539,
+   "Nacon Pro Compact controller for Xbox",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   12933,
+   1543,
+   "Nacon GC-100",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12933,
+   1556,
+   "Nacon Pro Compact",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   12933,
+   1606,
+   "Nacon Pro Compact",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   12933,
+   1634,
+   "Nacon Revolution5 Pro",
+   "XTYPE_XBOX360"
+  ],
+  [
+   12933,
+   1635,
+   "Nacon Evol-X",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   13575,
+   11,
+   "ZENAIM LEVERLESS",
+   "XTYPE_XBOX360"
+  ],
+  [
+   13623,
+   4100,
+   "GameSir T4 Kaleid",
+   "XTYPE_XBOX360"
+  ],
+  [
+   13623,
+   4111,
+   "GameSir Nova 2 Lite",
+   "XTYPE_XBOX360"
+  ],
+  [
+   13623,
+   4112,
+   "GameSir G7 SE",
+   "XTYPE_XBOXONE"
+  ],
+  [
+   13905,
+   4096,
+   "CRKD SG",
+   "XTYPE_XBOX360"
+  ],
+  [
+   14183,
+   257,
+   "Fanatec Speedster 3 Forceshock Wheel",
+   "XTYPE_XBOX"
+  ],
+  [
+   14295,
+   9473,
+   "Flydigi Apex 5",
+   "XTYPE_XBOX360"
+  ],
+  [
+   16701,
+   8452,
+   "Black Shark Green Ghost Gamepad",
+   "XTYPE_XBOX360"
+  ],
+  [
+   65535,
+   65535,
+   "Chinese-made Xbox Controller",
+   "XTYPE_XBOX"
+  ],
+  [
+   0,
+   0,
+   "Generic X-Box pad",
+   "XTYPE_UNKNOWN"
+  ]
+ ]
+}

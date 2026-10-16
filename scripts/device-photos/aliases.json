@@ -1,0 +1,687 @@
+{
+ "razer-lancehead": {
+  "names": [
+   "lancehead",
+   "lancehead wireless",
+   "lancehead tournament edition",
+   "razer lancehead",
+   "razer lancehead wireless",
+   "razer lancehead tournament edition"
+  ],
+  "ids": [
+   "1532:0060",
+   "1532:006f",
+   "1532:0070"
+  ],
+  "for": [
+   "Lancehead Tournament Edition",
+   "Lancehead Wireless (same shell)"
+  ]
+ },
+ "razer-naga": {
+  "names": [
+   "naga 2012",
+   "naga 2014",
+   "naga chroma",
+   "naga epic",
+   "naga epic chroma",
+   "razer naga 2012",
+   "razer naga 2014",
+   "razer naga chroma",
+   "razer naga epic",
+   "razer naga epic chroma"
+  ],
+  "ids": [
+   "1532:002e",
+   "1532:0040",
+   "1532:0053",
+   "1532:001f",
+   "1532:003e",
+   "1532:003f"
+  ],
+  "for": [
+   "Naga 2012 / 2014 / Chroma / Epic / Epic Chroma (the same 12-button thumb-grid shell)"
+  ]
+ },
+ "razer-naga-hex-v2": {
+  "names": [
+   "naga hex",
+   "naga hex red",
+   "razer naga hex",
+   "razer naga hex red"
+  ],
+  "ids": [
+   "1532:0041",
+   "1532:0036"
+  ],
+  "for": [
+   "Naga Hex / Hex (Red) (same 7-button shell)"
+  ]
+ },
+ "razer-abyssus-v2": {
+  "names": [
+   "abyssus 1800",
+   "abyssus 2000",
+   "abyssus 2014",
+   "abyssus",
+   "razer abyssus 1800",
+   "razer abyssus 2000",
+   "razer abyssus 2014"
+  ],
+  "ids": [
+   "1532:0020",
+   "1532:005e",
+   "1532:0042"
+  ],
+  "for": [
+   "Abyssus 1800 / 2000 / 2014 (same ambidextrous Abyssus family)"
+  ]
+ },
+ "razer-abyssus-essential": {
+  "names": [
+   "abyssus elite d va edition",
+   "abyssus elite",
+   "razer abyssus elite d va edition"
+  ],
+  "ids": [
+   "1532:006a"
+  ],
+  "for": [
+   "Abyssus Elite (D.Va Edition)"
+  ]
+ },
+ "razer-basilisk-v3-35k": {
+  "names": [
+   "basilisk v3",
+   "basilisk",
+   "basilisk v2",
+   "razer basilisk v3",
+   "razer basilisk",
+   "razer basilisk v2"
+  ],
+  "ids": [
+   "1532:0099",
+   "1532:0064",
+   "1532:0085"
+  ],
+  "for": [
+   "Basilisk V3 (35K sensor revision, same shell)",
+   "Basilisk / Basilisk V2 (same shell family)"
+  ]
+ },
+ "razer-basilisk-v3-pro-35k": {
+  "names": [
+   "basilisk v3 pro",
+   "razer basilisk v3 pro"
+  ],
+  "ids": [
+   "1532:00aa",
+   "1532:00ab"
+  ],
+  "for": [
+   "Basilisk V3 Pro (35K revision, same shell)"
+  ]
+ },
+ "razer-deathadder-v2": {
+  "names": [
+   "deathadder elite",
+   "deathadder chroma",
+   "deathadder 2013",
+   "deathadder 2000",
+   "deathadder 3500",
+   "deathadder 1800",
+   "deathadder v2 lite",
+   "deathadder v2 mini",
+   "razer deathadder elite",
+   "razer deathadder chroma",
+   "razer deathadder 2013",
+   "razer deathadder 2000",
+   "razer deathadder 3500",
+   "razer deathadder 1800",
+   "razer deathadder v2 lite",
+   "razer deathadder v2 mini"
+  ],
+  "ids": [
+   "1532:005c",
+   "1532:0043",
+   "1532:0037",
+   "1532:004f",
+   "1532:0054",
+   "1532:0038",
+   "1532:00a1",
+   "1532:008c"
+  ],
+  "for": [
+   "every DeathAdder with the classic ergonomic shell (Elite, Chroma, 2013, 2000, 3500, 1800, V2 Lite, V2 Mini): family photo of the DeathAdder V2"
+  ]
+ },
+ "razer-mamba-wireless": {
+  "names": [
+   "mamba",
+   "mamba 2012",
+   "mamba tournament edition",
+   "razer mamba",
+   "razer mamba 2012",
+   "razer mamba tournament edition"
+  ],
+  "ids": [
+   "1532:0044",
+   "1532:0045",
+   "1532:0024",
+   "1532:0025",
+   "1532:0046"
+  ],
+  "for": [
+   "Mamba / Mamba 2012 / Tournament Edition (same ergonomic Mamba shell)"
+  ]
+ },
+ "razer-taipan": {
+  "names": [
+   "diamondback chroma",
+   "diamondback",
+   "imperator 2012",
+   "imperator",
+   "ouroboros 2012",
+   "ouroboros",
+   "razer diamondback chroma",
+   "razer imperator 2012",
+   "razer ouroboros 2012"
+  ],
+  "ids": [
+   "1532:004c",
+   "1532:002f",
+   "1532:0032"
+  ],
+  "for": [
+   "Diamondback Chroma / Imperator 2012 / Ouroboros 2012 (ambidextrous Razer gaming shapes of the same era): family photo of the Taipan"
+  ]
+ },
+ "razer-orochi-v2": {
+  "names": [
+   "orochi",
+   "orochi 2013",
+   "orochi wired",
+   "atheris",
+   "razer orochi",
+   "razer orochi 2013",
+   "razer atheris"
+  ],
+  "ids": [
+   "1532:0048",
+   "1532:0039",
+   "1532:0062"
+  ],
+  "for": [
+   "Orochi / Orochi 2013 / Atheris (Razer's compact mobile mice): family photo of the Orochi V2"
+  ]
+ },
+ "razer-viper-v4-pro": {
+  "names": [
+   "viper v4 hyperspeed",
+   "razer viper v4 hyperspeed"
+  ],
+  "ids": [
+   "1532:b005"
+  ],
+  "for": [
+   "Viper V4 HyperSpeed (the V4 Pro's own dongle id)"
+  ]
+ },
+ "razer-deathadder-v4-pro": {
+  "names": [
+   "deathadder v4 hyperspeed",
+   "razer deathadder v4 hyperspeed"
+  ],
+  "ids": [
+   "1532:b007"
+  ],
+  "for": [
+   "DeathAdder V4 HyperSpeed (the V4 Pro's own dongle id)"
+  ]
+ },
+ "endgame-gear-op1-8k-v2": {
+  "names": [
+   "op1 8k",
+   "endgame gear op1 8k"
+  ],
+  "ids": [
+   "3367:1964"
+  ],
+  "for": [
+   "OP1 8K (same shell as the v2)"
+  ]
+ },
+ "endgame-gear-op1w-4k-v2": {
+  "names": [
+   "op1w 4k",
+   "endgame gear op1w 4k"
+  ],
+  "ids": [
+   "3367:1972"
+  ],
+  "for": [
+   "OP1w 4K (same shell as the v2)"
+  ]
+ },
+ "ninjutso-sora-v3": {
+  "names": [
+   "sora",
+   "ninjutso sora"
+  ],
+  "ids": [],
+  "for": [
+   "Ninjutso Sora (unspecified revision: the latest)"
+  ]
+ },
+ "attack-shark-x11": {
+  "names": [
+   "k snake x11",
+   "snake x11"
+  ],
+  "ids": [
+   "a8a4:2255",
+   "a8a5:2255"
+  ],
+  "for": [
+   "K-snake X11 (the same mouse, sold under both names)"
+  ]
+ },
+ "rog-harpe-ace-mini": {
+  "names": [
+   "harpe ii ace mini",
+   "rog harpe ii ace mini",
+   "harpe ii ace mini demon1 edition",
+   "rog harpe ii ace mini demon1 edition"
+  ],
+  "ids": [
+   "0b05:1e2f",
+   "0b05:1e32",
+   "0b05:1e51",
+   "0b05:1e52"
+  ],
+  "for": [
+   "ROG Harpe II Ace Mini (+ Demon1 Edition): same Harpe Ace Mini shell"
+  ]
+ },
+ "rog-gladius-iv-ace": {
+  "names": [
+   "gladius iv ace max",
+   "rog gladius iv ace max"
+  ],
+  "ids": [
+   "0b05:1e4e",
+   "0b05:1e4f"
+  ],
+  "for": [
+   "ROG Gladius IV Ace Max: same Gladius IV Ace shell"
+  ]
+ },
+ "rog-strix-morph-96-wireless": {
+  "names": [
+   "strix morph 96 x wireless",
+   "rog strix morph 96 x wireless"
+  ],
+  "ids": [
+   "0b05:1e0a",
+   "0b05:1e0c"
+  ],
+  "for": [
+   "ROG Strix Morph 96 X Wireless: the Morph 96 Wireless with new keycaps, same chassis"
+  ]
+ },
+ "corsair-sabre-v2-pro": {
+  "names": [
+   "sabre v3 pro ultralight wireless",
+   "corsair sabre v3 pro ultralight wireless"
+  ],
+  "ids": [
+   "1b1c:2b43"
+  ],
+  "for": [
+   "SABRE v3 PRO ULTRALIGHT: no v3 photo is published; the v2 PRO is the same family"
+  ]
+ },
+ "corsair-sabre-v2-pro-mg": {
+  "names": [
+   "sabre v3 pro wireless mg",
+   "corsair sabre v3 pro wireless mg"
+  ],
+  "ids": [
+   "1b1c:2b44"
+  ],
+  "for": [
+   "SABRE v3 PRO MG: family photo of the v2 PRO MG"
+  ]
+ },
+ "corsair-sabre-v2-pro-cf": {
+  "names": [
+   "sabre v3 pro wireless cf",
+   "corsair sabre v3 pro wireless cf"
+  ],
+  "ids": [
+   "1b1c:2b45"
+  ],
+  "for": [
+   "SABRE v3 PRO CF: family photo of the v2 PRO CF"
+  ]
+ },
+ "razer-deathadder-essential": {
+  "names": [
+   "deathadder essential 2021",
+   "razer deathadder essential 2021"
+  ],
+  "ids": [
+   "1532:0098"
+  ],
+  "for": [
+   "DeathAdder Essential (2021)"
+  ]
+ },
+ "logitech-mx-master-3s": {
+  "names": [
+   "mx master 2s",
+   "logitech mx master 2s"
+  ],
+  "ids": [],
+  "for": [
+   "MX Master 2S: Logitech retired its page; the MX Master 3S is the same shell family"
+  ]
+ },
+ "aula-f65": {
+  "names": [
+   "f65m",
+   "aula f65m"
+  ],
+  "ids": [],
+  "for": [
+   "AULA F65M: the F65 chassis"
+  ]
+ },
+ "pulsar-x2h": {
+  "names": [
+   "pulsar x2 he",
+   "pulsar x2h crazylight",
+   "pulsar x2h medium",
+   "pulsar x2h mini",
+   "pulsar x2h v3",
+   "pulsar x2h v3 es",
+   "pulsar x2h wireless",
+   "x2 he",
+   "x2h crazylight",
+   "x2h medium",
+   "x2h mini",
+   "x2h v3",
+   "x2h v3 es",
+   "x2h wireless"
+  ],
+  "ids": [],
+  "for": [
+   "Pulsar X2H family (HE / V3 / Mini / Medium / CrazyLight)"
+  ]
+ },
+ "pulsar-x2-v3-es-mini": {
+  "names": [
+   "pulsar x2 crazylight mini",
+   "pulsar x2 mini",
+   "pulsar x2 v3",
+   "pulsar x2 v3 es",
+   "pulsar x2 v3 medium",
+   "pulsar x2 v3 mini",
+   "x2 crazylight mini",
+   "x2 mini",
+   "x2 v3",
+   "x2 v3 es",
+   "x2 v3 medium",
+   "x2 v3 mini"
+  ],
+  "ids": [],
+  "for": [
+   "Pulsar X2 V3 / Mini / CrazyLight Mini"
+  ]
+ },
+ "pulsar-x2-v2": {
+  "names": [
+   "pulsar x2 crazylight",
+   "pulsar x2 crazylight medium",
+   "pulsar x2 medium",
+   "pulsar x2 v2 mini",
+   "pulsar x2 wireless",
+   "x2 crazylight",
+   "x2 crazylight medium",
+   "x2 medium",
+   "x2 v2 mini",
+   "x2 wireless"
+  ],
+  "ids": [],
+  "for": [
+   "Pulsar X2 V2 / Medium / CrazyLight"
+  ]
+ },
+ "pulsar-x3-medium": {
+  "names": [
+   "pulsar x3",
+   "pulsar x3 crazylight",
+   "pulsar x3 crazylight medium",
+   "pulsar x3 lhd",
+   "pulsar x3 medium lhd",
+   "pulsar x3 mini",
+   "pulsar x3 mini lhd",
+   "x3",
+   "x3 crazylight",
+   "x3 crazylight medium",
+   "x3 lhd",
+   "x3 medium lhd",
+   "x3 mini",
+   "x3 mini lhd"
+  ],
+  "ids": [],
+  "for": [
+   "Pulsar X3 family (Mini / LHD / CrazyLight)"
+  ]
+ },
+ "pulsar-x2a-v3": {
+  "names": [
+   "pulsar x2a es",
+   "pulsar x2a medium",
+   "pulsar x2a mini",
+   "pulsar x2a v3 es",
+   "pulsar x2a wired",
+   "x2a es",
+   "x2a medium",
+   "x2a mini",
+   "x2a v3 es",
+   "x2a wired"
+  ],
+  "ids": [],
+  "for": [
+   "Pulsar X2A family"
+  ]
+ },
+ "pulsar-tenz-signature": {
+  "names": [
+   "pulsar tenz",
+   "pulsar tenz 2 0",
+   "pulsar tenz 2 0 mini",
+   "pulsar tenz signature edition",
+   "pulsar tenz signature edition 2 0",
+   "tenz",
+   "tenz 2 0",
+   "tenz 2 0 mini",
+   "tenz mini",
+   "tenz signature edition",
+   "tenz signature edition 2 0"
+  ],
+  "ids": [],
+  "for": [
+   "TenZ Signature Edition (1.0 / 2.0 / Mini)"
+  ]
+ },
+ "mchose-jet75": {
+  "names": [
+   "jet 75",
+   "jet75",
+   "mchose jet 75"
+  ],
+  "ids": [
+   "3837:3008",
+   "41e4:2118",
+   "41e4:211a"
+  ],
+  "for": [
+   "MCHOSE Jet 75 (its USB ids, FCC's catalogue)"
+  ]
+ },
+ "drunkdeer-a75-pro": {
+  "names": [
+   "a75 pro oem",
+   "drunkdeer a75 pro oem"
+  ],
+  "ids": [
+   "19f5:fb5c"
+  ],
+  "for": [
+   "DrunkDeer A75 Pro OEM relabel (19F5:FB5C)"
+  ]
+ },
+ "keychron-q3-he": {
+  "names": [
+   "q3 he iso",
+   "q3 he jis",
+   "keychron q3 he iso",
+   "keychron q3 he jis"
+  ],
+  "ids": [
+   "3434:0b31",
+   "3434:0b32"
+  ],
+  "for": [
+   "Keychron Q3 HE ISO and JIS (same shell)"
+  ]
+ },
+ "keychron-q5-he": {
+  "names": [
+   "q5 he iso",
+   "q5 he jis",
+   "keychron q5 he iso",
+   "keychron q5 he jis"
+  ],
+  "ids": [
+   "3434:0b51",
+   "3434:0b52"
+  ],
+  "for": [
+   "Keychron Q5 HE ISO and JIS (same shell)"
+  ]
+ },
+ "lemokey-p1-he": {
+  "names": [
+   "p1 he iso",
+   "p1 he jis",
+   "lemokey p1 he iso",
+   "lemokey p1 he jis"
+  ],
+  "ids": [
+   "362d:0612"
+  ],
+  "for": [
+   "Lemokey P1 HE JIS (same shell)"
+  ]
+ },
+ "govee-h61c3": {
+  "names": [
+   "govee h61c5",
+   "h61c5"
+  ],
+  "for": [
+   "Govee H61C5: the same neon rope lights for desks, sold together"
+  ]
+ },
+ "govee-h617f": {
+  "names": [
+   "govee h617c",
+   "govee h617e",
+   "h617c",
+   "h617e"
+  ],
+  "for": [
+   "Govee H617C and H617E: other lengths of the same RGBIC Basic LED strip (Govee's product page lists all three)"
+  ]
+ },
+ "govee-h6173": {
+  "names": [
+   "govee h6175",
+   "govee h6176",
+   "h6175",
+   "h6176"
+  ],
+  "for": [
+   "Govee H6175 and H6176: other lengths of the same outdoor strip lights (Govee's product page lists all three)"
+  ]
+ },
+ "govee-h66a0": {
+  "names": [
+   "govee h66a1",
+   "h66a1"
+  ],
+  "for": [
+   "Govee H66A1: the same TV backlight for larger TVs (Govee's product page lists them together)"
+  ]
+ },
+ "govee-h619a": {
+  "names": [
+   "govee h619c",
+   "govee h619e",
+   "h619c",
+   "h619e"
+  ],
+  "for": [
+   "Govee H619C and H619E: other lengths of the same light (Govee's product page lists them together)"
+  ]
+ },
+ "govee-h61a0": {
+  "names": [
+   "govee h61a1",
+   "govee h61a2",
+   "govee h61a5",
+   "h61a1",
+   "h61a2",
+   "h61a5"
+  ],
+  "for": [
+   "Govee H61A1 and H61A2 and H61A5: other lengths of the same light (Govee's product page lists them together)"
+  ]
+ },
+ "govee-h6143": {
+  "names": [
+   "govee h6144",
+   "h6144"
+  ],
+  "for": [
+   "Govee H6144: other lengths of the same light (Govee's product page lists them together)"
+  ]
+ },
+ "govee-h618a": {
+  "names": [
+   "govee h618c",
+   "govee h618e",
+   "govee h618f",
+   "h618c",
+   "h618e",
+   "h618f"
+  ],
+  "for": [
+   "Govee H618C and H618E and H618F: other lengths of the same light (Govee's product page lists them together)"
+  ]
+ },
+ "govee-h6138": {
+  "names": [
+   "govee h6139",
+   "govee h6196",
+   "h6139",
+   "h6196"
+  ],
+  "for": [
+   "Govee H6139 and H6196: other lengths of the same light (Govee's product page lists them together)"
+  ]
+ }
+}

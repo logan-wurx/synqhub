@@ -1,0 +1,7633 @@
+[
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 HE Magnetic TKL 8KHz",
+  "vid": 5426,
+  "pid": 746,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 HE Magnetic Mini 65% 8KHz",
+  "vid": 5426,
+  "pid": 740,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro 8KHz",
+  "vid": 5426,
+  "pid": 719,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro TKL 8KHz",
+  "vid": 5426,
+  "pid": 720,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro Mini 8KHz",
+  "vid": 5426,
+  "pid": 721,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman Signature Edition",
+  "vid": 5426,
+  "pid": 728,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 TKL 8KHz",
+  "vid": 5426,
+  "pid": 741,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro Low-profile TKL 8KHz",
+  "vid": 5426,
+  "pid": 742,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro Mini",
+  "vid": 5426,
+  "pid": 688,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro",
+  "vid": 5426,
+  "pid": 678,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Huntsman V3 Pro TKL",
+  "vid": 5426,
+  "pid": 679,
+  "kind": "keyboard",
+  "src": "razer-kb"
+ },
+ {
+  "vendor": "Razer",
+  "model": "Viper V4 HyperSpeed",
+  "vid": 5426,
+  "pid": 45061,
+  "kind": "mouse",
+  "src": "razer-mice"
+ },
+ {
+  "vendor": "Razer",
+  "model": "DeathAdder V4 HyperSpeed",
+  "vid": 5426,
+  "pid": 45063,
+  "kind": "mouse",
+  "src": "razer-mice"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL (2019)",
+  "vid": 4152,
+  "pid": 5652,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro (2019)",
+  "vid": 4152,
+  "pid": 5648,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro (2024, Gen 3 full size)",
+  "vid": 4152,
+  "pid": 5696,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 7",
+  "vid": 4152,
+  "pid": 5650,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 7 TKL",
+  "vid": 4152,
+  "pid": 5656,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 5",
+  "vid": 4152,
+  "pid": 5660,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 7 (2024)",
+  "vid": 4152,
+  "pid": 5714,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 5 (2024)",
+  "vid": 4152,
+  "pid": 5712,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL (2024, Gen 3)",
+  "vid": 4152,
+  "pid": 5698,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL (2023)",
+  "vid": 4152,
+  "pid": 5672,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Cyber",
+  "vid": 4152,
+  "pid": 5728,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Steel",
+  "vid": 4152,
+  "pid": 5730,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro Mini",
+  "vid": 4152,
+  "pid": 5662,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro Mini (2024)",
+  "vid": 4152,
+  "pid": 5704,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Wireless (2024) receiver",
+  "vid": 4152,
+  "pid": 5700,
+  "kind": "receiver",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Wireless (2024, USB cable)",
+  "vid": 4152,
+  "pid": 5702,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Wireless (2023) receiver",
+  "vid": 4152,
+  "pid": 5680,
+  "kind": "receiver",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro TKL Wireless (2023, USB cable)",
+  "vid": 4152,
+  "pid": 5682,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro Mini Wireless receiver",
+  "vid": 4152,
+  "pid": 5668,
+  "kind": "receiver",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex Pro Mini Wireless (USB cable)",
+  "vid": 4152,
+  "pid": 5670,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 9 Mini",
+  "vid": 4152,
+  "pid": 5664,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 9 TKL",
+  "vid": 4152,
+  "pid": 5684,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 3",
+  "vid": 4152,
+  "pid": 5658,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 3 TKL",
+  "vid": 4152,
+  "pid": 5666,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "SteelSeries",
+  "model": "Apex 150",
+  "vid": 4152,
+  "pid": 5654,
+  "kind": "keyboard",
+  "src": "steelseries"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G65 family (G65, G65 Lite)",
+  "vid": 13613,
+  "pid": 9090,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "A75 family (A75, A75 Pro, A75 ISO, A75 Ultra, A75 Master)",
+  "vid": 13613,
+  "pid": 9091,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G60",
+  "vid": 13613,
+  "pid": 9092,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G75",
+  "vid": 13613,
+  "pid": 9094,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer (model unknown)",
+  "vid": 13613,
+  "pid": 9095,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer (model unknown)",
+  "vid": 13613,
+  "pid": 9103,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G65 M1",
+  "vid": 13613,
+  "pid": 9104,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G75 JP",
+  "vid": 13613,
+  "pid": 9105,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G60 M1",
+  "vid": 13613,
+  "pid": 9108,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G60 M2",
+  "vid": 13613,
+  "pid": 9139,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G65 M2",
+  "vid": 13613,
+  "pid": 9140,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G65 M3",
+  "vid": 13613,
+  "pid": 9141,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "G60 M3",
+  "vid": 13613,
+  "pid": 9142,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "X60",
+  "vid": 6785,
+  "pid": 8340,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer (unverified interface)",
+  "vid": 13613,
+  "pid": 10760,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "Unknown board using Apple's VID/PID",
+  "vid": 1452,
+  "pid": 591,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64318,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64322,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64336,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64348,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64350,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64355,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "DrunkDeer",
+  "model": "DrunkDeer gen-2 (OEM 0x19F5 platform)",
+  "vid": 6645,
+  "pid": 64379,
+  "kind": "keyboard",
+  "src": "drunkdeer"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 PRO / MonsGeek FUN60 PRO ISO / MonsGeek FUN60 MAX / MonsGeek FUN60 Ultra / MonsGeek FUN68 / MonsGeek M1 V5 HE / MonsGeek M1 V5 TMR / MonsGeek M2 V5 / MonsGeek M2 V5 HE / MonsGeek M3 V5 / MonsGeek M3 V5 HE / MonsGeek Verve68 / MonsGeek Verve68T / Akko MOD007 V5 HE / Akko MOD007S V3-HE / Akko MOD007S V3-HE UK / Akko RAY68 / Akko Gem02 / Akko K0039 / Akko Mineral01 / Akko Mineral02 / Akko MOD007B V3-HE(US) / Akko MOD007B V3-HE(UK) / Akko M1 V5 HE",
+  "vid": 12625,
+  "pid": 20528,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 PRO / MonsGeek FUN60 Ultra / MonsGeek FUN68 / MonsGeek Verve68 / Akko 5087S V2 HE / Akko MOD007 V5 HE / Akko MOD68",
+  "vid": 12625,
+  "pid": 20521,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 PRO / MonsGeek FUN60 Ultra / MonsGeek FUN75 / Akko 5075S HE / Akko TAC75 HE",
+  "vid": 12625,
+  "pid": 20525,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 PRO / Akko 5075B V2 HE / Akko MOD007 V5 HE / Akko 5087 V3 HE",
+  "vid": 12625,
+  "pid": 20527,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60",
+  "vid": 12625,
+  "pid": 20526,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek M1W HE / MonsGeek MG75S HE / Akko MOD007B HE PC",
+  "vid": 12625,
+  "pid": 16437,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 Ultra TMR / MonsGeek FUN87 HE / MonsGeek M1 V5 TMR ISO / MonsGeek Shine68 / Akko 5075 V5 HE / Akko 5108 V5 HE",
+  "vid": 14574,
+  "pid": 1,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN68 ISO / MonsGeek Shine68",
+  "vid": 14574,
+  "pid": 9,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek M1 V5 TMR / MonsGeek M1 V5 TMR ISO",
+  "vid": 14574,
+  "pid": 64,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MonsGeek FUN60 PRO / MonsGeek FUN60 Pro JP",
+  "vid": 14763,
+  "pid": 36886,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Pro 2.4 GHz receiver (1 kHz)",
+  "vid": 12625,
+  "pid": 20518,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 HE 2.4 GHz (the vendor's filter list types it 'mouse')",
+  "vid": 12625,
+  "pid": 20538,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "8 kHz receiver",
+  "vid": 12625,
+  "pid": 20536,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "YC3121-era receiver",
+  "vid": 12625,
+  "pid": 16401,
+  "kind": "keyboard",
+  "src": "monsgeek-dev"
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2299,
+   "name": "FUN60",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60_nolight_1k_005",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20526
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": false,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2304,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60pro_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2305,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60pro_8k_002",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20527
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2464,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60pro_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2600,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2785,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_3m_8k_1k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO ISO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3722,
+   "name": "FUN60 PRO ISO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_b_uk_3m_8k_1k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee7fb9ee77b9ee7fbbe0a0000000000",
+   "keys": 62,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.01,
+    "rtMin": 0.01,
+    "rtMax": 2,
+    "deadMax": 1
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 PRO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4294,
+   "name": "FUN60 PRO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_d_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14763,
+     36886
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": false,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Pro JP",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4180,
+   "name": "FUN60 Pro JP",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_pro_jp_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14763,
+     36886
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beebfb9ee7f99eeffbbe0f0000000000",
+   "keys": 65,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.01,
+    "rtMin": 0.01,
+    "rtMax": 2
+   },
+   "polling8k": false,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 MAX",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2306,
+   "name": "FUN60 MAX",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60max_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 MAX",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3299,
+   "name": "FUN60 MAX",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60max_3m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.4,
+    "step": 0.01,
+    "rtMin": 0.01,
+    "rtMax": 2.5,
+    "deadMax": 1
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 MAX",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3906,
+   "name": "FUN60 MAX",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60maxc_3m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Ultra",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2307,
+   "name": "FUN60 Ultra",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60max2_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9eeffbb6030000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Ultra",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2352,
+   "name": "FUN60 Ultra",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60ultra_8k_dm_dfn4",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9eeffbb6030000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Ultra",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2381,
+   "name": "FUN60 Ultra",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60ultra_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Ultra",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2387,
+   "name": "FUN60 Ultra",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun60ultra_8k_2049e",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "bee3fb9ee77b9ee7fbb60b0000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN60 Ultra TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3853,
+   "name": "FUN60 Ultra TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun60_ultra_tmr_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6030000000000",
+   "keys": 61,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 8,
+    "fixed": 7
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.4,
+    "step": 0.005
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2811,
+   "name": "FUN68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun68_8k_8k_3m",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.005
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "profiles: FCC 4, sharkfin 2, web 4"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3091,
+   "name": "FUN68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun68_8k_1m",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN68 ISO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3429,
+   "name": "FUN68 ISO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_fun68_uk_dm_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     9
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beef7b9ee77b9eeffbbeee0300000000",
+   "keys": 69,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN75",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2648,
+   "name": "FUN75",
+   "brand": "MonsGeek",
+   "internal": "ry5088_mgk_fun75_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff7ffdff77fdfffffffff0300000000",
+   "keys": 85,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "FUN87 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4088,
+   "name": "FUN87 HE",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_fun87_he_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7fbff00000000",
+   "keys": 88,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.005,
+    "rtMin": 0.005
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2819,
+   "name": "M1 V5 HE",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m1v5_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2247,
+   "name": "M1 V5 TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_m1w_v5_soc_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff3ffdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2536,
+   "name": "M1 V5 TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m1_v5_uk_3m_pan1080_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff7ffdff77fdfffffffee1f03000000",
+   "keys": 88,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2679,
+   "name": "M1 V5 TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_m1v5heb_soc_8k_dfn4",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff3ffdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2949,
+   "name": "M1 V5 TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m1v5he_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 2,
+   "keyMask": "fffb7fdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "profiles: FCC 2, sharkfin 4, web 2"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4212,
+   "name": "M1 V5 TMR",
+   "brand": "MonsGeek",
+   "internal": "ry5088_001_akko_m1_tmr_iso_c_3m_8k_8k_ry1033_dfn4_v400h",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     64
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.01,
+    "deadMax": 1
+   },
+   "lightDisputed": "FCC and the current web driver (class T8 extends DAZZLE 7 / NORMAL 8) say rainbow 7, fixed 8; sharkfin's vendor snapshot says rainbow 8, fixed 7.",
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "profiles: FCC 4, sharkfin 2, web 4"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR ISO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4158,
+   "name": "M1 V5 TMR ISO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m1v5_tmr_iso_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 2,
+   "keyMask": "ffff7fdff77fdfffffffee1f03000000",
+   "keys": 88,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 TMR ISO",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4211,
+   "name": "M1 V5 TMR ISO",
+   "brand": "MonsGeek",
+   "internal": "ry5088_001_akko_m1_tmr_iso_b_3m_8k_8k_ry1033_dfn4_v400h",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     64
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "ffff7fdff77fdfffffffee1f03000000",
+   "keys": 88,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.01,
+    "deadMax": 1
+   },
+   "lightDisputed": "FCC and the current web driver (class T8 extends DAZZLE 7 / NORMAL 8) say rainbow 7, fixed 8; sharkfin's vendor snapshot says rainbow 8, fixed 7.",
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "profiles: FCC 4, sharkfin 2, web 4"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M2 V5",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2601,
+   "name": "M2 V5",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_mjk_m2v5_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "ffff7fdff77fdff7ffffffffff090000",
+   "keys": 100,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M2 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2845,
+   "name": "M2 V5 HE",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m2v5_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77ffffffff7ff7fdf050000",
+   "keys": 98,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "profiles: FCC 4, sharkfin 2, web 4"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M3 V5",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2585,
+   "name": "M3 V5",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_mjk_m3v5_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "ffff7fdff77fdff7ffbf7bde27000000",
+   "keys": 89,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M3 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2874,
+   "name": "M3 V5 HE",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_m3v5_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 2,
+   "keyMask": "fffb7fdff77fdfffffb7fbff00000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Verve68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2721,
+   "name": "Verve68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_veekosk0038_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Verve68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3099,
+   "name": "Verve68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_k0038_1m_8k_3099",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Verve68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3463,
+   "name": "Verve68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_k0038_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Verve68T",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3460,
+   "name": "Verve68T",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_k0038b_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Shine68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3269,
+   "name": "Shine68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_veekosshine68_3m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Shine68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3270,
+   "name": "Shine68",
+   "brand": "MonsGeek",
+   "internal": "ry5088_akko_veekosshine68_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     9
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 2,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5075B V2 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2807,
+   "name": "5075B V2 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko5075b_3m_8k_1k_1049es",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20527
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5075S HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3129,
+   "name": "5075S HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5075bv2he_1m",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7ef1f03000000",
+   "keys": 87,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5087S V2 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3131,
+   "name": "5087S V2 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5087bv2he_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdffffff7fbff00000000",
+   "keys": 88,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2453,
+   "name": "MOD007 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_mod007v5he_soc_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "ffff7fdfff7ddff7ffa7ef1f07000000",
+   "keys": 86,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2839,
+   "name": "MOD007 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_mod007_v5_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20527
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdff7ffb7ef1f07000000",
+   "keys": 86,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007S V3-HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2683,
+   "name": "MOD007S V3-HE",
+   "brand": "Akko",
+   "internal": "ry5088_mod007sv3he_dm_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff3ffdff77fdffffff7ef1f00000000",
+   "keys": 85,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "sharkfin lists 3151:5029"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007S V3-HE UK",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2704,
+   "name": "MOD007S V3-HE UK",
+   "brand": "Akko",
+   "internal": "ry5088_mod007sv3he_uk_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fff7ffdff77fdfffffffee1f00000000",
+   "keys": 86,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "sharkfin lists 3151:5029"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "TAC75 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2782,
+   "name": "TAC75 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_tac75he_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20525
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 2,
+   "keyMask": "fff7ffdff77fdfffffffff0300000000",
+   "keys": 85,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "RAY68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2743,
+   "name": "RAY68",
+   "brand": "Akko",
+   "internal": "ry5088_k0026_8k_1k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 3,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "RAY68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2924,
+   "name": "RAY68",
+   "brand": "Akko",
+   "internal": "ry5088_k0026_8k_dm",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "beeb7b9ee77b9eeffbb6ef0300000000",
+   "keys": 68,
+   "light": {
+    "maxSpeed": 3,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Gem02",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2619,
+   "name": "Gem02",
+   "brand": "Akko",
+   "internal": "ry5088_mjk_gem02_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdff7fff7fffedf7f0200",
+   "keys": 102,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "K0039",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2881,
+   "name": "K0039",
+   "brand": "Akko",
+   "internal": "ry5088_k0039_8k_1k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "ffff7fdff77fdffffffffffe00000000",
+   "keys": 90,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Mineral01",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2903,
+   "name": "Mineral01",
+   "brand": "Akko",
+   "internal": "ry5088_mjk_mineral01_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdff7fff7ff0200000000",
+   "keys": 81,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Mineral02",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2581,
+   "name": "Mineral02",
+   "brand": "Akko",
+   "internal": "ry5088_mjk_mineral02_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdff7fff7fffedf7f0200",
+   "keys": 102,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "Mineral02",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2885,
+   "name": "Mineral02",
+   "brand": "Akko",
+   "internal": "ry5088_mjk_mineral02_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "experimental",
+   "profiles": 4,
+   "keyMask": "fffb7fdff77fdff7fff7fffedf7f0200",
+   "keys": 102,
+   "light": {
+    "maxSpeed": 4,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "FCC app/src/devices/ry-catalog.json (built 2026-10-10 from app.monsgeek.com)",
+     "license": "GPL-3.0"
+    },
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5087 V3 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2829,
+   "name": "5087 V3 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5087b_3m_8k_1k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20527
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Not in MonsGeek's web driver class list (no FCC entry): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3113,
+   "name": "MOD007 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_mod007_v5_he_1m_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Not in MonsGeek's web driver class list (no FCC entry): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007B V3-HE(US)",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2871,
+   "name": "MOD007B V3-HE(US)",
+   "brand": "Akko",
+   "internal": "ry5088_mod007sv3he_8k_soc",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Only in sharkfin's registry (Akko driver data): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007B V3-HE(UK)",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 2872,
+   "name": "MOD007B V3-HE(UK)",
+   "brand": "Akko",
+   "internal": "ry5088_mod007sv3he_uk_8k_soc",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Only in sharkfin's registry (Akko driver data): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007B V3-HE(UK)",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 4030,
+   "name": "MOD007B V3-HE(UK)",
+   "brand": "Akko",
+   "internal": "ry5088_mod007sv3he_uk_8k_soc",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Only in sharkfin's registry (Akko driver data): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD68",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3163,
+   "name": "MOD68",
+   "brand": "Akko",
+   "internal": "ry5088_akko_mod68_8k_1m",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20521
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Only in sharkfin's registry (Akko driver data): no vendor matrix or lighting constants to check writes against.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5075 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3779,
+   "name": "5075 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5075_v5_he_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Listed by app.monsgeek.com but no device class in its RY5088 chunk; sharkfin has not established the command set.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "sharkfin family 'unknown'"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5108 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3773,
+   "name": "5108 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5108_v5_he_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Listed by app.monsgeek.com but no device class in its RY5088 chunk; sharkfin has not established the command set.",
+   "profiles": 4,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "sharkfin family 'unknown'"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "5108 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3869,
+   "name": "5108 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_akko_5108_v5_he_b_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     14574,
+     1
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Listed by app.monsgeek.com but no device class in its RY5088 chunk; sharkfin has not established the command set.",
+   "profiles": 4,
+   "travel": {
+    "min": 0.1,
+    "max": 3.3,
+    "step": 0.001
+   },
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ],
+   "notes": "sharkfin family 'unknown'"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1 V5 HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 3300,
+   "name": "M1 V5 HE",
+   "brand": "Akko",
+   "internal": "ry5088_m1v5he_3m_8k_8k",
+   "family": "gen2",
+   "usb": [
+    [
+     12625,
+     20528
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "Only in sharkfin's registry, command set not established.",
+   "profiles": 2,
+   "polling8k": true,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ],
+   "notes": "sharkfin family 'unknown'"
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "M1W HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 1604,
+   "name": "M1W HE",
+   "brand": "MonsGeek",
+   "internal": "yc3121_m1whes_hall_8k",
+   "family": "yc500",
+   "usb": [
+    [
+     12625,
+     16437
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "YiChip YC3121 board: yc500 command set (opcodes collide with RY5088 writes). SYNQ reads it only.",
+   "profiles": 5,
+   "light": {
+    "maxSpeed": 5,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": false,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MG75S HE",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 1674,
+   "name": "MG75S HE",
+   "brand": "MonsGeek",
+   "internal": "yc3121_mg75s_hes_dm_hall_8k",
+   "family": "yc500",
+   "usb": [
+    [
+     12625,
+     16437
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "YiChip YC3121 board: yc500 command set (opcodes collide with RY5088 writes). SYNQ reads it only.",
+   "profiles": 4,
+   "light": {
+    "maxSpeed": 5,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": false,
+   "debounceMax": 10,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    },
+    {
+     "kind": "configurator-js",
+     "ref": "app.monsgeek.com js/index.dc20bdb4.js device list + HID filters (2026-10-13, docs only)"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "MonsGeek",
+  "model": "MOD007B HE PC",
+  "vid": 0,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "monsgeek-model",
+  "raw": {
+   "devId": 1637,
+   "name": "MOD007B HE PC",
+   "brand": "Akko",
+   "internal": "yc3121_mod007bv3he_soc_8k",
+   "family": "yc500",
+   "usb": [
+    [
+     12625,
+     16437
+    ]
+   ],
+   "tier": "readOnly",
+   "tierWhy": "YiChip YC3121 board: yc500 command set (opcodes collide with RY5088 writes). SYNQ reads it only.",
+   "profiles": 5,
+   "light": {
+    "maxSpeed": 5,
+    "rainbow": 7,
+    "fixed": 8
+   },
+   "polling8k": false,
+   "sources": [
+    {
+     "kind": "open-source",
+     "ref": "sharkfin app/src-tauri/data/devices.json",
+     "license": "GPL-3.0-or-later"
+    }
+   ]
+  }
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G213 Prodigy",
+  "vid": 1133,
+  "pid": 49974,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "PRO (mechanical)",
+  "vid": 1133,
+  "pid": 49977,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G512 RGB",
+  "vid": 1133,
+  "pid": 49980,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G815 LIGHTSYNC",
+  "vid": 1133,
+  "pid": 49983,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "K845 Mechanical",
+  "vid": 1133,
+  "pid": 49985,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G915 TKL LIGHTSPEED",
+  "vid": 1133,
+  "pid": 49987,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G915 LIGHTSPEED",
+  "vid": 1133,
+  "pid": 49982,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G715 (AURORA)",
+  "vid": 1133,
+  "pid": 49991,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G713 (AURORA)",
+  "vid": 1133,
+  "pid": 49992,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "PRO X 60",
+  "vid": 1133,
+  "pid": 50001,
+  "kind": "keyboard",
+  "src": "logitech-kb"
+ },
+ {
+  "vendor": "Logitech",
+  "model": "PRO X TKL RAPID",
+  "vid": 1133,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "logitech-analog",
+  "raw": {
+   "model": "PRO X TKL RAPID",
+   "modelId": "pro_x_tkl_rapid",
+   "productId": null,
+   "dfu": [],
+   "features": [
+    "actuation 0.1–4.0 mm",
+    "rapid trigger",
+    "key priority / SOCD",
+    "per-key RGB",
+    "onboard profiles"
+   ],
+   "note": "0.1 mm steps; actuation range from G HUB UI keyTravelConfig (needs-device to confirm exact min/max)."
+  }
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G515 RAPID TKL",
+  "vid": 1133,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "logitech-analog",
+  "raw": {
+   "model": "G515 RAPID TKL",
+   "modelId": "g515_tkl_rapid",
+   "productId": null,
+   "dfu": [],
+   "features": [
+    "actuation 0.1–2.5 mm",
+    "rapid trigger",
+    "per-key RGB",
+    "onboard profiles"
+   ],
+   "note": "Low-profile; Logitech lists 0.1–2.5 mm actuation. Runtime PID needs-device (g515_tkl_keyboard_dfu depot is encrypted)."
+  }
+ },
+ {
+  "vendor": "Logitech",
+  "model": "G515 LIGHTSPEED TKL (analog variant)",
+  "vid": 1133,
+  "pid": 0,
+  "kind": "keyboard",
+  "src": "logitech-analog",
+  "raw": {
+   "model": "G515 LIGHTSPEED TKL (analog variant)",
+   "modelId": "g515_ls_tkl",
+   "productId": null,
+   "dfu": [],
+   "features": [
+    "actuation",
+    "rapid trigger",
+    "per-key RGB"
+   ],
+   "note": "Wireless low-profile; g515_ls_tkl_keyboard_dfu depot encrypted. Needs-device."
+  }
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K70 MAX (MGX magnetic)",
+  "vid": 6940,
+  "pid": 7104,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K70 Core RGB",
+  "vid": 6940,
+  "pid": 7165,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K70 Core RGB TKL",
+  "vid": 6940,
+  "pid": 11009,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K70 RGB PRO",
+  "vid": 6940,
+  "pid": 7108,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K70 RGB PRO V2",
+  "vid": 6940,
+  "pid": 7091,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K100 RGB Optical",
+  "vid": 6940,
+  "pid": 7036,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K100 RGB Optical (v2)",
+  "vid": 6940,
+  "pid": 7109,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K100 MX Red",
+  "vid": 6940,
+  "pid": 7037,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K95 RGB PLATINUM XT",
+  "vid": 6940,
+  "pid": 7049,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "K55 RGB PRO",
+  "vid": 6940,
+  "pid": 7076,
+  "kind": "keyboard",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "M75 Gaming Mouse",
+  "vid": 6940,
+  "pid": 7152,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "M75 Wireless",
+  "vid": 6940,
+  "pid": 7153,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "M65 RGB Ultra (wired)",
+  "vid": 6940,
+  "pid": 7070,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "Scimitar Elite RGB V2",
+  "vid": 6940,
+  "pid": 7139,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "Katar Pro V2",
+  "vid": 6940,
+  "pid": 7098,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "M55 RGB PRO",
+  "vid": 6940,
+  "pid": 7024,
+  "kind": "mouse",
+  "src": "corsair-icue"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SLIPSTREAM WIRELESS USB RECEIVER",
+  "vid": 6940,
+  "pid": 11008,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "MAKR 75",
+  "vid": 6940,
+  "pid": 11012,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "RGB DIY Hot Swap Mechanical Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "GALLEON 100 SD",
+  "vid": 6940,
+  "pid": 11020,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD 96",
+  "vid": 6940,
+  "pid": 11021,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "K70 Wired Mechanical Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD PRO 96",
+  "vid": 6940,
+  "pid": 11022,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "K70 Wired Magnetic-Mechanical Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD 96 WIRELESS",
+  "vid": 6940,
+  "pid": 11023,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "K70 Wireless Magnetic-Mechanical Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "MAKR PRO 75",
+  "vid": 6940,
+  "pid": 11034,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "CORSAIR SLIPSTREAM v2 WIRELESS USB RECEIVER",
+  "vid": 6940,
+  "pid": 11035,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "NIGHTSWORD V2 WIRELESS SD",
+  "vid": 6940,
+  "pid": 11036,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "NIGHTSWORD V2 WIRELESS SD"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD AIR 99 WIRELESS",
+  "vid": 6940,
+  "pid": 11041,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "K70 Air Wireless Optical-Mechanical Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SCIMITAR ELITE WIRELESS SE",
+  "vid": 6940,
+  "pid": 11042,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "CORSAIR SCIMITAR ELITE WIRELESS SE Gaming Mouse"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v2 PRO CF",
+  "vid": 6940,
+  "pid": 11045,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE V2 PRO",
+  "vid": 6940,
+  "pid": 11048,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v2 PRO MG",
+  "vid": 6940,
+  "pid": 11049,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v2 PRO",
+  "vid": 6940,
+  "pid": 11050,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "HARPOON V2 WIRELESS",
+  "vid": 6940,
+  "pid": 11054,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "HARPOON V2 WIRELESS Gaming Mouse"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD PRO 60 WIRELESS",
+  "vid": 6940,
+  "pid": 11056,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "CORSAIR VANGUARD PRO MINI 60 WIRELESS Hall Effect Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "CLIPPER PRO MINI 60",
+  "vid": 6940,
+  "pid": 11057,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "CORSAIR CLIPPER PRO MINI 60 Hall Effect Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "HARPOON v2",
+  "vid": 6940,
+  "pid": 11059,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "HARPOON v2"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v2 PRO MG",
+  "vid": 6940,
+  "pid": 11060,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v2 PRO CF",
+  "vid": 6940,
+  "pid": 11061,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "CORSAIR SLIPSTREAM v2 WIRELESS USB RECEIVER",
+  "vid": 6940,
+  "pid": 11068,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SKIFF 100",
+  "vid": 6940,
+  "pid": 11069,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "CORSAIR SKIFF 100 RGB Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SKIFF 100 PLUS",
+  "vid": 6940,
+  "pid": 11070,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "CORSAIR SKIFF 100 PLUS RGB Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO ULTRALIGHT WIRELESS ERGO",
+  "vid": 6940,
+  "pid": 11071,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO ULTRALIGHT WIRELESS ERGO"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO WIRELESS MG ERGO",
+  "vid": 6940,
+  "pid": 11072,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO WIRELESS MG ERGO"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO WIRELESS CF ERGO",
+  "vid": 6940,
+  "pid": 11073,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO WIRELESS CF ERGO"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "CORSAIR SLIPSTREAM v2 WIRELESS USB RECEIVER",
+  "vid": 6940,
+  "pid": 11074,
+  "kind": "receiver",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO ULTRALIGHT WIRELESS",
+  "vid": 6940,
+  "pid": 11075,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO ULTRALIGHT WIRELESS"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO WIRELESS MG",
+  "vid": 6940,
+  "pid": 11076,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO WIRELESS MG"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "SABRE v3 PRO WIRELESS CF",
+  "vid": 6940,
+  "pid": 11077,
+  "kind": "mouse",
+  "src": "corsair-webhub",
+  "desc": "SABRE v3 PRO WIRELESS CF"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "VANGUARD PRO 96 GUMA EDITION",
+  "vid": 6940,
+  "pid": 11092,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": "K70 Wired Magnetic-Mechanical Gaming Keyboard"
+ },
+ {
+  "vendor": "Corsair",
+  "model": "MAKR PRO 75 HOLOLIVE MOMOSUZU NENE EDITION",
+  "vid": 6940,
+  "pid": 11099,
+  "kind": "keyboard",
+  "src": "corsair-webhub",
+  "desc": ""
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH",
+  "vid": 2821,
+  "pid": 6787,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH",
+  "vid": 2821,
+  "pid": 6789,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE AIM LAB EDITION",
+  "vid": 2821,
+  "pid": 6802,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p713",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE AIM LAB EDITION",
+  "vid": 2821,
+  "pid": 6804,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p713",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX SCOPE II 96 WIRELESS",
+  "vid": 2821,
+  "pid": 6830,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x901",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX SCOPE II 96 WIRELESS",
+  "vid": 2821,
+  "pid": 6831,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x901",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX SCOPE II 96 WIRELESS",
+  "vid": 2821,
+  "pid": 6832,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x901",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX SCOPE II RX",
+  "vid": 2821,
+  "pid": 6837,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "xa12",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX SCOPE II RX",
+  "vid": 2821,
+  "pid": 6838,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "xa12",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG OMNI RECEIVER",
+  "vid": 2821,
+  "pid": 6862,
+  "kind": "receiver",
+  "src": "asus-gearlink",
+  "code": "omni",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG OMNI RECEIVER",
+  "vid": 2821,
+  "pid": 6863,
+  "kind": "receiver",
+  "src": "asus-gearlink",
+  "code": "omni",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPEEDNOVA 8K RECEIVER",
+  "vid": 2821,
+  "pid": 6864,
+  "kind": "receiver",
+  "src": "asus-gearlink",
+  "code": "omni8k",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPEEDNOVA 8K RECEIVER",
+  "vid": 2821,
+  "pid": 6865,
+  "kind": "receiver",
+  "src": "asus-gearlink",
+  "code": "omni8k",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG DELTA II",
+  "vid": 2821,
+  "pid": 6906,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a701",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ACE",
+  "vid": 2821,
+  "pid": 6934,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p714",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ACE",
+  "vid": 2821,
+  "pid": 6936,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p714",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME",
+  "vid": 2821,
+  "pid": 6975,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m702",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME",
+  "vid": 2821,
+  "pid": 6976,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m702",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME",
+  "vid": 2821,
+  "pid": 6978,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m702",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE MINI",
+  "vid": 2821,
+  "pid": 7011,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p716",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE MINI",
+  "vid": 2821,
+  "pid": 7013,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p716",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE EXTREME",
+  "vid": 2821,
+  "pid": 7015,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p718",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE ACE EXTREME",
+  "vid": 2821,
+  "pid": 7017,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p718",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCHION ACE HFX",
+  "vid": 2821,
+  "pid": 7038,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m605",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCHION ACE HFX",
+  "vid": 2821,
+  "pid": 7039,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m605",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG PELTA",
+  "vid": 2821,
+  "pid": 7042,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a501",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG PELTA",
+  "vid": 2821,
+  "pid": 7044,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a501",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ORIGIN",
+  "vid": 2821,
+  "pid": 7180,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p722",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ORIGIN",
+  "vid": 2821,
+  "pid": 7182,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p722",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH 96 HE / LITE",
+  "vid": 2821,
+  "pid": 7184,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m901",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH 96 HE / LITE",
+  "vid": 2821,
+  "pid": 7185,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m901",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH 96 HE / LITE",
+  "vid": 2821,
+  "pid": 7186,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m901",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH X",
+  "vid": 2821,
+  "pid": 7204,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m704",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH X",
+  "vid": 2821,
+  "pid": 7205,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m704",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCATA",
+  "vid": 2821,
+  "pid": 7215,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m703",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCATA",
+  "vid": 2821,
+  "pid": 7217,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m703",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG RAIKIRI II PRO PC",
+  "vid": 2821,
+  "pid": 7268,
+  "kind": "gamepad",
+  "src": "asus-gearlink",
+  "code": "gc701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG RAIKIRI II PRO PC",
+  "vid": 2821,
+  "pid": 7269,
+  "kind": "gamepad",
+  "src": "asus-gearlink",
+  "code": "gc701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE",
+  "vid": 2821,
+  "pid": 7273,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p723",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE",
+  "vid": 2821,
+  "pid": 7275,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p723",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCHION ACE 75 HE",
+  "vid": 2821,
+  "pid": 7293,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m705",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GLADIUS III CORE",
+  "vid": 2821,
+  "pid": 7309,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p523",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE MINI CORE",
+  "vid": 2821,
+  "pid": 7311,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p524",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG RAIKIRI II XBOX WIRELESS",
+  "vid": 2821,
+  "pid": 7313,
+  "kind": "gamepad",
+  "src": "asus-gearlink",
+  "code": "gx501",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG RAIKIRI II XBOX WIRELESS",
+  "vid": 2821,
+  "pid": 7314,
+  "kind": "gamepad",
+  "src": "asus-gearlink",
+  "code": "gx501",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG CETRA OPEN WIRELESS",
+  "vid": 2821,
+  "pid": 7340,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "o701",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GJALLAR",
+  "vid": 2821,
+  "pid": 7344,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "s701",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "PROART MOUSE MD301",
+  "vid": 2821,
+  "pid": 7379,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "md301",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "PROART MOUSE MD301",
+  "vid": 2821,
+  "pid": 7381,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "md301",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS",
+  "vid": 2821,
+  "pid": 7400,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x903",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS",
+  "vid": 2821,
+  "pid": 7401,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x903",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS",
+  "vid": 2821,
+  "pid": 7402,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x903",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME SPECIAL EDITION",
+  "vid": 2821,
+  "pid": 7407,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m706",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME SPECIAL EDITION",
+  "vid": 2821,
+  "pid": 7408,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m706",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG AZOTH EXTREME SPECIAL EDITION",
+  "vid": 2821,
+  "pid": 7409,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m706",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FALCHION ACE HFX ZYWOO EDITION",
+  "vid": 2821,
+  "pid": 7453,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m606",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG DELTA II-KJP",
+  "vid": 2821,
+  "pid": 7489,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a703",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "PROART KEYBOARD KD300",
+  "vid": 2821,
+  "pid": 7493,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "kd300",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "PROART KEYBOARD KD300",
+  "vid": 2821,
+  "pid": 7494,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "kd300",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "PROART KEYBOARD KD300",
+  "vid": 2821,
+  "pid": 7495,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "kd300",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ORIGIN-KJP",
+  "vid": 2821,
+  "pid": 7500,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p727",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG KERIS II ORIGIN-KJP",
+  "vid": 2821,
+  "pid": 7502,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p727",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "Asus Dongle",
+  "vid": 2821,
+  "pid": 7508,
+  "kind": "receiver",
+  "src": "asus-gearlink",
+  "code": "asusomni",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG PELTA CORE",
+  "vid": 2821,
+  "pid": 7522,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a502",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ASUS TX75 ANALOG GAMING KEYBOARD",
+  "vid": 2821,
+  "pid": 7528,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ASUS TX75 ANALOG GAMING KEYBOARD",
+  "vid": 2821,
+  "pid": 7530,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r701",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II EXTREME EDITION 20",
+  "vid": 2821,
+  "pid": 7546,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p725",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II EXTREME EDITION 20",
+  "vid": 2821,
+  "pid": 7547,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p725",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II EXTREME EDITION 20",
+  "vid": 2821,
+  "pid": 7548,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p725",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG Azoth Extreme Edition 20",
+  "vid": 2821,
+  "pid": 7586,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m709",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG Azoth Extreme Edition 20",
+  "vid": 2821,
+  "pid": 7587,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m709",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG Azoth Extreme Edition 20",
+  "vid": 2821,
+  "pid": 7588,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "m709",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GLADIUS IV ACE",
+  "vid": 2821,
+  "pid": 7600,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p729",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GLADIUS IV ACE",
+  "vid": 2821,
+  "pid": 7615,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p729",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPATHA X 65K",
+  "vid": 2821,
+  "pid": 7646,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p728",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPATHA X 65K",
+  "vid": 2821,
+  "pid": 7647,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p728",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPATHA X 65K",
+  "vid": 2821,
+  "pid": 7648,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p728",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG SPATHA X 65K",
+  "vid": 2821,
+  "pid": 7649,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p728",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ASUS TX75 CORE GAMING KEYBOARD",
+  "vid": 2821,
+  "pid": 7667,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r702",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ASUS TX75 CORE GAMING KEYBOARD",
+  "vid": 2821,
+  "pid": 7668,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r702",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "TUF GAMING K4 MAGNETIC",
+  "vid": 2821,
+  "pid": 7669,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r704",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "TUF GAMING K4 MAGNETIC",
+  "vid": 2821,
+  "pid": 7670,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "r704",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 X WIRELESS",
+  "vid": 2821,
+  "pid": 7690,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x904",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 X WIRELESS",
+  "vid": 2821,
+  "pid": 7691,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x904",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 X WIRELESS",
+  "vid": 2821,
+  "pid": 7692,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x904",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE MINI",
+  "vid": 2821,
+  "pid": 7727,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p724",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE MINI",
+  "vid": 2821,
+  "pid": 7730,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p724",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE-PBZ",
+  "vid": 2821,
+  "pid": 7754,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p731",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE-PBZ",
+  "vid": 2821,
+  "pid": 7755,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p731",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE-PBZ",
+  "vid": 2821,
+  "pid": 7757,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p731",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GLADIUS IV ACE MAX",
+  "vid": 2821,
+  "pid": 7758,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p730",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG GLADIUS IV ACE MAX",
+  "vid": 2821,
+  "pid": 7759,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p730",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE MINI DEMON1 EDITION",
+  "vid": 2821,
+  "pid": 7761,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p726",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG HARPE II ACE MINI DEMON1 EDITION",
+  "vid": 2821,
+  "pid": 7762,
+  "kind": "mouse",
+  "src": "asus-gearlink",
+  "code": "p726",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG FLUX CHARGER DOCK",
+  "vid": 2821,
+  "pid": 7765,
+  "kind": "dock",
+  "src": "asus-gearlink",
+  "code": "ac260_00",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS-PBZ",
+  "vid": 2821,
+  "pid": 7771,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x906",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS-PBZ",
+  "vid": 2821,
+  "pid": 7772,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x906",
+  "hidPattern": 3
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG STRIX MORPH 96 WIRELESS-PBZ",
+  "vid": 2821,
+  "pid": 7773,
+  "kind": "keyboard",
+  "src": "asus-gearlink",
+  "code": "x906",
+  "hidPattern": 1
+ },
+ {
+  "vendor": "ASUS",
+  "model": "ROG DELTA II-PBZ",
+  "vid": 2821,
+  "pid": 7787,
+  "kind": "headset",
+  "src": "asus-gearlink",
+  "code": "a705",
+  "hidPattern": 2
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Fighting68",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "fighting68",
+  "status": "verified",
+  "transport": "wired",
+  "layout": "fighting68-fcc"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "2.4G Dongle",
+  "vid": 3141,
+  "pid": 65278,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "2-4g-dongle-fefe",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "getX85"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "61KEY-CZ Gaming keyboard",
+  "vid": 3141,
+  "pid": 32919,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "61key-cz-gaming-keyboard-8097",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGaming"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "61KEY-CZ Gaming keyboard",
+  "vid": 3141,
+  "pid": 32920,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "61key-cz-gaming-keyboard-8098",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGaming"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "8K Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32818,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "8k-gaming-keyboard-8032",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getK630"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "A80 PRO",
+  "vid": 3141,
+  "pid": 32825,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "a80-pro-8039",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSI280"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "A80RT",
+  "vid": 3141,
+  "pid": 32930,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "a80rt-80a2",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLBA80RT"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "A80RT U",
+  "vid": 3141,
+  "pid": 32929,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "a80rt-u-80a1",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLBA80RT"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "A80RT U Dongle",
+  "vid": 3141,
+  "pid": 65276,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "a80rt-u-dongle-fefc",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "getLBA80RT"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AJAZZ AK680 MAX",
+  "vid": 3141,
+  "pid": 32946,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ajazz-ak680-max-80b2",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AJAZZ AK820MAX",
+  "vid": 3141,
+  "pid": 65276,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ajazz-ak820max-fefc",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "getSG8994"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AJAZZ AK820MAX",
+  "vid": 3141,
+  "pid": 65277,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ajazz-ak820max-fefd",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "getSG8994"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AJAZZ AK820MAX",
+  "vid": 3141,
+  "pid": 65278,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ajazz-ak820max-fefe",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "getSG8994"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32819,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-8033",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAJazz"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32836,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-8044",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSG8994"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32880,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-8070",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAJazz"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32923,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-809b",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSG8994"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32928,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-80a0",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAJazz"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32933,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-80a5",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAJazz"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK820MAX",
+  "vid": 3141,
+  "pid": 32945,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak820max-80b1",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAJazz"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK980",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak980-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKey96"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AK980 MAX",
+  "vid": 3141,
+  "pid": 32835,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ak980-max-8043",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAK980"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AKS068",
+  "vid": 3141,
+  "pid": 32819,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "aks068-8033",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getAKS068"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AMG65 Dongle",
+  "vid": 1452,
+  "pid": 591,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "amg65-dongle-24f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLEOBOGAMG65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Ato87",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ato87-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting87"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Ato87",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "ato87-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting87"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AULA F65",
+  "vid": 3141,
+  "pid": 32818,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "aula-f65-8032",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getG65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "AULA F65M",
+  "vid": 3141,
+  "pid": 32817,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "aula-f65m-8031",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getG65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Battle68Pro",
+  "vid": 3141,
+  "pid": 32822,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "battle68pro-8036",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getBattle68Pro"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "CIDOO C60",
+  "vid": 3141,
+  "pid": 32914,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "cidoo-c60-8092",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting63"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "cz-206",
+  "vid": 3141,
+  "pid": 32908,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "cz-206-808c",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "get206"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Epomaker HE80",
+  "vid": 3141,
+  "pid": 32914,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "epomaker-he80-8092",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getMagCore75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "ES75-MAG",
+  "vid": 1452,
+  "pid": 591,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "es75-mag-24f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSL2635"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "ES75T",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "es75t-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSL2635"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "ET-7531",
+  "vid": 3141,
+  "pid": 32934,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "et-7531-80a6",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getET7531"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT61",
+  "vid": 3141,
+  "pid": 32821,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat61-8035",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting63"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT61",
+  "vid": 3141,
+  "pid": 32822,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat61-8036",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getBAT61"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32821,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-8035",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32822,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-8036",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32823,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-8037",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32874,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-806a",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32875,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-806b",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32881,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-8071",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32894,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-807e",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32896,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-8080",
+  "status": "unsupported",
+  "transport": "unknown",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32924,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-809c",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32925,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-809d",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "EWEADN BAT68",
+  "vid": 3141,
+  "pid": 32926,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "eweadn-bat68-809e",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Fighting68",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "fighting68-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Fighting98",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "fighting98-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting98"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "FirstBlood B67",
+  "vid": 3141,
+  "pid": 32912,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "firstblood-b67-8090",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFirstBlood"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "FK680",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "fk680-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming keyboard",
+  "vid": 3141,
+  "pid": 32940,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-80ac",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGamingKeyboard74"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32855,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-8057",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKey95"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32941,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-80ad",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGamingKeyboard87"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32942,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-80ae",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGamingKeyboard87A"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 32944,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-80b0",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Gaming Keyboard",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gaming-keyboard-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKey96"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GamingKeyboard",
+  "vid": 3141,
+  "pid": 32893,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gamingkeyboard-807d",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting64"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GK65",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gk65-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGK65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GK68",
+  "vid": 3141,
+  "pid": 32851,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gk68-8053",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GK6902GW-PRO",
+  "vid": 3141,
+  "pid": 32879,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gk6902gw-pro-806f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGK6902GW"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GK8622GW",
+  "vid": 3141,
+  "pid": 32879,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gk8622gw-806f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGK8622GW"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GS3068C",
+  "vid": 3141,
+  "pid": 32918,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gs3068c-8096",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS3068C"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "GT60He",
+  "vid": 3141,
+  "pid": 32865,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "gt60he-8061",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGaming"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "hfd",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "hfd-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "HK8301G",
+  "vid": 3141,
+  "pid": 32901,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "hk8301g-8085",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getHK8301G"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "IROK ND63",
+  "vid": 3141,
+  "pid": 32879,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "irok-nd63-806f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting64"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "IYX MU68 ULTRA",
+  "vid": 3141,
+  "pid": 32879,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "iyx-mu68-ultra-806f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "IYX Polar 75",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "iyx-polar-75-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getPolar75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Jeet65",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "jeet65-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGalaxy65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Jeet65",
+  "vid": 3141,
+  "pid": 32850,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "jeet65-8052",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGalaxy65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Jeet68",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "jeet68-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getJeet68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Jeet75",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "jeet75-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getJeet75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Jet75",
+  "vid": 3141,
+  "pid": 32932,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "jet75-80a4",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getJet75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "K202S-C",
+  "vid": 3141,
+  "pid": 32937,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "k202s-c-80a9",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getK202SC"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "K75",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "k75-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKeyK75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "K84",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "k84-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKeyK84"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "K980",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "k980-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKey96"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "KB-820C",
+  "vid": 3141,
+  "pid": 32820,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "kb-820c-8034",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKB820"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "KG964",
+  "vid": 3141,
+  "pid": 32874,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "kg964-806a",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "KT84 RGB",
+  "vid": 3141,
+  "pid": 32777,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "kt84-rgb-8009",
+  "status": "unsupported",
+  "transport": "unknown",
+  "layout": "getKT84RGB"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "KX68HE",
+  "vid": 3141,
+  "pid": 32910,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "kx68he-808e",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "LEOBOG AMG65",
+  "vid": 3141,
+  "pid": 32778,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "leobog-amg65-800a",
+  "status": "unsupported",
+  "transport": "unknown",
+  "layout": "getLEOBOGAMG65"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "looting60 pro",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "looting60-pro-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting60"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Looting63",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "looting63-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting63"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "looting66 pro",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "looting66-pro-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting66"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "looting68 pro",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "looting68-pro-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "looting75 pro",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "looting75-pro-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Lukit63",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "lukit63-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting63"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Luminor 68",
+  "vid": 3141,
+  "pid": 32931,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "luminor-68-80a3",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getUSBKeyboard68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "M68HE Keyboard",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "m68he-keyboard-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "M68HE Keyboard",
+  "vid": 3141,
+  "pid": 32832,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "m68he-keyboard-8040",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "M68HE Keyboard",
+  "vid": 3141,
+  "pid": 32833,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "m68he-keyboard-8041",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "M68HE Keyboard",
+  "vid": 3141,
+  "pid": 32853,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "m68he-keyboard-8055",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "M68HE Keyboard",
+  "vid": 3141,
+  "pid": 32869,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "m68he-keyboard-8065",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getX82"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32887,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8077",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32888,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8078",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32889,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8079",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32905,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8089",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32916,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8094",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32917,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-8095",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32935,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-80a7",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32936,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-80a8",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32938,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-80aa",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MC68",
+  "vid": 3141,
+  "pid": 32939,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mc68-80ab",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getL10"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MCHOSE H75",
+  "vid": 3141,
+  "pid": 32932,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mchose-h75-80a4",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getMCHOSEH75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI 60 HE",
+  "vid": 3141,
+  "pid": 32818,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini-60-he-8032",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI 60 HE Dongle",
+  "vid": 3141,
+  "pid": 65278,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini-60-he-dongle-fefe",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI 60 HE PRO",
+  "vid": 3141,
+  "pid": 32930,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini-60-he-pro-80a2",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI 60 HE PRO Dongle",
+  "vid": 3141,
+  "pid": 65278,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini-60-he-pro-dongle-fefe",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI60HE MAX",
+  "vid": 3141,
+  "pid": 32929,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini60he-max-80a1",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MINI60HE MAX Dongle",
+  "vid": 3141,
+  "pid": 65276,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mini60he-max-dongle-fefc",
+  "status": "unsupported",
+  "transport": "dongle",
+  "layout": "get2860"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "MK75Keyboard",
+  "vid": 3141,
+  "pid": 32915,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "mk75keyboard-8093",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getMK75Keyboard"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "NK84 RT",
+  "vid": 3141,
+  "pid": 34816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "nk84-rt-8800",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getKeyK84"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Onikua keyboard G67",
+  "vid": 3141,
+  "pid": 32835,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "onikua-keyboard-g67-8043",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getGS68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "QS87",
+  "vid": 3141,
+  "pid": 32836,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "qs87-8044",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getQS87"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "QSENN DT35 104",
+  "vid": 3141,
+  "pid": 32897,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "qsenn-dt35-104-8081",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getDT35"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "QSENN Q75 8K",
+  "vid": 3141,
+  "pid": 32941,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "qsenn-q75-8k-80ad",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getQSENNQ758K"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "QSENN Q99 8K",
+  "vid": 3141,
+  "pid": 32941,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "qsenn-q99-8k-80ad",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getQSENNQ998K"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "red star 980",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "red-star-980-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getLooting980"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "RK631",
+  "vid": 3141,
+  "pid": 32841,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "rk631-8049",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getRK631"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "RK739",
+  "vid": 3141,
+  "pid": 32840,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "rk739-8048",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getRK762"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "RK773",
+  "vid": 3141,
+  "pid": 32838,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "rk773-8046",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getRK773"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "SG2810",
+  "vid": 3141,
+  "pid": 32817,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sg2810-8031",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSI280"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "SG8957",
+  "vid": 3141,
+  "pid": 32835,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sg8957-8043",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSG8957"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "SI-2699C",
+  "vid": 3141,
+  "pid": 32817,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "si-2699c-8031",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "get2699C"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "SI-2810",
+  "vid": 3141,
+  "pid": 32817,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "si-2810-8031",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSI280"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "SI-2810C",
+  "vid": 3141,
+  "pid": 32825,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "si-2810c-8039",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSI280"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Smart875e HE",
+  "vid": 3141,
+  "pid": 32822,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "smart875e-he-8036",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSmart875e"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "STAR75-MAG",
+  "vid": 3141,
+  "pid": 32927,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "star75-mag-809f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSL2635"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "STING68 LITE",
+  "vid": 3141,
+  "pid": 32816,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sting68-lite-8030",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "STING68 LITE",
+  "vid": 3141,
+  "pid": 32817,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sting68-lite-8031",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "STING87",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sting87-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getFighting87"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Sunny75",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sunny75-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getSunny75"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Sunny80 HE",
+  "vid": 3141,
+  "pid": 32867,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "sunny80-he-8063",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getHC843"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Tank68 HE",
+  "vid": 3141,
+  "pid": 32822,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "tank68-he-8036",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getTank68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Tank68 HE",
+  "vid": 3141,
+  "pid": 32837,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "tank68-he-8045",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getTank68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Tank68 HE",
+  "vid": 3141,
+  "pid": 32895,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "tank68-he-807f",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getTank68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "TH068 Keyboard",
+  "vid": 3141,
+  "pid": 32922,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "th068-keyboard-809a",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getTH0685"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "TK200",
+  "vid": 3141,
+  "pid": 32932,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "tk200-80a4",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getHK8301G"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "USB Keyboard",
+  "vid": 3141,
+  "pid": 32931,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "usb-keyboard-80a3",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getUSBKeyboard68"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "VARO VM87HE",
+  "vid": 3141,
+  "pid": 32914,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "varo-vm87he-8092",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getVM87HE"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "Vooting30",
+  "vid": 3141,
+  "pid": 32849,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "vooting30-8051",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getVooting30"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "X85",
+  "vid": 3141,
+  "pid": 32774,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "x85-8006",
+  "status": "unsupported",
+  "transport": "unknown",
+  "layout": "getX85"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "YYX64K",
+  "vid": 3141,
+  "pid": 32893,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "yyx64k-807d",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getYYX64K"
+ },
+ {
+  "vendor": "Sonix",
+  "model": "ZAP68",
+  "vid": 3141,
+  "pid": 32885,
+  "kind": "keyboard",
+  "src": "sonix",
+  "id": "zap68-8075",
+  "status": "untested",
+  "transport": "wired",
+  "layout": "getZAP68"
+ },
+ {
+  "vendor": "wooting-v2",
+  "model": "Wooting keyboard",
+  "vid": 12771,
+  "pid": null,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "wooting-v2",
+   "name": "Wooting keyboard",
+   "vendorId": 12771,
+   "productId": null,
+   "source": "[js:381]"
+  }
+ },
+ {
+  "vendor": "wooting-v1",
+  "model": "Wooting keyboard (analog v1)",
+  "vid": 12771,
+  "pid": null,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "wooting-v1",
+   "name": "Wooting keyboard (analog v1)",
+   "vendorId": 12771,
+   "productId": null,
+   "source": "[js:348]"
+  }
+ },
+ {
+  "vendor": "wooting-v1",
+  "model": "Wooting One (old firmware)",
+  "vid": 1003,
+  "pid": 65281,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "wooting-v1",
+   "name": "Wooting One (old firmware)",
+   "vendorId": 1003,
+   "productId": 65281,
+   "source": "[js:349][soup:46-49]"
+  }
+ },
+ {
+  "vendor": "wooting-v1",
+  "model": "Wooting Two (old firmware)",
+  "vid": 1003,
+  "pid": 65282,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "wooting-v1",
+   "name": "Wooting Two (old firmware)",
+   "vendorId": 1003,
+   "productId": 65282,
+   "source": "[js:350][soup:50-53]"
+  }
+ },
+ {
+  "vendor": "razer-v2",
+  "model": "Razer Huntsman V2 Analog",
+  "vid": 5426,
+  "pid": 614,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "razer-v2",
+   "name": "Razer Huntsman V2 Analog",
+   "vendorId": 5426,
+   "productId": 614,
+   "source": "[js:424][soup:59]"
+  }
+ },
+ {
+  "vendor": "razer-v2",
+  "model": "Razer Huntsman Mini Analog",
+  "vid": 5426,
+  "pid": 642,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "razer-v2",
+   "name": "Razer Huntsman Mini Analog",
+   "vendorId": 5426,
+   "productId": 642,
+   "source": "[js:425][soup:66]"
+  }
+ },
+ {
+  "vendor": "razer-v3",
+  "model": "Razer Huntsman V3 Pro",
+  "vid": 5426,
+  "pid": 678,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "razer-v3",
+   "name": "Razer Huntsman V3 Pro",
+   "vendorId": 5426,
+   "productId": 678,
+   "source": "[js:463][soup:73]"
+  }
+ },
+ {
+  "vendor": "razer-v3",
+  "model": "Razer Huntsman V3 Pro Tenkeyless",
+  "vid": 5426,
+  "pid": 679,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "razer-v3",
+   "name": "Razer Huntsman V3 Pro Tenkeyless",
+   "vendorId": 5426,
+   "productId": 679,
+   "source": "[js:464][soup:80]"
+  }
+ },
+ {
+  "vendor": "razer-v3",
+  "model": "Razer Huntsman V3 Pro Mini",
+  "vid": 5426,
+  "pid": 688,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "razer-v3",
+   "name": "Razer Huntsman V3 Pro Mini",
+   "vendorId": 5426,
+   "productId": 688,
+   "source": "[js:465][soup:87]"
+  }
+ },
+ {
+  "vendor": "nuphy",
+  "model": "NuPhy Air75 HE",
+  "vid": 6645,
+  "pid": 24864,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "nuphy",
+   "name": "NuPhy Air75 HE",
+   "vendorId": 6645,
+   "productId": 24864,
+   "scale": 1600,
+   "source": "[soup:1115]"
+  }
+ },
+ {
+  "vendor": "nuphy",
+  "model": "NuPhy Air60 HE",
+  "vid": 6645,
+  "pid": 65248,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "nuphy",
+   "name": "NuPhy Air60 HE",
+   "vendorId": 6645,
+   "productId": 65248,
+   "scale": 1600,
+   "source": "[soup:1115]"
+  }
+ },
+ {
+  "vendor": "nuphy",
+  "model": "NuPhy HE keyboard",
+  "vid": 6645,
+  "pid": null,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "nuphy",
+   "name": "NuPhy HE keyboard",
+   "vendorId": 6645,
+   "productId": null,
+   "scale": 800,
+   "source": "[js:504][soup:172-178]"
+  }
+ },
+ {
+  "vendor": "drunkdeer",
+  "model": "DrunkDeer G65",
+  "vid": 13613,
+  "pid": 9090,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "drunkdeer",
+   "name": "DrunkDeer G65",
+   "vendorId": 13613,
+   "productId": 9090,
+   "source": "[soup:100-103]"
+  }
+ },
+ {
+  "vendor": "drunkdeer",
+  "model": "DrunkDeer A75 / A75 Pro",
+  "vid": 13613,
+  "pid": 9091,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "drunkdeer",
+   "name": "DrunkDeer A75 / A75 Pro",
+   "vendorId": 13613,
+   "productId": 9091,
+   "source": "[soup:104-109]"
+  }
+ },
+ {
+  "vendor": "drunkdeer",
+  "model": "DrunkDeer G60",
+  "vid": 13613,
+  "pid": 9092,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "drunkdeer",
+   "name": "DrunkDeer G60",
+   "vendorId": 13613,
+   "productId": 9092,
+   "source": "[soup:110-113]"
+  }
+ },
+ {
+  "vendor": "drunkdeer",
+  "model": "DrunkDeer G75 (ANSI)",
+  "vid": 13613,
+  "pid": 9094,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "drunkdeer",
+   "name": "DrunkDeer G75 (ANSI)",
+   "vendorId": 13613,
+   "productId": 9094,
+   "source": "[soup:114-117]"
+  }
+ },
+ {
+  "vendor": "drunkdeer",
+  "model": "DrunkDeer G75 (JP)",
+  "vid": 13613,
+  "pid": 9105,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "drunkdeer",
+   "name": "DrunkDeer G75 (JP)",
+   "vendorId": 13613,
+   "productId": 9105,
+   "source": "[soup:118-121]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron Q1 HE (ANSI)",
+  "vid": 13364,
+  "pid": 2832,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron Q1 HE (ANSI)",
+   "vendorId": 13364,
+   "productId": 2832,
+   "layout": "keychron-q1-he",
+   "source": "[js:604][soup:133]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron Q1 HE (ISO)",
+  "vid": 13364,
+  "pid": 2833,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron Q1 HE (ISO)",
+   "vendorId": 13364,
+   "productId": 2833,
+   "layout": "keychron-q1-he",
+   "source": "[js:605][soup:134]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron Q1 HE (JIS)",
+  "vid": 13364,
+  "pid": 2834,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron Q1 HE (JIS)",
+   "vendorId": 13364,
+   "productId": 2834,
+   "layout": "keychron-q1-he",
+   "source": "[js:606][soup:135]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron Q3 HE (ANSI)",
+  "vid": 13364,
+  "pid": 2864,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron Q3 HE (ANSI)",
+   "vendorId": 13364,
+   "productId": 2864,
+   "layout": "keychron-q3-he",
+   "source": "[js:607][soup:140]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron Q5 HE (ANSI)",
+  "vid": 13364,
+  "pid": 2896,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron Q5 HE (ANSI)",
+   "vendorId": 13364,
+   "productId": 2896,
+   "layout": "keychron-q5-he",
+   "source": "[js:608][soup:144]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron K2 HE (ANSI)",
+  "vid": 13364,
+  "pid": 3616,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron K2 HE (ANSI)",
+   "vendorId": 13364,
+   "productId": 3616,
+   "layout": "keychron-k2-he",
+   "source": "[js:609][soup:148]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron K2 HE (ISO)",
+  "vid": 13364,
+  "pid": 3617,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron K2 HE (ISO)",
+   "vendorId": 13364,
+   "productId": 3617,
+   "layout": "keychron-k2-he",
+   "source": "[js:610][soup:149]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Keychron K2 HE (JIS)",
+  "vid": 13364,
+  "pid": 3618,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Keychron K2 HE (JIS)",
+   "vendorId": 13364,
+   "productId": 3618,
+   "layout": "keychron-k2-he",
+   "source": "[js:611][soup:150]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Lemokey P1 HE (ANSI)",
+  "vid": 13869,
+  "pid": 1552,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Lemokey P1 HE (ANSI)",
+   "vendorId": 13869,
+   "productId": 1552,
+   "layout": "lemokey-p1-he-ansi",
+   "source": "[js:612][soup:161]"
+  }
+ },
+ {
+  "vendor": "keychron",
+  "model": "Lemokey P1 HE (ISO)",
+  "vid": 13869,
+  "pid": 1553,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "keychron",
+   "name": "Lemokey P1 HE (ISO)",
+   "vendorId": 13869,
+   "productId": 1553,
+   "layout": "lemokey-p1-he-iso",
+   "source": "[soup:165]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD60HE",
+  "vid": 14139,
+  "pid": 4179,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD60HE",
+   "vendorId": 14139,
+   "productId": 4179,
+   "layout": "madlions-mad60he",
+   "source": "[js:764][soup:186]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD60HE",
+  "vid": 14139,
+  "pid": 4180,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD60HE",
+   "vendorId": 14139,
+   "productId": 4180,
+   "layout": "madlions-mad60he",
+   "source": "[js:765][soup:187]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD60HE",
+  "vid": 14139,
+  "pid": 4181,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD60HE",
+   "vendorId": 14139,
+   "productId": 4181,
+   "layout": "madlions-mad60he",
+   "source": "[js:766][soup:185]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD60HE",
+  "vid": 14139,
+  "pid": 4182,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD60HE",
+   "vendorId": 14139,
+   "productId": 4182,
+   "layout": "madlions-mad60he",
+   "source": "[js:767][soup:185]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD60HE",
+  "vid": 14139,
+  "pid": 4189,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD60HE",
+   "vendorId": 14139,
+   "productId": 4189,
+   "layout": "madlions-mad60he",
+   "source": "[js:768][soup:185]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD68HE",
+  "vid": 14139,
+  "pid": 4184,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD68HE",
+   "vendorId": 14139,
+   "productId": 4184,
+   "layout": "madlions-mad68he",
+   "source": "[js:770][soup:192]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD68HE",
+  "vid": 14139,
+  "pid": 4185,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD68HE",
+   "vendorId": 14139,
+   "productId": 4185,
+   "layout": "madlions-mad68he",
+   "source": "[js:771][soup:192]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD68HE",
+  "vid": 14139,
+  "pid": 4186,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD68HE",
+   "vendorId": 14139,
+   "productId": 4186,
+   "layout": "madlions-mad68he",
+   "source": "[js:772][soup:192]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD68HE",
+  "vid": 14139,
+  "pid": 4188,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD68HE",
+   "vendorId": 14139,
+   "productId": 4188,
+   "layout": "madlions-mad68he",
+   "source": "[js:773][soup:192]"
+  }
+ },
+ {
+  "vendor": "madlions",
+  "model": "Madlions MAD68R",
+  "vid": 14139,
+  "pid": 4263,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "madlions",
+   "name": "Madlions MAD68R",
+   "vendorId": 14139,
+   "productId": 4263,
+   "layout": "madlions-mad68he",
+   "source": "[js:775][soup:196]"
+  }
+ },
+ {
+  "vendor": "bytech",
+  "model": "Redragon K709 HE (K709PLB-RGB-M)",
+  "vid": 14126,
+  "pid": 4187,
+  "kind": "keyboard",
+  "src": "analogsense",
+  "raw": {
+   "family": "bytech",
+   "name": "Redragon K709 HE (K709PLB-RGB-M)",
+   "vendorId": 14126,
+   "productId": 4187,
+   "source": "[js:858]"
+  }
+ }
+]

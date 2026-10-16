@@ -1,0 +1,113 @@
+[package]
+name = "onboard"
+version = "0.1.0-beta.6"
+license = "AGPL-3.0-or-later"
+repository = "https://github.com/logan-wurx/synqhub"
+homepage = "https://synqhub.app"
+description = "SYNQ: one light app for all your gear (mice, keyboards, controllers, sound, lights)"
+authors = ["logan-wurx"]
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# SYNQ Helper (helper/): the opt-in background process. Its own small binary, no WebView.
+[workspace]
+members = ["helper"]
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "onboard_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hidapi = "2.6.7"
+# The Wi-Fi lights' allowlist (src/lighting/net/guard.rs) matches paths and text fields; tauri-utils already builds it.
+regex = "1"
+# SHA-256 for the Hue Entertainment stream's DTLS (src/lighting/net/dtls.rs, every platform) and the EQ installer check.
+sha2 = "0.10"
+
+# Windows only: the EQ engine (src/engine: Equalizer APO's registry, Core Audio for the default output, the
+# elevated setup helper, the installer check), the helper's Run key and named events, game icons.
+[target.'cfg(windows)'.dependencies]
+sysinfo = "0.39.6"
+winreg = "0.56.0"
+windows = { version = "0.62", features = [
+  # Plug and unplug notifications (src/hotplug.rs).
+  "Win32_Devices_DeviceAndDriverInstallation",
+  "Win32_Devices_Display",
+  "Win32_Foundation",
+  "Win32_Media_Audio",
+  "Win32_Media_DirectShow",
+  "Win32_Media_MediaFoundation",
+  "Win32_Security",
+  "Win32_Storage_FileSystem",
+  "Win32_System_Com",
+  "Win32_System_Com_Urlmon",
+  "Win32_Graphics_Gdi",
+  "Win32_System_Console",
+  "Win32_System_IO",
+  "Win32_System_Pipes",
+  "Win32_System_Services",
+  "Win32_System_Threading",
+  "Win32_UI_Input",
+  "Win32_UI_Shell",
+  "Win32_UI_WindowsAndMessaging",
+  # Govee lamps (src/lighting): Bluetooth LE advertisements and GATT, and AES (CNG) for their encryption.
+  "Devices_Bluetooth",
+  "Devices_Bluetooth_Advertisement",
+  "Devices_Bluetooth_GenericAttributeProfile",
+  "Foundation",
+  "Foundation_Collections",
+  "Storage_Streams",
+  "Win32_Security_Cryptography",
+  # Screen sync (src/lighting/screen.rs): whether the lock screen is up.
+  "Win32_System_StationsAndDesktops",
+  # Dynamic Lighting (src/lighting/lamparray.rs): LampArray devices and their colours.
+  "Devices_Enumeration",
+  "Devices_Lights",
+  "UI",
+] }
+
+
+# Minimized: WebView2 memory target + suspend (src/sleep.rs). Same version as Tauri's own wry uses.
+webview2-com = "0.39"
+# The C4 GIP spike's WinRT classes (`#[implement]` names this crate): only with the `gip-spike` feature.
+windows-core = { version = "0.62", optional = true }
+
+# Unix (Linux): hidraw permission checks (src/hid.rs), the helper and AppImage process handling.
+# Tests only: the screen-sync cost bench times itself in thread cycles (src/lighting/screen.rs `sample_cost`).
+[target.'cfg(windows)'.dev-dependencies]
+windows = { version = "0.62", features = ["Win32_System_WindowsProgramming"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[features]
+# Test-only hook for the hidden perf harness: perf_test_suspend runs the minimize path without a
+# window being minimized. Never in release builds.
+perf-test = []
+# Research spike (wave C4, docs/devices/G7SE-GIP.md): the GameSir G7 SE's settings channel over GIP through
+# Windows.Gaming.Input.Custom. Off by default, never in a release; run only by hand with the owner present.
+gip-spike = ["windows/Gaming_Input", "windows/Gaming_Input_Custom", "windows/Foundation", "windows/Win32_System_LibraryLoader", "windows/System", "dep:windows-core"]
+
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+# The helper idles in the background: smallest code wins over speed there.
+[profile.release.package.synq-helper]
+opt-level = "s"

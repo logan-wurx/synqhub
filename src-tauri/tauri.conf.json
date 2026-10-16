@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SYNQ",
+  "mainBinaryName": "synq",
+  "version": "0.1.0-beta.6",
+  "identifier": "com.logan.onboard",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "beforeBundleCommand": "npm run build:helper",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "SYNQ",
+        "width": 1240,
+        "height": 860,
+        "minWidth": 1040,
+        "minHeight": 640,
+        "center": true,
+        "backgroundColor": "#121113",
+        "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --in-process-gpu --disable-gpu --enable-features=NetworkServiceInProcess2"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "copyright": "Copyright (C) 2026 logan-wurx",
+    "license": "AGPL-3.0-or-later",
+    "publisher": "logan-wurx",
+    "homepage": "https://synqhub.app",
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "shortDescription": "Every device. One system.",
+    "resources": {
+      "eq-engine/EqualizerAPO-x64-1.4.2.exe": "eq-engine/EqualizerAPO-x64-1.4.2.exe"
+    },
+    "windows": {
+      "nsis": {
+        "headerImage": "installer/header.bmp",
+        "sidebarImage": "installer/sidebar.bmp",
+        "installerIcon": "icons/icon.ico",
+        "installMode": "perMachine",
+        "installerHooks": "installer/hooks.nsh"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "app": {
+    "windows": [
+      {
+        "title": "SYNQ",
+        "width": 1240,
+        "height": 860,
+        "minWidth": 1040,
+        "minHeight": 640,
+        "center": true,
+        "backgroundColor": "#121113"
+      }
+    ]
+  },
+  "bundle": {
+    "targets": ["app", "dmg"],
+    "resources": {
+      "eq-engine/EqualizerAPO-x64-1.4.2.exe": null
+    },
+    "macOS": {
+      "minimumSystemVersion": "11.0"
+    }
+  }
+}

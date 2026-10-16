@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Beta release: the built installer and the Windows Sandbox results are local artifacts.
+/release/*.exe
+/sandbox-results/*
+!/sandbox-results/.gitkeep
+/release/old/
+
+dist-web
+
+# End-to-end test screenshots (CI artifacts)
+e2e/screenshots/
+# Filled in with this checkout's path by release/tools/render-docs.mjs (templates: *.wsb.template)
+/release/sandbox-test/*.wsb
+# Personal search terms for release/tools/leak-scan.mjs, kept on this PC only
+/release/tools/leak-terms.local.txt

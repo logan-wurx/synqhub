@@ -1,0 +1,7 @@
+# fetched sources and intermediate pictures; src/assets/devices holds the result
+raw/
+out/
+cache/
+cand/
+qa/
+__pycache__/

@@ -1,0 +1,414 @@
+[
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v2-tenkeyless",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-pro-type-ultra",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3-pro",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v3-tenkeyless",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h36/h5a/9640099184670/blackwidow-v4-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/QSHLMPFPBgI_KWM9wCJHYv8hTaI=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh36%2Fh5a%2F9640099184670%2Fblackwidow-v4-2-500x500.png",
+  "title": "Mechanical Gaming Keyboard - Razer BlackWidow V4 with RGB Lighting | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-v3-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-v3-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h26/h29/9729772224542/dav3pro-hyperpolling-smooth-touch-500x500.png",
+  "signed": "https://assets3.razerzone.com/_ZlGj-AcdClGkzc6M0HY_toaVYc=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh26%2Fh29%2F9729772224542%2Fdav3pro-hyperpolling-smooth-touch-500x500.png",
+  "title": "Lightest Ergonomic Esports Mouse - Razer DeathAdder V3 Pro | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-viper-v3-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-viper-v3-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h08/h61/9765618188318/viper-v3-pro-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/2y2JG9RBGw3HijRRqX-7ZRsI4E4=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh08%2Fh61%2F9765618188318%2Fviper-v3-pro-black-500x500.png",
+  "title": "Razer Viper V3 Pro - Ultralight Wireless Esports Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3-pro-35k",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-v3-pro-35k",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/heb/h5a/9822063231006/basilisk-v3-pro-35k-white-500x500.png",
+  "signed": "https://assets3.razerzone.com/dWiYYPxIjKjjzjTe2x8nNO_y-Ko=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fheb%2Fh5a%2F9822063231006%2Fbasilisk-v3-pro-35k-white-500x500.png",
+  "title": "Wireless Ergonomic RGB Gaming Mouse - Razer Basilisk V3 Pro 35K | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-joro",
+  "page": "https://www.razer.com/gaming-keyboards/razer-joro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h6c/h92/9904339288094/joro-500x500.png",
+  "signed": "https://assets3.razerzone.com/b_OoSea60h80hdBMrWPbBpaEvh8=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh6c%2Fh92%2F9904339288094%2Fjoro-500x500.png",
+  "title": "Razer Joro Portable Wireless Gaming Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-mobile",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-mobile",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hc3/h92/9904339255326/basilisk-mobile-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/QBtgbAP_J0RhgX1Sxsa4ILU7Z34=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc3%2Fh92%2F9904339255326%2Fbasilisk-mobile-black-500x500.png",
+  "title": "Razer Basilisk Mobile: Portable Ergonomic Wireless Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-x",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-x",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h8f/h57/9640099217438/blackwidow-v4-black-x-500x500.png",
+  "signed": "https://assets3.razerzone.com/rPeithzerN5PT7HfQB6td5u2-tA=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh8f%2Fh57%2F9640099217438%2Fblackwidow-v4-black-x-500x500.png",
+  "title": "Mechanical Gaming Keyboard - Razer BlackWidow V4 X with RGB Lighting | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-cobra",
+  "page": "https://www.razer.com/gaming-mice/razer-cobra",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h54/h60/9591466950686/cobra-500x500.png",
+  "signed": "https://assets3.razerzone.com/2p8n-htVxLftJmTewLf1bsYeCJc=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh54%2Fh60%2F9591466950686%2Fcobra-500x500.png",
+  "title": "Lightweight Wired Gaming Mouse with Chroma RGB - Razer Cobra \ud83d\uddb1\ufe0f | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v3-pro",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v3-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h61/h66/9705254158366/huntsman-v3-pro-mini-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/zccn0AHbFWwS_EvQkZ7v2hAjk44=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh61%2Fh66%2F9705254158366%2Fhuntsman-v3-pro-mini-2-500x500.png",
+  "title": "Esports Keyboard for Pro Gaming - Razer Huntsman V3 Pro | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-ornata-v3",
+  "page": "https://www.razer.com/gaming-keyboards/razer-ornata-v3",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hfd/h73/9533910810654/ornata-v3-4-500x500.png",
+  "signed": "https://assets3.razerzone.com/JCRG_e1sCkQ15E6iooW22TlqP0o=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhfd%2Fh73%2F9533910810654%2Fornata-v3-4-500x500.png",
+  "title": "Ergonomic Clicky Gaming Keyboard - Razer Ornata V3 | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-boomslang-20th-anniversary-edition",
+  "page": "https://www.razer.com/gaming-mice/razer-boomslang-20th-anniversary-edition",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h7d/h95/10021503270942/boomslang-500x500.png",
+  "signed": "https://assets3.razerzone.com/OuM59_O2C_24UIP9n9HTS3RZn8w=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh7d%2Fh95%2F10021503270942%2Fboomslang-500x500.png",
+  "title": "Razer Boomslang 20th Anniversary Edition Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-v4-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-v4-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h01/hf3/9926511951902/deathadder-v4-pro-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/9FvPlvujlrxafg7AbznLiEuAncE=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh01%2Fhf3%2F9926511951902%2Fdeathadder-v4-pro-black-500x500.png",
+  "title": "Razer DeathAdder V4 Pro: Fastest Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v3-pro-8khz",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v3-pro-8khz",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hf1/hed/10416138256414/huntsman-v3-pro-mini-8khz-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/TVCpEdG8QvftxgSwSFAXXzijvLE=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhf1%2Fhed%2F10416138256414%2Fhuntsman-v3-pro-mini-8khz-black-500x500.png",
+  "title": "Fast Responsive Gaming Keyboard - Huntsman V3 Pro 8KHz | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-signature-edition",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-signature-edition",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hb0/h62/10024674656286/huntsman-signature-edition-500x500.png",
+  "signed": "https://assets3.razerzone.com/89WaGpC3i99g7FjaDV1cVf7x0E8=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhb0%2Fh62%2F10024674656286%2Fhuntsman-signature-edition-500x500.png",
+  "title": "Master-Crafted Razer Huntsman Signature Edition Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-reclusa-x-mini-65",
+  "page": "https://www.razer.com/gaming-keyboards/razer-reclusa-x-mini-65",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/had/hc2/10362438942750/reclusa-x-mini-500x500.png",
+  "signed": "https://assets3.razerzone.com/Dq6jwsqBFh8HosEAvSCkbGcnsbE=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhad%2Fhc2%2F10362438942750%2Freclusa-x-mini-500x500.png",
+  "title": "Reclusa X Mini 65% Hot-Swappable Gaming Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-naga-v3-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-naga-v3-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hf7/he7/10268566880286/naga-v3-pro-500x500.png",
+  "signed": "https://assets3.razerzone.com/L_dqiWzTWoKuVflOucnd2wtouRw=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhf7%2Fhe7%2F10268566880286%2Fnaga-v3-pro-500x500.png",
+  "title": "MMO Wireless Gaming Mouse with Swappable Side Plates | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-cobra-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-cobra-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hb6/ha2/9935790473246/cobra-hyperspeed-500x500.png",
+  "signed": "https://assets3.razerzone.com/0hNxr54Dww3uSEDzLlPF6p7Ixxs=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhb6%2Fha2%2F9935790473246%2Fcobra-hyperspeed-500x500.png",
+  "title": "Razer Cobra HyperSpeed: Lightweight Customizable Wireless Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-cobra-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-cobra-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h35/hcc/9594549370910/cobra-pro-500x500-2.png",
+  "signed": "https://assets3.razerzone.com/E4XOcdRR7YA1zYhbEQWyZ9nKk3U=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh35%2Fhcc%2F9594549370910%2Fcobra-pro-500x500-2.png",
+  "title": "Customizable Wireless Gaming Mouse with RGB Underglow - Razer Cobra Pro\ud83d\uddb1\ufe0f | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v4-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-v4-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h80/hde/10458276331550/basilisk-v4-hyperspeed-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/WJzHnuB_vg3m8Ga7dZovXpwKd7A=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh80%2Fhde%2F10458276331550%2Fbasilisk-v4-hyperspeed-black-500x500.png",
+  "title": "Razer Basilisk V4 HyperSpeed - Ergonomic Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-mini",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-naga-left-handed-edition",
+  "page": "https://www.razer.com/gaming-mice/razer-naga-left-handed-edition",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h09/hba/9529652346910/naga-left-handed-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/yVd7fP8Z4ibH0AxLPvpk16aelJA=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh09%2Fhba%2F9529652346910%2Fnaga-left-handed-2-500x500.png",
+  "title": "Left-handed MMO Gaming Mouse - Razer Naga Left-Handed Edition | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v2-analog",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v2-analog",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hdb/h6d/9533910679582/huntsman-v2-analog-4-500x500.png",
+  "signed": "https://assets3.razerzone.com/Mv770lwQQjr-XJ_YGYFgQydUd-o=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhdb%2Fh6d%2F9533910679582%2Fhuntsman-v2-analog-4-500x500.png",
+  "title": "Analog Optical Gaming Keyboard - Razer Huntsman V2 Analog | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-essential",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-essential",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h95/h52/9198280966174/Deathadder-Essential-500x500.png",
+  "signed": "https://assets3.razerzone.com/2TxHaaPoR4TedGAvzGc9KVGm_rA=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh95%2Fh52%2F9198280966174%2FDeathadder-Essential-500x500.png",
+  "title": "Right Handed Gaming Mouse - Razer DeathAdder Essential | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v3-mini-hyperspeed",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v3-mini-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h8e/h5c/9533910155294/blackwidow-v3-mini-hyperspeed-4-500x500.png",
+  "signed": "https://assets3.razerzone.com/J8T3ka7fdb9fI3Mg6u4qf76CzPY=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh8e%2Fh5c%2F9533910155294%2Fblackwidow-v3-mini-hyperspeed-4-500x500.png",
+  "title": "Wireless 65% Keyboard - Razer BlackWidow V3 Mini HyperSpeed | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-viper-v3-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-viper-v3-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h21/h26/9767046578206/240424-Viper-V3-Hyperspeed_500x500.png",
+  "signed": "https://assets3.razerzone.com/eOQdjku8ExQ-pCrgmnci6LfNPYg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh21%2Fh26%2F9767046578206%2F240424-Viper-V3-Hyperspeed_500x500.png",
+  "title": "Esports Pro Wireless Gaming Mouse: Razer Viper V3 HyperSpeed | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-orochi-v2",
+  "page": "https://www.razer.com/gaming-mice/razer-orochi-v2",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h63/h8c/10078843797534/orochi-v2-2026-black-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/hMWt0saEbbSJvL9UVlHIwsqi1cQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh63%2Fh8c%2F10078843797534%2Forochi-v2-2026-black-2-500x500.png",
+  "title": "Razer Orochi V2: Lightweight Wireless Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3-pro-35k-mouse-dock-pro-bundle",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-tenkeyless-hyperspeed",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-tenkeyless-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h40/hf4/9923675586590/bw-v4-tkl-hyperspeed-500x500.png",
+  "signed": "https://assets3.razerzone.com/ZlUEwOPYHnrk11-IuBqQP_mJjlY=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh40%2Fhf4%2F9923675586590%2Fbw-v4-tkl-hyperspeed-500x500.png",
+  "title": "Razer BlackWidow V4 Tenkeyless Hyperspeed | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-viper-v3-pro-se",
+  "page": "https://www.razer.com/gaming-mice/razer-viper-v3-pro-se",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h55/h10/10011389198366/viper-v3-pro-se-500x500.png",
+  "signed": "https://assets3.razerzone.com/E06LFG81rjfT81SFu59BxpnHOSw=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh55%2Fh10%2F10011389198366%2Fviper-v3-pro-se-500x500.png",
+  "title": "Razer Viper V3 Pro SE - Ultralight Wireless Symmetrical Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v4-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-v4-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hd0/hb2/10458042105886/basilisk-v4-pro-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/zoTZkT025_dvkhlxKyhado44Tlo=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhd0%2Fhb2%2F10458042105886%2Fbasilisk-v4-pro-black-500x500.png",
+  "title": "Razer Basilisk V4 Pro - Competitive Wireless Gaming Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3-35k",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-v3-35k",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/he4/h63/9822107926558/basilisk-v3-35k-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/hL6Fdb4dN06NH3qfQbymtNh_XMk=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhe4%2Fh63%2F9822107926558%2Fbasilisk-v3-35k-2-500x500.png",
+  "title": "Ergonomic RGB Gaming Mouse - Razer Basilisk V3 35K | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "counter-strike-2-razer-viper-v3-pro-gigantus-v2-bundle",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-v2-x-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-v2-x-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/he8/h51/9250345058334/deathadder-v2-x-hyperspeed-500x500.png",
+  "signed": "https://assets3.razerzone.com/Aerg9ZPDslrXnnSES7n_GeCGW0g=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhe8%2Fh51%2F9250345058334%2Fdeathadder-v2-x-hyperspeed-500x500.png",
+  "title": "Wireless Ergonomic Gaming Mouse - Razer DeathAdder V2 X Hyperspeed | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-viper-v2-pro",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-ornata-v3-x",
+  "page": "https://www.razer.com/gaming-keyboards/razer-ornata-v3-x",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hd8/h69/9502654332958/ornata-v3-2-x-500x500.png",
+  "signed": "https://assets3.razerzone.com/6b3GUtswedZf-F2HKyrLuAFjDWQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhd8%2Fh69%2F9502654332958%2Fornata-v3-2-x-500x500.png",
+  "title": "Ergonomic Silent Gaming Keyboard - Razer Ornata V3 X | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-naga-v2-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-naga-v2-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h68/hac/9529652740126/naga-v2-hyperspeed-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/78C15acax6miivokK1Wg15ZK4rk=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh68%2Fhac%2F9529652740126%2Fnaga-v2-hyperspeed-2-500x500.png",
+  "title": "MMO Wireless Gaming Mouse - Razer Naga V2 HyperSpeed | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-pro",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hc7/hd5/10045164027934/blackwidow-v3-black-5-500x500.png",
+  "signed": "https://assets3.razerzone.com/96WYA2Fs8lhFNx7PfIqxJ-ygAEw=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc7%2Fhd5%2F10045164027934%2Fblackwidow-v3-black-5-500x500.png",
+  "title": "Mechanical Gaming Keyboard - BlackWidow V4 Pro with RGB Lighting | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-75",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-75",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h7e/h21/9918591467550/bw-v4-75-barebones-black-500x500.png",
+  "signed": "https://assets3.razerzone.com/YikvpsIMcczfA-0WYu41z4PAaYE=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh7e%2Fh21%2F9918591467550%2Fbw-v4-75-barebones-black-500x500.png",
+  "title": "Razer BlackWidow V4 75% Compact Hot-Swappable Mechanical keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-low-profile-hyperspeed",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-low-profile-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h9f/h4f/9946834763806/bw-v4-low-tkl-hyperspeed-500x500.png",
+  "signed": "https://assets3.razerzone.com/HeG45l93RjaJLGnCoCYTPbHV4VE=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh9f%2Fh4f%2F9946834763806%2Fbw-v4-low-tkl-hyperspeed-500x500.png",
+  "title": "Razer BlackWidow V4 Low-profile HyperSpeed Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v3-tenkeyless-8khz",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v3-tenkeyless-8khz",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h96/h06/10061741654046/huntsman-v3-tkl-8khz-500x500.png",
+  "signed": "https://assets3.razerzone.com/UiecZnWkVhT-O7pRtym22hoXFzg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh96%2Fh06%2F10061741654046%2Fhuntsman-v3-tkl-8khz-500x500.png",
+  "title": "Pro Analog Optical Keyboard - Huntsman V3 Tenkeyless 8KHz | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-viper-v4-pro",
+  "page": "https://www.razer.com/gaming-mice/razer-viper-v4-pro",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h9d/h5d/10039373168670/viper-v4-pro-black-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/Oinora-EZ32wM7TrXqkJ8_eABW8=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh9d%2Fh5d%2F10039373168670%2Fviper-v4-pro-black-2-500x500.png",
+  "title": "Razer Viper V4 Pro: Ultra-Light, Ultra-Fast Wireless Esports Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v3-pro-low-profile-tenkeyless-8khz",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v3-pro-low-profile-tenkeyless-8khz",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h81/h8d/10300516040734/hmv3pro-lowpro-tkl-8k-500x500.png",
+  "signed": "https://assets3.razerzone.com/DRZAApztorOKWN2TLkufFCejvh0=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh81%2Fh8d%2F10300516040734%2Fhmv3pro-lowpro-tkl-8k-500x500.png",
+  "title": "Huntsman V3 Pro Low-Profile Tenkeyless 8KHz Analog Optical Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-basilisk-v3-x-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-basilisk-v3-x-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h3a/hb0/9529652609054/basilisk-v3-x-hyperspeed-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/H9AN_7f5PgTQH6tJoftY25TYG-s=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh3a%2Fhb0%2F9529652609054%2Fbasilisk-v3-x-hyperspeed-2-500x500.png",
+  "title": "Customizable Wireless Gaming Mouse - Razer Basilisk V3 X HyperSpeed | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-v3-hyperspeed",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-v3-hyperspeed",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h79/h1f/9786703085598/deathadder-v3-hyperspeed-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/GmGquA0UHYaPwdEe10z6mHQhAps=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh79%2Fh1f%2F9786703085598%2Fdeathadder-v3-hyperspeed-2-500x500.png",
+  "title": "Razer DeathAdder V3 HyperSpeed: Ultralight Wireless Esports Mouse | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v4-pro-75",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-pro-75",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/he7/h76/9815507599390/bw-v4-pro-75-500x500.png",
+  "signed": "https://assets3.razerzone.com/cVoWIQ9XjQt8iQZ65Lrlqnf_VzQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhe7%2Fh76%2F9815507599390%2Fbw-v4-pro-75-500x500.png",
+  "title": "Razer BlackWidow V4 Pro 75% Wireless Hot-Swappable Gaming Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-pro-click-v2",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-pro-click-v2-vertical",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-pro-type-ergo",
+  "error": "no image"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-huntsman-v3-he-magnetic-8khz",
+  "page": "https://www.razer.com/gaming-keyboards/razer-huntsman-v3-he-magnetic-8khz",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hda/h00/10240652836894/huntsman-v3-he-mag-65-8k-500x500.png",
+  "signed": "https://assets3.razerzone.com/qvKVHX50x_fhpV3aJYuK_FldYtI=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhda%2Fh00%2F10240652836894%2Fhuntsman-v3-he-mag-65-8k-500x500.png",
+  "title": "Huntsman V3 HE Magnetic 8KHz Esports Keyboard | Razer United States"
+ },
+ {
+  "cat": "gaming-mice",
+  "slug": "razer-deathadder-v3",
+  "page": "https://www.razer.com/gaming-mice/razer-deathadder-v3",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h79/haf/9529652674590/deathadder-v3-2-500x500.png",
+  "signed": "https://assets3.razerzone.com/fgOxqPbg2c_3ZaR4lajdYcIdhRs=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh79%2Fhaf%2F9529652674590%2Fdeathadder-v3-2-500x500.png",
+  "title": "Ultra-lightweight Ergonomic Esports Mouse - Razer DeathAdder V3 | Razer United States"
+ },
+ {
+  "cat": "gaming-keyboards",
+  "slug": "razer-blackwidow-v3",
+  "page": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v3",
+  "image": "https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/h37/h5c/9533910122526/blackwidow-v3-black-4-500x500.png",
+  "signed": "https://assets3.razerzone.com/_K_RbGWPSQ4DYEbZX1JEqeeKtWs=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh37%2Fh5c%2F9533910122526%2Fblackwidow-v3-black-4-500x500.png",
+  "title": "Mechanical Gaming Keyboard - Razer BlackWidow V3 | Razer United States"
+ }
+]

@@ -1,0 +1,15 @@
+# Linux packaging keeps LF: shell scripts, and the udev rule the Rust test compares byte for byte.
+src-tauri/linux/** text eol=lf
+*.sh text eol=lf
+.github/** text eol=lf
+# Frame fixtures and generated tables that tests compare byte for byte with what the code writes: LF in every checkout,
+# so a fresh Windows clone (core.autocrlf=true) passes npm test too.
+*-frames.txt text eol=lf
+*-cases.txt text eol=lf
+*.generated.ts text eol=lf
+# Vendored upstream sources stay byte-identical to upstream.
+scripts/controllers/sdl/** text eol=lf
+# Kept in the development repo, left out of the published source (git archive): design-review screenshots and the
+# brief the logo was commissioned with.
+release/*-shots/** export-ignore
+branding/BRIEF.md export-ignore
