@@ -19,6 +19,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const dist = join(root, "dist-web");
 const site = process.env.SYNQ_SITE_DIR ?? join(os.tmpdir(), "synq-site");
 const pub = join(site, "public");
+// The site's own address: a Cloudflare custom domain on this Worker (Cloudflare makes its DNS record). Only the bare
+// name: SYNQ Helper accepts exactly https://synqhub.app (src-tauri/src/helper_cfg.rs), so www would need a redirect.
+const DOMAIN = "synqhub.app";
 
 function run(cmd, cwd) {
   const r = spawnSync(cmd, { cwd, stdio: "inherit", shell: true });
@@ -44,7 +47,8 @@ writeFileSync(
   "compatibility_date": "2026-10-12",
   // The site's links are #addresses: a path that isn't a file is a plain 404, never the page in its place (which
   // the long cache rule for /assets/* would keep for a year under a script's name).
-  "assets": { "directory": "./public", "not_found_handling": "none" }
+  "assets": { "directory": "./public", "not_found_handling": "none" },
+  "routes": [{ "pattern": "${DOMAIN}", "custom_domain": true }]
 }
 `,
 );
