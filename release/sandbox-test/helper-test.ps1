@@ -91,7 +91,10 @@ $AE = [System.Windows.Automation.AutomationElement]
 
 function Find-HelperDialog {
   param([int]$Seconds = 10)
-  $cond = New-Object System.Windows.Automation.PropertyCondition($AE::NameProperty, 'SYNQ Helper')
+  # A message box (class #32770) titled "SYNQ Helper"; the helper's hidden tray window has the same title.
+  $cond = New-Object System.Windows.Automation.AndCondition(
+    (New-Object System.Windows.Automation.PropertyCondition($AE::NameProperty, 'SYNQ Helper')),
+    (New-Object System.Windows.Automation.PropertyCondition($AE::ClassNameProperty, '#32770')))
   $until = (Get-Date).AddSeconds($Seconds)
   do {
     $w = $AE::RootElement.FindFirst([System.Windows.Automation.TreeScope]::Children, $cond)
@@ -101,23 +104,31 @@ function Find-HelperDialog {
   return $null
 }
 
+# A message box's parts by their window class (in the Sandbox UI Automation reports them as plain panes, not as text
+# and buttons); a button is pressed with BM_CLICK, as a click would.
+Add-Type -Namespace SynqTest -Name Win -MemberDefinition '[DllImport("user32.dll")] public static extern bool PostMessage(IntPtr h, uint m, IntPtr w, IntPtr l);'
+
+function Get-DialogParts {
+  param($Window, [string]$Class)
+  $all = $Window.FindAll([System.Windows.Automation.TreeScope]::Descendants, [System.Windows.Automation.Condition]::TrueCondition)
+  return @($all | Where-Object { $_.Current.ClassName -eq $Class })
+}
+
 function Get-DialogText {
   param($Window)
-  $cond = New-Object System.Windows.Automation.PropertyCondition($AE::ControlTypeProperty, [System.Windows.Automation.ControlType]::Text)
-  $parts = @()
-  foreach ($t in $Window.FindAll([System.Windows.Automation.TreeScope]::Descendants, $cond)) { $parts += $t.Current.Name }
-  return ($parts -join ' ')
+  return ((Get-DialogParts $Window 'Static' | ForEach-Object { $_.Current.Name } | Where-Object { $_ }) -join ' ')
 }
 
 function Press-DialogButton {
   param($Window, [string]$Name)
-  $cond = New-Object System.Windows.Automation.AndCondition(
-    (New-Object System.Windows.Automation.PropertyCondition($AE::ControlTypeProperty, [System.Windows.Automation.ControlType]::Button)),
-    (New-Object System.Windows.Automation.PropertyCondition($AE::NameProperty, $Name)))
-  $b = $Window.FindFirst([System.Windows.Automation.TreeScope]::Descendants, $cond)
-  if (-not $b) { return $false }
-  $b.GetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern).Invoke()
-  return $true
+  foreach ($b in Get-DialogParts $Window 'Button') {
+    if ($b.Current.Name -ne $Name) { continue }
+    $h = [IntPtr]$b.Current.NativeWindowHandle
+    if ($h -eq [IntPtr]::Zero) { continue }
+    [void][SynqTest.Win]::PostMessage($h, 0x00F5, [IntPtr]::Zero, [IntPtr]::Zero)
+    return $true
+  }
+  return $false
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -282,6 +293,14 @@ if ($ws) {
   $hello = Receive-Bridge $ws 1 20000
   $token = $(if ($hello -and $hello.ok) { $hello.ok.token } else { $null })
   Check 'paired' 'Paired after Yes (a token for next time)' ([bool]$token) (Brief $hello)
+}
+if ($ws -and -not $token) {
+  # Not paired: every command would only wait for "pair first"; the checks below need a paired page.
+  Add-Check 'commands' 'Website commands' 'FAIL' 'skipped: the page never paired'
+  $ws.Dispose()
+  $ws = $null
+}
+if ($ws) {
 
   # Every command the website sends: an answer, or a plain error. Never a crash or a dropped connection.
   $calls = @(
