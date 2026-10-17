@@ -1,9 +1,9 @@
 {
   "name": "SYNQ",
   "identifier": "com.logan.onboard",
-  "version": "0.1.0-beta.6",
+  "version": "0.1.0-beta.7",
   "exe": "onboard.exe",
-  "installer": "SYNQ_0.1.0-beta.6_x64-setup.exe",
+  "installer": "SYNQ_0.1.0-beta.7_x64-setup.exe",
   "eapo": {
     "version": "1.4.2",
     "file": "EqualizerAPO-x64-1.4.2.exe",
