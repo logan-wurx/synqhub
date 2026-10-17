@@ -527,6 +527,16 @@ if ($script:Exe -and (Test-Path $script:Exe)) {
   Invoke-Step 'launch' {
     Write-Host ''
     Write-Host "Starting $AppName..." -ForegroundColor Cyan
+    # Windows Sandbox can list one WebView2 version in its registry while another is on disk (the host's runtime updated
+    # itself): the WebView2 loader then says "not found" for every app there. Point the app at the folder that exists.
+    $wvKey = Get-ItemProperty "HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\$WebView2Guid" -ErrorAction SilentlyContinue
+    if ($wvKey -and $wvKey.location -and $wvKey.pv -and -not (Test-Path (Join-Path $wvKey.location $wvKey.pv))) {
+      $real = Get-ChildItem $wvKey.location -Directory -ErrorAction SilentlyContinue | Where-Object { Test-Path (Join-Path $_.FullName 'msedgewebview2.exe') } | Sort-Object Name -Descending | Select-Object -First 1
+      if ($real) {
+        $env:WEBVIEW2_BROWSER_EXECUTABLE_FOLDER = $real.FullName
+        Add-Check 'launch-wv2-sandbox' 'WebView2 version mismatch in this Sandbox worked around' 'INFO' ("registry says $($wvKey.pv), the disk has $($real.Name); the app is pointed at it for this launch (a Sandbox quirk, real PCs match)")
+      }
+    }
     $t0 = Get-Date
     $script:AppProc = Start-Process -FilePath $script:Exe -PassThru
     $null = $script:AppProc.Handle

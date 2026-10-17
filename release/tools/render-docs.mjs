@@ -49,7 +49,8 @@ const values = {
   APP_NAME: conf.productName,
   VERSION: conf.version,
   APP_ID: conf.identifier,
-  EXE: `${cargoName}.exe`,
+  // The installed program: tauri.conf.json's mainBinaryName when set (synq.exe), else the crate's name.
+  EXE: `${conf.mainBinaryName ?? cargoName}.exe`,
   INSTALLER: installer,
   INSTALLER_MB: sizeMb,
   INSTALLER_BYTES: sizeBytes,
