@@ -206,7 +206,7 @@ fn ask_with_dialog(text: &str) -> Option<bool> {
 impl crate::bridge::Consent for DialogConsent {
     fn ask(&self, origin: &str) -> bool {
         let text = format!(
-            "{origin} wants to use SYNQ Helper. It will be able to change your mouse and keyboard settings and your EQ, with the same safety checks as the SYNQ app. Firmware updates are never possible."
+            "{origin} wants to use SYNQ Helper. It will be able to change your mouse, keyboard and controller settings, your EQ, your monitors and webcams, and your lights, with the same safety checks as the SYNQ app. Firmware updates are never possible."
         );
         ask_with_notification(&text).or_else(|| ask_with_dialog(&format!("{text}\n\nAllow it?"))).unwrap_or(false)
     }

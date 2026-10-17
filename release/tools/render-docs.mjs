@@ -91,7 +91,7 @@ console.log("wrote release/sandbox-test/app.json");
 
 // Windows Sandbox wants absolute host folders: fill this checkout's path into the .wsb templates (the results are
 // kept out of git).
-for (const name of ["onboard-sandbox.wsb", "onboard-sandbox-manual.wsb"]) {
+for (const name of ["onboard-sandbox.wsb", "onboard-sandbox-manual.wsb", "synq-helper-sandbox.wsb"]) {
   const template = join(rel, "sandbox-test", `${name}.template`);
   if (!existsSync(template)) continue;
   writeFileSync(join(rel, "sandbox-test", name), readFileSync(template, "utf8").replaceAll("{{REPO}}", root));

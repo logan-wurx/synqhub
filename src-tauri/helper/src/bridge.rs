@@ -213,7 +213,7 @@ impl Bridge {
         let token = args.get("token").and_then(Value::as_str).unwrap_or("");
         if self.pairings.lock().map_err(|_| "pairings poisoned")?.knows(&conn.origin, token) {
             conn.paired = true;
-            return Ok(json!({ "paired": true, "version": env!("CARGO_PKG_VERSION"), "features": ["hid", "eq", "advanced"] }));
+            return Ok(json!({ "paired": true, "version": env!("CARGO_PKG_VERSION"), "features": ["hid", "eq", "advanced", "displays", "lights", "sync"] }));
         }
         {
             let mut asking = self.asking.lock().map_err(|_| "poisoned")?;
@@ -235,7 +235,7 @@ impl Bridge {
         };
         self.save_pairings(&snapshot);
         conn.paired = true;
-        Ok(json!({ "paired": true, "token": token, "version": env!("CARGO_PKG_VERSION"), "features": ["hid", "eq", "advanced"] }))
+        Ok(json!({ "paired": true, "token": token, "version": env!("CARGO_PKG_VERSION"), "features": ["hid", "eq", "advanced", "displays", "lights", "sync"] }))
     }
 
     fn owned(&self, conn: &Conn, key: &str) -> Result<(), String> {

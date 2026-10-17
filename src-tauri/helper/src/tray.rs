@@ -186,7 +186,7 @@ pub struct DialogConsent;
 impl crate::bridge::Consent for DialogConsent {
     fn ask(&self, origin: &str) -> bool {
         let text = wide(&format!(
-            "{origin} wants to use SYNQ Helper.\n\nIt will be able to change your mouse and keyboard settings and your EQ, with the same safety checks as the SYNQ app. Firmware updates are never possible.\n\nAllow it?"
+            "{origin} wants to use SYNQ Helper.\n\nIt will be able to change your mouse, keyboard and controller settings, your EQ, your monitors and webcams, and your lights, with the same safety checks as the SYNQ app. Firmware updates are never possible.\n\nAllow it?"
         ));
         unsafe { MessageBoxW(None, PCWSTR(text.as_ptr()), w!("SYNQ Helper"), MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_TOPMOST | MB_SETFOREGROUND) == IDYES }
     }

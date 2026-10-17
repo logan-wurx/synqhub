@@ -1,0 +1,37 @@
+<!--
+  Windows Sandbox config for the SYNQ Helper test (helper-test.ps1): the helper downloaded from the website's
+  link on a clean Windows, then the same download with the SYNQ app installed. Double-click it (Windows
+  Sandbox must be turned on once; see README.md next to this file).
+
+  Host folders:
+    release          -> C:\SYNQRelease  READ-ONLY  synq-helper.exe, the installer, SHA256SUMS.txt, the scripts
+    sandbox-results  -> C:\Results      read/write where RESULTS-helper.md is written
+
+  Networking is on: the test downloads the helper from GitHub, the way the website's button does. Nothing else
+  from this PC is shared, and everything inside the Sandbox is thrown away when its window is closed.
+-->
+<Configuration>
+  <VGpu>Disable</VGpu>
+  <Networking>Enable</Networking>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <ProtectedClient>Disable</ProtectedClient>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Disable</ClipboardRedirection>
+  <MemoryInMB>4096</MemoryInMB>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>{{REPO}}\release</HostFolder>
+      <SandboxFolder>C:\SYNQRelease</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>{{REPO}}\sandbox-results</HostFolder>
+      <SandboxFolder>C:\Results</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -NoExit -File C:\SYNQRelease\sandbox-test\helper-test.ps1</Command>
+  </LogonCommand>
+</Configuration>

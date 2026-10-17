@@ -25,6 +25,10 @@ Then read **`sandbox-results\RESULTS.md`** in the repo folder on your own PC (th
 
 To run it again, close the Sandbox and double-click the file again. Every run starts from a clean Windows.
 
+## The SYNQ Helper test (`synq-helper-sandbox.wsb`)
+
+Double-click **`synq-helper-sandbox.wsb`** instead to test SYNQ Helper on its own, the way the website hands it out. `helper-test.ps1` downloads `synq-helper.exe` from the website's link (checked against `SHA256SUMS.txt`), starts it the way a double-click does, and checks that it installed itself (its folder, the Apps-list entry, the sign-in entry, the port). It then talks to it exactly as synqhub.app does: another site is refused, the "allow this site?" box is answered **Yes** by the script, every command the website sends gets an answer or a plain error, and the next visit pairs without asking. It uninstalls it from the Apps-list command, then installs the SYNQ app and checks that the same download turns the app's own helper on instead of installing a second copy. Windows asks for administrator once (for the app install): click **Yes** inside the Sandbox. Results: `sandbox-results\RESULTS-helper.md`.
+
 ## What the test checks
 
 | Step | Looks at |
