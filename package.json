@@ -7,7 +7,7 @@
   "homepage": "https://synqhub.app",
   "repository": { "type": "git", "url": "git+https://github.com/logan-wurx/synqhub.git" },
   "bugs": "https://github.com/logan-wurx/synqhub/issues",
-  "version": "0.1.0-beta.6",
+  "version": "0.1.0-beta.7",
   "type": "module",
   "scripts": {
     "dev": "vite",

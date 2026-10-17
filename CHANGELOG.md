@@ -2,6 +2,14 @@
 
 Each beta's full notes, with its support tiers and known gaps, are in [`release/`](release/).
 
+## 0.1.0-beta.7 (2026-10-16)
+
+- **SYNQ Helper starts on a fresh Windows.** It needed the Visual C++ runtime (VCRUNTIME140.dll), which a clean
+  Windows lacks, so there it could not start at all; the runtime is now built into `synq-helper.exe` (the download and
+  the installer's copy). Caught by the new Windows Sandbox test of the helper as the website hands it out.
+- The helper's "allow this site?" box names everything a site can reach: mouse, keyboard and controller settings, the
+  EQ, monitors, webcams and lights.
+
 ## 0.1.0-beta.6 (2026-10-16)
 
 - **OnBoard Hub is now SYNQ.** New name, logo and app icon ("Every device. One system."). Installing it removes the

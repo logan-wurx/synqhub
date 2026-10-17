@@ -209,25 +209,37 @@ if (Test-Path $sumsFile) {
 $want = $sums['synq-helper.exe']
 $downloads = Join-Path $env:USERPROFILE 'Downloads'
 New-Item -ItemType Directory -Force -Path $downloads | Out-Null
+# The file under test is the release folder's (what is about to ship, or just shipped); the website's link is checked
+# against it, so a build can be tested before it is published.
 $exe = Join-Path $downloads 'synq-helper.exe'
-$got = $false
+Copy-Item (Join-Path $ReleaseDir 'synq-helper.exe') $exe -Force
+$h = Get-Sha256 $exe
+Check 'file' 'The helper under test is the one SHA256SUMS.txt lists' ($h -eq $want) "sha256 $h"
+$raw = [System.Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes($exe))
+Check 'no-vcruntime' 'Needs no Visual C++ runtime (no VCRUNTIME140.dll, which a fresh Windows lacks)' (-not ($raw -match '(?i)vcruntime140(_1)?\.dll|msvcp140\.dll'))
+$web = Join-Path $env:TEMP 'synq-helper-web.exe'
 try {
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  Invoke-WebRequest -Uri $Download -OutFile $exe -UseBasicParsing -TimeoutSec 120
-  $got = Test-Path $exe
-} catch { }
-if ($got) {
-  $h = Get-Sha256 $exe
-  Check 'download' "Downloaded from the website's link ($Download)" ($h -eq $want) "sha256 $h; SHA256SUMS.txt says $want"
-} else {
-  Copy-Item (Join-Path $ReleaseDir 'synq-helper.exe') $exe -Force
-  $h = Get-Sha256 $exe
-  Add-Check 'download' "Downloaded from the website's link" 'WARN' "No network in the Sandbox: used the release folder's copy (sha256 $h, expected $want)"
+  Invoke-WebRequest -Uri $Download -OutFile $web -UseBasicParsing -TimeoutSec 120
+  $wh = Get-Sha256 $web
+  Check 'download' "The website's link ($Download) serves this file" ($wh -eq $h) "link sha256 $wh" 'WARN'
+} catch {
+  Add-Check 'download' "The website's link serves this file" 'WARN' "Couldn't download it in the Sandbox: $($_.Exception.Message)"
+}
+
+# Windows' own "can't start" box (a missing DLL) is titled "<exe> - System Error"; the test names it when it shows.
+function Find-SystemError {
+  $cond = New-Object System.Windows.Automation.PropertyCondition($AE::NameProperty, 'synq-helper.exe - System Error')
+  $w = $AE::RootElement.FindFirst([System.Windows.Automation.TreeScope]::Children, $cond)
+  if ($w) { return (Get-DialogText $w) }
+  return ''
 }
 
 # A double-click: Explorer starts it, not elevated.
 Start-Process explorer.exe -ArgumentList ('"{0}"' -f $exe)
 $installed = Wait-Until { Test-Path $ownExe } 20
+$sysErr = Find-SystemError
+if ($sysErr) { Add-Check 'starts' 'Windows could start it' 'FAIL' $sysErr }
 Check 'installed' "Installed itself in $ownDir" $installed
 if ($installed) { Check 'installed-same' 'The installed copy is the downloaded file' ((Get-Sha256 $ownExe) -eq $h) }
 $running = Wait-Until { (Port-Open) -and (@(Helper-Processes | Where-Object { $_.Path -eq $ownExe }).Count -gt 0) } 20

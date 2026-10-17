@@ -105,3 +105,11 @@ test("program names follow the Rust rule", async () => {
   // The seeded games.
   for (const exe of ["cs2.exe", "valorant-win64-shipping.exe", "r5apex.exe", "fortniteclient-win64-shipping.exe", "overwatch.exe"]) assert.ok(games.includes(`"${exe}"`), exe);
 });
+
+test("the helper starts on a fresh Windows: the Visual C++ runtime is linked in, not needed as VCRUNTIME140.dll", () => {
+  // It is handed out on its own (the website's "Get SYNQ Helper"); a PC that never installed the runtime can't start
+  // an exe that imports it (the Sandbox test caught exactly that). The app gets the same from tauri-build.
+  const build = read("src-tauri/helper/build.rs");
+  assert.ok(build.includes("/NODEFAULTLIB:{lib}") && build.includes('"vcruntime.lib"'), "the dynamic runtime is left out");
+  assert.ok(build.includes('"libvcruntime.lib"') && build.includes('"ucrt.lib"'), "the static runtime is named instead");
+});
