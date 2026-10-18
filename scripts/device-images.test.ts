@@ -130,7 +130,7 @@ test("controllers: official pictures by USB id, and by name where the id is shar
   assert.equal(pad("054c", "0df2"), "sony-dualsense-edge");
   assert.equal(pad("045e", "0b12"), "microsoft-xbox-wireless-controller");
   assert.equal(pad("045e", "0b00"), "microsoft-xbox-elite-series-2");
-  assert.equal(pad("3537", "1010"), "gamesir-g7-se", "the user's own pad");
+  assert.equal(pad("3537", "1010"), "gamesir-g7-se", "the GameSir G7 SE");
   assert.equal(pad("057e", "2006"), "nintendo-joy-con-l");
   assert.equal(pad("057e", "2007"), "nintendo-joy-con-r");
   assert.equal(pad("057e", "200e"), "nintendo-joy-con", "the pair in the charging grip");

@@ -34,10 +34,10 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
   const lead = !secureContext
     ? "Browsers only offer device access on pages served over https (or from localhost). Open SYNQ from its https address."
     : helper
-      ? `${name} can't reach a mouse or keyboard from a web page on its own. SYNQ Helper, a small tray app (on its own, or part of the desktop app), does it for this page, with the desktop app's own safety checks. Nothing leaves this PC.`
+      ? `In ${name}, SYNQ Helper reaches your mouse and keyboard for this page: a small tray app (on its own, or part of the desktop app), with the desktop app's own safety checks. Nothing leaves this PC.`
       : p.os === "mac"
-        ? `${name} can't reach a mouse or keyboard from a web page. Chrome, Edge and Opera can (WebHID). SYNQ Helper for macOS isn't out yet.`
-        : `${name} can't reach a mouse or keyboard from a web page. Chrome, Edge and Opera can (WebHID, version 89 and newer, on Windows, macOS, Linux and ChromeOS). Phones and tablets don't have it yet.`;
+        ? `Reaching a mouse or keyboard from a web page needs WebHID, which Chrome, Edge and Opera have. SYNQ Helper for macOS isn't out yet.`
+        : `Reaching a mouse or keyboard from a web page needs WebHID, which Chrome, Edge and Opera have (version 89 and newer, on Windows, macOS, Linux and ChromeOS). Phones and tablets don't have it yet.`;
 
   if (tester)
     return (

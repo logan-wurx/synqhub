@@ -452,7 +452,7 @@ test("the Razer feature-only ids come from the real drivers and match the Rust t
   assert.deepEqual(inRust, derived, "the Rust table is stale: run node scripts/gen-openmouse-index.mjs");
 
   // 2. Every id: a real Razer driver claims a lone mouse or consumer collection for it, it is a product
-  // OpenMouse lists, and OpenMouse doesn't give it a vendor-defined control interface or mark it native-only.
+  // OpenMouse lists, and its entry in OpenMouse's product table names neither a vendor-defined control interface nor native-only.
   const listed = new Set<number>(razerListedPids());
   assert.ok(derived.length > 40 && derived.length < listed.size);
   for (const pid of derived) {

@@ -159,7 +159,7 @@ export function mouseAdvanced(h: MouseAdvancedHost): AdvancedPanel {
     ],
     timeoutSeconds: CAL_TIMEOUT_S,
     canRestore: false,
-    restoreNote: "OpenMouse can't read the old calibration back from the mouse, so it can't be written back. If the new one feels wrong, run the calibration again.",
+    restoreNote: "The old calibration can't be read back from the mouse, so it can't be written back. If the new one feels wrong, run the calibration again.",
     async run(confirmation, onProgress, signal) {
       const unconfirmed = confirmationProblem("calibrate", confirmation);
       if (unconfirmed) throw new Error(unconfirmed);
@@ -309,18 +309,18 @@ export function mouseAdvanced(h: MouseAdvancedHost): AdvancedPanel {
   // The card
   // ---------------------------------------------------------------------------------------------
   const none = (why: string) => ({ available: false, source: "", why });
-  const features = withFeatures(noFeatures("OpenMouse's driver for this mouse has no such command."), {
-    pair: canPair ? { available: true, source: SRC_PAIR } : none("This mouse's OpenMouse driver has no pairing command SYNQ can follow."),
+  const features = withFeatures(noFeatures("This isn't available for this mouse in SYNQ yet."), {
+    pair: canPair ? { available: true, source: SRC_PAIR } : none("Pairing isn't available for this mouse in SYNQ yet."),
     remap: canRemap
       ? { available: true, source: SRC_REMAP }
       : none(
           !h.has("setButtonMapping")
-            ? "This mouse's OpenMouse driver doesn't offer button changes."
+            ? "Button changes aren't available for this mouse in SYNQ yet."
             : "SYNQ can't tell which button and action are left click on this mouse, so it can't protect them and leaves the buttons alone.",
         ),
-    macros: none("OpenMouse's drivers don't share a macro format SYNQ can verify, so macros stay in the maker's app."),
+    macros: none("Macros stay in the maker's app: these drivers don't share one macro format SYNQ can check."),
     calibrate: canCalibrate ? { available: true, source: SRC_CAL } : none(h.has("calibrateMagneticButtons") ? "The mouse didn't report that it can be calibrated from here." : "This mouse has no calibration SYNQ can run."),
-    reset: canReset ? { available: true, source: SRC_RESET } : none("This mouse's OpenMouse driver has no factory-reset command."),
+    reset: canReset ? { available: true, source: SRC_RESET } : none("Factory reset isn't available for this mouse in SYNQ yet."),
   });
 
   return {

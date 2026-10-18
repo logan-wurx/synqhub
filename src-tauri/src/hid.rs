@@ -2187,7 +2187,7 @@ mod tests {
         assert!(!RAZER_FEATURE_ONLY_PIDS.contains(&0x00b2)); // DeathAdder V3
         assert_eq!(collection_access(RAZER, 0x00b2, 0x0001, 0x0002), None);
         assert_eq!(collection_access(RAZER, 0x00b2, 0xff00, 0x0001), Some(Access::Full));
-        // A Razer id OpenMouse doesn't list is not ours at all.
+        // A Razer id outside OpenMouse's list gets no access at all.
         assert!(!allowed(RAZER, 0x0001));
         assert_eq!(collection_access(RAZER, 0x0001, 0x0001, 0x0002), None);
         // Another vendor's mouse collection is refused, even for an id OpenMouse lists.
@@ -2468,7 +2468,7 @@ mod tests {
             }
             assert_eq!(collection_access(v, p, 0xff42, 0x0002), None, "{v:04x}:{p:04x} FF42:0002");
         }
-        // The user's Falchion ZywOo keeps its own panel and full access; the plain HFX is the ASUS driver's.
+        // The Falchion ZywOo keeps its own panel and full access; the plain HFX is the ASUS driver's.
         assert!(crate::brands::device(0x0b05, 0x1d1d).is_none());
         assert_eq!(collection_access(0x0b05, 0x1d1d, 0x0001, 0x0006), Some(Access::Full));
         assert_eq!(collection_access(0x0b05, 0x1b7e, 0xff00, 0x0001), Some(Access::Full));

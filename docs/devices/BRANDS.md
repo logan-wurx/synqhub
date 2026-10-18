@@ -212,7 +212,7 @@ Single-brand protocols: Wooting `31E3`, Razer `1532`, Corsair Bragi `1B1C`, ASUS
   - Motion sync: not found (UNVERIFIED).
 - **WebHID: platform-dependent.**
   - The control channel is feature report 0 on the **Generic Desktop Mouse collection (0x01/0x02)** for most models.
-  - Chromium protects only input/output reports there, but **Chrome 153 on Windows** fixed an `IsAlwaysProtected` bypass (crbug 536063911, between 152.0.7977.83 and 153.0.8010.37). Since then every Razer mouse fails on Windows Chrome with `Access is denied` (OpenMouse incident post). OpenMouse moved Razer to its native Bridge.
+  - Chromium protects only input/output reports there, but **Chrome 153 on Windows** fixed an `IsAlwaysProtected` bypass (crbug 536063911, between 152.0.7977.83 and 153.0.8010.37). Since then every Razer mouse gets `Access is denied` on Windows Chrome, so SYNQ reaches Razer through its desktop bridge (SYNQ Helper).
   - Works on macOS, Linux and ChromeOS, and on the desktop app via hidapi.
   - Razer keyboards on page 0x0C are not affected.
 - **Safety:**
@@ -579,7 +579,7 @@ Single-brand protocols: Wooting `31E3`, Razer `1532`, Corsair Bragi `1B1C`, ASUS
   - **wooting-rgb-sdk and wooting-analog-sdk (MPL-2.0)**;
   - **d0da (GPL-3.0, full command table 0x00–0x3B plus `.proto`)**, <https://pypi.org/project/d0da/>;
   - OM `wooting` (AGPL, read-only);
-  - **@openmouse/keyboard-protocol 1.1.0 (AGPL)**: mostly decoders; encoders only for profile switch, save and RGB; 60HE+ only, unverified;
+  - **@openmouse/keyboard-protocol 1.1.0 (AGPL)**: decoders for its keyboards' settings, and encoders for profile switch, save and RGB (60HE+);
   - HallJoy (AGPL-3.0, analog to gamepad).
 - **Settings:** per-key actuation (and secondary), RT with separate press/release, strict vs continuous RT, SOCD (Rappy Snappy / Snappy Tappy), DKS, Mod-Tap, Tachyon mode, gamepad mapping (XInput/DInput), analog curves, RGB layers, 4 profiles plus a digital profile.
 - **WebHID:** good (vendor pages).
@@ -878,7 +878,7 @@ Single-brand protocols: Wooting `31E3`, Razer `1532`, Corsair Bragi `1B1C`, ASUS
   - No Epomaker-specific protocol, so this is catalogue work only (**S**).
   - OpenRGB has TH80 Pro `3151:4010/4011` lighting.
   - RT100 screen: epomaker-controller (no license, docs-only).
-- **Kochi Hummingbird 68** (`1CA2:0901`): only Win/Mac mode in @openmouse/keyboard-protocol. SparkLink SDK family.
+- **Kochi Hummingbird 68** (`1CA2:0901`): the Win/Mac mode switch through @openmouse/keyboard-protocol. SparkLink SDK family.
 - **SparkLink / PlayJoy:** **@sparklinkplayjoy/sdk-keyboard (MIT, npm 1.0.24, docs <https://sparklinkplayjoy.github.io/keyboard-docs/>)**, used by AureTrix_driver (MIT). This is a published vendor SDK, rare and valuable. Also embedded in VGN HUB.
 - **SYNQ, SparkLink (2026-10-14, `src/lib/brands/sparklink/`, [SPARKLINK.md](SPARKLINK.md)):** our own driver written from the SDK, its docs and AureTrix (nothing copied or run).
   - **Ids (56):** Royal Kludge 21 (`1CA2:1604`..`161B`, incl. M75 HE `1619`), AULA 34 (`1C4F:EE88`; 17 on `1CA5`; 11 on `1CA2:1901`..`190B`; 5 on `1CA3`) and Kochi `1CA2:0901`. All start "experimental" (read-only until "Allow changes"). Kochi was claimed by omkb before; omkb now yields it, so exactly one driver owns it.
@@ -1047,7 +1047,7 @@ Many brands are **split**: their boards sit on several OEM families (§2.2), so 
 
 ## 6. Platform rules: WebHID vs desktop bridge
 
-From Chromium source at tags 152.0.7977.83 and 153.0.8010.37 plus main, hidapi 0.16.0 and OpenMouse Bridge. Full detail is in the `webhid-platform` notes.
+From Chromium source at tags 152.0.7977.83 and 153.0.8010.37 plus main, hidapi 0.16.0. Full detail is in the `webhid-platform` notes.
 
 **Three Chromium layers:**
 1. **Blocklist:** `hid_blocklist.cc`. Covers FIDO `F1D0`, security-key VID/PIDs, and **Jabra `0B0E` `FF00` output report 5**. Rules can be **pushed by Finch without a Chrome release**. No gaming mouse or keyboard VID is on it today.
@@ -1070,14 +1070,14 @@ From Chromium source at tags 152.0.7977.83 and 153.0.8010.37 plus main, hidapi 0
 
 **Windows native (hidapi / SYNQ bridge):**
 - The OS owns mouse and keyboard collections. hidapi falls back to a **zero-access handle**, on which **feature reports work and input/output do not**.
-- Pad feature buffers to `FeatureReportByteLength`. For undeclared reports (Razer), try each `&colNN` path, as OpenMouse Bridge does.
+- Pad feature buffers to `FeatureReportByteLength`. For undeclared reports (Razer), try each `&colNN` path.
 - No admin rights are needed. Warn (never kill) when vendor suites hold the device: Synapse, G HUB, iCUE, GG, NGENUITY.
 
 **Other platform facts:**
 - **Permission persistence:** a WebHID grant survives a re-plug only if the device has **both a serial number and a product name**. Many mice don't, so expect re-prompts on the website.
 - **WebView2** has no documented WebHID support. Irrelevant: SYNQ replaces `navigator.hid` with its bridge on desktop.
 - **WebUSB** cannot claim HID or Audio interfaces (protected classes), so it is no workaround. It is how some vendors flash DFU; **SYNQ must never request WebUSB**.
-- **Pattern to copy:** **OpenMouse Bridge** (Rust, `Cargo.toml` says MIT; there is no LICENSE file). A loopback server on 127.0.0.1 with an origin allowlist exposes native HID as a `navigator.hid` replacement to the website. SYNQ's desktop app could offer the same so the website can reach bridge-only devices. Chrome's Local Network Access prompt applies.
+- **Bridge design:** a loopback server on 127.0.0.1 with an origin allowlist exposes native HID as a `navigator.hid` replacement to the website. SYNQ's desktop app could offer the same so the website can reach bridge-only devices. Chrome's Local Network Access prompt applies.
 
 **Verdicts used in this file:**
 - **Web-OK:** every vendor-page / Consumer / usage-0 channel. That covers almost every brand here.
@@ -1133,7 +1133,6 @@ These rules come from what the vendor tools themselves do.
 | gloriousctl | EUPL-1.2 | code (EUPL lists AGPL as compatible) |
 | cli-drunkdeer, egg-mouse | Apache-2.0 | code |
 | HallJoy, egctl | AGPL-3.0 | code |
-| OpenMouse Bridge | MIT per `Cargo.toml` (no LICENSE file) | code, keep attribution |
 | monsgeek-akko-linux, mojobojo/drunkdeer-daemon, sing2293/gravastar, epomaker-controller, santeri3700 Dart RE, unlicensed Attack Shark repos | none | **docs-only** |
 | Every vendor web configurator (Synapse Web, Gear Link, Web Hub, Wootility, Launcher, NuPhyIO, Antler, Bibimbap, Xpanel…) | proprietary | **docs-only** (read for interoperability, no copying) |
 | AutoEq measurement data, walkplay.json | third-party, terms UNVERIFIED | fetch on demand, don't bundle |

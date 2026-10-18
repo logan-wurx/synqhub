@@ -559,7 +559,7 @@ Writes are **USB only**. Where vibration and trigger-effect intensity live in th
 - edgemap (GPL-3.0; Linux UHID remapper);
 - DS4Windows (schmaldeo fork GPL-3.0, archived 2026);
 - DualSenseX repo (no licence); nondebug/dualsense (no licence);
-- OpenMouse `controller-protocol` (only `src/sony/dualsense.ts`, **no licence**, so docs-only);
+- OpenMouse `controller-protocol` (`src/sony/dualsense.ts`), read as a reference;
 - OpenRGB `SonyGamepadController` (GPL-2.0-or-later; lightbar for DS4/DS5/Edge).
 
 **Path:** HID (web OK).

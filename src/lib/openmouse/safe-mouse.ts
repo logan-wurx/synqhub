@@ -324,7 +324,7 @@ export class SafeMouse {
     const ui = this.#snap.status.ui;
     if (hasHandBuiltPanel(vid, pid)) return "SYNQ's own panel handles this mouse; here it's only read.";
     if (NOT_A_MOUSE.has(this.#match.cls)) return "This isn't a mouse; SYNQ only shows what it is.";
-    if (ui?.settingsReady === false) return "OpenMouse can identify this mouse but hasn't mapped its settings yet, so they're shown without changing them.";
+    if (ui?.settingsReady === false) return "This mouse is identified through OpenMouse's driver library. Its settings aren't mapped yet, so they're shown without changing them.";
     if (this.#tier() === "read-only" && !this.#allow) return "Read-only until you allow changes.";
     return null;
   }

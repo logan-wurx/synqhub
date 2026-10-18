@@ -1,5 +1,5 @@
 // Razer device table for SYNQ's Razer protocol layer: Huntsman analog / Hall-effect keyboards and the
-// Razer mice OpenMouse (@openmouse/protocol 0.41) does not cover yet.
+// Razer mice driven by SYNQ's own Razer code (the others use OpenMouse's driver library, @openmouse/protocol).
 //
 // Sources (read 2026-10-13, nothing executed, no device attached):
 //   [SW]  Razer Synapse Web, https://synapse.razer.com : /AvailableDevices.json (product list, decimal ids)
@@ -189,9 +189,9 @@ export interface RazerMouseModel {
 }
 
 /**
- * The newest Razer mice OpenMouse 0.41 lacks: Synapse Web's AvailableDevices.json lists five mice; the
- * Viper V4 Pro (0x00E5/E6), DeathAdder V4 Pro (0x00BE/BF) and its Carbon Fiber edition (0x00EF/F0) are in
- * OpenMouse already. These two are a new PID range (0xB0xx) on VID 0x1532.
+ * The newest Razer mice, driven by SYNQ's own Razer code: Synapse Web's AvailableDevices.json lists five mice; the
+ * Viper V4 Pro (0x00E5/E6), DeathAdder V4 Pro (0x00BE/BF) and its Carbon Fiber edition (0x00EF/F0) use
+ * OpenMouse's driver library. These two are a new PID range (0xB0xx) on VID 0x1532.
  */
 export const RAZER_MICE: readonly RazerMouseModel[] = [
   {

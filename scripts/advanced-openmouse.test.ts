@@ -270,8 +270,8 @@ test("Advanced stays shut while the mouse is read-only", async () => {
   // an untested mouse: settingsReady alone doesn't make it 'verified'; flip it read-only
   (f.status.ui as Record<string, unknown>).settingsReady = false;
   const locked = await SafeMouse.connect({ vendorId: 0x3710, productId: 0x9999, productName: "Unknown" }, match(f.client, "PulsarHidClient"), memoryStore());
-  await assert.rejects(locked.advanced.buttons!.begin(ok), /hasn't mapped its settings yet|Read-only/);
-  await assert.rejects(locked.advanced.reset!.reset(RESET), /hasn't mapped|Read-only/);
+  await assert.rejects(locked.advanced.buttons!.begin(ok), /aren't mapped yet|Read-only/);
+  await assert.rejects(locked.advanced.reset!.reset(RESET), /aren't mapped|Read-only/);
   assert.ok(!f.calls.some((c) => c.startsWith("ADV:")));
   void safe;
 });
@@ -330,7 +330,7 @@ test("(c) calibration: backup first, progress per button, abort and failure are 
   const cal = safe.advanced.calibrate!;
   assert.ok(cal.steps.length >= 3 && cal.timeoutSeconds > 0);
   assert.equal(cal.canRestore, false);
-  assert.match(cal.restoreNote, /can't read the old calibration/);
+  assert.match(cal.restoreNote, /old calibration can't be read back/);
   const seen: string[] = [];
   const done = await cal.run(ok, (p) => seen.push(`${p.phase}:${p.targets.map((t) => t.state[0]).join("")}`), new AbortController().signal);
   assert.equal(done.phase, "done");

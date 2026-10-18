@@ -5,9 +5,8 @@
 // No Tauri here (src/lib/atk-mouse.ts adds it), so the tests and the browser preview's simulated mouse
 // (src/lib/atk-sim.ts) run exactly this code.
 //
-// OpenMouse's AtkHidClient isn't used directly: its catalog doesn't list the 8K receiver
-// (373b:1278), so it would fall back to the 4-byte DPI rows at 0x000c and put angle snapping at
-// 0x00bd, both wrong for this mouse. The model is resolved by CID/MID instead (see atk-protocol).
+// The X1 is driven by this session, which resolves the model by CID/MID (see atk-protocol), so the 8K
+// receiver (373b:1278) gets the X1's own DPI rows and angle-snapping address.
 import { rememberAtk } from "./profiles/state.ts";
 import { atkDevicesForCidMid } from "@openmouse/protocol/drivers/atk/device-catalog.generated";
 import * as P from "./atk-protocol.ts";

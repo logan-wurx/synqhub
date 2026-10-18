@@ -585,7 +585,7 @@ function AllowCard({ allowed, onChange }: { allowed: boolean; onChange: (on: boo
       <div className="min-w-0 flex-1">
         <p className="text-[15px] font-medium text-foreground">Read-only until you allow changes</p>
         <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">
-          SYNQ drives this mouse with OpenMouse's driver, which hasn't marked it as tested, and SYNQ hasn't been tried on one. Everything below was read from your mouse.
+          SYNQ drives this mouse with OpenMouse's driver library. This model isn't marked tested yet, and SYNQ hasn't been tried on one. Everything below was read from your mouse.
           When you allow changes, SYNQ saves a backup first and reads every change back.
         </p>
       </div>

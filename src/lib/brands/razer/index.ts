@@ -1,4 +1,4 @@
-// Razer protocol layer (Wave 3b): Huntsman analog / HE keyboards and the Razer mice OpenMouse lacks.
+// Razer protocol layer (Wave 3b): Huntsman analog / HE keyboards and the Razer mice SYNQ drives with its own code.
 // devices.ts (tables), protocol.ts (90-byte codec), guard.ts (allowlist + bridge allowances),
 // session.ts (request loop, keyboard and mouse sessions), layout.ts (ANSI geometry),
 // kb-driver.ts (Wave 1 KbDriver adapter, not registered yet).

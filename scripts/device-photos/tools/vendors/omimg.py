@@ -1,5 +1,5 @@
 """OpenMouse's own device images (img.openmouse.app, the bucket behind openmouse.app / control.openmouse.app), mapped by model name and USB id.
-OpenMouse sourced them from the makers' pages and configurators (see public/devices/README.md in OpenMouse-Project/openmouse); the user OKs reuse."""
+OpenMouse sourced them from the makers' pages and configurators (see public/devices/README.md in OpenMouse-Project/openmouse)."""
 from common import ROOT, job
 
 RAW = ROOT / "raw" / "om"
@@ -40,5 +40,5 @@ def jobs():
             print("missing", f)
             continue
         out.append(job(key, vendor, name, "mouse", i, file=str(fp), url=BASE + f, page="https://openmouse.app", names=[name] + names,
-                       note="OpenMouse device image store (img.openmouse.app), reused with the user's OK; OpenMouse's README records its origin"))
+                       note="OpenMouse device image store (img.openmouse.app)"))
     return out

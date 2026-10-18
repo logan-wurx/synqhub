@@ -1,7 +1,7 @@
 // Settings on the website: SYNQ Helper, the small tray app that lets this page reach what a browser can't. Get it
 // (one file for Windows that installs itself, src-tauri/helper/src/standalone.rs) and the page finds it on its own
 // while it installs; or Connect one that's already running (the desktop app's). Once connected, the page reloads
-// onto it, as OpenMouse's site does with its Bridge.
+// onto it.
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { DownloadSimple, Plugs } from "@phosphor-icons/react";
 import { Card, CardHeader, DetailRows } from "@/components/ui/matte";

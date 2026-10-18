@@ -59,8 +59,8 @@ export function omkbSupport(cls: string, vendorId: number, productId: number, ve
     };
   if (cls === "KochiHidClient")
     return { tier: "read-only", why: "OpenMouse exercised the Windows / Mac switch on a Hummingbird 68 and read it back. SYNQ hasn't been tried on one.", groups: { options: "driver-tested" } };
-  if (cls === "WootingHidClient") return { tier: "read-only", why: "OpenMouse reads this Wooting's settings; only profile switching can be sent, and no one has tested it with SYNQ." };
-  return { tier: "read-only", why: "Not tested with SYNQ or marked tested by OpenMouse." };
+  if (cls === "WootingHidClient") return { tier: "read-only", why: "OpenMouse's driver reads this Wooting's settings, and SYNQ can switch its profiles. SYNQ hasn't been tried on one." };
+  return { tier: "read-only", why: "Not tested with SYNQ yet, so changes stay off until you allow them." };
 }
 
 /** Where each kind of write lives, from each driver's own code. */

@@ -5,9 +5,8 @@
 // bytes. No keyboard was connected and nothing was sent to any device. Evidence for every constant:
 // docs/keyboard-x68he/PROTOCOL.md.
 //
-// This replaces an earlier guess (RongYuan RY5088 feature reports on FFFF:0002 from qmk.top). That
-// guess was wrong for this keyboard: illumipc talks to usage page 0xFF1B, usage 0x91 with OUTPUT and
-// INPUT reports, report id 1, 63 data bytes, and no checksum.
+// illumipc talks to usage page 0xFF1B, usage 0x91 with OUTPUT and INPUT reports, report id 1, 63 data
+// bytes, and no checksum.
 //
 // Labels in the doc comments:
 //   [v2] / [v1]  byte layout taken from the named illumipc function (code, never captured on hardware)

@@ -419,7 +419,7 @@ Gear Link additionally uses:
 - `12 04 01`..`05`
 - `51 31` indices 9-19
 - base-1 DPI on p724+
-- a 4-bit booster field and a BLE field in the polling word. OpenMouse masks only `&0x07` plus the booster nibble.
+- a 4-bit booster field and a BLE field in the polling word. OpenMouse's ASUS driver reads the low three bits (`&0x07`) and the booster nibble.
 
 ---
 

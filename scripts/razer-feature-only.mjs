@@ -5,7 +5,7 @@
 // A Razer PID is in the set when
 //   1. one of OpenMouse's Razer drivers claims a device whose only collection is the mouse one or the
 //      consumer one (that is the control channel those drivers talk to), and
-//   2. OpenMouse's own product table does not say the PID has a vendor-defined control interface
+//   2. the PID's entry in OpenMouse's product table names no vendor-defined control interface
 //      (`vendorControlInterface`): those mice are reachable through the vendor collection the bridge
 //      already opens, so they stay exactly as they were.
 // The Viper Mini, Viper, Cobra and Viper V4 Pro have their own drivers and are not in that table, so

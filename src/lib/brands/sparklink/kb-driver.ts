@@ -31,7 +31,7 @@ const keyLabel = (value: number): string => (value === 1 ? "Fn" : (HID_NAMES[val
 export const sparklinkKbDriver: KbDriver = {
   id: DRIVER_ID,
   name: "SparkLink (Royal Kludge, AULA, Kochi)",
-  // Above OpenMouse's keyboard driver, which also knows the Kochi Hummingbird 68 (Windows / Mac switch only).
+  // Above OpenMouse's keyboard driver, which handles the Kochi Hummingbird 68's Windows / Mac switch.
   priority: 60,
   vids: SPARKLINK_VIDS,
   claims: (d) => claimsSparkLink(d),

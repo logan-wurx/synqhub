@@ -23,7 +23,7 @@ export interface Claimed {
   driver: string;
   name: string;
   /**
-   * The driver claims any product id of this vendor and OpenMouse doesn't name this one (vendor ids
+   * The driver claims any product id of this vendor and this id has no entry of its own in OpenMouse's filters (vendor ids
    * such as 0x093A or 0x373E are shared by several brands), so the mouse is shown only once it has
    * answered a read-only identify (`pingGeneric`).
    */
@@ -93,7 +93,7 @@ export type IdentifyCache = Map<string, { ok: boolean; at: number }>;
 
 /**
  * Which of the candidate ids to show as mice: claimed by a driver, and, when that driver matches by
- * vendor id alone and OpenMouse doesn't name the id, also answering a read-only identify
+ * vendor id alone and the id has no entry of its own in OpenMouse's filters, also answering a read-only identify
  * (`pingGeneric`, the driver's cheapest read) within IDENTIFY_MS. A failed identify is retried no
  * sooner than IDENTIFY_RETRY_MS; ids no longer listed are forgotten.
  */

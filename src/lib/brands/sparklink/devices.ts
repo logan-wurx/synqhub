@@ -102,7 +102,7 @@ export const SPARKLINK_MODELS: readonly SparkLinkModel[] = [
   ...AULA.map(([vid, pid]) =>
     make(vid, pid, "AULA", `HE board ${vid.toString(16)}:${pid.toString(16).padStart(4, "0")}`, null, [SRC_AULA, SRC_SDK], AULA_NOTE),
   ),
-  make(KOCHI_HB68[0], KOCHI_HB68[1], "Kochi", "Hummingbird 68", null, [SRC_OM, SRC_SDK], "OpenMouse exercised the Windows / Mac switch of this board on hardware. SYNQ also reads the board for key settings; it did not know them before."),
+  make(KOCHI_HB68[0], KOCHI_HB68[1], "Kochi", "Hummingbird 68", null, [SRC_OM, SRC_SDK], "OpenMouse exercised the Windows / Mac switch of this board on hardware. SYNQ also reads the board's key settings."),
 ];
 
 const byKey = new Map<number, SparkLinkModel>(SPARKLINK_MODELS.map((m) => [key(m.vendorId, m.productId), m]));

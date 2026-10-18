@@ -38,7 +38,7 @@ export interface AtkSim {
 
 const pair = (v: number) => [v, (0x55 - v) & 0xff];
 
-/** The rows of the user's mouse as read on 2026-10-12, plus the factory button rows. */
+/** The rows of a real X1 V2 Air+ as read from it, plus the factory button rows. */
 function factoryEeprom(): Map<number, number> {
   const m = new Map<number, number>();
   const put = (address: number, bytes: readonly number[]) => bytes.forEach((b, i) => m.set(address + i, b));

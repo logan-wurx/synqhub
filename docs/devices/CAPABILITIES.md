@@ -6,8 +6,7 @@ It is written to meet two requirements:
 - every device family in [BRANDS.md](BRANDS.md) fits it, and so does the order of work in [ROADMAP.md](ROADMAP.md);
 - the drivers SYNQ already has (Logitech HID++ via OpenMouse, ATK/Compx, ROG Falchion Ace HFX, X68 HE/illumipc) and the Equalizer APO engine can be re-expressed in it without losing anything they do today.
 
-Prior art it borrows from (all reviewed in BRANDS.md):
-- OpenMouse's `MouseStatus` / `MouseUiHints`, which is brand-first and is what we avoid;
+Related formats it lines up with (all reviewed in BRANDS.md):
 - AutoEq's per-slot `PEQ_CONFIGS` / `peq.yaml` schema (MIT);
 - HeadsetControl's `EqualizerInfo` / `ParametricEqualizerInfo` (GPL-3.0+);
 - devicePEQ's `peqConstraintsConfig.json` (0BSD);
@@ -17,9 +16,8 @@ Prior art it borrows from (all reviewed in BRANDS.md):
 ## 1. Goals
 
 1. **The UI builds itself.** A driver says *what* the device can do (groups, settings, ranges, steps,
-   scope, how values are known). Pages render cards from that. No brand-specific branching in the UI
-   (OpenMouse's `MouseUiHints` has ~25 "hide X" flags because its model is brand-first; we avoid that by
-   only describing what exists).
+   scope, how values are known). Pages render cards from that. No brand-specific branching in the UI:
+   drivers only describe what exists.
 2. **One driver core for web and desktop.** Drivers talk to a `HidLike` (WebHID's `HIDDevice` shape). In
    Chrome/Edge it is the real `navigator.hid`; in the desktop app it is the Rust bridge
    (`src/lib/tauri-hid.ts` already does this). Audio EQ has a second transport (Equalizer APO engine,
@@ -601,10 +599,10 @@ export interface WebRule {
 
 **Runtime behaviour:**
 - `webRules` override the derivation; first match wins.
-- After the user picks a device, **probe**. If the expected collection is missing, or the first read fails, switch the card to "use the SYNQ desktop app" and record it in diagnostics. A firmware or descriptor change can flip a device either way (OpenMouse saw this on the DA V4 Pro).
+- After the user picks a device, **probe**. If the expected collection is missing, or the first read fails, switch the card to "use the SYNQ desktop app" and record it in diagnostics. A firmware or descriptor change can flip a device either way.
 - The website pre-filters its chooser so `needsBridge`/`no` devices are never offered. It calls `requestDevice` **once per click** (Chrome 153 consumes the activation).
 - It detects missing `navigator.hid` (Firefox, Safari) and `DefaultWebHidGuardSetting = 2`.
-- Optional later: the desktop app exposes a loopback HID bridge (OpenMouse Bridge pattern, origin allowlist, the same Rust guard), so the website can reach bridge-only devices.
+- Optional later: the desktop app exposes a loopback HID bridge (origin allowlist, the same Rust guard), so the website can reach bridge-only devices.
 
 ### 3.7 Feel profile ("Keep your feel", ROADMAP Wave 5)
 

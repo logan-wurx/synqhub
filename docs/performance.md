@@ -115,8 +115,8 @@ optionally the CS2 / Valorant sens) that a new mouse or keyboard can take in one
 
 ## OpenMouse drivers load per vendor (`src/lib/openmouse/`)
 
-OpenMouse's `createSupportedClient` imports all ~80 drivers. SYNQ walks the same list in the same
-order from a generated index (`driver-index.generated.ts`, `node scripts/gen-openmouse-index.mjs`)
+SYNQ loads OpenMouse's ~80 drivers per vendor: it walks the same list as `createSupportedClient`, in the same
+order, from a generated index (`driver-index.generated.ts`, `node scripts/gen-openmouse-index.mjs`)
 whose entries are dynamic imports keyed by vendor id, so a driver is downloaded only when a device
 with that vendor id is plugged in. A PC with only the DEX and the X1 loads none of them. The check that
 a candidate is really a mouse runs only when the device list changes and holds such a candidate; no

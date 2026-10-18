@@ -25,7 +25,7 @@
 //!
 //! For one of these ids the bridge opens only that brand's collections and nothing else (not even a
 //! vendor collection an OpenMouse filter would otherwise allow), and every report to it passes its guard.
-//! Ids OpenMouse pins one by one stay with OpenMouse. The user's Falchion ZywOo (0B05:1D1D) is never a
+//! Ids OpenMouse pins one by one stay with OpenMouse. The Falchion ZywOo (0B05:1D1D) is never a
 //! brand device: it keeps its own panel. "mouse" rows are opened for a driver but not listed yet.
 //! The 0x19F5 family is configured on Generic Desktop 0001:0000 (usage 0, "undefined"): that is the one
 //! input-page collection a brand channel opens for an output+input protocol. It is exactly that usage for
@@ -2340,7 +2340,7 @@ mod tests {
         assert!(x60_name("DrunkDeer X60") && x60_name("X60 HE") && !x60_name("Gaming Keyboard"));
     }
 
-    /// One channel per id, never a bootloader, never the user's Falchion, never an id OpenMouse pins.
+    /// One channel per id, never a bootloader, never the Falchion ZywOo, never an id OpenMouse pins.
     #[test]
     fn each_id_has_at_most_one_channel() {
         for (v, p) in all_ids() {

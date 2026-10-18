@@ -9,7 +9,7 @@
 // - Nothing connects by itself the first time: the person presses Get SYNQ Helper (then the page looks for it
 //   while it installs) or Connect (Chrome may ask to allow access to devices on the local network, and the
 //   helper asks once whether to allow this site). After that the page reconnects on load, with the token the
-//   helper gave it, the way OpenMouse's site finds its Bridge.
+//   helper gave it.
 // - Which transport a page uses is decided once, when it loads (`helperSettled`), so device keys from
 //   the helper and from WebHID never mix. Connecting or disconnecting reloads the page.
 import { readSetting, writeSetting } from "./settings.ts";

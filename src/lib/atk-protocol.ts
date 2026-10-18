@@ -6,7 +6,7 @@
 // Settings live in the mouse's EEPROM as value/checksum pairs (value + check = 0x55).
 //
 // Sources, and how sure each piece is:
-//   [hw]   read and written on the user's mouse, 2026-10-12 (CID/MID 1,61, firmware 5.20, receiver 5.01)
+//   [hw]   read and written on a real mouse (CID/MID 1,61, firmware 5.20, receiver 5.01)
 //   [hub]  ATK HUB 3.2.27 web bundle (hub.atk.pro, static/index-F-MYsmWR.js): enum `en` (commands),
 //          `At.Address` (EEPROM map), classes j2/Wu/Tf/Yu/qu/Qu (row layouts), sO (PAW3955 DPI encoder)
 //   [om]   @openmouse/protocol 0.36 (AGPL): WE framing, PAW3955 decoder, lift-off scale, model catalog
@@ -79,7 +79,7 @@ export const PAIR_STATUS_PAIRED = 3;
 export const PAIR_WINDOW_SECONDS = 30;
 
 // ---------------------------------------------------------------------------------------------
-// EEPROM map [hub] At.Address, [hw] values on the user's mouse
+// EEPROM map [hub] At.Address, [hw] values read from a real mouse
 // ---------------------------------------------------------------------------------------------
 
 export const ADDR = {

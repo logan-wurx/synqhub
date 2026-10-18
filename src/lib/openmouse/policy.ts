@@ -133,12 +133,12 @@ export type Tier = "verified" | "driver-tested" | "read-only";
 export const TIER_LABEL: Record<Tier, { label: string; hint: string }> = {
   verified: { label: "Verified", hint: "Tested with SYNQ on this exact mouse." },
   "driver-tested": { label: "Driver-tested", hint: "OpenMouse marks this mouse's settings as tested. SYNQ hasn't been tried on one." },
-  "read-only": { label: "Read-only", hint: "Not tested with SYNQ or marked ready by OpenMouse, so changes are off until you allow them." },
+  "read-only": { label: "Read-only", hint: "Not tested with SYNQ yet, so changes are off until you allow them." },
 };
 
 export function supportTier(vid: number, pid: number, ui: { settingsReady?: boolean; valuesVerified?: boolean } | undefined): Tier {
   if (VERIFIED.some(([v, p]) => v === vid && p === pid)) return "verified";
-  // Explicit flags only: OpenMouse treats a missing settingsReady as "ready", which says nothing.
+  // Explicit flags only: SYNQ uses settingsReady only when the driver sets it.
   if (ui?.valuesVerified === true || ui?.settingsReady === true) return "driver-tested";
   return "read-only";
 }

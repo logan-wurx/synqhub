@@ -224,7 +224,7 @@ const PAIR_EVERY_MS = 2000;
 
 /** Yeelight's one step SYNQ can't take, said plainly. */
 const YEELIGHT_LAN =
-  "Yeelight lights take commands from your network only after LAN Control is switched on for each one in Yeelight's own app. That is a second app, which SYNQ otherwise avoids; it is the one step SYNQ can't do for you.";
+  "Yeelight lights take commands from your network only after LAN Control is switched on for each one in Yeelight's own app. It is a one-time step, and the only one SYNQ can't do for you.";
 
 /** Where the light came from, where its Wi-Fi is set up, and forgetting a pairing. */
 function AboutCard({ device, onForgot }: { device: NetDevice; onForgot: () => void }) {

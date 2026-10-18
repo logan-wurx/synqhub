@@ -6,8 +6,8 @@ magnetic-switch board **K70 MAX (MGX)** and the K-series RGB boards + Corsair mi
 the separate iCUE path (`src/lib/brands/corsair-icue/`).
 
 **Source method (nothing was run; iCUE was never launched, no Corsair service started/stopped).**
-iCUE 5 is installed at `C:\Program Files\Corsair\Corsair iCUE5 Software` (≈960 MB). We copied three
-DLLs to scratch and read them as data (`DeviceCommands.dll`, `DeviceControllers.dll`,
+iCUE 5 is installed at `C:\Program Files\Corsair\Corsair iCUE5 Software` (≈960 MB). Three of its
+DLLs were read as data (`DeviceCommands.dll`, `DeviceControllers.dll`,
 `ProtocolHelpers.dll`); their MSVC RTTI symbols under `cue::dev::cmd` name the whole command surface.
 The per-device definition lives in downloadable **cuepkg** packages whose URLs are listed in the
 installed `cuepkg.registry`; we fetched the official K70 MAX package
