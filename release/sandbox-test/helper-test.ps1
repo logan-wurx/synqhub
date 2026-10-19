@@ -10,7 +10,7 @@
        process, the port 127.0.0.1:17860
     3. starts the downloaded file again: it must say it is already running (and nothing else happens)
     4. talks to it as https://synqhub.app does (a WebSocket with that Origin): another site is refused,
-       the "allow this site?" question comes up and is answered Yes, then every command the website sends
+       the website pairs without a second question (then a new pairing is asked about and answered Yes), then every command the website sends
        gets an answer or a plain error (never a crash), and a second visit pairs with the saved token,
        with no question
     5. removes it the way Windows' Apps list does (its UninstallString) and checks that nothing is left
@@ -379,14 +379,26 @@ $ws = Open-Bridge $Site
 Check 'connect' "Connects as $Site" ([bool]$ws)
 $token = $null
 if ($ws) {
+  # Just after the double-click the website pairs without a second question (src-tauri/helper/src/bridge.rs take_site_trust).
   Send-Bridge $ws 1 'hello' @{}
-  $dlg = Find-HelperDialog 15
-  $txt = $(if ($dlg) { Get-DialogText $dlg } else { '' })
-  Check 'consent' 'Asks "allow this site?" with the site named' ($txt -like "*synqhub.app*") $txt
+  $dlg = Find-HelperDialog 5
+  Check 'trusted' 'Just after the double-click, pairs without asking again' (-not $dlg) $(if ($dlg) { Get-DialogText $dlg } else { 'no question' })
   if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
   $hello = Receive-Bridge $ws 1 20000
   $token = $(if ($hello -and $hello.ok) { $hello.ok.token } else { $null })
-  Check 'paired' 'Paired after Yes (a token for next time)' ([bool]$token) (Brief $hello)
+  Check 'paired' 'Paired (a token for next time)' ([bool]$token) (Brief $hello)
+  # That trust is used up: a page with no token is asked about again.
+  $fresh = Open-Bridge $Site
+  if ($fresh) {
+    Send-Bridge $fresh 1 'hello' @{}
+    $dlg = Find-HelperDialog 15
+    $txt = $(if ($dlg) { Get-DialogText $dlg } else { '' })
+    Check 'consent' 'A new pairing asks "allow this site?" with the site named' ($txt -like "*synqhub.app*") $txt
+    if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+    $again = Receive-Bridge $fresh 1 20000
+    Check 'paired-again' 'Paired after Yes' ([bool]($again -and $again.ok -and $again.ok.token)) (Brief $again)
+    $fresh.Dispose()
+  } else { Add-Check 'consent' 'A new pairing asks' 'FAIL' 'no second connection' }
 }
 if ($ws -and -not $token) {
   # Not paired: every command would only wait for "pair first"; the checks below need a paired page.
@@ -549,8 +561,8 @@ if (-not $SkipPartB) {
     $ws = Open-Bridge $Site
     if ($ws) {
       Send-Bridge $ws 3 'hello' @{}
-      $dlg = Find-HelperDialog 15
-      if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+      $dlg = Find-HelperDialog 5
+      if ($dlg) { Add-Check 'b-trusted' 'Pairs without asking just after the double-click' 'WARN' (Get-DialogText $dlg); [void](Press-DialogButton $dlg 'Yes') }
       $hello = Receive-Bridge $ws 3 20000
       $r = Call-Bridge $ws 'devices_list' @{}
       Check 'b-website' 'The website pairs with the app helper and lists devices' ($hello -and $hello.ok -and $r -and ($r.PSObject.Properties.Name -contains 'ok')) (Brief $r)
