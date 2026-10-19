@@ -42,7 +42,7 @@ import { GearBento } from "./gear/Bento";
 import { byGroup, sectionOf, type Section } from "@/lib/device-groups";
 import { Banner } from "@/components/keyboard/parts";
 import type { Notice } from "@/components/ui/matte";
-import { AddDeviceButton, AddLightButton, WebNoteCards, WebPicked, WebStart } from "@/components/web/lazy";
+import { AddDeviceButton, AddLightButton, DiscordLink, WebNoteCards, WebPicked, WebStart } from "@/components/web/lazy";
 // "Keep your feel" (offers and the panel) is its own chunk: the device tiles paint first.
 const FeelOffers = lazy(() => import("@/components/feel/FeelHome").then((m) => ({ default: m.FeelOffers })));
 const KeepYourFeel = lazy(() => import("@/components/feel/FeelHome").then((m) => ({ default: m.KeepYourFeel })));
@@ -180,6 +180,7 @@ export function DevicesHome({
             </div>
           )}
           {typed && <FeelLink onOpen={() => setFeelOpen(true)} />}
+          {isWeb && <DiscordLink />}
         </aside>
 
         <section aria-label={head.title} className="flex min-w-0 flex-col gap-5">

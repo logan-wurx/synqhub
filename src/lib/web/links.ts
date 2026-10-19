@@ -4,6 +4,8 @@ export const DESKTOP_APP_URL = "https://github.com/logan-wurx/synqhub/releases/l
 /** SYNQ Helper on its own for Windows, the newest release's one file. Double-clicked it installs itself in the
  * person's folder, no administrator (src-tauri/helper/src/standalone.rs); release/tools/build-release.mjs files it. */
 export const HELPER_DOWNLOAD_URL = "https://github.com/logan-wurx/synqhub/releases/latest/download/synq-helper.exe";
+/** SYNQ's Discord server: a permanent invite (src/components/web/Community.tsx). */
+export const DISCORD_URL = "https://discord.gg/WP9HFebp8D";
 /** The website's own origin. SYNQ Helper accepts connections from this origin only: keep it in step with
  * src-tauri/src/helper_cfg.rs `SITE_ORIGIN` (scripts/helper-bridge.test.ts checks). */
 export const SITE_ORIGIN = "https://synqhub.app";

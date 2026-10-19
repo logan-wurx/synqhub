@@ -4,7 +4,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import pkg from "../../../package.json";
 import { inTauri, isWeb } from "@/lib/backend";
 import { isLinux } from "@/lib/runtime";
-import { HelperConnect, WebData } from "@/components/web/lazy";
+import { DiscordPanel, HelperConnect, WebData } from "@/components/web/lazy";
 import type { Notice } from "@/components/ui/matte";
 import { Eyebrow } from "@/components/ui/matte";
 import { CaretDown, EyeSlash, GithubLogo, HandWaving, ShieldCheck, type Icon } from "@phosphor-icons/react";
@@ -106,6 +106,7 @@ export function SettingsPage({ notify }: { notify?: (n: Omit<Notice, "id">, key?
               </button>
             </section>
           )}
+          {isWeb && <DiscordPanel />}
         </div>
 
         <Pledge

@@ -15,6 +15,8 @@ const Helper = WEB ? lazy(() => import("./HelperConnect").then((m) => ({ default
 const Sound = WEB ? lazy(() => import("./DesktopCard").then((m) => ({ default: m.WebSoundPage }))) : null;
 const Desktop = WEB ? lazy(() => import("./DesktopCard").then((m) => ({ default: m.DesktopOnlyCard }))) : null;
 const Start = WEB ? lazy(() => import("./WebStart").then((m) => ({ default: m.WebStart }))) : null;
+const Discord = WEB ? lazy(() => import("./Community").then((m) => ({ default: m.DiscordLink }))) : null;
+const DiscordCard = WEB ? lazy(() => import("./Community").then((m) => ({ default: m.DiscordPanel }))) : null;
 
 type AddProps = { notify: (n: { title: string; detail?: string; tone: "ok" | "error" | "info"; action?: { label: string; run: () => void } }, key?: string) => void; className?: string; label?: string };
 type DesktopProps = { title: string; text: string; className?: string };
@@ -30,5 +32,8 @@ export const WebSoundPage = (p: { notify: AddProps["notify"] }) => (Sound ? <Sus
 export const DesktopOnlyCard = (p: DesktopProps) => (Desktop ? <Suspense fallback={null}><Desktop {...p} /></Suspense> : null);
 /** The website's Gear page before a mouse or keyboard is added: the two steps (./WebStart.tsx). */
 export const WebStart = (p: { notify: AddProps["notify"] }) => (Start ? <Suspense fallback={null}><Start {...p} /></Suspense> : null);
+/** SYNQ's Discord: under the section headline, and on Settings (./Community.tsx). */
+export const DiscordLink = () => (Discord ? <Suspense fallback={null}><Discord /></Suspense> : null);
+export const DiscordPanel = () => (DiscordCard ? <Suspense fallback={null}><DiscordCard /></Suspense> : null);
 
 export type { AddProps, DesktopProps, ComponentProps };
