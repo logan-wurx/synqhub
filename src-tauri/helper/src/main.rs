@@ -447,6 +447,8 @@ fn double_click(data: Option<&Path>, settings: &mut HelperSettings) -> Clicked {
         standalone::tell(&format!("SYNQ Helper couldn't save its settings: {e}"));
         return Clicked::Done;
     }
+    // They have just got it from the website: the site connects without the helper asking again (src/bridge.rs).
+    let _ = bridge::trust_site(data);
     if helper_cfg::helper_running() {
         helper_cfg::signal(helper_cfg::RELOAD_EVENT);
         standalone::tell("SYNQ Helper is already running. It's in the tray, by the clock.");

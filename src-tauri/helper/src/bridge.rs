@@ -284,14 +284,16 @@ impl Bridge {
         }
     }
 
-    /// The first message of a connection: a known token, or the person's yes for a new site.
+    /// The first message of a connection: a known token, or the person's yes for a new site (not asked again for the
+    /// website just after they ran the helper they got from it, `take_site_trust`).
     pub fn hello(&self, conn: &mut Conn, args: &Value) -> Result<Value, String> {
         let token = args.get("token").and_then(Value::as_str).unwrap_or("");
         if self.pairings.lock().map_err(|_| "pairings poisoned")?.knows(&conn.origin, token) {
             conn.paired = true;
             return Ok(json!({ "paired": true, "version": env!("CARGO_PKG_VERSION"), "features": ["hid", "eq", "advanced", "displays", "lights", "sync"] }));
         }
-        {
+        let trusted = conn.origin == helper_cfg::SITE_ORIGIN && self.data.as_deref().is_some_and(take_site_trust);
+        if !trusted {
             let mut asking = self.asking.lock().map_err(|_| "poisoned")?;
             if asking.get(&conn.origin).is_some_and(|t| t.elapsed() < DECLINE_COOLDOWN) {
                 return Err("SYNQ Helper was just told no for this site. Try again in a minute.".into());
@@ -793,6 +795,24 @@ impl Bridge {
     }
 }
 
+/// For a few minutes after the person double-clicks synq-helper.exe (they have just got it from the website), the
+/// website pairs without the helper's question: running it was their yes. The file holds until when, in Unix seconds.
+pub const SITE_TRUST_FILE: &str = "helper-site-trust";
+const SITE_TRUST_SECS: u64 = 10 * 60;
+
+/// Called on that double-click (src/main.rs), also when the helper is already running: it reads the file at pairing.
+pub fn trust_site(data: &std::path::Path) -> Result<(), String> {
+    helper_cfg::write_atomic(&data.join(SITE_TRUST_FILE), &(eq::now_secs() + SITE_TRUST_SECS).to_string())
+}
+
+/// Whether the website may pair now without asking. One pairing uses it up, and so does a look after it ran out.
+fn take_site_trust(data: &std::path::Path) -> bool {
+    let path = data.join(SITE_TRUST_FILE);
+    let until = std::fs::read_to_string(&path).ok().and_then(|t| t.trim().parse::<u64>().ok());
+    let _ = std::fs::remove_file(&path);
+    until.is_some_and(|u| eq::now_secs() <= u)
+}
+
 fn load_pairings(dir: &std::path::Path) -> Pairings {
     std::fs::read_to_string(dir.join(helper_cfg::PAIRINGS_FILE)).ok().and_then(|t| serde_json::from_str(&t).ok()).unwrap_or_default()
 }
@@ -930,6 +950,29 @@ mod tests {
         assert!(!b.pairings.lock().unwrap().knows("https://other.example", &token));
         assert!(!b.pairings.lock().unwrap().knows(SITE, ""));
         assert!(!b.pairings.lock().unwrap().sites[0].token_sha256.contains(&token), "only the hash is kept");
+    }
+
+    #[test]
+    fn just_after_a_double_click_the_website_pairs_without_asking_once() {
+        let (b, asked, dir) = bridge_in(false);
+        trust_site(&dir).unwrap();
+        let mut c = Conn { paired: false, ..conn(1) };
+        let r = b.hello(&mut c, &json!({})).unwrap();
+        assert!(c.paired && r["token"].as_str().is_some());
+        assert_eq!(asked.load(Ordering::SeqCst), 0, "no question");
+        // Used up: the next new pairing asks again (and this answer is no).
+        let mut again = Conn { paired: false, ..conn(2) };
+        assert!(b.hello(&mut again, &json!({})).is_err());
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+        // Only for the website, and not once it has run out.
+        trust_site(&dir).unwrap();
+        let mut other = Conn { paired: false, origin: "https://other.example".into(), ..conn(3) };
+        assert!(b.hello(&mut other, &json!({})).is_err());
+        std::fs::write(dir.join(SITE_TRUST_FILE), (eq::now_secs() - 1).to_string()).unwrap();
+        let mut late = Conn { paired: false, ..conn(4) };
+        b.asking.lock().unwrap().clear();
+        assert!(b.hello(&mut late, &json!({})).is_err());
+        assert!(!dir.join(SITE_TRUST_FILE).exists());
     }
 
     #[test]

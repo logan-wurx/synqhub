@@ -87,11 +87,29 @@ const TOKEN = "helper.token";
 const EXPECT = "helper.expected";
 /** How long the page keeps looking for a helper that is being installed, and how often. */
 const WAIT_MS = 5 * 60_000;
-const RETRY_MS = 3000;
+const RETRY_MS = 1000;
 const CONNECT_MS = 1500;
-/** The helper may be showing its "allow this site?" question: give the person time to answer. */
+/** The helper may be showing its "allow this site?" question (not just after the person ran the helper they got here,
+ * src-tauri/helper/src/bridge.rs `take_site_trust`): give the person time to answer. */
 const PAIR_MS = 120_000;
 const CALL_MS = 30_000;
+
+/** Chrome's permission for this page to reach apps on this PC (127.0.0.1, where the helper listens): "prompt" until it
+ * has been answered, "unknown" in a browser without it. Chrome asks on the page's first try to reach the helper. */
+export type LocalAccess = "granted" | "prompt" | "denied" | "unknown";
+
+export async function localAccess(): Promise<LocalAccess> {
+  if (typeof navigator === "undefined" || !navigator.permissions) return "unknown";
+  for (const name of ["loopback-network", "local-network-access"]) {
+    try {
+      const p = await navigator.permissions.query({ name } as unknown as PermissionDescriptor);
+      return p.state as LocalAccess;
+    } catch {
+      // Not a permission this browser knows: the next name.
+    }
+  }
+  return "unknown";
+}
 
 export type HelperState = "off" | "connecting" | "ready" | "failed";
 
@@ -124,8 +142,8 @@ export function expectHelper(): void {
 }
 
 /**
- * Looks for a helper that is being installed (the file just downloaded, about to be run): a quiet try every few
- * seconds, for a few minutes. Once one answers it connects (the helper asks once whether to allow this site).
+ * Looks for a helper that is being installed (the file just downloaded, about to be run): a quiet try every second,
+ * for a few minutes. Once one answers it connects.
  * True when connected; false when stopped or it never came.
  */
 export async function waitForHelper(stop: AbortSignal): Promise<boolean> {
