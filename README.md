@@ -114,6 +114,25 @@ What each device gets, and how far it has been tested: [docs/devices/CAPABILITIE
 Own something on the experimental list? A [diagnostics file](CONTRIBUTING.md#reporting-a-device-that-misbehaves)
 helps a lot.
 
+## Built on open source
+
+SYNQ stands on other people's open work. Much of its mouse support runs on
+[OpenMouse](https://github.com/OpenMouse-Project/openmouse)'s driver library (`@openmouse/protocol`), its keyboard
+drivers (`@openmouse/keyboard-protocol`) are behind more of the keyboards, and some of the device photos come from
+[openmouse.app](https://openmouse.app). Thank you to the OpenMouse project and everyone who writes its drivers.
+
+| Project | What SYNQ uses it for | License |
+|---|---|---|
+| [OpenMouse](https://github.com/OpenMouse-Project/openmouse) | Mouse and keyboard drivers, some device photos | AGPL-3.0-or-later |
+| [Equalizer APO](https://sourceforge.net/projects/equalizerapo/) | The EQ engine on Windows | GPL-2.0 |
+| [AutoEq](https://github.com/jaakkopasanen/AutoEq) | Headphone presets | MIT |
+| [HeadsetControl](https://github.com/Sapd/HeadsetControl) | Headset protocols | GPL-3.0 |
+| AnalogSense | Live key depth | MIT |
+| ha-govee-led-ble, govee_ble_lights | Govee protocol notes and scenes | MIT |
+| [OpenRGB](https://openrgb.org) | USB RGB hub protocol notes (facts only) | GPL-2.0 |
+
+The full list is in the app (Settings › Licenses).
+
 ## Community
 
 - **[Discord](https://discord.gg/WP9HFebp8D):** bugs, device requests and release news.
@@ -169,7 +188,7 @@ version. It is distributed in the hope that it will be useful, but WITHOUT ANY W
 Copyright (C) 2026 logan-wurx.
 
 <details>
-<summary>What the license doesn't cover, and what SYNQ is built on</summary>
+<summary>What the license doesn't cover</summary>
 
 <br>
 
@@ -184,9 +203,7 @@ Not covered by that license:
   <https://sourceforge.net/projects/equalizerapo/>). The Windows installer bundles the unmodified official
   `EqualizerAPO-x64-1.4.2.exe` and runs it as a separate program. The credit is also in the app (Sound › EQ engine).
 
-Built on: OpenMouse's protocol and keyboard drivers (AGPL-3.0-or-later), AnalogSense (MIT), HeadsetControl's headset
-protocols (GPL-3.0), AutoEq (MIT), and the protocol notes of ha-govee-led-ble (MIT), govee_ble_lights (MIT) and OpenRGB
-(GPL-2.0, facts only). The full list is in the app (Settings › Licenses) and in each area's docs. The Uiverse elements
-are MIT (credits in `src/components/uiverse/uiverse.css`); the 21st.dev components are credited in their files.
+The Uiverse elements are MIT (credits in `src/components/uiverse/uiverse.css`); the 21st.dev components are credited
+in their files. Each area's docs name its sources.
 
 </details>
