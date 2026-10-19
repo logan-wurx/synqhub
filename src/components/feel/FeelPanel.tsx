@@ -1,7 +1,8 @@
 // "Keep your feel" on a device's Overview, in two pieces the panels place themselves:
 //   FeelOffer  the calm "New mouse. Match your setup?" banner, which becomes the preview of the plan
 //              (old -> new values) with an Apply button. Also what "Copy my feel here" opens.
-//   FeelCard   the saved feel in a line, "Save as my feel" and "Copy my feel here".
+//   FeelCard   the saved feel in a line, "Save as my feel" and "Copy my feel here"; `compact`, the same as one quiet
+//              line inside the device's top card (its two actions as small text buttons).
 // They read the device's kept view (what its panel already read) and never ask the device anything. Apply
 // is the panel's own function: it goes through the same guarded session as a hand-made change, which
 // backs up first, honours "Allow changes" and reads every change back.
@@ -138,9 +139,9 @@ function SavedFeelOffer(dev: FeelDevice) {
     <div ref={top} data-slot="feel-preview">
       <Card innerClassName="px-5 pb-5 pt-4">
         <div className="mb-3.5 flex items-center gap-2.5">
-          <Sparkle size={15} weight="light" className="text-primary" />
-          <h3 className="shrink-0 whitespace-nowrap text-[14px] font-medium tracking-tight text-foreground">Match your setup</h3>
-          <span className="ml-auto truncate text-[11.5px] text-muted-foreground">your {noun(dev.kind)} feel, from the {part.from.name}</span>
+          <Sparkle size={16} weight="light" className="text-primary" />
+          <h3 className="shrink-0 whitespace-nowrap text-[14px] font-medium tracking-tight text-high">Match your setup</h3>
+          <span className="ml-auto truncate text-[11.5px] text-medium">your {noun(dev.kind)} feel, from the {part.from.name}</span>
         </div>
         <PlanPreview
           plan={plan}
@@ -162,7 +163,7 @@ function SavedFeelOffer(dev: FeelDevice) {
 // The card
 // ---------------------------------------------------------------------------------------------
 
-export function FeelCard(dev: FeelDevice) {
+export function FeelCard({ compact = false, ...dev }: FeelDevice & { compact?: boolean }) {
   const { feel, open, setOpen, device, part, plan } = useFeelFor(dev);
   const now = device?.now ?? null;
   const summary = part ? (dev.kind === "mouse" ? mouseSummary(part.feel as MouseFeel) : keyboardSummary(part.feel as KeyboardFeel)) : null;
@@ -178,29 +179,55 @@ export function FeelCard(dev: FeelDevice) {
     dev.notify({ title: "Saved as your feel", detail: `${dev.name}: ${dev.kind === "mouse" ? mouseSummary(now as MouseFeel) : keyboardSummary(now as KeyboardFeel)}`, tone: "ok" }, "feel");
   };
 
+  if (compact) {
+    const text = part && summary
+      ? `${matches ? (isSource ? "This is your feel" : plan!.differences.length ? "As close to your feel as it goes" : "Matches your feel") : nothingApplies ? "Your feel doesn't apply here" : "Your feel"}: ${summary}, from the ${part.from.name}`
+      : `Save this ${noun(dev.kind)}'s settings as your feel: a new one, from any brand, matches it in one click.`;
+    const link = "shrink-0 rounded-small px-2.5 py-1 font-medium text-high ring-1 ring-white/[0.1] transition-colors duration-300 ease-fluid hover:bg-white/[0.07] disabled:text-faint";
+    return (
+      <div data-slot="feel-card" role="group" aria-label="Keep your feel" className="flex min-w-0 items-center gap-2.5 text-[12.5px]">
+        {matches ? <Check size={12} className="shrink-0 text-primary" aria-hidden="true" /> : <Sparkle size={12} className="shrink-0 text-medium" aria-hidden="true" />}
+        <span className="min-w-0 truncate text-medium" title={text}>
+          {text}
+        </span>
+        {!matches && (
+          <button type="button" onClick={() => void save()} disabled={!now} className={link}>
+            Save as my feel
+          </button>
+        )}
+        {part && !matches && !nothingApplies && plan && (
+          <button type="button" onClick={() => setOpen(!open)} className={link}>
+            {open ? "Hide preview" : "Copy my feel here"}
+          </button>
+        )}
+        {feel.saveError && <span className="shrink-0 text-destructive">Couldn't keep it: {feel.saveError}</span>}
+      </div>
+    );
+  }
+
   return (
     <section data-slot="feel-card" aria-label="Keep your feel">
-      <p className="mb-2.5 px-1 text-[12.5px] text-muted-foreground">Keep your feel</p>
-      <div className="rounded-2xl bg-white/[0.025] px-4 py-3.5 ring-1 ring-white/[0.06]">
+      <p className="label-caps mb-3 px-1">Keep your feel</p>
+      <div className="panel flex flex-wrap items-center gap-x-8 gap-y-4 rounded-card px-6 py-5">
         {part && summary ? (
-          <div className="flex items-start gap-2.5">
-            {matches && <Check size={15} className="mt-0.5 shrink-0 text-primary" />}
+          <div className="flex min-w-0 flex-1 basis-[320px] items-start gap-3">
+            {matches && <Check size={16} weight="light" className="mt-0.5 shrink-0 text-primary" />}
             <div className="min-w-0">
-              <p className="text-[13px] leading-snug text-foreground">
+              <p className="text-[15px] font-medium leading-snug text-high">
                 {matches ? (isSource ? "This is your feel." : plan!.differences.length ? `Matched as closely as this ${noun(dev.kind)} allows.` : "This matches your feel.") : nothingApplies ? `Nothing in your feel can be set on this ${noun(dev.kind)}.` : `Your ${noun(dev.kind)} feel`}
               </p>
-              <p className="mt-0.5 text-[12px] leading-relaxed text-muted-foreground">
+              <p className="mt-1 text-[13px] leading-relaxed text-medium">
                 {summary} · from the {part.from.name}
                 {part.from.savedAt ? `, saved ${when(part.from.savedAt)}` : ""}
               </p>
             </div>
           </div>
         ) : (
-          <p className="text-[12.5px] leading-relaxed text-muted-foreground">
+          <p className="min-w-0 flex-1 basis-[320px] text-[14px] leading-relaxed text-medium">
             Save this {noun(dev.kind)}'s settings once. When you get a new {noun(dev.kind)}, from any brand, SYNQ matches them in one click.
           </p>
         )}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {!matches && (
             <Pill onClick={() => void save()} disabled={!now} primary={!part}>
               Save as my feel
@@ -212,8 +239,8 @@ export function FeelCard(dev: FeelDevice) {
             </Pill>
           )}
         </div>
-        {feel.saveError && <p className="mt-2 text-[11.5px] text-destructive">Couldn't keep your feel on this PC: {feel.saveError}</p>}
-        {!now && <p className="mt-2 text-[11.5px] text-muted-foreground/80">SYNQ hasn't read this {noun(dev.kind)}'s settings yet.</p>}
+        {feel.saveError && <p className="w-full text-[12px] text-destructive">Couldn't keep your feel on this PC: {feel.saveError}</p>}
+        {!now && <p className="w-full text-[12px] text-medium">SYNQ hasn't read this {noun(dev.kind)}'s settings yet.</p>}
       </div>
     </section>
   );

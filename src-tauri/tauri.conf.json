@@ -2,7 +2,7 @@
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "SYNQ",
   "mainBinaryName": "synq",
-  "version": "0.1.0-beta.7",
+  "version": "0.1.0",
   "identifier": "com.logan.onboard",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -15,17 +15,44 @@
     "windows": [
       {
         "title": "SYNQ",
-        "width": 1240,
-        "height": 860,
+        "width": 1480,
+        "height": 920,
         "minWidth": 1040,
         "minHeight": 640,
         "center": true,
-        "backgroundColor": "#121113",
+        "visible": false,
+        "backgroundColor": "#0f0f0f",
+        "decorations": false,
         "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --in-process-gpu --disable-gpu --enable-features=NetworkServiceInProcess2"
       }
     ],
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": "'self'",
+        "script-src": "'self'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: blob: https://*.steamstatic.com",
+        "font-src": "'self' data:",
+        "connect-src": "'self' ipc: http://ipc.localhost https://usevia.app https://raw.githubusercontent.com",
+        "media-src": "'self' blob:",
+        "worker-src": "'self' blob:",
+        "object-src": "'none'",
+        "base-uri": "'none'",
+        "frame-src": "'none'",
+        "form-action": "'none'"
+      },
+      "devCsp": {
+        "default-src": "'self'",
+        "script-src": "'self' 'unsafe-inline' 'unsafe-eval'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: blob: https://*.steamstatic.com",
+        "font-src": "'self' data:",
+        "connect-src": "'self' ipc: http://ipc.localhost ws://localhost:1420 http://localhost:1420 https://usevia.app https://raw.githubusercontent.com",
+        "media-src": "'self' blob:",
+        "worker-src": "'self' blob:",
+        "object-src": "'none'"
+      },
+      "dangerousDisableAssetCspModification": ["style-src"]
     }
   },
   "bundle": {

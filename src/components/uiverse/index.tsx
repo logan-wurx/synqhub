@@ -126,16 +126,19 @@ export function TransportKeys<T extends string>({
   onChange,
   lit = "var(--primary)",
   keyWidth = 76,
+  fill = false,
 }: {
   keys: TransportKey<T>[];
   value: T;
   onChange: (v: T) => void;
   lit?: string;
   keyWidth?: number;
+  /** The keys share the row's whole width (`keyWidth` is then ignored). */
+  fill?: boolean;
 }) {
   const name = useId();
   return (
-    <div className="uv-transport" role="radiogroup" style={{ "--uv-lit": lit, "--uv-key-w": `${keyWidth}px` } as CSSProperties}>
+    <div className={fill ? "uv-transport uv-fill" : "uv-transport"} role="radiogroup" style={{ "--uv-lit": lit, "--uv-key-w": `${keyWidth}px` } as CSSProperties}>
       {keys.map((k) => (
         <label key={k.value} className="uv-key" style={k.disabled ? { opacity: 0.45, cursor: "default" } : undefined}>
           <input type="radio" name={name} disabled={k.disabled} checked={k.value === value} onChange={() => onChange(k.value)} />

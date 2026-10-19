@@ -4,7 +4,8 @@
 // them, are backed up first and read back after. See src/lib/x68he.ts.
 import { InfoAdvanced } from "@/components/advanced";
 import { useCallback, useEffect, useMemo, useRef, type ReactNode } from "react";
-import { useKeptDraft, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { peekKept, peekKeptRef, useKeptDraft, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { sharePage, type Session } from "@/lib/profiles/live";
 import { track, useSessionHold } from "@/lib/device-session";
 import NumberFlow from "@number-flow/react";
 import { ArrowRight, ArrowUDownLeft, ArrowsDownUp, ArrowsLeftRight, DownloadSimple, Hourglass, Stack, ToggleLeft } from "@phosphor-icons/react";
@@ -14,8 +15,8 @@ import * as P from "@/lib/x68he-protocol";
 import type { X68Key } from "@/lib/x68he-layout";
 import { isIllumipcHex } from "@/lib/illumipc/ids";
 import { connectX68, type X68Session, type X68State, type X68View } from "@/lib/x68he";
-import { Card, CardHeader, DetailRows, type Notice } from "@/components/ui/matte";
-import { DeviceFrame, DeviceHeader, OverviewHero, ReconnectButton, StatusPill, StatusStrip, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
+import { Card, CardHeader, type Notice } from "@/components/ui/matte";
+import { DeviceFrame, DeviceHeader, OverviewStrip, ReconnectButton, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { KeyBoard, MmSlider, ModeSwitch, SelectionBar, type MapKey, type MapLayout } from "@/components/devices/keymap";
 import { AdvancedKeysFlow, MULTI_ACTION_LEGALITY, SOCD_LEGALITY, TOGGLE_LEGALITY, type ActiveKey, type AdvFlow, type AdvType } from "@/components/devices/advkeys";
 import { keyboardId, KEYBOARD_TABS_LEGACY, useDeviceTab } from "@/lib/nav";
@@ -72,6 +73,16 @@ const keyName = (st: X68State, index: number) => {
 const names = (st: X68State, keys: number[]) => keys.map((k) => keyName(st, k)).join(", ");
 const hidName = (st: X68State, hid: number) => st.layout.keys.find((k) => k.factory[0] === 0 && k.factory[1] === hid)?.label || P.HID_NAMES[hid] || `0x${hid.toString(16)}`;
 const actionOf = (st: X68State, layer: P.Layer, index: number): P.RawAction => P.actionAt(Uint8Array.from(st.keymap![layer]), index);
+
+// A game profile (src/lib/profiles/live.ts) goes on through this panel's session while it has one open, and shows here.
+sharePage((family) =>
+  family === "x68"
+    ? {
+        session: () => peekKeptRef<Session>(`${X68}.session`),
+        busy: () => !!peekKept<X68View | null>(`${X68}.view`, null)?.busy,
+      }
+    : null,
+);
 
 export function X68Panel({ devices, notify, visible, switcher }: { devices: Connected[]; notify: Notify; visible: boolean; switcher: ReactNode }) {
   const session = useKeptRef<X68Session | null>(`${X68}.session`, null);
@@ -249,7 +260,6 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
   const asideOn = wide && live;
   const tabs: TabDef[] = [
     ...(asideOn ? [] : [{ id: "overview", label: "Overview" }]),
-    ...(st?.trigger ? [{ id: "keys", label: "Keys" }] : []),
     ...(st?.keymap && (st.advanced || st.socd) ? [{ id: "advkeys", label: "Advanced Keys" }] : []),
     ...(st?.keymap || st?.light || (st && st.profile !== null) ? [{ id: "remap", label: "Remap & Lighting" }] : []),
     { id: "advanced", label: "Advanced" },
@@ -261,7 +271,7 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
   };
   const body = useKeptScroll(`${X68}.scroll.${tab}`);
   const [keysMode, setKeysMode] = useKeptState<"actuation" | "rapid">(`${X68}.keysMode`, "actuation");
-  const mode: Mode = tab === "keys" ? keysMode : tab === "remap" ? (layer === "fn" ? "fn" : "remap") : "actuation";
+  const mode: Mode = tab === "overview" ? keysMode : tab === "remap" ? (layer === "fn" ? "fn" : "remap") : "actuation";
 
   const mapLayout = useMemo<MapLayout | null>(() => {
     if (!st) return null;
@@ -329,7 +339,7 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
       <DeviceHeader
         id={keyboardId("x68")}
         name={live ? st.info.model : (detected?.name ?? "X68 HE")}
-        subtitle={live ? `${st.info.brand ? `${st.info.brand} · ` : ""}${st.info.product || "unknown board"} · ${st.layout.name}` : (detected?.name ?? "MAGIC-REFINER X68 HE")}
+        subtitle={live ? `${st.info.brand ? `${st.info.brand} · ` : ""}${st.layout.name}` : (detected?.name ?? "MAGIC-REFINER X68 HE")}
         pills={
           <>
             <StatusPill live={!!live}>
@@ -376,8 +386,9 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
 
             {tab === "overview" && overview}
 
-            {tab === "keys" && st.trigger && (
-              <>
+            {tab === "overview" && st.trigger && (
+              // The map and the setting side by side on a wide window, so the tab fits without scrolling.
+              <div className="grid items-start gap-4 min-[1380px]:grid-cols-[minmax(0,1fr)_340px]">
                 {keysMode === "actuation"
                   ? mapCard(
                       "Actuation, key by key",
@@ -396,35 +407,40 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
                 ) : (
                   <RapidTriggerCard st={st} canWrite={canWrite} run={run} onKeys={focusMap} />
                 )}
-              </>
+              </div>
             )}
 
             {tab === "advkeys" && <AdvancedKeysTab st={st} first={first.current} canWrite={canWrite} run={run} />}
 
             {tab === "remap" && (
-              <>
-                {st.keymap &&
-                  mapCard(
-                  layer === "fn" ? "Remap, Fn layer" : "Remap",
-                  layer === "fn" ? "What each key sends while Fn is held. Tinted keys have their own." : "What each key sends. Tinted keys already send something else. Fn can't be remapped.",
-                  <RemapInspector st={st} first={first.current} layer={layer} selected={selected[0]} canWrite={canWrite} run={run} />,
-                  {
-                    multi: false,
-                    right: (
-                      <div className="flex gap-2">
-                        <Chip on={layer === "default"} onClick={() => (setLayer("default"), setSelected([]))}>
-                          Normal layer
-                        </Chip>
-                        <Chip on={layer === "fn"} onClick={() => (setLayer("fn"), setSelected([]))}>
-                          Fn layer
-                        </Chip>
-                      </div>
-                    ),
-                  },
-                )}
-                {st.light && <LightingCard st={st} canWrite={canWrite} run={run} />}
-                {st.profile !== null && <ProfileCard st={st} canWrite={canWrite} run={run} />}
-              </>
+              // A short wide window (1480x920) puts the lighting and profile beside the map, so the tab fits above the dock.
+              <div className="grid items-start gap-4 [@media(max-height:1000px)]:min-[1380px]:grid-cols-[minmax(0,1fr)_340px]">
+                <div className="min-w-0">
+                  {st.keymap &&
+                    mapCard(
+                    layer === "fn" ? "Remap, Fn layer" : "Remap",
+                    layer === "fn" ? "What each key sends while Fn is held. Tinted keys have their own." : "What each key sends. Tinted keys already send something else. Fn can't be remapped.",
+                    <RemapInspector st={st} first={first.current} layer={layer} selected={selected[0]} canWrite={canWrite} run={run} />,
+                    {
+                      multi: false,
+                      right: (
+                        <div className="flex gap-2">
+                          <Chip on={layer === "default"} onClick={() => (setLayer("default"), setSelected([]))}>
+                            Normal layer
+                          </Chip>
+                          <Chip on={layer === "fn"} onClick={() => (setLayer("fn"), setSelected([]))}>
+                            Fn layer
+                          </Chip>
+                        </div>
+                      ),
+                    },
+                  )}
+                </div>
+                <div className="flex min-w-0 flex-col gap-4">
+                  {st.light && <LightingCard st={st} canWrite={canWrite} run={run} />}
+                  {st.profile !== null && <ProfileCard st={st} canWrite={canWrite} run={run} />}
+                </div>
+              </div>
             )}
 
 
@@ -441,7 +457,7 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
                   why="This keyboard's factory reset and switch calibration need steps SYNQ has not verified, so they stay in illumipc.com."
                   notify={notify}
                 />
-                <p className="px-1 text-[12px] leading-relaxed text-muted-foreground/80">
+                <p className="px-1 text-[12px] leading-relaxed text-medium">
                   Everything here was read from the keyboard ({new Date(st.readAt).toLocaleTimeString()}). Each change is read back to confirm it. Every report SYNQ
                   sends and receives is logged to {view.logFile}
                   {view.backup ? `; this session's backup is ${view.backup}` : "; a backup of everything is saved before the first change"}. Factory reset and switch calibration stay in
@@ -456,7 +472,7 @@ export function X68Panel({ devices, notify, visible, switcher }: { devices: Conn
   );
 }
 
-/** The Overview tab: the render, the connection, and what the keyboard is set to right now. */
+/** The top of the Overview: the keyboard, its connection and what it is set to right now (the keys sit under it). */
 function X68Overview({ st, view, feel }: { st: X68State; view: X68View; feel?: FeelDevice }) {
   const u = units(st);
   const keys = editable(st);
@@ -469,33 +485,25 @@ function X68Overview({ st, view, feel }: { st: X68State; view: X68View; feel?: F
   return (
     <>
       {feel && <FeelOffer {...feel} />}
-      <OverviewHero
-        art={<DeviceArt spec={st.info.x68 ? { kind: "keyboard", family: "x68", name: "X68 HE" } : { kind: "keyboard", name: st.info.model, brand: st.info.brand || null, vid: st.info.usbId.slice(0, 4), pid: st.info.usbId.slice(5) }} />}
-        live
+      <OverviewStrip
+        art={<DeviceArt spec={st.info.x68 ? { kind: "keyboard", family: "x68", name: "X68 HE", brand: "MAGIC-REFINER" } : { kind: "keyboard", name: st.info.model, brand: st.info.brand || null, vid: st.info.usbId.slice(0, 4), pid: st.info.usbId.slice(5) }} />}
         connection="Wired"
-        name={st.info.model}
         detail={`${st.layout.name}. ${view.writable && view.writesEnabled ? "Changes are on: each is backed up first and read back." : "Read-only until you allow changes."}`}
-      />
-      <StatusStrip
         stats={[
-          { label: "Type", value: "Hall effect", note: "Magnetic switches" },
+          { label: "Type", value: "Hall effect" },
           { label: "Actuation", value: global === null ? "—" : `${u.mm(global)} mm`, note: global === null ? undefined : `${keys.filter((k) => st.keys[k.index].travel !== global).length} keys differ` },
           { label: "Rapid trigger", value: rtKeys.length ? `On · ${rtKeys.length} keys` : "Off" },
           { label: "Sensitivity", value: rtKeys.length ? (split ? `${u.mm(press)} / ${u.mm(release)} mm` : `${u.mm(press)} mm`) : "—" },
           { label: "Profile", value: st.profile === null ? "—" : st.profile === 0 ? "Default" : `Profile ${st.profile}` },
         ]}
+        line={feel && <FeelCard {...feel} compact />}
+        facts={[
+          ["Firmware", st.info.firmware || "?"],
+          ["Polling", hzText(st.pollHz)],
+          ["Travel step", st.trigger ? `${st.trigger.unitMm} mm` : "—"],
+          ["Board", st.info.product || "unknown"],
+        ]}
       />
-      {feel && <FeelCard {...feel} />}
-      <Card innerClassName="px-6 py-4">
-        <DetailRows
-          rows={[
-            ["Firmware", <span className="tabular">{st.info.firmware || "?"}</span>],
-            ["Polling rate", <span className="tabular">{hzText(st.pollHz)}</span>],
-            ["Travel step", <span className="tabular">{st.trigger ? `${st.trigger.unitMm} mm` : "—"}</span>],
-            ["Board", st.info.product || "unknown"],
-          ]}
-        />
-      </Card>
     </>
   );
 }
@@ -505,10 +513,10 @@ function HeaderButton({ onClick, label, icon }: { onClick: () => void; label: st
   return (
     <button
       onClick={onClick}
-      className="group flex h-8 items-center gap-2 rounded-full bg-white/[0.05] pl-3.5 pr-1 text-[12.5px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08]"
+      className="group flex h-8 items-center gap-2 rounded-small bg-white/[0.05] pl-3.5 pr-1 text-[12.5px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08]"
     >
       {label}
-      <span className="grid size-6 place-items-center rounded-full bg-white/[0.08] transition-transform duration-500 ease-fluid group-hover:rotate-90">{icon}</span>
+      <span className="grid size-6 place-items-center rounded bg-white/[0.08] transition-transform duration-500 ease-fluid group-hover:rotate-90">{icon}</span>
     </button>
   );
 }
@@ -518,10 +526,10 @@ function WritesCard({ view, onChange }: { view: X68View; onChange: (on: boolean)
   const other = !view.state.info.x68;
   if (view.writesEnabled)
     return (
-      <div className="flex items-center gap-3 px-1 text-[12px] text-muted-foreground">
-        <span className="size-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" />
+      <div className="flex items-center gap-3 px-1 text-[12px] text-medium">
+        <span className="size-1.5 rounded-full bg-primary" />
         Changes are allowed. Each one is backed up first and read back after.
-        <button onClick={() => onChange(false)} className="ml-auto text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+        <button onClick={() => onChange(false)} className="ml-auto text-medium underline-offset-2 hover:text-high hover:underline">
           Make read-only
         </button>
       </div>
@@ -529,8 +537,8 @@ function WritesCard({ view, onChange }: { view: X68View; onChange: (on: boolean)
   return (
     <Card innerClassName="flex items-center gap-5 px-6 py-5">
       <div className="min-w-0 flex-1">
-        <p className="text-[15px] font-medium text-foreground">Read-only until you allow changes</p>
-        <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">
+        <p className="text-[15px] font-medium text-high">Read-only until you allow changes</p>
+        <p className="mt-1 text-[12.5px] leading-relaxed text-medium">
           SYNQ learned this keyboard's protocol from illumipc.com and hasn't been tried on one yet.{other ? " This model shares the protocol of every board that site drives, but nobody has run SYNQ on it." : ""} Everything below was read from your
           keyboard. When you allow changes, SYNQ saves a full backup first and checks every change by reading it back.
         </p>
@@ -564,16 +572,16 @@ function ActuationCard({ st, canWrite, run, onKeys }: { st: X68State; canWrite: 
   return (
     <Card innerClassName="relative flex gap-6 px-6 pb-6 pt-5">
       <div className="min-w-0 flex-1">
-        <p className="text-[13px] text-muted-foreground">Actuation point</p>
+        <p className="text-[13px] text-medium">Actuation point</p>
         <div className="mt-3 flex items-baseline gap-3">
           <NumberFlow
             value={global * u.unit}
             format={{ minimumFractionDigits: u.decimals, maximumFractionDigits: u.decimals }}
-            className="tabular text-[86px] font-medium leading-none tracking-[-0.06em] text-foreground [text-shadow:0_0_28px_color-mix(in_srgb,var(--primary)_30%,transparent)]"
+            className="display-num tabular text-[clamp(64px,5.6vw,84px)] leading-none tracking-[-0.06em] text-high"
           />
-          <span className="text-[18px] text-muted-foreground">mm</span>
+          <span className="text-[18px] text-medium">mm</span>
         </div>
-        <p className="mt-1 text-[12.5px] text-muted-foreground">
+        <p className="mt-1 text-[12.5px] text-medium">
           How far a key goes down before it registers ({t.minMm}–{t.maxMm} mm). Setting it here applies it to every key.
         </p>
         <div className="mt-5 flex flex-wrap items-end gap-2">
@@ -600,7 +608,7 @@ function ActuationCard({ st, canWrite, run, onKeys }: { st: X68State; canWrite: 
             </Chip>
           ))}
         </div>
-        <button onClick={onKeys} className="mt-4 flex items-center gap-1.5 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground">
+        <button onClick={onKeys} className="mt-4 flex items-center gap-1.5 text-[12.5px] text-medium transition-colors hover:text-high">
           {own === 0 ? "Set keys individually" : own === 1 ? "1 key has its own value" : `${own} keys have their own values`}
           <ArrowRight size={12} />
         </button>
@@ -618,14 +626,14 @@ function TravelGauge({ st, global }: { st: X68State; global: number }) {
   const others = [...new Set(editable(st).map((k) => st.keys[k.index].travel))].filter((v) => v !== global);
   return (
     <div className="flex shrink-0 select-none gap-2.5 pt-1" aria-hidden="true">
-      <div className="relative text-right text-[10.5px] text-muted-foreground/80 tabular" style={{ height: H, width: 10 }}>
+      <div className="relative text-right text-[10.5px] text-medium tabular" style={{ height: H, width: 10 }}>
         {ticks.map((v) => (
           <span key={v} className="absolute right-0 leading-none" style={{ top: Math.min(H - 8, (v / t.maxMm) * H) }}>
             {v}
           </span>
         ))}
       </div>
-      <div className="relative w-9 overflow-hidden rounded-full bg-black/40 ring-1 ring-white/[0.06] shadow-[inset_0_2px_6px_rgb(0_0_0/0.6)]" style={{ height: H }}>
+      <div className="relative w-9 overflow-hidden rounded-full bg-shade/40 ring-1 ring-white/[0.06] shadow-[inset_0_2px_6px_rgb(0_0_0/0.6)]" style={{ height: H }}>
         {others.map((o) => (
           <div key={o} className="absolute inset-x-2 h-px bg-white/30 transition-all duration-500 ease-fluid" style={{ top: y(o) }} />
         ))}
@@ -659,8 +667,8 @@ function RapidTriggerCard({ st, canWrite, run, onKeys }: { st: X68State; canWrit
     <Card innerClassName="flex flex-col px-6 pb-5 pt-5">
       <div className="flex items-start gap-4">
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] font-medium text-foreground">Rapid trigger</p>
-          <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">
+          <p className="text-[15px] font-medium text-high">Rapid trigger</p>
+          <p className="mt-1 text-[12.5px] leading-relaxed text-medium">
             {on ? (rtKeys.length === keys.length ? "On for every key" : `On for ${rtKeys.length} keys: ${names(st, rtKeys.map((k) => k.index)).slice(0, 80)}`) : "Off for every key"}
           </p>
         </div>
@@ -727,7 +735,7 @@ function RapidTriggerCard({ st, canWrite, run, onKeys }: { st: X68State; canWrit
         >
           Apply to rapid-trigger keys
         </Pill>
-        <button onClick={onKeys} className="ml-auto flex items-center gap-1.5 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground">
+        <button onClick={onKeys} className="ml-auto flex items-center gap-1.5 text-[12.5px] text-medium transition-colors hover:text-high">
           Choose keys <ArrowRight size={12} />
         </button>
       </div>
@@ -866,11 +874,11 @@ function RapidInspector({ st, selected, canWrite, run }: { st: X68State; selecte
   };
   return (
     <div className="flex flex-wrap items-end gap-5">
-      <label className="flex h-9 items-center gap-2 text-[12.5px] text-muted-foreground">
+      <label className="flex h-9 items-center gap-2 text-[12.5px] text-medium">
         <Switch checked={draft.on} onCheckedChange={(on) => setDraft((d) => ({ ...d, on }))} aria-label="Rapid trigger" />
         Rapid trigger
       </label>
-      <label className="flex h-9 items-center gap-2 text-[12.5px] text-muted-foreground">
+      <label className="flex h-9 items-center gap-2 text-[12.5px] text-medium">
         <Switch checked={draft.split} onCheckedChange={(split) => setDraft((d) => ({ ...d, split }))} aria-label="Separate press and release" />
         Separate
       </label>
@@ -967,14 +975,14 @@ function RemapInspector({ st, first, layer, selected, canWrite, run }: { st: X68
   return (
     <div className="flex flex-wrap items-end gap-4">
       <div className="min-w-[180px] flex-1">
-        <p className="text-[13px] text-foreground">
-          <span className="text-muted-foreground">{layer === "fn" ? "Fn + " : ""}</span>
+        <p className="text-[13px] text-high">
+          <span className="text-medium">{layer === "fn" ? "Fn + " : ""}</span>
           {keyName(st, selected)}
-          <span className="text-muted-foreground"> sends </span>
+          <span className="text-medium"> sends </span>
           {P.describeAction(current)}
         </p>
         {fnLocked && <p className="mt-1 text-[12px] text-chart-3">The keyboard keeps this Fn-layer key for itself.</p>}
-        {isAdvanced && <p className="mt-1 text-[12px] text-muted-foreground">Bound to an advanced key; change it in Advanced keys.</p>}
+        {isAdvanced && <p className="mt-1 text-[12px] text-medium">Bound to an advanced key; change it in Advanced keys.</p>}
       </div>
       {!fnLocked && !isAdvanced && (
         <>
@@ -993,7 +1001,7 @@ function RemapInspector({ st, first, layer, selected, canWrite, run }: { st: X68
           ) : (
             <ActionPicker st={st} label="New action" value={draft} onChange={setDraft} />
           )}
-          <label className="flex h-9 items-center gap-2 text-[12.5px] text-muted-foreground">
+          <label className="flex h-9 items-center gap-2 text-[12.5px] text-medium">
             <Switch checked={combo.on} onCheckedChange={(on) => setCombo((c) => ({ ...c, on }))} aria-label="Key combination" />
             Combination
           </label>
@@ -1311,8 +1319,8 @@ function AdvancedKeysTab({ st, first, canWrite, run }: { st: X68State; first: X6
       </Labeled>
     ) : type === "SOCD" ? (
       <div className="flex flex-col gap-3">
-        <p className="text-[13px] text-foreground">
-          <span className="text-muted-foreground">Keys: </span>
+        <p className="text-[13px] text-high">
+          <span className="text-medium">Keys: </span>
           {flow ? names(st, flow.keys) : ""}
         </p>
         <Labeled label="When both are held">
@@ -1322,12 +1330,12 @@ function AdvancedKeysTab({ st, first, canWrite, run }: { st: X68State; first: X6
     ) : null;
 
   const review = (
-    <div className="text-[13px] text-foreground">
+    <div className="text-[13px] text-high">
       <p>
-        <span className="text-muted-foreground">{flow && flow.keys.length > 1 ? "Keys: " : "Key: "}</span>
+        <span className="text-medium">{flow && flow.keys.length > 1 ? "Keys: " : "Key: "}</span>
         {flow ? names(st, flow.keys) : ""}
       </p>
-      <p className="mt-1.5 text-[12.5px] text-muted-foreground">
+      <p className="mt-1.5 text-[12.5px] text-medium">
         {type === "MT" && `Tap sends ${P.describeAction(f.a1)}, hold sends ${P.describeAction(f.a2)} after ${f.holdMs} ms.`}
         {type === "TGL" && `Each press toggles ${P.describeAction(f.a1)}.`}
         {type === "RKRT" && `Sends the key itself, plus ${P.describeAction(f.a2)} when you let go.`}
@@ -1343,8 +1351,8 @@ function AdvancedKeysTab({ st, first, canWrite, run }: { st: X68State; first: X6
       {socd && socd.entries.length > 0 && (
         <Card innerClassName="flex items-center gap-4 px-5 py-3.5">
           <div className="min-w-0 flex-1">
-            <p className="text-[13.5px] text-foreground">Snap tap / SOCD is {socd.on ? "on" : "off"}</p>
-            <p className="text-[12px] text-muted-foreground">One switch for every pair below.</p>
+            <p className="text-[13.5px] text-high">Snap tap / SOCD is {socd.on ? "on" : "off"}</p>
+            <p className="text-[12px] text-medium">One switch for every pair below.</p>
           </div>
           <Switch checked={socd.on} aria-label="SOCD" onCheckedChange={(on) => canWrite && run(on ? "SOCD on" : "SOCD off", (s) => s.setSocd(on ? "SOCD on" : "SOCD off", socd.entries, on))} />
         </Card>
@@ -1372,7 +1380,7 @@ function AdvancedKeysTab({ st, first, canWrite, run }: { st: X68State; first: X6
 function Labeled({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="px-1 text-[11.5px] text-muted-foreground">{label}</span>
+      <span className="px-1 text-[11.5px] text-medium">{label}</span>
       {children}
     </div>
   );
@@ -1402,7 +1410,7 @@ function DksEditor({ st, form, maxMm, onChange }: { st: X68State; form: AdvForm;
           <DksRow key={r} st={st} a={a} r={r} form={form} onChange={onChange} />
         ))}
       </div>
-      <p className="text-[11.5px] text-muted-foreground">Click a cell to cycle: Tap fires once there, Hold starts holding, End releases a hold.</p>
+      <p className="text-[11.5px] text-medium">Click a cell to cycle: Tap fires once there, Hold starts holding, End releases a hold.</p>
     </div>
   );
 }
@@ -1418,8 +1426,8 @@ function DksRow({ st, a, r, form, onChange }: { st: X68State; a: P.RawAction; r:
             key={c}
             onClick={() => onChange({ ...form, steps: form.steps.map((s, j) => (j === r * 4 + c ? (s + 1) % 4 : s)) })}
             className={cn(
-              "h-9 rounded-xl text-[12px] ring-1 transition-colors",
-              v ? "bg-primary/[0.16] text-foreground ring-primary/45" : "bg-white/[0.03] text-muted-foreground ring-white/[0.06] hover:bg-white/[0.06]",
+              "h-9 rounded-control text-[12px] ring-1 transition-colors",
+              v ? "bg-primary/[0.16] text-high ring-primary/45" : "bg-white/[0.03] text-medium ring-white/[0.06] hover:bg-white/[0.06]",
             )}
           >
             {STEP_LABEL[v]}
@@ -1490,7 +1498,7 @@ function LightingCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; 
         <LevelRow label="Brightness" value={c.brightness} max={l.modes.maxBrightness} disabled={!canWrite} onPick={(v) => save(`Brightness ${v} of ${l.modes.maxBrightness}`, { brightness: v })} />
         {c.mode !== 0 && <LevelRow label="Speed" value={c.speed} max={l.modes.maxSpeed} disabled={!canWrite} onPick={(v) => save(`Speed ${v} of ${l.modes.maxSpeed}`, { speed: v })} />}
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <span className="w-20 shrink-0 text-[12.5px] text-muted-foreground">Colour</span>
+          <span className="w-20 shrink-0 text-[12.5px] text-medium">Colour</span>
           <label
             className={cn("relative size-9 overflow-hidden rounded-full ring-1 ring-white/20 transition-transform duration-300 ease-fluid hover:scale-105", c.fullColor ? "opacity-40" : "cursor-pointer")}
             style={{ background: color, boxShadow: `0 0 18px -4px ${color}` }}
@@ -1509,7 +1517,7 @@ function LightingCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; 
               className="absolute inset-0 cursor-pointer opacity-0"
             />
           </label>
-          <label className="flex items-center gap-2 text-[12.5px] text-muted-foreground">
+          <label className="flex items-center gap-2 text-[12.5px] text-medium">
             <Switch checked={!!c.fullColor} aria-label="Rainbow" onCheckedChange={(v) => canWrite && save(v ? "Rainbow colours on" : "Rainbow colours off", { fullColor: v ? 1 : 0 })} />
             Rainbow
           </label>
@@ -1522,7 +1530,7 @@ function LightingCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; 
 function LevelRow({ label, value, max, disabled, onPick }: { label: string; value: number; max: number; disabled: boolean; onPick: (v: number) => void }) {
   return (
     <div className="mt-5 flex items-center gap-4">
-      <span className="w-20 shrink-0 text-[12.5px] text-muted-foreground">{label}</span>
+      <span className="w-20 shrink-0 text-[12.5px] text-medium">{label}</span>
       <div className="flex flex-wrap gap-1.5">
         {Array.from({ length: max + 1 }, (_, v) => (
           <Chip key={v} numeric disabled={disabled} on={v === value} onClick={() => v !== value && onPick(v)}>
@@ -1548,7 +1556,7 @@ function PollingCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; r
           options={P.POLL_HZ.map((hz) => ({ value: String(hz), label: `${hz / 1000}K`, hint: "Hz" }))}
         />
         {pending !== null && (
-          <div className="mt-3 rounded-2xl bg-chart-3/[0.06] px-4 py-3 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
+          <div className="mt-3 rounded-control bg-chart-3/[0.06] px-4 py-3 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
             The keyboard restarts to switch, so it disconnects for a moment and keys won't type until it's back. SYNQ waits for it and checks the new rate.
             <div className="mt-2.5 flex gap-2">
               <button
@@ -1558,11 +1566,11 @@ function PollingCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; r
                   setPending(null);
                   run(`Polling rate set to ${hz / 1000}K`, (s) => s.setPollRate(hz));
                 }}
-                className="rounded-full bg-chart-3 px-3 py-1 text-[12px] font-medium text-black disabled:opacity-50"
+                className="rounded-small bg-chart-3 px-3 py-1 text-[12px] font-medium text-black disabled:opacity-50"
               >
                 Switch to {pending / 1000}K
               </button>
-              <button onClick={() => setPending(null)} className="rounded-full px-3 py-1 text-[12px] text-chart-3/90 ring-1 ring-chart-3/30 hover:bg-chart-3/10">
+              <button onClick={() => setPending(null)} className="rounded-small px-3 py-1 text-[12px] text-chart-3/90 ring-1 ring-chart-3/30 hover:bg-chart-3/10">
                 Cancel
               </button>
             </div>
@@ -1578,7 +1586,7 @@ function ProfileCard({ st, canWrite, run }: { st: X68State; canWrite: boolean; r
     return (
       <Card>
         <CardHeader title="Profiles" />
-        <p className="px-5 pb-5 pt-3 text-[12.5px] leading-relaxed text-muted-foreground">
+        <p className="px-5 pb-5 pt-3 text-[12.5px] leading-relaxed text-medium">
           This keyboard didn't answer the profile query, so it keeps one set of settings. illumipc's Profiles 1–4 are stored in the browser, and switching them there
           rewrites the keyboard. SYNQ shows and edits what's on the keyboard now.
         </p>

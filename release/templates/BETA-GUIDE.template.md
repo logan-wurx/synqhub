@@ -1,6 +1,6 @@
-# {{APP_NAME}} beta: quick guide
+# {{APP_NAME}}: quick guide
 
-Thanks for trying {{APP_NAME}} {{VERSION}}. It is a small Windows app that puts your headphone EQ, your mouse, keyboard, controller, headset, monitor, webcam and RGB light settings in one place (a Linux version, .deb and AppImage, comes with this beta too). This is an early build for a few people, so please expect rough edges and tell us about them (see "Sending feedback" at the end).
+Thanks for trying {{APP_NAME}} {{VERSION}}. It is a small Windows app that puts your headphone EQ, your mouse, keyboard, controller, headset, monitor, webcam and RGB light settings in one place. This is the first release, so if anything feels rough, tell us (see "Sending feedback" at the end).
 
 You need: Windows 10 or 11, 64-bit, and about 5 minutes. Installing asks for an administrator OK once.
 
@@ -12,7 +12,7 @@ You need: Windows 10 or 11, 64-bit, and about 5 minutes. Installing asks for an 
 2. (Optional) Check you got the right file. In PowerShell run `Get-FileHash .\{{INSTALLER}}` and compare it with this line:
    `{{INSTALLER_SHA256}}`
 3. Double-click the installer.
-4. **Windows will show a blue box: "Windows protected your PC".** This is SmartScreen. It appears because the beta isn't code-signed (we haven't bought a certificate yet), not because something was found in the file.
+4. **Windows will show a blue box: "Windows protected your PC".** This is SmartScreen. It appears because the app isn't code-signed (we haven't bought a certificate yet), not because something was found in the file.
    - Click **More info**.
    - Click **Run anyway**.
 5. Windows asks "Do you want to allow this app to make changes?" Click **Yes**. The installer needs this to install for all users and to set up the sound engine (next step).

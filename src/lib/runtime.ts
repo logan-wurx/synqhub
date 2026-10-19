@@ -17,6 +17,16 @@ export const isWeb: boolean = typeof __ONBOARD_WEB__ !== "undefined" && __ONBOAR
 export const isE2E: boolean = typeof __ONBOARD_E2E__ !== "undefined" && __ONBOARD_E2E__ === true;
 export const isTauri: boolean = !isWeb && !isE2E && typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
 export const runMode: RunMode = isWeb ? "web" : isTauri ? "tauri" : "preview";
+let helperProbe: () => boolean = () => false;
+/** src/lib/web/helper.ts says here, when it loads, how to tell whether SYNQ Helper is connected. */
+export function registerHelperProbe(probe: () => boolean): void {
+  helperProbe = probe;
+}
+/** The website with SYNQ Helper connected: the Games page and the helper's jobs go to the helper, which keeps
+ * them where the desktop app does and asks the person before saving profiles (src-tauri/helper/src/bridge.rs). */
+export async function viaHelper(): Promise<boolean> {
+  return isWeb && helperProbe();
+}
 /** Real hardware behind the page (the desktop bridge or WebHID); false only in the sample-device preview. */
 export const liveHardware: boolean = isWeb || isTauri;
 

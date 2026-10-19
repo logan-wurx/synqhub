@@ -12,6 +12,7 @@
 //   helper gave it.
 // - Which transport a page uses is decided once, when it loads (`helperSettled`), so device keys from
 //   the helper and from WebHID never mix. Connecting or disconnecting reloads the page.
+import { registerHelperProbe } from "../runtime.ts";
 import { readSetting, writeSetting } from "./settings.ts";
 import { emit } from "./tauri-event.ts";
 
@@ -58,6 +59,26 @@ export const HELPER_COMMANDS: ReadonlySet<string> = new Set([
   "eq_engine_install",
   "eq_engine_undo",
   "sound_names_load",
+  // The Games page and the helper's jobs: a profile save (or turning profiles on) waits for the person's yes
+  // in SYNQ Helper's own box.
+  "games_load",
+  "games_save",
+  "games_detect",
+  "game_art",
+  "helper_held",
+  "device_state_save",
+  "device_states_load",
+  "helper_prefs",
+  "helper_prefs_set",
+  // Live game profiles while the site is open (src/lib/profiles/runner.ts): the running games and what is held.
+  "games_running",
+  "live_held_load",
+  "live_held_save",
+  // The person's own EQ presets (only ever in SYNQ's presets folder) and the EQ backups SYNQ made.
+  "eq_preset_save",
+  "eq_preset_delete",
+  "eq_backups",
+  "eq_restore_backup",
 ]);
 
 const WANT = "helper";
@@ -91,6 +112,7 @@ function set(s: HelperState, error = "") {
 export const helperState = (): HelperState => state;
 export const helperError = (): string => lastError;
 export const helperReady = (): boolean => state === "ready";
+registerHelperProbe(helperReady);
 /** The person connected the helper on this browser before (so the page reconnects on load). */
 export const wantsHelper = (): boolean => readSetting(WANT) === "on";
 /** The person downloaded the helper here and it hasn't connected yet. */

@@ -37,7 +37,7 @@ export function LightPreview({
   return (
     <div
       aria-hidden="true"
-      className={cn("light-anim relative overflow-hidden rounded-xl bg-black ring-1 ring-white/10", className)}
+      className={cn("light-anim relative overflow-hidden rounded-tight bg-shade ring-1 ring-white/10", className)}
       style={{ animation: motion === "breathe" ? `light-breathe ${seconds}s ease-in-out infinite` : motion === "flash" ? `light-flash ${Math.max(0.3, seconds / 6)}s steps(1) infinite` : undefined }}
     >
       <div className="absolute inset-y-0 left-0 w-[200%]" style={{ background: `${stripes}${strip(colours, motion === "jump" || motion === "flash")}`, animation: slide }} />

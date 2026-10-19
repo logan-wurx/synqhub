@@ -16,7 +16,7 @@ const webHead = {
     { tag: "link", attrs: { rel: "icon", href: "./favicon.svg", type: "image/svg+xml" }, injectTo: "head" as const },
     { tag: "link", attrs: { rel: "icon", href: "./favicon.ico", sizes: "48x48" }, injectTo: "head" as const },
     { tag: "link", attrs: { rel: "apple-touch-icon", href: "./apple-touch-icon.png" }, injectTo: "head" as const },
-    { tag: "meta", attrs: { name: "theme-color", content: "#070708" }, injectTo: "head" as const },
+    { tag: "meta", attrs: { name: "theme-color", content: "#171514" }, injectTo: "head" as const },
     { tag: "meta", attrs: { name: "description", content: "SYNQ: set up your mouse, keyboard, controller and lights right from the browser. Every device. One system." }, injectTo: "head" as const },
     { tag: "meta", attrs: { property: "og:title", content: "SYNQ" }, injectTo: "head" as const },
     { tag: "meta", attrs: { property: "og:description", content: "Every device. One system." }, injectTo: "head" as const },

@@ -4,7 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import type { ShapeClass } from "@/lib/device-shape";
 
-const LINE = "rgb(231 231 239 / 0.55)";
+const LINE = "rgb(240 235 230 / 0.55)";
 
 function Frame({ viewBox, className, children }: { viewBox: string; className?: string; children: ReactNode }) {
   return (

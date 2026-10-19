@@ -25,12 +25,12 @@ import {
   type LightingSetting,
   type NumberSpec,
 } from "@/lib/kb/types";
-import { Card, CardHeader, DetailRows, type Notice } from "@/components/ui/matte";
+import { Card, CardHeader, type Notice } from "@/components/ui/matte";
 import { FeelCard, FeelOffer, type FeelDevice } from "@/components/feel/FeelPanel";
 import { driveGenericKeyboard, type ApplyOutcome } from "@/lib/feel/drive";
 import { feelStore } from "@/lib/feel/persist";
 import type { Step } from "@/lib/feel/types";
-import { DeviceFrame, DeviceHeader, OverviewHero, ReconnectButton, StatusPill, StatusStrip, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
+import { DeviceFrame, DeviceHeader, OverviewStrip, ReconnectButton, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { KeyBoard, MmSlider, ModeSwitch, SelectionBar, type MapKey, type MapLayout } from "@/components/devices/keymap";
 import { AdvancedKeysFlow, MULTI_ACTION_LEGALITY, SOCD_LEGALITY, type ActiveKey, type AdvFlow, type AdvType } from "@/components/devices/advkeys";
 import { LiveTravel, type LiveSource } from "@/components/devices/live";
@@ -42,7 +42,8 @@ import { DeviceArt } from "@/components/devices/DeviceArt";
 import { Switch } from "@/components/ui/switch";
 import { GlassRadio } from "@/components/uiverse";
 import { deviceKeyboard } from "@/components/ui/brand";
-import { peekKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { peekKept, peekKeptRef, setKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { sharePage, type Session } from "@/lib/profiles/live";
 import { track, useSessionHold } from "@/lib/device-session";
 import { markKeyboardAnswering } from "@/lib/kb/probe";
 import { AdvancedCard } from "@/components/advanced";
@@ -64,6 +65,17 @@ const ANALOG_LABEL: Record<AnalogField, string> = {
   deadTopMm: "Top dead zone",
   deadBottomMm: "Bottom dead zone",
 };
+
+// A game profile (src/lib/profiles/live.ts) goes on through this panel's session while it has one open, and shows here.
+sharePage((family) => {
+  if (!family.startsWith("kb:")) return null;
+  const K = `keyboard.kb.${family.slice(3)}`;
+  return {
+    session: () => peekKeptRef<Session>(`${K}.session`),
+    busy: () => peekKept(`${K}.busy`, false),
+    onView: (v: KbView) => setKept(`${K}.view`, v),
+  };
+});
 
 export function GenericKeyboard({
   id,
@@ -223,7 +235,6 @@ export function GenericKeyboard({
   const asideOn = wide && phase.kind === "ready" && !!v;
   const tabs: TabDef[] = [
     ...(asideOn ? [] : [{ id: "overview", label: "Overview" }]),
-    ...(analog || hasLive ? [{ id: "keys", label: "Keys" }] : []),
     ...(v?.advanced ? [{ id: "advkeys", label: "Advanced Keys" }] : []),
     ...(keymap || v?.lighting || v?.profiles ? [{ id: "remap", label: "Remap & Lighting" }] : []),
     { id: "advanced", label: "Advanced" },
@@ -335,7 +346,7 @@ export function GenericKeyboard({
               >
                 <AnalogInspector analog={analog} target={selected} only={only} disabled={!can("analog")} run={run} />
               </SelectionBar>
-              {layout?.note && <p className="mt-2 text-[11.5px] text-muted-foreground/80">{layout.note}</p>}
+              {layout?.note && <p className="mt-2 text-[11.5px] text-medium">{layout.note}</p>}
             </div>
           </Card>
         )}
@@ -347,7 +358,7 @@ export function GenericKeyboard({
             </div>
           </Card>
         )}
-        {analog.note && <p className="px-1 text-[11.5px] text-muted-foreground/80">{analog.note}</p>}
+        {analog.note && <p className="px-1 text-[11.5px] text-medium">{analog.note}</p>}
       </>
     );
   };
@@ -429,7 +440,8 @@ export function GenericKeyboard({
 
             {tab === "overview" && overview}
 
-            {tab === "keys" && keysMode === "actuation" && (
+            {/* The keys, on the Overview under the keyboard's card: what people come to change. */}
+            {tab === "overview" && (analog || hasLive) && keysMode === "actuation" && (
               <>
                 {analogCard("actuation", "Actuation, key by key", "Every key shows its actuation point in mm. Tinted keys differ from the board's default. Select keys to change them together.", ["actuationMm", "releaseMm", "deadTopMm", "deadBottomMm"])}
                 {hasLive && (
@@ -449,7 +461,7 @@ export function GenericKeyboard({
               </>
             )}
 
-            {tab === "keys" && keysMode === "rapid" &&
+            {tab === "overview" && (analog || hasLive) && keysMode === "rapid" &&
               analogCard("rapid", "Rapid trigger, key by key", "Tinted keys use rapid trigger and show their press distance in mm. Select keys to change them together.", ["rapidTrigger", "rtPressMm", "rtReleaseMm"])}
 
             {tab === "advkeys" && v.advanced && (
@@ -489,12 +501,12 @@ export function GenericKeyboard({
                       <SelectionBar count={selected.length} names={mapLabel(selected)} onDiscard={() => setSelected([])} hint="Select a key">
                         <KeymapInspector keymap={keymap} layer={layerNow} selected={selected} label={keymap.label ?? ((c: number) => (c ? `0x${c.toString(16)}` : ""))} disabled={!can("keymap") || !keymap.writable} run={run} />
                       </SelectionBar>
-                      {layout?.note && <p className="mt-2 text-[11.5px] text-muted-foreground/80">{layout.note}</p>}
+                      {layout?.note && <p className="mt-2 text-[11.5px] text-medium">{layout.note}</p>}
                     </>
                   ) : (
-                    <p className="text-[13px] text-muted-foreground">This keyboard's layout isn't known, so its keys can't be drawn.</p>
+                    <p className="text-[13px] text-medium">This keyboard's layout isn't known, so its keys can't be drawn.</p>
                   )}
-                  {keymap.note && <p className="mt-2 text-[11.5px] text-muted-foreground/80">{keymap.note}</p>}
+                  {keymap.note && <p className="mt-2 text-[11.5px] text-medium">{keymap.note}</p>}
                 </div>
               </Card>
             )}
@@ -504,8 +516,8 @@ export function GenericKeyboard({
                 <CardHeader title="Lighting" hint={v.lighting.note} right={<GroupTier tier={v.groupTier.lighting} />} />
                 <div className="flex flex-col gap-4 px-5 pb-5 pt-4">
                   {v.lighting.groups.map((g) => (
-                    <div key={g.id} className="rounded-2xl bg-white/[0.02] px-4 py-3 ring-1 ring-white/[0.05]">
-                      <p className="mb-2 text-[13px] text-foreground">{g.label}</p>
+                    <div key={g.id} className="rounded-control bg-white/[0.02] px-4 py-3 ring-1 ring-white/[0.05]">
+                      <p className="mb-2 text-[13px] text-high">{g.label}</p>
                       <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                         {g.settings.map((s) => (
                           <LightingRow key={s.id} setting={s} disabled={!can("lighting") || !s.writable} onChange={(value) => run({ kind: "lighting", id: s.id, value })} />
@@ -564,8 +576,8 @@ export function GenericKeyboard({
                     <CardHeader title="Macros" hint={v.macros.note ?? "Shown, not changed."} />
                     <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 px-5 pb-5 pt-3">
                       {v.macros.summaries.map((m, i) => (
-                        <p key={i} className="truncate text-[12.5px] text-muted-foreground">
-                          <span className="tabular mr-2 text-foreground/80">M{i}</span>
+                        <p key={i} className="truncate text-[12.5px] text-medium">
+                          <span className="tabular mr-2 text-high">M{i}</span>
                           {m}
                         </p>
                       ))}
@@ -613,7 +625,7 @@ export function GenericKeyboard({
                 )}
 
                 <NeverSends view={v} />
-                <p className="px-1 text-[12px] leading-relaxed text-muted-foreground/80">
+                <p className="px-1 text-[12px] leading-relaxed text-medium">
                   {v.tierWhy} Before the first change SYNQ saves everything it read{v.backupPath ? ` (${v.backupPath})` : ""}, and it reads each change back. Every change is logged {isWeb ? "in this browser" : "in its data folder"}.
                 </p>
               </>
@@ -649,34 +661,26 @@ function KbOverview({ v, id, feel }: { v: KbView; id: string; feel?: FeelDevice 
   return (
     <>
       {feel && <FeelOffer {...feel} />}
-      <OverviewHero
+      <OverviewStrip
         art={<DeviceArt spec={{ kind: "keyboard", family: `kb:${id}`, name: v.name, brand: v.brand }} />}
-        live
         connection={linkOf(v.info.connection) ?? null}
-        name={v.name}
         detail={`${v.brand}${v.info.protocol ? ` · ${v.info.protocol}` : ""}. What the keyboard reports right now is below.`}
         badges={<TierBadge tier={v.tier} hint={v.tierWhy} />}
-      />
-      <StatusStrip
         stats={[
-          { label: "Type", value: a ? "Analog" : "Standard", note: a ? (a.scope === "global" ? "One actuation point" : "Per-key actuation") : "Fixed actuation" },
+          { label: "Type", value: a ? "Analog" : "Standard" },
           { label: "Actuation", value: actuation === null ? "—" : `${mm(actuation, 2)} mm` },
           { label: "Rapid trigger", value: !a || !rtKnown ? "—" : rtOn ? "On" : "Off" },
           { label: "Sensitivity", value: press === null ? "—" : release !== null && release !== press ? `${mm(press, 2)} / ${mm(release, 2)} mm` : `${mm(press, 2)} mm` },
           { label: "Profile", value: prof === null || prof === undefined ? "—" : v.profiles?.names[prof] || `Profile ${prof + 1}` },
         ]}
+        line={feel && <FeelCard {...feel} compact />}
+        facts={[
+          ["Firmware", v.info.firmware.join(" · ") || "—"],
+          ...(v.info.extra ?? []).map(([k, val]) => [k, val] as [string, ReactNode]),
+          ...(v.info.serial ? ([["Serial", v.info.serial]] as [string, ReactNode][]) : []),
+          ["USB id", id],
+        ]}
       />
-      {feel && <FeelCard {...feel} />}
-      <Card innerClassName="px-6 py-4">
-        <DetailRows
-          rows={[
-            ["Firmware", <span className="tabular block max-w-[320px] truncate text-[12px]" title={v.info.firmware.join(", ")}>{v.info.firmware.join(" · ") || "—"}</span>],
-            ...(v.info.extra ?? []).map(([k, val]) => [k, <span className="block max-w-[320px] truncate text-[12px]">{val}</span>] as [string, ReactNode]),
-            ...(v.info.serial ? ([["Serial", <span className="tabular text-[12px]">{v.info.serial}</span>]] as [string, ReactNode][]) : []),
-            ["USB id", <span className="tabular text-[12px]">{id}</span>],
-          ]}
-        />
-      </Card>
     </>
   );
 }
@@ -741,7 +745,7 @@ function AnalogInspector({
   const entries = Object.entries(analog.fields).filter(([f, spec]) => spec && only.includes(f as AnalogField)) as [AnalogField, NumberSpec | "toggle"][];
   const sliders = entries.filter(([, spec]) => spec !== "toggle") as [AnalogField, NumberSpec][];
   const toggles = entries.filter(([, spec]) => spec === "toggle").map(([f]) => f);
-  if (!entries.length) return <p className="text-[13px] text-muted-foreground">This keyboard has no settings of this kind.</p>;
+  if (!entries.length) return <p className="text-[13px] text-medium">This keyboard has no settings of this kind.</p>;
   const raw = draft as Record<string, unknown>;
   const was = seed as Record<string, unknown>;
   const changed = Object.fromEntries(entries.filter(([f]) => raw[f] !== was[f] && raw[f] !== undefined && raw[f] !== null).map(([f]) => [f, raw[f]])) as AnalogValues;
@@ -749,11 +753,11 @@ function AnalogInspector({
   const canChange = entries.some(([f]) => analog.writable.includes(f));
   return (
     <div className="flex flex-col gap-3.5">
-      {global && <p className="text-[13px] text-muted-foreground">Whole keyboard</p>}
-      {!global && selected.length > 1 && <p className="text-[12px] text-muted-foreground">Showing the first key's values; applying sets all {selected.length}.</p>}
+      {global && <p className="text-[13px] text-medium">Whole keyboard</p>}
+      {!global && selected.length > 1 && <p className="text-[12px] text-medium">Showing the first key's values; applying sets all {selected.length}.</p>}
       <div className="flex flex-wrap items-end gap-x-7 gap-y-4">
         {toggles.map((f) => (
-          <label key={f} className={cn("flex h-9 items-center gap-2.5 text-[12.5px] text-muted-foreground", (!analog.writable.includes(f) || disabled) && "pointer-events-none opacity-60")}>
+          <label key={f} className={cn("flex h-9 items-center gap-2.5 text-[12.5px] text-medium", (!analog.writable.includes(f) || disabled) && "pointer-events-none opacity-60")}>
             <Switch checked={raw[f] === true} aria-label={ANALOG_LABEL[f]} onCheckedChange={(on) => setDraft({ ...draft, [f]: on })} />
             {ANALOG_LABEL[f]}
           </label>
@@ -817,10 +821,10 @@ function KeymapInspector({
   const assignable = keymap.assignable.some((a) => String(a.code) === pick);
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <p className="text-[13px] text-foreground">
-        <span className="text-muted-foreground">Layer {layer}: </span>
+      <p className="text-[13px] text-high">
+        <span className="text-medium">Layer {layer}: </span>
         {code === null ? "—" : label(code) || (code === 0 ? "None" : `0x${code.toString(16)}`)}
-        {code !== null && <span className="tabular ml-2 text-[11.5px] text-muted-foreground">0x{code.toString(16).padStart(4, "0")}</span>}
+        {code !== null && <span className="tabular ml-2 text-[11.5px] text-medium">0x{code.toString(16).padStart(4, "0")}</span>}
       </p>
       {keymap.writable && groups.length > 0 && (
         <div className="ml-auto flex items-center gap-2">
@@ -961,12 +965,12 @@ function GenericAdvancedKeys({
   const setup =
     type === "socd" ? (
       <div className="flex flex-col gap-3">
-        <p className="text-[13px] text-foreground">
-          <span className="text-muted-foreground">Keys: </span>
+        <p className="text-[13px] text-high">
+          <span className="text-medium">Keys: </span>
           {flow ? keyNames(flow.keys) : ""}
         </p>
         <div className="flex flex-col gap-1">
-          <span className="px-1 text-[11.5px] text-muted-foreground">When both are held</span>
+          <span className="px-1 text-[11.5px] text-medium">When both are held</span>
           <Select<SocdMode>
             label="SOCD mode"
             value={form.socdMode}
@@ -979,11 +983,11 @@ function GenericAdvancedKeys({
     ) : type === "modTap" ? (
       <div className="flex flex-wrap items-end gap-3">
         <div className="flex flex-col gap-1">
-          <span className="px-1 text-[11.5px] text-muted-foreground">Tap</span>
+          <span className="px-1 text-[11.5px] text-medium">Tap</span>
           <Select<string> label="Tap key" value={form.tap} groups={groups} onChange={(tap) => setForm({ ...form, tap })} className="w-[200px]" />
         </div>
         <div className="flex flex-col gap-1">
-          <span className="px-1 text-[11.5px] text-muted-foreground">Hold</span>
+          <span className="px-1 text-[11.5px] text-medium">Hold</span>
           <Select<string> label="Hold key" value={form.hold} groups={groups} onChange={(hold) => setForm({ ...form, hold })} className="w-[200px]" />
         </div>
         <NumberField
@@ -1002,7 +1006,7 @@ function GenericAdvancedKeys({
         <div className="grid grid-cols-[210px_repeat(4,1fr)] items-end gap-2">
           <span />
           {DKS_COLUMNS.map((c) => (
-            <span key={c} className="px-1 text-center text-[11.5px] text-muted-foreground">
+            <span key={c} className="px-1 text-center text-[11.5px] text-medium">
               {c}
             </span>
           ))}
@@ -1020,8 +1024,8 @@ function GenericAdvancedKeys({
                   key={c}
                   onClick={() => setForm({ ...form, dks: form.dks.map((x, j) => (j === r ? { ...x, steps: x.steps.map((s2, k) => (k === c ? DKS_STEPS[(DKS_STEPS.indexOf(s2) + 1) % 4] : s2)) } : x)) })}
                   className={cn(
-                    "h-9 rounded-xl text-[12px] ring-1 transition-colors",
-                    step !== "none" ? "bg-primary/[0.16] text-foreground ring-primary/45" : "bg-white/[0.03] text-muted-foreground ring-white/[0.06] hover:bg-white/[0.06]",
+                    "h-9 rounded-control text-[12px] ring-1 transition-colors",
+                    step !== "none" ? "bg-primary/[0.16] text-high ring-primary/45" : "bg-white/[0.03] text-medium ring-white/[0.06] hover:bg-white/[0.06]",
                   )}
                 >
                   {DKS_STEP_LABEL[step]}
@@ -1033,24 +1037,24 @@ function GenericAdvancedKeys({
         {form.dks.length < adv.dks!.bindingsPerKey && (
           <button
             onClick={() => setForm({ ...form, dks: [...form.dks, { code: "", steps: ["none", "none", "none", "none"] }] })}
-            className="self-start rounded-full px-3 py-1.5 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.05] hover:text-foreground"
+            className="self-start rounded-small px-3 py-1.5 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.05] hover:text-high"
           >
             Add an action
           </button>
         )}
-        <p className="text-[11.5px] text-muted-foreground">Click a cell to cycle it: Tap fires once there, Hold starts holding, Release lets go.</p>
+        <p className="text-[11.5px] text-medium">Click a cell to cycle it: Tap fires once there, Hold starts holding, Release lets go.</p>
       </div>
     ) : null;
 
   const dksRows = form.dks.filter((r) => r.code !== "");
   const canSave = type === "modTap" ? form.tap !== "" && form.hold !== "" : type === "dks" ? dksRows.length > 0 : true;
   const review = (
-    <div className="text-[13px] text-foreground">
+    <div className="text-[13px] text-high">
       <p>
-        <span className="text-muted-foreground">{flow && flow.keys.length > 1 ? "Keys: " : "Key: "}</span>
+        <span className="text-medium">{flow && flow.keys.length > 1 ? "Keys: " : "Key: "}</span>
         {flow ? keyNames(flow.keys) : ""}
       </p>
-      <p className="mt-1.5 text-[12.5px] text-muted-foreground">
+      <p className="mt-1.5 text-[12.5px] text-medium">
         {type === "socd" && SOCD_MODE_LABEL[form.socdMode]}
         {type === "modTap" && `Tap sends ${codeText(form.tap)}, hold sends ${codeText(form.hold)} after ${form.holdMs} ms.`}
         {type === "dks" && `${dksRows.map((r) => codeText(r.code)).join(", ") || "No actions"}.`}
@@ -1096,11 +1100,11 @@ function LightingRow({ setting, disabled, onChange }: { setting: LightingSetting
   useEffect(() => setDraft(setting.value), [JSON.stringify(setting.value)]); // eslint-disable-line react-hooks/exhaustive-deps
   const wrap = (body: ReactNode) => (
     <div className={cn("flex flex-col gap-1.5", disabled && "pointer-events-none opacity-60")}>
-      <span className="text-[12.5px] text-muted-foreground">{setting.label}</span>
+      <span className="text-[12.5px] text-medium">{setting.label}</span>
       {body}
     </div>
   );
-  if (setting.value === null) return wrap(<span className="text-[12.5px] text-muted-foreground/80">Not reported</span>);
+  if (setting.value === null) return wrap(<span className="text-[12.5px] text-medium">Not reported</span>);
   if (setting.kind === "toggle") return wrap(<Switch checked={draft === 1} onCheckedChange={(on) => onChange(on ? 1 : 0)} aria-label={setting.label} />);
   if (setting.kind === "choice" && setting.choice)
     return wrap(
@@ -1123,7 +1127,7 @@ function LightingRow({ setting, disabled, onChange }: { setting: LightingSetting
   return wrap(
     <div className="flex items-center gap-3">
       <input type="range" aria-label={setting.label} min={spec.min} max={spec.max} step={spec.step} value={n} onChange={(e) => setDraft(Number(e.target.value))} onPointerUp={() => onChange(n)} onKeyUp={() => onChange(n)} className="flex-1 accent-[var(--primary)]" />
-      <span className="tabular w-9 text-right text-[12.5px] text-foreground">{n}</span>
+      <span className="tabular w-9 text-right text-[12.5px] text-high">{n}</span>
     </div>,
   );
 }
@@ -1132,8 +1136,8 @@ function OptionRow({ option, disabled, onChange }: { option: KbOption; disabled:
   return (
     <div className={cn("flex items-center gap-3", disabled && "pointer-events-none opacity-60")}>
       <span className="min-w-0 flex-1">
-        <span className="block text-[13px] text-foreground">{option.label}</span>
-        {option.hint && <span className="block text-[11.5px] text-muted-foreground">{option.hint}</span>}
+        <span className="block text-[13px] text-high">{option.label}</span>
+        {option.hint && <span className="block text-[11.5px] text-medium">{option.hint}</span>}
       </span>
       {option.kind === "toggle" && <Switch checked={option.value === 1} onCheckedChange={(on) => onChange(on ? 1 : 0)} aria-label={option.label} />}
       {option.kind === "choice" &&
@@ -1142,7 +1146,7 @@ function OptionRow({ option, disabled, onChange }: { option: KbOption; disabled:
             {o.label}
           </Chip>
         ))}
-      {option.kind === "range" && <span className="tabular text-[13px] text-foreground">{option.value ?? "—"}</span>}
+      {option.kind === "range" && <span className="tabular text-[13px] text-high">{option.value ?? "—"}</span>}
     </div>
   );
 }
@@ -1152,15 +1156,15 @@ function NeverSends({ view }: { view: KbView }) {
   if (!view.blocked.length) return null;
   return (
     <Card innerClassName="px-5 py-4">
-      <button onClick={() => setOpen(!open)} className="flex w-full items-center gap-2 text-left text-[13px] text-foreground">
-        <ShieldCheck size={16} className="text-primary" />
+      <button onClick={() => setOpen(!open)} className="flex w-full items-center gap-2 text-left text-[13px] text-high">
+        <ShieldCheck size={16} weight="light" className="text-primary" />
         What SYNQ never sends this keyboard
-        <CaretDown size={13} className={cn("ml-auto text-muted-foreground transition-transform", open && "rotate-180")} />
+        <CaretDown size={12} className={cn("ml-auto text-medium transition-transform", open && "rotate-180")} />
       </button>
       {open && (
         <ul className="mt-3 flex flex-col gap-1.5 pl-6">
           {view.blocked.map((b) => (
-            <li key={b.what} className="list-disc text-[12.5px] text-muted-foreground">
+            <li key={b.what} className="list-disc text-[12.5px] text-medium">
               {b.what}
             </li>
           ))}
@@ -1179,10 +1183,10 @@ function GroupTier({ tier }: { tier: KbTier }) {
 function AllowCard({ allowed, onChange, tested }: { allowed: boolean; onChange: (on: boolean) => void; tested: boolean }) {
   if (allowed)
     return (
-      <div className="flex items-center gap-3 px-1 text-[12px] text-muted-foreground">
-        <span className="size-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" />
+      <div className="flex items-center gap-3 px-1 text-[12px] text-medium">
+        <span className="size-1.5 rounded-full bg-primary" />
         Changes are allowed. A backup is saved before the first one, and each is read back after.
-        <button onClick={() => onChange(false)} className="ml-auto text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+        <button onClick={() => onChange(false)} className="ml-auto text-medium underline-offset-2 hover:text-high hover:underline">
           Make read-only
         </button>
       </div>
@@ -1190,8 +1194,8 @@ function AllowCard({ allowed, onChange, tested }: { allowed: boolean; onChange: 
   return (
     <Card innerClassName="flex items-center gap-5 px-6 py-5">
       <div className="min-w-0 flex-1">
-        <p className="text-[15px] font-medium text-foreground">{tested ? "Some settings are read-only until you allow changes" : "Read-only until you allow changes"}</p>
-        <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">
+        <p className="text-[15px] font-medium text-high">{tested ? "Some settings are read-only until you allow changes" : "Read-only until you allow changes"}</p>
+        <p className="mt-1 text-[12.5px] leading-relaxed text-medium">
           SYNQ hasn't been tried on this keyboard{tested ? ", so only what its driver's authors tested can be changed now" : ""}. Everything below was read from it. When you allow changes, SYNQ saves a
           backup first and reads every change back.
         </p>

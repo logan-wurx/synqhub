@@ -9,6 +9,9 @@ use std::path::{Path, PathBuf};
 
 /// The folder a helper installed on its own lives in, under %LOCALAPPDATA%.
 pub const DIR_NAME: &str = "SYNQ Helper";
+/// SYNQ's own program, beside a helper installed on its own: never shown, it only puts game profiles on with no window
+/// (src/pass.rs). The website's download carries it (`--features with-app`).
+pub const BACKGROUND_EXE: &str = "synq-profiles.exe";
 /// Its entry among the installed apps (HKCU\...\Uninstall\<this>).
 pub const UNINSTALL_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\SYNQ Helper";
 /// The desktop app's entry, whose InstallLocation holds the helper the installer put there.
@@ -43,7 +46,7 @@ pub use win::*;
 
 #[cfg(windows)]
 mod win {
-    use super::{DESKTOP_KEY, DIR_NAME, UNINSTALL_KEY};
+    use super::{BACKGROUND_EXE, DESKTOP_KEY, DIR_NAME, UNINSTALL_KEY};
     use crate::helper_cfg;
     use std::path::{Path, PathBuf};
     use winreg::enums::{HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE};
@@ -62,12 +65,34 @@ mod win {
         exe.is_file().then_some(exe)
     }
 
-    /// Copies this exe into `target` (replacing an older copy) and lists it among the installed apps.
+    /// The SYNQ program this download carries (`--features with-app`), or nothing.
+    #[cfg(feature = "with-app")]
+    const APP: &[u8] = include_bytes!(env!("SYNQ_APP_EXE"));
+    #[cfg(not(feature = "with-app"))]
+    const APP: &[u8] = &[];
+
+    /// Puts the carried SYNQ program beside the helper (replacing an older one; one that is running stays until next
+    /// time). Without it, profiles for most devices switch only while the website is open.
+    fn write_background(dir: &Path) {
+        if APP.is_empty() {
+            return;
+        }
+        let dest = dir.join(BACKGROUND_EXE);
+        let fresh = dir.join(format!("{BACKGROUND_EXE}.new"));
+        if std::fs::write(&fresh, APP).is_ok() && std::fs::rename(&fresh, &dest).is_err() {
+            let _ = std::fs::remove_file(&fresh);
+        }
+    }
+
+    /// Copies this exe into `target` (replacing an older copy), with the SYNQ program it carries, and lists it among
+    /// the installed apps.
     pub fn install(me: &Path, target: &Path) -> Result<(), String> {
         let dir = target.parent().ok_or("No folder to install to.")?;
         std::fs::create_dir_all(dir).map_err(|e| format!("Couldn't make {}: {e}", dir.display()))?;
         std::fs::copy(me, target).map_err(|e| format!("Couldn't copy SYNQ Helper to {}: {e}", dir.display()))?;
-        let size_kb = std::fs::metadata(target).map(|m| (m.len() / 1024) as u32).unwrap_or(0);
+        write_background(dir);
+        let size = |p: &Path| std::fs::metadata(p).map(|m| m.len()).unwrap_or(0);
+        let size_kb = ((size(target) + size(&dir.join(BACKGROUND_EXE))) / 1024) as u32;
         let (key, _) = RegKey::predef(HKEY_CURRENT_USER).create_subkey(UNINSTALL_KEY).map_err(|e| e.to_string())?;
         let exe = target.display().to_string();
         let set = |name: &str, v: &str| key.set_value(name, &v.to_string()).map_err(|e| e.to_string());
@@ -120,7 +145,8 @@ mod win {
     }
 }
 
-#[cfg(test)]
+// The install-itself flow is Windows' (the website's one file); its paths are Windows paths.
+#[cfg(all(test, windows))]
 mod tests {
     use super::*;
 

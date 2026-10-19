@@ -2,7 +2,7 @@
 // the default output, so it passes through the current EQ: what still bites is what is left to
 // fix. Level is capped low on purpose.
 import { useEffect, useRef, useState } from "react";
-import { Broadcast, Play, Scissors, Stop, X } from "@phosphor-icons/react";
+import { Broadcast, Play, Scissors, SpeakerHigh, Stop, X } from "@phosphor-icons/react";
 import { EqBarSlider } from "@/components/ui/eq-bar-slider";
 import { GlassRadio, TransportKeys } from "@/components/uiverse";
 import { formatHz } from "@/lib/eq";
@@ -57,6 +57,8 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
   const playing = mode !== "stop";
   const sweeping = mode === "sweep";
   const audio = useRef<{ ctx: AudioContext; filter: BiquadFilterNode; gain: GainNode; src: AudioBufferSourceNode } | null>(null);
+  /** The next sweep starts at the bottom of its range (a range was just picked), not where the tone is. */
+  const fromLow = useRef(false);
 
   const stop = () => {
     audio.current?.src.stop();
@@ -99,10 +101,20 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
     a?.gain.gain.setTargetAtTime(10 ** (LEVEL_DB(level) / 20), a.ctx.currentTime, 0.05);
   }, [level]);
 
+  /** A range is what gets swept: picking one while the noise plays sweeps it from its low end; while stopped, the
+   *  tone moves there, ready. */
+  const pickRange = (r: Range) => {
+    setRange(r);
+    fromLow.current = true;
+    setFreq(RANGES[r][0]);
+    if (playing) setMode("sweep");
+  };
+
   useEffect(() => {
     if (!sweeping) return;
     const steps = RANGES[range];
-    let i = Math.max(0, steps.findIndex((f) => f >= freq));
+    let i = fromLow.current ? 0 : Math.max(0, steps.findIndex((f) => f >= freq));
+    fromLow.current = false;
     setFreq(steps[i]);
     const timer = window.setInterval(() => {
       i = (i + 1) % steps.length;
@@ -115,28 +127,20 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3">
-        <TransportKeys<Mode>
-          value={mode}
-          onChange={changeMode}
-          keys={[
-            { value: "stop", label: "Stop", icon: <Stop size={12} weight="fill" /> },
-            { value: "play", label: "Play", icon: <Play size={12} weight="fill" /> },
-            { value: "sweep", label: "Sweep", icon: <Broadcast size={13} weight="bold" /> },
-          ]}
-        />
-        <button
-          disabled={!playing}
-          onClick={() => onMark(freq)}
-          className="ml-auto flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-[13.5px] font-medium text-primary-foreground shadow-[0_8px_24px_-8px_var(--primary)] transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-40 disabled:shadow-none"
-        >
-          That one's harsh
-        </button>
-      </div>
+      <TransportKeys<Mode>
+        fill
+        value={mode}
+        onChange={changeMode}
+        keys={[
+          { value: "stop", label: "Stop", icon: <Stop size={12} weight="fill" /> },
+          { value: "play", label: "Play", icon: <Play size={12} weight="fill" /> },
+          { value: "sweep", label: "Sweep", icon: <Broadcast size={14} weight="bold" /> },
+        ]}
+      />
 
       <GlassRadio<Range>
         value={range}
-        onChange={setRange}
+        onChange={pickRange}
         options={[
           { value: "full", label: "Full", hint: "1k–16k" },
           { value: "treble", label: "Treble", hint: "4k–16k" },
@@ -144,13 +148,23 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
         ]}
       />
 
-      <LogFreqSlider value={freq} onChange={(f) => { if (sweeping) setMode("play"); setFreq(f); }} />
+      <LogFreqSlider value={freq} band={[RANGES[range][0], RANGES[range][RANGES[range].length - 1]]} onChange={(f) => { if (sweeping) setMode("play"); setFreq(f); }} />
 
+      {/* The level, and the button that marks what's playing now (the frequency shown above). */}
       <div className="flex items-center gap-3">
-        <span className="w-14 text-[12.5px] text-muted-foreground">Volume</span>
-        <div className="flex-1">
+        <span className="flex w-14 shrink-0 items-center text-medium" title="Noise level">
+          <SpeakerHigh size={16} weight="light" />
+        </span>
+        <div className="min-w-0 flex-1">
           <EqBarSlider value={level} min={0} max={100} step={1} unit="%" onChange={setLevel} aria-label="Noise level" />
         </div>
+        <button
+          disabled={!playing}
+          onClick={() => onMark(freq)}
+          className="flex h-11 shrink-0 items-center whitespace-nowrap rounded-control bg-primary px-4 text-[13.5px] font-medium text-primary-foreground shadow-[0_8px_24px_-8px_var(--primary)] transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-40 disabled:shadow-none"
+        >
+          That one's harsh
+        </button>
       </div>
 
       {markers.length > 0 && (
@@ -158,11 +172,11 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
           {markers.map((f) => (
             <span key={f} className="tabular flex items-center gap-1 rounded-full bg-chart-3/10 py-1 pl-3 pr-1 text-[12px] text-chart-3 ring-1 ring-chart-3/25">
               {formatHz(f)} Hz
-              <button onClick={() => onCut(f)} title="Turn this frequency down 3 dB" className="ml-1 flex items-center gap-1 rounded-full bg-white/[0.06] px-2.5 py-0.5 font-sans text-[12px] text-foreground transition-colors hover:bg-white/[0.12]">
-                <Scissors size={12} weight="light" /> Tame it
+              <button onClick={() => onCut(f)} title="Turn this frequency down 3 dB" className="ml-1 flex items-center gap-1 rounded-full bg-white/[0.06] px-2.5 py-0.5 font-sans text-[12px] text-high transition-colors hover:bg-white/[0.12]">
+                <Scissors size={12} /> Tame it
               </button>
-              <button onClick={() => onUnmark(f)} className="rounded-full p-1 text-muted-foreground hover:text-foreground" title="Remove mark">
-                <X size={11} />
+              <button onClick={() => onUnmark(f)} className="rounded-full p-1 text-medium hover:text-high" title="Remove mark">
+                <X size={12} />
               </button>
             </span>
           ))}
@@ -174,7 +188,8 @@ export function BandFinder({ markers, onMark, onUnmark, onCut }: BandFinderProps
 
 const TICKS = [125, 250, 500, 1000, 2000, 4000, 8000, 16000];
 
-function LogFreqSlider({ value, onChange }: { value: number; onChange: (f: number) => void }) {
+/** `band`: the range being swept, shown on the track. */
+function LogFreqSlider({ value, band, onChange }: { value: number; band: readonly [number, number]; onChange: (f: number) => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const [drag, setDrag] = useState(false);
   const l0 = Math.log(F_LO), l1 = Math.log(F_HI);
@@ -187,10 +202,10 @@ function LogFreqSlider({ value, onChange }: { value: number; onChange: (f: numbe
   };
   return (
     <div className="flex items-center gap-3">
-      <span className="tabular w-14 text-[14px] text-foreground">{formatHz(value)}<span className="ml-0.5 font-sans text-[11px] text-muted-foreground">Hz</span></span>
+      <span className="tabular w-14 text-[14px] text-high">{formatHz(value)}<span className="ml-0.5 font-sans text-[11px] text-medium">Hz</span></span>
       <div
         ref={ref}
-        className="relative h-10 flex-1 cursor-pointer touch-none rounded-full bg-black/30 shadow-[inset_0_2px_6px_rgb(0_0_0/0.5)] ring-1 ring-white/[0.06]"
+        className="relative h-10 flex-1 cursor-pointer touch-none rounded-full bg-shade/30 shadow-[inset_0_2px_6px_rgb(0_0_0/0.5)] ring-1 ring-white/[0.06]"
         onPointerDown={(e) => {
           e.currentTarget.setPointerCapture(e.pointerId);
           setDrag(true);
@@ -199,8 +214,9 @@ function LogFreqSlider({ value, onChange }: { value: number; onChange: (f: numbe
         onPointerMove={(e) => drag && onChange(at(e.clientX))}
         onPointerUp={() => setDrag(false)}
       >
+        <span className="absolute inset-y-1 rounded-full bg-primary/[0.14] ring-1 ring-primary/30 transition-[left,width] duration-500 ease-fluid" style={{ left: `${pct(band[0]) * 100}%`, width: `${(pct(band[1]) - pct(band[0])) * 100}%` }} />
         {TICKS.map((f) => (
-          <span key={f} className="absolute bottom-1 -translate-x-1/2 text-[10px] text-muted-foreground/80" style={{ left: `${pct(f) * 100}%` }}>
+          <span key={f} className="absolute bottom-1 -translate-x-1/2 text-[10px] text-medium" style={{ left: `${pct(f) * 100}%` }}>
             {formatHz(f)}
           </span>
         ))}

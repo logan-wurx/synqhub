@@ -1,6 +1,105 @@
 {
  "models": [
   {
+   "key": "64-audio-u12t",
+   "vendor": "64-audio",
+   "name": "64 Audio U12t",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "64 Audio U12t",
+    "u12t"
+   ],
+   "kb": 30.1,
+   "size": [
+    618,
+    474
+   ]
+  },
+  {
+   "key": "7hz-salnotes-zero",
+   "vendor": "7hz",
+   "name": "7Hz Salnotes Zero",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "7Hz Salnotes Zero",
+    "salnotes zero"
+   ],
+   "kb": 63.5,
+   "size": [
+    900,
+    601
+   ]
+  },
+  {
+   "key": "7hz-salnotes-zero-2",
+   "vendor": "7hz",
+   "name": "7Hz Salnotes Zero:2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "7Hz Salnotes Zero:2",
+    "salnotes zero 2",
+    "7hz x crinacle zero 2",
+    "crinacle zero 2",
+    "zero 2"
+   ],
+   "kb": 47.1,
+   "size": [
+    644,
+    544
+   ]
+  },
+  {
+   "key": "7hz-sonus",
+   "vendor": "7hz",
+   "name": "7Hz Sonus",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "7Hz Sonus",
+    "sonus"
+   ],
+   "kb": 49.0,
+   "size": [
+    731,
+    568
+   ]
+  },
+  {
+   "key": "7hz-timeless",
+   "vendor": "7hz",
+   "name": "7Hz Timeless",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "7Hz Timeless",
+    "timeless"
+   ],
+   "kb": 42.3,
+   "size": [
+    600,
+    481
+   ]
+  },
+  {
+   "key": "7hz-timeless-ii",
+   "vendor": "7hz",
+   "name": "7Hz Timeless II",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "7Hz Timeless II",
+    "timeless ii"
+   ],
+   "kb": 67.7,
+   "size": [
+    900,
+    504
+   ]
+  },
+  {
    "key": "8bitdo-pro-2",
    "vendor": "8bitdo",
    "name": "8BitDo Pro 2",
@@ -16,10 +115,10 @@
     "8bitdo pro 2",
     "pro 2 wired controller"
    ],
-   "kb": 35.3,
+   "kb": 39.3,
    "size": [
-    600,
-    517
+    736,
+    634
    ]
   },
   {
@@ -36,10 +135,10 @@
     "pro 3",
     "8bitdo pro 3"
    ],
-   "kb": 33.2,
+   "kb": 53.2,
    "size": [
-    600,
-    412
+    752,
+    516
    ]
   },
   {
@@ -128,10 +227,10 @@
     "8bitdo ultimate 2c",
     "ultimate 2c wireless controller"
    ],
-   "kb": 30.4,
+   "kb": 42.0,
    "size": [
-    600,
-    427
+    734,
+    522
    ]
   },
   {
@@ -148,10 +247,10 @@
     "8bitdo ultimate 3 mode",
     "ultimate 3 mode controller for xbox"
    ],
-   "kb": 22.6,
+   "kb": 47.5,
    "size": [
-    600,
-    599
+    900,
+    898
    ]
   },
   {
@@ -168,10 +267,10 @@
     "8bitdo ultimate wired controller for xbox",
     "8bitdo ultimate wired"
    ],
-   "kb": 32.9,
+   "kb": 43.0,
    "size": [
-    600,
-    431
+    708,
+    509
    ]
   },
   {
@@ -214,10 +313,10 @@
     "ak820max",
     "ajazz ak820max"
    ],
-   "kb": 19.3,
+   "kb": 32.3,
    "size": [
-    600,
-    275
+    852,
+    390
    ]
   },
   {
@@ -233,10 +332,10 @@
     "ak980",
     "ak980 max"
    ],
-   "kb": 24.1,
+   "kb": 44.6,
    "size": [
-    600,
-    228
+    900,
+    341
    ]
   },
   {
@@ -254,10 +353,10 @@
     "monsgeek 5075b v2 he",
     "akko 5075b v2 he"
    ],
-   "kb": 35.5,
+   "kb": 69.3,
    "size": [
-    600,
-    271
+    900,
+    407
    ]
   },
   {
@@ -290,10 +389,10 @@
     "5087 v3 he",
     "akko 5087 v3 he"
    ],
-   "kb": 30.2,
+   "kb": 43.1,
    "size": [
-    600,
-    201
+    748,
+    250
    ]
   },
   {
@@ -328,10 +427,10 @@
     "akko 5108 v5 he",
     "5108 v5"
    ],
-   "kb": 32.8,
+   "kb": 45.7,
    "size": [
-    600,
-    195
+    725,
+    236
    ]
   },
   {
@@ -499,10 +598,10 @@
     "24g2w1g4",
     "24g2u5"
    ],
-   "kb": 35.6,
+   "kb": 58.1,
    "size": [
-    467,
-    600
+    701,
+    900
    ]
   },
   {
@@ -518,10 +617,10 @@
     "27g2g4",
     "27g2wg4"
    ],
-   "kb": 37.4,
+   "kb": 60.5,
    "size": [
-    468,
-    600
+    702,
+    900
    ]
   },
   {
@@ -534,10 +633,192 @@
     "AOC AGON PRO AG276QZD",
     "ag276qzd"
    ],
-   "kb": 36.7,
+   "kb": 67.1,
    "size": [
-    600,
-    589
+    900,
+    883
+   ]
+  },
+  {
+   "key": "aoc-c24g1",
+   "vendor": "aoc",
+   "name": "AOC C24G1",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "AOC C24G1",
+    "c24g1"
+   ],
+   "kb": 69.9,
+   "size": [
+    900,
+    887
+   ]
+  },
+  {
+   "key": "aoc-cu34g2x",
+   "vendor": "aoc",
+   "name": "AOC CU34G2X",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "AOC CU34G2X",
+    "cu34g2x"
+   ],
+   "kb": 65.8,
+   "size": [
+    900,
+    867
+   ]
+  },
+  {
+   "key": "aoc-q27g2s",
+   "vendor": "aoc",
+   "name": "AOC Q27G2S",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "AOC Q27G2S",
+    "q27g2s"
+   ],
+   "kb": 60.5,
+   "size": [
+    702,
+    900
+   ]
+  },
+  {
+   "key": "aoc-q27g3xmn",
+   "vendor": "aoc",
+   "name": "AOC Q27G3XMN",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "AOC Q27G3XMN",
+    "q27g3xmn"
+   ],
+   "kb": 69.6,
+   "size": [
+    809,
+    900
+   ]
+  },
+  {
+   "key": "apple-airpods-3rd-generation",
+   "vendor": "apple",
+   "name": "Apple AirPods (3rd generation)",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Apple AirPods (3rd generation)",
+    "airpods 3rd generation",
+    "apple airpods 3"
+   ],
+   "kb": 36.2,
+   "size": [
+    665,
+    900
+   ]
+  },
+  {
+   "key": "apple-airpods-4",
+   "vendor": "apple",
+   "name": "Apple AirPods 4",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Apple AirPods 4",
+    "airpods 4"
+   ],
+   "kb": 13.2,
+   "size": [
+    576,
+    609
+   ]
+  },
+  {
+   "key": "apple-airpods-max",
+   "vendor": "apple",
+   "name": "Apple AirPods Max",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Apple AirPods Max",
+    "airpods max"
+   ],
+   "kb": 56.9,
+   "size": [
+    680,
+    748
+   ]
+  },
+  {
+   "key": "apple-airpods-pro",
+   "vendor": "apple",
+   "name": "Apple AirPods Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Apple AirPods Pro",
+    "airpods pro",
+    "airpods pro 1st generation"
+   ],
+   "kb": 39.0,
+   "size": [
+    709,
+    900
+   ]
+  },
+  {
+   "key": "apple-airpods-pro-2",
+   "vendor": "apple",
+   "name": "Apple AirPods Pro 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Apple AirPods Pro 2",
+    "airpods pro 2",
+    "apple airpods pro 2nd generation",
+    "airpods pro2"
+   ],
+   "kb": 37.5,
+   "size": [
+    737,
+    900
+   ]
+  },
+  {
+   "key": "astro-a50-x",
+   "vendor": "astro",
+   "name": "ASTRO A50 X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "ASTRO A50 X",
+    "a50 x",
+    "astro gaming a50 x",
+    "logitech astro a50 x"
+   ],
+   "kb": 69.8,
+   "size": [
+    734,
+    900
+   ]
+  },
+  {
+   "key": "asus-pg259qn",
+   "vendor": "asus",
+   "name": "ASUS ROG Swift 360Hz PG259QN",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS ROG Swift 360Hz PG259QN",
+    "pg259qn"
+   ],
+   "kb": 67.3,
+   "size": [
+    807,
+    900
    ]
   },
   {
@@ -550,10 +831,10 @@
     "ASUS ROG Swift OLED PG27AQDM",
     "pg27aqdm"
    ],
-   "kb": 36.9,
+   "kb": 69.4,
    "size": [
-    560,
-    600
+    840,
+    900
    ]
   },
   {
@@ -566,10 +847,26 @@
     "ASUS ROG Swift 360Hz PG27AQN",
     "pg27aqn"
    ],
-   "kb": 39.3,
+   "kb": 67.4,
    "size": [
-    573,
-    600
+    859,
+    900
+   ]
+  },
+  {
+   "key": "asus-pg27ucdm",
+   "vendor": "asus",
+   "name": "ASUS ROG Swift OLED PG27UCDM",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS ROG Swift OLED PG27UCDM",
+    "pg27ucdm"
+   ],
+   "kb": 68.8,
+   "size": [
+    700,
+    604
    ]
   },
   {
@@ -582,10 +879,26 @@
     "ASUS ROG Swift OLED PG32UCDM",
     "pg32ucdm"
    ],
-   "kb": 39.2,
+   "kb": 65.6,
    "size": [
-    540,
-    536
+    700,
+    695
+   ]
+  },
+  {
+   "key": "asus-pg34wcdm",
+   "vendor": "asus",
+   "name": "ASUS ROG Swift OLED PG34WCDM",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS ROG Swift OLED PG34WCDM",
+    "pg34wcdm"
+   ],
+   "kb": 66.7,
+   "size": [
+    700,
+    656
    ]
   },
   {
@@ -600,10 +913,10 @@
     "kd300",
     "asus proart keyboard kd300"
    ],
-   "kb": 15.0,
+   "kb": 23.3,
    "size": [
-    600,
-    228
+    823,
+    313
    ]
   },
   {
@@ -618,10 +931,10 @@
     "md301",
     "asus proart mouse md301"
    ],
-   "kb": 12.8,
+   "kb": 16.7,
    "size": [
-    396,
-    600
+    543,
+    823
    ]
   },
   {
@@ -638,10 +951,10 @@
     "rog raikiri",
     "asus rog raikiri"
    ],
-   "kb": 32.5,
+   "kb": 58.7,
    "size": [
-    600,
-    428
+    900,
+    641
    ]
   },
   {
@@ -658,10 +971,10 @@
     "rog raikiri pro",
     "asus rog raikiri pro"
    ],
-   "kb": 31.9,
+   "kb": 66.5,
    "size": [
-    600,
-    417
+    900,
+    626
    ]
   },
   {
@@ -708,6 +1021,22 @@
    ]
   },
   {
+   "key": "asus-vg249q1a",
+   "vendor": "asus",
+   "name": "ASUS TUF Gaming VG249Q1A",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS TUF Gaming VG249Q1A",
+    "vg249q1a"
+   ],
+   "kb": 68.9,
+   "size": [
+    900,
+    788
+   ]
+  },
+  {
    "key": "asus-vg259qm",
    "vendor": "asus",
    "name": "ASUS TUF Gaming VG259QM",
@@ -717,10 +1046,10 @@
     "ASUS TUF Gaming VG259QM",
     "vg259qm"
    ],
-   "kb": 36.5,
+   "kb": 68.7,
    "size": [
-    528,
-    600
+    792,
+    900
    ]
   },
   {
@@ -733,10 +1062,10 @@
     "ASUS TUF Gaming VG279QM",
     "vg279qm"
    ],
-   "kb": 36.5,
+   "kb": 61.8,
    "size": [
-    600,
-    506
+    900,
+    760
    ]
   },
   {
@@ -749,10 +1078,42 @@
     "ASUS TUF Gaming VG27AQ",
     "vg27aq"
    ],
-   "kb": 35.3,
+   "kb": 64.7,
    "size": [
-    600,
-    549
+    900,
+    823
+   ]
+  },
+  {
+   "key": "asus-vg27aq1a",
+   "vendor": "asus",
+   "name": "ASUS TUF Gaming VG27AQ1A",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS TUF Gaming VG27AQ1A",
+    "vg27aq1a"
+   ],
+   "kb": 69.1,
+   "size": [
+    900,
+    802
+   ]
+  },
+  {
+   "key": "asus-xg27acs",
+   "vendor": "asus",
+   "name": "ASUS ROG Strix XG27ACS",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS ROG Strix XG27ACS",
+    "xg27acs"
+   ],
+   "kb": 65.1,
+   "size": [
+    879,
+    900
    ]
   },
   {
@@ -765,10 +1126,26 @@
     "ASUS ROG Strix XG27AQM",
     "xg27aqm"
    ],
-   "kb": 36.6,
+   "kb": 66.5,
    "size": [
-    600,
-    577
+    900,
+    865
+   ]
+  },
+  {
+   "key": "asus-xg27ucs",
+   "vendor": "asus",
+   "name": "ASUS ROG Strix XG27UCS",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ASUS ROG Strix XG27UCS",
+    "xg27ucs"
+   ],
+   "kb": 65.1,
+   "size": [
+    879,
+    900
    ]
   },
   {
@@ -785,10 +1162,10 @@
     "rog azoth",
     "azoth"
    ],
-   "kb": 30.5,
+   "kb": 41.0,
    "size": [
-    600,
-    265
+    696,
+    307
    ]
   },
   {
@@ -845,10 +1222,10 @@
     "Azoth Extreme Edition 20",
     "Azoth Extreme Edition 20"
    ],
-   "kb": 37.7,
+   "kb": 69.7,
    "size": [
-    600,
-    435
+    842,
+    610
    ]
   },
   {
@@ -865,10 +1242,10 @@
     "AZOTH X",
     "AZOTH X"
    ],
-   "kb": 36.0,
+   "kb": 61.3,
    "size": [
-    600,
-    422
+    844,
+    593
    ]
   },
   {
@@ -885,10 +1262,10 @@
     "FALCATA",
     "FALCATA"
    ],
-   "kb": 33.0,
+   "kb": 38.3,
    "size": [
-    592,
-    600
+    667,
+    676
    ]
   },
   {
@@ -923,10 +1300,27 @@
     "FALCHION ACE HFX",
     "FALCHION ACE HFX"
    ],
-   "kb": 22.4,
+   "kb": 34.3,
    "size": [
-    600,
-    299
+    846,
+    422
+   ]
+  },
+  {
+   "key": "rog-falchion-ace-hfx-zywoo-edition",
+   "vendor": "asus",
+   "name": "ROG FALCHION ACE HFX ZYWOO EDITION",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "ROG FALCHION ACE HFX ZYWOO EDITION",
+    "falchion ace hfx zywoo edition",
+    "falchion ace hfx zywoo"
+   ],
+   "kb": 62.4,
+   "size": [
+    900,
+    572
    ]
   },
   {
@@ -945,10 +1339,10 @@
     "rog gladius ii p502",
     "gladius ii core"
    ],
-   "kb": 29.1,
+   "kb": 65.6,
    "size": [
-    345,
-    600
+    496,
+    863
    ]
   },
   {
@@ -964,10 +1358,10 @@
     "GLADIUS III CORE",
     "GLADIUS III CORE"
    ],
-   "kb": 14.2,
+   "kb": 18.0,
    "size": [
-    318,
-    600
+    444,
+    838
    ]
   },
   {
@@ -987,10 +1381,10 @@
     "gladius iv ace max",
     "rog gladius iv ace max"
    ],
-   "kb": 12.6,
+   "kb": 14.3,
    "size": [
-    329,
-    600
+    437,
+    797
    ]
   },
   {
@@ -1096,10 +1490,10 @@
     "HARPE II EXTREME EDITION 20",
     "HARPE II EXTREME 20"
    ],
-   "kb": 29.7,
+   "kb": 35.6,
    "size": [
-    314,
-    600
+    376,
+    719
    ]
   },
   {
@@ -1115,10 +1509,10 @@
     "HARPE MINI CORE",
     "HARPE MINI CORE"
    ],
-   "kb": 14.2,
+   "kb": 13.1,
    "size": [
-    296,
-    600
+    324,
+    656
    ]
   },
   {
@@ -1175,10 +1569,10 @@
     "KERIS II ORIGIN-KJP",
     "KERIS II ORIGIN-KJP"
    ],
-   "kb": 19.9,
+   "kb": 21.4,
    "size": [
-    339,
-    600
+    392,
+    694
    ]
   },
   {
@@ -1195,10 +1589,10 @@
     "SPATHA X 65K",
     "SPATHA X 65K"
    ],
-   "kb": 20.5,
+   "kb": 27.8,
    "size": [
-    400,
-    600
+    555,
+    833
    ]
   },
   {
@@ -1218,10 +1612,10 @@
     "rog strix morph 96 x wireless",
     "strix morph 96 x wireless"
    ],
-   "kb": 25.4,
+   "kb": 38.3,
    "size": [
-    600,
-    219
+    798,
+    291
    ]
   },
   {
@@ -1257,10 +1651,10 @@
     "STRIX SCOPE II RX",
     "STRIX SCOPE II RX"
    ],
-   "kb": 24.9,
+   "kb": 46.1,
    "size": [
-    600,
-    358
+    900,
+    537
    ]
   },
   {
@@ -1278,10 +1672,10 @@
     "a9 mini plus",
     "a9 mini +"
    ],
-   "kb": 14.5,
+   "kb": 24.2,
    "size": [
-    318,
-    600
+    477,
+    900
    ]
   },
   {
@@ -1295,10 +1689,10 @@
     "duckbill",
     "duck bill"
    ],
-   "kb": 17.2,
+   "kb": 28.9,
    "size": [
-    333,
-    600
+    500,
+    900
    ]
   },
   {
@@ -1312,10 +1706,10 @@
     "atk f1",
     "f1"
    ],
-   "kb": 14.0,
+   "kb": 23.9,
    "size": [
-    330,
-    600
+    495,
+    900
    ]
   },
   {
@@ -1328,10 +1722,10 @@
     "ATK F1 MOBA",
     "f1 moba"
    ],
-   "kb": 15.4,
+   "kb": 25.5,
    "size": [
-    334,
-    600
+    501,
+    900
    ]
   },
   {
@@ -1346,10 +1740,10 @@
     "f1 v2 ultra max",
     "f1 ultra max"
    ],
-   "kb": 15.4,
+   "kb": 25.5,
    "size": [
-    334,
-    600
+    501,
+    900
    ]
   },
   {
@@ -1364,10 +1758,10 @@
     "f1 ultimate 2 0",
     "atk f1 ultimate"
    ],
-   "kb": 14.1,
+   "kb": 23.6,
    "size": [
-    330,
-    600
+    495,
+    900
    ]
   },
   {
@@ -1380,10 +1774,10 @@
     "ATK Fierce X",
     "fierce x"
    ],
-   "kb": 27.0,
+   "kb": 47.0,
    "size": [
-    319,
-    600
+    478,
+    900
    ]
   },
   {
@@ -1396,10 +1790,10 @@
     "ATK U2",
     "u2"
    ],
-   "kb": 14.6,
+   "kb": 24.7,
    "size": [
-    327,
-    600
+    490,
+    900
    ]
   },
   {
@@ -1412,10 +1806,10 @@
     "ATK V1",
     "atk v1"
    ],
-   "kb": 14.0,
+   "kb": 23.3,
    "size": [
-    329,
-    600
+    494,
+    900
    ]
   },
   {
@@ -1429,10 +1823,10 @@
     "atk x1",
     "x1"
    ],
-   "kb": 14.6,
+   "kb": 25.0,
    "size": [
-    316,
-    600
+    473,
+    900
    ]
   },
   {
@@ -1449,10 +1843,29 @@
     "atk x1 v2",
     "x1 v2 air"
    ],
-   "kb": 15.0,
+   "kb": 25.4,
    "size": [
-    315,
-    600
+    472,
+    900
+   ]
+  },
+  {
+   "key": "atk-x1-v2-air-plus",
+   "vendor": "atk",
+   "name": "ATK Blazing Sky X1 V2 Air+",
+   "kind": "mouse",
+   "ids": [],
+   "names": [
+    "ATK Blazing Sky X1 V2 Air+",
+    "x1 v2 air plus",
+    "atk x1 v2 air plus",
+    "blazing sky x1 v2 air plus",
+    "vxe x1 v2 air plus"
+   ],
+   "kb": 30.6,
+   "size": [
+    392,
+    749
    ]
   },
   {
@@ -1465,10 +1878,10 @@
     "ATK Z1",
     "z1"
    ],
-   "kb": 16.5,
+   "kb": 29.9,
    "size": [
-    341,
-    600
+    511,
+    900
    ]
   },
   {
@@ -1482,10 +1895,10 @@
     "z1 v2",
     "blazing sky z1 v2"
    ],
-   "kb": 14.1,
+   "kb": 23.6,
    "size": [
-    338,
-    600
+    507,
+    900
    ]
   },
   {
@@ -1525,10 +1938,10 @@
     "mad r",
     "vxe mad r"
    ],
-   "kb": 13.8,
+   "kb": 22.8,
    "size": [
-    328,
-    600
+    492,
+    900
    ]
   },
   {
@@ -1542,10 +1955,10 @@
     "mad r major",
     "vxe mad r major"
    ],
-   "kb": 13.8,
+   "kb": 22.6,
    "size": [
-    328,
-    600
+    492,
+    900
    ]
   },
   {
@@ -1566,10 +1979,10 @@
     "vxe dragonfly r1 pro",
     "r1"
    ],
-   "kb": 14.1,
+   "kb": 24.5,
    "size": [
-    328,
-    600
+    491,
+    900
    ]
   },
   {
@@ -1601,10 +2014,10 @@
     "R1",
     "Attack Shark R1"
    ],
-   "kb": 16.7,
+   "kb": 32.4,
    "size": [
-    329,
-    600
+    485,
+    885
    ]
   },
   {
@@ -1626,10 +2039,10 @@
     "R3",
     "Attack Shark R3"
    ],
-   "kb": 32.1,
+   "kb": 45.9,
    "size": [
-    317,
-    600
+    452,
+    859
    ]
   },
   {
@@ -1646,10 +2059,10 @@
     "r5 ultra",
     "attack shark r5 ultra"
    ],
-   "kb": 36.1,
+   "kb": 69.5,
    "size": [
-    284,
-    540
+    420,
+    800
    ]
   },
   {
@@ -1671,10 +2084,10 @@
     "R6",
     "Attack Shark R6"
    ],
-   "kb": 15.2,
+   "kb": 32.1,
    "size": [
-    327,
-    600
+    476,
+    875
    ]
   },
   {
@@ -1689,10 +2102,10 @@
     "v3",
     "attack shark v3 pro"
    ],
-   "kb": 17.8,
+   "kb": 30.1,
    "size": [
-    352,
-    600
+    515,
+    881
    ]
   },
   {
@@ -1738,10 +2151,10 @@
     "x11 ultra",
     "x11se"
    ],
-   "kb": 33.7,
+   "kb": 62.7,
    "size": [
-    312,
-    600
+    450,
+    872
    ]
   },
   {
@@ -1751,15 +2164,14 @@
    "kind": "mouse",
    "ids": [],
    "names": [
-    "X3",
     "Attack Shark X3",
     "X3",
-    "Attack Shark X3"
+    "X3"
    ],
-   "kb": 19.7,
+   "kb": 12.5,
    "size": [
-    323,
-    600
+    472,
+    875
    ]
   },
   {
@@ -1774,10 +2186,10 @@
     "X3 Pro",
     "Attack Shark X3 Pro"
    ],
-   "kb": 16.2,
+   "kb": 28.5,
    "size": [
-    325,
-    600
+    478,
+    886
    ]
   },
   {
@@ -1813,10 +2225,192 @@
     "attack shark x8 se",
     "attack shark x8 plus"
    ],
-   "kb": 16.8,
+   "kb": 31.1,
    "size": [
-    314,
-    600
+    454,
+    869
+   ]
+  },
+  {
+   "key": "audeze-lcd-2-classic",
+   "vendor": "audeze",
+   "name": "Audeze LCD-2 Classic",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audeze LCD-2 Classic",
+    "lcd 2 classic"
+   ],
+   "kb": 61.5,
+   "size": [
+    598,
+    900
+   ]
+  },
+  {
+   "key": "audeze-lcd-x",
+   "vendor": "audeze",
+   "name": "Audeze LCD-X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audeze LCD-X",
+    "lcd x"
+   ],
+   "kb": 68.1,
+   "size": [
+    574,
+    900
+   ]
+  },
+  {
+   "key": "audeze-maxwell",
+   "vendor": "audeze",
+   "name": "Audeze Maxwell",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audeze Maxwell",
+    "maxwell"
+   ],
+   "kb": 30.0,
+   "size": [
+    551,
+    690
+   ]
+  },
+  {
+   "key": "audeze-penrose",
+   "vendor": "audeze",
+   "name": "Audeze Penrose",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audeze Penrose",
+    "penrose"
+   ],
+   "kb": 69.0,
+   "size": [
+    813,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-ad700x",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-AD700X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-AD700X",
+    "ath ad700x"
+   ],
+   "kb": 64.5,
+   "size": [
+    480,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-m20x",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-M20x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-M20x",
+    "ath m20x"
+   ],
+   "kb": 63.3,
+   "size": [
+    537,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-m40x",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-M40x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-M40x",
+    "ath m40x"
+   ],
+   "kb": 66.7,
+   "size": [
+    471,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-m50x",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-M50x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-M50x",
+    "ath m50x"
+   ],
+   "kb": 69.5,
+   "size": [
+    469,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-m50xbt2",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-M50xBT2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-M50xBT2",
+    "ath m50xbt2"
+   ],
+   "kb": 63.6,
+   "size": [
+    619,
+    900
+   ]
+  },
+  {
+   "key": "audio-technica-ath-r70x",
+   "vendor": "audio-technica",
+   "name": "Audio-Technica ATH-R70x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Audio-Technica ATH-R70x",
+    "ath r70x"
+   ],
+   "kb": 66.4,
+   "size": [
+    493,
+    900
+   ]
+  },
+  {
+   "key": "aukey-pc-lm1e",
+   "vendor": "aukey",
+   "name": "AUKEY PC-LM1E 1080p Webcam",
+   "kind": "webcam",
+   "ids": [
+    "0458:6006"
+   ],
+   "names": [
+    "AUKEY PC-LM1E 1080p Webcam",
+    "pc lm1e",
+    "pc lm1e camera",
+    "aukey pc lm1e",
+    "pc lm1",
+    "aukey pc lm1"
+   ],
+   "kb": 16.9,
+   "size": [
+    680,
+    311
    ]
   },
   {
@@ -1834,10 +2428,60 @@
     "f65",
     "f65m"
    ],
-   "kb": 13.8,
+   "kb": 25.5,
    "size": [
-    600,
-    234
+    900,
+    351
+   ]
+  },
+  {
+   "key": "beats-studio-pro",
+   "vendor": "beats",
+   "name": "Beats Studio Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beats Studio Pro",
+    "studio pro"
+   ],
+   "kb": 57.8,
+   "size": [
+    639,
+    900
+   ]
+  },
+  {
+   "key": "benq-ex270qm",
+   "vendor": "benq",
+   "name": "BenQ MOBIUZ EX270QM",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "BenQ MOBIUZ EX270QM",
+    "ex270qm",
+    "mobiuz ex270qm"
+   ],
+   "kb": 67.0,
+   "size": [
+    767,
+    900
+   ]
+  },
+  {
+   "key": "benq-ex2710q",
+   "vendor": "benq",
+   "name": "BenQ MOBIUZ EX2710Q",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "BenQ MOBIUZ EX2710Q",
+    "ex2710q",
+    "mobiuz ex2710q"
+   ],
+   "kb": 62.5,
+   "size": [
+    755,
+    900
    ]
   },
   {
@@ -1851,10 +2495,10 @@
     "xl2540k",
     "zowie xl2540k"
    ],
-   "kb": 23.1,
+   "kb": 35.9,
    "size": [
-    588,
-    600
+    882,
+    900
    ]
   },
   {
@@ -1871,10 +2515,27 @@
     "zowie xl2546k",
     "zowie xl2566k"
    ],
-   "kb": 29.4,
+   "kb": 52.1,
    "size": [
-    512,
-    600
+    768,
+    900
+   ]
+  },
+  {
+   "key": "benq-xl2546x",
+   "vendor": "benq",
+   "name": "ZOWIE XL2546X",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "ZOWIE XL2546X",
+    "xl2546x",
+    "xl2546x plus"
+   ],
+   "kb": 38.1,
+   "size": [
+    869,
+    900
    ]
   },
   {
@@ -1888,10 +2549,171 @@
     "xl2586x",
     "zowie xl2586x"
    ],
-   "kb": 23.4,
+   "kb": 38.0,
+   "size": [
+    869,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-1990-pro-mkii",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 1990 Pro MKII",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 1990 Pro MKII",
+    "dt 1990 pro mkii",
+    "beyerdynamic dt 1990 pro"
+   ],
+   "kb": 66.1,
+   "size": [
+    591,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-700-pro-x",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 700 Pro X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 700 Pro X",
+    "dt 700 pro x"
+   ],
+   "kb": 64.9,
+   "size": [
+    619,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-770-pro",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 770 Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 770 Pro",
+    "dt 770 pro"
+   ],
+   "kb": 67.1,
    "size": [
     580,
-    600
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-880",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 880",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 880",
+    "dt 880"
+   ],
+   "kb": 63.6,
+   "size": [
+    620,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-900-pro-x",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 900 Pro X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 900 Pro X",
+    "dt 900 pro x"
+   ],
+   "kb": 69.5,
+   "size": [
+    618,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-dt-990-pro",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic DT 990 Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic DT 990 Pro",
+    "dt 990 pro"
+   ],
+   "kb": 65.8,
+   "size": [
+    606,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-mmx-300",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic MMX 300",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic MMX 300",
+    "mmx 300"
+   ],
+   "kb": 62.9,
+   "size": [
+    777,
+    900
+   ]
+  },
+  {
+   "key": "beyerdynamic-t1",
+   "vendor": "beyerdynamic",
+   "name": "Beyerdynamic T1",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Beyerdynamic T1",
+    "t1"
+   ],
+   "kb": 66.1,
+   "size": [
+    566,
+    900
+   ]
+  },
+  {
+   "key": "campfire-audio-andromeda",
+   "vendor": "campfire-audio",
+   "name": "Campfire Audio Andromeda",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Campfire Audio Andromeda",
+    "andromeda"
+   ],
+   "kb": 65.5,
+   "size": [
+    785,
+    696
+   ]
+  },
+  {
+   "key": "cca-cra",
+   "vendor": "cca",
+   "name": "CCA CRA",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "CCA CRA",
+    "cra"
+   ],
+   "kb": 16.5,
+   "size": [
+    463,
+    334
    ]
   },
   {
@@ -1907,10 +2729,10 @@
     "c60 he",
     "cidoo c60 he"
    ],
-   "kb": 17.7,
+   "kb": 32.6,
    "size": [
-    600,
-    248
+    900,
+    372
    ]
   },
   {
@@ -1934,6 +2756,25 @@
    ]
   },
   {
+   "key": "corsair-commander-pro",
+   "vendor": "corsair",
+   "name": "Corsair Commander Pro",
+   "kind": "light",
+   "ids": [
+    "1b1c:0c10"
+   ],
+   "names": [
+    "Corsair Commander Pro",
+    "commander pro",
+    "icue commander pro"
+   ],
+   "kb": 19.6,
+   "size": [
+    585,
+    342
+   ]
+  },
+  {
    "key": "corsair-darkstar",
    "vendor": "corsair",
    "name": "DARKSTAR WIRELESS",
@@ -1943,10 +2784,10 @@
     "DARKSTAR WIRELESS",
     "darkstar"
    ],
-   "kb": 19.7,
+   "kb": 36.7,
    "size": [
-    338,
-    600
+    507,
+    900
    ]
   },
   {
@@ -1979,10 +2820,10 @@
     "harpoon rgb pro",
     "harpoon rgb"
    ],
-   "kb": 21.4,
+   "kb": 38.7,
    "size": [
-    600,
-    495
+    900,
+    742
    ]
   },
   {
@@ -1999,10 +2840,10 @@
     "harpoon v2",
     "harpoon v2 wireless"
    ],
-   "kb": 19.5,
+   "kb": 26.7,
    "size": [
-    356,
-    600
+    473,
+    797
    ]
   },
   {
@@ -2016,10 +2857,10 @@
     "ironclaw rgb",
     "ironclaw"
    ],
-   "kb": 33.4,
+   "kb": 59.7,
    "size": [
-    579,
-    600
+    870,
+    900
    ]
   },
   {
@@ -2037,10 +2878,10 @@
     "ironclaw rgb wireless",
     "ironclaw wireless"
    ],
-   "kb": 21.2,
+   "kb": 36.6,
    "size": [
-    394,
-    600
+    591,
+    900
    ]
   },
   {
@@ -2059,10 +2900,10 @@
     "k100 rgb optical",
     "k100 mx red"
    ],
-   "kb": 33.8,
+   "kb": 63.4,
    "size": [
-    600,
-    329
+    900,
+    494
    ]
   },
   {
@@ -2077,10 +2918,10 @@
     "K55 RGB PRO",
     "k55 rgb pro"
    ],
-   "kb": 30.8,
+   "kb": 69.7,
    "size": [
-    600,
-    388
+    900,
+    583
    ]
   },
   {
@@ -2094,10 +2935,10 @@
     "k65 plus wireless",
     "k65 plus"
    ],
-   "kb": 27.1,
+   "kb": 49.8,
    "size": [
-    600,
-    279
+    900,
+    419
    ]
   },
   {
@@ -2113,10 +2954,10 @@
     "k70 core rgb",
     "k70 core"
    ],
-   "kb": 18.5,
+   "kb": 35.8,
    "size": [
-    600,
-    259
+    900,
+    388
    ]
   },
   {
@@ -2168,10 +3009,10 @@
     "K70 RGB PRO",
     "k70 rgb pro"
    ],
-   "kb": 32.2,
+   "kb": 64.4,
    "size": [
-    600,
-    414
+    900,
+    621
    ]
   },
   {
@@ -2189,10 +3030,10 @@
     "k95 platinum xt",
     "k95 rgb platinum"
    ],
-   "kb": 35.6,
+   "kb": 68.5,
    "size": [
-    600,
-    374
+    900,
+    561
    ]
   },
   {
@@ -2209,10 +3050,10 @@
     "katar pro v2",
     "katar elite"
    ],
-   "kb": 32.4,
+   "kb": 67.3,
    "size": [
-    363,
-    600
+    545,
+    900
    ]
   },
   {
@@ -2247,10 +3088,10 @@
     "m55",
     "m55 rgb pro"
    ],
-   "kb": 17.0,
+   "kb": 35.0,
    "size": [
-    281,
-    600
+    423,
+    900
    ]
   },
   {
@@ -2268,10 +3109,10 @@
     "m65 rgb elite",
     "m65 elite"
    ],
-   "kb": 21.7,
+   "kb": 38.5,
    "size": [
-    338,
-    600
+    507,
+    900
    ]
   },
   {
@@ -2287,10 +3128,10 @@
     "m75",
     "m75 gaming mouse"
    ],
-   "kb": 16.2,
+   "kb": 28.5,
    "size": [
-    262,
-    600
+    395,
+    900
    ]
   },
   {
@@ -2304,10 +3145,10 @@
     "m75 air",
     "m75 air wireless"
    ],
-   "kb": 14.3,
+   "kb": 26.0,
    "size": [
-    313,
-    600
+    469,
+    900
    ]
   },
   {
@@ -2322,10 +3163,10 @@
     "M75 WIRELESS",
     "m75 wireless"
    ],
-   "kb": 17.7,
+   "kb": 31.4,
    "size": [
-    325,
-    600
+    488,
+    900
    ]
   },
   {
@@ -2362,10 +3203,10 @@
     "makr pro 75 hololive momosuzu nene edition",
     "makr pro 75 hololive"
    ],
-   "kb": 25.7,
+   "kb": 41.4,
    "size": [
-    600,
-    276
+    856,
+    394
    ]
   },
   {
@@ -2400,10 +3241,10 @@
     "nightsword rgb",
     "nightsword"
    ],
-   "kb": 29.4,
+   "kb": 54.1,
    "size": [
-    345,
-    600
+    517,
+    900
    ]
   },
   {
@@ -2419,10 +3260,10 @@
     "nightsword v2",
     "nightsword v2 wireless sd"
    ],
-   "kb": 26.2,
+   "kb": 30.0,
    "size": [
-    379,
-    600
+    428,
+    678
    ]
   },
   {
@@ -2440,10 +3281,10 @@
     "corsair novablade pro",
     "novablade pro wireless"
    ],
-   "kb": 25.6,
+   "kb": 32.1,
    "size": [
-    600,
-    345
+    788,
+    453
    ]
   },
   {
@@ -2463,10 +3304,10 @@
     "sabre v2 pro ultralight",
     "sabre v3 pro ultralight wireless"
    ],
-   "kb": 18.1,
+   "kb": 30.6,
    "size": [
-    339,
-    600
+    508,
+    900
    ]
   },
   {
@@ -2486,10 +3327,10 @@
     "sabre v2 pro cf",
     "sabre v3 pro wireless cf"
    ],
-   "kb": 30.3,
+   "kb": 54.8,
    "size": [
-    334,
-    600
+    501,
+    900
    ]
   },
   {
@@ -2509,10 +3350,10 @@
     "sabre v2 pro mg",
     "sabre v3 pro wireless mg"
    ],
-   "kb": 26.0,
+   "kb": 48.5,
    "size": [
-    336,
-    600
+    504,
+    900
    ]
   },
   {
@@ -2528,10 +3369,10 @@
     "scimitar elite wireless se",
     "scimitar elite wireless"
    ],
-   "kb": 26.3,
+   "kb": 47.1,
    "size": [
-    599,
-    600
+    898,
+    900
    ]
   },
   {
@@ -2546,10 +3387,10 @@
     "scimitar elite rgb v2",
     "scimitar elite rgb"
    ],
-   "kb": 26.3,
+   "kb": 46.2,
    "size": [
-    600,
-    499
+    900,
+    748
    ]
   },
   {
@@ -2564,10 +3405,10 @@
     "SKIFF 100",
     "skiff 100"
    ],
-   "kb": 24.2,
+   "kb": 41.8,
    "size": [
-    600,
-    347
+    900,
+    520
    ]
   },
   {
@@ -2582,10 +3423,10 @@
     "SKIFF 100 PLUS",
     "skiff 100 plus"
    ],
-   "kb": 24.9,
+   "kb": 43.7,
    "size": [
-    600,
-    347
+    900,
+    520
    ]
   },
   {
@@ -2620,10 +3461,10 @@
     "VANGUARD AIR 99 WIRELESS",
     "vanguard air 99"
    ],
-   "kb": 30.6,
+   "kb": 56.7,
    "size": [
-    600,
-    219
+    900,
+    328
    ]
   },
   {
@@ -2659,10 +3500,26 @@
     "ko-one",
     "crdrako ko one"
    ],
-   "kb": 14.3,
+   "kb": 24.4,
    "size": [
-    327,
-    600
+    491,
+    900
+   ]
+  },
+  {
+   "key": "creative-live-cam-sync-1080p",
+   "vendor": "creative",
+   "name": "Creative Live! Cam Sync 1080p",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Creative Live! Cam Sync 1080p",
+    "live cam sync 1080p"
+   ],
+   "kb": 44.5,
+   "size": [
+    900,
+    778
    ]
   },
   {
@@ -2680,10 +3537,10 @@
     "a950 pro magnesium",
     "dareu a950 pro mg"
    ],
-   "kb": 24.3,
+   "kb": 27.5,
    "size": [
-    324,
-    600
+    399,
+    740
    ]
   },
   {
@@ -2696,10 +3553,42 @@
     "Alienware AW2523HF",
     "aw2523hf"
    ],
-   "kb": 38.3,
+   "kb": 69.7,
    "size": [
-    581,
-    600
+    871,
+    900
+   ]
+  },
+  {
+   "key": "dell-aw2524h",
+   "vendor": "dell",
+   "name": "Alienware AW2524H",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Alienware AW2524H",
+    "aw2524h"
+   ],
+   "kb": 63.9,
+   "size": [
+    900,
+    864
+   ]
+  },
+  {
+   "key": "dell-aw2723df",
+   "vendor": "dell",
+   "name": "Alienware AW2723DF",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Alienware AW2723DF",
+    "aw2723df"
+   ],
+   "kb": 64.9,
+   "size": [
+    900,
+    676
    ]
   },
   {
@@ -2712,10 +3601,10 @@
     "Alienware AW2724HF",
     "aw2724hf"
    ],
-   "kb": 39.2,
+   "kb": 67.8,
    "size": [
-    600,
-    444
+    900,
+    665
    ]
   },
   {
@@ -2728,10 +3617,42 @@
     "Alienware AW2725DF",
     "aw2725df"
    ],
-   "kb": 35.8,
+   "kb": 57.0,
    "size": [
-    600,
-    455
+    900,
+    682
+   ]
+  },
+  {
+   "key": "dell-aw3225qf",
+   "vendor": "dell",
+   "name": "Alienware AW3225QF",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Alienware AW3225QF",
+    "aw3225qf"
+   ],
+   "kb": 65.5,
+   "size": [
+    791,
+    800
+   ]
+  },
+  {
+   "key": "dell-aw3423dw",
+   "vendor": "dell",
+   "name": "Alienware AW3423DW",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Alienware AW3423DW",
+    "aw3423dw"
+   ],
+   "kb": 69.5,
+   "size": [
+    817,
+    804
    ]
   },
   {
@@ -2744,10 +3665,76 @@
     "Alienware AW3423DWF",
     "aw3423dwf"
    ],
-   "kb": 13.9,
+   "kb": 66.9,
    "size": [
-    312,
-    258
+    827,
+    804
+   ]
+  },
+  {
+   "key": "dell-g2724d",
+   "vendor": "dell",
+   "name": "Dell G2724D",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Dell G2724D",
+    "g2724d"
+   ],
+   "kb": 62.1,
+   "size": [
+    840,
+    804
+   ]
+  },
+  {
+   "key": "dell-p2422h",
+   "vendor": "dell",
+   "name": "Dell P2422H",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Dell P2422H",
+    "p2422h",
+    "dell p2422h"
+   ],
+   "kb": 64.8,
+   "size": [
+    808,
+    755
+   ]
+  },
+  {
+   "key": "dell-s2722dgm",
+   "vendor": "dell",
+   "name": "Dell S2722DGM",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Dell S2722DGM",
+    "s2722dgm"
+   ],
+   "kb": 61.8,
+   "size": [
+    683,
+    662
+   ]
+  },
+  {
+   "key": "dell-u2723qe",
+   "vendor": "dell",
+   "name": "Dell UltraSharp U2723QE",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Dell UltraSharp U2723QE",
+    "u2723qe",
+    "dell u2723qe"
+   ],
+   "kb": 66.3,
+   "size": [
+    800,
+    622
    ]
   },
   {
@@ -2792,10 +3779,10 @@
     "drunkdeer a75",
     "drunkdeer a75 pro oem"
    ],
-   "kb": 28.5,
+   "kb": 52.2,
    "size": [
-    600,
-    278
+    808,
+    374
    ]
   },
   {
@@ -2816,10 +3803,10 @@
     "g60 m2",
     "g60 m3"
    ],
-   "kb": 16.0,
+   "kb": 26.4,
    "size": [
-    600,
-    223
+    774,
+    288
    ]
   },
   {
@@ -2841,10 +3828,10 @@
     "g65 m2",
     "g65 m3"
    ],
-   "kb": 21.4,
+   "kb": 34.2,
    "size": [
-    600,
-    213
+    787,
+    279
    ]
   },
   {
@@ -2861,10 +3848,10 @@
     "g75",
     "g75 jp"
    ],
-   "kb": 22.0,
+   "kb": 35.0,
    "size": [
-    600,
-    262
+    780,
+    340
    ]
   },
   {
@@ -2880,10 +3867,10 @@
     "x60",
     "x60he"
    ],
-   "kb": 31.1,
+   "kb": 47.8,
    "size": [
-    600,
-    237
+    756,
+    298
    ]
   },
   {
@@ -2950,10 +3937,10 @@
     "facecam pro",
     "elgato facecam pro"
    ],
-   "kb": 30.2,
+   "kb": 31.1,
    "size": [
-    600,
-    376
+    684,
+    429
    ]
   },
   {
@@ -2973,6 +3960,51 @@
    ]
   },
   {
+   "key": "elgato-key-light-air",
+   "vendor": "elgato",
+   "name": "Elgato Key Light Air",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Elgato Key Light Air"
+   ],
+   "kb": 23.1,
+   "size": [
+    704,
+    790
+   ]
+  },
+  {
+   "key": "elgato-key-light-mini",
+   "vendor": "elgato",
+   "name": "Elgato Key Light Mini",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Elgato Key Light Mini"
+   ],
+   "kb": 8.8,
+   "size": [
+    465,
+    590
+   ]
+  },
+  {
+   "key": "elgato-key-light-neo",
+   "vendor": "elgato",
+   "name": "Elgato Key Light Neo",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Elgato Key Light Neo"
+   ],
+   "kb": 13.2,
+   "size": [
+    643,
+    703
+   ]
+  },
+  {
    "key": "elgato-light-strip",
    "vendor": "elgato",
    "name": "Elgato Light Strip",
@@ -2986,6 +4018,21 @@
    "size": [
     600,
     389
+   ]
+  },
+  {
+   "key": "elgato-ring-light",
+   "vendor": "elgato",
+   "name": "Elgato Ring Light",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Elgato Ring Light"
+   ],
+   "kb": 13.4,
+   "size": [
+    436,
+    823
    ]
   },
   {
@@ -3020,10 +4067,10 @@
     "op1 8k purple frost",
     "endgame gear op1 8k purple frost"
    ],
-   "kb": 17.0,
+   "kb": 29.9,
    "size": [
-    256,
-    600
+    384,
+    900
    ]
   },
   {
@@ -3041,10 +4088,10 @@
     "endgame gear op1 8k",
     "op1 8k"
    ],
-   "kb": 10.3,
+   "kb": 9.4,
    "size": [
-    230,
-    600
+    278,
+    729
    ]
   },
   {
@@ -3145,10 +4192,10 @@
     "XM2 8K",
     "Endgame Gear XM2 8K"
    ],
-   "kb": 10.9,
+   "kb": 9.5,
    "size": [
-    249,
-    600
+    297,
+    720
    ]
   },
   {
@@ -3165,10 +4212,10 @@
     "XM2 8K v2",
     "Endgame Gear XM2 8K v2"
    ],
-   "kb": 10.9,
+   "kb": 9.5,
    "size": [
-    249,
-    600
+    297,
+    720
    ]
   },
   {
@@ -3244,10 +4291,10 @@
     "he30",
     "epomaker he30"
    ],
-   "kb": 37.7,
+   "kb": 61.8,
    "size": [
-    600,
-    526
+    782,
+    685
    ]
   },
   {
@@ -3261,10 +4308,106 @@
     "he80",
     "epomaker he80"
    ],
-   "kb": 31.0,
+   "kb": 57.2,
    "size": [
-    600,
-    274
+    900,
+    411
+   ]
+  },
+  {
+   "key": "etymotic-er2xr",
+   "vendor": "etymotic",
+   "name": "Etymotic ER2XR",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Etymotic ER2XR",
+    "er2xr"
+   ],
+   "kb": 12.6,
+   "size": [
+    325,
+    856
+   ]
+  },
+  {
+   "key": "etymotic-er4xr",
+   "vendor": "etymotic",
+   "name": "Etymotic ER4XR",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Etymotic ER4XR",
+    "er4xr"
+   ],
+   "kb": 31.2,
+   "size": [
+    388,
+    900
+   ]
+  },
+  {
+   "key": "fiio-fh3",
+   "vendor": "fiio",
+   "name": "FiiO FH3",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "FiiO FH3",
+    "fh3"
+   ],
+   "kb": 13.0,
+   "size": [
+    351,
+    267
+   ]
+  },
+  {
+   "key": "final-audio-a4000",
+   "vendor": "final",
+   "name": "Final Audio A4000",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Final Audio A4000",
+    "audio a4000"
+   ],
+   "kb": 7.3,
+   "size": [
+    298,
+    513
+   ]
+  },
+  {
+   "key": "final-audio-e3000",
+   "vendor": "final",
+   "name": "Final Audio E3000",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Final Audio E3000",
+    "audio e3000"
+   ],
+   "kb": 16.5,
+   "size": [
+    363,
+    900
+   ]
+  },
+  {
+   "key": "final-audio-e500",
+   "vendor": "final",
+   "name": "Final Audio E500",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Final Audio E500",
+    "audio e500"
+   ],
+   "kb": 9.4,
+   "size": [
+    640,
+    728
    ]
   },
   {
@@ -3279,10 +4422,10 @@
     "slx",
     "finalmouse slx"
    ],
-   "kb": 24.0,
+   "kb": 28.9,
    "size": [
-    309,
-    600
+    334,
+    649
    ]
   },
   {
@@ -3302,10 +4445,10 @@
     "finalmouse starlight 12",
     "ultralightx"
    ],
-   "kb": 39.8,
+   "kb": 54.8,
    "size": [
-    319,
-    600
+    344,
+    648
    ]
   },
   {
@@ -3341,10 +4484,10 @@
     "apex 5",
     "flydigi apex 5"
    ],
-   "kb": 32.0,
+   "kb": 56.8,
    "size": [
-    600,
-    500
+    900,
+    750
    ]
   },
   {
@@ -3360,10 +4503,74 @@
     "vader 5 pro",
     "flydigi vader 5 pro"
    ],
-   "kb": 35.1,
+   "kb": 59.5,
    "size": [
-    600,
-    424
+    900,
+    636
+   ]
+  },
+  {
+   "key": "focal-bathys",
+   "vendor": "focal",
+   "name": "Focal Bathys",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Focal Bathys",
+    "bathys"
+   ],
+   "kb": 63.6,
+   "size": [
+    729,
+    900
+   ]
+  },
+  {
+   "key": "focal-clear-mg",
+   "vendor": "focal",
+   "name": "Focal Clear MG",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Focal Clear MG",
+    "clear mg"
+   ],
+   "kb": 65.0,
+   "size": [
+    562,
+    900
+   ]
+  },
+  {
+   "key": "focal-elex",
+   "vendor": "focal",
+   "name": "Focal Elex",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Focal Elex",
+    "elex"
+   ],
+   "kb": 67.6,
+   "size": [
+    632,
+    900
+   ]
+  },
+  {
+   "key": "focal-utopia",
+   "vendor": "focal",
+   "name": "Focal Utopia",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Focal Utopia",
+    "utopia"
+   ],
+   "kb": 61.8,
+   "size": [
+    503,
+    699
    ]
   },
   {
@@ -3399,10 +4606,10 @@
     "cyclone 2",
     "gamesir cyclone 2"
    ],
-   "kb": 33.9,
+   "kb": 66.8,
    "size": [
-    600,
-    412
+    900,
+    617
    ]
   },
   {
@@ -3425,10 +4632,10 @@
     "g7 pro",
     "gamesir g7 pro"
    ],
-   "kb": 38.8,
+   "kb": 68.6,
    "size": [
-    600,
-    460
+    900,
+    691
    ]
   },
   {
@@ -3447,10 +4654,10 @@
     "g7 pro 8k pc",
     "gamesir g7 pro 8k"
    ],
-   "kb": 36.9,
+   "kb": 65.2,
    "size": [
-    600,
-    460
+    900,
+    690
    ]
   },
   {
@@ -3467,10 +4674,10 @@
     "gamesir g7 se",
     "g7 se wired controller for xbox"
    ],
-   "kb": 27.1,
+   "kb": 49.0,
    "size": [
-    600,
-    535
+    900,
+    802
    ]
   },
   {
@@ -3490,10 +4697,10 @@
     "gamesir kaleid",
     "gamesir t4 kaleid"
    ],
-   "kb": 38.0,
+   "kb": 60.3,
    "size": [
-    600,
-    515
+    806,
+    692
    ]
   },
   {
@@ -3512,10 +4719,10 @@
     "gamesir nova",
     "gamesir nova lite"
    ],
-   "kb": 22.9,
+   "kb": 41.8,
    "size": [
-    600,
-    409
+    900,
+    614
    ]
   },
   {
@@ -3531,10 +4738,10 @@
     "super nova",
     "gamesir super nova"
    ],
-   "kb": 38.7,
+   "kb": 68.8,
    "size": [
-    600,
-    442
+    900,
+    663
    ]
   },
   {
@@ -3553,10 +4760,27 @@
     "tarantula pro 8k",
     "gamesir tarantula"
    ],
-   "kb": 39.8,
+   "kb": 63.7,
    "size": [
-    600,
-    501
+    900,
+    752
+   ]
+  },
+  {
+   "key": "gigabyte-fi27q-x",
+   "vendor": "gigabyte",
+   "name": "Gigabyte AORUS FI27Q-X",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Gigabyte AORUS FI27Q-X",
+    "fi27q x",
+    "aorus fi27q x"
+   ],
+   "kb": 56.2,
+   "size": [
+    825,
+    765
    ]
   },
   {
@@ -3570,10 +4794,26 @@
     "fo27q3",
     "aorus fo27q3"
    ],
-   "kb": 33.7,
+   "kb": 66.2,
    "size": [
-    568,
-    600
+    812,
+    857
+   ]
+  },
+  {
+   "key": "gigabyte-g27q",
+   "vendor": "gigabyte",
+   "name": "Gigabyte G27Q",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Gigabyte G27Q",
+    "g27q"
+   ],
+   "kb": 65.8,
+   "size": [
+    900,
+    831
    ]
   },
   {
@@ -3586,10 +4826,42 @@
     "Gigabyte M27Q",
     "m27q"
    ],
-   "kb": 36.8,
+   "kb": 68.3,
    "size": [
-    600,
-    557
+    900,
+    836
+   ]
+  },
+  {
+   "key": "gigabyte-m28u",
+   "vendor": "gigabyte",
+   "name": "Gigabyte M28U",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Gigabyte M28U",
+    "m28u"
+   ],
+   "kb": 63.1,
+   "size": [
+    844,
+    806
+   ]
+  },
+  {
+   "key": "gigabyte-m32u",
+   "vendor": "gigabyte",
+   "name": "Gigabyte M32U",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "Gigabyte M32U",
+    "m32u"
+   ],
+   "kb": 66.5,
+   "size": [
+    885,
+    900
    ]
   },
   {
@@ -3628,10 +4900,10 @@
     "glorious model d 2 wireless",
     "glorious model d 2 wired"
    ],
-   "kb": 16.5,
+   "kb": 16.6,
    "size": [
-    336,
-    600
+    383,
+    687
    ]
   },
   {
@@ -3646,10 +4918,10 @@
     "Model I 2",
     "Glorious Model I 2"
    ],
-   "kb": 29.4,
+   "kb": 39.6,
    "size": [
-    277,
-    600
+    361,
+    786
    ]
   },
   {
@@ -3663,10 +4935,10 @@
     "model o eternal",
     "glorious model o eternal"
    ],
-   "kb": 23.9,
+   "kb": 32.2,
    "size": [
-    270,
-    600
+    368,
+    819
    ]
   },
   {
@@ -3681,10 +4953,10 @@
     "Model O 2 Mini",
     "Glorious Model O 2 Mini"
    ],
-   "kb": 25.9,
+   "kb": 33.9,
    "size": [
-    250,
-    600
+    314,
+    754
    ]
   },
   {
@@ -3783,6 +5055,22 @@
    ]
   },
   {
+   "key": "google-pixel-buds-pro-2",
+   "vendor": "google",
+   "name": "Google Pixel Buds Pro 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Google Pixel Buds Pro 2",
+    "pixel buds pro 2"
+   ],
+   "kb": 6.7,
+   "size": [
+    273,
+    286
+   ]
+  },
+  {
    "key": "govee-h1a42",
    "vendor": "govee",
    "name": "Govee Strip Light 2 H1A42",
@@ -3797,6 +5085,23 @@
    "size": [
     600,
     215
+   ]
+  },
+  {
+   "key": "govee-h6009",
+   "vendor": "govee",
+   "name": "Govee Smart RGBWW Bulb 1200 lm H6009",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Govee Smart RGBWW Bulb 1200 lm H6009",
+    "govee h6009",
+    "h6009"
+   ],
+   "kb": 34.8,
+   "size": [
+    491,
+    900
    ]
   },
   {
@@ -3882,6 +5187,23 @@
    "size": [
     502,
     600
+   ]
+  },
+  {
+   "key": "govee-h6057",
+   "vendor": "govee",
+   "name": "Govee RGBIC Night Light H6057",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Govee RGBIC Night Light H6057",
+    "govee h6057",
+    "h6057"
+   ],
+   "kb": 45.1,
+   "size": [
+    634,
+    802
    ]
   },
   {
@@ -4292,6 +5614,23 @@
    ]
   },
   {
+   "key": "govee-h61e0",
+   "vendor": "govee",
+   "name": "Govee LED Strip Light M1 H61E0",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Govee LED Strip Light M1 H61E0",
+    "govee h61e0",
+    "h61e0"
+   ],
+   "kb": 34.6,
+   "size": [
+    728,
+    824
+   ]
+  },
+  {
    "key": "govee-h61e1",
    "vendor": "govee",
    "name": "Govee LED Strip Light M1 H61E1",
@@ -4396,6 +5735,23 @@
    ]
   },
   {
+   "key": "govee-h7055",
+   "vendor": "govee",
+   "name": "Govee Outdoor Pathway Lights H7055",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Govee Outdoor Pathway Lights H7055",
+    "govee h7055",
+    "h7055"
+   ],
+   "kb": 47.5,
+   "size": [
+    900,
+    813
+   ]
+  },
+  {
    "key": "govee-h7090",
    "vendor": "govee",
    "name": "Govee Interior Car Lights H7090",
@@ -4410,6 +5766,38 @@
    "size": [
     600,
     281
+   ]
+  },
+  {
+   "key": "grado-sr60x",
+   "vendor": "grado",
+   "name": "Grado SR60x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Grado SR60x",
+    "sr60x"
+   ],
+   "kb": 69.1,
+   "size": [
+    683,
+    900
+   ]
+  },
+  {
+   "key": "grado-sr80x",
+   "vendor": "grado",
+   "name": "Grado SR80x",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Grado SR80x",
+    "sr80x"
+   ],
+   "kb": 64.7,
+   "size": [
+    713,
+    900
    ]
   },
   {
@@ -4430,6 +5818,118 @@
    ]
   },
   {
+   "key": "hifiman-ananda",
+   "vendor": "hifiman",
+   "name": "HIFIMAN Ananda",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN Ananda",
+    "ananda"
+   ],
+   "kb": 68.5,
+   "size": [
+    568,
+    900
+   ]
+  },
+  {
+   "key": "hifiman-arya",
+   "vendor": "hifiman",
+   "name": "HIFIMAN Arya",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN Arya",
+    "arya"
+   ],
+   "kb": 65.9,
+   "size": [
+    478,
+    840
+   ]
+  },
+  {
+   "key": "hifiman-deva-pro",
+   "vendor": "hifiman",
+   "name": "HIFIMAN Deva Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN Deva Pro",
+    "deva pro"
+   ],
+   "kb": 68.9,
+   "size": [
+    577,
+    729
+   ]
+  },
+  {
+   "key": "hifiman-edition-xs",
+   "vendor": "hifiman",
+   "name": "HIFIMAN Edition XS",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN Edition XS",
+    "edition xs"
+   ],
+   "kb": 69.7,
+   "size": [
+    582,
+    900
+   ]
+  },
+  {
+   "key": "hifiman-he1000se",
+   "vendor": "hifiman",
+   "name": "HIFIMAN HE1000se",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN HE1000se",
+    "he1000se"
+   ],
+   "kb": 64.2,
+   "size": [
+    536,
+    900
+   ]
+  },
+  {
+   "key": "hifiman-he400se",
+   "vendor": "hifiman",
+   "name": "HIFIMAN HE400se",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN HE400se",
+    "he400se"
+   ],
+   "kb": 67.0,
+   "size": [
+    674,
+    900
+   ]
+  },
+  {
+   "key": "hifiman-sundara",
+   "vendor": "hifiman",
+   "name": "HIFIMAN Sundara",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HIFIMAN Sundara",
+    "sundara"
+   ],
+   "kb": 63.0,
+   "size": [
+    627,
+    900
+   ]
+  },
+  {
    "key": "hori-fighting-commander-octa",
    "vendor": "hori",
    "name": "HORI Fighting Commander OCTA",
@@ -4442,13 +5942,132 @@
    ],
    "names": [
     "HORI Fighting Commander OCTA",
-    "fighting commander octa",
-    "hori fighting commander octa"
+    "fighting commander octa"
    ],
-   "kb": 7.4,
+   "kb": 48.9,
    "size": [
-    196,
-    154
+    900,
+    710
+   ]
+  },
+  {
+   "key": "hori-wireless-horipad-for-steam",
+   "vendor": "hori",
+   "name": "HORI Wireless HORIPAD for Steam",
+   "kind": "gamepad",
+   "ids": [
+    "0f0d:0196",
+    "0f0d:01ab"
+   ],
+   "names": [
+    "HORI Wireless HORIPAD for Steam",
+    "wireless horipad for steam",
+    "horipad for steam"
+   ],
+   "kb": 50.4,
+   "size": [
+    900,
+    625
+   ]
+  },
+  {
+   "key": "hyperx-cloud-alpha",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud Alpha",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HyperX Cloud Alpha",
+    "cloud alpha"
+   ],
+   "kb": 61.9,
+   "size": [
+    778,
+    900
+   ]
+  },
+  {
+   "key": "hyperx-cloud-ii",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud II",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HyperX Cloud II",
+    "cloud ii"
+   ],
+   "kb": 62.6,
+   "size": [
+    774,
+    900
+   ]
+  },
+  {
+   "key": "hyperx-cloud-ii-wireless",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud II Wireless",
+   "kind": "headset",
+   "ids": [
+    "03f0:018b",
+    "03f0:0696"
+   ],
+   "names": [
+    "HyperX Cloud II Wireless",
+    "cloud ii wireless",
+    "cloud 2 wireless"
+   ],
+   "kb": 67.5,
+   "size": [
+    900,
+    814
+   ]
+  },
+  {
+   "key": "hyperx-cloud-iii",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud III",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HyperX Cloud III",
+    "cloud iii"
+   ],
+   "kb": 66.6,
+   "size": [
+    854,
+    900
+   ]
+  },
+  {
+   "key": "hyperx-cloud-iii-wireless",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud III Wireless",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HyperX Cloud III Wireless",
+    "cloud iii wireless"
+   ],
+   "kb": 62.6,
+   "size": [
+    900,
+    841
+   ]
+  },
+  {
+   "key": "hyperx-cloud-stinger-2",
+   "vendor": "hyperx",
+   "name": "HyperX Cloud Stinger 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "HyperX Cloud Stinger 2",
+    "cloud stinger 2"
+   ],
+   "kb": 68.0,
+   "size": [
+    899,
+    900
    ]
   },
   {
@@ -4466,10 +6085,10 @@
     "hyperx clutch gladiate",
     "hp hyperx clutch gladiate"
    ],
-   "kb": 28.6,
+   "kb": 51.3,
    "size": [
-    600,
-    544
+    900,
+    816
    ]
   },
   {
@@ -4485,10 +6104,10 @@
     "clutch gladiate rgb",
     "hyperx clutch gladiate rgb"
    ],
-   "kb": 37.1,
+   "kb": 66.3,
    "size": [
-    600,
-    546
+    900,
+    819
    ]
   },
   {
@@ -4505,10 +6124,10 @@
     "hyperx clutch tanto",
     "clutch tanto mini"
    ],
-   "kb": 35.5,
+   "kb": 64.6,
    "size": [
-    600,
-    563
+    898,
+    842
    ]
   },
   {
@@ -4521,10 +6140,10 @@
     "HyperX Pulsefire Fuse",
     "pulsefire fuse"
    ],
-   "kb": 24.2,
+   "kb": 30.7,
    "size": [
-    318,
-    600
+    350,
+    660
    ]
   },
   {
@@ -4567,10 +6186,10 @@
     "pulsefire haste 2 wireless",
     "hyperx pulsefire haste 2"
    ],
-   "kb": 31.6,
+   "kb": 55.3,
    "size": [
-    333,
-    600
+    364,
+    660
    ]
   },
   {
@@ -4736,6 +6355,38 @@
    ]
   },
   {
+   "key": "jabra-elite-75t",
+   "vendor": "jabra",
+   "name": "Jabra Elite 75t",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Jabra Elite 75t",
+    "elite 75t"
+   ],
+   "kb": 21.5,
+   "size": [
+    621,
+    458
+   ]
+  },
+  {
+   "key": "jabra-elite-85t",
+   "vendor": "jabra",
+   "name": "Jabra Elite 85t",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Jabra Elite 85t",
+    "elite 85t"
+   ],
+   "kb": 22.9,
+   "size": [
+    645,
+    507
+   ]
+  },
+  {
    "key": "keychron-k10-he",
    "vendor": "keychron",
    "name": "Keychron K10 HE",
@@ -4749,10 +6400,10 @@
     "k10 he",
     "keychron k10 he"
    ],
-   "kb": 17.1,
+   "kb": 23.8,
    "size": [
-    600,
-    175
+    790,
+    230
    ]
   },
   {
@@ -4770,10 +6421,10 @@
     "k2 he",
     "keychron k2 he"
    ],
-   "kb": 20.9,
+   "kb": 29.2,
    "size": [
-    600,
-    228
+    788,
+    299
    ]
   },
   {
@@ -4791,10 +6442,10 @@
     "k4 he",
     "keychron k4 he"
    ],
-   "kb": 18.1,
+   "kb": 24.6,
    "size": [
-    600,
-    197
+    787,
+    259
    ]
   },
   {
@@ -4810,10 +6461,10 @@
     "k6 he",
     "keychron k6 he"
    ],
-   "kb": 15.7,
+   "kb": 22.3,
    "size": [
-    600,
-    201
+    787,
+    263
    ]
   },
   {
@@ -4831,10 +6482,10 @@
     "k8 he",
     "keychron k8 he"
    ],
-   "kb": 19.6,
+   "kb": 27.4,
    "size": [
-    600,
-    207
+    796,
+    275
    ]
   },
   {
@@ -4851,10 +6502,10 @@
     "m6",
     "keychron m6"
    ],
-   "kb": 17.9,
+   "kb": 16.3,
    "size": [
-    370,
-    600
+    391,
+    641
    ]
   },
   {
@@ -4870,10 +6521,10 @@
     "nape pro",
     "keychron nape pro"
    ],
-   "kb": 19.7,
+   "kb": 26.5,
    "size": [
-    254,
-    600
+    313,
+    737
    ]
   },
   {
@@ -4910,10 +6561,10 @@
     "q1 he",
     "keychron q1 he"
    ],
-   "kb": 22.4,
+   "kb": 33.4,
    "size": [
-    600,
-    246
+    794,
+    326
    ]
   },
   {
@@ -4930,10 +6581,10 @@
     "q12 he",
     "keychron q12 he"
    ],
-   "kb": 21.4,
+   "kb": 33.1,
    "size": [
-    600,
-    204
+    791,
+    269
    ]
   },
   {
@@ -4949,10 +6600,10 @@
     "q2 he",
     "keychron q2 he"
    ],
-   "kb": 18.1,
+   "kb": 27.1,
    "size": [
-    600,
-    214
+    826,
+    294
    ]
   },
   {
@@ -4974,10 +6625,10 @@
     "q3 he iso",
     "q3 he jis"
    ],
-   "kb": 21.4,
+   "kb": 31.9,
    "size": [
-    600,
-    216
+    789,
+    284
    ]
   },
   {
@@ -4993,10 +6644,10 @@
     "q4 he",
     "keychron q4 he"
    ],
-   "kb": 17.7,
+   "kb": 24.8,
    "size": [
-    600,
-    229
+    745,
+    284
    ]
   },
   {
@@ -5018,10 +6669,10 @@
     "q5 he iso",
     "q5 he jis"
    ],
-   "kb": 16.9,
+   "kb": 26.7,
    "size": [
-    600,
-    201
+    824,
+    276
    ]
   },
   {
@@ -5039,10 +6690,155 @@
     "q6 he",
     "keychron q6 he"
    ],
-   "kb": 18.3,
+   "kb": 28.8,
    "size": [
-    600,
-    185
+    800,
+    247
+   ]
+  },
+  {
+   "key": "kiwi-ears-cadenza",
+   "vendor": "kiwi-ears",
+   "name": "Kiwi Ears Cadenza",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Kiwi Ears Cadenza",
+    "cadenza"
+   ],
+   "kb": 35.4,
+   "size": [
+    679,
+    567
+   ]
+  },
+  {
+   "key": "kiwi-ears-orchestra-lite",
+   "vendor": "kiwi-ears",
+   "name": "Kiwi Ears Orchestra Lite",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Kiwi Ears Orchestra Lite",
+    "orchestra lite"
+   ],
+   "kb": 65.2,
+   "size": [
+    753,
+    642
+   ]
+  },
+  {
+   "key": "kiwi-ears-quintet",
+   "vendor": "kiwi-ears",
+   "name": "Kiwi Ears Quintet",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Kiwi Ears Quintet",
+    "quintet"
+   ],
+   "kb": 38.7,
+   "size": [
+    900,
+    427
+   ]
+  },
+  {
+   "key": "koss-ksc75",
+   "vendor": "koss",
+   "name": "Koss KSC75",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Koss KSC75",
+    "ksc75"
+   ],
+   "kb": 69.5,
+   "size": [
+    801,
+    900
+   ]
+  },
+  {
+   "key": "koss-porta-pro",
+   "vendor": "koss",
+   "name": "Koss Porta Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Koss Porta Pro",
+    "porta pro",
+    "koss portapro"
+   ],
+   "kb": 42.0,
+   "size": [
+    394,
+    900
+   ]
+  },
+  {
+   "key": "kz-edx-pro",
+   "vendor": "kz",
+   "name": "KZ EDX Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "KZ EDX Pro",
+    "edx pro"
+   ],
+   "kb": 26.9,
+   "size": [
+    337,
+    348
+   ]
+  },
+  {
+   "key": "kz-zex-pro",
+   "vendor": "kz",
+   "name": "KZ ZEX Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "KZ ZEX Pro",
+    "zex pro"
+   ],
+   "kb": 69.1,
+   "size": [
+    643,
+    867
+   ]
+  },
+  {
+   "key": "kz-zs10-pro",
+   "vendor": "kz",
+   "name": "KZ ZS10 Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "KZ ZS10 Pro",
+    "zs10 pro"
+   ],
+   "kb": 18.0,
+   "size": [
+    370,
+    432
+   ]
+  },
+  {
+   "key": "kz-zsn-pro-x",
+   "vendor": "kz",
+   "name": "KZ ZSN Pro X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "KZ ZSN Pro X",
+    "zsn pro x"
+   ],
+   "kb": 56.0,
+   "size": [
+    788,
+    565
    ]
   },
   {
@@ -5062,10 +6858,10 @@
     "atlantis mini",
     "atlantis shared family ids"
    ],
-   "kb": 18.3,
+   "kb": 32.1,
    "size": [
-    333,
-    600
+    499,
+    900
    ]
   },
   {
@@ -5087,10 +6883,10 @@
     "Inca",
     "Lamzu Inca"
    ],
-   "kb": 28.0,
+   "kb": 35.0,
    "size": [
-    500,
-    600
+    564,
+    677
    ]
   },
   {
@@ -5105,10 +6901,10 @@
     "lamzu jet75",
     "jet 75"
    ],
-   "kb": 24.8,
+   "kb": 39.4,
    "size": [
-    600,
-    247
+    774,
+    320
    ]
   },
   {
@@ -5128,10 +6924,10 @@
     "maya doodle",
     "lamzu maya doodle"
    ],
-   "kb": 14.8,
+   "kb": 21.7,
    "size": [
-    326,
-    600
+    427,
+    787
    ]
   },
   {
@@ -5153,10 +6949,10 @@
     "Maya X",
     "Lamzu Maya X"
    ],
-   "kb": 18.9,
+   "kb": 22.5,
    "size": [
-    323,
-    600
+    362,
+    673
    ]
   },
   {
@@ -5170,10 +6966,10 @@
     "orcus",
     "lamzu orcus"
    ],
-   "kb": 28.1,
+   "kb": 31.0,
    "size": [
-    382,
-    600
+    444,
+    698
    ]
   },
   {
@@ -5189,10 +6985,10 @@
     "paro aurora",
     "lamzu paro aurora"
    ],
-   "kb": 21.7,
+   "kb": 26.8,
    "size": [
-    600,
-    364
+    666,
+    403
    ]
   },
   {
@@ -5206,10 +7002,10 @@
     "tachi",
     "lamzu tachi"
    ],
-   "kb": 30.0,
+   "kb": 40.4,
    "size": [
-    600,
-    369
+    671,
+    413
    ]
   },
   {
@@ -5229,10 +7025,10 @@
     "thorn mini",
     "lamzu thorn mini"
    ],
-   "kb": 13.2,
+   "kb": 19.8,
    "size": [
-    332,
-    600
+    382,
+    688
    ]
   },
   {
@@ -5248,10 +7044,10 @@
     "l1 he",
     "lemokey l1 he"
    ],
-   "kb": 25.3,
+   "kb": 43.0,
    "size": [
-    600,
-    251
+    840,
+    351
    ]
   },
   {
@@ -5273,10 +7069,10 @@
     "p1 he iso",
     "p1 he jis"
    ],
-   "kb": 14.3,
+   "kb": 21.8,
    "size": [
-    600,
-    273
+    797,
+    362
    ]
   },
   {
@@ -5292,10 +7088,10 @@
     "p2 he",
     "lemokey p2 he"
    ],
-   "kb": 17.3,
+   "kb": 27.4,
    "size": [
-    600,
-    216
+    849,
+    306
    ]
   },
   {
@@ -5311,10 +7107,10 @@
     "p3 he",
     "lemokey p3 he"
    ],
-   "kb": 20.3,
+   "kb": 32.4,
    "size": [
-    600,
-    219
+    823,
+    301
    ]
   },
   {
@@ -5330,10 +7126,74 @@
     "amg65",
     "leobog amg65"
    ],
-   "kb": 34.5,
+   "kb": 68.4,
    "size": [
-    600,
-    276
+    733,
+    337
+   ]
+  },
+  {
+   "key": "lg-24gn600",
+   "vendor": "lg",
+   "name": "LG UltraGear 24GN600",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 24GN600",
+    "24gn600"
+   ],
+   "kb": 45.0,
+   "size": [
+    552,
+    482
+   ]
+  },
+  {
+   "key": "lg-27gl850",
+   "vendor": "lg",
+   "name": "LG UltraGear 27GL850",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 27GL850",
+    "27gl850"
+   ],
+   "kb": 31.8,
+   "size": [
+    433,
+    451
+   ]
+  },
+  {
+   "key": "lg-27gn800",
+   "vendor": "lg",
+   "name": "LG UltraGear 27GN800",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 27GN800",
+    "27gn800"
+   ],
+   "kb": 50.6,
+   "size": [
+    531,
+    463
+   ]
+  },
+  {
+   "key": "lg-27gn950",
+   "vendor": "lg",
+   "name": "LG UltraGear 27GN950",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 27GN950",
+    "27gn950"
+   ],
+   "kb": 26.1,
+   "size": [
+    391,
+    478
    ]
   },
   {
@@ -5353,6 +7213,38 @@
    ]
   },
   {
+   "key": "lg-27gp950",
+   "vendor": "lg",
+   "name": "LG UltraGear 27GP950",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 27GP950",
+    "27gp950"
+   ],
+   "kb": 38.2,
+   "size": [
+    465,
+    502
+   ]
+  },
+  {
+   "key": "lg-27gr75q",
+   "vendor": "lg",
+   "name": "LG UltraGear 27GR75Q",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 27GR75Q",
+    "27gr75q"
+   ],
+   "kb": 48.8,
+   "size": [
+    635,
+    687
+   ]
+  },
+  {
    "key": "lg-27gr95qe",
    "vendor": "lg",
    "name": "LG UltraGear 27GR95QE",
@@ -5362,10 +7254,10 @@
     "LG UltraGear 27GR95QE",
     "27gr95qe"
    ],
-   "kb": 38.9,
+   "kb": 63.1,
    "size": [
-    530,
-    600
+    618,
+    698
    ]
   },
   {
@@ -5378,10 +7270,10 @@
     "LG UltraGear 27GS95QE",
     "27gs95qe"
    ],
-   "kb": 37.2,
+   "kb": 66.1,
    "size": [
-    536,
-    600
+    634,
+    709
    ]
   },
   {
@@ -5394,10 +7286,42 @@
     "LG UltraGear 32GS95UE",
     "32gs95ue"
    ],
-   "kb": 39.1,
+   "kb": 69.2,
    "size": [
-    600,
-    573
+    730,
+    697
+   ]
+  },
+  {
+   "key": "lg-34gp83a",
+   "vendor": "lg",
+   "name": "LG UltraGear 34GP83A",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 34GP83A",
+    "34gp83a"
+   ],
+   "kb": 27.1,
+   "size": [
+    569,
+    471
+   ]
+  },
+  {
+   "key": "lg-45gr95qe",
+   "vendor": "lg",
+   "name": "LG UltraGear 45GR95QE",
+   "kind": "monitor",
+   "ids": [],
+   "names": [
+    "LG UltraGear 45GR95QE",
+    "45gr95qe"
+   ],
+   "kb": 37.1,
+   "size": [
+    564,
+    469
    ]
   },
   {
@@ -5415,10 +7339,46 @@
     "brio 4k",
     "logitech brio 4k"
    ],
-   "kb": 14.6,
+   "kb": 27.4,
    "size": [
-    600,
-    471
+    900,
+    707
+   ]
+  },
+  {
+   "key": "logitech-brio-100",
+   "vendor": "logitech",
+   "name": "Logitech Brio 100",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Logitech Brio 100",
+    "brio 100",
+    "brio 101",
+    "brio 105"
+   ],
+   "kb": 44.5,
+   "size": [
+    900,
+    884
+   ]
+  },
+  {
+   "key": "logitech-brio-300",
+   "vendor": "logitech",
+   "name": "Logitech Brio 300",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Logitech Brio 300",
+    "brio 300",
+    "brio 301",
+    "brio 305"
+   ],
+   "kb": 57.5,
+   "size": [
+    620,
+    900
    ]
   },
   {
@@ -5435,10 +7395,10 @@
     "logitech brio 500",
     "logitech brio 505"
    ],
-   "kb": 30.0,
+   "kb": 61.6,
    "size": [
-    600,
-    498
+    900,
+    747
    ]
   },
   {
@@ -5454,10 +7414,10 @@
     "c270",
     "c270 hd webcam"
    ],
-   "kb": 23.8,
+   "kb": 42.5,
    "size": [
-    600,
-    524
+    900,
+    786
    ]
   },
   {
@@ -5473,10 +7433,28 @@
     "c310",
     "c310 hd webcam"
    ],
-   "kb": 36.4,
+   "kb": 65.8,
    "size": [
-    600,
-    535
+    900,
+    803
+   ]
+  },
+  {
+   "key": "logitech-c505",
+   "vendor": "logitech",
+   "name": "Logitech C505",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Logitech C505",
+    "c505",
+    "webcam c505",
+    "c505e"
+   ],
+   "kb": 54.1,
+   "size": [
+    900,
+    779
    ]
   },
   {
@@ -5492,10 +7470,10 @@
     "c615",
     "c615 hd webcam"
    ],
-   "kb": 29.0,
+   "kb": 63.5,
    "size": [
-    600,
-    446
+    900,
+    669
    ]
   },
   {
@@ -5514,10 +7492,27 @@
     "hd pro webcam c920",
     "c920s"
    ],
-   "kb": 27.6,
+   "kb": 54.8,
    "size": [
-    600,
-    456
+    900,
+    684
+   ]
+  },
+  {
+   "key": "logitech-c920e",
+   "vendor": "logitech",
+   "name": "Logitech C920e",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Logitech C920e",
+    "c920e",
+    "webcam c920e"
+   ],
+   "kb": 63.3,
+   "size": [
+    765,
+    900
    ]
   },
   {
@@ -5534,10 +7529,10 @@
     "c922 pro stream webcam",
     "logitech c922"
    ],
-   "kb": 26.5,
+   "kb": 54.3,
    "size": [
-    600,
-    317
+    900,
+    476
    ]
   },
   {
@@ -5553,10 +7548,27 @@
     "c925e",
     "c925e webcam"
    ],
-   "kb": 32.0,
+   "kb": 64.4,
    "size": [
-    598,
-    600
+    897,
+    900
+   ]
+  },
+  {
+   "key": "logitech-c930e",
+   "vendor": "logitech",
+   "name": "Logitech C930e",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "Logitech C930e",
+    "c930e",
+    "webcam c930e"
+   ],
+   "kb": 59.5,
+   "size": [
+    862,
+    900
    ]
   },
   {
@@ -5579,10 +7591,10 @@
     "logitech f510",
     "rumble gamepad f510"
    ],
-   "kb": 30.0,
+   "kb": 34.8,
    "size": [
-    600,
-    382
+    704,
+    448
    ]
   },
   {
@@ -5600,10 +7612,10 @@
     "logitech f710",
     "logitech wireless gamepad f710"
    ],
-   "kb": 38.7,
+   "kb": 46.2,
    "size": [
-    600,
-    390
+    678,
+    441
    ]
   },
   {
@@ -5638,10 +7650,10 @@
     "pro 2 lightspeed",
     "g pro 2 lightspeed"
    ],
-   "kb": 15.2,
+   "kb": 16.3,
    "size": [
-    314,
-    600
+    364,
+    696
    ]
   },
   {
@@ -5680,6 +7692,26 @@
    "size": [
     298,
     600
+   ]
+  },
+  {
+   "key": "logitech-g-pro-x-headset",
+   "vendor": "logitech",
+   "name": "Logitech G PRO X Headset",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Logitech G PRO X Headset",
+    "g pro x headset",
+    "logitech g pro x",
+    "logitech g pro x gaming headset",
+    "logitech pro x headset",
+    "g pro x gaming headset"
+   ],
+   "kb": 67.5,
+   "size": [
+    690,
+    900
    ]
   },
   {
@@ -5788,10 +7820,10 @@
     "G305X LIGHTSPEED",
     "g305x"
    ],
-   "kb": 20.6,
+   "kb": 22.7,
    "size": [
-    354,
-    600
+    431,
+    731
    ]
   },
   {
@@ -5804,10 +7836,26 @@
     "G309 LIGHTSPEED",
     "g309"
    ],
-   "kb": 18.3,
+   "kb": 21.0,
    "size": [
-    330,
-    600
+    374,
+    681
+   ]
+  },
+  {
+   "key": "logitech-g335",
+   "vendor": "logitech",
+   "name": "Logitech G335",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Logitech G335",
+    "g335"
+   ],
+   "kb": 68.9,
+   "size": [
+    665,
+    900
    ]
   },
   {
@@ -5881,6 +7929,24 @@
    ]
   },
   {
+   "key": "logitech-g432",
+   "vendor": "logitech",
+   "name": "Logitech G432",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Logitech G432",
+    "g432",
+    "logitech g431",
+    "logitech g432 7 1"
+   ],
+   "kb": 68.9,
+   "size": [
+    698,
+    900
+   ]
+  },
+  {
    "key": "logitech-g502-hero",
    "vendor": "logitech",
    "name": "G502 HERO",
@@ -5950,10 +8016,10 @@
     "g502 x",
     "g502 x wired"
    ],
-   "kb": 19.5,
+   "kb": 22.2,
    "size": [
-    336,
-    600
+    404,
+    721
    ]
   },
   {
@@ -5967,10 +8033,10 @@
     "g502 x lightspeed",
     "g502 x wireless"
    ],
-   "kb": 23.2,
+   "kb": 29.8,
    "size": [
-    366,
-    600
+    490,
+    803
    ]
   },
   {
@@ -5984,10 +8050,10 @@
     "g502 x plus",
     "g502 x plus wireless"
    ],
-   "kb": 25.6,
+   "kb": 34.5,
    "size": [
-    367,
-    600
+    492,
+    805
    ]
   },
   {
@@ -6039,10 +8105,10 @@
     "g515 tkl",
     "g515 lightspeed tkl"
    ],
-   "kb": 21.2,
+   "kb": 28.8,
    "size": [
-    600,
-    313
+    758,
+    396
    ]
   },
   {
@@ -6059,10 +8125,10 @@
     "logitech g535",
     "g535 wireless"
    ],
-   "kb": 32.7,
+   "kb": 65.2,
    "size": [
-    488,
-    600
+    732,
+    900
    ]
   },
   {
@@ -6162,6 +8228,43 @@
    ]
   },
   {
+   "key": "logitech-g633",
+   "vendor": "logitech",
+   "name": "G633 Artemis Spectrum",
+   "kind": "headset",
+   "ids": [
+    "046d:0a5c"
+   ],
+   "names": [
+    "G633 Artemis Spectrum",
+    "g633",
+    "g633s"
+   ],
+   "kb": 66.8,
+   "size": [
+    763,
+    900
+   ]
+  },
+  {
+   "key": "logitech-g635",
+   "vendor": "logitech",
+   "name": "G635",
+   "kind": "headset",
+   "ids": [
+    "046d:0a89"
+   ],
+   "names": [
+    "G635",
+    "g635 lightsync"
+   ],
+   "kb": 68.2,
+   "size": [
+    900,
+    881
+   ]
+  },
+  {
    "key": "logitech-g703",
    "vendor": "logitech",
    "name": "G703 LIGHTSPEED",
@@ -6194,10 +8297,10 @@
     "logitech g713 aurora",
     "g713 tkl"
    ],
-   "kb": 37.9,
+   "kb": 67.7,
    "size": [
-    600,
-    480
+    900,
+    719
    ]
   },
   {
@@ -6236,10 +8339,10 @@
     "g733",
     "logitech g733"
    ],
-   "kb": 37.3,
+   "kb": 66.3,
    "size": [
-    504,
-    600
+    756,
+    900
    ]
   },
   {
@@ -6366,6 +8469,44 @@
    ]
   },
   {
+   "key": "logitech-g933",
+   "vendor": "logitech",
+   "name": "G933 Artemis Spectrum",
+   "kind": "headset",
+   "ids": [
+    "046d:0a5b"
+   ],
+   "names": [
+    "G933 Artemis Spectrum",
+    "g933",
+    "g933s"
+   ],
+   "kb": 69.4,
+   "size": [
+    848,
+    900
+   ]
+  },
+  {
+   "key": "logitech-g935",
+   "vendor": "logitech",
+   "name": "G935",
+   "kind": "headset",
+   "ids": [
+    "046d:0a87"
+   ],
+   "names": [
+    "G935",
+    "g935 wireless",
+    "g935 lightsync"
+   ],
+   "kb": 66.9,
+   "size": [
+    900,
+    863
+   ]
+  },
+  {
    "key": "logitech-k845",
    "vendor": "logitech",
    "name": "Logitech K845",
@@ -6379,10 +8520,10 @@
     "k845 mechanical",
     "logitech k845 mechanical"
    ],
-   "kb": 21.2,
+   "kb": 43.1,
    "size": [
-    600,
-    236
+    900,
+    353
    ]
   },
   {
@@ -6396,10 +8537,10 @@
     "mx anywhere 2",
     "logitech mx anywhere 2"
    ],
-   "kb": 20.3,
+   "kb": 26.6,
    "size": [
-    387,
-    600
+    520,
+    806
    ]
   },
   {
@@ -6413,10 +8554,10 @@
     "mx anywhere 3",
     "mx anywhere 3s"
    ],
-   "kb": 19.8,
+   "kb": 35.6,
    "size": [
-    394,
-    600
+    592,
+    900
    ]
   },
   {
@@ -6430,10 +8571,10 @@
     "mx anywhere 3s",
     "logitech mx anywhere 3s"
    ],
-   "kb": 18.3,
+   "kb": 21.6,
    "size": [
-    394,
-    600
+    536,
+    817
    ]
   },
   {
@@ -6448,10 +8589,10 @@
     "logitech mx brio",
     "mx brio 705"
    ],
-   "kb": 30.0,
+   "kb": 66.9,
    "size": [
-    600,
-    522
+    900,
+    783
    ]
   },
   {
@@ -6465,10 +8606,10 @@
     "mx ergo s",
     "mx ergo"
    ],
-   "kb": 20.9,
+   "kb": 40.6,
    "size": [
-    458,
-    600
+    687,
+    900
    ]
   },
   {
@@ -6486,10 +8627,10 @@
     "mx master 3",
     "mx master 3s"
    ],
-   "kb": 21.6,
+   "kb": 38.0,
    "size": [
-    412,
-    600
+    618,
+    900
    ]
   },
   {
@@ -6505,10 +8646,10 @@
     "logitech mx master 4",
     "logitech mx master 4s"
    ],
-   "kb": 24.8,
+   "kb": 47.1,
    "size": [
-    422,
-    600
+    562,
+    800
    ]
   },
   {
@@ -6522,10 +8663,10 @@
     "mx vertical",
     "logitech mx vertical"
    ],
-   "kb": 22.6,
+   "kb": 50.1,
    "size": [
-    428,
-    600
+    642,
+    899
    ]
   },
   {
@@ -6581,10 +8722,10 @@
     "logitech pro x 2",
     "pro x 2 lightspeed"
    ],
-   "kb": 34.6,
+   "kb": 53.6,
    "size": [
-    475,
-    600
+    689,
+    870
    ]
   },
   {
@@ -6600,10 +8741,10 @@
     "pro x 60",
     "pro x 60 lightspeed"
    ],
-   "kb": 22.2,
+   "kb": 41.9,
    "size": [
-    600,
-    225
+    900,
+    338
    ]
   },
   {
@@ -6628,6 +8769,44 @@
    ]
   },
   {
+   "key": "logitech-pro-x-superlight-2",
+   "vendor": "logitech",
+   "name": "PRO X SUPERLIGHT 2",
+   "kind": "mouse",
+   "ids": [],
+   "names": [
+    "PRO X SUPERLIGHT 2",
+    "g pro x superlight 2",
+    "pro x 2 superlight",
+    "pro x 2",
+    "logitech g pro x superlight 2",
+    "pro x superlight 2 lightspeed"
+   ],
+   "kb": 20.9,
+   "size": [
+    471,
+    900
+   ]
+  },
+  {
+   "key": "logitech-pro-x-superlight-2-dex",
+   "vendor": "logitech",
+   "name": "PRO X SUPERLIGHT 2 DEX",
+   "kind": "mouse",
+   "ids": [],
+   "names": [
+    "PRO X SUPERLIGHT 2 DEX",
+    "pro x 2 dex",
+    "superlight 2 dex",
+    "logitech g pro x superlight 2 dex"
+   ],
+   "kb": 31.4,
+   "size": [
+    500,
+    900
+   ]
+  },
+  {
    "key": "logitech-pro-x-superlight-2c",
    "vendor": "logitech",
    "name": "PRO X SUPERLIGHT 2c",
@@ -6637,10 +8816,10 @@
     "PRO X SUPERLIGHT 2c",
     "pro x superlight 2c"
    ],
-   "kb": 12.7,
+   "kb": 13.7,
    "size": [
-    322,
-    600
+    388,
+    723
    ]
   },
   {
@@ -6654,10 +8833,34 @@
     "pro x tkl rapid",
     "pro x tkl"
    ],
-   "kb": 15.2,
+   "kb": 57.9,
    "size": [
-    600,
-    306
+    900,
+    459
+   ]
+  },
+  {
+   "key": "logitech-pro-x-wireless",
+   "vendor": "logitech",
+   "name": "PRO X Wireless",
+   "kind": "headset",
+   "ids": [
+    "046d:0aa7",
+    "046d:0aaa",
+    "046d:0aba"
+   ],
+   "names": [
+    "PRO X Wireless",
+    "g pro x wireless",
+    "pro x wireless lightspeed",
+    "pro wireless headset",
+    "g pro wireless headset",
+    "pro x lightspeed"
+   ],
+   "kb": 65.4,
+   "size": [
+    682,
+    900
    ]
   },
   {
@@ -6674,10 +8877,10 @@
     "pro x2 superstrike",
     "pro x 2 superstrike"
    ],
-   "kb": 16.0,
+   "kb": 17.6,
    "size": [
-    314,
-    600
+    383,
+    732
    ]
   },
   {
@@ -6693,10 +8896,10 @@
     "pro x3 superstrike",
     "pro x 3 superstrike"
    ],
-   "kb": 15.7,
+   "kb": 19.1,
    "size": [
-    315,
-    600
+    384,
+    732
    ]
   },
   {
@@ -6712,10 +8915,26 @@
     "streamcam",
     "logitech streamcam"
    ],
-   "kb": 37.9,
+   "kb": 67.8,
    "size": [
-    600,
-    420
+    900,
+    630
+   ]
+  },
+  {
+   "key": "machenike-g5-pro",
+   "vendor": "machenike",
+   "name": "Machenike G5 Pro",
+   "kind": "gamepad",
+   "ids": [],
+   "names": [
+    "Machenike G5 Pro",
+    "g5 pro"
+   ],
+   "kb": 29.1,
+   "size": [
+    590,
+    414
    ]
   },
   {
@@ -6781,10 +9000,10 @@
     "a7 v2",
     "mchose a7 v2"
    ],
-   "kb": 18.0,
+   "kb": 42.8,
    "size": [
-    318,
-    600
+    476,
+    900
    ]
   },
   {
@@ -6859,10 +9078,10 @@
     "mchose ace 68",
     "ace 68 v2"
    ],
-   "kb": 16.1,
+   "kb": 24.5,
    "size": [
-    600,
-    231
+    785,
+    302
    ]
   },
   {
@@ -6987,10 +9206,42 @@
     "mix 87",
     "mchose mix 87"
    ],
-   "kb": 20.0,
+   "kb": 30.5,
    "size": [
-    600,
-    267
+    788,
+    350
+   ]
+  },
+  {
+   "key": "meze-109-pro",
+   "vendor": "meze",
+   "name": "Meze 109 Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Meze 109 Pro",
+    "109 pro"
+   ],
+   "kb": 67.2,
+   "size": [
+    676,
+    900
+   ]
+  },
+  {
+   "key": "meze-99-classics",
+   "vendor": "meze",
+   "name": "Meze 99 Classics",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Meze 99 Classics",
+    "99 classics"
+   ],
+   "kb": 67.9,
+   "size": [
+    658,
+    900
    ]
   },
   {
@@ -7004,7 +9255,7 @@
     "lifecam hd 3000",
     "microsoft lifecam hd 3000"
    ],
-   "kb": 7.7,
+   "kb": 8.3,
    "size": [
     212,
     271
@@ -7023,7 +9274,7 @@
     "lifecam studio",
     "microsoft lifecam studio"
    ],
-   "kb": 15.5,
+   "kb": 17.3,
    "size": [
     350,
     384
@@ -7054,6 +9305,64 @@
    ]
   },
   {
+   "key": "microsoft-xbox-360-controller",
+   "vendor": "microsoft",
+   "name": "Xbox 360 Controller",
+   "kind": "gamepad",
+   "ids": [],
+   "names": [
+    "Xbox 360 Controller",
+    "xbox 360 wireless controller",
+    "microsoft xbox 360 controller",
+    "xbox 360 controller for windows"
+   ],
+   "kb": 14.2,
+   "size": [
+    464,
+    319
+   ]
+  },
+  {
+   "key": "microsoft-xbox-adaptive-controller",
+   "vendor": "microsoft",
+   "name": "Xbox Adaptive Controller",
+   "kind": "gamepad",
+   "ids": [
+    "045e:0b0a",
+    "045e:0b0c",
+    "045e:0b21"
+   ],
+   "names": [
+    "Xbox Adaptive Controller",
+    "adaptive controller",
+    "microsoft xbox adaptive controller"
+   ],
+   "kb": 31.5,
+   "size": [
+    900,
+    419
+   ]
+  },
+  {
+   "key": "microsoft-xbox-elite-controller",
+   "vendor": "microsoft",
+   "name": "Xbox Elite Wireless Controller",
+   "kind": "gamepad",
+   "ids": [
+    "045e:02e3"
+   ],
+   "names": [
+    "Xbox Elite Wireless Controller",
+    "xbox elite controller",
+    "elite controller"
+   ],
+   "kb": 23.3,
+   "size": [
+    612,
+    481
+   ]
+  },
+  {
    "key": "microsoft-xbox-elite-series-2",
    "vendor": "microsoft",
    "name": "Xbox Elite Wireless Controller Series 2",
@@ -7070,10 +9379,10 @@
     "xbox elite series 2",
     "elite wireless controller series 2"
    ],
-   "kb": 36.7,
+   "kb": 64.7,
    "size": [
-    600,
-    436
+    900,
+    655
    ]
   },
   {
@@ -7089,10 +9398,10 @@
     "elite wireless controller series 2 core",
     "xbox elite wireless controller series 2 core"
    ],
-   "kb": 34.2,
+   "kb": 64.9,
    "size": [
-    600,
-    572
+    900,
+    858
    ]
   },
   {
@@ -7312,10 +9621,10 @@
     "akko ray68",
     "ray68 he magnetic"
    ],
-   "kb": 25.3,
+   "kb": 44.5,
    "size": [
-    600,
-    239
+    900,
+    359
    ]
   },
   {
@@ -7337,6 +9646,214 @@
    ]
   },
   {
+   "key": "moondrop-aria",
+   "vendor": "moondrop",
+   "name": "Moondrop Aria",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Aria",
+    "aria"
+   ],
+   "kb": 25.5,
+   "size": [
+    646,
+    360
+   ]
+  },
+  {
+   "key": "moondrop-aria-2",
+   "vendor": "moondrop",
+   "name": "Moondrop Aria 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Aria 2",
+    "aria 2"
+   ],
+   "kb": 68.4,
+   "size": [
+    514,
+    804
+   ]
+  },
+  {
+   "key": "moondrop-blessing-2",
+   "vendor": "moondrop",
+   "name": "Moondrop Blessing 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Blessing 2",
+    "blessing 2"
+   ],
+   "kb": 34.1,
+   "size": [
+    616,
+    505
+   ]
+  },
+  {
+   "key": "moondrop-blessing-3",
+   "vendor": "moondrop",
+   "name": "Moondrop Blessing 3",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Blessing 3",
+    "blessing 3"
+   ],
+   "kb": 16.7,
+   "size": [
+    439,
+    318
+   ]
+  },
+  {
+   "key": "moondrop-chu",
+   "vendor": "moondrop",
+   "name": "Moondrop Chu",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Chu",
+    "chu"
+   ],
+   "kb": 14.2,
+   "size": [
+    598,
+    503
+   ]
+  },
+  {
+   "key": "moondrop-chu-2",
+   "vendor": "moondrop",
+   "name": "Moondrop Chu 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Chu 2",
+    "chu 2"
+   ],
+   "kb": 13.8,
+   "size": [
+    389,
+    505
+   ]
+  },
+  {
+   "key": "moondrop-kato",
+   "vendor": "moondrop",
+   "name": "Moondrop Kato",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Kato",
+    "kato"
+   ],
+   "kb": 20.2,
+   "size": [
+    614,
+    253
+   ]
+  },
+  {
+   "key": "moondrop-lan",
+   "vendor": "moondrop",
+   "name": "Moondrop LAN",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop LAN",
+    "lan"
+   ],
+   "kb": 8.0,
+   "size": [
+    274,
+    175
+   ]
+  },
+  {
+   "key": "moondrop-may",
+   "vendor": "moondrop",
+   "name": "Moondrop May",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop May",
+    "may"
+   ],
+   "kb": 23.2,
+   "size": [
+    584,
+    228
+   ]
+  },
+  {
+   "key": "moondrop-para",
+   "vendor": "moondrop",
+   "name": "Moondrop Para",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Para",
+    "para"
+   ],
+   "kb": 64.5,
+   "size": [
+    558,
+    900
+   ]
+  },
+  {
+   "key": "moondrop-starfield",
+   "vendor": "moondrop",
+   "name": "Moondrop Starfield",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Starfield",
+    "starfield"
+   ],
+   "kb": 59.6,
+   "size": [
+    521,
+    409
+   ]
+  },
+  {
+   "key": "moondrop-starfield-2",
+   "vendor": "moondrop",
+   "name": "Moondrop Starfield 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Starfield 2",
+    "starfield 2"
+   ],
+   "kb": 42.7,
+   "size": [
+    410,
+    319
+   ]
+  },
+  {
+   "key": "moondrop-variations",
+   "vendor": "moondrop",
+   "name": "Moondrop Variations",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Moondrop Variations",
+    "variations"
+   ],
+   "kb": 68.1,
+   "size": [
+    846,
+    395
+   ]
+  },
+  {
    "key": "msi-mag-271qpx",
    "vendor": "msi",
    "name": "MSI MAG 271QPX QD-OLED",
@@ -7347,10 +9864,10 @@
     "271qpx",
     "mag271qpx"
    ],
-   "kb": 39.9,
+   "kb": 61.9,
    "size": [
-    600,
-    508
+    759,
+    643
    ]
   },
   {
@@ -7364,10 +9881,10 @@
     "274qrf",
     "mag274qrf"
    ],
-   "kb": 31.4,
+   "kb": 35.3,
    "size": [
-    483,
-    600
+    550,
+    683
    ]
   },
   {
@@ -7381,10 +9898,10 @@
     "321urx",
     "mpg321urx"
    ],
-   "kb": 38.3,
+   "kb": 69.3,
    "size": [
-    564,
-    600
+    699,
+    743
    ]
   },
   {
@@ -7403,10 +9920,10 @@
     "nacon pro compact",
     "pro compact controller for xbox"
    ],
-   "kb": 27.9,
+   "kb": 51.1,
    "size": [
-    600,
-    486
+    900,
+    729
    ]
   },
   {
@@ -7426,10 +9943,10 @@
     "revolution 5 pro",
     "nacon revolution 5 pro"
    ],
-   "kb": 39.4,
+   "kb": 60.4,
    "size": [
-    600,
-    424
+    900,
+    636
    ]
   },
   {
@@ -7443,10 +9960,61 @@
     "revolution x pro",
     "nacon revolution x pro"
    ],
-   "kb": 34.2,
+   "kb": 69.0,
    "size": [
-    600,
-    487
+    900,
+    730
+   ]
+  },
+  {
+   "key": "nanoleaf-canvas",
+   "vendor": "nanoleaf",
+   "name": "Nanoleaf Canvas",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Nanoleaf Canvas",
+    "nanoleaf nl29"
+   ],
+   "kb": 54.8,
+   "size": [
+    900,
+    782
+   ]
+  },
+  {
+   "key": "nanoleaf-elements",
+   "vendor": "nanoleaf",
+   "name": "Nanoleaf Elements Hexagons",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Nanoleaf Elements Hexagons",
+    "nanoleaf nl52",
+    "nanoleaf elements"
+   ],
+   "kb": 66.6,
+   "size": [
+    750,
+    748
+   ]
+  },
+  {
+   "key": "nanoleaf-light-panels",
+   "vendor": "nanoleaf",
+   "name": "Nanoleaf Light Panels (Aurora)",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Nanoleaf Light Panels (Aurora)",
+    "nanoleaf nl22",
+    "nanoleaf light panels",
+    "nanoleaf aurora"
+   ],
+   "kb": 7.4,
+   "size": [
+    313,
+    421
    ]
   },
   {
@@ -7595,10 +10163,10 @@
     "nintendo joy con 2",
     "switch 2 joy con"
    ],
-   "kb": 37.6,
+   "kb": 47.3,
    "size": [
-    463,
-    600
+    521,
+    675
    ]
   },
   {
@@ -7655,10 +10223,10 @@
     "gamecube controller for switch 2",
     "switch 2 gamecube controller"
    ],
-   "kb": 39.1,
+   "kb": 66.3,
    "size": [
-    600,
-    429
+    900,
+    644
    ]
   },
   {
@@ -7674,10 +10242,10 @@
     "switch 2 pro controller",
     "nintendo switch 2 pro controller"
    ],
-   "kb": 26.9,
+   "kb": 58.0,
    "size": [
-    526,
-    600
+    789,
+    900
    ]
   },
   {
@@ -7694,10 +10262,10 @@
     "switch pro controller",
     "nintendo switch pro controller"
    ],
-   "kb": 39.2,
+   "kb": 43.2,
    "size": [
-    600,
-    562
+    720,
+    675
    ]
   },
   {
@@ -7712,10 +10280,10 @@
     "noir m2 nex",
     "noir gear m2 nex"
    ],
-   "kb": 13.7,
+   "kb": 23.3,
    "size": [
-    320,
-    600
+    480,
+    900
    ]
   },
   {
@@ -7840,10 +10408,10 @@
     "bh65",
     "nuphyx bh65"
    ],
-   "kb": 30.6,
+   "kb": 30.1,
    "size": [
-    600,
-    454
+    696,
+    526
    ]
   },
   {
@@ -7879,10 +10447,10 @@
     "nuphy gem80 he",
     "gem80"
    ],
-   "kb": 37.9,
+   "kb": 50.2,
    "size": [
-    569,
-    600
+    647,
+    682
    ]
   },
   {
@@ -7899,10 +10467,10 @@
     "nuphy halo75 v2",
     "halo75 v2 iso"
    ],
-   "kb": 27.9,
+   "kb": 40.8,
    "size": [
-    600,
-    445
+    739,
+    545
    ]
   },
   {
@@ -7940,10 +10508,10 @@
     "nuphy kick75",
     "kick75 high"
    ],
-   "kb": 35.0,
+   "kb": 47.2,
    "size": [
-    600,
-    439
+    717,
+    525
    ]
   },
   {
@@ -7963,10 +10531,10 @@
     "node100 iso",
     "node100 jis"
    ],
-   "kb": 37.0,
+   "kb": 54.7,
    "size": [
-    600,
-    422
+    776,
+    545
    ]
   },
   {
@@ -7986,10 +10554,10 @@
     "node100 high iso",
     "node100 high jis"
    ],
-   "kb": 35.5,
+   "kb": 51.9,
    "size": [
-    600,
-    432
+    776,
+    558
    ]
   },
   {
@@ -8009,10 +10577,10 @@
     "node75 iso",
     "node75 jis"
    ],
-   "kb": 37.1,
+   "kb": 48.1,
    "size": [
-    600,
-    417
+    706,
+    491
    ]
   },
   {
@@ -8058,6 +10626,27 @@
    ]
   },
   {
+   "key": "nzxt-rgb-and-fan-controller",
+   "vendor": "nzxt",
+   "name": "NZXT RGB & Fan Controller",
+   "kind": "light",
+   "ids": [
+    "1e71:2011",
+    "1e71:2019",
+    "1e71:201f",
+    "1e71:2020"
+   ],
+   "names": [
+    "NZXT RGB & Fan Controller",
+    "rgb and fan controller"
+   ],
+   "kb": 40.1,
+   "size": [
+    900,
+    575
+   ]
+  },
+  {
    "key": "obsbot-tiny-2",
    "vendor": "obsbot",
    "name": "OBSBOT Tiny 2",
@@ -8071,6 +10660,22 @@
    "kb": 21.8,
    "size": [
     454,
+    600
+   ]
+  },
+  {
+   "key": "obsbot-tiny-2-lite",
+   "vendor": "obsbot",
+   "name": "OBSBOT Tiny 2 Lite",
+   "kind": "webcam",
+   "ids": [],
+   "names": [
+    "OBSBOT Tiny 2 Lite",
+    "tiny 2 lite"
+   ],
+   "kb": 23.1,
+   "size": [
+    440,
     600
    ]
   },
@@ -8095,6 +10700,55 @@
    "size": [
     216,
     407
+   ]
+  },
+  {
+   "key": "philips-fidelio-x2hr",
+   "vendor": "philips",
+   "name": "Philips Fidelio X2HR",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Philips Fidelio X2HR",
+    "fidelio x2hr",
+    "philips fidelio x2"
+   ],
+   "kb": 50.6,
+   "size": [
+    430,
+    569
+   ]
+  },
+  {
+   "key": "philips-shp9500",
+   "vendor": "philips",
+   "name": "Philips SHP9500",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Philips SHP9500",
+    "shp9500"
+   ],
+   "kb": 27.6,
+   "size": [
+    306,
+    429
+   ]
+  },
+  {
+   "key": "philips-hue-bloom",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Bloom",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Bloom",
+    "hue bloom"
+   ],
+   "kb": 19.7,
+   "size": [
+    747,
+    664
    ]
   },
   {
@@ -8133,6 +10787,40 @@
    ]
   },
   {
+   "key": "philips-hue-color-candle",
+   "vendor": "philips-hue",
+   "name": "Philips Hue White and Color Ambiance Candle",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue White and Color Ambiance Candle",
+    "hue color candle",
+    "hue white and color ambiance candle"
+   ],
+   "kb": 27.5,
+   "size": [
+    331,
+    900
+   ]
+  },
+  {
+   "key": "philips-hue-filament-bulb",
+   "vendor": "philips-hue",
+   "name": "Philips Hue White Filament Bulb",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue White Filament Bulb",
+    "hue filament bulb",
+    "hue white filament"
+   ],
+   "kb": 67.9,
+   "size": [
+    420,
+    900
+   ]
+  },
+  {
    "key": "philips-hue-flux-strip",
    "vendor": "philips-hue",
    "name": "Philips Hue Flux Strip Light",
@@ -8147,6 +10835,23 @@
    "size": [
     600,
     520
+   ]
+  },
+  {
+   "key": "philips-hue-go",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Go",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Go",
+    "hue go",
+    "hue go portable accent light"
+   ],
+   "kb": 35.5,
+   "size": [
+    900,
+    832
    ]
   },
   {
@@ -8167,6 +10872,39 @@
    ]
   },
   {
+   "key": "philips-hue-iris",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Iris",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Iris",
+    "hue iris"
+   ],
+   "kb": 28.8,
+   "size": [
+    900,
+    670
+   ]
+  },
+  {
+   "key": "philips-hue-play",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Play Light Bar",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Play Light Bar",
+    "hue play",
+    "hue play light bar"
+   ],
+   "kb": 21.6,
+   "size": [
+    900,
+    313
+   ]
+  },
+  {
    "key": "philips-hue-play-gradient-light-tube",
    "vendor": "philips-hue",
    "name": "Philips Hue Play Gradient Light Tube",
@@ -8181,6 +10919,75 @@
    "size": [
     600,
     334
+   ]
+  },
+  {
+   "key": "philips-hue-play-gradient-lightstrip",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Play Gradient Lightstrip",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Play Gradient Lightstrip",
+    "hue play gradient lightstrip"
+   ],
+   "kb": 50.9,
+   "size": [
+    900,
+    507
+   ]
+  },
+  {
+   "key": "philips-hue-signe-gradient-floor",
+   "vendor": "philips-hue",
+   "name": "Philips Hue Signe Gradient Floor Lamp",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue Signe Gradient Floor Lamp",
+    "hue signe gradient floor",
+    "hue signe gradient",
+    "hue signe"
+   ],
+   "kb": 11.8,
+   "size": [
+    520,
+    900
+   ]
+  },
+  {
+   "key": "philips-hue-white-a19",
+   "vendor": "philips-hue",
+   "name": "Philips Hue White A19",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue White A19",
+    "hue white lamp",
+    "hue white a19"
+   ],
+   "kb": 30.4,
+   "size": [
+    498,
+    900
+   ]
+  },
+  {
+   "key": "philips-hue-white-ambiance-a19",
+   "vendor": "philips-hue",
+   "name": "Philips Hue White Ambiance A19",
+   "kind": "light",
+   "ids": [],
+   "names": [
+    "Philips Hue White Ambiance A19",
+    "hue ambiance lamp",
+    "hue white ambiance a19",
+    "hue white ambiance lamp"
+   ],
+   "kb": 34.5,
+   "size": [
+    498,
+    900
    ]
   },
   {
@@ -8261,10 +11068,10 @@
     "tenz signature edition",
     "tenz signature edition 2 0"
    ],
-   "kb": 13.5,
+   "kb": 18.8,
    "size": [
-    330,
-    600
+    437,
+    794
    ]
   },
   {
@@ -8318,10 +11125,10 @@
     "x2 v3 medium",
     "x2 v3 mini"
    ],
-   "kb": 15.7,
+   "kb": 21.7,
    "size": [
-    333,
-    600
+    439,
+    792
    ]
   },
   {
@@ -8404,10 +11211,10 @@
     "x2h v3 es",
     "x2h wireless"
    ],
-   "kb": 15.6,
+   "kb": 24.0,
    "size": [
-    338,
-    600
+    469,
+    832
    ]
   },
   {
@@ -8466,10 +11273,10 @@
     "x3 mini",
     "x3 mini lhd"
    ],
-   "kb": 16.1,
+   "kb": 25.0,
    "size": [
-    344,
-    600
+    479,
+    835
    ]
   },
   {
@@ -8815,6 +11622,55 @@
    ]
   },
   {
+   "key": "razer-blackshark-v2-hyperspeed",
+   "vendor": "razer",
+   "name": "Razer BlackShark V2 HyperSpeed",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Razer BlackShark V2 HyperSpeed",
+    "blackshark v2 hyperspeed"
+   ],
+   "kb": 7.6,
+   "size": [
+    295,
+    403
+   ]
+  },
+  {
+   "key": "razer-blackshark-v2-pro-2023",
+   "vendor": "razer",
+   "name": "Razer BlackShark V2 Pro (2023)",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Razer BlackShark V2 Pro (2023)",
+    "blackshark v2 pro 2023",
+    "razer blackshark v2 pro"
+   ],
+   "kb": 8.7,
+   "size": [
+    282,
+    428
+   ]
+  },
+  {
+   "key": "razer-blackshark-v2-x",
+   "vendor": "razer",
+   "name": "Razer BlackShark V2 X",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Razer BlackShark V2 X",
+    "blackshark v2 x"
+   ],
+   "kb": 7.9,
+   "size": [
+    304,
+    440
+   ]
+  },
+  {
    "key": "razer-cobra",
    "vendor": "razer",
    "name": "Cobra",
@@ -8930,10 +11786,10 @@
     "razer deathadder v2 mini",
     "razer deathadder v2 pro"
    ],
-   "kb": 23.2,
+   "kb": 33.2,
    "size": [
-    299,
-    600
+    365,
+    732
    ]
   },
   {
@@ -9143,10 +11999,10 @@
     "Huntsman V3 Pro",
     "razer Huntsman V3 Pro"
    ],
-   "kb": 13.6,
+   "kb": 31.3,
    "size": [
-    300,
-    164
+    441,
+    266
    ]
   },
   {
@@ -9161,10 +12017,10 @@
     "Huntsman V3 Pro 8KHz",
     "razer Huntsman V3 Pro 8KHz"
    ],
-   "kb": 12.6,
+   "kb": 31.1,
    "size": [
-    300,
-    164
+    441,
+    266
    ]
   },
   {
@@ -9766,10 +12622,10 @@
     "viper",
     "razer viper"
    ],
-   "kb": 36.5,
+   "kb": 59.0,
    "size": [
-    273,
-    600
+    410,
+    900
    ]
   },
   {
@@ -9789,10 +12645,10 @@
     "viper mini signature edition",
     "razer viper mini signature edition"
    ],
-   "kb": 19.5,
+   "kb": 65.6,
    "size": [
-    310,
-    600
+    395,
+    764
    ]
   },
   {
@@ -10049,10 +12905,10 @@
     "redragon k556rgb m",
     "redragon k556bp rgb m"
    ],
-   "kb": 32.1,
+   "kb": 58.0,
    "size": [
-    600,
-    200
+    900,
+    300
    ]
   },
   {
@@ -10069,10 +12925,10 @@
     "k580 m",
     "redragon k580 m"
    ],
-   "kb": 32.5,
+   "kb": 61.0,
    "size": [
-    600,
-    323
+    900,
+    485
    ]
   },
   {
@@ -10091,10 +12947,10 @@
     "redragon k617rgb mp pt",
     "redragon k617rgb m"
    ],
-   "kb": 23.4,
+   "kb": 40.8,
    "size": [
-    600,
-    208
+    900,
+    312
    ]
   },
   {
@@ -10111,10 +12967,10 @@
     "k618rgb m",
     "redragon k618rgb m"
    ],
-   "kb": 25.6,
+   "kb": 49.6,
    "size": [
-    600,
-    173
+    900,
+    259
    ]
   },
   {
@@ -10133,10 +12989,10 @@
     "redragon k673rgb m",
     "redragon k673wb rgb m"
    ],
-   "kb": 33.1,
+   "kb": 58.4,
    "size": [
-    600,
-    279
+    900,
+    418
    ]
   },
   {
@@ -10155,10 +13011,10 @@
     "redragon k686bg rgb m",
     "redragon k686rgb m"
    ],
-   "kb": 37.2,
+   "kb": 68.0,
    "size": [
-    600,
-    247
+    900,
+    371
    ]
   },
   {
@@ -10175,10 +13031,10 @@
     "k707 rgb m",
     "redragon k707 rgb m"
    ],
-   "kb": 17.6,
+   "kb": 30.8,
    "size": [
-    600,
-    234
+    900,
+    351
    ]
   },
   {
@@ -10196,10 +13052,10 @@
     "redragon k709 he",
     "nova k709 he"
    ],
-   "kb": 30.2,
+   "kb": 68.1,
    "size": [
-    600,
-    275
+    900,
+    412
    ]
   },
   {
@@ -10215,10 +13071,10 @@
     "k683",
     "redragon k683"
    ],
-   "kb": 33.9,
+   "kb": 64.5,
    "size": [
-    600,
-    268
+    900,
+    402
    ]
   },
   {
@@ -10239,10 +13095,10 @@
     "m612 rgb",
     "predator m612 rgb"
    ],
-   "kb": 23.0,
+   "kb": 41.5,
    "size": [
-    344,
-    600
+    516,
+    900
    ]
   },
   {
@@ -10263,10 +13119,10 @@
     "redragon m724 k1ng 1k",
     "redragon k1ng m724"
    ],
-   "kb": 15.6,
+   "kb": 28.7,
    "size": [
-    272,
-    600
+    407,
+    900
    ]
   },
   {
@@ -10288,10 +13144,10 @@
     "c68",
     "royal kludge c68"
    ],
-   "kb": 22.5,
+   "kb": 43.0,
    "size": [
-    600,
-    211
+    900,
+    316
    ]
   },
   {
@@ -10308,10 +13164,10 @@
     "c84",
     "royal kludge c84"
    ],
-   "kb": 28.0,
+   "kb": 53.6,
    "size": [
-    600,
-    385
+    900,
+    577
    ]
   },
   {
@@ -10328,10 +13184,10 @@
     "c87",
     "royal kludge c87"
    ],
-   "kb": 22.2,
+   "kb": 39.3,
    "size": [
-    600,
-    241
+    900,
+    361
    ]
   },
   {
@@ -10348,10 +13204,10 @@
     "c96",
     "royal kludge c96"
    ],
-   "kb": 24.9,
+   "kb": 46.1,
    "size": [
-    600,
-    215
+    900,
+    322
    ]
   },
   {
@@ -10372,10 +13228,10 @@
     "c98",
     "royal kludge c98"
    ],
-   "kb": 24.5,
+   "kb": 48.3,
    "size": [
-    600,
-    314
+    900,
+    470
    ]
   },
   {
@@ -10413,10 +13269,10 @@
     "f99",
     "rk f99"
    ],
-   "kb": 25.2,
+   "kb": 47.6,
    "size": [
-    600,
-    237
+    900,
+    355
    ]
   },
   {
@@ -10436,10 +13292,10 @@
     "l75",
     "rk l75"
    ],
-   "kb": 29.7,
+   "kb": 59.3,
    "size": [
-    600,
-    263
+    900,
+    395
    ]
   },
   {
@@ -10456,10 +13312,10 @@
     "l98",
     "rk l98"
    ],
-   "kb": 28.7,
+   "kb": 55.4,
    "size": [
-    600,
-    231
+    900,
+    346
    ]
   },
   {
@@ -10482,10 +13338,10 @@
     "rk-m75rgb",
     "m75n"
    ],
-   "kb": 30.0,
+   "kb": 58.4,
    "size": [
-    600,
-    265
+    900,
+    398
    ]
   },
   {
@@ -10577,10 +13433,10 @@
     "r99",
     "rk r99"
    ],
-   "kb": 38.5,
+   "kb": 60.3,
    "size": [
-    600,
-    226
+    900,
+    340
    ]
   },
   {
@@ -10616,10 +13472,10 @@
     "rk-61 keyboard",
     "rk61rgb"
    ],
-   "kb": 19.1,
+   "kb": 37.3,
    "size": [
-    600,
-    228
+    900,
+    342
    ]
   },
   {
@@ -10684,10 +13540,10 @@
     "rk71",
     "rk71rgb"
    ],
-   "kb": 34.5,
+   "kb": 52.8,
    "size": [
-    600,
-    254
+    847,
+    359
    ]
   },
   {
@@ -10708,10 +13564,10 @@
     "rk84rgb",
     "rk84 pro"
    ],
-   "kb": 36.2,
+   "kb": 65.4,
    "size": [
-    600,
-    276
+    900,
+    414
    ]
   },
   {
@@ -10730,10 +13586,10 @@
     "rk89",
     "rk89rgb"
    ],
-   "kb": 25.3,
+   "kb": 45.7,
    "size": [
-    600,
-    238
+    900,
+    357
    ]
   },
   {
@@ -10750,10 +13606,10 @@
     "rk920",
     "rk920rgb"
    ],
-   "kb": 21.3,
+   "kb": 36.6,
    "size": [
-    600,
-    232
+    900,
+    348
    ]
   },
   {
@@ -10773,10 +13629,10 @@
     "rk96",
     "rk96 rgb"
    ],
-   "kb": 23.1,
+   "kb": 43.9,
    "size": [
-    600,
-    299
+    900,
+    448
    ]
   },
   {
@@ -10793,10 +13649,26 @@
     "sink87g",
     "rk sink87g"
    ],
-   "kb": 24.0,
+   "kb": 42.1,
    "size": [
-    600,
-    239
+    900,
+    359
+   ]
+  },
+  {
+   "key": "samsung-galaxy-buds3-pro",
+   "vendor": "samsung",
+   "name": "Samsung Galaxy Buds3 Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Samsung Galaxy Buds3 Pro",
+    "galaxy buds3 pro"
+   ],
+   "kb": 14.7,
+   "size": [
+    457,
+    670
    ]
   },
   {
@@ -10825,10 +13697,10 @@
     "Samsung Odyssey G9 (G95C)",
     "g95c"
    ],
-   "kb": 33.7,
+   "kb": 63.6,
    "size": [
-    600,
-    451
+    769,
+    578
    ]
   },
   {
@@ -10858,10 +13730,10 @@
     "odyssey neo g8",
     "g85nb"
    ],
-   "kb": 32.3,
+   "kb": 52.7,
    "size": [
-    600,
-    470
+    696,
+    545
    ]
   },
   {
@@ -10874,10 +13746,10 @@
     "Samsung Odyssey Neo G9 (57\")",
     "g95nc"
    ],
-   "kb": 32.1,
+   "kb": 44.3,
    "size": [
-    600,
-    277
+    760,
+    351
    ]
   },
   {
@@ -10928,10 +13800,10 @@
     "g95sc",
     "g93sc"
    ],
-   "kb": 39.6,
+   "kb": 67.7,
    "size": [
-    600,
-    448
+    732,
+    547
    ]
   },
   {
@@ -10945,10 +13817,10 @@
     "scuf envision",
     "envision wired"
    ],
-   "kb": 28.8,
+   "kb": 25.7,
    "size": [
-    600,
-    539
+    645,
+    579
    ]
   },
   {
@@ -10991,10 +13863,10 @@
     "scuf valor pro",
     "valor pro wired"
    ],
-   "kb": 30.1,
+   "kb": 52.9,
    "size": [
-    600,
-    593
+    900,
+    889
    ]
   },
   {
@@ -11008,10 +13880,302 @@
     "valor pro wireless",
     "scuf valor pro wireless"
    ],
-   "kb": 26.1,
+   "kb": 45.1,
    "size": [
-    600,
-    459
+    900,
+    689
+   ]
+  },
+  {
+   "key": "sennheiser-hd-560s",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 560S",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 560S",
+    "hd 560s"
+   ],
+   "kb": 65.6,
+   "size": [
+    543,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-599",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 599",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 599",
+    "hd 599"
+   ],
+   "kb": 69.1,
+   "size": [
+    499,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-600",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 600",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 600",
+    "hd 600"
+   ],
+   "kb": 63.7,
+   "size": [
+    528,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-650",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 650",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 650",
+    "hd 650"
+   ],
+   "kb": 69.4,
+   "size": [
+    550,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-660-s",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 660 S",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 660 S",
+    "hd 660 s"
+   ],
+   "kb": 66.1,
+   "size": [
+    542,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-660s2",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 660S2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 660S2",
+    "hd 660s2"
+   ],
+   "kb": 67.5,
+   "size": [
+    564,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-hd-800-s",
+   "vendor": "sennheiser",
+   "name": "Sennheiser HD 800 S",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser HD 800 S",
+    "hd 800 s"
+   ],
+   "kb": 68.6,
+   "size": [
+    629,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-ie-200",
+   "vendor": "sennheiser",
+   "name": "Sennheiser IE 200",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser IE 200",
+    "ie 200"
+   ],
+   "kb": 13.0,
+   "size": [
+    531,
+    446
+   ]
+  },
+  {
+   "key": "sennheiser-ie-300",
+   "vendor": "sennheiser",
+   "name": "Sennheiser IE 300",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser IE 300",
+    "ie 300"
+   ],
+   "kb": 33.7,
+   "size": [
+    761,
+    843
+   ]
+  },
+  {
+   "key": "sennheiser-ie-600",
+   "vendor": "sennheiser",
+   "name": "Sennheiser IE 600",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser IE 600",
+    "ie 600"
+   ],
+   "kb": 50.3,
+   "size": [
+    861,
+    879
+   ]
+  },
+  {
+   "key": "sennheiser-ie-900",
+   "vendor": "sennheiser",
+   "name": "Sennheiser IE 900",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser IE 900",
+    "ie 900"
+   ],
+   "kb": 26.7,
+   "size": [
+    515,
+    762
+   ]
+  },
+  {
+   "key": "sennheiser-momentum-4-wireless",
+   "vendor": "sennheiser",
+   "name": "Sennheiser Momentum 4 Wireless",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser Momentum 4 Wireless",
+    "momentum 4 wireless"
+   ],
+   "kb": 69.7,
+   "size": [
+    665,
+    900
+   ]
+  },
+  {
+   "key": "sennheiser-momentum-true-wireless-3",
+   "vendor": "sennheiser",
+   "name": "Sennheiser Momentum True Wireless 3",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sennheiser Momentum True Wireless 3",
+    "momentum true wireless 3"
+   ],
+   "kb": 39.9,
+   "size": [
+    645,
+    708
+   ]
+  },
+  {
+   "key": "shure-aonic-50",
+   "vendor": "shure",
+   "name": "Shure AONIC 50",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Shure AONIC 50",
+    "aonic 50"
+   ],
+   "kb": 69.0,
+   "size": [
+    762,
+    900
+   ]
+  },
+  {
+   "key": "simgot-ea1000",
+   "vendor": "simgot",
+   "name": "Simgot EA1000",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Simgot EA1000",
+    "ea1000",
+    "simgot audio ea1000",
+    "simgot ea1000 fermat"
+   ],
+   "kb": 39.2,
+   "size": [
+    676,
+    448
+   ]
+  },
+  {
+   "key": "simgot-ea500lm",
+   "vendor": "simgot",
+   "name": "Simgot EA500LM",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Simgot EA500LM",
+    "ea500lm",
+    "simgot audio ea500lm",
+    "simgot ea500 lm"
+   ],
+   "kb": 53.8,
+   "size": [
+    900,
+    489
+   ]
+  },
+  {
+   "key": "simgot-ew200",
+   "vendor": "simgot",
+   "name": "Simgot EW200",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Simgot EW200",
+    "ew200",
+    "simgot audio ew200"
+   ],
+   "kb": 47.1,
+   "size": [
+    900,
+    748
+   ]
+  },
+  {
+   "key": "sonix-61key-cz",
+   "vendor": "sonix",
+   "name": "61KEY-CZ Gaming Keyboard",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "61KEY-CZ Gaming Keyboard"
+   ],
+   "kb": 68.3,
+   "size": [
+    887,
+    359
    ]
   },
   {
@@ -11034,6 +14198,326 @@
    ]
   },
   {
+   "key": "sonix-cz-206",
+   "vendor": "sonix",
+   "name": "CZ-206",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "CZ-206"
+   ],
+   "kb": 44.4,
+   "size": [
+    900,
+    360
+   ]
+  },
+  {
+   "key": "sonix-eweadn-zap68",
+   "vendor": "sonix",
+   "name": "EWEADN ZAP68 HE",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "EWEADN ZAP68 HE",
+    "zap68",
+    "eweadn zap68",
+    "zap68 he"
+   ],
+   "kb": 50.4,
+   "size": [
+    646,
+    900
+   ]
+  },
+  {
+   "key": "sonix-gs3068",
+   "vendor": "sonix",
+   "name": "GS3068",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "GS3068",
+    "gs3068c",
+    "gs3068 mag"
+   ],
+   "kb": 33.2,
+   "size": [
+    900,
+    328
+   ]
+  },
+  {
+   "key": "sonix-hk8301g",
+   "vendor": "sonix",
+   "name": "HK8301G",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "HK8301G",
+    "tk200"
+   ],
+   "kb": 60.9,
+   "size": [
+    827,
+    359
+   ]
+  },
+  {
+   "key": "sonix-kb-820c",
+   "vendor": "sonix",
+   "name": "KB-820C",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "KB-820C"
+   ],
+   "kb": 19.1,
+   "size": [
+    532,
+    237
+   ]
+  },
+  {
+   "key": "sonix-kx68he",
+   "vendor": "sonix",
+   "name": "KX68HE",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "KX68HE"
+   ],
+   "kb": 42.4,
+   "size": [
+    900,
+    353
+   ]
+  },
+  {
+   "key": "sonix-looting60-pro",
+   "vendor": "sonix",
+   "name": "Looting60 Pro",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Looting60 Pro"
+   ],
+   "kb": 48.9,
+   "size": [
+    900,
+    360
+   ]
+  },
+  {
+   "key": "sonix-looting63",
+   "vendor": "sonix",
+   "name": "Looting63",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Looting63",
+    "lukit63"
+   ],
+   "kb": 29.5,
+   "size": [
+    900,
+    357
+   ]
+  },
+  {
+   "key": "sonix-looting66-pro",
+   "vendor": "sonix",
+   "name": "Looting66 Pro",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Looting66 Pro"
+   ],
+   "kb": 40.7,
+   "size": [
+    900,
+    354
+   ]
+  },
+  {
+   "key": "sonix-looting68-pro",
+   "vendor": "sonix",
+   "name": "Looting68 Pro",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Looting68 Pro"
+   ],
+   "kb": 47.0,
+   "size": [
+    900,
+    344
+   ]
+  },
+  {
+   "key": "sonix-looting75-pro",
+   "vendor": "sonix",
+   "name": "Looting75 Pro",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Looting75 Pro"
+   ],
+   "kb": 43.9,
+   "size": [
+    900,
+    377
+   ]
+  },
+  {
+   "key": "sonix-luminor-68",
+   "vendor": "sonix",
+   "name": "Luminor 68",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Luminor 68"
+   ],
+   "kb": 28.8,
+   "size": [
+    900,
+    347
+   ]
+  },
+  {
+   "key": "sonix-mc68",
+   "vendor": "sonix",
+   "name": "MC68",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "MC68"
+   ],
+   "kb": 32.0,
+   "size": [
+    877,
+    326
+   ]
+  },
+  {
+   "key": "sonix-mini-60-he",
+   "vendor": "sonix",
+   "name": "MINI 60 HE",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "MINI 60 HE",
+    "mini 60 he pro",
+    "mini60he max",
+    "win 60 he"
+   ],
+   "kb": 58.7,
+   "size": [
+    900,
+    309
+   ]
+  },
+  {
+   "key": "sonix-mk75",
+   "vendor": "sonix",
+   "name": "MK75 Keyboard",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "MK75 Keyboard",
+    "mk75keyboard"
+   ],
+   "kb": 45.0,
+   "size": [
+    900,
+    394
+   ]
+  },
+  {
+   "key": "sonix-onikuma-g67",
+   "vendor": "sonix",
+   "name": "Onikuma G67",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Onikuma G67",
+    "onikua keyboard g67",
+    "onikuma keyboard g67"
+   ],
+   "kb": 63.8,
+   "size": [
+    900,
+    326
+   ]
+  },
+  {
+   "key": "sonix-qsenn-dt35",
+   "vendor": "sonix",
+   "name": "QSENN DT35",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "QSENN DT35",
+    "qsenn dt35 104",
+    "dt dt35 104"
+   ],
+   "kb": 36.6,
+   "size": [
+    900,
+    341
+   ]
+  },
+  {
+   "key": "sonix-red-star-980",
+   "vendor": "sonix",
+   "name": "Red Star 980",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Red Star 980"
+   ],
+   "kb": 34.5,
+   "size": [
+    900,
+    360
+   ]
+  },
+  {
+   "key": "sonix-rk739",
+   "vendor": "sonix",
+   "name": "RK739",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "RK739"
+   ],
+   "kb": 47.0,
+   "size": [
+    900,
+    330
+   ]
+  },
+  {
+   "key": "sonix-si-2810",
+   "vendor": "sonix",
+   "name": "SI-2810 (A80)",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "SI-2810 (A80)",
+    "si 2810",
+    "si 2810c",
+    "a80 pro",
+    "a80rt",
+    "a80rt u"
+   ],
+   "kb": 34.0,
+   "size": [
+    822,
+    361
+   ]
+  },
+  {
    "key": "sonix-skyloong-gk68",
    "vendor": "sonix",
    "name": "Skyloong GK68",
@@ -11050,6 +14534,51 @@
    "size": [
     600,
     301
+   ]
+  },
+  {
+   "key": "sonix-star75-mag",
+   "vendor": "sonix",
+   "name": "STAR75-MAG",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "STAR75-MAG"
+   ],
+   "kb": 40.8,
+   "size": [
+    900,
+    372
+   ]
+  },
+  {
+   "key": "sonix-sunny75",
+   "vendor": "sonix",
+   "name": "Sunny75",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Sunny75"
+   ],
+   "kb": 29.0,
+   "size": [
+    900,
+    371
+   ]
+  },
+  {
+   "key": "sonix-sunny80-he",
+   "vendor": "sonix",
+   "name": "Sunny80 HE",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "Sunny80 HE"
+   ],
+   "kb": 35.0,
+   "size": [
+    900,
+    360
    ]
   },
   {
@@ -11078,12 +14607,29 @@
    "names": [
     "VTER Fighting68",
     "fighting68",
+    "sting68 lite",
     "vter fighting68"
    ],
    "kb": 24.4,
    "size": [
     600,
     214
+   ]
+  },
+  {
+   "key": "sonix-vter-fighting98",
+   "vendor": "sonix",
+   "name": "VTER Fighting98",
+   "kind": "keyboard",
+   "ids": [],
+   "names": [
+    "VTER Fighting98",
+    "fighting98"
+   ],
+   "kb": 50.0,
+   "size": [
+    900,
+    308
    ]
   },
   {
@@ -11117,10 +14663,10 @@
     "playstation access controller",
     "sony access controller"
    ],
-   "kb": 35.3,
+   "kb": 54.3,
    "size": [
-    600,
-    404
+    791,
+    532
    ]
   },
   {
@@ -11138,10 +14684,10 @@
     "sony dualsense",
     "ps5 controller"
    ],
-   "kb": 26.9,
+   "kb": 29.2,
    "size": [
-    600,
-    418
+    704,
+    491
    ]
   },
   {
@@ -11158,10 +14704,10 @@
     "dualsense edge wireless controller",
     "sony dualsense edge"
    ],
-   "kb": 34.3,
+   "kb": 45.1,
    "size": [
-    600,
-    416
+    735,
+    509
    ]
   },
   {
@@ -11180,10 +14726,138 @@
     "sony dualshock 4",
     "ps4 controller"
    ],
-   "kb": 39.6,
+   "kb": 55.2,
    "size": [
-    600,
-    398
+    759,
+    504
+   ]
+  },
+  {
+   "key": "sony-ier-z1r",
+   "vendor": "sony",
+   "name": "Sony IER-Z1R",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony IER-Z1R",
+    "ier z1r"
+   ],
+   "kb": 49.2,
+   "size": [
+    486,
+    900
+   ]
+  },
+  {
+   "key": "sony-inzone-buds",
+   "vendor": "sony",
+   "name": "Sony INZONE Buds",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony INZONE Buds",
+    "inzone buds"
+   ],
+   "kb": 15.0,
+   "size": [
+    519,
+    527
+   ]
+  },
+  {
+   "key": "sony-inzone-h9",
+   "vendor": "sony",
+   "name": "Sony INZONE H9",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony INZONE H9",
+    "inzone h9"
+   ],
+   "kb": 49.9,
+   "size": [
+    880,
+    900
+   ]
+  },
+  {
+   "key": "sony-mdr-7506",
+   "vendor": "sony",
+   "name": "Sony MDR-7506",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony MDR-7506",
+    "mdr 7506"
+   ],
+   "kb": 67.8,
+   "size": [
+    573,
+    900
+   ]
+  },
+  {
+   "key": "sony-wf-1000xm4",
+   "vendor": "sony",
+   "name": "Sony WF-1000XM4",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony WF-1000XM4",
+    "wf 1000xm4"
+   ],
+   "kb": 14.8,
+   "size": [
+    521,
+    476
+   ]
+  },
+  {
+   "key": "sony-wf-1000xm5",
+   "vendor": "sony",
+   "name": "Sony WF-1000XM5",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony WF-1000XM5",
+    "wf 1000xm5"
+   ],
+   "kb": 10.4,
+   "size": [
+    441,
+    315
+   ]
+  },
+  {
+   "key": "sony-wh-1000xm4",
+   "vendor": "sony",
+   "name": "Sony WH-1000XM4",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony WH-1000XM4",
+    "wh 1000xm4"
+   ],
+   "kb": 24.8,
+   "size": [
+    429,
+    626
+   ]
+  },
+  {
+   "key": "sony-wh-1000xm5",
+   "vendor": "sony",
+   "name": "Sony WH-1000XM5",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Sony WH-1000XM5",
+    "wh 1000xm5"
+   ],
+   "kb": 39.4,
+   "size": [
+    596,
+    900
    ]
   },
   {
@@ -11285,10 +14959,10 @@
     "Apex 3",
     "apex 3"
    ],
-   "kb": 35.2,
+   "kb": 55.6,
    "size": [
-    600,
-    340
+    824,
+    467
    ]
   },
   {
@@ -11324,10 +14998,10 @@
     "Apex 5",
     "apex 5"
    ],
-   "kb": 34.1,
+   "kb": 57.2,
    "size": [
-    600,
-    364
+    848,
+    515
    ]
   },
   {
@@ -11421,10 +15095,10 @@
     "apex pro",
     "apex pro 2019"
    ],
-   "kb": 36.2,
+   "kb": 51.4,
    "size": [
-    600,
-    255
+    720,
+    306
    ]
   },
   {
@@ -11440,10 +15114,10 @@
     "apex pro gen 3",
     "apex pro 2024"
    ],
-   "kb": 34.1,
+   "kb": 66.0,
    "size": [
-    600,
-    486
+    836,
+    677
    ]
   },
   {
@@ -11535,10 +15209,10 @@
     "Apex Pro TKL Gen 3 Cyber",
     "apex pro tkl cyber"
    ],
-   "kb": 38.9,
+   "kb": 67.7,
    "size": [
-    600,
-    570
+    730,
+    694
    ]
   },
   {
@@ -11572,10 +15246,10 @@
     "Apex Pro TKL Gen 3 Steel",
     "apex pro tkl steel"
    ],
-   "kb": 36.1,
+   "kb": 62.3,
    "size": [
-    600,
-    570
+    730,
+    694
    ]
   },
   {
@@ -11612,10 +15286,26 @@
     "apex pro tkl wireless gen 3",
     "apex pro tkl wireless 2024"
    ],
-   "kb": 38.2,
+   "kb": 68.2,
    "size": [
-    600,
-    542
+    705,
+    637
+   ]
+  },
+  {
+   "key": "steelseries-arctis-nova-1",
+   "vendor": "steelseries",
+   "name": "SteelSeries Arctis Nova 1",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "SteelSeries Arctis Nova 1",
+    "arctis nova 1"
+   ],
+   "kb": 27.3,
+   "size": [
+    390,
+    661
    ]
   },
   {
@@ -11670,10 +15360,10 @@
     "arctis nova 7 wireless gen 2",
     "arctis nova 7 gen 2"
    ],
-   "kb": 37.1,
+   "kb": 63.0,
    "size": [
-    411,
-    600
+    617,
+    900
    ]
   },
   {
@@ -11719,6 +15409,22 @@
    ]
   },
   {
+   "key": "steelseries-arctis-nova-pro",
+   "vendor": "steelseries",
+   "name": "SteelSeries Arctis Nova Pro",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "SteelSeries Arctis Nova Pro",
+    "arctis nova pro"
+   ],
+   "kb": 49.7,
+   "size": [
+    539,
+    900
+   ]
+  },
+  {
    "key": "steelseries-prime",
    "vendor": "steelseries",
    "name": "SteelSeries Prime",
@@ -11733,10 +15439,10 @@
     "prime plus",
     "prime+"
    ],
-   "kb": 16.2,
+   "kb": 20.6,
    "size": [
-    600,
-    280
+    773,
+    361
    ]
   },
   {
@@ -11793,10 +15499,10 @@
     "Rival 3 Wireless",
     "rival 3 wireless"
    ],
-   "kb": 17.9,
+   "kb": 20.0,
    "size": [
-    600,
-    353
+    688,
+    405
    ]
   },
   {
@@ -11814,10 +15520,10 @@
     "rival 310",
     "steelseries rival 310"
    ],
-   "kb": 38.6,
+   "kb": 52.5,
    "size": [
-    396,
-    600
+    457,
+    692
    ]
   },
   {
@@ -11876,10 +15582,45 @@
     "stratus duo",
     "steelseries stratus duo"
    ],
-   "kb": 28.8,
+   "kb": 55.6,
    "size": [
-    600,
-    466
+    900,
+    700
+   ]
+  },
+  {
+   "key": "tangzu-wan-er-s-g",
+   "vendor": "tangzu",
+   "name": "TANGZU Wan'er S.G",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "TANGZU Wan'er S.G",
+    "wan er s g",
+    "tangzu waner sg",
+    "tangzu wan er sg"
+   ],
+   "kb": 18.6,
+   "size": [
+    350,
+    372
+   ]
+  },
+  {
+   "key": "tangzu-zetian-wu",
+   "vendor": "tangzu",
+   "name": "TANGZU Zetian Wu",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "TANGZU Zetian Wu",
+    "zetian wu",
+    "tangzu wu zetian"
+   ],
+   "kb": 21.6,
+   "size": [
+    512,
+    387
    ]
   },
   {
@@ -11905,6 +15646,70 @@
    ]
   },
   {
+   "key": "thieaudio-hype-2",
+   "vendor": "thieaudio",
+   "name": "ThieAudio Hype 2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "ThieAudio Hype 2",
+    "hype 2"
+   ],
+   "kb": 60.3,
+   "size": [
+    691,
+    587
+   ]
+  },
+  {
+   "key": "thieaudio-monarch-mkii",
+   "vendor": "thieaudio",
+   "name": "ThieAudio Monarch MKII",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "ThieAudio Monarch MKII",
+    "monarch mkii"
+   ],
+   "kb": 42.8,
+   "size": [
+    837,
+    548
+   ]
+  },
+  {
+   "key": "thieaudio-monarch-mkiii",
+   "vendor": "thieaudio",
+   "name": "ThieAudio Monarch MKIII",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "ThieAudio Monarch MKIII",
+    "monarch mkiii"
+   ],
+   "kb": 37.7,
+   "size": [
+    651,
+    570
+   ]
+  },
+  {
+   "key": "thieaudio-oracle-mkii",
+   "vendor": "thieaudio",
+   "name": "ThieAudio Oracle MKII",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "ThieAudio Oracle MKII",
+    "oracle mkii"
+   ],
+   "kb": 47.6,
+   "size": [
+    621,
+    556
+   ]
+  },
+  {
    "key": "thrustmaster-eswap-pro",
    "vendor": "thrustmaster",
    "name": "Thrustmaster eSwap Pro",
@@ -11918,10 +15723,10 @@
     "eswap pro controller",
     "thrustmaster eswap pro"
    ],
-   "kb": 39.5,
+   "kb": 65.8,
    "size": [
-    600,
-    500
+    900,
+    750
    ]
   },
   {
@@ -11938,10 +15743,10 @@
     "eswap x2",
     "thrustmaster eswap x 2"
    ],
-   "kb": 35.2,
+   "kb": 48.1,
    "size": [
-    600,
-    586
+    666,
+    651
    ]
   },
   {
@@ -11958,10 +15763,125 @@
     "eswap x pro controller",
     "thrustmaster eswap x pro"
    ],
-   "kb": 38.0,
+   "kb": 61.6,
    "size": [
-    600,
-    500
+    900,
+    750
+   ]
+  },
+  {
+   "key": "tin-hifi-c3",
+   "vendor": "tin-hifi",
+   "name": "Tin HiFi C3",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Tin HiFi C3",
+    "c3"
+   ],
+   "kb": 30.9,
+   "size": [
+    900,
+    547
+   ]
+  },
+  {
+   "key": "tin-hifi-t2",
+   "vendor": "tin-hifi",
+   "name": "Tin HiFi T2",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Tin HiFi T2",
+    "t2"
+   ],
+   "kb": 13.0,
+   "size": [
+    379,
+    899
+   ]
+  },
+  {
+   "key": "tin-hifi-t3-plus",
+   "vendor": "tin-hifi",
+   "name": "Tin HiFi T3 Plus",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Tin HiFi T3 Plus",
+    "t3 plus"
+   ],
+   "kb": 16.7,
+   "size": [
+    484,
+    390
+   ]
+  },
+  {
+   "key": "truthear-hexa",
+   "vendor": "truthear",
+   "name": "Truthear Hexa",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Truthear Hexa",
+    "hexa"
+   ],
+   "kb": 23.1,
+   "size": [
+    479,
+    354
+   ]
+  },
+  {
+   "key": "truthear-nova",
+   "vendor": "truthear",
+   "name": "Truthear Nova",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Truthear Nova",
+    "nova"
+   ],
+   "kb": 64.7,
+   "size": [
+    762,
+    558
+   ]
+  },
+  {
+   "key": "truthear-x-crinacle-zero",
+   "vendor": "truthear",
+   "name": "Truthear x Crinacle Zero",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Truthear x Crinacle Zero",
+    "x crinacle zero",
+    "truthear zero",
+    "truthear zero blue"
+   ],
+   "kb": 50.0,
+   "size": [
+    441,
+    401
+   ]
+  },
+  {
+   "key": "truthear-x-crinacle-zero-red",
+   "vendor": "truthear",
+   "name": "Truthear x Crinacle Zero RED",
+   "kind": "headphones",
+   "ids": [],
+   "names": [
+    "Truthear x Crinacle Zero RED",
+    "x crinacle zero red",
+    "truthear zero red"
+   ],
+   "kb": 63.6,
+   "size": [
+    839,
+    419
    ]
   },
   {
@@ -11978,10 +15898,10 @@
     "afterglow wave wired controller",
     "turtle beach afterglow wave wired"
    ],
-   "kb": 33.5,
+   "kb": 66.3,
    "size": [
-    600,
-    578
+    847,
+    816
    ]
   },
   {
@@ -11998,10 +15918,10 @@
     "afterglow wired controller for nintendo switch 2",
     "turtle beach afterglow wired"
    ],
-   "kb": 39.7,
+   "kb": 68.8,
    "size": [
-    420,
-    480
+    612,
+    700
    ]
   },
   {
@@ -12016,10 +15936,10 @@
     "afterglow wireless controller for nintendo switch 2",
     "turtle beach afterglow wireless"
    ],
-   "kb": 47.5,
+   "kb": 87.0,
    "size": [
-    480,
-    441
+    700,
+    644
    ]
   },
   {
@@ -12057,10 +15977,10 @@
     "recon controller",
     "turtle beach recon controller"
    ],
-   "kb": 35.8,
+   "kb": 42.7,
    "size": [
-    600,
-    573
+    712,
+    680
    ]
   },
   {
@@ -12077,10 +15997,10 @@
     "rematch wired controller",
     "turtle beach rematch wired"
    ],
-   "kb": 34.8,
+   "kb": 52.0,
    "size": [
-    600,
-    496
+    818,
+    676
    ]
   },
   {
@@ -12095,10 +16015,10 @@
     "rematch wireless controller for nintendo switch 2",
     "turtle beach rematch wireless"
    ],
-   "kb": 35.8,
+   "kb": 68.8,
    "size": [
-    600,
-    436
+    840,
+    611
    ]
   },
   {
@@ -12112,10 +16032,10 @@
     "stealth pivot",
     "turtle beach stealth pivot"
    ],
-   "kb": 34.0,
+   "kb": 62.0,
    "size": [
-    600,
-    410
+    900,
+    616
    ]
   },
   {
@@ -12132,10 +16052,10 @@
     "turtle beach stealth ultra",
     "stealth ultra controller"
    ],
-   "kb": 34.1,
+   "kb": 65.9,
    "size": [
-    600,
-    406
+    900,
+    608
    ]
   },
   {
@@ -12171,10 +16091,10 @@
     "steam controller",
     "valve steam controller"
    ],
-   "kb": 24.0,
+   "kb": 19.5,
    "size": [
-    600,
-    435
+    676,
+    490
    ]
   },
   {
@@ -12191,10 +16111,10 @@
     "steam deck controller",
     "valve steam deck"
    ],
-   "kb": 32.2,
+   "kb": 55.6,
    "size": [
-    600,
-    427
+    900,
+    640
    ]
   },
   {
@@ -12470,10 +16390,10 @@
     "dragonfly f2 master plus",
     "vgn dragonfly f2 master plus"
    ],
-   "kb": 28.7,
+   "kb": 49.5,
    "size": [
-    329,
-    600
+    493,
+    900
    ]
   },
   {
@@ -12490,10 +16410,10 @@
     "gambit",
     "gambit prime"
    ],
-   "kb": 36.1,
+   "kb": 59.5,
    "size": [
-    600,
-    446
+    780,
+    580
    ]
   },
   {
@@ -12508,10 +16428,10 @@
     "pro bfg",
     "pro bfg wireless controller"
    ],
-   "kb": 31.9,
+   "kb": 57.6,
    "size": [
-    600,
-    396
+    900,
+    594
    ]
   },
   {
@@ -12528,10 +16448,10 @@
     "pro bfg reloaded",
     "victrix pro bfg for xbox"
    ],
-   "kb": 31.9,
+   "kb": 57.6,
    "size": [
-    600,
-    396
+    900,
+    594
    ]
   },
   {
@@ -12550,10 +16470,10 @@
     "m 001",
     "wallhack m 001"
    ],
-   "kb": 20.9,
+   "kb": 27.6,
    "size": [
-    327,
-    600
+    375,
+    689
    ]
   },
   {
@@ -12589,10 +16509,10 @@
     "wlmouse beast max",
     "beast x max"
    ],
-   "kb": 27.2,
+   "kb": 28.4,
    "size": [
-    322,
-    600
+    382,
+    712
    ]
   },
   {
@@ -12675,10 +16595,10 @@
     "Sword X",
     "WLMouse Sword X"
    ],
-   "kb": 33.5,
+   "kb": 57.9,
    "size": [
-    323,
-    600
+    427,
+    793
    ]
   },
   {
@@ -12770,10 +16690,10 @@
     "wooting two he",
     "two he"
    ],
-   "kb": 21.2,
+   "kb": 26.9,
    "size": [
-    600,
-    229
+    687,
+    262
    ]
   },
   {
@@ -12789,10 +16709,10 @@
     "m3k",
     "zaunkoenig m3k"
    ],
-   "kb": 23.3,
+   "kb": 24.3,
    "size": [
-    390,
-    600
+    446,
+    686
    ]
   }
  ]

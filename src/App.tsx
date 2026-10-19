@@ -1,5 +1,5 @@
 import { Suspense, lazy, startTransition, useCallback, useEffect, useRef, useState } from "react";
-import { GameController, GearSix, Lightbulb, Monitor, SquaresFour } from "@phosphor-icons/react";
+import { GameController, GearSix, Lifebuoy, Lightbulb, Monitor, SquaresFour } from "@phosphor-icons/react";
 import { backend, inTauri, isWeb, liveHardware, type Connected } from "@/lib/backend";
 import { isActive, onActivityChange } from "@/lib/activity";
 import { devicePageClosed } from "@/lib/trim";
@@ -11,15 +11,20 @@ import { refreshPads } from "@/lib/controllers/probe";
 import { useLamps } from "@/lib/lighting/lamps";
 import { useNetLights } from "@/lib/lighting/net/lights";
 import { goDisplays, goGames, goHome, goLights, goSettings, keyboardId, mouseId, sectionOfDevice, SOUND_ID, useNav } from "@/lib/nav";
-import { useKeptState } from "@/lib/keep";
+import { setKept, useKeptState } from "@/lib/keep";
 import { NoticeStack, type Notice } from "@/components/ui/matte";
-import { AmbientLight, DOCK_SPACE, Dock } from "@/components/ui/ambient";
+import { Dock, TitleBar } from "@/components/ui/chrome";
+import { Shader } from "@/components/ui/shader";
+import { CommandMenu } from "@/components/CommandMenu";
 import { EqPage } from "@/components/eq/EqPage";
 import { DevicesHome } from "@/components/devices/DevicesHome";
-import { HelperChip } from "@/components/settings/HelperChip";
+import { useHelperStatus } from "@/lib/helper-state";
+import { usePending } from "@/lib/feel/pending";
 import { useWelcomeOpen } from "@/lib/welcome";
 import { PageBoundary } from "@/components/ui/error-boundary";
-import { WebHelperChip, WebSoundPage } from "@/components/web/lazy";
+import { WebSoundPage } from "@/components/web/lazy";
+import { useHelperReady } from "@/lib/web/use-helper";
+import { useProfileRunner } from "@/lib/profiles/use-runner";
 
 // The Mouse and Keyboard pages (and their device drivers) load the first time they're wanted:
 // hovering or focusing their card starts the download, so opening them stays instant.
@@ -45,7 +50,8 @@ const SettingsPage = lazy(() => import("@/components/settings/SettingsPage").the
 // The gear checkup (Gear Doctor): its own chunk, loaded when it's opened.
 const CheckupPage = lazy(() => import("@/components/checkup/CheckupPage").then((m) => ({ default: m.CheckupPage })));
 // Games (SYNQ Helper's per-game profiles) is a desktop page: recording a profile needs the app's bridge.
-const GamesPage = typeof __ONBOARD_WEB__ !== "undefined" && __ONBOARD_WEB__ === true ? null : lazy(() => import("@/components/games/GamesPage").then((m) => ({ default: m.GamesPage })));
+// The website has it too, once SYNQ Helper is connected (the helper keeps the profiles and runs them).
+const GamesPage = lazy(() => import("@/components/games/GamesPage").then((m) => ({ default: m.GamesPage })));
 
 const Welcome = lazy(() => import("@/components/welcome/Welcome").then((m) => ({ default: m.Welcome })));
 // `?shot` in the browser preview leaves the "Preview" note out, for screenshots (the README's).
@@ -54,30 +60,15 @@ const PRELOAD: Partial<Record<string, () => Promise<unknown>>> = { mouse: loadMo
 
 const WEB = typeof __ONBOARD_WEB__ !== "undefined" && __ONBOARD_WEB__ === true;
 const NOTICE_MS = { ok: 4500, info: 4000, error: 9000 } as const;
+/** The window's backdrop: a dark dot field like a pixel display at rest, a few dots holding a dim ember. Darkest first; the second is the page colour (--background). */
+const BACKDROP = ["#0e0c0b", "#110f0e", "#181513", "#3e1f16"] as const;
 /** Device list refresh where there are no plug and unplug notifications (not Windows): while the window is focused, and while it's shown but in the background. Minimized: none. */
 const DEVICE_POLL_MS = 8000;
 const DEVICE_POLL_IDLE_MS = 30000;
-const ACCENT_KEY = "onboard.accent";
-/** Set once the accent has been read since the room light became the default. */
-const ROOM_DEFAULT_KEY = "onboard.accent.room";
-
-function readAccent(): string {
-  try {
-    const kept = localStorage.getItem(ACCENT_KEY);
-    const first = !localStorage.getItem(ROOM_DEFAULT_KEY);
-    localStorage.setItem(ROOM_DEFAULT_KEY, "1");
-    // Violet was the default before the room light: kept from then, it moves to the room light once. Picked again
-    // after that, it stays.
-    return !kept || (kept === "iris" && first) ? "room" : kept;
-  } catch {
-    return "room";
-  }
-}
 
 export default function App() {
   const [nav] = useNav();
   const [welcome] = useWelcomeOpen();
-  const [accent, setAccent] = useState(readAccent);
   const [devices, setDevices] = useState<Connected[]>([]);
   const [notices, setNotices] = useState<Notice[]>([]);
   const nextId = useRef(1);
@@ -85,15 +76,6 @@ export default function App() {
   /** The device list has come in at least once (the first state of `devices` is just empty). */
   const listed = useRef(false);
   const timers = useRef(new Map<number, number>());
-
-  useEffect(() => {
-    document.documentElement.dataset.accent = accent;
-    try {
-      localStorage.setItem(ACCENT_KEY, accent);
-    } catch {
-      /* preference only */
-    }
-  }, [accent]);
 
   const dismiss = useCallback((id: number) => {
     setNotices((n) => n.filter((x) => x.id !== id));
@@ -187,7 +169,9 @@ export default function App() {
 
   const select = (id: string) => {
     // A transition keeps the current page on screen until a page that's still loading is ready.
-    startTransition(() => (id === "settings" ? goSettings() : id === "games" ? goGames() : id === "lights" ? goLights() : id === "displays" ? goDisplays() : goHome()));
+    // Helper is a part of Settings: it opens there, scrolled to SYNQ Helper.
+    if (id === "helper") setKept<string | null>("settings.focus", "helper");
+    startTransition(() => (id === "settings" || id === "helper" ? goSettings() : id === "games" ? goGames() : id === "lights" ? goLights() : id === "displays" ? goDisplays() : goHome()));
   };
 
   // Leaving a device page: once its leftovers are collected, the memory goes back (src/lib/trim.ts).
@@ -274,6 +258,13 @@ export default function App() {
   }, [nGear, onHome, setHomeCount]);
   const hint = !nGear ? (isWeb ? "Add a device" : "Sound output") : parts.length <= 2 ? parts.join(" · ") : `${homeCount ?? nGear + (isWeb ? 0 : 1)} connected`;
   const device = nav.view === "device" ? nav.device : null;
+  // SYNQ Helper's dot in the dock: on in the app's settings, or connected to this page on the website.
+  const helperStatus = useHelperStatus();
+  const webHelper = useHelperReady();
+  const helperOn = isWeb ? webHelper : !!helperStatus?.settings.enabled;
+  // Game profiles for every mouse and keyboard while this window is open (src/lib/profiles/use-runner.ts).
+  const profileNotice = useCallback((title: string, detail: string) => notify({ title, detail, tone: "error" }, "game-profile"), [notify]);
+  useProfileRunner(devices, helperStatus, webHelper, profileNotice);
   const mouseFamily = device?.startsWith("mouse:") ? device.slice(6) : null;
   const keyboardFamily = device?.startsWith("kb:") ? device.slice(3) : null;
   const padFamily = device?.startsWith("pad:") ? device.slice(4) : null;
@@ -283,19 +274,29 @@ export default function App() {
   const lampArrayFamily = device?.startsWith("dl:") ? device.slice(3) : null;
   const hubFamily = device?.startsWith("rgb:") ? device.slice(4) : null;
   const lamp = device?.startsWith("light:") ? device.slice(6) : null;
+  // A change made on the Gear page's active card waits for the device's own page (src/lib/feel/pending.ts): while one
+  // waits, that page runs out of sight, makes it through its guarded session, and goes again.
+  const [homeActive] = useKeptState<string | null>("home.active.resolved", null);
+  const [activePending] = usePending(homeActive ?? "none");
+  const background = nav.view === "devices" && activePending?.kind === "set" ? homeActive : null;
+  const backgroundMouse = background?.startsWith("mouse:") ? background.slice(6) : null;
+  const backgroundKeyboard = background?.startsWith("kb:") ? background.slice(3) : null;
 
   return (
     <div className="relative h-full">
-      <AmbientLight />
+      <Shader look="dither" colors={BACKDROP} className="fixed inset-0 -z-10" cell={4} scale={1.1} intensity={0.4} speed={0.35} />
+      <TitleBar />
+      <CommandMenu devices={devices} />
       {!inTauri && !isWeb && !SCREENSHOT && (
-        <p className="fixed right-4 top-3 z-40 rounded-full bg-black/60 px-3 py-1 text-[11.5px] text-chart-3 ring-1 ring-chart-3/25">Preview: nothing is saved</p>
+        <p className="fixed right-4 top-3 z-40 rounded-full bg-shade/60 px-3 py-1 text-[11.5px] text-chart-3 ring-1 ring-chart-3/25">Preview: nothing is saved</p>
       )}
       {/* The Sound page stays mounted (hidden while another page is shown): it holds the EQ, which must
           never be reloaded under an edit. The home, Settings and the Mouse and Keyboard pages are
           mounted only while shown, so their DOM, layout and pictures go when you leave them; what you
           were doing on a device is kept (src/lib/keep.ts) and its session stays open for a short while
           (src/lib/device-session.ts), so coming back looks exactly as you left it. */}
-      <main className={`relative h-full min-w-0 ${DOCK_SPACE}`}>
+      {/* The section homes run under the dock (they leave room at their own end); the other pages stop above it. */}
+      <main className="relative h-full min-w-0">
         {/* Mounted from the start, so a page that's still loading keeps the current one on screen. */}
         <Suspense fallback={null}>
           {isWeb ? (
@@ -330,7 +331,7 @@ export default function App() {
           {nav.view === "settings" && (
             <div className="h-full">
               <PageBoundary name="Settings">
-                <SettingsPage accent={accent} onAccent={setAccent} notify={notify} />
+                <SettingsPage notify={notify} />
               </PageBoundary>
             </div>
           )}
@@ -338,6 +339,17 @@ export default function App() {
             <div className="h-full">
               <PageBoundary name="Games">
                 <GamesPage devices={devices} notify={notify} />
+              </PageBoundary>
+            </div>
+          )}
+          {(backgroundMouse || backgroundKeyboard) && (
+            <div className="hidden" aria-hidden="true">
+              <PageBoundary name="Background">
+                {backgroundMouse ? (
+                  <MousePage devices={devices} notify={notify} visible family={backgroundMouse} />
+                ) : (
+                  <KeyboardPage devices={devices} notify={notify} visible family={backgroundKeyboard!} />
+                )}
               </PageBoundary>
             </div>
           )}
@@ -409,19 +421,21 @@ export default function App() {
       <Dock
         active={nav.view === "device" && nav.device ? sectionOfDevice(nav.device) : nav.view === "checkup" ? "devices" : nav.view}
         onSelect={select}
+        underGrid={nav.view === "devices" || nav.view === "lights" || nav.view === "displays"}
         items={[
           { id: "devices", label: "Gear", hint, icon: SquaresFour },
           { id: "lights", label: "Lights", hint: lightsHint, icon: Lightbulb },
           { id: "displays", label: "Displays", hint: displaysHint, icon: Monitor },
-          // Game profiles switch on the running game: the desktop app's (or SYNQ Helper's) job, not a web page's.
-          ...(isWeb ? [] : [{ id: "games", label: "Games", hint: "Profiles per game", icon: GameController }]),
-          { id: "settings", label: "Settings", hint: "Accent, about, licenses", icon: GearSix, iconOnly: true },
+          // Game profiles switch on the running game: the desktop app's or SYNQ Helper's job, so on the website the
+          // page shows once the helper is connected.
+          ...(isWeb && !webHelper ? [] : [{ id: "games", label: "Games", hint: "Profiles per game", icon: GameController }]),
+          { id: "helper", label: "Helper", hint: helperOn ? "SYNQ Helper is on" : "SYNQ Helper is off", icon: Lifebuoy, dot: helperOn },
+          { id: "settings", label: "Settings", hint: "SYNQ Helper, backups, about, licenses", icon: GearSix, tail: true },
         ]}
-        extra={isWeb ? <WebHelperChip onOpen={() => startTransition(goSettings)} /> : <HelperChip />}
       />
       {welcome && (
         <Suspense fallback={null}>
-          <Welcome accent={accent} onAccent={setAccent} notify={notify} />
+          <Welcome notify={notify} />
         </Suspense>
       )}
       <NoticeStack notices={notices} onDismiss={dismiss} />

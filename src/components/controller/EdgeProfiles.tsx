@@ -48,17 +48,17 @@ function SlotCard({ p, selected, onSelect }: { p: EdgeProfile; selected: boolean
       disabled={p.slot.protected}
       data-testid={`edge-slot-${p.slot.slot}`}
       className={cn(
-        "min-w-0 rounded-2xl px-4 py-3.5 text-left ring-1 transition-colors duration-300",
+        "min-w-0 rounded-control px-4 py-3.5 text-left ring-1 transition-colors duration-300",
         selected ? "bg-primary/[0.08] ring-primary/40" : "bg-white/[0.025] ring-white/[0.06] hover:bg-white/[0.045]",
         p.slot.protected && "cursor-default",
       )}
     >
-      <p className="text-[11.5px] text-muted-foreground">Fn + {p.slot.button}</p>
-      <p className="mt-1 truncate text-[15px] text-foreground">{p.slot.protected ? `${p.label || "Default"} (default)` : p.empty ? "Empty" : p.label}</p>
-      <p className="mt-1 truncate text-[11.5px] text-muted-foreground/90">
+      <p className="text-[11.5px] text-medium">Fn + {p.slot.button}</p>
+      <p className="mt-1 truncate text-[15px] text-high">{p.slot.protected ? `${p.label || "Default"} (default)` : p.empty ? "Empty" : p.label}</p>
+      <p className="mt-1 truncate text-[11.5px] text-medium">
         {p.empty ? "No profile in this slot" : `${EDGE_CURVES[p.sticks[0].preset]?.name} / ${EDGE_CURVES[p.sticks[1].preset]?.name} · L2 ${p.triggers[0].min}–${p.triggers[0].max} · R2 ${p.triggers[1].min}–${p.triggers[1].max}${remapped ? ` · ${remapped} remapped` : ""}`}
       </p>
-      {p.slot.protected && <p className="mt-1 text-[11px] text-muted-foreground/80">SYNQ never changes the default.</p>}
+      {p.slot.protected && <p className="mt-1 text-[11px] text-medium">SYNQ never changes the default.</p>}
     </button>
   );
 }
@@ -125,116 +125,120 @@ export function EdgeProfilesTab({ link, notify }: { link: PadLink; notify: Notif
   const target = profiles[slot];
 
   return (
-    <>
-      <Banner tone="info">
-        Experimental: built from an open-source Edge profile app (MIT) and not yet tried by SYNQ on a real Edge. Nothing is written until you turn on Allow changes;
-        SYNQ then keeps a backup of all four slots first and reads every change back. Profiles are read and written over USB only.
-      </Banner>
-      <Card innerClassName="px-2 py-1">
-        <ToggleCard icon={PencilSimple} title="Allow changes" status={allow ? "On: Save writes to the pad (after a backup)" : "Off: SYNQ only reads the profiles"} checked={allow} onCheckedChange={setAllow} />
-      </Card>
-      <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))" }} data-testid="edge-slots">
-        {profiles.map((p) => (
-          <SlotCard key={p.slot.slot} p={p} selected={p.slot.slot === slot} onSelect={() => !p.slot.protected && pick(p.slot.slot as 1 | 2 | 3)} />
-        ))}
+    // Two columns on a wide window: the note, the switch and the profiles on the left, the one being edited on the right.
+    <div className="grid items-start gap-4 min-[1200px]:grid-cols-[320px_minmax(0,1fr)]">
+      <div className="flex min-w-0 flex-col gap-4">
+          <Banner tone="info">
+            Experimental: built from an open-source Edge profile app (MIT) and not yet tried by SYNQ on a real Edge. Nothing is written until you turn on Allow changes;
+            SYNQ then keeps a backup of all four slots first and reads every change back. Profiles are read and written over USB only.
+          </Banner>
+          <Card innerClassName="px-2 py-1">
+            <ToggleCard icon={PencilSimple} title="Allow changes" status={allow ? "On: Save writes to the pad (after a backup)" : "Off: SYNQ only reads the profiles"} checked={allow} onCheckedChange={setAllow} />
+          </Card>
+          <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))" }} data-testid="edge-slots">
+            {profiles.map((p) => (
+              <SlotCard key={p.slot.slot} p={p} selected={p.slot.slot === slot} onSelect={() => !p.slot.protected && pick(p.slot.slot as 1 | 2 | 3)} />
+            ))}
+          </div>
       </div>
+      <div className="flex min-w-0 flex-col gap-4">
+          <Card innerClassName="px-5 pb-5">
+            <CardHeader title={`Fn + ${target.slot.button}: ${target.empty ? "new profile" : target.label}`} hint="Changes are made here first; Save writes them to the pad." />
+            <label className="mt-4 block max-w-sm">
+              <span className="text-[12.5px] text-medium">Name</span>
+              <input
+                value={edit.label}
+                maxLength={EDGE_LABEL_MAX}
+                onChange={(e) => set((x) => (x.label = e.target.value))}
+                className="mt-1.5 w-full rounded-control bg-white/[0.04] px-3 py-2 text-[13.5px] text-high ring-1 ring-white/[0.1] outline-none focus:ring-primary/50"
+              />
+            </label>
 
-      <Card innerClassName="px-5 pb-5">
-        <CardHeader title={`Fn + ${target.slot.button}: ${target.empty ? "new profile" : target.label}`} hint="Changes are made here first; Save writes them to the pad." />
-        <label className="mt-4 block max-w-sm">
-          <span className="text-[12.5px] text-muted-foreground">Name</span>
-          <input
-            value={edit.label}
-            maxLength={EDGE_LABEL_MAX}
-            onChange={(e) => set((x) => (x.label = e.target.value))}
-            className="mt-1.5 w-full rounded-xl bg-white/[0.04] px-3 py-2 text-[13.5px] text-foreground ring-1 ring-white/[0.1] outline-none focus:ring-primary/50"
-          />
-        </label>
-
-        <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-          {(["Left stick", "Right stick"] as const).map((name, i) => (
-            <div key={name} className="flex items-center gap-4 rounded-2xl bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]">
-              <CurvePreview preset={edit.sticks[i].preset} step={edit.sticks[i].step} />
-              <div className="min-w-0 flex-1">
-                <p className="text-[13px] text-foreground">{name}</p>
-                <select
-                  value={edit.sticks[i].preset}
-                  onChange={(e) => set((x) => (x.sticks[i] = { preset: Number(e.target.value), step: Number(e.target.value) === 0 ? 0 : x.sticks[i].step }))}
-                  className="mt-1.5 w-full rounded-lg bg-white/[0.04] px-2 py-1.5 text-[13px] text-foreground ring-1 ring-white/[0.1]"
-                >
-                  {EDGE_CURVES.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.name}
-                    </option>
-                  ))}
-                </select>
-                <label className="mt-2 block text-[12px] text-muted-foreground">
-                  Adjustment {edit.sticks[i].step} of {EDGE_ADJUST_MAX}
-                  <input
-                    type="range"
-                    min={0}
-                    max={EDGE_ADJUST_MAX}
-                    disabled={edit.sticks[i].preset === 0}
-                    value={edit.sticks[i].step}
-                    onChange={(e) => set((x) => (x.sticks[i].step = Number(e.target.value)))}
-                    className="mt-1 w-full accent-[var(--primary)]"
-                  />
-                </label>
-              </div>
+            <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+              {(["Left stick", "Right stick"] as const).map((name, i) => (
+                <div key={name} className="flex items-center gap-4 rounded-control bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]">
+                  <CurvePreview preset={edit.sticks[i].preset} step={edit.sticks[i].step} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[13px] text-high">{name}</p>
+                    <select
+                      value={edit.sticks[i].preset}
+                      onChange={(e) => set((x) => (x.sticks[i] = { preset: Number(e.target.value), step: Number(e.target.value) === 0 ? 0 : x.sticks[i].step }))}
+                      className="mt-1.5 w-full rounded-small bg-white/[0.04] px-2 py-1.5 text-[13px] text-high ring-1 ring-white/[0.1]"
+                    >
+                      {EDGE_CURVES.map((c) => (
+                        <option key={c.id} value={c.id}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </select>
+                    <label className="mt-2 block text-[12px] text-medium">
+                      Adjustment {edit.sticks[i].step} of {EDGE_ADJUST_MAX}
+                      <input
+                        type="range"
+                        min={0}
+                        max={EDGE_ADJUST_MAX}
+                        disabled={edit.sticks[i].preset === 0}
+                        value={edit.sticks[i].step}
+                        onChange={(e) => set((x) => (x.sticks[i].step = Number(e.target.value)))}
+                        className="mt-1 w-full accent-[var(--primary)]"
+                      />
+                    </label>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-          {(["L2 range", "R2 range"] as const).map((name, i) => (
-            <div key={name} className="rounded-2xl bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]">
-              <p className="text-[13px] text-foreground">
-                {name}: <span className="tabular text-muted-foreground">{edit.triggers[i].min} – {edit.triggers[i].max}</span>
-              </p>
-              {(["min", "max"] as const).map((k) => (
-                <label key={k} className="mt-2 block text-[12px] text-muted-foreground">
-                  {k === "min" ? "Starts at" : "Full at"}
-                  <input type="range" min={0} max={255} value={edit.triggers[i][k]} onChange={(e) => set((x) => (x.triggers[i][k] = Number(e.target.value)))} className="mt-1 w-full accent-[var(--primary)]" />
+            <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+              {(["L2 range", "R2 range"] as const).map((name, i) => (
+                <div key={name} className="rounded-control bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]">
+                  <p className="text-[13px] text-high">
+                    {name}: <span className="tabular text-medium">{edit.triggers[i].min} – {edit.triggers[i].max}</span>
+                  </p>
+                  {(["min", "max"] as const).map((k) => (
+                    <label key={k} className="mt-2 block text-[12px] text-medium">
+                      {k === "min" ? "Starts at" : "Full at"}
+                      <input type="range" min={0} max={255} value={edit.triggers[i][k]} onChange={(e) => set((x) => (x.triggers[i][k] = Number(e.target.value)))} className="mt-1 w-full accent-[var(--primary)]" />
+                    </label>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-5 text-[13px] text-high">Buttons</p>
+            <div className="mt-2 grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))" }}>
+              {EDGE_INPUTS.map((input, i) => (
+                <label key={input} className="flex items-center justify-between gap-2 rounded-small bg-white/[0.02] px-3 py-2 text-[12.5px] ring-1 ring-white/[0.06]">
+                  <span className="text-medium">{input}</span>
+                  <select value={edit.buttons[i]} onChange={(e) => set((x) => (x.buttons[i] = Number(e.target.value)))} className={cn("rounded-tight bg-transparent text-right", edit.buttons[i] !== i ? "text-primary" : "text-high")}>
+                    {EDGE_BUTTONS.map((b) => (
+                      <option key={b.value} value={b.value}>
+                        {b.name}
+                      </option>
+                    ))}
+                  </select>
                 </label>
               ))}
             </div>
-          ))}
-        </div>
 
-        <p className="mt-5 text-[13px] text-foreground">Buttons</p>
-        <div className="mt-2 grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))" }}>
-          {EDGE_INPUTS.map((input, i) => (
-            <label key={input} className="flex items-center justify-between gap-2 rounded-xl bg-white/[0.02] px-3 py-2 text-[12.5px] ring-1 ring-white/[0.06]">
-              <span className="text-muted-foreground">{input}</span>
-              <select value={edit.buttons[i]} onChange={(e) => set((x) => (x.buttons[i] = Number(e.target.value)))} className={cn("rounded-md bg-transparent text-right", edit.buttons[i] !== i ? "text-primary" : "text-foreground")}>
-                {EDGE_BUTTONS.map((b) => (
-                  <option key={b.value} value={b.value}>
-                    {b.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-          ))}
-        </div>
-
-        {invalid && <p className="mt-4 text-[12.5px] text-chart-3">{invalid}</p>}
-        <div className="mt-5 flex flex-wrap items-center gap-2">
-          <ActionButton testId="edge-save" disabled={!allow || !!invalid || !!busy} busy={busy === "Saved"} onClick={() => void run("Saved", async () => void (await session.write(slot, edit)))}>
-            Save to Fn + {target.slot.button}
-          </ActionButton>
-          {!target.empty && (
-            <ActionButton disabled={!allow || !!busy} busy={busy === "Deleted"} onClick={() => void run("Deleted", async () => void (await session.remove(slot)))}>
-              Delete this profile
-            </ActionButton>
-          )}
-          {session.backup && (
-            <ActionButton disabled={!allow || !!busy} busy={busy === "Restored"} onClick={() => void run("Restored", async () => void (await session.restore(session.backup!.data)))}>
-              Put the backup back
-            </ActionButton>
-          )}
-          {!allow && <span className="text-[12px] text-muted-foreground">Turn on Allow changes to write.</span>}
-        </div>
-      </Card>
-    </>
+            {invalid && <p className="mt-4 text-[12.5px] text-chart-3">{invalid}</p>}
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <ActionButton testId="edge-save" disabled={!allow || !!invalid || !!busy} busy={busy === "Saved"} onClick={() => void run("Saved", async () => void (await session.write(slot, edit)))}>
+                Save to Fn + {target.slot.button}
+              </ActionButton>
+              {!target.empty && (
+                <ActionButton disabled={!allow || !!busy} busy={busy === "Deleted"} onClick={() => void run("Deleted", async () => void (await session.remove(slot)))}>
+                  Delete this profile
+                </ActionButton>
+              )}
+              {session.backup && (
+                <ActionButton disabled={!allow || !!busy} busy={busy === "Restored"} onClick={() => void run("Restored", async () => void (await session.restore(session.backup!.data)))}>
+                  Put the backup back
+                </ActionButton>
+              )}
+              {!allow && <span className="text-[12px] text-medium">Turn on Allow changes to write.</span>}
+            </div>
+          </Card>
+      </div>
+    </div>
   );
 }

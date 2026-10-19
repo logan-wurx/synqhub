@@ -67,12 +67,12 @@ export function DeviceAccessCard({ notify }: { notify?: (n: Omit<Notice, "id">, 
     <div data-testid="device-access">
     <Card innerClassName="flex flex-col gap-3 px-6 py-5">
       <div className="flex items-start gap-4">
-        <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary/[0.12] text-primary ring-1 ring-primary/25">
-          <ShieldCheck size={17} weight="light" />
+        <span className="grid size-9 shrink-0 place-items-center rounded-small bg-primary/[0.12] text-primary ring-1 ring-primary/25">
+          <ShieldCheck size={16} weight="light" />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="text-[14px] text-foreground">{outdated ? "Update SYNQ's device rule" : "Let SYNQ reach your mouse and keyboard"}</p>
-          <p className="mt-1 max-w-[760px] text-[12.5px] leading-relaxed text-muted-foreground">
+          <p className="text-[14px] text-high">{outdated ? "Update SYNQ's device rule" : "Let SYNQ reach your mouse and keyboard"}</p>
+          <p className="mt-1 max-w-[760px] text-[12.5px] leading-relaxed text-medium">
             Linux lets an app open a mouse or keyboard only when a device rule allows it. SYNQ's rule covers the devices it supports and nothing
             else, for whoever is logged in at this computer{status.appimage ? "; an AppImage can't put it in place by itself" : ""}.
             {outdated ? ` The one at ${status.installed} is from another version of SYNQ.` : ""}
@@ -85,22 +85,22 @@ export function DeviceAccessCard({ notify }: { notify?: (n: Omit<Notice, "id">, 
           <button
             onClick={() => void install()}
             disabled={busy}
-            className="rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50"
+            className="rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50"
           >
             {busy ? "Working…" : outdated ? "Update the rule" : "Install the rule"}
           </button>
         )}
-        <button onClick={later} className="rounded-full px-3 py-1.5 text-[12.5px] text-muted-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] hover:text-foreground">
+        <button onClick={later} className="rounded-small px-3 py-1.5 text-[12.5px] text-medium ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] hover:text-high">
           Not now
         </button>
-        <span className="text-[11.5px] text-muted-foreground/80">
+        <span className="text-[11.5px] text-medium">
           {status.canInstall ? "Your system asks for your password once (pkexec); SYNQ never sees it." : "Paste the command below in a terminal."}
         </span>
       </div>
-      <div className="ml-[52px] flex items-start gap-2 rounded-xl bg-black/25 px-3 py-2 ring-1 ring-white/[0.06]">
-        <code className="min-w-0 flex-1 select-all break-all font-mono text-[11.5px] leading-relaxed text-muted-foreground">{status.command}</code>
-        <button onClick={() => void copy()} aria-label="Copy the command" className="shrink-0 rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground">
-          {copied ? <Check size={14} /> : <Copy size={14} />}
+      <div className="ml-[52px] flex items-start gap-2 rounded-control bg-shade/25 px-3 py-2 ring-1 ring-white/[0.06]">
+        <code className="min-w-0 flex-1 select-all break-all font-mono text-[11.5px] leading-relaxed text-medium">{status.command}</code>
+        <button onClick={() => void copy()} aria-label="Copy the command" className="shrink-0 rounded-full p-1.5 text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
+          {copied ? <Check size={12} /> : <Copy size={12} />}
         </button>
       </div>
     </Card>

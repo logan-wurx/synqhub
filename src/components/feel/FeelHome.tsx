@@ -88,39 +88,39 @@ export function KeepYourFeel({ entries }: { entries: readonly DeviceEntry[] }) {
   return (
     <section data-slot="keep-your-feel" aria-label="Keep your feel">
       <Card innerClassName="px-6 py-4">
-        <button onClick={() => setOpen(!open)} aria-expanded={open} className="group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-xl px-2 py-1 text-left">
-          <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary/[0.12] text-primary ring-1 ring-primary/25">
-            <Sparkle size={17} weight="light" />
+        <button onClick={() => setOpen(!open)} aria-expanded={open} className="group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-small px-2 py-1 text-left">
+          <span className="grid size-9 shrink-0 place-items-center rounded-small bg-primary/[0.12] text-primary ring-1 ring-primary/25">
+            <Sparkle size={16} weight="light" />
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block text-[15px] font-medium tracking-tight text-foreground">Keep your feel</span>
-            <span className="block truncate text-[12.5px] text-muted-foreground">
+            <span className="block text-[15px] font-medium tracking-tight text-high">Keep your feel</span>
+            <span className="block truncate text-[12.5px] text-medium">
               {open || !saved ? "Switch brands, not your aim. A new mouse or keyboard, any brand, takes your old setup in one click." : `Saved: ${saved}`}
             </span>
           </span>
-          <CaretDown size={15} className={cn("shrink-0 text-muted-foreground transition-transform duration-300 ease-fluid group-hover:text-foreground", open && "rotate-180")} />
+          <CaretDown size={14} className={cn("shrink-0 text-medium transition-transform duration-300 ease-fluid group-hover:text-high", open && "rotate-180")} />
         </button>
 
         {open && (
         <>
         <div className="mt-5 grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-6 min-[1100px]:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
           <div className="min-w-0">
-            <p className="mb-1 text-[12.5px] text-muted-foreground">Your feel</p>
+            <p className="mb-1 text-[12.5px] text-medium">Your feel</p>
             <div className="divide-y divide-white/[0.05]">
               {(["mouse", "keyboard"] as const).map((kind) => (
                 <FeelLine key={kind} kind={kind} entries={list} />
               ))}
             </div>
             {empty && feel.loaded && (
-              <p className="mt-3 text-[12.5px] leading-relaxed text-muted-foreground">
-                Nothing saved yet. Open a mouse or keyboard and press <span className="text-foreground">Save as my feel</span> on its Overview, or save the one you tuned last from here.
+              <p className="mt-3 text-[12.5px] leading-relaxed text-medium">
+                Nothing saved yet. Open a mouse or keyboard and press <span className="text-high">Save as my feel</span> on its Overview, or save the one you tuned last from here.
               </p>
             )}
             <div className="mt-4 flex flex-wrap items-end gap-3">
               <NumInput label="Your CS2 sens" value={sens.cs2} placeholder={sens.valorant ? fmtNum(roundSens(cs2FromValorant(sens.valorant))) : "0.55"} onCommit={(v) => void feelStore.setSens({ ...sens, cs2: v })} />
               <NumInput label="Your Valorant sens" value={sens.valorant} placeholder={sens.cs2 ? fmtNum(roundSens(valorantFromCs2(sens.cs2))) : "0.173"} onCommit={(v) => void feelStore.setSens({ ...sens, valorant: v })} />
               {dpi !== null && (sens.cs2 || sens.valorant) && (
-                <p className="pb-2 text-[12px] text-muted-foreground">
+                <p className="pb-2 text-[12px] text-medium">
                   at {fmtNum(dpi)} DPI: eDPI {fmtNum(edpi(dpi, sens.cs2 ?? cs2FromValorant(sens.valorant!)), 1)} in CS2
                 </p>
               )}
@@ -141,15 +141,15 @@ function TryAPro({ mice }: { mice: readonly Entry[] }) {
   const [open, setOpen] = useKeptState<boolean>("feel.pros.open", false);
   return (
     <div className="mt-5 border-t border-white/[0.05] pt-3" data-slot="try-a-pro">
-      <button onClick={() => setOpen(!open)} aria-expanded={open} className="group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-white/[0.03]">
-        <Trophy size={16} weight="light" className="shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-        <span className="text-[13.5px] text-foreground">Try a pro's setup</span>
-        <span className="min-w-0 flex-1 truncate text-[12px] text-muted-foreground">CS2 and Valorant pros: their DPI, polling and sens on your own mouse</span>
-        <CaretDown size={14} className={cn("shrink-0 text-muted-foreground transition-transform duration-300", open && "rotate-180")} />
+      <button onClick={() => setOpen(!open)} aria-expanded={open} className="group -mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-small px-2 py-1.5 text-left transition-colors hover:bg-white/[0.03]">
+        <Trophy size={16} weight="light" className="shrink-0 text-medium transition-colors group-hover:text-primary" />
+        <span className="text-[13.5px] text-high">Try a pro's setup</span>
+        <span className="min-w-0 flex-1 truncate text-[12px] text-medium">CS2 and Valorant pros: their DPI, polling and sens on your own mouse</span>
+        <CaretDown size={14} className={cn("shrink-0 text-medium transition-transform duration-300", open && "rotate-180")} />
       </button>
       {open && (
         <div className="mt-4">
-          <Suspense fallback={<p className="text-[12.5px] text-muted-foreground">Loading the list…</p>}>
+          <Suspense fallback={<p className="text-[12.5px] text-medium">Loading the list…</p>}>
             <ProPicker mice={mice} />
           </Suspense>
         </div>
@@ -174,15 +174,15 @@ function FeelLine({ kind, entries }: { kind: DeviceKind; entries: Entry[] }) {
 
   return (
     <div className="flex items-start gap-3 py-3 first:pt-1">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/[0.04] text-muted-foreground ring-1 ring-white/[0.07]">
-        <Icon size={17} weight="light" />
+      <span className="grid size-9 shrink-0 place-items-center rounded-small bg-white/[0.04] text-medium ring-1 ring-white/[0.07]">
+        <Icon size={16} weight="light" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[13.5px] text-foreground">
+        <p className="text-[13.5px] text-high">
           {kind === "mouse" ? "Mouse" : "Keyboard"}
-          {part && <span className="text-muted-foreground"> · from the {part.from.name}</span>}
+          {part && <span className="text-medium"> · from the {part.from.name}</span>}
         </p>
-        <p className={cn("mt-0.5 text-[12.5px] leading-relaxed", part ? "text-muted-foreground" : "text-muted-foreground/80")}>
+        <p className={cn("mt-0.5 text-[12.5px] leading-relaxed", part ? "text-medium" : "text-medium")}>
           {part ? summaryOf(kind, part.feel) : `No ${noun(kind)} saved`}
         </p>
         {suggest && srcEntry && srcNow && (
@@ -197,7 +197,7 @@ function FeelLine({ kind, entries }: { kind: DeviceKind; entries: Entry[] }) {
             >
               {part ? `Update from the ${srcEntry.name}` : `Save the ${srcEntry.name} as my feel`}
             </Pill>
-            <span className="text-[11.5px] text-muted-foreground/80">{lastId === srcEntry.id ? "the one you configured most recently" : "its settings are known"}</span>
+            <span className="text-[11.5px] text-medium">{lastId === srcEntry.id ? "the one you configured most recently" : "its settings are known"}</span>
           </div>
         )}
       </div>
@@ -206,9 +206,9 @@ function FeelLine({ kind, entries }: { kind: DeviceKind; entries: Entry[] }) {
           onClick={() => void feelStore.forget(kind)}
           title={`Forget the saved ${noun(kind)} feel`}
           aria-label={`Forget the saved ${noun(kind)} feel`}
-          className="grid size-7 shrink-0 place-items-center rounded-full text-muted-foreground/80 transition-colors hover:bg-white/[0.06] hover:text-foreground"
+          className="grid size-7 shrink-0 place-items-center rounded-full text-medium transition-colors hover:bg-white/[0.06] hover:text-high"
         >
-          <X size={13} />
+          <X size={12} />
         </button>
       )}
     </div>
@@ -233,7 +233,7 @@ export function Calculator({ dpi, sens }: { dpi: number | null; sens: { cs2: num
   return (
     <div className="min-w-0" data-slot="sens-calculator">
       <div className="mb-3 flex items-center gap-3">
-        <p className="text-[12.5px] text-muted-foreground">Sensitivity calculator</p>
+        <p className="text-[12.5px] text-medium">Sensitivity calculator</p>
         <div className="ml-auto flex gap-1.5">
           {(["cs2", "valorant"] as const).map((g) => (
             <Chip
@@ -258,15 +258,15 @@ export function Calculator({ dpi, sens }: { dpi: number | null; sens: { cs2: num
         {(["cs2", "valorant"] as const).map((g) => {
           const line = result?.[g] ?? null;
           return (
-            <div key={g} className="min-w-0 rounded-2xl bg-white/[0.025] px-4 py-3.5 ring-1 ring-white/[0.06]">
-              <p className="text-[11.5px] text-muted-foreground">{GAME_LABEL[g]}</p>
-              <p className="tabular mt-1.5 truncate text-[21px] leading-none text-foreground">{line ? fmtNum(line.next) : "—"}</p>
-              <p className="tabular mt-1.5 truncate text-[11.5px] text-muted-foreground/80">{line ? `eDPI ${fmtNum(line.newEdpi, 1)}${line.derived ? " · from " + GAME_LABEL[game] : ""}` : "eDPI —"}</p>
+            <div key={g} className="min-w-0 rounded-control bg-white/[0.025] px-4 py-3.5 ring-1 ring-white/[0.06]">
+              <p className="text-[11.5px] text-medium">{GAME_LABEL[g]}</p>
+              <p className="tabular mt-1.5 truncate text-[21px] leading-none text-high">{line ? fmtNum(line.next) : "—"}</p>
+              <p className="tabular mt-1.5 truncate text-[11.5px] text-medium">{line ? `eDPI ${fmtNum(line.newEdpi, 1)}${line.derived ? " · from " + GAME_LABEL[game] : ""}` : "eDPI —"}</p>
             </div>
           );
         })}
       </div>
-      <p className="mt-2.5 text-[11.5px] leading-relaxed text-muted-foreground/80">
+      <p className="mt-2.5 text-[11.5px] leading-relaxed text-medium">
         {result
           ? result.exact
             ? "Same DPI, so the sensitivity stays."

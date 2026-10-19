@@ -7,7 +7,9 @@ HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE.parent / "out"
 REPO = HERE.parents[2]          # the checkout this script is in (tools -> device-photos -> scripts -> repo), so a worktree writes to itself
 DEST = REPO / "src" / "assets" / "devices"
-EXCLUDE = {"logitech-pro-x-superlight-2", "logitech-pro-x-superlight-2-dex", "rog-falchion-ace-hfx-zywoo-edition"}
+# Keys never merged. The developer's own devices (Superlight 2, DEX, ZywOo Falchion) used to be left to SYNQ's renders; they now have
+# product photos too (vendors/own.py), found by name only, so the renders still win where DeviceArt prefers them.
+EXCLUDE: set = set()
 
 index = json.load(open(DEST / "index.json", encoding="utf8"))["models"]
 src = json.load(open(DEST / "SOURCES.json", encoding="utf8"))

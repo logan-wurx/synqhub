@@ -140,7 +140,7 @@ export function LampStage({
           onPointerLeave={() => setHover(null)}
           onKeyDown={key}
           onBlur={() => setCursor(null)}
-          className={cn("absolute inset-0 h-full w-full touch-none overflow-visible rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring/70", onPaint && !single ? "cursor-crosshair" : "cursor-default")}
+          className={cn("absolute inset-0 h-full w-full touch-none overflow-visible rounded-control outline-none focus-visible:ring-2 focus-visible:ring-ring/70", onPaint && !single ? "cursor-crosshair" : "cursor-default")}
         >
           <defs>
             <filter id={glowId} filterUnits="userSpaceOnUse" x={-g.width} y={-g.height} width={g.width * 3} height={g.height * 3}>
@@ -162,10 +162,10 @@ export function LampStage({
           </g>
           {/* The unlit parts: a lamp's foot, the TV and its stand, the bars' feet. */}
           {g.frame.map((d, i) => (
-            <path key={i} d={d} fill={d.endsWith("Z") ? "#141418" : "none"} stroke="rgb(255 255 255 / 0.14)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path key={i} d={d} fill={d.endsWith("Z") ? "#1a1715" : "none"} stroke="rgb(255 255 255 / 0.14)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           ))}
           {g.stroke > 0 && (
-            <g aria-hidden="true" fill="none" stroke="#141418" strokeWidth={g.stroke + 6} strokeLinecap="round" strokeLinejoin="round">
+            <g aria-hidden="true" fill="none" stroke="#1a1715" strokeWidth={g.stroke + 6} strokeLinecap="round" strokeLinejoin="round">
               {paths.map((d, i) => (
                 <path key={i} d={d} />
               ))}
@@ -191,12 +191,12 @@ export function LampStage({
           )}
         </svg>
         {onPaint && !status && !single && (
-          <p className="pointer-events-none absolute left-1 top-0 flex items-center gap-1.5 text-[11.5px] text-muted-foreground/80">
+          <p className="pointer-events-none absolute left-1 top-0 flex items-center gap-1.5 text-[11.5px] text-medium">
             <PaintBrush size={12} /> Tap or drag to paint
           </p>
         )}
         {status && (
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-black/70 px-3 py-1 text-[12px] text-muted-foreground ring-1 ring-white/10 backdrop-blur-sm" data-testid="lamp-stage-status">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-shade/70 px-3 py-1 text-[12px] text-medium ring-1 ring-white/10 backdrop-blur-sm" data-testid="lamp-stage-status">
             {status}
           </span>
         )}

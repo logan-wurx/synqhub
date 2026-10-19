@@ -136,13 +136,13 @@ export function LightsView({ devices, notify }: { devices: readonly Connected[];
             allowHub={r.source === "hub" && !editing ? { on: allowed.has(r.family), set: (on) => setAllowed((s) => (on ? new Set([...s, r.family]) : new Set([...s].filter((f) => f !== r.family)))) } : undefined}
           />
         ))}
-        {refs.length === 0 && <p className="px-2 py-3 text-[12.5px] text-muted-foreground">No lights yet. Lamps in Bluetooth range show up by themselves; Wi-Fi lights after Find lights.</p>}
+        {refs.length === 0 && <p className="px-2 py-3 text-[12.5px] text-medium">No lights yet. Lamps in Bluetooth range show up by themselves; Wi-Fi lights after Find lights.</p>}
       </div>
       {!editing && (
         <div className="mt-3 flex flex-wrap items-center gap-2 px-5">
           {!isWeb && <FindLights />}
           {goveeCount > 1 && (
-            <button type="button" onClick={() => openDevice(lightId(GOVEE_TOGETHER))} className="text-[12.5px] text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+            <button type="button" onClick={() => openDevice(lightId(GOVEE_TOGETHER))} className="text-[12.5px] text-medium underline-offset-4 hover:text-high hover:underline">
               Govee lamps together: scenes, effects, music
             </button>
           )}
@@ -154,7 +154,7 @@ export function LightsView({ devices, notify }: { devices: readonly Connected[];
   const lookTab = (
     <>
       {members.some((r) => r.source === "lamparray") && (
-        <p className="px-1 text-[12.5px] text-muted-foreground">Dynamic Lighting devices take colours only while SYNQ is in front (Windows' rule).</p>
+        <p className="px-1 text-[12.5px] text-medium">Dynamic Lighting devices take colours only while SYNQ is in front (Windows' rule).</p>
       )}
       <LightTab control={look} view={view} group />
       <Card innerClassName="pb-5">
@@ -165,7 +165,7 @@ export function LightsView({ devices, notify }: { devices: readonly Connected[];
               key={g.name}
               type="button"
               onClick={() => look.setGradient(g.stops.map(rgbOf))}
-              className="flex items-center gap-2 rounded-full bg-white/[0.04] py-1 pl-1 pr-3 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground"
+              className="flex items-center gap-2 rounded-full bg-white/[0.04] py-1 pl-1 pr-3 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high"
             >
               <span className="h-5 w-10 rounded-full ring-1 ring-white/15" style={{ background: `linear-gradient(to right, ${g.stops.join(", ")})` }} />
               {g.name}
@@ -228,7 +228,7 @@ export function LightsView({ devices, notify }: { devices: readonly Connected[];
         {wide ? (
           body
         ) : (
-          <div className="grid grid-cols-[minmax(260px,320px)_minmax(0,1fr)] items-start gap-5">
+          <div className="grid grow grid-cols-[minmax(260px,320px)_minmax(0,1fr)] gap-5">
             {memberList}
             <div className="flex min-w-0 flex-col gap-5">{body}</div>
           </div>
@@ -254,30 +254,30 @@ function LightRow({
   const failed = typeof status === "object" ? status.why : null;
   const inner = (
     <>
-      <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-xl bg-white/[0.03] ring-1 ring-white/[0.06]">
+      <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-control bg-white/[0.03] ring-1 ring-white/[0.06]">
         <DeviceArt spec={artOf(r)} className="max-h-8 max-w-8" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-[13px] text-foreground">{r.name}</span>
-        <span className="block truncate text-[11.5px] text-muted-foreground" title={failed ?? undefined}>
+        <span className="block truncate text-[13px] text-high">{r.name}</span>
+        <span className="block truncate text-[11.5px] text-medium" title={failed ?? undefined}>
           {failed ? `Not reached: ${failed}` : r.detail}
         </span>
       </span>
       {picked !== undefined ? (
-        <span className={cn("grid size-5 shrink-0 place-items-center rounded-md ring-1", picked ? "bg-primary text-primary-foreground ring-primary" : "ring-white/20")}>{picked && <Check size={12} weight="bold" />}</span>
+        <span className={cn("grid size-5 shrink-0 place-items-center rounded-[5px] ring-1", picked ? "bg-primary text-primary-foreground ring-primary" : "ring-white/20")}>{picked && <Check size={12} weight="bold" />}</span>
       ) : (
-        <span className={cn("size-1.5 shrink-0 rounded-full", status === "ready" ? "bg-primary shadow-[0_0_8px_var(--primary)]" : failed ? "bg-destructive" : "bg-white/20")} aria-hidden="true" />
+        <span className={cn("size-1.5 shrink-0 rounded-full", status === "ready" ? "bg-live" : failed ? "bg-destructive" : "bg-asleep")} aria-hidden="true" />
       )}
     </>
   );
   return (
     <div className="flex items-center gap-2">
       {onPick ? (
-        <button type="button" onClick={onPick} aria-pressed={picked} className="flex min-w-0 flex-1 items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04]">
+        <button type="button" onClick={onPick} aria-pressed={picked} className="flex min-w-0 flex-1 items-center gap-3 rounded-small px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04]">
           {inner}
         </button>
       ) : (
-        <button type="button" onClick={() => openDevice(pageOf(r))} className="flex min-w-0 flex-1 items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04]" title="Open its own page">
+        <button type="button" onClick={() => openDevice(pageOf(r))} className="flex min-w-0 flex-1 items-center gap-3 rounded-small px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04]" title="Open its own page">
           {inner}
         </button>
       )}
@@ -323,17 +323,17 @@ function GroupBar({
           onChange={(e) => onName(e.target.value)}
           placeholder="Name the group (Desk, Living room…)"
           aria-label="Group name"
-          className="min-w-[220px] flex-1 rounded-full bg-white/[0.04] px-4 py-1.5 text-[13px] text-foreground outline-none ring-1 ring-white/[0.08] placeholder:text-muted-foreground/80 focus:ring-primary/50"
+          className="min-w-[220px] flex-1 rounded-small bg-white/[0.04] px-4 py-1.5 text-[13px] text-high outline-none ring-1 ring-white/[0.08] placeholder:text-medium focus:ring-primary/50"
         />
-        <button type="button" onClick={onSave} className="rounded-full bg-primary/[0.15] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-primary/40 hover:bg-primary/[0.22]">
+        <button type="button" onClick={onSave} className="rounded-small bg-primary/[0.15] px-4 py-1.5 text-[13px] text-high ring-1 ring-primary/40 hover:bg-primary/[0.22]">
           Save group
         </button>
-        <button type="button" onClick={onCancel} className="rounded-full px-3 py-1.5 text-[13px] text-muted-foreground hover:text-foreground">
+        <button type="button" onClick={onCancel} className="rounded-small px-3 py-1.5 text-[13px] text-medium hover:text-high">
           Cancel
         </button>
         {groups.some((g) => g.id === editing.id) && (
-          <button type="button" onClick={onDelete} className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] text-muted-foreground hover:text-destructive">
-            <Trash size={13} /> Delete group
+          <button type="button" onClick={onDelete} className="ml-auto inline-flex items-center gap-1.5 rounded-small px-3 py-1.5 text-[12.5px] text-medium hover:text-destructive">
+            <Trash size={12} /> Delete group
           </button>
         )}
       </Card>
@@ -349,11 +349,11 @@ function GroupBar({
           {g.name}
         </Chip>
       ))}
-      <button type="button" onClick={onNew} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12.5px] text-muted-foreground ring-1 ring-white/10 hover:bg-white/[0.06] hover:text-foreground">
-        <Plus size={11} /> New group
+      <button type="button" onClick={onNew} className="inline-flex items-center gap-1 rounded-small px-2.5 py-1 text-[12.5px] text-medium ring-1 ring-white/10 hover:bg-white/[0.06] hover:text-high">
+        <Plus size={12} /> New group
       </button>
       {value !== ALL && (
-        <button type="button" onClick={onEdit} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12.5px] text-muted-foreground hover:text-foreground">
+        <button type="button" onClick={onEdit} className="inline-flex items-center gap-1 rounded-small px-2.5 py-1 text-[12.5px] text-medium hover:text-high">
           <PencilSimple size={12} /> Edit
         </button>
       )}

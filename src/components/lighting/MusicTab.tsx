@@ -48,16 +48,16 @@ export function MusicTab({ control, view }: { control: LampControl; view: LampVi
                 aria-pressed={on}
                 onClick={() => change({ mode: mode.id })}
                 className={cn(
-                  "flex items-start gap-3 rounded-2xl bg-white/[0.025] p-3.5 text-left ring-1 transition-[background-color,box-shadow] duration-300 ease-fluid hover:bg-white/[0.05]",
+                  "flex items-start gap-3 rounded-control bg-white/[0.025] p-3.5 text-left ring-1 transition-[background-color,box-shadow] duration-300 ease-fluid hover:bg-white/[0.05]",
                   on ? "ring-primary/60 shadow-[0_0_18px_-6px_var(--primary)]" : "ring-white/[0.06]",
                 )}
               >
-                <span className={cn("grid size-8 shrink-0 place-items-center rounded-xl ring-1", on ? "bg-primary/[0.15] text-primary ring-primary/30" : "bg-white/[0.04] text-muted-foreground ring-white/[0.08]")}>
+                <span className={cn("grid size-8 shrink-0 place-items-center rounded-small ring-1", on ? "bg-primary/[0.15] text-primary ring-primary/30" : "bg-white/[0.04] text-medium ring-white/[0.08]")}>
                   <IconCmp size={16} weight="light" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-[13.5px] text-foreground">{mode.name}</span>
-                  <span className="mt-0.5 block text-[12px] leading-snug text-muted-foreground">{ABOUT[mode.id]?.text}</span>
+                  <span className="block text-[13.5px] text-high">{mode.name}</span>
+                  <span className="mt-0.5 block text-[12px] leading-snug text-medium">{ABOUT[mode.id]?.text}</span>
                 </span>
               </button>
             );
@@ -66,7 +66,7 @@ export function MusicTab({ control, view }: { control: LampControl; view: LampVi
         <div className="mt-5 flex flex-col gap-4 px-5">
           <LightSlider label="Sensitivity" value={m.sensitivity} min={0} max={99} track="linear-gradient(to right, #1c1c22, #8b8b95)" format={(v) => `${v}`} onChange={(v) => change({ sensitivity: v })} testId="music-sensitivity" />
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[12.5px] text-muted-foreground">Style</span>
+            <span className="text-[12.5px] text-medium">Style</span>
             <Segmented
               label="Style"
               value={String(m.style)}
@@ -121,10 +121,10 @@ export function MusicTab({ control, view }: { control: LampControl; view: LampVi
                     />
                   ))
                 ) : (
-                  <span className="text-[12px] text-muted-foreground/80">Colours saved on the Light tab show up here.</span>
+                  <span className="text-[12px] text-medium">Colours saved on the Light tab show up here.</span>
                 )}
               </div>
-              <span className="mt-1 size-10 rounded-2xl ring-1 ring-white/15" style={{ background: css(colour) }} aria-hidden="true" />
+              <span className="mt-1 size-10 rounded-control ring-1 ring-white/15" style={{ background: css(colour) }} aria-hidden="true" />
             </div>
           </div>
         )}

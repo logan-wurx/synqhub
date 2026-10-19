@@ -1,0 +1,2784 @@
+{
+ "webcams": [
+  {
+   "label": "Logitech C920",
+   "q": {
+    "kind": "webcam",
+    "name": "HD Pro Webcam C920",
+    "vid": "046d",
+    "pid": "082d"
+   }
+  },
+  {
+   "label": "Logitech C920e",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Webcam C920e",
+    "vid": "046d",
+    "pid": "08b6"
+   }
+  },
+  {
+   "label": "Logitech C922",
+   "q": {
+    "kind": "webcam",
+    "name": "C922 Pro Stream Webcam",
+    "vid": "046d",
+    "pid": "085c"
+   }
+  },
+  {
+   "label": "Logitech C930e",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Webcam C930e",
+    "vid": "046d",
+    "pid": "0843"
+   }
+  },
+  {
+   "label": "Logitech C925e",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Webcam C925e",
+    "vid": "046d",
+    "pid": "085b"
+   }
+  },
+  {
+   "label": "Logitech C270",
+   "q": {
+    "kind": "webcam",
+    "name": "Logi C270 HD WebCam",
+    "vid": "046d",
+    "pid": "0825"
+   }
+  },
+  {
+   "label": "Logitech C310",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech HD Webcam C310",
+    "vid": "046d",
+    "pid": "081b"
+   }
+  },
+  {
+   "label": "Logitech C615",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech HD Webcam C615",
+    "vid": "046d",
+    "pid": "082c"
+   }
+  },
+  {
+   "label": "Logitech C505",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Webcam C505"
+   }
+  },
+  {
+   "label": "Logitech BRIO",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech BRIO",
+    "vid": "046d",
+    "pid": "085e"
+   }
+  },
+  {
+   "label": "Logitech Brio 500",
+   "q": {
+    "kind": "webcam",
+    "name": "Brio 500",
+    "vid": "046d",
+    "pid": "0943"
+   }
+  },
+  {
+   "label": "Logitech Brio 300",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Brio 300"
+   }
+  },
+  {
+   "label": "Logitech Brio 100",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech Brio 100"
+   }
+  },
+  {
+   "label": "Logitech MX Brio",
+   "q": {
+    "kind": "webcam",
+    "name": "MX Brio",
+    "vid": "046d",
+    "pid": "0944"
+   }
+  },
+  {
+   "label": "Logitech StreamCam",
+   "q": {
+    "kind": "webcam",
+    "name": "Logitech StreamCam",
+    "vid": "046d",
+    "pid": "0893"
+   }
+  },
+  {
+   "label": "Razer Kiyo",
+   "q": {
+    "kind": "webcam",
+    "name": "Razer Kiyo",
+    "vid": "1532",
+    "pid": "0e03"
+   }
+  },
+  {
+   "label": "Razer Kiyo Pro",
+   "q": {
+    "kind": "webcam",
+    "name": "Razer Kiyo Pro",
+    "vid": "1532",
+    "pid": "0e05"
+   }
+  },
+  {
+   "label": "Razer Kiyo X",
+   "q": {
+    "kind": "webcam",
+    "name": "Razer Kiyo X"
+   }
+  },
+  {
+   "label": "Razer Kiyo Pro Ultra",
+   "q": {
+    "kind": "webcam",
+    "name": "Razer Kiyo Pro Ultra"
+   }
+  },
+  {
+   "label": "Elgato Facecam",
+   "q": {
+    "kind": "webcam",
+    "name": "Elgato Facecam"
+   }
+  },
+  {
+   "label": "Elgato Facecam Pro",
+   "q": {
+    "kind": "webcam",
+    "name": "Elgato Facecam Pro"
+   }
+  },
+  {
+   "label": "Elgato Facecam MK.2",
+   "q": {
+    "kind": "webcam",
+    "name": "Elgato Facecam MK.2"
+   }
+  },
+  {
+   "label": "Elgato Facecam Neo",
+   "q": {
+    "kind": "webcam",
+    "name": "Elgato Facecam Neo"
+   }
+  },
+  {
+   "label": "Microsoft LifeCam HD-3000",
+   "q": {
+    "kind": "webcam",
+    "name": "Microsoft® LifeCam HD-3000",
+    "vid": "045e",
+    "pid": "0810"
+   }
+  },
+  {
+   "label": "Microsoft LifeCam Studio",
+   "q": {
+    "kind": "webcam",
+    "name": "Microsoft® LifeCam Studio(TM)",
+    "vid": "045e",
+    "pid": "0772"
+   }
+  },
+  {
+   "label": "Microsoft LifeCam Cinema",
+   "q": {
+    "kind": "webcam",
+    "name": "Microsoft® LifeCam Cinema(TM)",
+    "vid": "045e",
+    "pid": "075d"
+   }
+  },
+  {
+   "label": "Microsoft Modern Webcam",
+   "q": {
+    "kind": "webcam",
+    "name": "Microsoft Modern Webcam"
+   }
+  },
+  {
+   "label": "Anker PowerConf C200",
+   "q": {
+    "kind": "webcam",
+    "name": "Anker PowerConf C200"
+   }
+  },
+  {
+   "label": "Anker PowerConf C300",
+   "q": {
+    "kind": "webcam",
+    "name": "Anker PowerConf C300"
+   }
+  },
+  {
+   "label": "Insta360 Link",
+   "q": {
+    "kind": "webcam",
+    "name": "Insta360 Link"
+   }
+  },
+  {
+   "label": "Insta360 Link 2",
+   "q": {
+    "kind": "webcam",
+    "name": "Insta360 Link 2"
+   }
+  },
+  {
+   "label": "Insta360 Link 2C",
+   "q": {
+    "kind": "webcam",
+    "name": "Insta360 Link 2C"
+   }
+  },
+  {
+   "label": "OBSBOT Tiny 2",
+   "q": {
+    "kind": "webcam",
+    "name": "OBSBOT Tiny 2"
+   }
+  },
+  {
+   "label": "OBSBOT Tiny 2 Lite",
+   "q": {
+    "kind": "webcam",
+    "name": "OBSBOT Tiny 2 Lite"
+   }
+  },
+  {
+   "label": "OBSBOT Tiny 4K",
+   "q": {
+    "kind": "webcam",
+    "name": "OBSBOT Tiny 4K"
+   }
+  },
+  {
+   "label": "OBSBOT Meet 2",
+   "q": {
+    "kind": "webcam",
+    "name": "OBSBOT Meet 2"
+   }
+  },
+  {
+   "label": "OBSBOT Meet 4K",
+   "q": {
+    "kind": "webcam",
+    "name": "OBSBOT Meet 4K"
+   }
+  },
+  {
+   "label": "Dell UltraSharp Webcam (WB7022)",
+   "q": {
+    "kind": "webcam",
+    "name": "Dell UltraSharp Webcam",
+    "vid": "413c",
+    "pid": "c015"
+   }
+  },
+  {
+   "label": "Dell Pro Webcam (WB5023)",
+   "q": {
+    "kind": "webcam",
+    "name": "Dell Pro Webcam WB5023"
+   }
+  },
+  {
+   "label": "AVerMedia Live Streamer CAM 313",
+   "q": {
+    "kind": "webcam",
+    "name": "Live Streamer CAM 313"
+   }
+  },
+  {
+   "label": "Creative Live! Cam Sync 1080p",
+   "q": {
+    "kind": "webcam",
+    "name": "Creative Live! Cam Sync 1080p"
+   }
+  },
+  {
+   "label": "EMEET SmartCam C960",
+   "q": {
+    "kind": "webcam",
+    "name": "EMEET SmartCam C960"
+   }
+  },
+  {
+   "label": "NexiGo N60",
+   "q": {
+    "kind": "webcam",
+    "name": "NexiGo N60 FHD Webcam"
+   }
+  },
+  {
+   "label": "HP 320 FHD Webcam",
+   "q": {
+    "kind": "webcam",
+    "name": "HP 320 FHD Webcam"
+   }
+  },
+  {
+   "label": "HP 965 4K Streaming Webcam",
+   "q": {
+    "kind": "webcam",
+    "name": "HP 965 4K Streaming Webcam"
+   }
+  },
+  {
+   "label": "Lenovo 300 FHD Webcam",
+   "q": {
+    "kind": "webcam",
+    "name": "Lenovo 300 FHD Webcam"
+   }
+  },
+  {
+   "label": "Genius FaceCam 1000X",
+   "q": {
+    "kind": "webcam",
+    "name": "Genius FaceCam 1000X"
+   }
+  },
+  {
+   "label": "AUKEY PC-LM1E (the user's, made by KYE / Genius)",
+   "q": {
+    "kind": "webcam",
+    "name": "PC-LM1E Camera",
+    "vid": "0458",
+    "pid": "6006"
+   }
+  }
+ ],
+ "monitors": [
+  {
+   "label": "ASUS PG27AQDM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG27AQDM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG32UCDM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG32UCDM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG27AQN",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG27AQN",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS XG27AQM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS XG27AQM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG27AQ",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG27AQ",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG259QM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG259QM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG279QM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG279QM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG248",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG248",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG279Q",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG279Q",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG259QN",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG259QN",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG27AQ1A",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG27AQ1A",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS XG27ACS",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS XG27ACS",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG34WCDM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG34WCDM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS VG249Q1A",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS VG249Q1A",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS XG27UCS",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS XG27UCS",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "ASUS PG27UCDM",
+   "q": {
+    "kind": "monitor",
+    "name": "ASUS PG27UCDM",
+    "brand": "ASUS"
+   }
+  },
+  {
+   "label": "Dell AW2725DF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2725DF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW3423DWF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW3423DWF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW3423DW",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW3423DW",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW2523HF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2523HF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW2724HF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2724HF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW2521H",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2521H",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW3225QF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW3225QF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW2723DF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2723DF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell AW2524H",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell AW2524H",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell S2721DGF",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell S2721DGF",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell G2724D",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell G2724D",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell S2722DGM",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell S2722DGM",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell U2723QE",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell U2723QE",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell U2720Q",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell U2720Q",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell P2422H",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell P2422H",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "Dell S2721QS",
+   "q": {
+    "kind": "monitor",
+    "name": "Dell S2721QS",
+    "brand": "Dell"
+   }
+  },
+  {
+   "label": "LG 27GR95QE",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GR95QE",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GP850",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GP850",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 32GS95UE",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 32GS95UE",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GS95QE",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GS95QE",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GL850",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GL850",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GN800",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GN800",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GP950",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GP950",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 34GP83A",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 34GP83A",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GR83Q",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GR83Q",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 24GN600",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 24GN600",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GN950",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GN950",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 45GR95QE",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 45GR95QE",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "LG 27GR75Q",
+   "q": {
+    "kind": "monitor",
+    "name": "LG 27GR75Q",
+    "brand": "LG"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G85SD",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G85SD",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G81SF",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G81SF",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G93SC",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G93SC",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G95NC",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G95NC",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G85NB",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G85NB",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G75NB",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G75NB",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G70D",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G70D",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G95C",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G95C",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung C27G75T",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung C27G75T",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung C32G75T",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung C32G75T",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung Odyssey G60SD",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung Odyssey G60SD",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "Samsung C27G55T",
+   "q": {
+    "kind": "monitor",
+    "name": "Samsung C27G55T",
+    "brand": "Samsung"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2546K",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2546K",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2540K",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2540K",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2586X",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2586X",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2566K",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2566K",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2411K",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2411K",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ ZOWIE XL2546X",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ ZOWIE XL2546X",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ EX2710Q",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ EX2710Q",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "BenQ EX270QM",
+   "q": {
+    "kind": "monitor",
+    "name": "BenQ EX270QM",
+    "brand": "BenQ"
+   }
+  },
+  {
+   "label": "AOC 24G2",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC 24G2",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC 27G2",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC 27G2",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC AG276QZD",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC AG276QZD",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC Q27G2S",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC Q27G2S",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC C24G1",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC C24G1",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC 24G2SP",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC 24G2SP",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC Q27G3XMN",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC Q27G3XMN",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "AOC CU34G2X",
+   "q": {
+    "kind": "monitor",
+    "name": "AOC CU34G2X",
+    "brand": "AOC"
+   }
+  },
+  {
+   "label": "MSI MAG 271QPX QD-OLED",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI MAG 271QPX QD-OLED",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "MSI MPG 321URX QD-OLED",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI MPG 321URX QD-OLED",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "MSI MAG 274QRF-QD",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI MAG 274QRF-QD",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "MSI MPG 271QRX QD-OLED",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI MPG 271QRX QD-OLED",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "MSI G274QPF",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI G274QPF",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "MSI MAG 274UPF",
+   "q": {
+    "kind": "monitor",
+    "name": "MSI MAG 274UPF",
+    "brand": "MSI"
+   }
+  },
+  {
+   "label": "GBT M27Q",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT M27Q",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "GBT AORUS FO27Q3",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT AORUS FO27Q3",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "GBT G27Q",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT G27Q",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "GBT M32U",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT M32U",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "GBT M28U",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT M28U",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "GBT AORUS FI27Q-X",
+   "q": {
+    "kind": "monitor",
+    "name": "GBT AORUS FI27Q-X",
+    "brand": "GBT"
+   }
+  },
+  {
+   "label": "Acer XB273U GX",
+   "q": {
+    "kind": "monitor",
+    "name": "Acer XB273U GX",
+    "brand": "Acer"
+   }
+  },
+  {
+   "label": "Acer XV272U",
+   "q": {
+    "kind": "monitor",
+    "name": "Acer XV272U",
+    "brand": "Acer"
+   }
+  },
+  {
+   "label": "Acer VG270",
+   "q": {
+    "kind": "monitor",
+    "name": "Acer VG270",
+    "brand": "Acer"
+   }
+  },
+  {
+   "label": "Acer XV271U",
+   "q": {
+    "kind": "monitor",
+    "name": "Acer XV271U",
+    "brand": "Acer"
+   }
+  },
+  {
+   "label": "HPN OMEN 27",
+   "q": {
+    "kind": "monitor",
+    "name": "HPN OMEN 27",
+    "brand": "HPN"
+   }
+  },
+  {
+   "label": "HPN OMEN 27qs",
+   "q": {
+    "kind": "monitor",
+    "name": "HPN OMEN 27qs",
+    "brand": "HPN"
+   }
+  },
+  {
+   "label": "LEN Legion Y27q-30",
+   "q": {
+    "kind": "monitor",
+    "name": "LEN Legion Y27q-30",
+    "brand": "LEN"
+   }
+  },
+  {
+   "label": "VSC XG2431",
+   "q": {
+    "kind": "monitor",
+    "name": "VSC XG2431",
+    "brand": "VSC"
+   }
+  }
+ ],
+ "wifilights": [
+  {
+   "label": "Philips Hue Hue color lamp",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue color lamp",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue white lamp",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue white lamp",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue ambiance lamp",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue ambiance lamp",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue filament bulb",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue filament bulb",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue color candle",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue color candle",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue lightstrip plus",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue lightstrip plus",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue gradient lightstrip",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue gradient lightstrip",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue play",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue play",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue Play gradient lightstrip",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue Play gradient lightstrip",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue play gradient light tube",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue play gradient light tube",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue go",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue go",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue Iris",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue Iris",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue bloom",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue bloom",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue Signe gradient floor",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue Signe gradient floor",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue Hue flux strip light",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue Hue flux strip light",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Philips Hue BSB002",
+   "q": {
+    "kind": "light",
+    "name": "Philips Hue BSB002",
+    "brand": "Philips Hue"
+   }
+  },
+  {
+   "label": "Nanoleaf NL22",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL22",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL29",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL29",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL42",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL42",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL47",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL47",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL52",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL52",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL59",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL59",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL45",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL45",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Nanoleaf NL55",
+   "q": {
+    "kind": "light",
+    "name": "Nanoleaf NL55",
+    "brand": "Nanoleaf"
+   }
+  },
+  {
+   "label": "Elgato Key Light",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Key Light",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "Elgato Key Light Air",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Key Light Air",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "Elgato Key Light Mini",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Key Light Mini",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "Elgato Key Light Neo",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Key Light Neo",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "Elgato Light Strip",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Light Strip",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "Elgato Ring Light",
+   "q": {
+    "kind": "light",
+    "name": "Elgato Ring Light",
+    "brand": "Elgato"
+   }
+  },
+  {
+   "label": "LIFX LIFX light",
+   "q": {
+    "kind": "light",
+    "name": "LIFX LIFX light",
+    "brand": "LIFX"
+   }
+  },
+  {
+   "label": "WiZ WiZ light",
+   "q": {
+    "kind": "light",
+    "name": "WiZ WiZ light",
+    "brand": "WiZ"
+   }
+  },
+  {
+   "label": "Twinkly Twinkly",
+   "q": {
+    "kind": "light",
+    "name": "Twinkly Twinkly",
+    "brand": "Twinkly"
+   }
+  },
+  {
+   "label": "Yeelight color",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight color",
+    "brand": "Yeelight"
+   }
+  },
+  {
+   "label": "Yeelight mono",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight mono",
+    "brand": "Yeelight"
+   }
+  },
+  {
+   "label": "Yeelight stripe",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight stripe",
+    "brand": "Yeelight"
+   }
+  },
+  {
+   "label": "Yeelight ceiling",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight ceiling",
+    "brand": "Yeelight"
+   }
+  },
+  {
+   "label": "Yeelight bslamp",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight bslamp",
+    "brand": "Yeelight"
+   }
+  },
+  {
+   "label": "Yeelight lamp",
+   "q": {
+    "kind": "light",
+    "name": "Yeelight lamp",
+    "brand": "Yeelight"
+   }
+  }
+ ],
+ "headphones": [
+  {
+   "label": "7Hz Salnotes Zero 2",
+   "q": {
+    "kind": "headphones",
+    "name": "7Hz Salnotes Zero 2"
+   }
+  },
+  {
+   "label": "Zero:2",
+   "q": {
+    "kind": "headphones",
+    "name": "Zero:2"
+   }
+  },
+  {
+   "label": "7Hz Salnotes Zero",
+   "q": {
+    "kind": "headphones",
+    "name": "7Hz Salnotes Zero"
+   }
+  },
+  {
+   "label": "7Hz Timeless",
+   "q": {
+    "kind": "headphones",
+    "name": "7Hz Timeless"
+   }
+  },
+  {
+   "label": "7Hz Sonus",
+   "q": {
+    "kind": "headphones",
+    "name": "7Hz Sonus"
+   }
+  },
+  {
+   "label": "7Hz Timeless II",
+   "q": {
+    "kind": "headphones",
+    "name": "7Hz Timeless II"
+   }
+  },
+  {
+   "label": "Truthear Hexa",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear Hexa"
+   }
+  },
+  {
+   "label": "Truthear x Crinacle Zero",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear x Crinacle Zero"
+   }
+  },
+  {
+   "label": "Truthear x Crinacle Zero RED",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear x Crinacle Zero RED"
+   }
+  },
+  {
+   "label": "Truthear Gate",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear Gate"
+   }
+  },
+  {
+   "label": "Truthear Nova",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear Nova"
+   }
+  },
+  {
+   "label": "Truthear Hola",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear Hola"
+   }
+  },
+  {
+   "label": "Truthear x Crinacle Zero Blue 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Truthear x Crinacle Zero Blue 2"
+   }
+  },
+  {
+   "label": "Moondrop Aria",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Aria"
+   }
+  },
+  {
+   "label": "Moondrop Aria 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Aria 2"
+   }
+  },
+  {
+   "label": "Moondrop Chu",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Chu"
+   }
+  },
+  {
+   "label": "Moondrop Chu 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Chu 2"
+   }
+  },
+  {
+   "label": "Moondrop KATO",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop KATO"
+   }
+  },
+  {
+   "label": "Moondrop Blessing 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Blessing 2"
+   }
+  },
+  {
+   "label": "Moondrop Blessing 3",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Blessing 3"
+   }
+  },
+  {
+   "label": "Moondrop Starfield",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Starfield"
+   }
+  },
+  {
+   "label": "Moondrop Starfield 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Starfield 2"
+   }
+  },
+  {
+   "label": "Moondrop Variations",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Variations"
+   }
+  },
+  {
+   "label": "Moondrop May",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop May"
+   }
+  },
+  {
+   "label": "Moondrop LAN",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop LAN"
+   }
+  },
+  {
+   "label": "Moondrop Para",
+   "q": {
+    "kind": "headphones",
+    "name": "Moondrop Para"
+   }
+  },
+  {
+   "label": "Kiwi Ears Cadenza",
+   "q": {
+    "kind": "headphones",
+    "name": "Kiwi Ears Cadenza"
+   }
+  },
+  {
+   "label": "Kiwi Ears Quintet",
+   "q": {
+    "kind": "headphones",
+    "name": "Kiwi Ears Quintet"
+   }
+  },
+  {
+   "label": "Kiwi Ears Orchestra Lite",
+   "q": {
+    "kind": "headphones",
+    "name": "Kiwi Ears Orchestra Lite"
+   }
+  },
+  {
+   "label": "Kiwi Ears Melody",
+   "q": {
+    "kind": "headphones",
+    "name": "Kiwi Ears Melody"
+   }
+  },
+  {
+   "label": "TANGZU Wan'er S.G",
+   "q": {
+    "kind": "headphones",
+    "name": "TANGZU Wan'er S.G"
+   }
+  },
+  {
+   "label": "TANGZU Zetian Wu",
+   "q": {
+    "kind": "headphones",
+    "name": "TANGZU Zetian Wu"
+   }
+  },
+  {
+   "label": "Simgot Audio EW200",
+   "q": {
+    "kind": "headphones",
+    "name": "Simgot Audio EW200"
+   }
+  },
+  {
+   "label": "Simgot Audio EA500",
+   "q": {
+    "kind": "headphones",
+    "name": "Simgot Audio EA500"
+   }
+  },
+  {
+   "label": "Simgot Audio EA500LM",
+   "q": {
+    "kind": "headphones",
+    "name": "Simgot Audio EA500LM"
+   }
+  },
+  {
+   "label": "Simgot Audio EA1000",
+   "q": {
+    "kind": "headphones",
+    "name": "Simgot Audio EA1000"
+   }
+  },
+  {
+   "label": "Simgot Audio EW100",
+   "q": {
+    "kind": "headphones",
+    "name": "Simgot Audio EW100"
+   }
+  },
+  {
+   "label": "KZ ZSN Pro X",
+   "q": {
+    "kind": "headphones",
+    "name": "KZ ZSN Pro X"
+   }
+  },
+  {
+   "label": "KZ ZS10 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "KZ ZS10 Pro"
+   }
+  },
+  {
+   "label": "KZ ZEX Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "KZ ZEX Pro"
+   }
+  },
+  {
+   "label": "KZ EDX Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "KZ EDX Pro"
+   }
+  },
+  {
+   "label": "CCA CRA",
+   "q": {
+    "kind": "headphones",
+    "name": "CCA CRA"
+   }
+  },
+  {
+   "label": "Tin HiFi T2",
+   "q": {
+    "kind": "headphones",
+    "name": "Tin HiFi T2"
+   }
+  },
+  {
+   "label": "Tin HiFi C3",
+   "q": {
+    "kind": "headphones",
+    "name": "Tin HiFi C3"
+   }
+  },
+  {
+   "label": "Tin HiFi T3 Plus",
+   "q": {
+    "kind": "headphones",
+    "name": "Tin HiFi T3 Plus"
+   }
+  },
+  {
+   "label": "ThieAudio Monarch MKII",
+   "q": {
+    "kind": "headphones",
+    "name": "ThieAudio Monarch MKII"
+   }
+  },
+  {
+   "label": "ThieAudio Monarch MKIII",
+   "q": {
+    "kind": "headphones",
+    "name": "ThieAudio Monarch MKIII"
+   }
+  },
+  {
+   "label": "ThieAudio Oracle MKII",
+   "q": {
+    "kind": "headphones",
+    "name": "ThieAudio Oracle MKII"
+   }
+  },
+  {
+   "label": "ThieAudio Hype 2",
+   "q": {
+    "kind": "headphones",
+    "name": "ThieAudio Hype 2"
+   }
+  },
+  {
+   "label": "FiiO FH3",
+   "q": {
+    "kind": "headphones",
+    "name": "FiiO FH3"
+   }
+  },
+  {
+   "label": "FiiO FD5",
+   "q": {
+    "kind": "headphones",
+    "name": "FiiO FD5"
+   }
+  },
+  {
+   "label": "FiiO JD1",
+   "q": {
+    "kind": "headphones",
+    "name": "FiiO JD1"
+   }
+  },
+  {
+   "label": "Sennheiser IE 200",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser IE 200"
+   }
+  },
+  {
+   "label": "Sennheiser IE 300",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser IE 300"
+   }
+  },
+  {
+   "label": "Sennheiser IE 600",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser IE 600"
+   }
+  },
+  {
+   "label": "Sennheiser IE 900",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser IE 900"
+   }
+  },
+  {
+   "label": "Sennheiser Momentum True Wireless 3",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser Momentum True Wireless 3"
+   }
+  },
+  {
+   "label": "Shure SE215",
+   "q": {
+    "kind": "headphones",
+    "name": "Shure SE215"
+   }
+  },
+  {
+   "label": "Shure SE535",
+   "q": {
+    "kind": "headphones",
+    "name": "Shure SE535"
+   }
+  },
+  {
+   "label": "Shure SE846",
+   "q": {
+    "kind": "headphones",
+    "name": "Shure SE846"
+   }
+  },
+  {
+   "label": "Shure SRH840A",
+   "q": {
+    "kind": "headphones",
+    "name": "Shure SRH840A"
+   }
+  },
+  {
+   "label": "Etymotic ER2XR",
+   "q": {
+    "kind": "headphones",
+    "name": "Etymotic ER2XR"
+   }
+  },
+  {
+   "label": "Etymotic ER4XR",
+   "q": {
+    "kind": "headphones",
+    "name": "Etymotic ER4XR"
+   }
+  },
+  {
+   "label": "Final Audio E3000",
+   "q": {
+    "kind": "headphones",
+    "name": "Final Audio E3000"
+   }
+  },
+  {
+   "label": "Final Audio E500",
+   "q": {
+    "kind": "headphones",
+    "name": "Final Audio E500"
+   }
+  },
+  {
+   "label": "Final Audio A4000",
+   "q": {
+    "kind": "headphones",
+    "name": "Final Audio A4000"
+   }
+  },
+  {
+   "label": "Campfire Audio Andromeda",
+   "q": {
+    "kind": "headphones",
+    "name": "Campfire Audio Andromeda"
+   }
+  },
+  {
+   "label": "64 Audio U12t",
+   "q": {
+    "kind": "headphones",
+    "name": "64 Audio U12t"
+   }
+  },
+  {
+   "label": "Apple AirPods Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Apple AirPods Pro"
+   }
+  },
+  {
+   "label": "Apple AirPods Pro 2 (ANC mode)",
+   "q": {
+    "kind": "headphones",
+    "name": "Apple AirPods Pro 2 (ANC mode)"
+   }
+  },
+  {
+   "label": "Apple AirPods (3rd generation)",
+   "q": {
+    "kind": "headphones",
+    "name": "Apple AirPods (3rd generation)"
+   }
+  },
+  {
+   "label": "Apple AirPods 4",
+   "q": {
+    "kind": "headphones",
+    "name": "Apple AirPods 4"
+   }
+  },
+  {
+   "label": "Apple AirPods Max",
+   "q": {
+    "kind": "headphones",
+    "name": "Apple AirPods Max"
+   }
+  },
+  {
+   "label": "Samsung Galaxy Buds2 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Samsung Galaxy Buds2 Pro"
+   }
+  },
+  {
+   "label": "Samsung Galaxy Buds3 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Samsung Galaxy Buds3 Pro"
+   }
+  },
+  {
+   "label": "Samsung Galaxy Buds Live",
+   "q": {
+    "kind": "headphones",
+    "name": "Samsung Galaxy Buds Live"
+   }
+  },
+  {
+   "label": "Google Pixel Buds Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Google Pixel Buds Pro"
+   }
+  },
+  {
+   "label": "Google Pixel Buds Pro 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Google Pixel Buds Pro 2"
+   }
+  },
+  {
+   "label": "Sony WF-1000XM4",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony WF-1000XM4"
+   }
+  },
+  {
+   "label": "Sony WF-1000XM5",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony WF-1000XM5"
+   }
+  },
+  {
+   "label": "Sony WH-1000XM3",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony WH-1000XM3"
+   }
+  },
+  {
+   "label": "Sony WH-1000XM4",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony WH-1000XM4"
+   }
+  },
+  {
+   "label": "Sony WH-1000XM5",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony WH-1000XM5"
+   }
+  },
+  {
+   "label": "Sony MDR-7506",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony MDR-7506"
+   }
+  },
+  {
+   "label": "Sony MDR-V6",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony MDR-V6"
+   }
+  },
+  {
+   "label": "Sony INZONE H9",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony INZONE H9"
+   }
+  },
+  {
+   "label": "Sony INZONE H7",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony INZONE H7"
+   }
+  },
+  {
+   "label": "Sony INZONE Buds",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony INZONE Buds"
+   }
+  },
+  {
+   "label": "Sony IER-Z1R",
+   "q": {
+    "kind": "headphones",
+    "name": "Sony IER-Z1R"
+   }
+  },
+  {
+   "label": "Bose QuietComfort 35 II",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose QuietComfort 35 II"
+   }
+  },
+  {
+   "label": "Bose QuietComfort 45",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose QuietComfort 45"
+   }
+  },
+  {
+   "label": "Bose QuietComfort Ultra Headphones",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose QuietComfort Ultra Headphones"
+   }
+  },
+  {
+   "label": "Bose Noise Cancelling Headphones 700",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose Noise Cancelling Headphones 700"
+   }
+  },
+  {
+   "label": "Bose QuietComfort Earbuds II",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose QuietComfort Earbuds II"
+   }
+  },
+  {
+   "label": "Bose QuietComfort Ultra Earbuds",
+   "q": {
+    "kind": "headphones",
+    "name": "Bose QuietComfort Ultra Earbuds"
+   }
+  },
+  {
+   "label": "Jabra Elite 85t",
+   "q": {
+    "kind": "headphones",
+    "name": "Jabra Elite 85t"
+   }
+  },
+  {
+   "label": "Jabra Elite 75t",
+   "q": {
+    "kind": "headphones",
+    "name": "Jabra Elite 75t"
+   }
+  },
+  {
+   "label": "Beats Studio Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Beats Studio Pro"
+   }
+  },
+  {
+   "label": "Beats Fit Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Beats Fit Pro"
+   }
+  },
+  {
+   "label": "Beats Studio Buds",
+   "q": {
+    "kind": "headphones",
+    "name": "Beats Studio Buds"
+   }
+  },
+  {
+   "label": "Nothing ear",
+   "q": {
+    "kind": "headphones",
+    "name": "Nothing ear"
+   }
+  },
+  {
+   "label": "Sennheiser HD 600",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 600"
+   }
+  },
+  {
+   "label": "Sennheiser HD 650",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 650"
+   }
+  },
+  {
+   "label": "Sennheiser HD 660 S",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 660 S"
+   }
+  },
+  {
+   "label": "Sennheiser HD 660S2",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 660S2"
+   }
+  },
+  {
+   "label": "Sennheiser HD 800 S",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 800 S"
+   }
+  },
+  {
+   "label": "Sennheiser HD 560S",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 560S"
+   }
+  },
+  {
+   "label": "Sennheiser HD 58X",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 58X"
+   }
+  },
+  {
+   "label": "Sennheiser HD 6XX",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 6XX"
+   }
+  },
+  {
+   "label": "Sennheiser HD 280 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 280 Pro"
+   }
+  },
+  {
+   "label": "Sennheiser HD 599",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 599"
+   }
+  },
+  {
+   "label": "Sennheiser HD 490 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 490 Pro"
+   }
+  },
+  {
+   "label": "Sennheiser Momentum 4 Wireless",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser Momentum 4 Wireless"
+   }
+  },
+  {
+   "label": "Sennheiser HD 25",
+   "q": {
+    "kind": "headphones",
+    "name": "Sennheiser HD 25"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 770 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 770 Pro"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 990 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 990 Pro"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 880",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 880"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 1990 Pro MKII",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 1990 Pro MKII"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 900 Pro X",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 900 Pro X"
+   }
+  },
+  {
+   "label": "Beyerdynamic DT 700 Pro X",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic DT 700 Pro X"
+   }
+  },
+  {
+   "label": "Beyerdynamic MMX 300",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic MMX 300"
+   }
+  },
+  {
+   "label": "Beyerdynamic T1",
+   "q": {
+    "kind": "headphones",
+    "name": "Beyerdynamic T1"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-M50x",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-M50x"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-M40x",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-M40x"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-M20x",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-M20x"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-R70x",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-R70x"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-AD700X",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-AD700X"
+   }
+  },
+  {
+   "label": "Audio-Technica ATH-M50xBT2",
+   "q": {
+    "kind": "headphones",
+    "name": "Audio-Technica ATH-M50xBT2"
+   }
+  },
+  {
+   "label": "AKG K371",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K371"
+   }
+  },
+  {
+   "label": "AKG K702",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K702"
+   }
+  },
+  {
+   "label": "AKG K712 PRO",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K712 PRO"
+   }
+  },
+  {
+   "label": "AKG K240 Studio",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K240 Studio"
+   }
+  },
+  {
+   "label": "AKG K361",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K361"
+   }
+  },
+  {
+   "label": "AKG K612 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "AKG K612 Pro"
+   }
+  },
+  {
+   "label": "HIFIMAN Sundara",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN Sundara"
+   }
+  },
+  {
+   "label": "HIFIMAN Ananda",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN Ananda"
+   }
+  },
+  {
+   "label": "HIFIMAN Edition XS",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN Edition XS"
+   }
+  },
+  {
+   "label": "HIFIMAN Arya",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN Arya"
+   }
+  },
+  {
+   "label": "HIFIMAN HE400se",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN HE400se"
+   }
+  },
+  {
+   "label": "HIFIMAN Deva Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN Deva Pro"
+   }
+  },
+  {
+   "label": "HIFIMAN HE1000se",
+   "q": {
+    "kind": "headphones",
+    "name": "HIFIMAN HE1000se"
+   }
+  },
+  {
+   "label": "Philips Fidelio X2HR",
+   "q": {
+    "kind": "headphones",
+    "name": "Philips Fidelio X2HR"
+   }
+  },
+  {
+   "label": "Philips SHP9500",
+   "q": {
+    "kind": "headphones",
+    "name": "Philips SHP9500"
+   }
+  },
+  {
+   "label": "Koss Porta Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Koss Porta Pro"
+   }
+  },
+  {
+   "label": "Koss KSC75",
+   "q": {
+    "kind": "headphones",
+    "name": "Koss KSC75"
+   }
+  },
+  {
+   "label": "Grado SR80x",
+   "q": {
+    "kind": "headphones",
+    "name": "Grado SR80x"
+   }
+  },
+  {
+   "label": "Grado SR60x",
+   "q": {
+    "kind": "headphones",
+    "name": "Grado SR60x"
+   }
+  },
+  {
+   "label": "Grado SR325x",
+   "q": {
+    "kind": "headphones",
+    "name": "Grado SR325x"
+   }
+  },
+  {
+   "label": "Audeze LCD-X",
+   "q": {
+    "kind": "headphones",
+    "name": "Audeze LCD-X"
+   }
+  },
+  {
+   "label": "Audeze LCD-2 Classic",
+   "q": {
+    "kind": "headphones",
+    "name": "Audeze LCD-2 Classic"
+   }
+  },
+  {
+   "label": "Audeze Maxwell",
+   "q": {
+    "kind": "headphones",
+    "name": "Audeze Maxwell"
+   }
+  },
+  {
+   "label": "Audeze Penrose",
+   "q": {
+    "kind": "headphones",
+    "name": "Audeze Penrose"
+   }
+  },
+  {
+   "label": "Focal Clear Mg",
+   "q": {
+    "kind": "headphones",
+    "name": "Focal Clear Mg"
+   }
+  },
+  {
+   "label": "Focal Utopia",
+   "q": {
+    "kind": "headphones",
+    "name": "Focal Utopia"
+   }
+  },
+  {
+   "label": "Focal Bathys",
+   "q": {
+    "kind": "headphones",
+    "name": "Focal Bathys"
+   }
+  },
+  {
+   "label": "Focal Elex",
+   "q": {
+    "kind": "headphones",
+    "name": "Focal Elex"
+   }
+  },
+  {
+   "label": "Meze 99 Classics",
+   "q": {
+    "kind": "headphones",
+    "name": "Meze 99 Classics"
+   }
+  },
+  {
+   "label": "Meze 109 Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Meze 109 Pro"
+   }
+  },
+  {
+   "label": "Superlux HD 681",
+   "q": {
+    "kind": "headphones",
+    "name": "Superlux HD 681"
+   }
+  },
+  {
+   "label": "Samson SR850",
+   "q": {
+    "kind": "headphones",
+    "name": "Samson SR850"
+   }
+  },
+  {
+   "label": "Shure AONIC 50",
+   "q": {
+    "kind": "headphones",
+    "name": "Shure AONIC 50"
+   }
+  },
+  {
+   "label": "HyperX Cloud II",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud II"
+   }
+  },
+  {
+   "label": "HyperX Cloud Alpha",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud Alpha"
+   }
+  },
+  {
+   "label": "HyperX Cloud III",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud III"
+   }
+  },
+  {
+   "label": "HyperX Cloud Alpha Wireless",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud Alpha Wireless"
+   }
+  },
+  {
+   "label": "HyperX Cloud III Wireless",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud III Wireless"
+   }
+  },
+  {
+   "label": "HyperX Cloud Stinger 2",
+   "q": {
+    "kind": "headphones",
+    "name": "HyperX Cloud Stinger 2"
+   }
+  },
+  {
+   "label": "SteelSeries Arctis Nova Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "SteelSeries Arctis Nova Pro"
+   }
+  },
+  {
+   "label": "SteelSeries Arctis Nova Pro Wireless",
+   "q": {
+    "kind": "headphones",
+    "name": "SteelSeries Arctis Nova Pro Wireless"
+   }
+  },
+  {
+   "label": "SteelSeries Arctis 7+",
+   "q": {
+    "kind": "headphones",
+    "name": "SteelSeries Arctis 7+"
+   }
+  },
+  {
+   "label": "SteelSeries Arctis Nova 1",
+   "q": {
+    "kind": "headphones",
+    "name": "SteelSeries Arctis Nova 1"
+   }
+  },
+  {
+   "label": "SteelSeries Arctis Nova 7",
+   "q": {
+    "kind": "headphones",
+    "name": "SteelSeries Arctis Nova 7"
+   }
+  },
+  {
+   "label": "Logitech G Pro X",
+   "q": {
+    "kind": "headphones",
+    "name": "Logitech G Pro X"
+   }
+  },
+  {
+   "label": "Logitech G PRO X 2 LIGHTSPEED",
+   "q": {
+    "kind": "headphones",
+    "name": "Logitech G PRO X 2 LIGHTSPEED"
+   }
+  },
+  {
+   "label": "Logitech G435 LIGHTSPEED",
+   "q": {
+    "kind": "headphones",
+    "name": "Logitech G435 LIGHTSPEED"
+   }
+  },
+  {
+   "label": "Logitech G733 LIGHTSPEED",
+   "q": {
+    "kind": "headphones",
+    "name": "Logitech G733 LIGHTSPEED"
+   }
+  },
+  {
+   "label": "Logitech G535 LIGHTSPEED",
+   "q": {
+    "kind": "headphones",
+    "name": "Logitech G535 LIGHTSPEED"
+   }
+  },
+  {
+   "label": "Razer BlackShark V2",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer BlackShark V2"
+   }
+  },
+  {
+   "label": "Razer BlackShark V2 Pro 2023",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer BlackShark V2 Pro 2023"
+   }
+  },
+  {
+   "label": "Razer BlackShark V2 X",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer BlackShark V2 X"
+   }
+  },
+  {
+   "label": "Razer Kraken V3",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer Kraken V3"
+   }
+  },
+  {
+   "label": "Razer Barracuda X",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer Barracuda X"
+   }
+  },
+  {
+   "label": "Razer Barracuda Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Razer Barracuda Pro"
+   }
+  },
+  {
+   "label": "Corsair HS80 RGB WIRELESS",
+   "q": {
+    "kind": "headphones",
+    "name": "Corsair HS80 RGB WIRELESS"
+   }
+  },
+  {
+   "label": "Corsair VIRTUOSO RGB Wireless XT",
+   "q": {
+    "kind": "headphones",
+    "name": "Corsair VIRTUOSO RGB Wireless XT"
+   }
+  },
+  {
+   "label": "Corsair Void Elite",
+   "q": {
+    "kind": "headphones",
+    "name": "Corsair Void Elite"
+   }
+  },
+  {
+   "label": "Corsair HS65 Surround",
+   "q": {
+    "kind": "headphones",
+    "name": "Corsair HS65 Surround"
+   }
+  },
+  {
+   "label": "ASTRO Gaming A50 X",
+   "q": {
+    "kind": "headphones",
+    "name": "ASTRO Gaming A50 X"
+   }
+  },
+  {
+   "label": "ASTRO Gaming A40 TR",
+   "q": {
+    "kind": "headphones",
+    "name": "ASTRO Gaming A40 TR"
+   }
+  },
+  {
+   "label": "Turtle Beach Stealth 600 Gen 2",
+   "q": {
+    "kind": "headphones",
+    "name": "Turtle Beach Stealth 600 Gen 2"
+   }
+  },
+  {
+   "label": "Turtle Beach Stealth Pro",
+   "q": {
+    "kind": "headphones",
+    "name": "Turtle Beach Stealth Pro"
+   }
+  },
+  {
+   "label": "EPOS Sennheiser GSP 600",
+   "q": {
+    "kind": "headphones",
+    "name": "EPOS Sennheiser GSP 600"
+   }
+  }
+ ]
+}

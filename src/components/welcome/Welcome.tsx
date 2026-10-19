@@ -1,4 +1,4 @@
-// First-run welcome: three short, skippable steps (hello, SYNQ Helper, accent). Nothing is changed
+// First-run welcome: two short, skippable steps (hello, SYNQ Helper; the website has the hello only). Nothing is changed
 // unless a button says so: the helper stays off unless "Turn it on" is pressed. Shown once; Settings can
 // open it again.
 import { useEffect, useState } from "react";
@@ -9,32 +9,36 @@ import { isWeb } from "@/lib/backend";
 import { helper } from "@/lib/helper";
 import { publishHelper, useHelperStatus } from "@/lib/helper-state";
 import { closeWelcome } from "@/lib/welcome";
-import { ACCENTS, Card, type Notice } from "@/components/ui/matte";
+import type { Notice } from "@/components/ui/matte";
 import { AppTile } from "@/components/ui/brand";
+import { Shader } from "@/components/ui/shader";
+
+/** The welcome's brand side: dark embers stepping up to SYNQ orange, dark enough under white type. */
+const EMBER = ["#1c0b06", "#4a160a", "#a52e10", "#ff5e3a"] as const;
 
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
-type Step = "hello" | "helper" | "accent";
-const STEPS: Step[] = isWeb ? ["hello", "accent"] : ["hello", "helper", "accent"];
+type Step = "hello" | "helper";
+const STEPS: Step[] = isWeb ? ["hello"] : ["hello", "helper"];
 
 function Point({ icon: IconCmp, title, text }: { icon: typeof Check; title: string; text: string }) {
   return (
     <li className="flex items-start gap-3.5">
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/[0.04] text-primary ring-1 ring-white/[0.07]">
+      <span className="grid size-9 shrink-0 place-items-center rounded-small bg-white/[0.04] text-primary ring-1 ring-white/[0.07]">
         <IconCmp size={17} weight="light" />
       </span>
       <span className="min-w-0">
-        <span className="block text-[14px] text-foreground">{title}</span>
-        <span className="block text-[12.5px] leading-relaxed text-muted-foreground">{text}</span>
+        <span className="block text-[14px] text-high">{title}</span>
+        <span className="block text-[12.5px] leading-relaxed text-medium">{text}</span>
       </span>
     </li>
   );
 }
 
-const btn = "h-10 rounded-full px-5 text-[13px] transition-all duration-300 ease-fluid active:scale-[0.98] disabled:opacity-40";
+const btn = "h-10 rounded-control px-5 text-[13px] transition-all duration-300 ease-fluid active:scale-[0.98] disabled:opacity-40";
 const primary = cn(btn, "bg-foreground font-medium text-background");
-const ghost = cn(btn, "bg-white/[0.05] text-foreground ring-1 ring-white/[0.08] hover:bg-white/[0.09]");
+const ghost = cn(btn, "bg-white/[0.05] text-high ring-1 ring-white/[0.08] hover:bg-white/[0.09]");
 
-export function Welcome({ accent, onAccent, notify }: { accent: string; onAccent: (id: string) => void; notify: Notify }) {
+export function Welcome({ notify }: { notify: Notify }) {
   const [i, setI] = useState(0);
   const step = STEPS[i];
   const status = useHelperStatus();
@@ -62,10 +66,22 @@ export function Welcome({ accent, onAccent, notify }: { accent: string; onAccent
   };
 
   return (
-    <div className="fixed inset-0 z-[55] grid place-items-center bg-black/70 p-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Welcome to SYNQ">
-      <div className="w-full max-w-[640px]">
-        <Card innerClassName="relative flex flex-col px-9 pb-7 pt-8">
-          <button onClick={closeWelcome} className="absolute right-5 top-5 rounded-full px-3 py-1.5 text-[12.5px] text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground">
+    <div className="fixed inset-0 z-[55] grid place-items-center overflow-y-auto bg-background/80 p-6" role="dialog" aria-modal="true" aria-label="Welcome to SYNQ">
+      <div className="panel grid w-full max-w-[1040px] overflow-hidden rounded-card shadow-[0_40px_100px_-40px_rgb(0_0_0/0.9)] min-[860px]:grid-cols-[400px_minmax(0,1fr)]">
+        {/* The brand side: embers on a dot display (the window backdrop's shader, lit up), the mark and the promise. */}
+        <div className="relative min-h-[220px] overflow-hidden bg-[#3a1409]">
+          <Shader look="dither" colors={EMBER} className="absolute inset-0" cell={6} scale={1.3} intensity={0.5} speed={0.45} seed={11} />
+          <div className="relative flex h-full flex-col justify-between gap-10 p-8">
+            <AppTile size={52} />
+            <p className="headline text-[clamp(44px,5vw,60px)] text-high [text-shadow:0_2px_24px_rgb(20_8_4/0.6)]">
+              Every device.
+              <br />
+              One system.
+            </p>
+          </div>
+        </div>
+        <div className="relative flex flex-col px-10 pb-8 pt-9 max-sm:px-6">
+          <button onClick={closeWelcome} className="absolute right-5 top-5 rounded-small px-3 py-1.5 text-[12.5px] text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
             Skip setup
           </button>
           <div className="min-h-[330px]">
@@ -73,10 +89,8 @@ export function Welcome({ accent, onAccent, notify }: { accent: string; onAccent
               <motion.div key={step} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}>
                 {step === "hello" && (
                   <>
-                    <AppTile size={52} />
-                    <h2 className="mt-5 text-[26px] font-semibold leading-tight tracking-[-0.03em] text-foreground">Welcome to SYNQ</h2>
-                    <p className="label-mono mt-1.5">Every device. One system.</p>
-                    <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">One app for all your gear, from your mouse to your lights. A minute of setup, and you can skip all of it.</p>
+                    <h2 className="text-[32px] font-bold leading-tight tracking-[-0.04em] text-high">Welcome to SYNQ</h2>
+                    <p className="mt-3 max-w-[520px] text-[14px] leading-relaxed text-medium">One app for all your gear, from your mouse to your lights. A minute of setup, and you can skip all of it.</p>
                     <ul className="mt-6 flex flex-col gap-4">
                       <Point icon={SlidersHorizontal} title="Settings live on your gear" text="What you change is written to the device itself, so it stays without SYNQ running." />
                       <Point icon={ShieldCheck} title="Careful by default" text="Every change is backed up first and read back after. Firmware is never touched." />
@@ -86,43 +100,16 @@ export function Welcome({ accent, onAccent, notify }: { accent: string; onAccent
                 )}
                 {step === "helper" && (
                   <>
-                    <span className="inline-flex rounded-full bg-white/[0.04] px-2.5 py-1 text-[11px] uppercase tracking-[0.16em] text-muted-foreground ring-1 ring-white/[0.06]">Optional</span>
-                    <h2 className="mt-4 text-[26px] font-semibold leading-tight tracking-[-0.03em] text-foreground">Turn on SYNQ Helper?</h2>
-                    <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
+                    <span className="inline-flex rounded-full bg-white/[0.04] px-2.5 py-1 text-[11px] uppercase tracking-[0.16em] text-medium ring-1 ring-white/[0.06]">Optional</span>
+                    <h2 className="mt-4 text-[32px] font-bold leading-tight tracking-[-0.04em] text-high">Turn on SYNQ Helper?</h2>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-medium">
                       A tiny background process with no window. It stays off unless you turn it on, and you can change your mind any time in Settings.
                     </p>
                     <ul className="mt-6 flex flex-col gap-4">
                       <Point icon={GameController} title="Game profiles" text="Your DPI, polling and key settings switch when a game starts, and go back when it closes." />
                       <Point icon={BatteryWarning} title="Battery alerts" text="A notification at 20%, 10% and 5%, once per charge." />
-                      <Point icon={Globe} title="Website bridge" text="Lets the SYNQ website reach the EQ and Razer settings on this PC (this PC only, with your consent)." />
+                      <Point icon={Globe} title="Website bridge" text="Lets synqhub.app reach what a browser can't on this PC: monitors, webcams, Wi-Fi lights, the EQ and Razer (this PC only, with your consent)." />
                     </ul>
-                  </>
-                )}
-                {step === "accent" && (
-                  <>
-                    <h2 className="text-[26px] font-semibold leading-tight tracking-[-0.03em] text-foreground">Pick your accent</h2>
-                    <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">The colour of whatever is on or selected. You can change it later in Settings.</p>
-                    <div className="mt-7 flex flex-wrap gap-3">
-                      {ACCENTS.map((a) => {
-                        const on = accent === a.id;
-                        return (
-                          <button
-                            key={a.id}
-                            onClick={() => onAccent(a.id)}
-                            aria-pressed={on}
-                            className={cn(
-                              "flex items-center gap-3 rounded-2xl py-2.5 pl-2.5 pr-5 text-[13px] ring-1 transition-colors duration-500 ease-fluid",
-                              on ? "bg-white/[0.06] text-foreground ring-white/[0.16]" : "bg-white/[0.025] text-muted-foreground ring-white/[0.06] hover:bg-white/[0.05] hover:text-foreground",
-                            )}
-                          >
-                            <span className="grid size-8 place-items-center rounded-full ring-1 ring-white/20" style={{ background: a.color }}>
-                              {on && <Check size={15} weight="bold" className="text-black/70" />}
-                            </span>
-                            {a.label}
-                          </button>
-                        );
-                      })}
-                    </div>
                   </>
                 )}
               </motion.div>
@@ -158,7 +145,7 @@ export function Welcome({ accent, onAccent, notify }: { accent: string; onAccent
               </button>
             )}
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

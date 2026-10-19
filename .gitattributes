@@ -12,4 +12,6 @@ scripts/controllers/sdl/** text eol=lf
 # Kept in the development repo, left out of the published source (git archive): design-review screenshots and the
 # brief the logo was commissioned with.
 release/*-shots/** export-ignore
+# The head-to-head Sandbox configs name this PC's folders (their host paths): kept here, not published.
+release/sandbox-test/compare/*.wsb export-ignore
 branding/BRIEF.md export-ignore

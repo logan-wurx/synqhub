@@ -13,7 +13,7 @@ import { isWeb, type Connected } from "@/lib/backend";
 import { useLightingKeep } from "@/lib/lighting/saved";
 import { useLampSession, type LampPhase } from "@/lib/lighting/session";
 import { useKeptState } from "@/lib/keep";
-import { lightId, openDevice, useDeviceTab } from "@/lib/nav";
+import { LIGHT_TABS_LEGACY, lightId, openDevice, useDeviceTab } from "@/lib/nav";
 import { useWide } from "@/lib/viewport";
 import { cn } from "@/lib/utils";
 import { summarize } from "@/lib/device-model";
@@ -35,8 +35,8 @@ import { SyncTab } from "./SyncTab";
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
 
 const TABS: TabDef[] = [
+  // Light holds the colour and the scenes together (the two things people come to change).
   { id: "light", label: "Light" },
-  { id: "scenes", label: "Scenes" },
   { id: "segments", label: "Segments" },
   { id: "effects", label: "Effects" },
   { id: "music", label: "Music" },
@@ -48,7 +48,6 @@ function tabsFor(spec: GoveeSpec | null, control: LampControl | null): TabDef[] 
   if (!spec) return TABS.slice(0, 1);
   const has: Record<string, boolean> = {
     light: true,
-    scenes: scenesFor(spec.sku).length > 0,
     segments: (control?.segments ?? (spec.segments || 1)) > 1,
     effects: spec.diy,
     music: spec.music.length > 0,
@@ -135,7 +134,7 @@ function LampPage({ id, notify }: { id: string; notify: Notify }) {
   const spec = control?.spec ?? (first ? specOf(first.sku) : null);
   const segments = control?.segments ?? (spec?.segments || 1);
   const tabs = tabsFor(spec, control);
-  const [tab, setTab] = useDeviceTab(lightId(id), tabs.map((t) => t.id));
+  const [tab, setTab] = useDeviceTab(lightId(id), tabs.map((t) => t.id), LIGHT_TABS_LEGACY);
   const name = all ? `All ${noun}s` : first ? lampTitle(first) : "Light";
   const summary = summarize({ id: lightId(id), kind: "light", family: id, name, brand: model?.brand ?? "", connection: "Bluetooth", viewKey: null }, null);
   const ready = phase.kind === "ready" && view ? { control: phase.control, view } : null;
@@ -162,9 +161,7 @@ function LampPage({ id, notify }: { id: string; notify: Notify }) {
   );
 
   const body = ready ? (
-    tab === "scenes" ? (
-      <ScenesTab control={ready.control} view={ready.view} onError={failed} />
-    ) : tab === "segments" ? (
+    tab === "segments" ? (
       <SegmentsTab control={ready.control} view={ready.view} segments={segments} />
     ) : tab === "effects" ? (
       <EffectsTab control={ready.control} onError={failed} />
@@ -173,13 +170,21 @@ function LampPage({ id, notify }: { id: string; notify: Notify }) {
     ) : tab === "sync" ? (
       <SyncTab control={ready.control} view={ready.view} onError={failed} />
     ) : (
-      <LightTab control={ready.control} view={ready.view} />
+      // The colour on top, the light's scene library under it, filling the column (it scrolls inside its card).
+      scenesFor(ready.control.spec.sku).length > 0 ? (
+        <>
+          <LightTab control={ready.control} view={ready.view} compact />
+          <ScenesTab control={ready.control} view={ready.view} onError={failed} fill />
+        </>
+      ) : (
+        <LightTab control={ready.control} view={ready.view} />
+      )
     )
   ) : isWeb && phase.kind === "looking" && !all && !lamps.some((l) => l.id === id) ? (
     // The website lists only the lamps picked in this tab: one from an earlier visit has to be picked again.
     <Card innerClassName="flex flex-col items-start px-7 py-7">
-      <p className="text-[17px] font-medium text-foreground">Add the {noun} again</p>
-      <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-muted-foreground">
+      <p className="text-[17px] font-medium text-high">Add the {noun} again</p>
+      <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-medium">
         The browser lets SYNQ reach a {noun} only after you pick it in its Bluetooth list, and forgets it when the tab closes.
       </p>
       <AddLightButton notify={notify} className="mt-5" />
@@ -237,8 +242,8 @@ function LampPage({ id, notify }: { id: string; notify: Notify }) {
         {wide ? (
           body
         ) : (
-          <div className="grid grid-cols-[minmax(240px,300px)_minmax(0,1fr)] items-start gap-5">
-            {stage("sticky top-0 h-[min(560px,calc(100vh-260px))] min-h-[380px]")}
+          <div className="grid grow grid-cols-[minmax(240px,300px)_minmax(0,1fr)] gap-5">
+            {stage("sticky top-0 min-h-[380px] max-h-[calc(100dvh-280px)]")}
             <div className="flex min-w-0 flex-col gap-5">{body}</div>
           </div>
         )}
@@ -258,9 +263,9 @@ function Members({ targets, phase }: { targets: readonly LampInfo[]; phase: Lamp
             key={l.id}
             type="button"
             onClick={() => openDevice(lightId(l.id))}
-            className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground"
+            className="inline-flex items-center gap-2 rounded-small bg-white/[0.04] px-3 py-1 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high"
           >
-            <span className={cn("size-1.5 rounded-full", reached ? "bg-primary shadow-[0_0_8px_var(--primary)]" : "bg-white/20")} aria-hidden="true" />
+            <span className={cn("size-1.5 rounded-full", reached ? "bg-live" : "bg-asleep")} aria-hidden="true" />
             {lampTitle(l)}
           </button>
         );
@@ -273,8 +278,8 @@ function Members({ targets, phase }: { targets: readonly LampInfo[]; phase: Lamp
 function PhaseCard({ phase, name, noun, all, gaveUp, faint, onRetry }: { phase: LampPhase; name: string; noun: "lamp" | "light"; all: boolean; gaveUp: boolean; faint: boolean; onRetry: () => void }) {
   const card = (title: string, text: ReactNode, extra?: ReactNode) => (
     <Card innerClassName="flex flex-col items-start px-7 py-7" >
-      <p className="text-[17px] font-medium text-foreground">{title}</p>
-      <div className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-muted-foreground">{text}</div>
+      <p className="text-[17px] font-medium text-high">{title}</p>
+      <div className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-medium">{text}</div>
       {extra}
     </Card>
   );
@@ -296,7 +301,7 @@ function PhaseCard({ phase, name, noun, all, gaveUp, faint, onRetry }: { phase: 
       </ul>,
       <>
         <RetryButton onClick={onRetry} />
-        {phase.missed[0] && <p className="mt-3 text-[11.5px] text-muted-foreground/80">{phase.missed[0].why}</p>}
+        {phase.missed[0] && <p className="mt-3 text-[11.5px] text-medium">{phase.missed[0].why}</p>}
       </>,
     );
   return null;
@@ -304,7 +309,7 @@ function PhaseCard({ phase, name, noun, all, gaveUp, faint, onRetry }: { phase: 
 
 function RetryButton({ onClick }: { onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="mt-5 rounded-full bg-white/[0.06] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-white/[0.1] transition-colors hover:bg-white/[0.1]">
+    <button type="button" onClick={onClick} className="mt-5 rounded-small bg-white/[0.06] px-4 py-1.5 text-[13px] text-high ring-1 ring-white/[0.1] transition-colors hover:bg-white/[0.1]">
       Try again
     </button>
   );

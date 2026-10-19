@@ -33,8 +33,8 @@ import { ActionButton } from "./parts";
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
 const err = (e: unknown) => String(e).replace(/^(Gamesir)?(Refused)?Error: /, "");
 const PROFILES = [1, 2, 3, 4] as const;
-const select = "rounded-lg bg-white/[0.04] px-2 py-1.5 text-[13px] text-foreground ring-1 ring-white/[0.1]";
-const panel = "rounded-2xl bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]";
+const select = "rounded-small bg-white/[0.04] px-2 py-1.5 text-[13px] text-high ring-1 ring-white/[0.1]";
+const panel = "rounded-control bg-white/[0.02] p-3.5 ring-1 ring-white/[0.06]";
 
 /** What a remap record holds, in words. */
 function targetName(bytes: readonly number[]): string {
@@ -44,13 +44,13 @@ function targetName(bytes: readonly number[]): string {
 }
 
 function Kept({ what }: { what: string }) {
-  return <span className="text-[12px] text-muted-foreground/80">{what} (set in GameSir's app; kept)</span>;
+  return <span className="text-[12px] text-medium">{what} (set in GameSir's app; kept)</span>;
 }
 
 function Slider({ label, value, onChange, disabled }: { label: string; value: number; onChange: (v: number) => void; disabled?: boolean }) {
   return (
-    <label className="mt-2 block text-[12px] text-muted-foreground">
-      {label} <span className="tabular text-foreground">{Number.isInteger(value) ? value : value.toFixed(1)}%</span>
+    <label className="mt-2 block text-[12px] text-medium">
+      {label} <span className="tabular text-high">{Number.isInteger(value) ? value : value.toFixed(1)}%</span>
       <input type="range" min={0} max={100} step={1} value={value} disabled={disabled} onChange={(e) => onChange(Number(e.target.value))} className="mt-1 w-full accent-[var(--primary)]" />
     </label>
   );
@@ -156,7 +156,7 @@ export function GamesirSettingsTab({ link, notify }: { link: PadLink; notify: No
     const preset = curvePreset(bytes);
     if (!editable(bank, f)) return <Kept what="A drawn curve" />;
     return (
-      <label className="mt-2 flex items-center justify-between gap-2 text-[12px] text-muted-foreground">
+      <label className="mt-2 flex items-center justify-between gap-2 text-[12px] text-medium">
         Curve
         <select value={preset} onChange={(e) => put(bank, f, [...GAMESIR_CURVES[Number(e.target.value)].block])} className={select}>
           {GAMESIR_CURVES.map((c, i) => (
@@ -182,198 +182,202 @@ export function GamesirSettingsTab({ link, notify }: { link: PadLink; notify: No
   };
 
   return (
-    <>
-      <Banner tone="info">
-        Experimental: built from open-source GameSir tools (MIT) and not yet tried by SYNQ on a real {map.name}. Nothing is written until you turn on Allow changes; SYNQ then keeps a
-        backup of all four profiles and the lighting first, and reads every change back. Settings GameSir's own app put on keyboard keys, macros or drawn curves are kept as they are.
-      </Banner>
-      <Card innerClassName="px-2 py-1">
-        <ToggleCard icon={PencilSimple} title="Allow changes" status={allow ? "On: Save writes to the pad (after a backup)" : "Off: SYNQ only reads the settings"} checked={allow} onCheckedChange={setAllow} />
-      </Card>
-      <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }} data-testid="gamesir-profiles">
-        {PROFILES.map((p) => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => setProfile(p)}
-            data-testid={`gamesir-profile-${p}`}
-            className={cn("min-w-0 rounded-2xl px-4 py-3.5 text-left ring-1 transition-colors duration-300", p === profile ? "bg-primary/[0.08] ring-primary/40" : "bg-white/[0.025] ring-white/[0.06] hover:bg-white/[0.045]")}
-          >
-            <p className="text-[11.5px] text-muted-foreground">{p === session.active ? "In use now" : "Stored"}</p>
-            <p className="mt-1 text-[15px] text-foreground">Profile {p}</p>
-            <p className="mt-1 truncate text-[11.5px] text-muted-foreground/90">{summary(p)}</p>
-          </button>
-        ))}
+    // Two columns on a wide window: the note, the switch and the profiles on the left, the one being edited on the right.
+    <div className="grid items-start gap-4 min-[1200px]:grid-cols-[320px_minmax(0,1fr)]">
+      <div className="flex min-w-0 flex-col gap-4">
+          <Banner tone="info">
+            Experimental: built from open-source GameSir tools (MIT) and not yet tried by SYNQ on a real {map.name}. Nothing is written until you turn on Allow changes; SYNQ then keeps a
+            backup of all four profiles and the lighting first, and reads every change back. Settings GameSir's own app put on keyboard keys, macros or drawn curves are kept as they are.
+          </Banner>
+          <Card innerClassName="px-2 py-1">
+            <ToggleCard icon={PencilSimple} title="Allow changes" status={allow ? "On: Save writes to the pad (after a backup)" : "Off: SYNQ only reads the settings"} checked={allow} onCheckedChange={setAllow} />
+          </Card>
+          <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }} data-testid="gamesir-profiles">
+            {PROFILES.map((p) => (
+              <button
+                key={p}
+                type="button"
+                onClick={() => setProfile(p)}
+                data-testid={`gamesir-profile-${p}`}
+                className={cn("min-w-0 rounded-control px-4 py-3.5 text-left ring-1 transition-colors duration-300", p === profile ? "bg-primary/[0.08] ring-primary/40" : "bg-white/[0.025] ring-white/[0.06] hover:bg-white/[0.045]")}
+              >
+                <p className="text-[11.5px] text-medium">{p === session.active ? "In use now" : "Stored"}</p>
+                <p className="mt-1 text-[15px] text-high">Profile {p}</p>
+                <p className="mt-1 truncate text-[11.5px] text-medium">{summary(p)}</p>
+              </button>
+            ))}
+          </div>
       </div>
-
-      <Card innerClassName="px-5 pb-5">
-        <CardHeader title={`Profile ${bank}${bank === session.active ? " (in use now)" : ""}`} hint={bank === session.active ? "Changes are made here first; Save writes them to the pad." : "Saving switches the pad to this profile for the write, then back."} />
-        <div className="mt-4 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
-          {vib && (
-            <div className={panel}>
-              <p className="text-[13px] text-foreground">Vibration</p>
-              {editable(bank, vib) ? (
-                (["Left motor", "Right motor"] as const).map((label, i) => (
-                  <Slider key={label} label={label} value={value(bank, vib)[i]} onChange={(x) => put(bank, vib, value(bank, vib).map((y, j) => (j === i ? x : y)))} />
-                ))
-              ) : (
-                <Kept what="Vibration" />
+      <div className="flex min-w-0 flex-col gap-4">
+          <Card innerClassName="px-5 pb-5">
+            <CardHeader title={`Profile ${bank}${bank === session.active ? " (in use now)" : ""}`} hint={bank === session.active ? "Changes are made here first; Save writes them to the pad." : "Saving switches the pad to this profile for the write, then back."} />
+            <div className="mt-4 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+              {vib && (
+                <div className={panel}>
+                  <p className="text-[13px] text-high">Vibration</p>
+                  {editable(bank, vib) ? (
+                    (["Left motor", "Right motor"] as const).map((label, i) => (
+                      <Slider key={label} label={label} value={value(bank, vib)[i]} onChange={(x) => put(bank, vib, value(bank, vib).map((y, j) => (j === i ? x : y)))} />
+                    ))
+                  ) : (
+                    <Kept what="Vibration" />
+                  )}
+                </div>
               )}
-            </div>
-          )}
-          {rate && (
-            <div className={panel}>
-              <p className="text-[13px] text-foreground">Report rate</p>
-              <select value={value(bank, rate)[0]} onChange={(e) => put(bank, rate, [Number(e.target.value)])} className={cn(select, "mt-2 w-full")} disabled={!editable(bank, rate)}>
-                {map.pollRates.map((hz, code) => (
-                  <option key={hz} value={code}>
-                    {hz} Hz
-                  </option>
-                ))}
-              </select>
-              <p className="mt-2 text-[11.5px] text-muted-foreground/80">Some pads reconnect when this changes.</p>
-            </div>
-          )}
-        </div>
-
-        <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
-          {sticks.map((s) => (
-            <div key={s.name} className={panel}>
-              <p className="text-[13px] text-foreground">{s.name}</p>
-              {s.traj && (
-                <label className="mt-2 flex items-center justify-between gap-2 text-[12px] text-muted-foreground">
-                  Shape
-                  <select value={value(bank, s.traj)[0]} onChange={(e) => put(bank, s.traj!, [Number(e.target.value)])} className={select} disabled={!editable(bank, s.traj)}>
-                    <option value={0}>Circle</option>
-                    <option value={1}>Raw</option>
-                  </select>
-                </label>
-              )}
-              {deadzone(s.dz, ["Dead zone", "Full at"])}
-              {curveSelect(s.curve)}
-            </div>
-          ))}
-          {triggers.map((t) => (
-            <div key={t.name} className={panel}>
-              <p className="text-[13px] text-foreground">{t.name}</p>
-              {deadzone(t.dz, ["Starts at", "Full at"])}
-              {curveSelect(t.curve)}
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-5 text-[13px] text-foreground">Buttons</p>
-        <div className="mt-2 grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))" }}>
-          {remaps.map((f) => {
-            const bytes = value(bank, f);
-            const t = remapTarget(bytes);
-            return (
-              <label key={f.name} className="flex items-center justify-between gap-2 rounded-xl bg-white/[0.02] px-3 py-2 text-[12.5px] ring-1 ring-white/[0.06]">
-                <span className="text-muted-foreground">{f.name.replace(/ remap$/, "")}</span>
-                {editable(bank, f) ? (
-                  <select value={t === null ? "" : String(t)} onChange={(e) => put(bank, f, remapBytes(e.target.value === "" ? null : Number(e.target.value)))} className={cn("rounded-md bg-transparent text-right", t !== null ? "text-primary" : "text-foreground")}>
-                    <option value="">Default</option>
-                    {GAMESIR_TARGETS.map((x) => (
-                      <option key={x.code} value={x.code}>
-                        {x.name}
+              {rate && (
+                <div className={panel}>
+                  <p className="text-[13px] text-high">Report rate</p>
+                  <select value={value(bank, rate)[0]} onChange={(e) => put(bank, rate, [Number(e.target.value)])} className={cn(select, "mt-2 w-full")} disabled={!editable(bank, rate)}>
+                    {map.pollRates.map((hz, code) => (
+                      <option key={hz} value={code}>
+                        {hz} Hz
                       </option>
                     ))}
                   </select>
-                ) : (
-                  <Kept what={targetName(bytes)} />
-                )}
-              </label>
-            );
-          })}
-        </div>
+                  <p className="mt-2 text-[11.5px] text-medium">Some pads reconnect when this changes.</p>
+                </div>
+              )}
+            </div>
 
-        <div className="mt-5 flex flex-wrap items-center gap-2">
-          <ActionButton testId="gamesir-save" disabled={!allow || !pending || !!busy} busy={busy === `Profile ${bank} saved`} onClick={() => void save(bank)}>
-            Save to profile {bank}
-            {pending ? ` (${pending})` : ""}
-          </ActionButton>
-          {pending > 0 && (
-            <ActionButton disabled={!!busy} onClick={() => setDraft((d) => new Map([...d].filter(([k]) => !k.startsWith(`${bank}:`))))}>
-              Undo edits
-            </ActionButton>
-          )}
-          {session.backup && (
-            <ActionButton
-              disabled={!allow || !!busy}
-              busy={busy === "Backup put back"}
-              onClick={() =>
-                void run("Backup put back", async () => {
-                  const r = await session.restore(session.backup!.data);
-                  setDraft(new Map());
-                  return r.kept.length ? `Left as they are: ${r.kept.join(", ")}.` : undefined;
-                })
-              }
-            >
-              Put the backup back
-            </ActionButton>
-          )}
-          {!allow && <span className="text-[12px] text-muted-foreground">Turn on Allow changes to write.</span>}
-        </div>
-      </Card>
+            <div className="mt-5 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+              {sticks.map((s) => (
+                <div key={s.name} className={panel}>
+                  <p className="text-[13px] text-high">{s.name}</p>
+                  {s.traj && (
+                    <label className="mt-2 flex items-center justify-between gap-2 text-[12px] text-medium">
+                      Shape
+                      <select value={value(bank, s.traj)[0]} onChange={(e) => put(bank, s.traj!, [Number(e.target.value)])} className={select} disabled={!editable(bank, s.traj)}>
+                        <option value={0}>Circle</option>
+                        <option value={1}>Raw</option>
+                      </select>
+                    </label>
+                  )}
+                  {deadzone(s.dz, ["Dead zone", "Full at"])}
+                  {curveSelect(s.curve)}
+                </div>
+              ))}
+              {triggers.map((t) => (
+                <div key={t.name} className={panel}>
+                  <p className="text-[13px] text-high">{t.name}</p>
+                  {deadzone(t.dz, ["Starts at", "Full at"])}
+                  {curveSelect(t.curve)}
+                </div>
+              ))}
+            </div>
 
-      {map.light && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Lighting" hint="Kept by the pad for every profile." />
-          <div className="mt-4 flex flex-wrap items-end gap-4">
-            {map.light.kind === "slot" &&
-              (() => {
-                const f = field("lighting effect")!;
-                const v = value(LIGHT_BANK, f)[0];
-                return editable(LIGHT_BANK, f) ? (
-                  <div className="flex flex-wrap gap-2" data-testid="gamesir-light">
-                    {[0, 1, 2, 3].map((slot) => (
-                      <button
-                        key={slot}
-                        type="button"
-                        onClick={() => put(LIGHT_BANK, f, [slot])}
-                        className={cn("rounded-full px-3 py-1.5 text-[12.5px] ring-1", slot === v ? "bg-primary/[0.12] text-foreground ring-primary/40" : "bg-white/[0.04] text-muted-foreground ring-white/[0.1] hover:bg-white/[0.08]")}
-                      >
-                        Effect {slot + 1}
-                      </button>
-                    ))}
-                  </div>
-                ) : (
-                  <Kept what="Lighting effect" />
-                );
-              })()}
-            {map.light.kind === "mode" &&
-              (() => {
-                const mode = field("lighting mode")!;
-                const bright = field("lighting brightness")!;
+            <p className="mt-5 text-[13px] text-high">Buttons</p>
+            <div className="mt-2 grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))" }}>
+              {remaps.map((f) => {
+                const bytes = value(bank, f);
+                const t = remapTarget(bytes);
                 return (
-                  <div className="grid w-full gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }} data-testid="gamesir-light">
-                    {editable(LIGHT_BANK, mode) ? (
-                      <label className="flex items-center justify-between gap-2 text-[12.5px] text-muted-foreground">
-                        Mode
-                        <select value={value(LIGHT_BANK, mode)[0]} onChange={(e) => put(LIGHT_BANK, mode, [Number(e.target.value)])} className={select}>
-                          {G7_8K_LIGHT_MODES.map((l) => (
-                            <option key={l.code} value={l.code}>
-                              {l.name}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
+                  <label key={f.name} className="flex items-center justify-between gap-2 rounded-small bg-white/[0.02] px-3 py-2 text-[12.5px] ring-1 ring-white/[0.06]">
+                    <span className="text-medium">{f.name.replace(/ remap$/, "")}</span>
+                    {editable(bank, f) ? (
+                      <select value={t === null ? "" : String(t)} onChange={(e) => put(bank, f, remapBytes(e.target.value === "" ? null : Number(e.target.value)))} className={cn("rounded-tight bg-transparent text-right", t !== null ? "text-primary" : "text-high")}>
+                        <option value="">Default</option>
+                        {GAMESIR_TARGETS.map((x) => (
+                          <option key={x.code} value={x.code}>
+                            {x.name}
+                          </option>
+                        ))}
+                      </select>
                     ) : (
-                      <Kept what="Lighting mode" />
+                      <Kept what={targetName(bytes)} />
                     )}
-                    {editable(LIGHT_BANK, bright) ? <Slider label="Brightness" value={value(LIGHT_BANK, bright)[0]} onChange={(x) => put(LIGHT_BANK, bright, [x])} /> : <Kept what="Brightness" />}
-                  </div>
+                  </label>
                 );
-              })()}
-          </div>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <ActionButton testId="gamesir-light-save" disabled={!allow || !lightPending || !!busy} busy={busy === "Lighting saved"} onClick={() => void save(LIGHT_BANK)}>
-              Save lighting
-            </ActionButton>
-          </div>
-        </Card>
-      )}
-      {session.firmware && <p className="px-1 text-[12px] text-muted-foreground/80">Firmware {session.firmware.controller}{session.firmware.dongle ? ` · receiver ${session.firmware.dongle}` : ""}</p>}
-    </>
+              })}
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <ActionButton testId="gamesir-save" disabled={!allow || !pending || !!busy} busy={busy === `Profile ${bank} saved`} onClick={() => void save(bank)}>
+                Save to profile {bank}
+                {pending ? ` (${pending})` : ""}
+              </ActionButton>
+              {pending > 0 && (
+                <ActionButton disabled={!!busy} onClick={() => setDraft((d) => new Map([...d].filter(([k]) => !k.startsWith(`${bank}:`))))}>
+                  Undo edits
+                </ActionButton>
+              )}
+              {session.backup && (
+                <ActionButton
+                  disabled={!allow || !!busy}
+                  busy={busy === "Backup put back"}
+                  onClick={() =>
+                    void run("Backup put back", async () => {
+                      const r = await session.restore(session.backup!.data);
+                      setDraft(new Map());
+                      return r.kept.length ? `Left as they are: ${r.kept.join(", ")}.` : undefined;
+                    })
+                  }
+                >
+                  Put the backup back
+                </ActionButton>
+              )}
+              {!allow && <span className="text-[12px] text-medium">Turn on Allow changes to write.</span>}
+            </div>
+          </Card>
+
+          {map.light && (
+            <Card innerClassName="px-5 pb-5">
+              <CardHeader title="Lighting" hint="Kept by the pad for every profile." />
+              <div className="mt-4 flex flex-wrap items-end gap-4">
+                {map.light.kind === "slot" &&
+                  (() => {
+                    const f = field("lighting effect")!;
+                    const v = value(LIGHT_BANK, f)[0];
+                    return editable(LIGHT_BANK, f) ? (
+                      <div className="flex flex-wrap gap-2" data-testid="gamesir-light">
+                        {[0, 1, 2, 3].map((slot) => (
+                          <button
+                            key={slot}
+                            type="button"
+                            onClick={() => put(LIGHT_BANK, f, [slot])}
+                            className={cn("rounded-full px-3 py-1.5 text-[12.5px] ring-1", slot === v ? "bg-primary/[0.12] text-high ring-primary/40" : "bg-white/[0.04] text-medium ring-white/[0.1] hover:bg-white/[0.08]")}
+                          >
+                            Effect {slot + 1}
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <Kept what="Lighting effect" />
+                    );
+                  })()}
+                {map.light.kind === "mode" &&
+                  (() => {
+                    const mode = field("lighting mode")!;
+                    const bright = field("lighting brightness")!;
+                    return (
+                      <div className="grid w-full gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }} data-testid="gamesir-light">
+                        {editable(LIGHT_BANK, mode) ? (
+                          <label className="flex items-center justify-between gap-2 text-[12.5px] text-medium">
+                            Mode
+                            <select value={value(LIGHT_BANK, mode)[0]} onChange={(e) => put(LIGHT_BANK, mode, [Number(e.target.value)])} className={select}>
+                              {G7_8K_LIGHT_MODES.map((l) => (
+                                <option key={l.code} value={l.code}>
+                                  {l.name}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                        ) : (
+                          <Kept what="Lighting mode" />
+                        )}
+                        {editable(LIGHT_BANK, bright) ? <Slider label="Brightness" value={value(LIGHT_BANK, bright)[0]} onChange={(x) => put(LIGHT_BANK, bright, [x])} /> : <Kept what="Brightness" />}
+                      </div>
+                    );
+                  })()}
+              </div>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <ActionButton testId="gamesir-light-save" disabled={!allow || !lightPending || !!busy} busy={busy === "Lighting saved"} onClick={() => void save(LIGHT_BANK)}>
+                  Save lighting
+                </ActionButton>
+              </div>
+            </Card>
+          )}
+          {session.firmware && <p className="px-1 text-[12px] text-medium">Firmware {session.firmware.controller}{session.firmware.dongle ? ` · receiver ${session.firmware.dongle}` : ""}</p>}
+      </div>
+    </div>
   );
 }

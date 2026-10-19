@@ -11,14 +11,14 @@ export function SceneTile({ name, picture, on, sending, disabled, onClick }: { n
       disabled={disabled}
       aria-pressed={on}
       className={cn(
-        "group flex flex-col gap-2.5 rounded-2xl bg-white/[0.025] p-2.5 text-left ring-1 transition-[background-color,box-shadow] duration-300 ease-fluid hover:bg-white/[0.05] disabled:cursor-wait",
+        "group flex flex-col gap-2 rounded-control bg-white/[0.025] p-2 text-left ring-1 transition-[background-color,box-shadow] duration-300 ease-fluid hover:bg-white/[0.05] disabled:cursor-wait",
         on ? "ring-primary/60 shadow-[0_0_18px_-6px_var(--primary)]" : "ring-white/[0.06]",
       )}
     >
       {picture}
       <span className="flex items-center gap-2 px-0.5">
-        <span className="min-w-0 flex-1 text-[13px] leading-tight text-foreground [overflow-wrap:anywhere]">{name}</span>
-        {(on || sending) && <span role="img" className={cn("size-1.5 shrink-0 rounded-full", sending ? "animate-pulse bg-white/60" : "bg-primary shadow-[0_0_8px_var(--primary)]")} aria-label={sending ? "Sending" : "On"} />}
+        <span className="min-w-0 flex-1 truncate text-[12.5px] leading-tight text-high" title={name}>{name}</span>
+        {(on || sending) && <span role="img" className={cn("size-1.5 shrink-0 rounded-full", sending ? "animate-pulse bg-white/60" : "bg-primary")} aria-label={sending ? "Sending" : "On"} />}
       </span>
     </button>
   );

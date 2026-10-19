@@ -80,12 +80,12 @@ export function GamepadTester({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="mx-auto flex min-h-full w-full max-w-[1100px] flex-col gap-5 px-6 py-8" data-slot="gamepad-tester">
-      <button onClick={onBack} className="-ml-2 flex w-fit items-center gap-1 rounded-full px-2 py-1 text-[12.5px] text-muted-foreground hover:bg-white/[0.05] hover:text-foreground">
-        <ArrowLeft size={13} /> Back
+      <button onClick={onBack} className="-ml-2 flex w-fit items-center gap-1 rounded-tight px-2 py-1 text-[12.5px] text-medium hover:bg-white/[0.05] hover:text-high">
+        <ArrowLeft size={12} /> Back
       </button>
       <div>
-        <h1 className="text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">Controller tester</h1>
-        <p className="mt-2 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
+        <h1 className="text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">Controller tester</h1>
+        <p className="mt-2 max-w-2xl text-[13px] leading-relaxed text-medium">
           Sticks, triggers, buttons and a polling estimate, from what this browser's Gamepad API shows. Nothing is sent to the controller. For exact polling rates
           and a pad's own details, use Chrome or Edge, or the desktop app.
         </p>
@@ -93,7 +93,7 @@ export function GamepadTester({ onBack }: { onBack: () => void }) {
       {pads.length > 1 && (
         <div className="flex flex-wrap gap-2">
           {pads.map((g) => (
-            <button key={g.index} onClick={() => setIndex(g.index)} className={cn("rounded-full px-3 py-1.5 text-[12.5px] ring-1", g.index === padIndex ? "bg-primary/15 text-foreground ring-primary/40" : "bg-white/[0.04] text-muted-foreground ring-white/[0.08]")}>
+            <button key={g.index} onClick={() => setIndex(g.index)} className={cn("rounded-full px-3 py-1.5 text-[12.5px] ring-1", g.index === padIndex ? "bg-primary/15 text-high ring-primary/40" : "bg-white/[0.04] text-medium ring-white/[0.08]")}>
               {identityOf(g).name}
             </button>
           ))}
@@ -102,20 +102,20 @@ export function GamepadTester({ onBack }: { onBack: () => void }) {
       {!pad && (
         <Card innerClassName="flex flex-col items-center px-8 pb-10 pt-8 text-center">
           <Gamepad className="mb-4 h-[150px] animate-pulse opacity-80" />
-          <p className="text-[17px] font-medium text-foreground">Press any button on your controller</p>
-          <p className="mx-auto mt-2 max-w-md text-[13.5px] text-muted-foreground">Browsers only show a controller to a page after one of its buttons is pressed.</p>
+          <p className="text-[17px] font-medium text-high">Press any button on your controller</p>
+          <p className="mx-auto mt-2 max-w-md text-[13.5px] text-medium">Browsers only show a controller to a page after one of its buttons is pressed.</p>
         </Card>
       )}
       {link && (
         <>
           <div role="tablist" onKeyDown={arrowPick} className="flex w-fit gap-0.5 rounded-full bg-white/[0.04] p-1 ring-1 ring-white/[0.07]">
             {(["test", "polling"] as const).map((t) => (
-              <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={cn("rounded-full px-4 py-1.5 text-[13px]", tab === t ? "bg-white/[0.08] text-foreground" : "text-muted-foreground")}>
+              <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={cn("rounded-full px-4 py-1.5 text-[13px]", tab === t ? "bg-white/[0.08] text-high" : "text-medium")}>
                 {t === "test" ? "Test" : "Polling"}
               </button>
             ))}
           </div>
-          <p className="text-[15px] font-medium text-foreground">{link.identity.name}</p>
+          <p className="text-[15px] font-medium text-high">{link.identity.name}</p>
           {tab === "test" ? <TestTab link={link} notify={notify} /> : <PollingTab link={link} notify={notify} />}
         </>
       )}

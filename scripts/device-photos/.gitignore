@@ -5,3 +5,6 @@ cache/
 cand/
 qa/
 __pycache__/
+# what coverage2.mts writes next to its inputs
+tools/coverage2.json
+tools/uncovered.json

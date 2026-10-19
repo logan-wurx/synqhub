@@ -20,7 +20,7 @@ Equalizer APO, XDG autostart instead of the Run key. Built and tested in CI on U
 
 ## Install
 
-- **.deb**: `sudo apt install ./SYNQ.Hub_<version>_amd64.deb`. It installs the app (`/usr/bin/onboard`), SYNQ
+- **.deb**: `sudo apt install ./SYNQ_<version>_amd64.deb`. It installs the app (`/usr/bin/synq`), SYNQ
   Helper (`/usr/bin/synq-helper`) and the device rule (`/usr/lib/udev/rules.d/70-onboard-hub.rules`), and its
   postinst runs `udevadm control --reload-rules && udevadm trigger`, so devices already plugged in work at once.
   It needs WebKitGTK 4.1 and libudev (pulled in as dependencies) and recommends `pipewire-bin` (the EQ's tools) and

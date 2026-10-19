@@ -1,7 +1,7 @@
 // The tester's tabs, shared by the Controller page (a listed pad) and the browser-only Gamepad tester: what the pad
 // reports right now and the figures from short measurements (Test), the polling rate (Polling), and the volatile tests
 // a Sony or Nintendo pad takes on a click (Lights & rumble).
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader } from "@/components/ui/matte";
 import { Banner } from "@/components/keyboard/parts";
@@ -55,61 +55,76 @@ export function TestTab({ link, notify }: { link: PadLink; notify: Notify }) {
       {!s && link.source.kind === "hid" && !PARSED_GUARDS.includes(link.identity.guard) && (
         <Banner tone="info">SYNQ doesn't read this pad's report layout yet: it times its reports (Polling) and saves them for diagnostics. Its sticks and buttons show here once it's one SYNQ parses.</Banner>
       )}
-      <Card innerClassName="px-5 pb-5">
-        <CardHeader title="Sticks" hint={live.rate ? `${live.rate} reports in the last second (${link.source.label}).` : "Move the sticks."} />
-        <div className="mt-4 flex flex-wrap items-start justify-center gap-10">
-          {Array.from({ length: Math.max(1, sticks) }, (_, i) => (
-            <StickView key={i} testId={`pad-stick-${i}`} label={sticks === 1 ? "Stick" : i === 0 ? "Left stick" : "Right stick"} stick={s?.sticks[i] ?? null} raw={s?.sticksRaw?.[i] ?? null} trail={live.trails[i] ?? []} bins={fig.circle?.[i]?.bins ?? null} />
-          ))}
-        </div>
-        <div className="mt-5 flex flex-wrap gap-2">
-          <ActionButton testId="pad-measure-drift" busy={busy === "drift"} disabled={!!busy} onClick={() => run("drift", 2, (m) => ({ drift: perStick(m, drift), gyro: gyroBias(m.states.flatMap((st) => (st.gyro ? [st.gyro] : []))) }))}>
-            Drift (2 s, hands off)
-          </ActionButton>
-          <ActionButton testId="pad-measure-circle" busy={busy === "circle"} disabled={!!busy} onClick={() => run("circle", 4, (m) => ({ circle: perStick(m, circularity), res: perStick(m, () => null).map((_, i) => resolution(m.states.flatMap((st) => (st.sticksRaw?.[i] ? [st.sticksRaw[i]] : [])))) }))}>
-            Circularity (spin each stick, 4 s)
-          </ActionButton>
-          <ActionButton testId="pad-measure-dead" busy={busy === "dead"} disabled={!!busy} onClick={() => run("dead", 4, (m) => ({ dead: perStick(m, deadzones) }))}>
-            Deadzones (push slowly from centre to edge, 4 s)
-          </ActionButton>
-        </div>
-        {(fig.drift || fig.circle || fig.dead) && (
-          <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))" }} data-testid="pad-stick-figures">
-            {fig.drift?.map((d, i) => d && <Figure key={`d${i}`} label={`${i ? "Right" : "Left"} drift`} value={pct(d.magnitude, 2)} note={`noise ${pct(d.noise, 2)} · ${d.samples} readings`} />)}
-            {fig.circle?.map((c, i) => <Figure key={`c${i}`} label={`${i ? "Right" : "Left"} circularity error`} value={c.covered ? `${c.errorPct.toFixed(1)}%` : "spin it"} note={`${c.covered}/72 directions · ${c.outerPct.toFixed(0)}% at the edge`} />)}
-            {fig.res?.map((r, i) => r && r.distinct[0] > 1 && <Figure key={`r${i}`} label={`${i ? "Right" : "Left"} resolution`} value={`${r.bits[0].toFixed(1)} / ${r.bits[1].toFixed(1)} bits`} note={`${r.distinct[0]} × ${r.distinct[1]} values seen`} />)}
-            {fig.dead?.map((d, i) => d && <Figure key={`z${i}`} label={`${i ? "Right" : "Left"} deadzone`} value={`${pct(d.inner)} in · ${pct(d.outer, 0)} out`} note={d.jumps ? "the output jumps when it leaves centre (anti-deadzone)" : "starts from centre"} />)}
-          </div>
-        )}
-      </Card>
-
-      {link.identity.caps.triggers !== null && (
+      {/* A bento so the tester fits a window: the sticks big on the left, the triggers and motion beside them, the
+         buttons across the bottom. */}
+      <div className="grid items-start gap-4 min-[1200px]:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Triggers" hint="Press each one all the way, then let go." />
-          <div className="mt-4 flex flex-wrap gap-6">
-            <TriggerBar label="Left" value={s?.triggers[0] ?? 0} raw={s?.triggersRaw?.[0]} bits={s?.triggerBits} />
-            <TriggerBar label="Right" value={s?.triggers[1] ?? 0} raw={s?.triggersRaw?.[1]} bits={s?.triggerBits} />
+          <CardHeader title="Sticks" hint={live.rate ? `${live.rate} reports in the last second (${link.source.label}).` : "Move the sticks."} />
+          <div className="mt-4 flex flex-wrap items-start justify-center gap-10">
+            {Array.from({ length: Math.max(1, sticks) }, (_, i) => (
+              <StickView key={i} testId={`pad-stick-${i}`} label={sticks === 1 ? "Stick" : i === 0 ? "Left stick" : "Right stick"} stick={s?.sticks[i] ?? null} raw={s?.sticksRaw?.[i] ?? null} trail={live.trails[i] ?? []} bins={fig.circle?.[i]?.bins ?? null} />
+            ))}
           </div>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <ActionButton
-              testId="pad-measure-triggers"
-              busy={busy === "triggers"}
-              disabled={!!busy}
-              onClick={() => run("triggers", 3, (m) => ({ triggers: [0, 1].map((i) => triggerStats(m.states.flatMap((st) => (st.triggersRaw ? [st.triggersRaw[i]] : [Math.round((st.triggers[i] ?? 0) * 255)])), s?.triggerBits)) }))}
-            >
-              Trigger range (press both fully, 3 s)
+          <div className="mt-5 flex flex-wrap gap-2">
+            <ActionButton testId="pad-measure-drift" busy={busy === "drift"} disabled={!!busy} onClick={() => run("drift", 2, (m) => ({ drift: perStick(m, drift), gyro: gyroBias(m.states.flatMap((st) => (st.gyro ? [st.gyro] : []))) }))}>
+              Drift (2 s, hands off)
             </ActionButton>
-            {fig.triggers?.map(
-              (t, i) =>
-                t && (
-                  <span key={i} className="tabular text-[12.5px] text-muted-foreground">
-                    {i ? "Right" : "Left"}: {t.min} – {t.max}, {t.steps} steps{t.hair ? " (digital: only rest and full)" : ""}
-                  </span>
-                ),
-            )}
+            <ActionButton testId="pad-measure-circle" busy={busy === "circle"} disabled={!!busy} onClick={() => run("circle", 4, (m) => ({ circle: perStick(m, circularity), res: perStick(m, () => null).map((_, i) => resolution(m.states.flatMap((st) => (st.sticksRaw?.[i] ? [st.sticksRaw[i]] : [])))) }))}>
+              Circularity (spin each stick, 4 s)
+            </ActionButton>
+            <ActionButton testId="pad-measure-dead" busy={busy === "dead"} disabled={!!busy} onClick={() => run("dead", 4, (m) => ({ dead: perStick(m, deadzones) }))}>
+              Deadzones (push slowly from centre to edge, 4 s)
+            </ActionButton>
           </div>
+          {(fig.drift || fig.circle || fig.dead) && (
+            <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))" }} data-testid="pad-stick-figures">
+              {fig.drift?.map((d, i) => d && <Figure key={`d${i}`} label={`${i ? "Right" : "Left"} drift`} value={pct(d.magnitude, 2)} note={`noise ${pct(d.noise, 2)} · ${d.samples} readings`} />)}
+              {fig.circle?.map((c, i) => <Figure key={`c${i}`} label={`${i ? "Right" : "Left"} circularity error`} value={c.covered ? `${c.errorPct.toFixed(1)}%` : "spin it"} note={`${c.covered}/72 directions · ${c.outerPct.toFixed(0)}% at the edge`} />)}
+              {fig.res?.map((r, i) => r && r.distinct[0] > 1 && <Figure key={`r${i}`} label={`${i ? "Right" : "Left"} resolution`} value={`${r.bits[0].toFixed(1)} / ${r.bits[1].toFixed(1)} bits`} note={`${r.distinct[0]} × ${r.distinct[1]} values seen`} />)}
+              {fig.dead?.map((d, i) => d && <Figure key={`z${i}`} label={`${i ? "Right" : "Left"} deadzone`} value={`${pct(d.inner)} in · ${pct(d.outer, 0)} out`} note={d.jumps ? "the output jumps when it leaves centre (anti-deadzone)" : "starts from centre"} />)}
+            </div>
+          )}
         </Card>
-      )}
+        <div className="flex min-w-0 flex-col gap-4">
+          {link.identity.caps.triggers !== null && (
+            <Card innerClassName="px-5 pb-5">
+              <CardHeader title="Triggers" hint="Press each one all the way, then let go." />
+              <div className="mt-4 flex flex-wrap gap-6">
+                <TriggerBar label="Left" value={s?.triggers[0] ?? 0} raw={s?.triggersRaw?.[0]} bits={s?.triggerBits} />
+                <TriggerBar label="Right" value={s?.triggers[1] ?? 0} raw={s?.triggersRaw?.[1]} bits={s?.triggerBits} />
+              </div>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <ActionButton
+                  testId="pad-measure-triggers"
+                  busy={busy === "triggers"}
+                  disabled={!!busy}
+                  onClick={() => run("triggers", 3, (m) => ({ triggers: [0, 1].map((i) => triggerStats(m.states.flatMap((st) => (st.triggersRaw ? [st.triggersRaw[i]] : [Math.round((st.triggers[i] ?? 0) * 255)])), s?.triggerBits)) }))}
+                >
+                  Trigger range (press both fully, 3 s)
+                </ActionButton>
+                {fig.triggers?.map(
+                  (t, i) =>
+                    t && (
+                      <span key={i} className="tabular text-[12.5px] text-medium">
+                        {i ? "Right" : "Left"}: {t.min} – {t.max}, {t.steps} steps{t.hair ? " (digital: only rest and full)" : ""}
+                      </span>
+                    ),
+                )}
+              </div>
+            </Card>
+          )}
+          {(s?.gyro || link.identity.caps.gyro) && (
+            <Card innerClassName="px-5 pb-5">
+              <CardHeader title="Motion" hint={link.source.kind === "hid" ? "Gyro and accelerometer as the pad reports them (nominal scale)." : "This pad's motion sensors aren't readable this way."} />
+              <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+                <AxisReadout label="Gyro" unit="°/s" v={s?.gyro} />
+                <AxisReadout label="Accelerometer" unit="g" v={s?.accel} />
+                {fig.gyro && <Figure label="Gyro bias at rest" value={fig.gyro.bias.map((b) => b.toFixed(2)).join("  ")} note={`noise ${fig.gyro.noise.map((n) => n.toFixed(2)).join(" ")} °/s`} />}
+              </div>
+            </Card>
+          )}
+        </div>
+      </div>
 
       <Card innerClassName="px-5 pb-5">
         <CardHeader title="Buttons" hint="Lit while held; a button stays outlined once it has been pressed." />
@@ -120,17 +135,6 @@ export function TestTab({ link, notify }: { link: PadLink; notify: Notify }) {
           <p className="mt-3 text-[12.5px] text-chart-3">Chatter (pressed again within 5 ms of a release): {Object.entries(fig.chatter).map(([b, n]) => `${b} ×${n}`).join(", ")}</p>
         )}
       </Card>
-
-      {(s?.gyro || link.identity.caps.gyro) && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Motion" hint={link.source.kind === "hid" ? "Gyro and accelerometer as the pad reports them (nominal scale)." : "This pad's motion sensors aren't readable this way."} />
-          <div className="mt-4 grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
-            <AxisReadout label="Gyro" unit="°/s" v={s?.gyro} />
-            <AxisReadout label="Accelerometer" unit="g" v={s?.accel} />
-            {fig.gyro && <Figure label="Gyro bias at rest" value={fig.gyro.bias.map((b) => b.toFixed(2)).join("  ")} note={`noise ${fig.gyro.noise.map((n) => n.toFixed(2)).join(" ")} °/s`} />}
-          </div>
-        </Card>
-      )}
     </>
   );
 }
@@ -155,16 +159,12 @@ export function PollingTab({ link, notify }: { link: PadLink; notify: Notify }) 
   return (
     <>
       <Card innerClassName="px-5 pb-5">
-        <CardHeader title="Polling rate" hint={`Measured through ${link.source.label}.`} />
-        <p className="mt-3 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
-          Keep a stick moving in circles for the 5 seconds: many pads only send a report when something changes. The figure is the median time between reports;
-          the first 200 ms and any pause over 50 ms are left out.
-        </p>
+        <CardHeader title="Polling rate" hint={`Through ${link.source.label}. Keep a stick moving in circles for the 5 seconds: many pads only report when something changes.`} />
         <div className="mt-4 flex items-center gap-3">
           <ActionButton testId="pad-measure-polling" busy={busy} onClick={() => void measure()}>
             {busy ? "Measuring… keep moving" : "Measure (5 s)"}
           </ActionButton>
-          {result && !st && <span className="text-[12.5px] text-muted-foreground">Not enough reports ({result.count}): move a stick the whole time and try again.</span>}
+          {result && !st && <span className="text-[12.5px] text-medium">Not enough reports ({result.count}): move a stick the whole time and try again.</span>}
         </div>
         {st && (
           <div className="mt-5 grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))" }} data-testid="pad-polling">
@@ -176,15 +176,15 @@ export function PollingTab({ link, notify }: { link: PadLink; notify: Notify }) 
           </div>
         )}
         {limited && <p className="mt-3 text-[12.5px] text-chart-3">This is as fast as XInput was sampled: the pad may report faster.</p>}
-        {link.source.maxHz && <p className="mt-3 text-[12.5px] text-muted-foreground">The browser's Gamepad API samples about {link.source.maxHz} times a second, so faster pads read as about {link.source.maxHz} Hz here.</p>}
-        <p className="mt-4 text-[11.5px] text-muted-foreground/80">Method: Gamepadla's polling test (gamepadla.com, MIT).</p>
+        {link.source.maxHz && <p className="mt-3 text-[12.5px] text-medium">The browser's Gamepad API samples about {link.source.maxHz} times a second, so faster pads read as about {link.source.maxHz} Hz here.</p>}
+        <p className="mt-4 text-[11.5px] text-faint" title="The median time between reports; the first 200 ms and any pause over 50 ms are left out.">Method: Gamepadla's polling test (gamepadla.com, MIT).</p>
       </Card>
     </>
   );
 }
 
 const SWATCHES: readonly { name: string; rgb: [number, number, number] }[] = [
-  { name: "Violet", rgb: [139, 92, 246] },
+  { name: "Orange", rgb: [255, 94, 58] },
   { name: "Red", rgb: [255, 40, 40] },
   { name: "Green", rgb: [40, 220, 90] },
   { name: "Blue", rgb: [40, 110, 255] },
@@ -192,7 +192,20 @@ const SWATCHES: readonly { name: string; rgb: [number, number, number] }[] = [
   { name: "Off", rgb: [0, 0, 0] },
 ];
 
-/** The volatile tests (Sony and Nintendo pads, through HID): sent only on a click, gone when the pad reconnects. */
+/** One of the volatile tests: its name on the left, its buttons on the right. */
+function TestRow({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 border-t border-white/[0.06] py-3.5">
+      <div className="w-[150px] shrink-0">
+        <p className="text-[13.5px] font-medium text-high">{title}</p>
+        {hint && <p className="mt-0.5 text-[11.5px] leading-snug text-medium">{hint}</p>}
+      </div>
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">{children}</div>
+    </div>
+  );
+}
+
+/** The volatile tests (Sony and Nintendo pads, through HID) in one card, a row each: sent only on a click, gone when the pad reconnects. */
 export function LightsTab({ link, notify }: { link: PadLink; notify: Notify }) {
   const t = link.tests;
   const [busy, setBusy] = useState<string | null>(null);
@@ -207,75 +220,52 @@ export function LightsTab({ link, notify }: { link: PadLink; notify: Notify }) {
       setBusy(null);
     }
   };
+  const chip = "inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1.5 text-[12.5px] text-high ring-1 ring-white/[0.1] hover:bg-white/[0.08] disabled:opacity-50";
   return (
-    <>
-      <Banner tone="info">Nothing here stays on the pad: it lasts until the pad reconnects or a game sets its own. The rumble test stops by itself within a second.</Banner>
-      <Card innerClassName="px-5 pb-5">
-        <CardHeader title="Rumble" hint="One short pulse on both motors." />
-        <div className="mt-4">
+    <Card innerClassName="px-5 pb-2">
+      <CardHeader title={t.lightbar || t.playerLeds ? "Lights & rumble" : "Rumble"} hint="Nothing here stays on the pad: it lasts until the pad reconnects or a game sets its own." />
+      {/* The tests in two columns on a wide window, a hairline over each. */}
+      <div className="mt-2 grid gap-x-10 min-[1500px]:grid-cols-2">
+        <TestRow title="Rumble" hint="A short pulse on both motors.">
           <ActionButton testId="pad-test-rumble" busy={busy === "Rumble"} disabled={!!busy} onClick={() => void go("Rumble", () => t.rumble())}>
             Test rumble
           </ActionButton>
-        </div>
-      </Card>
-      {t.lightbar && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Lightbar" />
-          <div className="mt-4 flex flex-wrap gap-2">
+        </TestRow>
+        {t.lightbar && (
+          <TestRow title="Lightbar">
             {SWATCHES.map((c) => (
-              <button
-                key={c.name}
-                type="button"
-                disabled={!!busy}
-                onClick={() => void go("Lightbar", () => t.lightbar!(...c.rgb))}
-                className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/[0.1] hover:bg-white/[0.08] disabled:opacity-50"
-              >
+              <button key={c.name} type="button" disabled={!!busy} onClick={() => void go("Lightbar", () => t.lightbar!(...c.rgb))} className={chip}>
                 <span className="size-3 rounded-full ring-1 ring-white/20" style={{ background: `rgb(${c.rgb.join(" ")})` }} />
                 {c.name}
               </button>
             ))}
             {t.releaseLeds && (
               <ActionButton disabled={!!busy} onClick={() => void go("Lights", () => t.releaseLeds!())}>
-                Give the lights back to the system
+                Give back to the system
               </ActionButton>
             )}
-          </div>
-        </Card>
-      )}
-      {t.playerLeds && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Player lights" />
-          <div className="mt-4 flex flex-wrap gap-2">
+          </TestRow>
+        )}
+        {t.playerLeds && (
+          <TestRow title="Player lights">
             {(t.kind === "ds5" ? [0x04, 0x0a, 0x15, 0x1b, 0x1f, 0] : [0x01, 0x03, 0x07, 0x0f, 0]).map((p, i) => (
-              <button
-                key={p}
-                type="button"
-                disabled={!!busy}
-                onClick={() => void go("Player lights", () => t.playerLeds!(t.kind === "ds5" ? p | (p ? 0x20 : 0) : p))}
-                className={cn("rounded-full bg-white/[0.04] px-3 py-1.5 text-[12.5px] ring-1 ring-white/[0.1] hover:bg-white/[0.08] disabled:opacity-50", p ? "text-foreground" : "text-muted-foreground")}
-              >
+              <button key={p} type="button" disabled={!!busy} onClick={() => void go("Player lights", () => t.playerLeds!(t.kind === "ds5" ? p | (p ? 0x20 : 0) : p))} className={cn(chip, !p && "text-medium")}>
                 {p ? `Player ${i + 1}` : "Off"}
               </button>
             ))}
-          </div>
-        </Card>
-      )}
-      {t.micLed && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Mic light" />
-          <div className="mt-4 flex gap-2">
+          </TestRow>
+        )}
+        {t.micLed && (
+          <TestRow title="Mic light">
             {(["Off", "On", "Pulse"] as const).map((label, mode) => (
               <ActionButton key={label} disabled={!!busy} onClick={() => void go("Mic light", () => t.micLed!(mode as 0 | 1 | 2))}>
                 {label}
               </ActionButton>
             ))}
-          </div>
-        </Card>
-      )}
-      {t.triggers && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="Adaptive triggers" hint="SDL's test effects. Pull the triggers to feel them; Off clears them." />
-          <div className="mt-4 flex gap-2">
+          </TestRow>
+        )}
+        {t.triggers && (
+          <TestRow title="Adaptive triggers" hint="SDL's test effects; pull to feel them.">
             <ActionButton testId="pad-test-trigger" disabled={!!busy} onClick={() => void go("Triggers", () => t.triggers!("resistance"))}>
               Resistance
             </ActionButton>
@@ -285,13 +275,10 @@ export function LightsTab({ link, notify }: { link: PadLink; notify: Notify }) {
             <ActionButton disabled={!!busy} onClick={() => void go("Triggers", () => t.triggers!("off"))}>
               Off
             </ActionButton>
-          </div>
-        </Card>
-      )}
-      {t.homeLight && (
-        <Card innerClassName="px-5 pb-5">
-          <CardHeader title="HOME button light" />
-          <div className="mt-4 flex gap-2">
+          </TestRow>
+        )}
+        {t.homeLight && (
+          <TestRow title="HOME button light">
             {(
               [
                 ["Off", 0],
@@ -303,9 +290,9 @@ export function LightsTab({ link, notify }: { link: PadLink; notify: Notify }) {
                 {label}
               </ActionButton>
             ))}
-          </div>
-        </Card>
-      )}
-    </>
+          </TestRow>
+        )}
+      </div>
+    </Card>
   );
 }

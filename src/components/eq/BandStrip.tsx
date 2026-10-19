@@ -17,7 +17,7 @@ export const KIND_NAME: Record<FilterKind, string> = {
   NO: "Notch",
 };
 
-const STRIP = "group relative flex w-[112px] shrink-0 flex-col items-center gap-3 rounded-[1.35rem] px-2.5 pb-3 pt-3 ring-1 transition-[background-color,box-shadow] duration-500 ease-fluid";
+const STRIP = "group relative flex w-[104px] shrink-0 flex-col items-center gap-2 rounded-control px-2.5 pb-3 pt-3 ring-1 transition-[background-color,box-shadow] duration-500 ease-fluid";
 
 interface BandStripProps {
   index: number;
@@ -47,7 +47,7 @@ export function BandStrip({ index, filter, limits, selected, readOnly, onSelect,
         <span
           className={cn(
             "grid size-6 place-items-center rounded-full text-[11.5px] font-medium tabular-nums",
-            selected ? "bg-primary text-primary-foreground" : "bg-white/[0.06] text-muted-foreground",
+            selected ? "bg-primary text-primary-foreground" : "bg-white/[0.06] text-medium",
           )}
         >
           {index + 1}
@@ -72,7 +72,7 @@ export function BandStrip({ index, filter, limits, selected, readOnly, onSelect,
           onChange({ kind, gain: hasGain(kind) ? filter.gain || -2 : 0, q: kind === "LSC" || kind === "HSC" ? 0.71 : filter.q });
           onCommit();
         }}
-        className="w-full cursor-pointer appearance-none rounded-full bg-white/[0.04] px-2 py-1.5 text-center text-[12.5px] text-foreground outline-none ring-1 ring-white/[0.07] transition-colors hover:bg-white/[0.07] focus:ring-primary/60"
+        className="w-full cursor-pointer appearance-none rounded-small bg-white/[0.04] px-2 py-1.5 text-center text-[12.5px] text-high outline-none ring-1 ring-white/[0.07] transition-colors hover:bg-white/[0.07] focus:ring-primary/60"
       >
         {KINDS.map((k) => (
           <option key={k} value={k}>
@@ -104,25 +104,27 @@ export function BandStrip({ index, filter, limits, selected, readOnly, onSelect,
         disabled={readOnly || !gainable || !filter.enabled}
         onChange={(gain) => onChange({ gain })}
         onCommit={onCommit}
+        height={100}
+        segments={18}
       />
       <span
         className={cn(
           "tabular text-[15px]",
-          !gainable || !filter.enabled ? "text-muted-foreground" : filter.gain >= 0 ? "text-primary" : "text-secondary",
+          !gainable || !filter.enabled ? "text-medium" : filter.gain >= 0 ? "text-primary" : "text-secondary",
         )}
       >
         {gainable ? `${formatDb(filter.gain)} dB` : "—"}
       </span>
 
-      <Knob value={filter.q} min={0.2} max={10} disabled={readOnly || !filter.enabled} onChange={(q) => onChange({ q })} onCommit={onCommit} size={56} />
+      <Knob value={filter.q} min={0.2} max={10} disabled={readOnly || !filter.enabled} onChange={(q) => onChange({ q })} onCommit={onCommit} size={42} />
 
       {!readOnly && (
         <button
           onClick={onRemove}
-          className="absolute -right-2 -top-2 hidden size-6 items-center justify-center rounded-full bg-[#1d1d22] text-muted-foreground ring-1 ring-white/10 transition-colors hover:text-foreground group-hover:flex"
+          className="absolute -right-2 -top-2 hidden size-6 items-center justify-center rounded-full bg-[#1d1d22] text-medium ring-1 ring-white/10 transition-colors hover:text-high group-hover:flex"
           title="Remove band"
         >
-          <X size={12} weight="bold" />
+          <X size={12} />
         </button>
       )}
     </div>
@@ -153,16 +155,16 @@ export function PreampStrip({
   return (
     <div className={cn(STRIP, "bg-primary/[0.05] ring-primary/25")}>
       <div className="flex w-full items-center justify-between">
-        <span className="text-[13px] font-medium text-foreground">Preamp</span>
-        <span className={cn("rounded-full px-2 py-0.5 text-[11px]", auto ? "bg-primary/15 text-primary" : "bg-white/[0.06] text-muted-foreground")}>
+        <span className="text-[13px] font-medium text-high">Preamp</span>
+        <span className={cn("rounded-full px-2 py-0.5 text-[11px]", auto ? "bg-primary/15 text-primary" : "bg-white/[0.06] text-medium")}>
           {auto ? "Auto" : "Manual"}
         </span>
       </div>
-      <div className="flex w-full flex-col items-center rounded-2xl bg-black/30 py-2 ring-1 ring-white/[0.06]">
-        <span className="text-[11.5px] text-muted-foreground">Peak</span>
-        <span className={cn("tabular text-[17px]", clip ? "text-destructive" : "text-foreground")}>{formatDb(peak)}</span>
+      <div className="flex w-full flex-col items-center rounded-tight bg-shade/30 py-2 ring-1 ring-white/[0.06]">
+        <span className="text-[11.5px] text-medium">Peak</span>
+        <span className={cn("tabular text-[17px]", clip ? "text-destructive" : "text-high")}>{formatDb(peak)}</span>
       </div>
-      <div className="h-[46px]" />
+      <div className="h-[34px]" />
       <Fader
         aria-label="Preamp"
         value={value}
@@ -172,9 +174,11 @@ export function PreampStrip({
         disabled={readOnly || auto}
         onChange={onChange}
         onCommit={onCommit}
+        height={100}
+        segments={18}
       />
-      <span className="tabular text-[15px] text-foreground">{formatDb(value)} dB</span>
-      <p className="flex h-[76px] items-center px-0.5 text-center text-[11.5px] leading-snug text-muted-foreground">
+      <span className="tabular text-[15px] text-high">{formatDb(value)} dB</span>
+      <p className="flex h-[54px] items-center px-0.5 text-center text-[11.5px] leading-snug text-medium">
         {clip ? "Too loud: lower it" : auto ? "Keeps the loudest part at 0 dB" : "Can't go past 0 dB peak"}
       </p>
     </div>

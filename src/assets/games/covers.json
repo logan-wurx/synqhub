@@ -1,0 +1,328 @@
+[
+  {
+    "key": "valorant",
+    "name": "VALORANT",
+    "aliases": [
+      "valorant",
+      "valorant-win64-shipping.exe",
+      "valorant.exe"
+    ],
+    "owner": "Riot Games",
+    "url": "https://store-images.s-microsoft.com/image/apps.20115.13898029070941789.8d58b251-455c-4993-a1fd-1d77e8261eaf.f10d3e2e-b88c-41c5-beea-305a2c530d8d",
+    "page": "https://www.xbox.com/en-US/games/store/valorant/9N1NLJK9SKRN"
+  },
+  {
+    "key": "league",
+    "name": "League of Legends",
+    "aliases": [
+      "league of legends",
+      "league",
+      "leagueoflegends",
+      "league of legends.exe",
+      "leagueclient.exe",
+      "leagueclientux.exe"
+    ],
+    "owner": "Riot Games",
+    "url": "https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/EGS_LeagueofLegends_RiotGames_S1_2560x1440-47eb328eac5ddd63ebd096ded7d0d5ab",
+    "page": "https://store.epicgames.com/en-US/p/league-of-legends"
+  },
+  {
+    "key": "fortnite",
+    "name": "Fortnite",
+    "aliases": [
+      "fortnite",
+      "fortniteclient-win64-shipping.exe",
+      "fortnitelauncher.exe"
+    ],
+    "owner": "Epic Games",
+    "url": "https://cdn2.unrealengine.com/en-fn-og-42-10-c1sx-egs-launcher-blade-2560x1440-2560x1440-319ff81b274e.jpg",
+    "page": "https://store.epicgames.com/en-US/p/fortnite",
+    "note": "Cropped to remove the season badge in the bottom-left corner of the source art."
+  },
+  {
+    "key": "minecraft",
+    "name": "Minecraft",
+    "aliases": [
+      "minecraft",
+      "minecraft launcher",
+      "minecraftlauncher.exe",
+      "minecraft.windows.exe",
+      "minecraft java edition",
+      "minecraft bedrock edition",
+      "minecraft: java & bedrock edition"
+    ],
+    "owner": "Mojang Studios / Microsoft",
+    "url": "https://store-images.s-microsoft.com/image/apps.12171.14492077886571533.da32bb0b-aeec-4028-a235-8a96c1292b6b.7c93ce73-8b7b-47f0-bfda-c7616b9f204f",
+    "page": "https://www.xbox.com/en-US/games/store/minecraft-java-bedrock-edition-for-pc/9NXP44L49SHJ"
+  },
+  {
+    "key": "roblox",
+    "name": "Roblox",
+    "aliases": [
+      "roblox",
+      "robloxplayerbeta.exe",
+      "robloxplayerlauncher.exe",
+      "roblox player",
+      "robloxplayer"
+    ],
+    "owner": "Roblox Corporation",
+    "url": "https://store-images.s-microsoft.com/image/apps.43898.13510798883386282.a1e5df65-8dd7-427c-9da9-506afa37b254.99524288-218f-4c7c-b6d5-c5c93ae114e2",
+    "page": "https://apps.microsoft.com/detail/9nblgggzm6wm"
+  },
+  {
+    "key": "genshin",
+    "name": "Genshin Impact",
+    "aliases": [
+      "genshin impact",
+      "genshin",
+      "genshinimpact",
+      "genshinimpact.exe",
+      "yuanshen.exe"
+    ],
+    "owner": "HoYoverse (COGNOSPHERE PTE. LTD.)",
+    "url": "https://cdn2.unrealengine.com/egs-genshinimpact-cognospherepteltd-s1-2560x1440-5abdaa9efa5e.jpg",
+    "page": "https://store.epicgames.com/en-US/p/genshin-impact"
+  },
+  {
+    "key": "honkai-star-rail",
+    "name": "Honkai: Star Rail",
+    "aliases": [
+      "honkai: star rail",
+      "honkai star rail",
+      "hsr",
+      "starrail",
+      "starrail.exe"
+    ],
+    "owner": "HoYoverse (COGNOSPHERE PTE. LTD.)",
+    "url": "https://cdn1.epicgames.com/spt-assets/6f3979ff608f42e286c83507a69b27f5/honkai-star-rail-x5aaz.jpg",
+    "page": "https://store.epicgames.com/en-US/p/honkai-star-rail"
+  },
+  {
+    "key": "zenless-zone-zero",
+    "name": "Zenless Zone Zero",
+    "aliases": [
+      "zenless zone zero",
+      "zzz",
+      "zenlesszonezero",
+      "zenlesszonezero.exe",
+      "zenless zone zero.exe"
+    ],
+    "owner": "HoYoverse (COGNOSPHERE PTE. LTD.)",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4162040/285a6967d0efc7e37dad0e6a2d5ec3f0139915fc/header_alt_assets_1_2x.jpg",
+    "page": "https://store.steampowered.com/app/4162040/"
+  },
+  {
+    "key": "wuthering-waves",
+    "name": "Wuthering Waves",
+    "aliases": [
+      "wuthering waves",
+      "wuwa",
+      "wuthering waves.exe"
+    ],
+    "owner": "Kuro Games",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3513350/fb969539fb0373bd5ee07c767bf9dafa4afae5c3/header_2x.jpg",
+    "page": "https://store.steampowered.com/app/3513350/"
+  },
+  {
+    "key": "tarkov",
+    "name": "Escape from Tarkov",
+    "aliases": [
+      "escape from tarkov",
+      "tarkov",
+      "eft",
+      "escapefromtarkov.exe",
+      "escapefromtarkov_be.exe"
+    ],
+    "owner": "Battlestate Games",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3932890/4dd12ea3b00a4f8b67bfd629f3b9abbf8d5cab05/header_alt_assets_2_2x.jpg",
+    "page": "https://store.steampowered.com/app/3932890/",
+    "note": "Cropped (790x369 region, then scaled to 920x430) to remove the event text banner baked into the bottom of the Steam header."
+  },
+  {
+    "key": "wow",
+    "name": "World of Warcraft",
+    "aliases": [
+      "world of warcraft",
+      "wow",
+      "wow.exe",
+      "wow-64.exe",
+      "wowclassic.exe",
+      "world of warcraft classic"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltb5a24e5ab1e2cfb0/6a88e3589b942efdb6f74110/wow-thumbnail-homepage.jpg",
+    "page": "https://worldofwarcraft.blizzard.com/en-us/"
+  },
+  {
+    "key": "hearthstone",
+    "name": "Hearthstone",
+    "aliases": [
+      "hearthstone",
+      "hearthstone.exe"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://d39zum0jwvcigt.cloudfront.net/_next/static/images/default-475d770302527dbab7708dca2af05afd.jpg",
+    "page": "https://hearthstone.blizzard.com/en-us"
+  },
+  {
+    "key": "starcraft2",
+    "name": "StarCraft II",
+    "aliases": [
+      "starcraft ii",
+      "starcraft 2",
+      "starcraft2",
+      "sc2",
+      "sc2.exe",
+      "sc2_x64.exe",
+      "sc2switcher.exe"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltbe2068a317e02d9f/6966bac0fb2fd910dbda4a26/og_image.webp",
+    "page": "https://starcraft2.blizzard.com/en-us/",
+    "note": "Composite of two official assets from the same page: the og_image key art (url) with the official page logo (https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt2f9554037b40a4de/69644b1df4fa3fa5af01a31f/logo.webp) overlaid bottom-center, because the key art has no logo."
+  },
+  {
+    "key": "diablo4",
+    "name": "Diablo IV",
+    "aliases": [
+      "diablo iv",
+      "diablo 4",
+      "diablo4",
+      "diablo iv.exe",
+      "diablo4.exe"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2344520/80f21a42e378b93e8fbb68ee43103be8ab84891b/header_2x.jpg",
+    "page": "https://store.steampowered.com/app/2344520/"
+  },
+  {
+    "key": "cod",
+    "name": "Call of Duty",
+    "aliases": [
+      "call of duty",
+      "cod",
+      "cod.exe",
+      "callofduty",
+      "call of duty: warzone",
+      "warzone",
+      "call of duty: black ops 6",
+      "black ops 6",
+      "blackops6",
+      "call of duty: black ops 7",
+      "black ops 7",
+      "blackops7"
+    ],
+    "owner": "Activision Publishing, Inc.",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1938090/23af6cf41e2d09620caa07700a4cb3288dbcbaa8/header_2x.jpg",
+    "page": "https://store.steampowered.com/app/1938090/",
+    "note": "This is the franchise-wide Call of Duty header (Warzone / current Black Ops hub app on Steam), not a single-title Black Ops cover."
+  },
+  {
+    "key": "fallguys",
+    "name": "Fall Guys",
+    "aliases": [
+      "fall guys",
+      "fallguys",
+      "fallguys_client_game.exe",
+      "fallguys_client.exe"
+    ],
+    "owner": "Epic Games (Mediatonic)",
+    "url": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1097150/header.jpg",
+    "page": "https://store.steampowered.com/app/1097150/",
+    "note": "Source is the 460x215 Steam header (no 2x asset exists), upscaled 2x with lanczos."
+  },
+  {
+    "key": "runeterra",
+    "name": "Legends of Runeterra",
+    "aliases": [
+      "legends of runeterra",
+      "runeterra",
+      "lor",
+      "legends of runeterra.exe",
+      "legendsofruneterra.exe"
+    ],
+    "owner": "Riot Games",
+    "url": "https://playruneterra.com/assets/ccc9b55ec5fec88d1a616e7dec4795282a3aba52/static/image/share-image.jpg",
+    "page": "https://playruneterra.com/en-us/"
+  },
+  {
+    "key": "2xko",
+    "name": "2XKO",
+    "aliases": [
+      "2xko",
+      "2xko.exe",
+      "2xko-win64-shipping.exe"
+    ],
+    "owner": "Riot Games",
+    "url": "https://store-images.s-microsoft.com/image/apps.2627.14340913040248760.0b39fd06-d186-4e4f-a7d5-55317fba2a7a.30cd3c72-9eee-46b1-a140-8153a27d066e",
+    "page": "https://www.xbox.com/en-US/games/store/2xko/9pnwbq5561ck"
+  },
+  {
+    "key": "teamfight-tactics",
+    "name": "Teamfight Tactics",
+    "aliases": [
+      "teamfight tactics",
+      "tft",
+      "teamfighttactics"
+    ],
+    "owner": "Riot Games",
+    "url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/d63adacd93e313c1e61bbeb2eb37d8c4ca85848d-1920x1080.jpg",
+    "page": "https://teamfighttactics.leagueoflegends.com/en-us/"
+  },
+  {
+    "key": "rocket-league",
+    "name": "Rocket League",
+    "aliases": [
+      "rocket league",
+      "rocketleague",
+      "rocketleague.exe"
+    ],
+    "owner": "Psyonix LLC / Epic Games",
+    "url": "https://cdn2.unrealengine.com/egs-rocketleague-psyonixllc-s3-2560x1440-72870413f97e.jpg",
+    "page": "https://store.epicgames.com/en-US/p/rocket-league"
+  },
+  {
+    "key": "heroes-of-the-storm",
+    "name": "Heroes of the Storm",
+    "aliases": [
+      "heroes of the storm",
+      "hots",
+      "heroesofthestorm",
+      "heroesofthestorm.exe",
+      "heroesofthestorm_x64.exe"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt8c01f980b76eb350/67ce291560fcdc2c6cfed487/og_image.webp",
+    "page": "https://heroesofthestorm.blizzard.com/en-us/"
+  },
+  {
+    "key": "honkai-impact-3rd",
+    "name": "Honkai Impact 3rd",
+    "aliases": [
+      "honkai impact 3rd",
+      "honkai impact 3",
+      "honkai impact",
+      "bh3",
+      "bh3.exe"
+    ],
+    "owner": "HoYoverse (COGNOSPHERE PTE. LTD.)",
+    "url": "https://cdn1.epicgames.com/offer/d2d162953fec40e381867d7af8371362/EGS_HonkaiImpact3rd_miHoYoLimited_S1_2560x1440-960e15b4bc2cf890628fc3c77e4654c6",
+    "page": "https://store.epicgames.com/en-US/p/honkai-impact-3rd"
+  },
+  {
+    "key": "diablo2-resurrected",
+    "name": "Diablo II: Resurrected",
+    "aliases": [
+      "diablo ii: resurrected",
+      "diablo ii resurrected",
+      "diablo 2 resurrected",
+      "diablo 2: resurrected",
+      "d2r",
+      "d2r.exe"
+    ],
+    "owner": "Blizzard Entertainment",
+    "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2536520/8cfd8f0d73075b10b3b58d9eccfee799baffab79/header_2x.jpg",
+    "page": "https://store.steampowered.com/app/2536520/",
+    "note": "Steam header for the Infernal Edition (the art carries the 'Infernal Edition' subtitle)."
+  }
+]

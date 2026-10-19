@@ -76,10 +76,10 @@ export function ProDiff({ pro, mouse, keyboard, name }: { pro: Pro; mouse?: { de
   const cols = showMine ? "grid-cols-[minmax(0,1.1fr)_repeat(3,minmax(0,1fr))]" : "grid-cols-[minmax(0,1.1fr)_repeat(2,minmax(0,1fr))]";
   return (
     <div data-slot="pro-diff" className="text-[13px]">
-      <div className={cn("grid gap-x-3 border-b border-white/[0.06] pb-2 text-[11.5px] text-muted-foreground", cols)}>
+      <div className={cn("grid gap-x-3 border-b border-white/[0.06] pb-2 text-[11.5px] text-medium", cols)}>
         <span />
         <span>You</span>
-        <span className="truncate text-foreground/90">{pro.name}</span>
+        <span className="truncate text-high">{pro.name}</span>
         {showMine && (
           <span className="truncate" title={`On your ${name ?? target?.name ?? "gear"}`}>
             On yours
@@ -89,14 +89,14 @@ export function ProDiff({ pro, mouse, keyboard, name }: { pro: Pro; mouse?: { de
       <ul className="divide-y divide-white/[0.04]">
         {lines.map((l) => (
           <li key={l.label} className={cn("grid items-baseline gap-x-3 py-2", cols)} title={l.note}>
-            <span className="truncate text-[12.5px] text-muted-foreground">{l.label}</span>
-            <span className="tabular truncate text-muted-foreground">{l.you}</span>
-            <span className="tabular truncate text-foreground">{l.pro}</span>
-            {showMine && <span className={cn("tabular truncate", l.nearest ? "text-chart-3" : "text-foreground")}>{l.mine}</span>}
+            <span className="truncate text-[12.5px] text-medium">{l.label}</span>
+            <span className="tabular truncate text-medium">{l.you}</span>
+            <span className="tabular truncate text-high">{l.pro}</span>
+            {showMine && <span className={cn("tabular truncate", l.nearest ? "text-chart-3" : "text-high")}>{l.mine}</span>}
           </li>
         ))}
       </ul>
-      {showMine && lines.some((l) => l.nearest) && <p className="mt-2 text-[11.5px] leading-relaxed text-muted-foreground/80">Amber: the nearest your gear offers, or the sens that keeps {pro.name}'s eDPI at your DPI.</p>}
+      {showMine && lines.some((l) => l.nearest) && <p className="mt-2 text-[11.5px] leading-relaxed text-medium">Amber: the nearest your gear offers, or the sens that keeps {pro.name}'s eDPI at your DPI.</p>}
     </div>
   );
 }

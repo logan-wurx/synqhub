@@ -7,14 +7,13 @@ import { ArrowCounterClockwise, VideoCamera } from "@phosphor-icons/react";
 import { backend, type Connected } from "@/lib/backend";
 import { useKeptState } from "@/lib/keep";
 import { useDeviceTab, webcamId } from "@/lib/nav";
-import { useWide } from "@/lib/viewport";
 import { useWindowFocus } from "@/lib/controllers/use-link";
 import { UVC, onStep, uvcLabel, type CamControl } from "@/lib/displays/uvc";
 import { Card, CardHeader, type Notice } from "@/components/ui/matte";
 import { Chip, EmptyCard, Pill, SwitchRow } from "@/components/keyboard/parts";
 import { Switch } from "@/components/ui/switch";
 import { DeviceArt } from "@/components/devices/DeviceArt";
-import { DeviceFrame, DeviceHeader, OverviewHero, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
+import { DeviceFrame, DeviceHeader, OverviewStrip, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { LevelSlider } from "./parts";
 
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
@@ -57,17 +56,18 @@ function Preview({ name }: { name: string }) {
   }, [live, name]);
 
   return (
-    <Card innerClassName="overflow-hidden p-3">
-      <div className="relative grid aspect-video w-full place-items-center overflow-hidden rounded-[1.1rem] bg-black/60 ring-1 ring-white/[0.06]">
+    <Card innerClassName="flex h-full flex-col justify-center overflow-hidden p-3">
+      {/* 16:9, as tall as the window leaves room for (so the page doesn't scroll), centred. */}
+      <div className="relative mx-auto grid aspect-video h-[clamp(200px,calc(100dvh-600px),520px)] max-w-full place-items-center overflow-hidden rounded bg-shade/60 ring-1 ring-white/[0.06]">
         {on ? (
           <video ref={video} autoPlay playsInline muted className="h-full w-full object-cover" aria-label="Live preview" />
         ) : (
           <div className="px-6 text-center">
-            <VideoCamera size={28} weight="light" className="mx-auto text-muted-foreground" />
-            <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">The preview runs only while you have it on, on this page. Nothing is recorded or kept.</p>
+            <VideoCamera size={28} weight="light" className="mx-auto text-medium" />
+            <p className="mt-2 text-[12.5px] leading-relaxed text-medium">The preview runs only while you have it on, on this page. Nothing is recorded or kept.</p>
           </div>
         )}
-        {on && !focused && <p className="absolute inset-x-0 bottom-3 text-center text-[12px] text-muted-foreground">Paused while SYNQ isn't in front</p>}
+        {on && !focused && <p className="absolute inset-x-0 bottom-3 text-center text-[12px] text-medium">Paused while SYNQ isn't in front</p>}
       </div>
       <div className="mt-3 flex items-center gap-2 px-1">
         <Pill primary={!on} onClick={() => setOn(!on)}>
@@ -88,7 +88,6 @@ export function WebcamPage({ devices, notify, family }: { devices: Connected[]; 
   const [allow, setAllow] = useKeptState<boolean>(`webcam.${family}.allow`, false);
   const [problem, setProblem] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const wide = useWide();
 
   const read = useCallback(async () => {
     if (!path) return;
@@ -130,27 +129,13 @@ export function WebcamPage({ devices, notify, family }: { devices: Connected[]; 
     notify({ title: "Put back", detail: "The camera's controls are as they were before SYNQ's first change.", tone: "ok" }, "webcam");
   };
 
-  const tabs: TabDef[] = [...(wide ? [] : [{ id: "overview", label: "Overview" }]), { id: "controls", label: "Controls" }];
-  const [tab, setTab] = useDeviceTab(id, tabs.map((t) => t.id));
+  // One page: the camera on top, its live preview and its controls side by side under it.
+  const tabs: TabDef[] = [{ id: "overview", label: "Overview" }];
+  const [tab, setTab] = useDeviceTab(id, tabs.map((t) => t.id), { controls: "overview" });
   const name = device?.name ?? "Webcam";
   const disabled = !allow || busy;
-  const overview = (
-    <>
-      <OverviewHero
-        art={<DeviceArt spec={{ kind: "webcam", family, name, vid: device?.vid, pid: device?.pid }} />}
-        live={!!controls}
-        connection="USB"
-        name={name}
-        detail="Its own controls over UVC. The preview is yours to turn on."
-        badges={<TierBadge tier="experimental" hint="UVC is the webcams' standard way to be set, but SYNQ hasn't been tried on this one." />}
-      />
-      <Preview name={name} />
-    </>
-  );
-
   return (
     <DeviceFrame
-      aside={overview}
       header={
         <DeviceHeader
           id={id}
@@ -170,79 +155,91 @@ export function WebcamPage({ devices, notify, family }: { devices: Connected[]; 
     >
       <div key={tab} className={TAB_BODY} tabIndex={0}>
         {!path && <EmptyCard title="Not connected" text="Plug the webcam in; it shows up here on its own." />}
-        {path && tab === "overview" && overview}
-        {path && tab === "controls" && (
+        {path && tab === "overview" && (
           <>
-            {problem && !controls && (
-              <Card innerClassName="px-6 py-5">
-                <p className="text-[14px] text-foreground">The camera didn't answer</p>
-                <p className="mt-1 text-[12.5px] text-muted-foreground">{problem}</p>
-                <Pill className="mt-3" onClick={() => void read()}>
-                  Try again
-                </Pill>
-              </Card>
-            )}
-            {controls && (
-              <>
-                <Card innerClassName="px-5 py-2">
-                  <SwitchRow title="Allow changes" hint="SYNQ hasn't been tried on this camera. With this on, it saves every value first and reads each change back." checked={allow} onChange={setAllow} />
-                </Card>
-                <Card>
-                  <CardHeader title="Camera controls" hint="Sent when you let go of a slider. Auto hands the control back to the camera." />
-                  <div className="divide-y divide-white/[0.05] px-5 pb-3">
-                    {UVC.map((spec) => {
-                      const c = controls.find((x) => x.id === spec.id);
-                      if (!c) return null;
-                      if (spec.labels) {
-                        return (
-                          <div key={spec.id} className="py-2.5">
-                            <p className="text-[13px] text-foreground">{spec.label}</p>
-                            <div className="mt-2 flex flex-wrap gap-1.5">
-                              {Array.from({ length: c.max - c.min + 1 }, (_, i) => c.min + i).map((v) => (
-                                <Chip key={v} on={c.value === v} disabled={disabled} onClick={() => void set(spec.id, v, false)}>
-                                  {uvcLabel(spec, v)}
-                                </Chip>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
-                      return (
-                        <div key={spec.id} className="flex items-end gap-4">
-                          <div className="min-w-0 flex-1">
-                            <LevelSlider
-                              label={spec.label}
-                              value={c.value}
-                              min={c.min}
-                              max={c.max}
-                              step={c.step > 0 ? c.step : 1}
-                              disabled={disabled || c.auto}
-                              format={(v) => (c.auto ? "Auto" : uvcLabel(spec, onStep(c, v)))}
-                              onCommit={(v) => void set(spec.id, onStep(c, v), false)}
-                            />
-                          </div>
-                          {c.canAuto && (
-                            <label className="flex shrink-0 items-center gap-2 pb-3 text-[12px] text-muted-foreground">
-                              Auto
-                              <Switch checked={c.auto} onCheckedChange={(on) => void set(spec.id, c.value, on)} disabled={disabled} aria-label={`${spec.label} auto`} />
-                            </label>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </Card>
-                {backup && (
-                  <button onClick={() => void putBack()} disabled={busy} className="flex items-center gap-1.5 self-start px-1 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground">
-                    <ArrowCounterClockwise size={13} /> Put the camera back as it was
-                  </button>
+            <OverviewStrip
+              art={<DeviceArt spec={{ kind: "webcam", family, name, vid: device?.vid, pid: device?.pid }} />}
+              live={!!controls}
+              connection="USB"
+              detail="Its own controls over UVC. The preview is yours to turn on."
+              badges={<TierBadge tier="experimental" hint="UVC is the webcams' standard way to be set, but SYNQ hasn't been tried on this one." />}
+              stats={controls ? [{ label: "Controls", value: controls.length }] : []}
+            />
+            {/* The preview beside the controls; a long list of controls scrolls in its column, the page stays put. */}
+            <div className="grid gap-4 min-[1280px]:h-[calc(100dvh-520px)] min-[1280px]:min-h-[360px] min-[1280px]:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] min-[1280px]:grid-rows-[minmax(0,1fr)]">
+              <Preview name={name} />
+              <div className="flex min-h-0 flex-col gap-4 min-[1280px]:overflow-y-auto">
+                {problem && !controls && (
+                  <Card innerClassName="px-6 py-5">
+                    <p className="text-[14px] text-high">The camera didn't answer</p>
+                    <p className="mt-1 text-[12.5px] text-medium">{problem}</p>
+                    <Pill className="mt-3" onClick={() => void read()}>
+                      Try again
+                    </Pill>
+                  </Card>
                 )}
-                <p className="px-1 text-[11.5px] leading-relaxed text-muted-foreground/80">SYNQ sends only these standard UVC controls: no maker extension units, no factory defaults.</p>
-              </>
-            )}
+                {controls && (
+                  <>
+                    <Card innerClassName="px-5 py-2">
+                      <SwitchRow title="Allow changes" hint="SYNQ hasn't been tried on this camera. With this on, it saves every value first and reads each change back." checked={allow} onChange={setAllow} />
+                    </Card>
+                    <Card>
+                      <CardHeader title="Camera controls" hint="Sent when you let go of a slider. Auto hands the control back to the camera." />
+                      <div className="divide-y divide-white/[0.05] px-5 pb-3">
+                        {UVC.map((spec) => {
+                          const c = controls.find((x) => x.id === spec.id);
+                          if (!c) return null;
+                          if (spec.labels) {
+                            return (
+                              <div key={spec.id} className="py-2.5">
+                                <p className="text-[13px] text-high">{spec.label}</p>
+                                <div className="mt-2 flex flex-wrap gap-1.5">
+                                  {Array.from({ length: c.max - c.min + 1 }, (_, i) => c.min + i).map((v) => (
+                                    <Chip key={v} on={c.value === v} disabled={disabled} onClick={() => void set(spec.id, v, false)}>
+                                      {uvcLabel(spec, v)}
+                                    </Chip>
+                                  ))}
+                                </div>
+                              </div>
+                            );
+                          }
+                          return (
+                            <div key={spec.id} className="flex items-end gap-4">
+                              <div className="min-w-0 flex-1">
+                                <LevelSlider
+                                  label={spec.label}
+                                  value={c.value}
+                                  min={c.min}
+                                  max={c.max}
+                                  step={c.step > 0 ? c.step : 1}
+                                  disabled={disabled || c.auto}
+                                  format={(v) => (c.auto ? "Auto" : uvcLabel(spec, onStep(c, v)))}
+                                  onCommit={(v) => void set(spec.id, onStep(c, v), false)}
+                                />
+                              </div>
+                              {c.canAuto && (
+                                <label className="flex shrink-0 items-center gap-2 pb-3 text-[12px] text-medium">
+                                  Auto
+                                  <Switch checked={c.auto} onCheckedChange={(on) => void set(spec.id, c.value, on)} disabled={disabled} aria-label={`${spec.label} auto`} />
+                                </label>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </Card>
+                    {backup && (
+                      <button onClick={() => void putBack()} disabled={busy} className="flex items-center gap-1.5 self-start px-1 text-[12.5px] text-medium transition-colors hover:text-high">
+                        <ArrowCounterClockwise size={12} /> Put the camera back as it was
+                      </button>
+                    )}
+                    <p className="px-1 text-[11.5px] leading-relaxed text-medium">SYNQ sends only these standard UVC controls: no maker extension units, no factory defaults.</p>
+                  </>
+                )}
+              </div>
+            </div>
           </>
-        )}
-      </div>
+        )}      </div>
     </DeviceFrame>
   );
 }

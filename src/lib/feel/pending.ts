@@ -1,16 +1,18 @@
-// Changes asked for somewhere else (a checkup's "Fix it", a pro's setup picked on the Devices home) that wait for
+// Changes asked for somewhere else (a checkup's "Fix it", a pro's setup, the Gear page's active-device slider) that wait for
 // their device's page: only the panel there holds the device's guarded session (Allow changes, a backup before the
 // first write, every change read back), so that is where they run. Each device keeps at most one waiting request and
 // the result of the last one, with what it takes to undo it. In memory only.
 import { setKept, useKeptState } from "../keep";
 import type { FixIntent } from "../checkup/fix";
-import type { KeyboardFeel, MouseFeel } from "./types";
+import type { KeyboardFeel, MouseFeel, Step } from "./types";
 
 export type PendingRequest =
   /** A checkup finding's fix, resolved against the device once its page has read it. */
   | { kind: "fix"; intent: FixIntent; label: string; at: number; auto: boolean; ref?: string }
   /** A pro's setup (src/lib/pros), translated to the device with the Keep your feel math. */
-  | { kind: "pro"; pro: string; at: number; auto: boolean };
+  | { kind: "pro"; pro: string; at: number; auto: boolean }
+  /** Exact changes from the Gear page's active card ("1600 DPI"), `label` saying what they are. */
+  | { kind: "set"; steps: Step[]; label: string; at: number; auto: boolean };
 
 /** A request this old is shown with an Apply button instead of running by itself. */
 export const AUTO_MS = 60_000;
@@ -21,6 +23,11 @@ export const resultKey = (deviceId: string) => `feel.result.${deviceId}`;
 /** Asks the device's page to make a change; `auto`: run it as soon as the page has read the device. */
 export function requestChange(deviceId: string, r: PendingRequest): void {
   setKept<PendingRequest | null>(pendingKey(deviceId), r);
+}
+
+/** The Gear page's active card: these changes, made by the device's page as soon as it has read the device. */
+export function requestSet(deviceId: string, steps: Step[], label: string): void {
+  requestChange(deviceId, { kind: "set", steps, label, at: Date.now(), auto: true });
 }
 
 export const usePending = (deviceId: string) => useKeptState<PendingRequest | null>(pendingKey(deviceId), null);

@@ -8,7 +8,7 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DEVICE_IMAGE_BY_ID, DEVICE_IMAGE_MODELS } from "../src/lib/device-images.generated.ts";
-import { normName, photoKeyFor, usbKey } from "../src/lib/device-images.ts";
+import { headphonePhotoKeyFor, normName, photoKeyFor, usbKey } from "../src/lib/device-images.ts";
 import { keyboardForm, lampArrayDrawnAs, shapeClass } from "../src/lib/device-shape.ts";
 import { formGeometry } from "../src/lib/keyboard-geometry.ts";
 
@@ -26,7 +26,8 @@ test("every listed picture is on disk, once, and the whole set stays small", () 
     bytes += statSync(f).size;
     assert.ok(statSync(f).size < 120 * 1024, `${key} is ${statSync(f).size} bytes`);
   }
-  assert.ok(bytes < 15 * 1024 * 1024, `pictures total ${bytes} bytes`);
+  // About 900 px on the long side for the large Devices tiles, at most 70 KB each (scripts/device-photos/tools/proc.py).
+  assert.ok(bytes < 64 * 1024 * 1024, `pictures total ${bytes} bytes`);
 });
 
 test("SOURCES.json records every picture", () => {
@@ -77,8 +78,9 @@ test("a variant the picture lacks does not borrow the plain model's picture", ()
   assert.equal(photoKeyFor({ kind: "mouse", name: "Logitech G502 X" }), "logitech-g502-x");
   assert.equal(photoKeyFor({ kind: "mouse", name: "Logitech G502 HERO Gaming Mouse" }), "logitech-g502-hero");
   assert.equal(photoKeyFor({ kind: "mouse", name: "Logitech G502 Max" }), null);
-  // The developer's DEX and Superlight 2 have renders of their own, so no photo is listed for them.
-  assert.equal(photoKeyFor({ kind: "mouse", name: "Logitech PRO X SUPERLIGHT 2" }), null);
+  // The developer's DEX and Superlight 2 have product photos too, found by name only (their ids stay off the pictures).
+  assert.equal(photoKeyFor({ kind: "mouse", name: "Logitech PRO X SUPERLIGHT 2" }), "logitech-pro-x-superlight-2");
+  assert.equal(photoKeyFor({ kind: "mouse", name: "PRO X 2 DEX", brand: "Logitech", vid: "046d", pid: "c0a0" }), "logitech-pro-x-superlight-2-dex");
   assert.equal(photoKeyFor({ kind: "mouse", name: "Razer Viper V3 Pro SE" }), "razer-viper-v3-pro-se");
 });
 
@@ -156,6 +158,13 @@ test("controllers: official pictures by USB id, and by name where the id is shar
   assert.equal(byName("Turtle Beach Rematch Wireless Controller for Nintendo Switch 2"), "turtle-beach-rematch-wireless-switch-2");
   // Xbox 360-class ids (045e:028e) are shared by many clones: never a picture.
   assert.equal(pad("045e", "028e"), null);
+  // A platform word in another maker's pad name is not Microsoft's or Sony's pad.
+  assert.equal(photoKeyFor({ kind: "gamepad", vid: "20d6", pid: "2001", name: "PowerA Xbox Series X Controller", brand: "PowerA" }), null);
+  assert.equal(photoKeyFor({ kind: "gamepad", name: "Xbox 360 Controller", brand: "Mad Catz" }), null);
+  assert.equal(photoKeyFor({ kind: "gamepad", name: "Xbox 360 Controller", brand: "Microsoft" }), "microsoft-xbox-360-controller");
+  assert.equal(photoKeyFor({ kind: "gamepad", name: "Xbox Wireless Controller" }), "microsoft-xbox-wireless-controller", "no brand: the name alone decides");
+  assert.equal(pad("045e", "0b0a"), "microsoft-xbox-adaptive-controller");
+  assert.equal(pad("0f0d", "0196"), "hori-wireless-horipad-for-steam");
   // A pad's picture never answers a mouse or keyboard query, and the other way round.
   assert.equal(photoKeyFor({ kind: "mouse", vid: "054c", pid: "0ce6" }), null);
   assert.equal(photoKeyFor({ kind: "gamepad", vid: "1532", pid: "00c1" }), null);
@@ -306,7 +315,8 @@ test("monitors and webcams: monitors by the model in their EDID name (and maker)
   assert.equal(cam("Razer Kiyo Pro", "1532", "0e05"), "razer-kiyo-pro");
   assert.equal(cam("Razer Kiyo Pro Ultra"), "razer-kiyo-pro-ultra");
   assert.equal(cam("Elgato Facecam MK.2"), "elgato-facecam-mk2");
-  assert.equal(cam("OBSBOT Tiny 2 Lite"), null);
+  assert.equal(cam("OBSBOT Tiny 2 Lite"), "obsbot-tiny-2-lite", "its own picture, not the Tiny 2's");
+  assert.equal(cam("OBSBOT Tiny 2"), "obsbot-tiny-2");
   assert.equal(cam("Insta360 Link 2"), "insta360-link-2");
   assert.equal(cam("Insta360 Link 2C"), null, "the 2C has no gimbal: not the Link's picture");
   // From the makers' pages as the Wayback Machine kept them (dell.com, msi.com and gigabyte.com refuse the pipeline; Microsoft dropped its pages).
@@ -316,10 +326,55 @@ test("monitors and webcams: monitors by the model in their EDID name (and maker)
   assert.equal(mon("S2721DGF", "Dell"), null, "no archived picture: drawn");
   assert.equal(mon("MAG 271QPX QD-OLED", "MSI"), "msi-mag-271qpx");
   assert.equal(mon("M27Q X", "Gigabyte"), null, "the M27Q X is another model");
+  assert.equal(mon("DELL U2723QE", "Dell"), "dell-u2723qe");
+  assert.equal(mon("AW3225QF", "Dell"), "dell-aw3225qf");
+  assert.equal(mon("AW3423DW", "Dell"), "dell-aw3423dw", "the white G-SYNC model");
+  assert.equal(mon("AW3423DWF", "Dell"), "dell-aw3423dwf", "the black FreeSync model has its own picture");
+  assert.equal(mon("AW2524HF", "Dell"), null, "the FreeSync AW2524HF is not the AW2524H's picture");
+  assert.equal(mon("M32U", "GBT"), "gigabyte-m32u", "Gigabyte's EDID maker code");
+  assert.equal(mon("G27QC", "GBT"), null, "the curved G27QC is not the G27Q");
 });
 
 test("USB RGB hubs: pictures in the lighting group, by USB id", () => {
   assert.equal(photoKeyFor({ kind: "light", vid: "1b1c", pid: "0c57", name: "CORSAIR Nautilus LCD Cap" }), "corsair-nautilus-lcd-cap");
   assert.equal(photoKeyFor({ kind: "light", vid: "1b1c", pid: "0c0b", name: "" }), "corsair-lighting-node-pro");
-  assert.equal(photoKeyFor({ kind: "light", vid: "1e71", pid: "2011", name: "NZXT RGB & Fan Controller" }), null, "nzxt.com answered 429: drawn");
+  assert.equal(photoKeyFor({ kind: "light", vid: "1e71", pid: "2011", name: "NZXT RGB & Fan Controller" }), "nzxt-rgb-and-fan-controller", "nzxt.com's page as the Wayback Machine kept it");
+  assert.equal(photoKeyFor({ kind: "light", vid: "1b1c", pid: "0c10", name: "" }), "corsair-commander-pro");
+});
+
+test("the developer's own devices resolve to product photos (by name; their ids never shadow SYNQ's renders)", () => {
+  assert.equal(photoKeyFor({ kind: "mouse", vid: "373b", pid: "1278", name: "ATK X1 V2 Air+" }), "atk-x1-v2-air-plus");
+  assert.equal(photoKeyFor({ kind: "keyboard", vid: "0b05", pid: "1d1d", name: "ROG FALCHION ACE HFX ZYWOO EDITION" }), "rog-falchion-ace-hfx-zywoo-edition");
+  // The name it reports to the app: the edition word decides over the plain Falchion's equally long name.
+  assert.equal(photoKeyFor({ kind: "keyboard", name: "ROG Falchion Ace HFX ZywOo", brand: "ASUS ROG" }), "rog-falchion-ace-hfx-zywoo-edition");
+  assert.equal(photoKeyFor({ kind: "keyboard", name: "ROG Falchion Ace HFX", brand: "ASUS ROG" }), "rog-falchion-ace-hfx");
+  assert.equal(photoKeyFor({ kind: "mouse", name: "PRO X 2 DEX", brand: "Logitech" }), "logitech-pro-x-superlight-2-dex");
+  assert.equal(photoKeyFor({ kind: "gamepad", vid: "3537", pid: "1010", name: "Game controller" }), "gamesir-g7-se");
+  assert.equal(photoKeyFor({ kind: "webcam", vid: "0458", pid: "6006", name: "PC-LM1E Camera" }), "aukey-pc-lm1e");
+  assert.equal(photoKeyFor({ kind: "light", name: "Govee H6076", brand: "Govee" }), "govee-h6076");
+});
+
+test("headphones: the name a person gives a sound output, or the AutoEq model they pick", () => {
+  assert.equal(headphonePhotoKeyFor("Zero:2"), "7hz-salnotes-zero-2", "the developer's own IEMs, named as on the Sound page");
+  assert.equal(headphonePhotoKeyFor("7Hz Salnotes Zero 2"), "7hz-salnotes-zero-2");
+  assert.equal(headphonePhotoKeyFor("7Hz x Crinacle Zero 2"), "7hz-salnotes-zero-2");
+  assert.equal(photoKeyFor({ kind: "sound", name: "Zero:2" }), "7hz-salnotes-zero-2", "a sound output's picture goes through the same lookup");
+  assert.equal(headphonePhotoKeyFor("7Hz Salnotes Zero"), "7hz-salnotes-zero", "not the Zero:2");
+  assert.equal(headphonePhotoKeyFor("Sennheiser HD 600"), "sennheiser-hd-600");
+  assert.equal(headphonePhotoKeyFor("Sennheiser HD600"), "sennheiser-hd-600", "letters and digits split the same way on both sides");
+  assert.equal(headphonePhotoKeyFor("HD 650"), "sennheiser-hd-650", "a two-word model needs no maker");
+  assert.equal(headphonePhotoKeyFor("Beyerdynamic DT 770 PRO 80 Ohm"), "beyerdynamic-dt-770-pro", "the impedance is not a model word");
+  assert.equal(headphonePhotoKeyFor("Apple AirPods (3rd generation)"), "apple-airpods-3rd-generation");
+  assert.equal(headphonePhotoKeyFor("Moondrop Aria 2"), "moondrop-aria-2");
+  assert.equal(headphonePhotoKeyFor("Moondrop Aria (2021)"), "moondrop-aria", "a year in brackets never rules a picture out");
+  assert.equal(headphonePhotoKeyFor("Aria"), null, "a one-word model needs its maker");
+  assert.equal(headphonePhotoKeyFor("Truthear Zero 2"), null, "another maker's Zero is not the 7Hz Zero:2");
+  assert.equal(headphonePhotoKeyFor("Logitech G733 LIGHTSPEED"), "logitech-g733", "a gaming headset's picture serves the Sound page too");
+  assert.equal(headphonePhotoKeyFor("Speakers (USB DAC)"), null);
+  assert.equal(headphonePhotoKeyFor("Headphones (WF-1000XM4)"), "sony-wf-1000xm4", "Windows' name for a Bluetooth output");
+  assert.equal(headphonePhotoKeyFor("WF-1000XM5"), "sony-wf-1000xm5", "not the XM4's picture");
+  assert.equal(headphonePhotoKeyFor("INZONE H7"), null, "no clean picture: drawn");
+  assert.equal(headphonePhotoKeyFor("Sony WH-1000XM4"), "sony-wh-1000xm4", "Sony's own render, not the XM5's");
+  // A headphone picture never answers a device query that names no kind (a Dynamic Lighting device).
+  assert.equal(photoKeyFor({ name: "Sennheiser HD 600" }), null);
 });

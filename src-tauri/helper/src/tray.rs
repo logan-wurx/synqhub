@@ -190,4 +190,9 @@ impl crate::bridge::Consent for DialogConsent {
         ));
         unsafe { MessageBoxW(None, PCWSTR(text.as_ptr()), w!("SYNQ Helper"), MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_TOPMOST | MB_SETFOREGROUND) == IDYES }
     }
+
+    fn confirm(&self, _origin: &str, text: &str) -> bool {
+        let text = wide(text);
+        unsafe { MessageBoxW(None, PCWSTR(text.as_ptr()), w!("SYNQ Helper"), MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2 | MB_TOPMOST | MB_SETFOREGROUND) == IDYES }
+    }
 }

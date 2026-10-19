@@ -35,7 +35,7 @@ function LedCount({ m, value, onChange }: { m: HubModel; value: number; onChange
       </div>
     );
   return (
-    <label className="flex items-center gap-2 text-[12px] text-muted-foreground">
+    <label className="flex items-center gap-2 text-[12px] text-medium">
       LEDs
       <input
         type="number"
@@ -43,7 +43,7 @@ function LedCount({ m, value, onChange }: { m: HubModel; value: number; onChange
         max={maxLeds(m)}
         value={value}
         onChange={(e) => onChange(Math.max(1, Math.min(maxLeds(m), Math.round(Number(e.target.value) || 1))))}
-        className="tabular w-16 rounded-lg bg-white/[0.04] px-2 py-1 text-[12.5px] text-foreground ring-1 ring-white/[0.08] focus:outline-none focus:ring-white/25"
+        className="tabular w-16 rounded-small bg-white/[0.04] px-2 py-1 text-[12.5px] text-high ring-1 ring-white/[0.08] focus:outline-none focus:ring-white/25"
       />
     </label>
   );
@@ -53,9 +53,9 @@ function IdentifyOnlyCard({ vid, pid }: { vid: string; pid: string }) {
   const only = findIdentifyOnly(vid, pid);
   return (
     <Card innerClassName="px-6 py-5">
-      <p className="text-[14px] text-foreground">{only?.what ?? "A device SYNQ knows by name."}</p>
-      <p className="mt-2 max-w-[560px] text-[12.5px] leading-relaxed text-muted-foreground">{only?.why}</p>
-      <p className="tabular mt-3 text-[11.5px] text-muted-foreground/80">
+      <p className="text-[14px] text-high">{only?.what ?? "A device SYNQ knows by name."}</p>
+      <p className="mt-2 max-w-[560px] text-[12.5px] leading-relaxed text-medium">{only?.why}</p>
+      <p className="tabular mt-3 text-[11.5px] text-medium">
         USB {vid.toUpperCase()}:{pid.toUpperCase()}
       </p>
     </Card>
@@ -170,46 +170,49 @@ export function RgbHubPage({ devices, notify, family }: { devices: Connected[]; 
                 onChange={setAllow}
               />
             </Card>
-            <Card innerClassName="pb-4">
-              <CardHeader title="Channels" hint={model.family === "nzxt-hue2" ? "What the hub reports on each channel; pick the ones the colour goes to." : "The hub can't say what is plugged in: set each channel's LEDs (fans) to match."} />
-              <div className="divide-y divide-white/[0.05] px-5">
-                {Array.from({ length: model.channels }, (_, ch) => {
-                  const items = facts.accessories?.find((a) => a.channel === ch)?.items ?? [];
-                  const sent = session?.sent.get(ch)?.slice(-1)[0];
-                  return (
-                    <div key={ch} className="flex flex-wrap items-center gap-3 py-2.5">
-                      <Chip on={channels.includes(ch)} onClick={() => setChannels(channels.includes(ch) ? channels.filter((x) => x !== ch) : [...channels, ch].sort())}>
-                        Channel {ch + 1}
-                      </Chip>
-                      <span className="min-w-0 flex-1 truncate text-[12.5px] text-muted-foreground">{items.length ? items.map((i) => i.name).join(", ") : model.family === "nzxt-hue2" ? "Nothing reported" : ""}</span>
-                      {sent && <span className="size-3.5 shrink-0 rounded-full ring-1 ring-white/20" style={{ background: css(sent.rgb) }} title="Last sent" />}
-                      <LedCount m={model} value={ledsFor(model, facts, chosen, ch)} onChange={(n) => setChosen({ ...chosen, [ch]: n })} />
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-            <Card innerClassName="pb-5">
-              <CardHeader title="Colour" hint="The hub keeps it with no app running." />
-              <div className="mt-4 px-5">
-                <ColourPicker
-                  value={colour}
-                  disabled={!allow || busy || !session}
-                  caption={allow ? "Sent when you let go" : "Allow changes to send it"}
-                  onChange={(c, done) => {
-                    setColour(c);
-                    if (done) void send(c);
-                  }}
-                />
-              </div>
-            </Card>
+            {/* Where the colour goes and the colour, side by side on a wide window. */}
+            <div className="grid items-start gap-4 min-[1200px]:grid-cols-2">
+              <Card innerClassName="pb-4">
+                <CardHeader title="Channels" hint={model.family === "nzxt-hue2" ? "What the hub reports on each channel; pick the ones the colour goes to." : "The hub can't say what is plugged in: set each channel's LEDs (fans) to match."} />
+                <div className="divide-y divide-white/[0.05] px-5">
+                  {Array.from({ length: model.channels }, (_, ch) => {
+                    const items = facts.accessories?.find((a) => a.channel === ch)?.items ?? [];
+                    const sent = session?.sent.get(ch)?.slice(-1)[0];
+                    return (
+                      <div key={ch} className="flex flex-wrap items-center gap-3 py-2.5">
+                        <Chip on={channels.includes(ch)} onClick={() => setChannels(channels.includes(ch) ? channels.filter((x) => x !== ch) : [...channels, ch].sort())}>
+                          Channel {ch + 1}
+                        </Chip>
+                        <span className="min-w-0 flex-1 truncate text-[12.5px] text-medium">{items.length ? items.map((i) => i.name).join(", ") : model.family === "nzxt-hue2" ? "Nothing reported" : ""}</span>
+                        {sent && <span className="size-3.5 shrink-0 rounded-full ring-1 ring-white/20" style={{ background: css(sent.rgb) }} title="Last sent" />}
+                        <LedCount m={model} value={ledsFor(model, facts, chosen, ch)} onChange={(n) => setChosen({ ...chosen, [ch]: n })} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </Card>
+              <Card innerClassName="pb-5">
+                <CardHeader title="Colour" hint="The hub keeps it with no app running." />
+                <div className="mt-4 px-5">
+                  <ColourPicker
+                    value={colour}
+                    disabled={!allow || busy || !session}
+                    caption={allow ? "Sent when you let go" : "Allow changes to send it"}
+                    onChange={(c, done) => {
+                      setColour(c);
+                      if (done) void send(c);
+                    }}
+                  />
+                </div>
+              </Card>
+            </div>
             {allow && session && channels.some((ch) => session.previous(ch)) && (
-              <button onClick={() => void send(null)} disabled={busy} className="flex items-center gap-1.5 self-start px-1 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground">
-                <ArrowCounterClockwise size={13} /> Put back the colour sent before the last one
+              <button onClick={() => void send(null)} disabled={busy} className="flex items-center gap-1.5 self-start px-1 text-[12.5px] text-medium transition-colors hover:text-high">
+                <ArrowCounterClockwise size={12} /> Put back the colour sent before the last one
               </button>
             )}
             <SubHead>About this hub</SubHead>
-            <p className="px-1 text-[12px] leading-relaxed text-muted-foreground/80">
+            <p className="px-1 text-[12px] leading-relaxed text-medium">
               Before the first change SYNQ keeps everything the hub reported{session?.backup ? `, in ${session.backup}` : ""}. It never sends fan or pump speeds, effects, firmware or setup
               commands.
             </p>

@@ -25,6 +25,8 @@ dist-ssr
 
 # Beta release: the built installer and the Windows Sandbox results are local artifacts.
 /release/*.exe
+# The Linux .deb and AppImage, downloaded from the Linux workflow for the release.
+/release/linux/
 /sandbox-results/*
 !/sandbox-results/.gitkeep
 /release/old/

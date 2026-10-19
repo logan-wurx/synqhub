@@ -1,5 +1,6 @@
 // Pieces both mouse panels use: the DPI step editor, battery ring, empty states, banner, and the
 // switcher shown when more than one mouse is plugged in.
+import { DetentSlider } from "@/components/ui/detent-slider";
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { Lightning, Minus, Plus, Star, Warning } from "@phosphor-icons/react";
@@ -42,12 +43,12 @@ export function StageEditor({
   return (
     <div
       className={cn(
-        "group relative flex w-[118px] flex-col gap-3 rounded-2xl px-3 pb-3 pt-2.5 ring-1 transition-colors duration-500 ease-fluid",
+        "group relative flex w-[118px] flex-col gap-3 rounded-control px-3 pb-3 pt-2.5 ring-1 transition-colors duration-500 ease-fluid",
         isDefault ? "bg-primary/[0.08] ring-primary/30" : "bg-white/[0.025] ring-white/[0.06]",
       )}
     >
       <div className="flex items-center justify-between">
-        <span className="text-[12px] text-muted-foreground">Step {index + 1}</span>
+        <span className="text-[12px] text-medium">Step {index + 1}</span>
         <button disabled={disabled} onClick={onDefault} title={starTitle} className={cn("rounded-full p-1 transition-colors", isDefault ? "text-primary" : "text-white/25 hover:text-white/60")}>
           <Star size={14} weight={isDefault ? "fill" : "light"} />
         </button>
@@ -61,7 +62,7 @@ export function StageEditor({
           if (Number.isFinite(n)) onChange(n);
         }}
         onBlur={() => onChange(clamp(value))}
-        className="tabular w-full bg-transparent text-[24px] leading-none text-foreground outline-none"
+        className="tabular w-full bg-transparent text-[24px] leading-none text-high outline-none"
       />
       <div className="flex gap-1.5">
         {[-1, 1].map((dir) => (
@@ -69,7 +70,7 @@ export function StageEditor({
             key={dir}
             disabled={disabled}
             onClick={() => onChange(clamp(value + dir * (value >= 1600 ? 200 : 50)))}
-            className="grid h-7 flex-1 place-items-center rounded-full bg-white/[0.05] text-muted-foreground ring-1 ring-white/[0.06] transition-colors hover:bg-white/[0.09] hover:text-foreground"
+            className="grid h-7 flex-1 place-items-center rounded-full bg-white/[0.05] text-medium ring-1 ring-white/[0.06] transition-colors hover:bg-white/[0.09] hover:text-high"
           >
             {dir < 0 ? <Minus size={12} /> : <Plus size={12} />}
           </button>
@@ -78,7 +79,7 @@ export function StageEditor({
       {onRemove && !disabled && (
         <button
           onClick={onRemove}
-          className="absolute -right-2 -top-2 hidden size-6 place-items-center rounded-full bg-[#1d1d22] text-[13px] text-muted-foreground ring-1 ring-white/10 hover:text-foreground group-hover:grid"
+          className="absolute -right-2 -top-2 hidden size-6 place-items-center rounded-full bg-[#1d1d22] text-[13px] text-medium ring-1 ring-white/10 hover:text-high group-hover:grid"
           title="Remove step"
         >
           ×
@@ -110,8 +111,8 @@ export function BatteryRing({ percent, charging }: { percent: number | null; cha
         />
       </svg>
       <div className="absolute flex flex-col items-center">
-        <span className="tabular text-[20px] leading-none text-foreground">{percent === null ? "—" : `${p}%`}</span>
-        {charging && <Lightning size={13} weight="fill" className="mt-1 text-primary" />}
+        <span className="tabular text-[20px] leading-none text-high">{percent === null ? "—" : `${p}%`}</span>
+        {charging && <Lightning size={14} weight="fill" className="mt-1 text-primary" />}
       </div>
     </div>
   );
@@ -123,16 +124,16 @@ export function EmptyCard({ title, text, image, art, plug }: { title: string; te
       {plug && <PlugIn kind="mouse" className="mb-2 h-[200px] w-[267px]" />}
       {image && <img src={image} alt="" className="mb-4 h-[180px] animate-pulse object-contain opacity-80" />}
       {art && <div className="mb-4 h-[180px] animate-pulse opacity-80">{art}</div>}
-      <p className="text-[17px] font-medium text-foreground">{title}</p>
-      <p className="mx-auto mt-2 max-w-md text-[13.5px] text-muted-foreground">{text}</p>
+      <p className="text-[17px] font-medium text-high">{title}</p>
+      <p className="mx-auto mt-2 max-w-md text-[13.5px] text-medium">{text}</p>
     </Card>
   );
 }
 
 export function Banner({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl bg-chart-3/[0.06] px-4 py-3 text-[13px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
-      <Warning size={18} weight="light" className="shrink-0" />
+    <div className="flex items-center gap-3 rounded-control bg-chart-3/[0.06] px-4 py-3 text-[13px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
+      <Warning size={16} weight="light" className="shrink-0" />
       <span>{children}</span>
     </div>
   );
@@ -167,7 +168,7 @@ export function MouseSwitcher({
             onClick={() => onChange(o.id)}
             className={cn(
               "relative h-7 whitespace-nowrap rounded-full px-3.5 text-[12.5px] transition-colors duration-500 ease-fluid",
-              on ? "text-foreground" : o.quiet ? "text-muted-foreground/80 hover:text-muted-foreground" : "text-muted-foreground hover:text-foreground",
+              on ? "text-high" : o.quiet ? "text-medium hover:text-medium" : "text-medium hover:text-high",
             )}
           >
             {on && (
@@ -180,7 +181,7 @@ export function MouseSwitcher({
             <span className="relative flex items-center gap-1.5">
               {o.art && <DeviceThumb spec={o.art} className={o.quiet ? "opacity-40" : undefined} />}
               {o.label}
-              {o.quiet && <span className="text-[11px] font-normal text-muted-foreground/80">Off or asleep</span>}
+              {o.quiet && <span className="text-[11px] font-normal text-medium">Off or asleep</span>}
             </span>
           </button>
         );
@@ -191,47 +192,40 @@ export function MouseSwitcher({
 
 export { hzText } from "@/lib/utils";
 
-/** The DPI preset chips and the custom field that go under the big readout. */
+/**
+ * Under the big readout: a DPI fader with the usual values as magnetic detents (src/components/ui/detent-slider.tsx),
+ * on a log scale so 400 to 3200 get most of the track, and a field for an exact value. Sent on release.
+ */
 export function DpiPresets({
   value,
-  min,
-  max,
+  min = 100,
+  max = 26000,
+  step = 50,
   disabled,
   onPick,
 }: {
   value: number;
   min?: number;
   max?: number;
+  step?: number;
   disabled: boolean;
   onPick: (dpi: number) => void;
 }) {
   return (
-    <div className={cn("relative mt-6 flex flex-wrap items-center gap-2", disabled && "pointer-events-none opacity-60")}>
-      {DPI_PRESETS.filter((d) => (min === undefined || d >= min) && (max === undefined || d <= max)).map((dpi) => (
-        <button
-          key={dpi}
-          disabled={disabled}
-          aria-pressed={dpi === value}
-          onClick={() => dpi !== value && onPick(dpi)}
-          className={cn(
-            "tabular rounded-full px-3.5 py-1.5 text-[12.5px] ring-1 transition-colors duration-500 ease-fluid disabled:opacity-50",
-            dpi === value ? "bg-primary text-primary-foreground ring-primary" : "bg-white/[0.04] text-muted-foreground ring-white/[0.07] hover:bg-white/[0.08] hover:text-foreground",
-          )}
-        >
-          {dpi}
-        </button>
-      ))}
+    <div className={cn("relative flex flex-col gap-3", disabled && "pointer-events-none opacity-60")}>
+      {/* The fader stops at 12800 (unless the mouse is set higher), so the usual values get the track; the field reaches the rest. */}
+      <DetentSlider label="Pointer speed (DPI)" value={value} min={min} max={Math.min(max, Math.max(12800, value))} step={step || 50} detents={DPI_PRESETS} curve="log" disabled={disabled} onCommit={onPick} />
       <input
         aria-label="Custom DPI"
         disabled={disabled}
-        placeholder="Custom"
+        placeholder="Exact DPI"
         inputMode="numeric"
         onKeyDown={(e) => {
           if (e.key !== "Enter") return;
           const n = Number((e.target as HTMLInputElement).value.replace(/\D/g, ""));
           if (n > 0) onPick(n);
         }}
-        className="tabular h-8 w-24 rounded-full bg-white/[0.04] px-3 text-[12.5px] text-foreground outline-none ring-1 ring-white/[0.07] placeholder:text-muted-foreground/80 focus:ring-primary/60"
+        className="tabular h-8 w-28 self-start rounded-small bg-white/[0.04] px-3 text-[12.5px] text-high outline-none ring-1 ring-white/[0.07] placeholder:text-medium focus:ring-primary/60"
       />
     </div>
   );

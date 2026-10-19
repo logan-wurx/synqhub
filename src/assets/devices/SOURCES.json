@@ -2,6 +2,66 @@
  "notice": "Product images (c) their respective owners; fetched from the makers' own official sites, configurators and apps. Want one removed? Open an issue.",
  "images": [
   {
+   "vendor": "64-audio",
+   "model": "64 Audio U12t",
+   "key": "64-audio-u12t",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0411/4717/0966/products/U12t-Angled.jpg?width=1600",
+   "pageUrl": "https://www.64audio.com/products/u12t-0",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "7hz",
+   "model": "7Hz Salnotes Zero",
+   "key": "7hz-salnotes-zero",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/products/1_5_76abebe9-16ab-44c6-b17d-25a941c8f96e.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/7hz-salnotes-zero",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "7hz",
+   "model": "7Hz Salnotes Zero:2",
+   "key": "7hz-salnotes-zero-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/203A4941_1_7561cf09-026c-4fe6-958d-1c7b5ee37a4f.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/7hz-x-crinacle-zero-2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "7hz",
+   "model": "7Hz Sonus",
+   "key": "7hz-sonus",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/203A0643.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/7hz-sonus",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "7hz",
+   "model": "7Hz Timeless",
+   "key": "7hz-timeless",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/products/7HZTimeless-4.png?width=1600",
+   "pageUrl": "https://linsoul.com/products/7hz-timeless",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "7hz",
+   "model": "7Hz Timeless II",
+   "key": "7hz-timeless-ii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/IMG_3577.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/7hz-timeless-ii",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
    "vendor": "8bitdo",
    "model": "8BitDo Pro 2",
    "key": "8bitdo-pro-2",
@@ -314,6 +374,116 @@
    "how": "maker's own site (image 6)"
   },
   {
+   "vendor": "aoc",
+   "model": "AOC C24G1",
+   "key": "aoc-c24g1",
+   "ids": [],
+   "sourceUrl": "https://cdn.sanity.io/images/hf5b3axp/production/232dae940769964bac46d0a50fad634c58306188-3840x3840.png?w=1600&fit=max",
+   "pageUrl": "https://us.aoc.com/en-US/gaming/products/monitors/c24g1",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "aoc",
+   "model": "AOC CU34G2X",
+   "key": "aoc-cu34g2x",
+   "ids": [],
+   "sourceUrl": "https://cdn.sanity.io/images/hf5b3axp/production/ebb2512b445f52fc1ded6224c37b3ae663f81b4d-3840x3840.png?w=1600&fit=max",
+   "pageUrl": "https://us.aoc.com/en-US/gaming/products/monitors/cu34g2x",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "aoc",
+   "model": "AOC Q27G2S",
+   "key": "aoc-q27g2s",
+   "ids": [],
+   "sourceUrl": "https://cdn.sanity.io/images/hf5b3axp/production/b45f4682910f387c5128b64314e250cc3f426c5d-3840x3840.png?w=1600&fit=max",
+   "pageUrl": "https://us.aoc.com/en-US/gaming/products/monitors/q27g2s",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "aoc",
+   "model": "AOC Q27G3XMN",
+   "key": "aoc-q27g3xmn",
+   "ids": [],
+   "sourceUrl": "https://cdn.sanity.io/images/hf5b3axp/production/f9340eba857b621cb17ff9303485a16a5c8c4389-2953x2953.png?w=1600&fit=max",
+   "pageUrl": "https://us.aoc.com/en-US/gaming/products/monitors/q27g3xmn",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "apple",
+   "model": "Apple AirPods (3rd generation)",
+   "key": "apple-airpods-3rd-generation",
+   "ids": [],
+   "sourceUrl": "https://as-images.apple.com/is/MME73?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "apple",
+   "model": "Apple AirPods 4",
+   "key": "apple-airpods-4",
+   "ids": [],
+   "sourceUrl": "https://as-images.apple.com/is/MXP63?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "apple",
+   "model": "Apple AirPods Max",
+   "key": "apple-airpods-max",
+   "ids": [],
+   "sourceUrl": "https://as-images.apple.com/is/airpods-max-select-spacegray-202011?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "apple",
+   "model": "Apple AirPods Pro",
+   "key": "apple-airpods-pro",
+   "ids": [],
+   "sourceUrl": "https://as-images.apple.com/is/MWP22?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "apple",
+   "model": "Apple AirPods Pro 2",
+   "key": "apple-airpods-pro-2",
+   "ids": [],
+   "sourceUrl": "https://as-images.apple.com/is/MTJV3?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "astro",
+   "model": "ASTRO A50 X",
+   "key": "astro-a50-x",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/astro-a50-x/product-gallery/astro-a50-x-black-gallery-1.png",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "asus",
+   "model": "ASUS ROG Swift 360Hz PG259QN",
+   "key": "asus-pg259qn",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/F0C0E78C-9BF9-47BC-8D34-1CCCE9CEDDC5/w2000",
+   "pageUrl": "https://rog.asus.com/us/monitors/23-to-24-5-inches/rog-swift-360hz-pg259qn-model/gallery/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
    "vendor": "asus",
    "model": "ASUS ROG Swift OLED PG27AQDM",
    "key": "asus-pg27aqdm",
@@ -335,6 +505,16 @@
   },
   {
    "vendor": "asus",
+   "model": "ASUS ROG Swift OLED PG27UCDM",
+   "key": "asus-pg27ucdm",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/64411EC4-3DAE-4D68-B847-F912985A83C7/w2000",
+   "pageUrl": "https://rog.asus.com/us/monitors/27-to-31-5-inches/rog-swift-oled-pg27ucdm/gallery/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "asus",
    "model": "ASUS ROG Swift OLED PG32UCDM",
    "key": "asus-pg32ucdm",
    "ids": [],
@@ -342,6 +522,16 @@
    "pageUrl": "https://rog.asus.com/us/monitors/27-to-31-5-inches/rog-swift-oled-pg32ucdm/gallery/",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 5)"
+  },
+  {
+   "vendor": "asus",
+   "model": "ASUS ROG Swift OLED PG34WCDM",
+   "key": "asus-pg34wcdm",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/45C772CC-4DBB-4CD3-992E-35ACC70F74EF/w2000",
+   "pageUrl": "https://rog.asus.com/us/monitors/32-to-34-inches/rog-swift-oled-pg34wcdm/gallery/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "asus",
@@ -409,6 +599,16 @@
   },
   {
    "vendor": "asus",
+   "model": "ASUS TUF Gaming VG249Q1A",
+   "key": "asus-vg249q1a",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/0f372e3e-f38e-4a9b-824a-978bc7689a99/w2000",
+   "pageUrl": "https://www.asus.com/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg249q1a/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "asus",
    "model": "ASUS TUF Gaming VG259QM",
    "key": "asus-vg259qm",
    "ids": [],
@@ -439,6 +639,26 @@
   },
   {
    "vendor": "asus",
+   "model": "ASUS TUF Gaming VG27AQ1A",
+   "key": "asus-vg27aq1a",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/8d2005d0-9b9d-4956-a34e-aad033b6b4b0/w2000",
+   "pageUrl": "https://www.asus.com/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg27aq1a/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "asus",
+   "model": "ASUS ROG Strix XG27ACS",
+   "key": "asus-xg27acs",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/ED321E91-870C-4A8F-9C2A-713A62EC9129/w2000",
+   "pageUrl": "https://rog.asus.com/us/monitors/27-to-31-5-inches/rog-strix-xg27acs/gallery/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "asus",
    "model": "ASUS ROG Strix XG27AQM",
    "key": "asus-xg27aqm",
    "ids": [],
@@ -446,6 +666,16 @@
    "pageUrl": "https://rog.asus.com/us/monitors/27-to-31-5-inches/rog-strix-xg27aqm-model/gallery/",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 5)"
+  },
+  {
+   "vendor": "asus",
+   "model": "ASUS ROG Strix XG27UCS",
+   "key": "asus-xg27ucs",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/8D16EA2B-57D3-4CFB-A210-F3118D43814C/w2000",
+   "pageUrl": "https://rog.asus.com/us/monitors/27-to-31-5-inches/rog-strix-xg27ucs/gallery/",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "asus",
@@ -548,6 +778,16 @@
    "pageUrl": "https://rog.asus.com/us/keyboards/keyboards/aura-rgb/rog-falchion-ace-hfx/",
    "fetched": "2026-10-14",
    "how": "rog.asus.com model page (image 1)"
+  },
+  {
+   "vendor": "asus",
+   "model": "ROG FALCHION ACE HFX ZYWOO EDITION",
+   "key": "rog-falchion-ace-hfx-zywoo-edition",
+   "ids": [],
+   "sourceUrl": "https://dlcdnwebimgs.asus.com/gain/143C1B3D-5244-4FAD-BD1E-B923874F14A8/w2000",
+   "pageUrl": "https://rog.asus.com/us/keyboards/keyboards/aura-rgb/rog-falchion-ace-hfx-zywoo-edition/gallery/",
+   "fetched": "2026-10-17",
+   "how": "rog.asus.com model page (image 3)"
   },
   {
    "vendor": "asus",
@@ -874,6 +1114,16 @@
   },
   {
    "vendor": "atk",
+   "model": "ATK Blazing Sky X1 V2 Air+",
+   "key": "atk-x1-v2-air-plus",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0691/4942/5882/files/5689ad8cf382a0b5e30109095f2c5cb5_decc4aa5-9c13-482b-b8aa-a81416462cc1.jpg?width=1600",
+   "pageUrl": "https://www.atk.store/products/atk-blazing-sky-x1-v2-series-esports-wireless-mouse",
+   "fetched": "2026-10-17",
+   "how": "atk.store (ATK's own store) (image 6)"
+  },
+  {
+   "vendor": "atk",
    "model": "ATK Z1",
    "key": "atk-z1",
    "ids": [],
@@ -1050,8 +1300,8 @@
    "ids": [],
    "sourceUrl": "https://cdn.shopify.com/s/files/1/0823/5050/6282/files/attackshark_x3_gaming_mouse_0005.jpg?v=1750248723&width=1100",
    "pageUrl": "https://attackshark.com/products/attack-shark-x3-wireless-gaming-mouse-paw3395",
-   "fetched": "2026-10-14",
-   "how": "attackshark.com product 'ATTACK SHARK X3 Wireless Gaming Mouse PAW3395 Superlight' (image 2)"
+   "fetched": "2026-10-17",
+   "how": "attackshark.com product 'ATTACK SHARK X3 Wireless Gaming Mouse PAW3395 Superlight' (image 2); cut again (image 1); cut again (image 1)"
   },
   {
    "vendor": "attack-shark",
@@ -1084,6 +1334,118 @@
    "how": "attackshark.com product 'ATTACK SHARK X8 Series Tri-mode  Lightweight Wireless Gaming Mouse' (image 1)"
   },
   {
+   "vendor": "audeze",
+   "model": "Audeze LCD-2 Classic",
+   "key": "audeze-lcd-2-classic",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/AudezeLCD-2Classic1024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/audeze-lcd-2-classic-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audeze",
+   "model": "Audeze LCD-X",
+   "key": "audeze-lcd-x",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/0e5750ba-60bc-475b-8fb8-7d53c60ec814.png?width=1600",
+   "pageUrl": "https://headphones.com/products/audeze-lcd-x-headphones-premium-package",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audeze",
+   "model": "Audeze Maxwell",
+   "key": "audeze-maxwell",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/AudezeMaxwellps5.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/audeze-maxwell-wireless-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "audeze",
+   "model": "Audeze Penrose",
+   "key": "audeze-penrose",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-audeze-headphone-audeze-penrose-low-latency-wireless-planar-magnetic-gaming-headset-22847524929707.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/audeze-penrose-low-latency-wireless-planar-magnetic-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-AD700X",
+   "key": "audio-technica-ath-ad700x",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-ad700x_01.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-ad700x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-M20x",
+   "key": "audio-technica-ath-m20x",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-m20x_01.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-m20x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-M40x",
+   "key": "audio-technica-ath-m40x",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-m40x_01a.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-m40x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-M50x",
+   "key": "audio-technica-ath-m50x",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-m50x_01a.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-m50x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-M50xBT2",
+   "key": "audio-technica-ath-m50xbt2",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-m50xbt2_01.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-m50xbt2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "audio-technica",
+   "model": "Audio-Technica ATH-R70x",
+   "key": "audio-technica-ath-r70x",
+   "ids": [],
+   "sourceUrl": "https://www.audio-technica.com/media/catalog/product/a/t/ath-r70x_01.png",
+   "pageUrl": "https://www.audio-technica.com/en-us/ath-r70x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "aukey",
+   "model": "AUKEY PC-LM1E 1080p Webcam",
+   "key": "aukey-pc-lm1e",
+   "ids": [
+    "0458:6006"
+   ],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0118/7659/7856/products/pc-lm1e-2.jpg",
+   "pageUrl": "https://web.archive.org/web/2021/https://www.aukey.com/products/1080p-webcam-pc-lm1",
+   "fetched": "2026-10-17",
+   "how": "aukey.com product page as the Wayback Machine kept it (image 1)"
+  },
+  {
    "vendor": "aula",
    "model": "AULA F65",
    "key": "aula-f65",
@@ -1094,6 +1456,36 @@
    "pageUrl": "https://aulagear.com/products/epomaker-x-aula-f65",
    "fetched": "2026-10-14",
    "how": "aulagear.com product 'AULA F65' (image 1) | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis | also used for: AULA F65M: the F65 chassis"
+  },
+  {
+   "vendor": "beats",
+   "model": "Beats Studio Pro",
+   "key": "beats-studio-pro",
+   "ids": [],
+   "sourceUrl": "https://www.beatsbydre.com/content/dam/beats/web/product/headphones/studiopro-wireless/global/serp/studiopro-pdp-global-serp-black.jpg",
+   "pageUrl": "https://www.beatsbydre.com/headphones/studio-pro-wireless",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "benq",
+   "model": "BenQ MOBIUZ EX270QM",
+   "key": "benq-ex270qm",
+   "ids": [],
+   "sourceUrl": "https://image.benq.com/is/image/benqco/ex270qm-right45-7?fmt=png-alpha&wid=1600",
+   "pageUrl": "https://www.benq.com/en-us/monitor/gaming/ex270qm.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "benq",
+   "model": "BenQ MOBIUZ EX2710Q",
+   "key": "benq-ex2710q",
+   "ids": [],
+   "sourceUrl": "https://image.benq.com/is/image/benqco/ex2710q-right45-2?fmt=png-alpha&wid=1600",
+   "pageUrl": "https://www.benq.com/en-us/monitor/gaming/ex2710q.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "benq",
@@ -1117,6 +1509,16 @@
   },
   {
    "vendor": "benq",
+   "model": "ZOWIE XL2546X",
+   "key": "benq-xl2546x",
+   "ids": [],
+   "sourceUrl": "https://image.benq.com/is/image/benqco/7-xl2546x-left45-5?fmt=png-alpha&wid=1600",
+   "pageUrl": "https://zowie.benq.com/en-us/monitor/xl2546x.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "benq",
    "model": "ZOWIE XL2586X",
    "key": "benq-xl2586x",
    "ids": [],
@@ -1124,6 +1526,106 @@
    "pageUrl": "https://zowie.benq.com/en-au/monitor/xl2586x.html",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 8)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 1990 Pro MKII",
+   "key": "beyerdynamic-dt-1990-pro-mkii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/dt-1990-pro-mkii-angled.png?width=1600",
+   "pageUrl": "https://audio46.com/products/beyerdynamic-dt-1990-pro-mkii-professional-open-back-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 700 Pro X",
+   "key": "beyerdynamic-dt-700-pro-x",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/d/t/dt-700-pro-x-beyerdynamic-perspective_transparent_2_1.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/dt-700-pro-x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 770 Pro",
+   "key": "beyerdynamic-dt-770-pro",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/d/t/dt-770-pro-80-ohm-headphones-beyerdynamic-perspective_transparent.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/dt-770-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 880",
+   "key": "beyerdynamic-dt-880",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/b/e/beyerdynamic-dt-880-pro-perspective_transparent-3.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/dt-880-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 900 Pro X",
+   "key": "beyerdynamic-dt-900-pro-x",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/b/e/beyerdynamic-dt-900-pro-x-perspective_transparent.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/dt-900-pro-x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic DT 990 Pro",
+   "key": "beyerdynamic-dt-990-pro",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/d/t/dt-990-pro-black-edition-headphones-beyerdynamic-perspective_transparent.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/dt-990-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic MMX 300",
+   "key": "beyerdynamic-mmx-300",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/m/m/mmx-300-pro-gaming-headset-beyerdynamic-perspective_transparent.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/mmx-300-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "beyerdynamic",
+   "model": "Beyerdynamic T1",
+   "key": "beyerdynamic-t1",
+   "ids": [],
+   "sourceUrl": "https://api.beyerdynamic.de/media/catalog/product/b/e/beyerdynamic-t1-perspective_transparent.png",
+   "pageUrl": "https://www.beyerdynamic.com/p/t1",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "campfire-audio",
+   "model": "Campfire Audio Andromeda",
+   "key": "campfire-audio-andromeda",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0796/5412/5878/files/A10_green-3_2048x2048_b261e6eb-514f-4e86-bc0b-5207476f27ae.png?width=1600",
+   "pageUrl": "https://www.campfireaudio.com/products/andromeda-10",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "cca",
+   "model": "CCA CRA",
+   "key": "cca-cra",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/products/CRA-4_0060bb80-dce6-4935-b0eb-2c8cc918f4b3.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/cca-cra",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
   },
   {
    "vendor": "cidoo",
@@ -1147,6 +1649,18 @@
    "pageUrl": "https://www.corsair.com/ww/en/p/keyboards/ch-979101j-na/clipper-pro-mini-60-hall-effect-gaming-keyboard-ch-979101j-na",
    "fetched": "2026-10-14",
    "how": "corsair.com product page JSON-LD image"
+  },
+  {
+   "vendor": "corsair",
+   "model": "Corsair Commander Pro",
+   "key": "corsair-commander-pro",
+   "ids": [
+    "1b1c:0c10"
+   ],
+   "sourceUrl": "https://web.archive.org/web/20211202072954im_/https://www.corsair.com/medias/sys_master/images/images/h9c/hde/9202209980446/-CL-9011110-WW-Gallery-Commander-PRO-01.png",
+   "pageUrl": "https://web.archive.org/web/2/corsair.com/us/en/Categories/Products/Accessories-%7C-Parts/iCUE-CONTROLLERS/iCUE-Commander-PRO-Smart-RGB-Lighting-and-Fan-Speed-Controller/p/CL-9011110-WW",
+   "fetched": "2026-10-17",
+   "how": "corsair.com product page as the Wayback Machine kept it (image 1)"
   },
   {
    "vendor": "corsair",
@@ -1606,6 +2120,16 @@
    "how": "OpenMouse device image store (img.openmouse.app)"
   },
   {
+   "vendor": "creative",
+   "model": "Creative Live! Cam Sync 1080p",
+   "key": "creative-live-cam-sync-1080p",
+   "ids": [],
+   "sourceUrl": "https://img.creative.com/images/products/large/pdt_23499.1.png",
+   "pageUrl": "https://us.creative.com/p/web-cameras/creative-live-cam-sync-1080p",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
    "vendor": "dareu",
    "model": "Dareu A950 PRO Mg",
    "key": "dareu-a950-pro-mg",
@@ -1625,8 +2149,28 @@
    "ids": [],
    "sourceUrl": "https://web.archive.org/web/20250801171724im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw2523hf/media-gallery/monitor-alienware-aw2523hf-black-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=4305&hei=4446&qlt=100,1&resMode=sharp2&size=4305,4446&chrss=full&imwidth=5000",
    "pageUrl": "https://www.dell.com/en-us/shop/alienware-25-gaming-monitor-aw2523hf/apd/210-bfed",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-25-gaming-monitor-aw2523hf/apd/210-bfed (image 3)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Alienware AW2524H",
+   "key": "dell-aw2524h",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20231018121133im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw2524h/pdp/alienware-25-aw2524h-monitor-pdp-mod-02.psd?wid=1920&hei=1920&fmt=png-alpha&qlt=100%2C0&op_usm=1.75%2C0.3%2C2%2C0&resMode=sharp2&pscan=auto&fit=constrain%2C1&align=0%2C0",
+   "pageUrl": "https://www.dell.com/en-us/shop/alienware-500hz-gaming-monitor-aw2524h/apd/210-bglm",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-500hz-gaming-monitor-aw2524h/apd/210-bgl (image 13)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Alienware AW2723DF",
+   "key": "dell-aw2723df",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20231023002652im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw2723df/media-gallery/monitor-alienware-aw2723df-white-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=1070&qlt=100,1&resMode=sharp2&size=1070,804&chrss=full",
+   "pageUrl": "https://www.dell.com/en-us/shop/alienware-27-gaming-monitor-aw2723df/apd/210-bfek",
+   "fetched": "2026-10-17",
+   "how": "Dell's image server as the Wayback Machine kept it (the model's own folder) (image 1)"
   },
   {
    "vendor": "dell",
@@ -1635,7 +2179,7 @@
    "ids": [],
    "sourceUrl": "https://web.archive.org/web/20260224133050im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw2724hf/pdp/monitor-alienware-aw2724hf-pdp-hero.psd?fmt=jpg&wid=5000&hei=3704",
    "pageUrl": "https://www.dell.com/en-us/shop/alienware-27-gaming-monitor-aw2724hf/apd/210-bhym",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-27-gaming-monitor-aw2724hf/apd/210-bhym (image 1)"
   },
   {
@@ -1645,18 +2189,78 @@
    "ids": [],
    "sourceUrl": "https://web.archive.org/web/20250425232608im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw2725df/pdp/monitor-alienware-aw2725df-pdp-hero.psd?fmt=png-alpha&wid=3000&hei=2198",
    "pageUrl": "https://www.dell.com/en-us/shop/alienware-27-360hz-qd-oled-gaming-monitor-aw2725df/apd/210-bljd",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-27-360hz-qd-oled-gaming-monitor-aw2725df (image 1)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Alienware AW3225QF",
+   "key": "dell-aw3225qf",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20260921123056im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/aw-series/aw3225qf/media-gallery/monitor-alienware-aw3225qf-white-gallery-1.psd?hei=800&wid=800&qlt=100&fmt=png-alpha&pscan=auto&scl=1",
+   "pageUrl": "https://www.dell.com/en-us/shop/alienware-32-4k-qd-oled-gaming-monitor-aw3225qf/apd/210-blmq",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-32-4k-qd-oled-gaming-monitor-aw3225qf/ap (image 13)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Alienware AW3423DW",
+   "key": "dell-aw3423dw",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20230920002647im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw3423dw/media-gallery/monitor-alienware-aw3423dw-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=817&qlt=100,1&resMode=sharp2&size=817,804&chrss=full",
+   "pageUrl": "https://www.dell.com/en-us/shop/alienware-34-curved-qd-oled-gaming-monitor-aw3423dw/apd/210-bcye",
+   "fetched": "2026-10-17",
+   "how": "Dell's image server as the Wayback Machine kept it (the model's own folder) (image 1)"
   },
   {
    "vendor": "dell",
    "model": "Alienware AW3423DWF",
    "key": "dell-aw3423dwf",
    "ids": [],
-   "sourceUrl": "https://web.archive.org/web/20250806004925im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw3423dwf/pdp/monitor-alienware-aw3423dwf-pdp-hero.psd?qlt=95&fit=constrain,1&hei=500&wid=500&fmt=jpg",
+   "sourceUrl": "https://web.archive.org/web/20230908174851im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/alienware/aw3423dwf/media-gallery/monitor-alienware-aw3423dwf-black-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=827&qlt=100,1&resMode=sharp2&size=827,804&chrss=full",
    "pageUrl": "https://www.dell.com/en-us/shop/alienware-34-curved-qd-oled-gaming-monitor-aw3423dwf/apd/210-bfrp",
-   "fetched": "2026-10-16",
-   "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-34-curved-qd-oled-gaming-monitor-aw3423d (image 1)"
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of dell.com/en-us/shop/alienware-34-curved-qd-oled-gaming-monitor-aw3423d (image 10)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Dell G2724D",
+   "key": "dell-g2724d",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20231205094124im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/g-series/g2724d/media-gallery/monitor-g2724d-black-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=840&qlt=100,1&resMode=sharp2&size=840,804&chrss=full",
+   "pageUrl": "https://www.dell.com/en-us/shop/dell-27-gaming-monitor-g2724d/apd/210-bhxc",
+   "fetched": "2026-10-17",
+   "how": "Dell's image server as the Wayback Machine kept it (the model's own folder) (image 1)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Dell P2422H",
+   "key": "dell-p2422h",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20231023062154im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/p-series/p2422h/media-gallery/peripherals_monitor_p2422h_gallery_1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=808&qlt=100,1&resMode=sharp2&size=808,804&chrss=full",
+   "pageUrl": "https://www.dell.com/en-us/shop/dell-24-monitor-p2422h/apd/210-bbcc",
+   "fetched": "2026-10-17",
+   "how": "Dell's image server as the Wayback Machine kept it (the model's own folder) (image 2)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Dell S2722DGM",
+   "key": "dell-s2722dgm",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20231012171026im_/https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/peripherals/monitors/s-series/s2722dgm/media-gallery/s2722dgm_xfp_01_bk.psd?fmt=png-alpha&pscan=auto&scl=1&hei=804&wid=804&qlt=100,1&resMode=sharp2&size=804,804&chrss=full",
+   "pageUrl": "https://www.dell.com/en-us/shop/dell-27-curved-gaming-monitor-s2722dgm/apd/210-azzp",
+   "fetched": "2026-10-17",
+   "how": "Dell's image server as the Wayback Machine kept it (the model's own folder) (image 8)"
+  },
+  {
+   "vendor": "dell",
+   "model": "Dell UltraSharp U2723QE",
+   "key": "dell-u2723qe",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20230803101223im_/https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/u-series/u2723qe/media-gallery/monitor-u2723qe-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&wid=4002&hei=3419&qlt=100,1&resMode=sharp2&size=4002,3419&chrss=full&imwidth=5000",
+   "pageUrl": "https://www.dell.com/en-us/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/apd/210-bdpf",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of dell.com/en-us/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/ap (image 2)"
   },
   {
    "vendor": "delux",
@@ -1791,12 +2395,52 @@
   },
   {
    "vendor": "elgato",
+   "model": "Elgato Key Light Air",
+   "key": "elgato-key-light-air",
+   "ids": [],
+   "sourceUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/q_auto/Products/10LAM9901%20%28Key%20Light%20Air%20MK.2%29/Cart/Key_Light_Air_MK2_Cart.png",
+   "pageUrl": "https://www.elgato.com/us/en/p/key-light-air",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "elgato",
+   "model": "Elgato Key Light Mini",
+   "key": "elgato-key-light-mini",
+   "ids": [],
+   "sourceUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/q_auto,f_auto/v1678959473/Products/10LAD9901/above-the-fold/desktop/key-light-mini-01_lhfqxu.jpg",
+   "pageUrl": "https://www.elgato.com/us/en/p/key-light-mini",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "elgato",
+   "model": "Elgato Key Light Neo",
+   "key": "elgato-key-light-neo",
+   "ids": [],
+   "sourceUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/q_auto/Products/10LAJ9911%20%28Key%20Light%20Neo%20Black%29/f5040eb88bd9f78bf12d5666f7101ffcd2a49e9d54dd2ee8e425861f96e7cf7f_2.jpg",
+   "pageUrl": "https://www.elgato.com/us/en/p/key-light-neo",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "elgato",
    "model": "Elgato Light Strip",
    "key": "elgato-light-strip",
    "ids": [],
    "sourceUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/q_auto,f_auto/v1717668409/Products/10LAG9901/ATF/Light_Strip_Pro_ATF_Desktop.jpg",
    "pageUrl": "https://www.elgato.com/us/en/p/light-strip",
    "fetched": "2026-10-16",
+   "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "elgato",
+   "model": "Elgato Ring Light",
+   "key": "elgato-ring-light",
+   "ids": [],
+   "sourceUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/q_auto,f_auto/v1678959885/Products/10LAC9901/above-the-fold/desktop/ring-light-01_am0cfs.jpg",
+   "pageUrl": "https://www.elgato.com/us/en/p/ring-light",
+   "fetched": "2026-10-17",
    "how": "maker's own site (image 1)"
   },
   {
@@ -1970,6 +2614,66 @@
    "how": "epomaker.com product 'EPOMAKER HE80' (image 1)"
   },
   {
+   "vendor": "etymotic",
+   "model": "Etymotic ER2XR",
+   "key": "etymotic-er2xr",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0780/4144/8586/files/Lucid-279-1-e1715118061473.png?width=1600",
+   "pageUrl": "https://etymotic.com/products/er2xr-earphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "etymotic",
+   "model": "Etymotic ER4XR",
+   "key": "etymotic-er4xr",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0780/4144/8586/files/er4xrearphones-1-scaled.png?width=1600",
+   "pageUrl": "https://etymotic.com/products/er4xr-earphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "fiio",
+   "model": "FiiO FH3",
+   "key": "fiio-fh3",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/files/apos-audio-apos-fiio-fh3-hifi-earphones-3-drivers-1209623989.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/apos-certified-fiio-fh3-hifi-earphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 4)"
+  },
+  {
+   "vendor": "final",
+   "model": "Final Audio A4000",
+   "key": "final-audio-a4000",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-final-earphone-in-ear-monitor-iem-final-a4000-iem-36648993882348.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/final-a4000",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "final",
+   "model": "Final Audio E3000",
+   "key": "final-audio-e3000",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Final-Audio-E3000-New.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/final-e3000",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "final",
+   "model": "Final Audio E500",
+   "key": "final-audio-e500",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/Finale500.png?width=1600",
+   "pageUrl": "https://audio46.com/products/final-audio-e500-hi-res-earphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
    "vendor": "finalmouse",
    "model": "Finalmouse Starlight X (SLX)",
    "key": "finalmouse-slx",
@@ -2026,6 +2730,46 @@
    "pageUrl": "https://shops.flydigi.com/products/vader5pro",
    "fetched": "2026-10-15",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "focal",
+   "model": "Focal Bathys",
+   "key": "focal-bathys",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/Bathys_Deep_black_34_Packaging.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/focal-bathys-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "focal",
+   "model": "Focal Clear MG",
+   "key": "focal-clear-mg",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/FocalClearMg11024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/focal-clear-mg-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "focal",
+   "model": "Focal Elex",
+   "key": "focal-elex",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/FocalElex21024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/focal-elex-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "focal",
+   "model": "Focal Utopia",
+   "key": "focal-utopia",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-focal-headphone-focal-utopia-2022-open-back-headphones-38275442082028.png?width=1600",
+   "pageUrl": "https://apos.audio/products/focal-utopia-2022-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
   },
   {
    "vendor": "g-wolves",
@@ -2151,13 +2895,33 @@
   },
   {
    "vendor": "gigabyte",
+   "model": "Gigabyte AORUS FI27Q-X",
+   "key": "gigabyte-fi27q-x",
+   "ids": [],
+   "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/0ba4b2cedbdc03e2e3ba80f41bced749/Product/26639/png/1000",
+   "pageUrl": "https://www.gigabyte.com/Monitor/AORUS-FI27Q-X/gallery",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of gigabyte.com/Monitor/AORUS-FI27Q-X/gallery (image 8)"
+  },
+  {
+   "vendor": "gigabyte",
    "model": "Gigabyte AORUS FO27Q3",
    "key": "gigabyte-fo27q3",
    "ids": [],
    "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/71a88febba5a521bdf56bbb802a39266/Product/39711/png/1000",
    "pageUrl": "https://www.gigabyte.com/Monitor/AORUS-FO27Q3/gallery",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of gigabyte.com/Monitor/AORUS-FO27Q3/gallery (image 2)"
+  },
+  {
+   "vendor": "gigabyte",
+   "model": "Gigabyte G27Q",
+   "key": "gigabyte-g27q",
+   "ids": [],
+   "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/a99f640250a3051804b13ba357390c81/Product/24862/png/1000",
+   "pageUrl": "https://www.gigabyte.com/Monitor/G27Q/gallery",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of gigabyte.com/Monitor/G27Q/gallery (image 2)"
   },
   {
    "vendor": "gigabyte",
@@ -2166,8 +2930,28 @@
    "ids": [],
    "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/b4a7d46e84b9b4675bb2a37788f24e33/Product/26025/png/1000",
    "pageUrl": "https://www.gigabyte.com/Monitor/M27Q-rev-10/gallery",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of gigabyte.com/Monitor/M27Q-rev-10/gallery (image 2)"
+  },
+  {
+   "vendor": "gigabyte",
+   "model": "Gigabyte M28U",
+   "key": "gigabyte-m28u",
+   "ids": [],
+   "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/4f4d7401309da2a85408976597d75631/Product/28463/png/1000",
+   "pageUrl": "https://www.gigabyte.com/Monitor/M28U/gallery",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of gigabyte.com/Monitor/M28U/gallery (image 2)"
+  },
+  {
+   "vendor": "gigabyte",
+   "model": "Gigabyte M32U",
+   "key": "gigabyte-m32u",
+   "ids": [],
+   "sourceUrl": "https://static.gigabyte.com/StaticFile/Image/Global/08ccabf1157e5895614e52ff6ddcf517/Product/29528/png/1000",
+   "pageUrl": "https://www.gigabyte.com/Monitor/M32U/gallery",
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of gigabyte.com/Monitor/M32U/gallery (image 4)"
   },
   {
    "vendor": "glorious",
@@ -2270,6 +3054,16 @@
    "how": "gloriousgaming.com product 'Series 2 PRO Wireless Mouse' (image 4)"
   },
   {
+   "vendor": "google",
+   "model": "Google Pixel Buds Pro 2",
+   "key": "google-pixel-buds-pro-2",
+   "ids": [],
+   "sourceUrl": "https://lh3.googleusercontent.com/MP4ymmRItYWpJsY0cjGQfkR38WYCvrqGWv8PF-sOJQwK0A9oM2u0sr-BKD2kq_SxImwincyudgTwJRiNF5UofQwXT0IljAXKq-Zm=rw-e365-w1200-rj-sc0xffffffff",
+   "pageUrl": "https://store.google.com/us/product/pixel_buds_pro_2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
    "vendor": "govee",
    "model": "Govee Strip Light 2 H1A42",
    "key": "govee-h1a42",
@@ -2278,6 +3072,16 @@
    "pageUrl": "https://us.govee.com/products/govee-strip-light-2",
    "fetched": "2026-10-16",
    "how": "Govee's product page, web.archive.org snapshot 20260101000000 (image 1)"
+  },
+  {
+   "vendor": "govee",
+   "model": "Govee Smart RGBWW Bulb 1200 lm H6009",
+   "key": "govee-h6009",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0512/3489/8105/files/1_44e40c50-2ca3-4e5a-8730-53e4f7780f21.jpg?width=1600",
+   "pageUrl": "https://us.govee.com/products/refurbished-govee-smart-rgbww-light-bulbs-1200-lumens",
+   "fetched": "2026-10-17",
+   "how": "us.govee.com (Govee's own store) (image 1)"
   },
   {
    "vendor": "govee",
@@ -2328,6 +3132,16 @@
    "pageUrl": "https://web.archive.org/web/20231208034208/https://us.govee.com/products/govee-rgbicww-wifi-bluetooth-flow-plus-light-bars",
    "fetched": "2026-10-16",
    "how": "Govee's product page, web.archive.org snapshot 20231208034208 (image 1)"
+  },
+  {
+   "vendor": "govee",
+   "model": "Govee RGBIC Night Light H6057",
+   "key": "govee-h6057",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0512/3489/8105/files/h6057_5cb6d7d5-7d64-4738-8bab-eee90d62768b.jpg?width=1600",
+   "pageUrl": "https://us.govee.com/products/refurbished-govee-rgbic-night-light",
+   "fetched": "2026-10-17",
+   "how": "us.govee.com (Govee's own store) (image 1)"
   },
   {
    "vendor": "govee",
@@ -2551,6 +3365,16 @@
   },
   {
    "vendor": "govee",
+   "model": "Govee LED Strip Light M1 H61E0",
+   "key": "govee-h61e0",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0512/3489/8105/files/H61E1.jpg?width=1600",
+   "pageUrl": "https://us.govee.com/products/refurbished-govee-led-strip-light-m1",
+   "fetched": "2026-10-17",
+   "how": "us.govee.com (Govee's own store) (image 1)"
+  },
+  {
+   "vendor": "govee",
    "model": "Govee LED Strip Light M1 H61E1",
    "key": "govee-h61e1",
    "ids": [],
@@ -2611,6 +3435,16 @@
   },
   {
    "vendor": "govee",
+   "model": "Govee Outdoor Pathway Lights H7055",
+   "key": "govee-h7055",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0512/3489/8105/files/ID_b9093439-6378-4d63-ad08-17d2d41a2475.jpg?width=1600",
+   "pageUrl": "https://us.govee.com/products/refurnished-govee-outdoor-pathway-lights",
+   "fetched": "2026-10-17",
+   "how": "us.govee.com (Govee's own store) (image 1)"
+  },
+  {
+   "vendor": "govee",
    "model": "Govee Interior Car Lights H7090",
    "key": "govee-h7090",
    "ids": [],
@@ -2618,6 +3452,26 @@
    "pageUrl": "https://web.archive.org/web/20231004072349/https://us.govee.com/products/govee-rgbic-smart-car-led-strip-lights-h7090",
    "fetched": "2026-10-16",
    "how": "Govee's product page, web.archive.org snapshot 20231004072349 (image 1)"
+  },
+  {
+   "vendor": "grado",
+   "model": "Grado SR60x",
+   "key": "grado-sr60x",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/GradoSR60x11024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/grado-sr-60e-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "grado",
+   "model": "Grado SR80x",
+   "key": "grado-sr80x",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/011fc321-c98a-4ffc-8074-a7997ac8974d_691ce7a0-10ce-4453-ab7d-8352c50c1859.png?width=1600",
+   "pageUrl": "https://headphones.com/products/grado-sr-80e-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
   },
   {
    "vendor": "gravastar",
@@ -2630,6 +3484,76 @@
    "how": "gravastar.com product 'Mercury M1 Pro Special Edition - Lavender Purple' (image 3)"
   },
   {
+   "vendor": "hifiman",
+   "model": "HIFIMAN Ananda",
+   "key": "hifiman-ananda",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/Ananda_1024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-ananda",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN Arya",
+   "key": "hifiman-arya",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/Arya_1._1024x1024_daa11a22-0827-4f77-9823-3a048b84d599.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-arya-headphones-stealth-magnets-edition",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN Deva Pro",
+   "key": "hifiman-deva-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/files/apos-audio-hifiman-headphone-hifiman-deva-pro-planar-bluetooth-headphones-apos-certified-open-box-like-new-1217025402.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/apos-certified-hifiman-deva-pro-planar-bluetooth-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN Edition XS",
+   "key": "hifiman-edition-xs",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/HifimanEditionXS21024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-edition-xs-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN HE1000se",
+   "key": "hifiman-he1000se",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/HE1000se_1024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-he1000se",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN HE400se",
+   "key": "hifiman-he400se",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/HifimanHE400se11024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-he400se-entry-level-planar-magnetic-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hifiman",
+   "model": "HIFIMAN Sundara",
+   "key": "hifiman-sundara",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/97acd4f3-656e-4d6e-b30c-98ced2b38696_d38e6d96-0ba6-45c6-9a55-fe8938c4c328.png?width=1600",
+   "pageUrl": "https://headphones.com/products/hifiman-sundara-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
    "vendor": "hori",
    "model": "HORI Fighting Commander OCTA",
    "key": "hori-fighting-commander-octa",
@@ -2639,10 +3563,86 @@
     "0f0d:0163",
     "0f0d:0164"
    ],
-   "sourceUrl": "https://cdn11.bigcommerce.com/s-bsuqqx/products/806/images/2386/AB03-001_product_image_01__84213.1601327718.220.220.png?c=2",
+   "sourceUrl": "https://cdn11.bigcommerce.com/s-bsuqqx/images/stencil/1280x1280/products/806/2386/AB03-001_product_image_01__84213.1601327718.png",
    "pageUrl": "https://stores.horiusa.com/fighting-commander-octa",
-   "fetched": "2026-10-15",
-   "how": "web.archive.org snapshot of stores.horiusa.com/fighting-commander-octa (image 1)"
+   "fetched": "2026-10-17",
+   "how": "web.archive.org snapshot of stores.horiusa.com/fighting-commander-octa (image 1); cut again (image 1)"
+  },
+  {
+   "vendor": "hori",
+   "model": "HORI Wireless HORIPAD for Steam",
+   "key": "hori-wireless-horipad-for-steam",
+   "ids": [
+    "0f0d:0196",
+    "0f0d:01ab"
+   ],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0747/2650/6763/files/HPC-055U_ProductImage_01.png?width=1600",
+   "pageUrl": "https://horieurope.com/products/wireless-horipad-for-steam",
+   "fetched": "2026-10-17",
+   "how": "horieurope.com (HORI's own store) (picture picked by eye)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud Alpha",
+   "key": "hyperx-cloud-alpha",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_alpha_blackred_1_main.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-alpha",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud II",
+   "key": "hyperx-cloud-ii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_ii_red_1_main.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-ii",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud II Wireless",
+   "key": "hyperx-cloud-ii-wireless",
+   "ids": [
+    "03f0:018b",
+    "03f0:0696"
+   ],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_ii_wireless_1_main.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-ii-wireless",
+   "fetched": "2026-10-17",
+   "how": "hyperx.com (HyperX's own store) (image 1)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud III",
+   "key": "hyperx-cloud-iii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_c34cc86e-20fb-464e-99c2-c898f103089b.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud III Wireless",
+   "key": "hyperx-cloud-iii-wireless",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_wireless_red_77z46aa_main_1.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-iii-wireless-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "hyperx",
+   "model": "HyperX Cloud Stinger 2",
+   "key": "hyperx-cloud-stinger-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_stinger_2_1_main.jpg?width=1600",
+   "pageUrl": "https://hyperx.com/products/hyperx-cloud-stinger-2-wired-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "hyperx",
@@ -2802,6 +3802,26 @@
    "pageUrl": "https://mechkeys.com/products/irok-nd63pro",
    "fetched": "2026-10-14",
    "how": "retailer listing mechkeys.com (image 1)"
+  },
+  {
+   "vendor": "jabra",
+   "model": "Jabra Elite 75t",
+   "key": "jabra-elite-75t",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-jabra-elite-75t-1160-1160-3.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/jabra-elite-75t",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "jabra",
+   "model": "Jabra Elite 85t",
+   "key": "jabra-elite-85t",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Jabra-85t-Black-1160-1160.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/jabra-elite-85t",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "keychron",
@@ -3001,6 +4021,96 @@
    "how": "keychron.com product 'Keychron Q6 HE 8K Magnetic Switch Keyboard' (image 1)"
   },
   {
+   "vendor": "kiwi-ears",
+   "model": "Kiwi Ears Cadenza",
+   "key": "kiwi-ears-cadenza",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0582/0317/7110/products/IMG_0516.jpg?width=1600",
+   "pageUrl": "https://kiwiears.com/products/kiwi-ears-cadenza",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "kiwi-ears",
+   "model": "Kiwi Ears Orchestra Lite",
+   "key": "kiwi-ears-orchestra-lite",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0582/0317/7110/files/Kiwi_Ears_Orchestra_Lite_570d8f81-e064-431d-b647-db74cc86f07b.png?width=1600",
+   "pageUrl": "https://kiwiears.com/products/kiwi-ears-orchestra-lite",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "kiwi-ears",
+   "model": "Kiwi Ears Quintet",
+   "key": "kiwi-ears-quintet",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0582/0317/7110/files/IMG_0768.jpg?width=1600",
+   "pageUrl": "https://kiwiears.com/products/kiwi-ears-quintet",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "koss",
+   "model": "Koss KSC75",
+   "key": "koss-ksc75",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0525/9608/0813/products/KSC75Earclips.jpg?width=1600",
+   "pageUrl": "https://www.koss.com/products/ksc75",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "koss",
+   "model": "Koss Porta Pro",
+   "key": "koss-porta-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0525/9608/0813/products/Koss-Porta-Pro-Classic-On-Ear-Headphones_6.jpg?width=1600",
+   "pageUrl": "https://www.koss.com/products/porta-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "kz",
+   "model": "KZ EDX Pro",
+   "key": "kz-edx-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0556/9055/9661/products/08_3f723aeb-ec7a-4a13-8a83-f63d00646483.jpg?width=1600",
+   "pageUrl": "https://kztws.com/products/edx-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 4)"
+  },
+  {
+   "vendor": "kz",
+   "model": "KZ ZEX Pro",
+   "key": "kz-zex-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0556/9055/9661/products/7_aac0bd66-fe80-482a-ab0c-dbc6707d8d23.jpg?width=1600",
+   "pageUrl": "https://kztws.com/products/kz-zex-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "kz",
+   "model": "KZ ZS10 Pro",
+   "key": "kz-zs10-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/products/3_902aada7-1bb6-4e80-8343-86ad235aed95.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/kz-zs10-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "kz",
+   "model": "KZ ZSN Pro X",
+   "key": "kz-zsn-pro-x",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0556/9055/9661/products/01.jpg?width=1600",
+   "pageUrl": "https://kztws.com/products/zsn-pro-x",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
    "vendor": "lamzu",
    "model": "Lamzu Atlantis",
    "key": "lamzu-atlantis",
@@ -3171,6 +4281,46 @@
   },
   {
    "vendor": "lg",
+   "model": "LG UltraGear 24GN600",
+   "key": "lg-24gn600",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/9ec8bea4-cd6f-449d-b619-452b67a036a1/md07518647-zoom-02-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-24gn600-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
+   "model": "LG UltraGear 27GL850",
+   "key": "lg-27gl850",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/20e47419-f7d2-4e96-b6e8-cda6e902f3c4/md06064916-zoom-03-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-27gl850-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
+   "model": "LG UltraGear 27GN800",
+   "key": "lg-27gn800",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/04e1c20f-d754-4533-9dcc-f157c4e694a4/md07517855-zoom-03-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-27gn800-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
+   "model": "LG UltraGear 27GN950",
+   "key": "lg-27gn950",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/912f6472-4da4-4acc-949d-a98c8a92e8b7/md07500042-zoom-03-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-27gn950-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
    "model": "LG UltraGear 27GP850",
    "key": "lg-27gp850",
    "ids": [],
@@ -3181,13 +4331,33 @@
   },
   {
    "vendor": "lg",
+   "model": "LG UltraGear 27GP950",
+   "key": "lg-27gp950",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/e1ec300d-b08f-43bc-880c-35c87a6ecd6f/md08000330-large03-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-27gp950-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
+   "model": "LG UltraGear 27GR75Q",
+   "key": "lg-27gr75q",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/a6107326-b549-4a3b-b3cc-69c949d467aa/27GR75Q-B-AUS_gallery_02_3000x3000",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-27gr75q-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
    "model": "LG UltraGear 27GR95QE",
    "key": "lg-27gr95qe",
    "ids": [],
    "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/5a674e43-680c-4027-933c-bd71ee8d94ac/Monitor_27GR95QE-B_gallery_02_5000x5000",
    "pageUrl": "https://www.lg.com/us/monitors/lg-27gr95qe-b-gaming-monitor",
-   "fetched": "2026-10-16",
-   "how": "maker's own site (image 4)"
+   "fetched": "2026-10-17",
+   "how": "maker's own site (image 4); cut again (image 1); cut again (image 1)"
   },
   {
    "vendor": "lg",
@@ -3196,8 +4366,8 @@
    "ids": [],
    "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/7c0ede6c-d409-45fe-a79f-7145c930684e/Monitor_27GS95QE-B_gallery_04_5804x4354",
    "pageUrl": "https://www.lg.com/us/monitors/lg-27gs95qe-b-gaming-monitor",
-   "fetched": "2026-10-16",
-   "how": "maker's own site (image 6)"
+   "fetched": "2026-10-17",
+   "how": "maker's own site (image 6); cut again (image 1); cut again (image 1)"
   },
   {
    "vendor": "lg",
@@ -3210,6 +4380,26 @@
    "how": "maker's own site (image 6)"
   },
   {
+   "vendor": "lg",
+   "model": "LG UltraGear 34GP83A",
+   "key": "lg-34gp83a",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/1b4d4302-8fa3-4287-b304-f6cc06a7e979/md07515480-zoom-03-jpg",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-34gp83a-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "lg",
+   "model": "LG UltraGear 45GR95QE",
+   "key": "lg-45gr95qe",
+   "ids": [],
+   "sourceUrl": "https://media.us.lg.com/transform/ecomm-PDPGallery-1100x730/b2149cef-b33e-445d-b1d1-e3036efbe0db/md08003490-DZ-1",
+   "pageUrl": "https://www.lg.com/us/monitors/lg-45gr95qe-b-gaming-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
    "vendor": "logitech",
    "model": "Logitech BRIO",
    "key": "logitech-brio",
@@ -3220,6 +4410,26 @@
    "pageUrl": "https://www.logitech.com/en-us/shop/p/brio-4k-hdr-webcam",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "Logitech Brio 100",
+   "key": "logitech-brio-100",
+   "ids": [],
+   "sourceUrl": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-100/gallery/brio-100-gallery-graphite-1.png",
+   "pageUrl": "https://www.logitech.com/en-us/products/webcams/brio-100-webcam.960-001616.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "Logitech Brio 300",
+   "key": "logitech-brio-300",
+   "ids": [],
+   "sourceUrl": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-300/gallery/brio-300-gallery-graphite-1.png",
+   "pageUrl": "https://www.logitech.com/en-us/products/webcams/brio-300-webcam.960-001413.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "logitech",
@@ -3257,6 +4467,16 @@
   },
   {
    "vendor": "logitech",
+   "model": "Logitech C505",
+   "key": "logitech-c505",
+   "ids": [],
+   "sourceUrl": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c505/gallery/c505-gallery-1.png",
+   "pageUrl": "https://www.logitech.com/en-us/products/webcams/c505-hd-webcam.960-001363.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "logitech",
    "model": "Logitech C615 HD Webcam",
    "key": "logitech-c615",
    "ids": [
@@ -3281,6 +4501,16 @@
   },
   {
    "vendor": "logitech",
+   "model": "Logitech C920e",
+   "key": "logitech-c920e",
+   "ids": [],
+   "sourceUrl": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c920e/gallery/gallery-1-taa.png",
+   "pageUrl": "https://www.logitech.com/en-us/products/webcams/c920e-business-webcam.960-001360.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
+  },
+  {
+   "vendor": "logitech",
    "model": "Logitech C922 Pro Stream Webcam",
    "key": "logitech-c922",
    "ids": [
@@ -3302,6 +4532,16 @@
    "pageUrl": "https://www.logitech.com/en-us/shop/p/c925e-business-webcam",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 2)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "Logitech C930e",
+   "key": "logitech-c930e",
+   "ids": [],
+   "sourceUrl": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/video-conferencing/c930e/gallery/c930e-gallery-1.png",
+   "pageUrl": "https://www.logitech.com/en-us/products/webcams/c930e-business-webcam.960-000971.html",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "logitech",
@@ -3374,6 +4614,16 @@
    "pageUrl": null,
    "fetched": "2026-10-14",
    "how": "G HUB depot pro_wireless_mouse_depot / pro_wireless_mouse (front_black.png)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "Logitech G PRO X Headset",
+   "key": "logitech-g-pro-x-headset",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/pro-x/pro-headset-gallery-1.png",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "logitech",
@@ -3455,6 +4705,16 @@
   },
   {
    "vendor": "logitech",
+   "model": "Logitech G335",
+   "key": "logitech-g335",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/g335/g335-black-gallery-1.png",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "logitech",
    "model": "G402 Hyperion Fury",
    "key": "logitech-g402",
    "ids": [
@@ -3496,6 +4756,16 @@
    "pageUrl": null,
    "fetched": "2026-10-14",
    "how": "G HUB depot g413_international_2 / g413 (front.png)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "Logitech G432",
+   "key": "logitech-g432",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/g432/2025/g432-3qtr-front-left-angle-gallery-1.png",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "logitech",
@@ -3669,6 +4939,30 @@
   },
   {
    "vendor": "logitech",
+   "model": "G633 Artemis Spectrum",
+   "key": "logitech-g633",
+   "ids": [
+    "046d:0a5c"
+   ],
+   "sourceUrl": "https://resource.logitechg.com/w_659,c_limit,f_auto,q_auto:best,f_auto,dpr_2.0/content/dam/gaming/en/products/g633/g633-hero.png?v=1",
+   "pageUrl": "https://web.archive.org/web/2/logitechg.com/en-us/products/gaming-audio/g633-7-1-surround-sound-gaming-headset.981-000586.html",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page as the Wayback Machine kept it (image 1)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "G635",
+   "key": "logitech-g635",
+   "ids": [
+    "046d:0a89"
+   ],
+   "sourceUrl": "https://resource.logitechg.com/e_trim/w_902,h_902,c_limit/c_lpad,ar_650:388,q_auto:best,f_auto,dpr_auto/content/dam/gaming/en/products/g635/g635-hero.png?v=1",
+   "pageUrl": "https://web.archive.org/web/2/logitechg.com/en-us/products/gaming-audio/g635-7-1-surround-sound-gaming-headset.981-000748.html",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page as the Wayback Machine kept it (image 1)"
+  },
+  {
+   "vendor": "logitech",
    "model": "G703 LIGHTSPEED",
    "key": "logitech-g703",
    "ids": [],
@@ -3790,6 +5084,30 @@
    "pageUrl": null,
    "fetched": "2026-10-14",
    "how": "G HUB depot g915_tkl_international_2 / g915_tkl (front.png)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "G933 Artemis Spectrum",
+   "key": "logitech-g933",
+   "ids": [
+    "046d:0a5b"
+   ],
+   "sourceUrl": "https://resource.logitechg.com/w_659,c_limit,f_auto,q_auto:best,f_auto,dpr_2.0/content/dam/gaming/en/products/g933/g933-hero-desktop.png?v=1",
+   "pageUrl": "https://web.archive.org/web/2/logitechg.com/en-us/products/gaming-audio/g933-7-1-surround-sound-gaming-headset.981-000585.html",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page as the Wayback Machine kept it (image 1)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "G935",
+   "key": "logitech-g935",
+   "ids": [
+    "046d:0a87"
+   ],
+   "sourceUrl": "https://resource.logitechg.com/e_trim/w_902,h_902,c_limit/c_lpad,ar_650:388,q_auto:best,f_auto,dpr_auto/content/dam/gaming/en/products/g935/g935-hero.png?v=1",
+   "pageUrl": "https://web.archive.org/web/2/logitechg.com/en-us/products/gaming-audio/g935-wireless-7-1-surround-sound-lightsync-gaming-headset.981-000742.html",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page as the Wayback Machine kept it (image 1)"
   },
   {
    "vendor": "logitech",
@@ -3948,6 +5266,26 @@
   },
   {
    "vendor": "logitech",
+   "model": "PRO X SUPERLIGHT 2",
+   "key": "logitech-pro-x-superlight-2",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2/new-gallery-assets-2025/pro-x-superlight-2-mice-top-angle-black-gallery-1.png",
+   "pageUrl": "https://www.logitechg.com/en-us/shop/p/pro-x2-superlight-wireless-mouse",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page, gallery render (image 1)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "PRO X SUPERLIGHT 2 DEX",
+   "key": "logitech-pro-x-superlight-2-dex",
+   "ids": [],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2-dex/gallery/new-gallery-assets-2025/pro-x-superlight-2-dex-mouse-top-angle-black-gallery-1.png",
+   "pageUrl": "https://www.logitechg.com/en-us/shop/p/pro-x-superlight-2-dex",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page, gallery render (image 1)"
+  },
+  {
+   "vendor": "logitech",
    "model": "PRO X SUPERLIGHT 2c",
    "key": "logitech-pro-x-superlight-2c",
    "ids": [],
@@ -3965,6 +5303,20 @@
    "pageUrl": "https://www.logitechg.com/en-us/shop/p/pro-x-tkl-rapid",
    "fetched": "2026-10-14",
    "how": "logitechg.com product page, DAM gallery image (image 1)"
+  },
+  {
+   "vendor": "logitech",
+   "model": "PRO X Wireless",
+   "key": "logitech-pro-x-wireless",
+   "ids": [
+    "046d:0aa7",
+    "046d:0aaa",
+    "046d:0aba"
+   ],
+   "sourceUrl": "https://resource.logitechg.com/w_1600,c_limit,f_png/d_transparent.gif/content/dam/gaming/en/products/pro-wireless/pro-wireless-headset-gallery-1.png",
+   "pageUrl": "https://www.logitechg.com/en-us/shop/p/pro-x-wireless-headset",
+   "fetched": "2026-10-17",
+   "how": "logitechg.com product page, gallery render (image 1)"
   },
   {
    "vendor": "logitech",
@@ -4002,6 +5354,16 @@
    "pageUrl": "https://www.logitech.com/en-us/shop/p/streamcam",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "machenike",
+   "model": "Machenike G5 Pro",
+   "key": "machenike-g5-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0576/4110/7626/files/15_45de413e-6620-43a2-8115-2e97e8a2932a.jpg?width=1600",
+   "pageUrl": "https://global.machenike.com/products/g5pro",
+   "fetched": "2026-10-17",
+   "how": "global.machenike.com (Machenike's own store) (picture picked by eye)"
   },
   {
    "vendor": "madlions",
@@ -4168,13 +5530,33 @@
    "how": "mchose.store product 'MCHOSE Mix 87 Hall Effect Magnetic Switch Gaming Keyboard' (image 2)"
   },
   {
+   "vendor": "meze",
+   "model": "Meze 109 Pro",
+   "key": "meze-109-pro",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/Meze109Pro31024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/meze-audio-109-pro-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "meze",
+   "model": "Meze 99 Classics",
+   "key": "meze-99-classics",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/Meze_99_Classics_Walnut_Gold_1024x1024_4fcaa3ea-6a7a-4502-9140-07dc934225b1.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/meze-99-classics-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
    "vendor": "microsoft",
    "model": "Microsoft LifeCam HD-3000",
    "key": "microsoft-lifecam-hd-3000",
    "ids": [],
    "sourceUrl": "https://web.archive.org/web/20171120154450im_/http://compass.microsoft.com/assets/9d/f7/9df705ea-d77e-4731-b420-04da2841d711.jpg?n=ic_hd3000v2_large.jpg",
    "pageUrl": "https://www.microsoft.com/accessories/en-us/products/webcams/lifecam-hd-3000/t3h-00011",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of microsoft.com/accessories/en-us/products/webcams/lifecam-hd-3000/t3h-0 (image 4)"
   },
   {
@@ -4186,7 +5568,7 @@
    ],
    "sourceUrl": "https://web.archive.org/web/20171120154450im_/http://compass.microsoft.com/assets/13/27/13272c03-620e-4156-84d8-a0cd472fbd43.jpg?n=ic_lcstv2_otherviews01.jpg",
    "pageUrl": "https://www.microsoft.com/accessories/en-us/products/webcams/lifecam-studio/q2f-00013",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of microsoft.com/accessories/en-us/products/webcams/lifecam-studio/q2f-00 (image 1)"
   },
   {
@@ -4201,6 +5583,42 @@
    "pageUrl": "https://www.microsoft.com/en-au/d/microsoft-pro-intellimouse/8rs0hww7dhnk/2mnz",
    "fetched": "2026-10-14",
    "how": "retailer listing www.microsoft.com (image 1)"
+  },
+  {
+   "vendor": "microsoft",
+   "model": "Xbox 360 Controller",
+   "key": "microsoft-xbox-360-controller",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20150310001853im_/http://compass.xbox.com/assets/2c/45/2c45a7d0-3adb-4f80-8685-6a6ed7715c22.jpg?n=wireless-controller_accessories_xbox360_hero_960x450.jpg",
+   "pageUrl": "https://web.archive.org/web/2/xbox.com/en-US/xbox-360/accessories/controllers/wireless-controller",
+   "fetched": "2026-10-17",
+   "how": "xbox.com product page as the Wayback Machine kept it (picture picked by eye)"
+  },
+  {
+   "vendor": "microsoft",
+   "model": "Xbox Adaptive Controller",
+   "key": "microsoft-xbox-adaptive-controller",
+   "ids": [
+    "045e:0b0a",
+    "045e:0b0c",
+    "045e:0b21"
+   ],
+   "sourceUrl": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-Xbox-Z-BuyBoxImage-b00?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.microsoft.com/en-us/d/xbox-adaptive-controller/8NSDBHZ1N3D8",
+   "fetched": "2026-10-17",
+   "how": "microsoft.com store (Microsoft's own renders) (picture picked by eye)"
+  },
+  {
+   "vendor": "microsoft",
+   "model": "Xbox Elite Wireless Controller",
+   "key": "microsoft-xbox-elite-controller",
+   "ids": [
+    "045e:02e3"
+   ],
+   "sourceUrl": "https://web.archive.org/web/20150617052358im_/http://compass.xbox.com/assets/c6/b6/c6b63aaa-7205-4717-9636-8067d38d0559.jpg?n=xbox-one-elite-controller_hardware_performance_959x502.jpg",
+   "pageUrl": "https://web.archive.org/web/2/xbox.com/en-US/xbox-one/accessories/controllers/elite-wireless-controller",
+   "fetched": "2026-10-17",
+   "how": "xbox.com product page as the Wayback Machine kept it (picture picked by eye)"
   },
   {
    "vendor": "microsoft",
@@ -4364,13 +5782,143 @@
    "how": "https://www.monsgeek.com product 'Verve68 HE' (image 1)"
   },
   {
+   "vendor": "moondrop",
+   "model": "Moondrop Aria",
+   "key": "moondrop-aria",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-moondrop-earphone-in-ear-monitor-iem-moondrop-aria-iems-apos-certified-36370146525420.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/apos-certified-moondrop-aria-iems",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Aria 2",
+   "key": "moondrop-aria-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/PHI_5184.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/moondrop-aria2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Blessing 2",
+   "key": "moondrop-blessing-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-moondrop-earphone-in-ear-monitor-iem-moondrop-blessing-2-in-ear-monitor-apos-certified-28256735592619.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/apos-certified-moondrop-blessing-2-in-ear-monitor-iem-earphone",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Blessing 3",
+   "key": "moondrop-blessing-3",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/MoondropBlessing3.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/moondrop-blessing-3-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Chu",
+   "key": "moondrop-chu",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0031/0453/8673/products/moondrop-chu-entry-level-wired-dynamic-iem-hifigo-754698.jpg?width=1600",
+   "pageUrl": "https://hifigo.com/products/moondrop-chu",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Chu 2",
+   "key": "moondrop-chu-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0031/0453/8673/products/moondrop-chuii-chu2-dynamic-driver-in-ear-headphone-hifigo-881554.jpg?width=1600",
+   "pageUrl": "https://hifigo.com/products/moondrop-chu2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 8)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Kato",
+   "key": "moondrop-kato",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/MoondropKato2.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/moondrop-kato-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop LAN",
+   "key": "moondrop-lan",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/products/38af877304487f3eb29b6750f443f335_f9b7ad7e-6bd3-4a92-8969-88f55c3dcc6a_2048x2048copy.jpg?width=1600",
+   "pageUrl": "https://audio46.com/products/moondrop-lan-earphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop May",
+   "key": "moondrop-may",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/1_2b08ef7a-ceb3-450c-9a11-764e8d8777bb.png?width=1600",
+   "pageUrl": "https://audio46.com/products/moondrop-may-usb-c-dsp-in-ear-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Para",
+   "key": "moondrop-para",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/MoondropPara11024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/moondrop-para-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Starfield",
+   "key": "moondrop-starfield",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0225/2721/3642/products/apos-audio-moondrop-earphone-in-ear-monitor-iem-moondrop-starfield-in-ear-monitor-iem-earphone-apos-certified-30348434571435.jpg?width=1600",
+   "pageUrl": "https://apos.audio/products/apos-certified-moondrop-starfield-in-ear-monitor-iem-earphone",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Starfield 2",
+   "key": "moondrop-starfield-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/PHI_0752.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/moondrop-starfield-2",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "moondrop",
+   "model": "Moondrop Variations",
+   "key": "moondrop-variations",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/MoondropVariations1024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/moondrop-variations-tribrid-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
    "vendor": "msi",
    "model": "MSI MAG 271QPX QD-OLED",
    "key": "msi-mag-271qpx",
    "ids": [],
    "sourceUrl": "https://asset.msi.com/resize/image/global/product/product_17041876054de2be15ab85adddaebf5af010c3eb55.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
    "pageUrl": "https://www.msi.com/Monitor/MAG-271QPX-QD-OLED",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of msi.com/Monitor/MAG-271QPX-QD-OLED (image 4)"
   },
   {
@@ -4380,7 +5928,7 @@
    "ids": [],
    "sourceUrl": "https://asset.msi.com/resize/image/global/product/product_16988250589c864cb898e551b20af436c3a01cb8be.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
    "pageUrl": "https://www.msi.com/Monitor/MAG-274QRF-QD-E2/Gallery",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of msi.com/Monitor/MAG-274QRF-QD-E2/Gallery (image 4)"
   },
   {
@@ -4390,7 +5938,7 @@
    "ids": [],
    "sourceUrl": "https://asset.msi.com/resize/image/global/product/product_17037405166f60787ea8d50ee7714c6530aa84586a.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
    "pageUrl": "https://www.msi.com/Monitor/MPG-321URX-QD-OLED/Gallery",
-   "fetched": "2026-10-16",
+   "fetched": "2026-10-17",
    "how": "web.archive.org snapshot of msi.com/Monitor/MPG-321URX-QD-OLED/Gallery (image 3)"
   },
   {
@@ -4432,6 +5980,36 @@
    "pageUrl": "https://www.nacongaming.com/en-US/revolution-x-pro-controller",
    "fetched": "2026-10-15",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "nanoleaf",
+   "model": "Nanoleaf Canvas",
+   "key": "nanoleaf-canvas",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20201025054354im_/https://us-media.nanoleaf.me/assets/img/menu/NavCanvas@2x.png",
+   "pageUrl": "https://web.archive.org/web/2/nanoleaf.me/en-US/products/nanoleaf-canvas/",
+   "fetched": "2026-10-17",
+   "how": "nanoleaf.me as the Wayback Machine kept it (picture picked by eye)"
+  },
+  {
+   "vendor": "nanoleaf",
+   "model": "Nanoleaf Elements Hexagons",
+   "key": "nanoleaf-elements",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0712/9114/2378/files/nl-us-4-floating-nanoleaf-wood-hexagons-light-panels-smarter-starter-kit-7-product_1x_30a5c8f0-bb7d-43f6-af9a-095d4593ffed.png?width=1600",
+   "pageUrl": "https://nanoleaf.me/products/nanoleaf-elements",
+   "fetched": "2026-10-17",
+   "how": "nanoleaf.me (Nanoleaf's own store) (image 1)"
+  },
+  {
+   "vendor": "nanoleaf",
+   "model": "Nanoleaf Light Panels (Aurora)",
+   "key": "nanoleaf-light-panels",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20210324031119im_/https://us-media.nanoleaf.me/assets/img/products/light-panels/owl/shop-lp-91@1x.jpg",
+   "pageUrl": "https://web.archive.org/web/2/nanoleaf.me/en-US/products/nanoleaf-light-panels/",
+   "fetched": "2026-10-17",
+   "how": "nanoleaf.me as the Wayback Machine kept it (picture picked by eye)"
   },
   {
    "vendor": "nanoleaf",
@@ -4808,6 +6386,21 @@
    "how": "pay.nuphy.com product 'NuPhy WH80 Gaming Keyboard' (image 1)"
   },
   {
+   "vendor": "nzxt",
+   "model": "NZXT RGB & Fan Controller",
+   "key": "nzxt-rgb-and-fan-controller",
+   "ids": [
+    "1e71:2011",
+    "1e71:2019",
+    "1e71:201f",
+    "1e71:2020"
+   ],
+   "sourceUrl": "http://nzxt.com/cdn/shop/files/accessories_rgb-controller-v2_retail_hero_png_clear_background.png?v=1744985517&width=2048",
+   "pageUrl": "https://web.archive.org/web/2/nzxt.com/products/rgb-and-fan-controller",
+   "fetched": "2026-10-17",
+   "how": "nzxt.com product page as the Wayback Machine kept it (image 1)"
+  },
+  {
    "vendor": "obsbot",
    "model": "OBSBOT Tiny 2",
    "key": "obsbot-tiny-2",
@@ -4816,6 +6409,16 @@
    "pageUrl": "https://www.obsbot.com/obsbot-tiny-2-4k-webcam",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 16)"
+  },
+  {
+   "vendor": "obsbot",
+   "model": "OBSBOT Tiny 2 Lite",
+   "key": "obsbot-tiny-2-lite",
+   "ids": [],
+   "sourceUrl": "https://resource-media.obsbothk.com/image/default/5F53DF13250D48359C02D8F035CFECF0-6-2.png",
+   "pageUrl": "https://www.obsbot.com/obsbot-tiny-2-lite-4k-webcam",
+   "fetched": "2026-10-17",
+   "how": "maker's own site (picture picked by eye)"
   },
   {
    "vendor": "orbital",
@@ -4828,6 +6431,36 @@
    "pageUrl": "https://mouselog.jp/en/products/Orbital-Works-Pathfinder-Modular-Wireless-Gaming-Mouse-Black",
    "fetched": "2026-10-14",
    "how": "mouselog.jp product database picture ('Orbital-Works-Pathfinder-Modular-Wireless-Gaming-Mouse-Black') (image 1)"
+  },
+  {
+   "vendor": "philips",
+   "model": "Philips Fidelio X2HR",
+   "key": "philips-fidelio-x2hr",
+   "ids": [],
+   "sourceUrl": "https://images.philips.com/is/image/philipsconsumer/bea8fe94a77e43138519b0bf010c6901?$png$&wid=1200&hei=630",
+   "pageUrl": "https://www.philips.co.uk/c-p/X2HR_00/fidelio-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "philips",
+   "model": "Philips SHP9500",
+   "key": "philips-shp9500",
+   "ids": [],
+   "sourceUrl": "https://images.philips.com/is/image/philipsconsumer/d9c5751249db420b88b5b0c2004b8870?$png$&wid=1200&hei=630",
+   "pageUrl": "https://www.usa.philips.com/c-p/SHP9500_00/wired-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue Bloom",
+   "key": "philips-hue-bloom",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/929002376501_p2-APP?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-bloom-table-lamp/046677560188",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
   },
   {
    "vendor": "philips-hue",
@@ -4851,6 +6484,26 @@
   },
   {
    "vendor": "philips-hue",
+   "model": "Philips Hue White and Color Ambiance Candle",
+   "key": "philips-hue-color-candle",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/046677556969-929002294102-Hue_WCA-B39-E12-US-1P-RTP-TRN?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-candle-e12-smart-bulb/046677556969",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue White Filament Bulb",
+   "key": "philips-hue-filament-bulb",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/046677571122-929003051801-Hue_W-7W-Fil-ST19-E26-US-RTP?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-filament-st19-edison-e26-smart-bulb/046677571122",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
    "model": "Philips Hue Flux Strip Light",
    "key": "philips-hue-flux-strip",
    "ids": [],
@@ -4858,6 +6511,16 @@
    "pageUrl": "https://www.philips-hue.com/en-us",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue Go",
+   "key": "philips-hue-go",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/7602031U7_p0-RTP?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-go-portable-accent-light/7602031U7",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
   },
   {
    "vendor": "philips-hue",
@@ -4871,6 +6534,26 @@
   },
   {
    "vendor": "philips-hue",
+   "model": "Philips Hue Iris",
+   "key": "philips-hue-iris",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/929002376101_8719514264465_p0_RTP?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-iris-table-lamp/046677561796",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue Play Light Bar",
+   "key": "philips-hue-play",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/7820130U7-Carousel-MainProduct-RTP-01?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-play-light-bar-single-pack/7820130U7",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
    "model": "Philips Hue Play Gradient Light Tube",
    "key": "philips-hue-play-gradient-light-tube",
    "ids": [],
@@ -4878,6 +6561,46 @@
    "pageUrl": "https://www.philips-hue.com/en-us",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue Play Gradient Lightstrip",
+   "key": "philips-hue-play-gradient-lightstrip",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/Hue_Play_gradient_lightstrip_tv_p0-RTP_on_TRN?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-play-gradient-lightstrip-65-inch/046677560416",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue Signe Gradient Floor Lamp",
+   "key": "philips-hue-signe-gradient-floor",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/046677803490-915005987401-Hue_Gradient-Signe-table-black-NAM-RTP-TRN?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-signe-gradient-floor-lamp/046677803506",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 8)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue White A19",
+   "key": "philips-hue-white-a19",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/046677591205-929003856401-Hue-W-1100-A19-E26-1P-NAM-RTP?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-75w-a19-e26-smart-bulb/046677591205",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
+  },
+  {
+   "vendor": "philips-hue",
+   "model": "Philips Hue White Ambiance A19",
+   "key": "philips-hue-white-ambiance-a19",
+   "ids": [],
+   "sourceUrl": "https://www.assets.signify.com/is/image/Signify/046677549602-929002226703-Hue_WA-7_5W-A19-E26-CA-RTP-TRN?wid=1600&hei=1600&fmt=png-alpha",
+   "pageUrl": "https://www.philips-hue.com/en-us/p/hue-white-ambiance-a19-e26-smart-bulb-60-w/046677549602",
+   "fetched": "2026-10-17",
+   "how": "philips-hue.com (Signify's image server) (image 1)"
   },
   {
    "vendor": "powera",
@@ -5218,6 +6941,36 @@
    "pageUrl": "https://web.archive.org/web/20230830092153/https://www.razer.com/gaming-mice/razer-basilisk-x-hyperspeed",
    "fetched": "2026-10-14",
    "how": "razer.com product page 'razer-basilisk-x-hyperspeed', archived 20230830092153 (image 1)"
+  },
+  {
+   "vendor": "razer",
+   "model": "Razer BlackShark V2 HyperSpeed",
+   "key": "razer-blackshark-v2-hyperspeed",
+   "ids": [],
+   "sourceUrl": "https://assets2.razerzone.com/images/pnx.assets/16eac26cd230ce343f56af70ec49626a/razer-blackshark-v2-hyperspeed-black-500x500.webp",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "razer",
+   "model": "Razer BlackShark V2 Pro (2023)",
+   "key": "razer-blackshark-v2-pro-2023",
+   "ids": [],
+   "sourceUrl": "https://assets2.razerzone.com/images/pnx.assets/16eac26cd230ce343f56af70ec49626a/razer-blackshark-v2-pro-black-2023-500x500.webp",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "razer",
+   "model": "Razer BlackShark V2 X",
+   "key": "razer-blackshark-v2-x",
+   "ids": [],
+   "sourceUrl": "https://assets2.razerzone.com/images/pnx.assets/16eac26cd230ce343f56af70ec49626a/razer-blackshark-v2-x-black-500x500.webp",
+   "pageUrl": null,
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "razer",
@@ -6437,6 +8190,16 @@
   },
   {
    "vendor": "samsung",
+   "model": "Samsung Galaxy Buds3 Pro",
+   "key": "samsung-galaxy-buds3-pro",
+   "ids": [],
+   "sourceUrl": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-r630nzwaxar/gallery/us-galaxy-buds3-pro-r630-sm-r630nzwaxar-549769886?wid=1200&hei=1200&fmt=png-alpha",
+   "pageUrl": "https://www.samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/",
+   "fetched": "2026-10-17",
+   "how": "Samsung's image server (the gallery picture samsung.com's archived product page names) (image 1)"
+  },
+  {
+   "vendor": "samsung",
    "model": "Samsung Odyssey G7 (G70D)",
    "key": "samsung-odyssey-g7-g70d",
    "ids": [],
@@ -6565,6 +8328,186 @@
    "how": "maker's own site (image 1)"
   },
   {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 560S",
+   "key": "sennheiser-hd-560s",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/722e5a50-e5e6-4cae-a2ab-4d6617f2345f_008b0912-c796-4d8b-a4ca-3b69f6547cb6.png?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd-560s",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 599",
+   "key": "sennheiser-hd-599",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserHD5991024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd-599-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 600",
+   "key": "sennheiser-hd-600",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserHD6001024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd-600-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 650",
+   "key": "sennheiser-hd-650",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserHD65081024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd-650-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 660 S",
+   "key": "sennheiser-hd-660-s",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/71L_UZIY1iL._AC_SL1312_e500c8f1-e7e3-4758-a1a3-b1eb05288bf8.jpg?width=1600",
+   "pageUrl": "https://audio46.com/products/sennheiser-hd-660-s-audiophile-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 660S2",
+   "key": "sennheiser-hd-660s2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserHD660S21024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd660s2-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser HD 800 S",
+   "key": "sennheiser-hd-800-s",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/5bcd13c5-0301-4520-9fa4-22a7e2f10ee2_c6082a11-05b9-45a8-86ec-844fa1953cfc.png?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-hd-800-s-dynamic-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser IE 200",
+   "key": "sennheiser-ie-200",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/ezgif.com-gif-maker_15.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-ie200-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser IE 300",
+   "key": "sennheiser-ie-300",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0781/7248/7963/files/10270598005066_-_pdp_img_text_-_image_541c05f3-43b1-4412-bae7-a4e49870e090.jpg?width=1600",
+   "pageUrl": "https://us.sennheiser-hearing.com/products/ie-300",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser IE 600",
+   "key": "sennheiser-ie-600",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserIE60041024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-ie600-in-ear-monitor-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser IE 900",
+   "key": "sennheiser-ie-900",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/products/SennheiserIE9001024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sennheiser-ie-900-in-ear-monitor-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser Momentum 4 Wireless",
+   "key": "sennheiser-momentum-4-wireless",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0781/7248/7963/files/m4_black_1f66f79f-ba4a-4564-a43c-84fd586cc377.jpg?width=1600",
+   "pageUrl": "https://us.sennheiser-hearing.com/products/momentum-4-wireless-sonova-employee",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "sennheiser",
+   "model": "Sennheiser Momentum True Wireless 3",
+   "key": "sennheiser-momentum-true-wireless-3",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0781/7248/7963/files/eyJwYXRoIjoic29ub3ZhXC9hY2NvdW50c1wvMmZcLzQwMDExNjhcL3Byb2plY3RzXC8xMlwvYXNzZXRzXC9lYVwvMTAxOTdcLzU5YzExNjJiMTA2MTc2YTk2ZjIxNTAyN2JjZTZiOGVjLTE2NDUzNDc0NjguanBnIn0_sonova_BE15uOSRA0aZ.jpg?width=1600",
+   "pageUrl": "https://us.sennheiser-hearing.com/products/momentum-true-wireless-3",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "shure",
+   "model": "Shure AONIC 50",
+   "key": "shure-aonic-50",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Shure-AONIC-50-1160-1160-Brown.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/shure-aonic-50",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "simgot",
+   "model": "Simgot EA1000",
+   "key": "simgot-ea1000",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/203A2247.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/simgot-ea1000-fermat",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "simgot",
+   "model": "Simgot EA500LM",
+   "key": "simgot-ea500lm",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/IMG_0043.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/simgot-ea500-lm",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
+   "vendor": "simgot",
+   "model": "Simgot EW200",
+   "key": "simgot-ew200",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0040/7201/3924/files/IMG_0578.jpg?width=1600",
+   "pageUrl": "https://linsoul.com/products/simgot-ew200",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "61KEY-CZ Gaming Keyboard",
+   "key": "sonix-61key-cz",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/61KEY-CZ.4004335.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
    "vendor": "sonix",
    "model": "Attack Shark X85",
    "key": "sonix-attack-shark-x85",
@@ -6578,6 +8521,206 @@
   },
   {
    "vendor": "sonix",
+   "model": "CZ-206",
+   "key": "sonix-cz-206",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/CZ-206.790b4c1.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "EWEADN ZAP68 HE",
+   "key": "sonix-eweadn-zap68",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0655/3917/8649/files/EWEADN_ZAP68_SKU_Black.png?width=1600",
+   "pageUrl": "https://eweadn.com/products/eweadn-zap68-he-magnetic-switch-keyboard",
+   "fetched": "2026-10-17",
+   "how": "eweadn.com (EWEADN's own store) (picture picked by eye)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "GS3068",
+   "key": "sonix-gs3068",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/GS3068-MAG.03c3fb5.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "HK8301G",
+   "key": "sonix-hk8301g",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/HK8301G.edec849.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "KB-820C",
+   "key": "sonix-kb-820c",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/820C.0269d08.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "KX68HE",
+   "key": "sonix-kx68he",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/KX68HE.87ce685.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Looting60 Pro",
+   "key": "sonix-looting60-pro",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/looting60.5314603.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Looting63",
+   "key": "sonix-looting63",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/looting63.4069128.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Looting66 Pro",
+   "key": "sonix-looting66-pro",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/looting66pro.b51bb03.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Looting68 Pro",
+   "key": "sonix-looting68-pro",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/looting68.7d1fe2e.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Looting75 Pro",
+   "key": "sonix-looting75-pro",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/looting75pro.05f513f.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Luminor 68",
+   "key": "sonix-luminor-68",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/USBKeyboard.70f21a5.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "MC68",
+   "key": "sonix-mc68",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/GamingKeyboard.0c9033c.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "MINI 60 HE",
+   "key": "sonix-mini-60-he",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/2860.e551371.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "MK75 Keyboard",
+   "key": "sonix-mk75",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/MK75Keyboard.091ae25.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Onikuma G67",
+   "key": "sonix-onikuma-g67",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0112/1203/0016/files/1688-1_6913d94c-fce5-44ec-bc32-e2aaaa9e3466.jpg?width=1600",
+   "pageUrl": "https://onikuma.com/products/onikuma-g67-rapid-trigger-keyboard-60-percent-hall-effect-topographic-gaming-keyboard-wired-rgb-custom-mechanical-key-board-with-magnetic-switch",
+   "fetched": "2026-10-17",
+   "how": "onikuma.com (Onikuma's own store) (picture picked by eye)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "QSENN DT35",
+   "key": "sonix-qsenn-dt35",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/dt35.dfe14cf.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Red Star 980",
+   "key": "sonix-red-star-980",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/red_star_980.1d0407e.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "RK739",
+   "key": "sonix-rk739",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/rk762.25c0457.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "SI-2810 (A80)",
+   "key": "sonix-si-2810",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/SI-2810.2c77b43.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
    "model": "Skyloong GK68",
    "key": "sonix-skyloong-gk68",
    "ids": [],
@@ -6585,6 +8728,36 @@
    "pageUrl": "https://whatgeek.com/products/skyloong-gk68-he-gaming-keyboard",
    "fetched": "2026-10-14",
    "how": "retailer listing whatgeek.com (image 3)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "STAR75-MAG",
+   "key": "sonix-star75-mag",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/STAR75.3bfe08c.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Sunny75",
+   "key": "sonix-sunny75",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/sunny75.8f91e5b.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
+  },
+  {
+   "vendor": "sonix",
+   "model": "Sunny80 HE",
+   "key": "sonix-sunny80-he",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/sunny80he.d682864.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
   },
   {
    "vendor": "sonix",
@@ -6604,7 +8777,17 @@
    "sourceUrl": "https://cdn.shopify.com/s/files/1/0653/5875/8141/files/VTER_Fighting68_Wired_Gaming_Keyboard_8.jpg",
    "pageUrl": "https://www.whatgeek.com/products/vter-fighting68-wired-gaming-keyboard",
    "fetched": "2026-10-14",
-   "how": "retailer listing www.whatgeek.com (image 1)"
+   "how": "retailer listing www.whatgeek.com (image 1) | also used for: STING68 LITE: the boards web driver (vter.driveall.cn) shows the Fighting68 picture for it"
+  },
+  {
+   "vendor": "sonix",
+   "model": "VTER Fighting98",
+   "key": "sonix-vter-fighting98",
+   "ids": [],
+   "sourceUrl": "https://vter.driveall.cn/static/img/98.a6d593d.png",
+   "pageUrl": "https://vter.driveall.cn/",
+   "fetched": "2026-10-17",
+   "how": "the boards' own web driver (vter.driveall.cn, the catalogue FCC reads), its picture for this board (image 1)"
   },
   {
    "vendor": "sonix",
@@ -6662,6 +8845,86 @@
    "pageUrl": "https://www.playstation.com/en-us/accessories/dualshock-4-wireless-controller/",
    "fetched": "2026-10-15",
    "how": "maker's own site (image 2)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony IER-Z1R",
+   "key": "sony-ier-z1r",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/files/Headphone-Zone-Sony-IER-Z1R-01.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/sony-ier-z1r",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony INZONE Buds",
+   "key": "sony-inzone-buds",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/117400_original_local_1200x1050_convertedcopy.jpg?width=1600",
+   "pageUrl": "https://audio46.com/products/sony-inzone-buds-true-wireless-noise-cancelling-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony INZONE H9",
+   "key": "sony-inzone-h9",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/Image_8ceaabc6-2e0b-4b16-97f9-00cfb21d2f46.png?width=1600",
+   "pageUrl": "https://audio46.com/products/sony-inzone-h9-ii-wireless-noise-cancelling-gaming-headset",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony MDR-7506",
+   "key": "sony-mdr-7506",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Sony-MDR-7506-Gallery-1160-1160-1.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/sony-mdr-7506",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony WF-1000XM4",
+   "key": "sony-wf-1000xm4",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0153/8863/products/Headphone-Zone-Sony-WF-1000XM4-Black-08.jpg?width=1600",
+   "pageUrl": "https://www.headphonezone.in/products/sony-wf-1000xm4",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony WF-1000XM5",
+   "key": "sony-wf-1000xm5",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/SonyWF-1000XM5Black31024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sony-wf-1000xm5-wireless-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony WH-1000XM4",
+   "key": "sony-wh-1000xm4",
+   "ids": [],
+   "sourceUrl": "https://web.archive.org/web/20250210043626im_/https://www.sony.com/image/5d02da5df552836db894cead8a68f5f3?fmt=png-alpha&wid=660&hei=660",
+   "pageUrl": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm4-b",
+   "fetched": "2026-10-17",
+   "how": "Sony's image server as the Wayback Machine kept it (the picture of electronics.sony.com's product page) (image 1)"
+  },
+  {
+   "vendor": "sony",
+   "model": "Sony WH-1000XM5",
+   "key": "sony-wh-1000xm5",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/SonyXM5Black41024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/sony-wh-1000xm5-wireless-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
   },
   {
    "vendor": "steelseries",
@@ -6942,6 +9205,16 @@
   },
   {
    "vendor": "steelseries",
+   "model": "SteelSeries Arctis Nova 1",
+   "key": "steelseries-arctis-nova-1",
+   "ids": [],
+   "sourceUrl": "https://images.ctfassets.net/hmm5mo4qf4mf/37kFAli2V9Edm3VAd1XJgd/4323fbba03cfc48ecd79f1d1e2f7eaf5/arctis_nova_1_black_pdp_img_buy_06.png__1920x1080_crop-fit_optimize_subsampling-2-118.png",
+   "pageUrl": "https://steelseries.com/gaming-headsets/arctis-nova-1",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "steelseries",
    "model": "SteelSeries Arctis Nova 7",
    "key": "steelseries-arctis-nova-7",
    "ids": [
@@ -7006,6 +9279,16 @@
    "pageUrl": "https://steelseries.com/gaming-headsets/arctis-nova-7",
    "fetched": "2026-10-16",
    "how": "maker's own site (image 6)"
+  },
+  {
+   "vendor": "steelseries",
+   "model": "SteelSeries Arctis Nova Pro",
+   "key": "steelseries-arctis-nova-pro",
+   "ids": [],
+   "sourceUrl": "https://images.ctfassets.net/hmm5mo4qf4mf/3U6wSp5Ic76AskJywgsMky/15ac4847d74656fcff2210e3269e2d74/imgbuy_arctis_nova_pro_black_4_xbox_v2.png__1920x1080_crop-fit_optimize_subsampling-2-248.png",
+   "pageUrl": "https://steelseries.com/gaming-headsets/arctis-nova-pro",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
   },
   {
    "vendor": "steelseries",
@@ -7111,6 +9394,26 @@
    "how": "maker's own site (image 1)"
   },
   {
+   "vendor": "tangzu",
+   "model": "TANGZU Wan'er S.G",
+   "key": "tangzu-wan-er-s-g",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0737/3275/1641/files/bf417e9c3990dd22846bac538def835.jpg?width=1600",
+   "pageUrl": "https://tangzu.net/products/tangzu-wan-er-sg-hifi-in-ear-new-10mm-dynamic-driver-earphone-iem-metal-composite-diaphragm-n52-magnet-0-78-2pin-angeldac-sales",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "tangzu",
+   "model": "TANGZU Zetian Wu",
+   "key": "tangzu-zetian-wu",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0737/3275/1641/files/20241221161319.jpg?width=1600",
+   "pageUrl": "https://tangzu.net/products/tangzu-wu-zetian-legend-edition-hifi-wired-headphones-dual-plane-14-2mm-6-2mm-0-78mm-detachable-cable",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
    "vendor": "teevolution",
    "model": "Teevolution Terra Pro",
    "key": "teevolution-terra-pro",
@@ -7124,6 +9427,46 @@
    "pageUrl": "https://openmouse.app",
    "fetched": "2026-10-14",
    "how": "OpenMouse device image store (img.openmouse.app)"
+  },
+  {
+   "vendor": "thieaudio",
+   "model": "ThieAudio Hype 2",
+   "key": "thieaudio-hype-2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/files/IMG_1520.png?width=1600",
+   "pageUrl": "https://audio46.com/products/thieaudio-hype-2-universal-in-ear-monitor",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "thieaudio",
+   "model": "ThieAudio Monarch MKII",
+   "key": "thieaudio-monarch-mkii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0549/9243/7363/products/ThieaudioMonarchMKII-4.jpg?width=1600",
+   "pageUrl": "https://thieaudio.com/products/thieaudio-monarch-mkii",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "thieaudio",
+   "model": "ThieAudio Monarch MKIII",
+   "key": "thieaudio-monarch-mkiii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0549/9243/7363/files/IMG_9035.jpg?width=1600",
+   "pageUrl": "https://thieaudio.com/products/thieaudio-monarch-mkiii",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 2)"
+  },
+  {
+   "vendor": "thieaudio",
+   "model": "ThieAudio Oracle MKII",
+   "key": "thieaudio-oracle-mkii",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0549/9243/7363/products/IMG_6294_1ef8e50e-ed09-4df8-9131-d9d46c944663.jpg?width=1600",
+   "pageUrl": "https://thieaudio.com/products/thieaudio-oracle-mkii",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
   },
   {
    "vendor": "thrustmaster",
@@ -7160,6 +9503,76 @@
    "pageUrl": "https://www.thrustmaster.com/en-us/products/eswap-x-pro-controller/",
    "fetched": "2026-10-15",
    "how": "maker's own site (image 4)"
+  },
+  {
+   "vendor": "tin-hifi",
+   "model": "Tin HiFi C3",
+   "key": "tin-hifi-c3",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0031/0453/8673/products/tinhifi-c3-lcp-superlinear-composite-diaphragm-in-ear-earphone-hifigo-938692.jpg?width=1600",
+   "pageUrl": "https://hifigo.com/products/tinhifi-c3-1",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 6)"
+  },
+  {
+   "vendor": "tin-hifi",
+   "model": "Tin HiFi T2",
+   "key": "tin-hifi-t2",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0065/4432/6771/products/TINHIFIT2_7_1024x1024_2204d889-d37a-44e6-b794-ca5134bae107.jpg?width=1600",
+   "pageUrl": "https://audio46.com/products/tinhifi-t2-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (picture picked by eye)"
+  },
+  {
+   "vendor": "tin-hifi",
+   "model": "Tin HiFi T3 Plus",
+   "key": "tin-hifi-t3-plus",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/0031/0453/8673/products/tinhifi-t3-plus-hifigo-593015.jpg?width=1600",
+   "pageUrl": "https://hifigo.com/products/tinhifi-t3-plus",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 4)"
+  },
+  {
+   "vendor": "truthear",
+   "model": "Truthear Hexa",
+   "key": "truthear-hexa",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/TruthearHexa1024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/truthear-hexa-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 1)"
+  },
+  {
+   "vendor": "truthear",
+   "model": "Truthear Nova",
+   "key": "truthear-nova",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/TruthearNova21024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/truthear-nova-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 3)"
+  },
+  {
+   "vendor": "truthear",
+   "model": "Truthear x Crinacle Zero",
+   "key": "truthear-x-crinacle-zero",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/TruthearZeroBlue41024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/truthear-x-crinacle-zero-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
+  },
+  {
+   "vendor": "truthear",
+   "model": "Truthear x Crinacle Zero RED",
+   "key": "truthear-x-crinacle-zero-red",
+   "ids": [],
+   "sourceUrl": "https://cdn.shopify.com/s/files/1/1791/0383/files/TruthearZeroRed31024x1024.jpg?width=1600",
+   "pageUrl": "https://headphones.com/products/truthear-x-crinacle-zero-red-in-ear-headphones",
+   "fetched": "2026-10-17",
+   "how": "maker's own store or an authorised dealer's listing (image 5)"
   },
   {
    "vendor": "turtle-beach",

@@ -26,13 +26,13 @@ export function StickView({ label, stick, trail, bins, raw, testId }: { label: s
         <path d="M80 10V150M10 80H150" stroke="rgb(255 255 255 / 0.06)" strokeWidth="1" />
         {poly && <polygon points={poly} fill="color-mix(in srgb, var(--primary) 8%, transparent)" stroke="color-mix(in srgb, var(--primary) 55%, transparent)" strokeWidth="1.2" />}
         {trail.length > 1 && (
-          <polyline points={trail.map((s) => at(s).join(",")).join(" ")} fill="none" stroke="rgb(231 231 239 / 0.25)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          <polyline points={trail.map((s) => at(s).join(",")).join(" ")} fill="none" stroke="rgb(240 235 230 / 0.25)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
         )}
         {stick && <circle cx={at(stick)[0]} cy={at(stick)[1]} r="6" fill="var(--primary)" className="drop-shadow-[0_0_6px_var(--primary)]" />}
       </svg>
       <figcaption className="text-center">
-        <p className="text-[12.5px] text-foreground">{label}</p>
-        <p className="tabular text-[11.5px] text-muted-foreground">
+        <p className="text-[12.5px] text-high">{label}</p>
+        <p className="tabular text-[11.5px] text-medium">
           {stick ? `${stick.x.toFixed(3)}, ${stick.y.toFixed(3)}` : "–"}
           {raw ? ` · raw ${raw.x}, ${raw.y}` : ""}
         </p>
@@ -46,8 +46,8 @@ export function TriggerBar({ label, value, raw, bits }: { label: string; value: 
   return (
     <div className="min-w-0 flex-1">
       <div className="flex items-baseline justify-between text-[12.5px]">
-        <span className="text-foreground">{label}</span>
-        <span className="tabular text-muted-foreground">
+        <span className="text-high">{label}</span>
+        <span className="tabular text-medium">
           {Math.round(value * 100)}%{raw !== undefined ? ` · ${raw}` : ""}
           {bits ? ` (${bits}-bit)` : ""}
         </span>
@@ -78,8 +78,8 @@ export function ButtonGrid({ state, style, seen }: { state: PadState | null; sty
           <span
             key={b}
             className={cn(
-              "inline-flex h-8 min-w-10 items-center justify-center rounded-lg px-2.5 text-[12px] ring-1 transition-colors duration-75",
-              on ? "bg-primary/25 text-foreground ring-primary/60" : seen.has(b) ? "bg-white/[0.05] text-foreground/80 ring-white/[0.12]" : "bg-white/[0.02] text-muted-foreground ring-white/[0.06]",
+              "inline-flex h-8 min-w-10 items-center justify-center rounded-small px-2.5 text-[12px] ring-1 transition-colors duration-75",
+              on ? "bg-primary/25 text-high ring-primary/60" : seen.has(b) ? "bg-white/[0.05] text-high ring-white/[0.12]" : "bg-white/[0.02] text-medium ring-white/[0.06]",
             )}
             title={seen.has(b) ? "Pressed at least once" : "Not pressed yet"}
           >
@@ -87,7 +87,7 @@ export function ButtonGrid({ state, style, seen }: { state: PadState | null; sty
           </span>
         );
       })}
-      {present.length === 0 && <span className="text-[12.5px] text-muted-foreground">Press any button.</span>}
+      {present.length === 0 && <span className="text-[12.5px] text-medium">Press any button.</span>}
     </div>
   );
 }
@@ -95,10 +95,10 @@ export function ButtonGrid({ state, style, seen }: { state: PadState | null; sty
 /** Three numbers in a row, one per axis. */
 export function AxisReadout({ label, unit, v }: { label: string; unit: string; v?: readonly [number, number, number] | null }) {
   return (
-    <div className="rounded-2xl bg-white/[0.025] px-4 py-3 ring-1 ring-white/[0.06]">
-      <p className="text-[11.5px] text-muted-foreground">{label}</p>
-      <p className="tabular mt-1 text-[14px] text-foreground">{v ? v.map((x) => x.toFixed(unit === "g" ? 3 : 1)).join("  ") : "–"}</p>
-      <p className="text-[11px] text-muted-foreground/80">x y z, {unit}</p>
+    <div className="rounded-control bg-white/[0.025] px-4 py-3 ring-1 ring-white/[0.06]">
+      <p className="text-[11.5px] text-medium">{label}</p>
+      <p className="tabular mt-1 text-[14px] text-high">{v ? v.map((x) => x.toFixed(unit === "g" ? 3 : 1)).join("  ") : "–"}</p>
+      <p className="text-[11px] text-medium">x y z, {unit}</p>
     </div>
   );
 }
@@ -106,10 +106,10 @@ export function AxisReadout({ label, unit, v }: { label: string; unit: string; v
 /** A labelled figure. */
 export function Figure({ label, value, note, testId }: { label: string; value: ReactNode; note?: ReactNode; testId?: string }) {
   return (
-    <div className="min-w-0 rounded-2xl bg-white/[0.025] px-4 py-3.5 ring-1 ring-white/[0.06]" data-testid={testId}>
-      <p className="text-[11.5px] text-muted-foreground">{label}</p>
-      <p className="tabular mt-1.5 truncate text-[19px] leading-none text-foreground">{value}</p>
-      {note && <p className="mt-1.5 text-[11.5px] text-muted-foreground/80">{note}</p>}
+    <div className="min-w-0 rounded-control bg-white/[0.025] px-4 py-3.5 ring-1 ring-white/[0.06]" data-testid={testId}>
+      <p className="text-[11.5px] text-medium">{label}</p>
+      <p className="tabular mt-1.5 truncate text-[19px] leading-none text-high">{value}</p>
+      {note && <p className="mt-1.5 text-[11.5px] text-medium">{note}</p>}
     </div>
   );
 }
@@ -122,7 +122,7 @@ export function ActionButton({ children, onClick, busy, disabled, testId }: { ch
       onClick={onClick}
       disabled={disabled || busy}
       data-testid={testId}
-      className="inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/[0.1] transition-colors duration-300 hover:bg-white/[0.09] disabled:cursor-not-allowed disabled:opacity-50"
+      className="inline-flex items-center gap-2 rounded-small bg-white/[0.05] px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/[0.1] transition-colors duration-300 hover:bg-white/[0.09] disabled:cursor-not-allowed disabled:opacity-50"
     >
       {busy && <span className="size-2 animate-pulse rounded-full bg-primary" />}
       {children}

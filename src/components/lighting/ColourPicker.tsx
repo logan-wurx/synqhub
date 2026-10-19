@@ -19,10 +19,10 @@ export function ColourPicker({ value, onChange, disabled, caption = "On the whee
       <ColourWheel value={value} disabled={disabled} onChange={(c) => onChange(c, false)} onCommit={pick} />
       <div className="flex min-w-0 flex-col gap-4">
         <div className="flex items-center gap-3">
-          <span className="size-10 shrink-0 rounded-2xl ring-1 ring-white/15" style={{ background: css(value) }} aria-hidden="true" />
+          <span className="size-10 shrink-0 rounded-control ring-1 ring-white/15" style={{ background: css(value) }} aria-hidden="true" />
           <div className="min-w-0">
-            <p className="tabular truncate text-[15px] uppercase text-foreground">{hexOf(value)}</p>
-            <p className="truncate text-[12px] text-muted-foreground">{caption}</p>
+            <p className="tabular truncate text-[15px] uppercase text-high">{hexOf(value)}</p>
+            <p className="truncate text-[12px] text-medium">{caption}</p>
           </div>
         </div>
         <div className="flex flex-col gap-2">
@@ -31,7 +31,7 @@ export function ColourPicker({ value, onChange, disabled, caption = "On the whee
         </div>
         <div className="flex flex-col gap-2">
           <SubHead>Recent</SubHead>
-          <div className="flex flex-wrap gap-2">{keep.recent.length ? row(keep.recent) : <p className="text-[12px] text-muted-foreground/80">Colours you pick show up here.</p>}</div>
+          <div className="flex flex-wrap gap-2">{keep.recent.length ? row(keep.recent) : <p className="text-[12px] text-medium">Colours you pick show up here.</p>}</div>
         </div>
         <div className="flex flex-col gap-2">
           <SubHead
@@ -39,15 +39,15 @@ export function ColourPicker({ value, onChange, disabled, caption = "On the whee
               <button
                 type="button"
                 onClick={() => saveColour(value)}
-                className="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[12px] text-muted-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] hover:text-foreground"
+                className="inline-flex shrink-0 items-center gap-1 rounded-tight px-2 py-0.5 text-[12px] text-medium ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] hover:text-high"
               >
-                <Plus size={11} /> Save colour
+                <Plus size={12} /> Save colour
               </button>
             }
           >
             Saved
           </SubHead>
-          <div className="flex flex-wrap gap-2">{keep.saved.length ? row(keep.saved, forgetColour) : <p className="text-[12px] text-muted-foreground/80">Save colour keeps the one on the wheel.</p>}</div>
+          <div className="flex flex-wrap gap-2">{keep.saved.length ? row(keep.saved, forgetColour) : <p className="text-[12px] text-medium">Save colour keeps the one on the wheel.</p>}</div>
         </div>
       </div>
     </div>

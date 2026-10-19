@@ -89,9 +89,9 @@ export function LiveTravel({
       {error ? (
         <p className="py-6 text-[13px] text-destructive">Live travel stopped: {error}</p>
       ) : (
-        <div className="relative flex items-end gap-3 overflow-hidden rounded-2xl bg-black/35 px-4 pb-3 pt-4 ring-1 ring-white/[0.05]" style={{ minHeight: TRACK + 52 }} aria-live="off">
+        <div className="relative flex items-end gap-3 overflow-hidden rounded-control bg-shade/35 px-4 pb-3 pt-4 ring-1 ring-white/[0.05]" style={{ minHeight: TRACK + 52 }} aria-live="off">
           {pressed.length === 0 && (
-            <p className="absolute inset-0 grid place-items-center text-[12.5px] text-muted-foreground/80">Press a key to see how far it goes down.</p>
+            <p className="absolute inset-0 grid place-items-center text-[12.5px] text-medium">Press a key to see how far it goes down.</p>
           )}
           {pressed.map(([code, depth]) => {
             const act = actuationMm(code);
@@ -108,14 +108,14 @@ export function LiveTravel({
                     <div className="absolute inset-x-0 h-[2px] -translate-y-1/2 bg-foreground/80" style={{ top: `${Math.min(100, (act / travelMm) * 100)}%` }} title={`Actuation ${act.toFixed(2)} mm`} />
                   )}
                 </div>
-                <span className="text-[12px] text-foreground">{nameOf(code)}</span>
-                <span className="tabular text-[10.5px] text-muted-foreground">{mm.toFixed(2)}</span>
+                <span className="text-[12px] text-high">{nameOf(code)}</span>
+                <span className="tabular text-[10.5px] text-medium">{mm.toFixed(2)}</span>
               </div>
             );
           })}
         </div>
       )}
-      <p className="mt-2.5 text-[11.5px] text-muted-foreground/80">Live while this tab is open. The bright bar means the key passed its actuation line.</p>
+      <p className="mt-2.5 text-[11.5px] text-medium">Live while this tab is open. The bright bar means the key passed its actuation line.</p>
     </div>
   );
 }

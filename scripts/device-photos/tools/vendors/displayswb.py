@@ -38,8 +38,26 @@ ROWS = [
      MS_PAGES, ms_pic("ic_lcstv2")),
     ("microsoft-lifecam-hd-3000", "microsoft", "Microsoft LifeCam HD-3000", [], ["lifecam hd 3000", "microsoft lifecam hd 3000"],
      MS_PAGES[::-1], ms_pic("ic_hd3000")),
+    # Final pass: more of the common Dell / Alienware and Gigabyte models, the same way.
+    ("dell-aw3423dw", "dell", "Alienware AW3423DW", [], ["aw3423dw"], [DELL.format("alienware-34-curved-qd-oled-gaming-monitor-aw3423dw/apd/210-bcye")], DELL_PIC),
+    ("dell-aw2521h", "dell", "Alienware AW2521H", [], ["aw2521h"], [DELL.format("alienware-25-gaming-monitor-aw2521h/apd/210-aycb")], DELL_PIC),
+    ("dell-aw3225qf", "dell", "Alienware AW3225QF", [], ["aw3225qf"], [DELL.format("alienware-32-4k-qd-oled-gaming-monitor-aw3225qf/apd/210-blmq")], DELL_PIC),
+    ("dell-aw2723df", "dell", "Alienware AW2723DF", [], ["aw2723df"], [DELL.format("alienware-27-gaming-monitor-aw2723df/apd/210-bfek")], DELL_PIC),
+    ("dell-aw2524h", "dell", "Alienware AW2524H", [], ["aw2524h"], [DELL.format("alienware-500hz-gaming-monitor-aw2524h/apd/210-bglm")], DELL_PIC),
+    ("dell-s2722dgm", "dell", "Dell S2722DGM", [], ["s2722dgm"], [DELL.format("dell-27-curved-gaming-monitor-s2722dgm/apd/210-azzp")], DELL_PIC),
+    ("dell-u2723qe", "dell", "Dell UltraSharp U2723QE", [], ["u2723qe", "dell u2723qe"], [DELL.format("dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/apd/210-bdpf")], DELL_PIC),
+    ("dell-p2422h", "dell", "Dell P2422H", [], ["p2422h", "dell p2422h"], [DELL.format("dell-24-monitor-p2422h/apd/210-bbcc")], DELL_PIC),
+    ("dell-s2721qs", "dell", "Dell S2721QS", [], ["s2721qs", "dell s2721qs"], [DELL.format("dell-27-4k-uhd-monitor-s2721qs/apd/210-axlg")], DELL_PIC),
+    ("gigabyte-g27q", "gigabyte", "Gigabyte G27Q", [], ["g27q"], ["gigabyte.com/Monitor/G27Q/gallery", "gigabyte.com/Monitor/G27Q"], GB_PIC),
+    ("gigabyte-m32u", "gigabyte", "Gigabyte M32U", [], ["m32u"], ["gigabyte.com/Monitor/M32U/gallery", "gigabyte.com/Monitor/M32U"], GB_PIC),
+    ("gigabyte-m28u", "gigabyte", "Gigabyte M28U", [], ["m28u"], ["gigabyte.com/Monitor/M28U/gallery", "gigabyte.com/Monitor/M28U"], GB_PIC),
+    ("gigabyte-fi27q-x", "gigabyte", "Gigabyte AORUS FI27Q-X", [], ["fi27q x", "aorus fi27q x"], ["gigabyte.com/Monitor/AORUS-FI27Q-X/gallery", "gigabyte.com/Monitor/AORUS-FI27Q-X"], GB_PIC),
 ]
 WEBCAMS = {"microsoft-lifecam-studio", "microsoft-lifecam-hd-3000"}
+# Rows whose archived page kept no picture: their list in displayswb-urls.json is the archive's copies of the model's own
+# folder on Dell's image server (CDX API, prefix i.dell.com/is/image/DellContent/.../monitors/<series>/<model>/), each
+# picture at the largest width the archive kept.
+FROM_FOLDER = {"dell-aw3423dw", "dell-aw2723df", "dell-g2724d", "dell-s2722dgm", "dell-p2422h"}
 
 
 def page_pictures(page, rx, fmt):
@@ -91,7 +109,9 @@ def candidates(only=None):
         if not urls:
             print("  no pictures:", key, file=sys.stderr)
         out.append(dict(key=key, vendor=vendor, name=name, kind="webcam" if key in WEBCAMS else "monitor", ids=usb, page="https://www." + pages[0].rstrip("*"),
-                        names=[name] + names, note="web.archive.org snapshot of " + pages[0].rstrip("*")[:70], urls=urls))
+                        names=[name] + names, urls=urls,
+                        note=("Dell's image server as the Wayback Machine kept it (the model's own folder)" if key in FROM_FOLDER
+                              else "web.archive.org snapshot of " + pages[0].rstrip("*")[:70])))
     return out
 
 

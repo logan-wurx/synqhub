@@ -6,7 +6,7 @@ import { DownloadSimple, UploadSimple, Warning } from "@phosphor-icons/react";
 import { Card, CardHeader } from "@/components/ui/matte";
 import type { BackupMeta, WebStore } from "@/lib/web/store";
 
-const btn = "rounded-full px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40";
+const btn = "rounded-small px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40";
 
 /** Saves text as a file through the browser's download. */
 export function downloadText(fileName: string, text: string, type = "application/json"): void {
@@ -91,11 +91,11 @@ export function WebData() {
         right={
           <div className="flex flex-wrap justify-end gap-2">
             <button type="button" className={btn} onClick={() => void downloadAll()} disabled={!list.length}>
-              <DownloadSimple size={13} className="mr-1.5 inline -mt-0.5" />
+              <DownloadSimple size={12} className="mr-1.5 inline -mt-0.5" />
               Download all
             </button>
             <button type="button" className={btn} onClick={() => file.current?.click()}>
-              <UploadSimple size={13} className="mr-1.5 inline -mt-0.5" />
+              <UploadSimple size={12} className="mr-1.5 inline -mt-0.5" />
               Restore from file
             </button>
             <input ref={file} type="file" accept=".json,application/json" className="hidden" onChange={(e) => void restore(e.target.files?.[0])} />
@@ -104,28 +104,28 @@ export function WebData() {
       />
       <div className="px-5 pb-5 pt-3">
         {store && !store.persistent && (
-          <p className="mb-3 flex items-start gap-2 rounded-xl bg-chart-3/[0.06] px-3.5 py-2.5 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
+          <p className="mb-3 flex items-start gap-2 rounded-control bg-chart-3/[0.06] px-3.5 py-2.5 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
             <Warning size={16} weight="light" className="mt-0.5 shrink-0" />
             This browser won't keep storage (a private window, or site data is blocked), so backups last only until you close this tab. Download them first.
           </p>
         )}
         {list.length === 0 ? (
-          <p className="text-[13px] leading-relaxed text-muted-foreground">No backups yet. SYNQ saves one here before the first change to a device.</p>
+          <p className="text-[13px] leading-relaxed text-medium">No backups yet. SYNQ saves one here before the first change to a device.</p>
         ) : (
           <ul className="divide-y divide-white/[0.05]" data-slot="backup-list">
             {list.slice(0, 8).map((b) => (
               <li key={b.name} className="flex items-center gap-3 py-2 text-[13px]">
-                <span className="min-w-0 flex-1 truncate text-foreground">
+                <span className="min-w-0 flex-1 truncate text-high">
                   {b.name}
-                  <span className="ml-2 text-[11.5px] text-muted-foreground">{when(b.savedAt)}</span>
+                  <span className="ml-2 text-[11.5px] text-medium">{when(b.savedAt)}</span>
                 </span>
-                <span className="tabular shrink-0 text-[11.5px] text-muted-foreground">{size(b.bytes)}</span>
+                <span className="tabular shrink-0 text-[11.5px] text-medium">{size(b.bytes)}</span>
                 <button type="button" className={btn} onClick={() => void downloadOne(b.name)()}>
                   Download backup
                 </button>
               </li>
             ))}
-            {list.length > 8 && <li className="py-2 text-[12px] text-muted-foreground">and {list.length - 8} older. "Download all" has every one.</li>}
+            {list.length > 8 && <li className="py-2 text-[12px] text-medium">and {list.length - 8} older. "Download all" has every one.</li>}
           </ul>
         )}
         <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/[0.05] pt-4">
@@ -135,7 +135,7 @@ export function WebData() {
           <button type="button" className={btn} onClick={() => void forget()}>
             Forget my devices
           </button>
-          {say && <span className={say.tone === "ok" ? "text-[12.5px] text-muted-foreground" : "text-[12.5px] text-destructive"}>{say.text}</span>}
+          {say && <span className={say.tone === "ok" ? "text-[12.5px] text-medium" : "text-[12.5px] text-destructive"}>{say.text}</span>}
         </div>
       </div>
     </Card>

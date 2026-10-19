@@ -126,7 +126,7 @@ export function Fader({ value, min, max, step = 0.1, onChange, onCommit, disable
         aria-valuenow={value}
         aria-orientation="vertical"
         {...aria}
-        className="relative w-7 cursor-pointer touch-none rounded-full bg-black/40 shadow-[inset_0_2px_6px_rgb(0_0_0/0.6)] outline-none ring-1 ring-white/[0.06] focus-visible:ring-primary/70"
+        className="relative w-7 cursor-pointer touch-none rounded-full bg-shade/40 shadow-[inset_0_2px_6px_rgb(0_0_0/0.6)] outline-none ring-1 ring-white/[0.06] focus-visible:ring-primary/70"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -142,7 +142,7 @@ export function Fader({ value, min, max, step = 0.1, onChange, onCommit, disable
           )}
           style={{ top: toY(value), height: CAP }}
         >
-          <span data-cap="1" className="h-[2px] w-2.5 rounded-full bg-black/35" />
+          <span data-cap="1" className="h-[2px] w-2.5 rounded-full bg-shade/35" />
         </div>
       </div>
     </div>

@@ -92,7 +92,7 @@ export function ColourWheel({
       }}
       onKeyDown={key}
       className={cn(
-        "relative aspect-square w-full touch-none rounded-full shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12),0_18px_40px_-18px_rgb(0_0_0/0.9)] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-[#0b0b0e]",
+        "relative aspect-square w-full touch-none rounded-full shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12),0_18px_40px_-18px_rgb(0_0_0/0.9)] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background",
         disabled ? "cursor-not-allowed opacity-40 saturate-50" : "cursor-crosshair",
         className,
       )}

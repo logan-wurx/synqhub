@@ -102,6 +102,10 @@ export function useDeviceTab(id: string, tabs: readonly string[], legacy: Readon
 }
 
 /** Old tab ids -> the merged tabs that hold their content (the remembered tab survives the merge). */
-export const MOUSE_TABS_LEGACY = { performance: "controls", buttons: "controls", lighting: "controls" } as const;
-export const KEYBOARD_TABS_LEGACY = { actuation: "keys", rapid: "keys", lighting: "remap", profiles: "remap" } as const;
+export const MOUSE_TABS_LEGACY = { performance: "controls", buttons: "controls", lighting: "controls", sensitivity: "overview" } as const;
+/** A light's old Scenes tab: the scenes are on its Light tab now. */
+export const LIGHT_TABS_LEGACY = { scenes: "light" } as const;
+/** A controller's old tabs: the tester, polling and lights are all on its Overview now. */
+export const PAD_TABS_LEGACY = { test: "overview", polling: "overview", lights: "overview" } as const;
+export const KEYBOARD_TABS_LEGACY = { actuation: "overview", rapid: "overview", keys: "overview", lighting: "remap", profiles: "remap" } as const;
 export const SOUND_TABS_LEGACY = { presets: "eq" } as const;

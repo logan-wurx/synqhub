@@ -38,7 +38,7 @@ for v in sys.argv[1:]:
                 part.save(buf, "PNG")
                 raw = buf.getvalue()
             # A job may widen the gap bridging (an odd filter size) so a product in two pieces, a Joy-Con pair, stays whole.
-            rep.update(proc2.proc_file(raw, out / f"{j['key']}.webp", BRIDGE.get(j["key"], j.get("bridge", 5)), j.get("force", False), j.get("soft", False)))
+            rep.update(proc2.proc_file(raw, out / f"{j['key']}.webp", BRIDGE.get(j["key"], j.get("bridge", 5)), j.get("force", False), j.get("soft", False), j.get("flood", False)))
         except Exception as e:
             rep.update(ok=False, why=f"error: {str(e)[:120]}")
         rep["fetched"] = today

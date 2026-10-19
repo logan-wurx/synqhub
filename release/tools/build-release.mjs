@@ -33,13 +33,15 @@ function run(cmd, args, env = process.env) {
   }
 }
 
-if (!process.argv.includes("--no-build")) {
+const building = !process.argv.includes("--no-build");
+let env = process.env;
+if (building) {
   const home = os.homedir();
   const cargoHome = process.env.CARGO_HOME ?? join(home, ".cargo");
   // Later mappings win, so the general one goes first.
   const remap = [`${home}=/home`, `${root}=/onboard`, `${cargoHome}=/cargo`].map((m) => `--remap-path-prefix=${m}`);
   const inherited = (process.env.RUSTFLAGS ?? "").split(/\s+/).filter(Boolean);
-  const env = {
+  env = {
     ...process.env,
     CARGO_TARGET_DIR: target,
     // Unit separator between flags, so a folder name with a space can't split one.
@@ -59,10 +61,17 @@ copyFileSync(built, final);
 const sha = createHash("sha256").update(readFileSync(final)).digest("hex");
 console.log(`\nInstaller: ${final}\n  ${statSync(final).size} bytes\n  SHA-256 ${sha}\n`);
 
-// SYNQ Helper on its own, for the website's Get SYNQ Helper (src/lib/web/links.ts HELPER_DOWNLOAD_URL): the same file
-// the installer carries, which installs itself when run on its own (src-tauri/helper/src/standalone.rs).
+// SYNQ Helper on its own, for the website's Get SYNQ Helper (src/lib/web/links.ts HELPER_DOWNLOAD_URL): the helper
+// the installer carries, built again with SYNQ's program inside (`--features with-app`, the synq.exe just built), which
+// it puts beside itself when it installs itself (src-tauri/helper/src/standalone.rs), so game profiles for every
+// device switch with the website closed. The installer's copy was bundled above without it (the app is beside it).
 const helperName = "synq-helper.exe";
 const helperBuilt = join(target, "release", helperName);
+if (building) {
+  const app = join(target, "release", "synq.exe");
+  console.log(`Building the website's SYNQ Helper with ${app} inside\n`);
+  run("cargo", ["build", "--release", "--manifest-path", "src-tauri/Cargo.toml", "-p", "synq-helper", "--features", "with-app"], { ...env, SYNQ_APP_EXE: app });
+}
 if (!existsSync(helperBuilt)) {
   console.error(`SYNQ Helper isn't where it should be: ${helperBuilt}`);
   process.exit(1);

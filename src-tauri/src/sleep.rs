@@ -159,6 +159,11 @@ fn suspend<R: Runtime>(window: &WebviewWindow<R>, generation: u64) {
         let w2 = w.clone();
         let handler = TrySuspendCompletedHandler::create(Box::new(move |result, ok| {
             w2.state::<Sleep>().note(format!("suspended={ok} ({result:?})"));
+            // Asleep, its game profiles can't go on: the claim is let go, so the helper can start SYNQ with no
+            // window for a game meanwhile. Awake again, the page's next look claims it back.
+            if ok {
+                crate::profile_lock::release();
+            }
             Ok(())
         }));
         state.note("suspend requested");

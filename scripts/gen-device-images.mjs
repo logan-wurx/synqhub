@@ -43,7 +43,7 @@ writeFileSync(
 // loadDeviceImage(key) imports the file only when it is asked for.
 
 /** [key, vendor folder, kind, display name, normalised names a device may report] */
-export type DeviceImageRow = readonly [string, string, "mouse" | "keyboard" | "gamepad" | "light" | "headset" | "monitor" | "webcam", string, readonly string[]];
+export type DeviceImageRow = readonly [string, string, "mouse" | "keyboard" | "gamepad" | "light" | "headset" | "headphones" | "monitor" | "webcam", string, readonly string[]];
 
 export const DEVICE_IMAGE_MODELS: readonly DeviceImageRow[] = [
 ${rows}

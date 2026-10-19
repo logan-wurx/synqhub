@@ -40,6 +40,11 @@ pub const AUTOSTART_FLAG: &str = "--autostart";
 /// Named events (this sign-in session only).
 pub const QUIT_EVENT: &str = r"Local\OnBoardHelper.Quit";
 pub const RELOAD_EVENT: &str = r"Local\OnBoardHelper.Reload";
+/// Live game profiles: the SYNQ that puts them on holds this (src-tauri/src/lib.rs `profile_lock`). Windows: a named
+/// mutex; elsewhere a lock on this file in the data folder.
+pub const PROFILES_LOCK: &str = r"Local\SYNQ.GameProfiles";
+#[cfg_attr(windows, allow(dead_code))]
+pub const PROFILES_LOCK_FILE: &str = "game-profiles.lock";
 
 /// The web bridge's fixed port on 127.0.0.1.
 pub const BRIDGE_PORT: u16 = 17860;
@@ -300,6 +305,35 @@ pub fn signal(name: &str) -> bool {
             Err(_) => false,
         }
     }
+}
+
+/// Whether a SYNQ (an awake window, or one started with no window) is putting live game profiles on now.
+#[cfg(windows)]
+#[allow(dead_code)]
+pub fn profiles_claimed(_: &Path) -> bool {
+    use windows::Win32::Foundation::CloseHandle;
+    use windows::Win32::System::Threading::{OpenMutexW, SYNCHRONIZATION_SYNCHRONIZE};
+    let n = wide(PROFILES_LOCK);
+    // SAFETY: a NUL-terminated name that outlives the call; the handle is closed at once.
+    unsafe {
+        match OpenMutexW(SYNCHRONIZATION_SYNCHRONIZE, false, windows::core::PCWSTR(n.as_ptr())) {
+            Ok(h) => {
+                let _ = CloseHandle(h);
+                true
+            }
+            Err(_) => false,
+        }
+    }
+}
+
+/// Linux: the lock file is locked (tried without waiting, and let go at once when it was free).
+#[cfg(unix)]
+#[allow(dead_code)]
+pub fn profiles_claimed(data: &Path) -> bool {
+    use std::os::fd::AsRawFd;
+    let Ok(f) = std::fs::OpenOptions::new().create(true).truncate(false).write(true).open(data.join(PROFILES_LOCK_FILE)) else { return false };
+    // SAFETY: flock on a descriptor this function owns; it is unlocked when `f` closes.
+    unsafe { libc::flock(f.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) != 0 }
 }
 
 /// Whether a helper is running in this sign-in session (it owns the quit event).

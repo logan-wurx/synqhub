@@ -27,8 +27,8 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
   // From a page that isn't https the helper refuses the connection (it only answers the site's own origin).
   const helper = secureContext && helperOffered(p);
   const desktopApp = p.os === "windows" || p.os === "linux";
-  const link = "rounded-full px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]";
-  const icon = "grid size-9 shrink-0 place-items-center rounded-xl bg-white/[0.04] text-muted-foreground ring-1 ring-white/[0.07]";
+  const link = "rounded-small px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]";
+  const icon = "grid size-9 shrink-0 place-items-center rounded-small bg-white/[0.04] text-medium ring-1 ring-white/[0.07]";
 
   const title = !secureContext ? "This page has to be opened over https" : helper ? `${name} works with SYNQ Helper` : "SYNQ needs Chrome or Edge here";
   const lead = !secureContext
@@ -50,23 +50,23 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
     <div className="mx-auto flex min-h-full max-w-[640px] flex-col justify-center gap-6 px-6 py-12" data-slot="unsupported-browser">
       <div className="flex items-center gap-3">
         <AppTile size={40} />
-        <span className="text-[17px] font-semibold tracking-tight text-foreground">
-          SYNQ <span className="font-medium text-muted-foreground">Hub</span>
+        <span className="text-[17px] font-semibold tracking-tight text-high">
+          SYNQ <span className="font-medium text-medium">Hub</span>
         </span>
       </div>
       <div>
         <Eyebrow>{!secureContext ? "Needs a secure page" : helper ? `No WebHID in ${name === "This browser" ? "this browser" : name}` : "Browser not supported"}</Eyebrow>
-        <h1 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">{title}</h1>
-        <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">{lead}</p>
+        <h1 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">{title}</h1>
+        <p className="mt-3 text-[14px] leading-relaxed text-medium">{lead}</p>
       </div>
       <Card innerClassName="flex flex-col gap-4 p-5">
         {helper && <HelperSteps os={OS_NAMES[p.os]} icon={icon} />}
         <div className={helper ? "flex items-start gap-3 border-t border-white/[0.05] pt-4" : "flex items-start gap-3"}>
           <span className={icon}>
-            <Globe size={18} weight="light" />
+            <Globe size={16} weight="light" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="text-[14px] font-medium text-foreground">{helper ? "Or open this page in" : "Open this page in"}</p>
+            <p className="text-[14px] font-medium text-high">{helper ? "Or open this page in" : "Open this page in"}</p>
             <div className="mt-2.5 flex flex-wrap gap-2">
               <a className={link} href={BROWSER_LINKS.chrome} target="_blank" rel="noopener noreferrer">
                 Chrome
@@ -79,7 +79,7 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
               </a>
             </div>
             {brave && (
-              <p className="mt-2.5 text-[12px] leading-relaxed text-muted-foreground/90" data-slot="brave-note">
+              <p className="mt-2.5 text-[12px] leading-relaxed text-medium" data-slot="brave-note">
                 Brave is missing WebHID on this page: a Brave setting, a policy or an extension can switch it off.{helper ? " SYNQ Helper works either way." : ""}
               </p>
             )}
@@ -89,11 +89,11 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
         {typeof navigator.getGamepads === "function" && (
           <div className="flex items-start gap-3 border-t border-white/[0.05] pt-4" data-slot="controller-tester">
             <span className={icon}>
-              <GameController size={18} weight="light" />
+              <GameController size={16} weight="light" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[14px] font-medium text-foreground">Testing a controller?</p>
-              <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted-foreground">The controller tester works in this browser: sticks, triggers, buttons and a polling estimate. Nothing is sent to the controller.</p>
+              <p className="text-[14px] font-medium text-high">Testing a controller?</p>
+              <p className="mt-0.5 text-[12.5px] leading-relaxed text-medium">The controller tester works in this browser: sticks, triggers, buttons and a polling estimate. Nothing is sent to the controller.</p>
               <button type="button" onClick={() => setTester(true)} className={`${link} mt-2.5`}>
                 Open the controller tester
               </button>
@@ -104,11 +104,11 @@ export function UnsupportedBrowser({ secureContext = true }: { secureContext?: b
         {!helper && desktopApp && (
           <div className="flex items-start gap-3 border-t border-white/[0.05] pt-4">
             <span className={icon}>
-              <Desktop size={18} weight="light" />
+              <Desktop size={16} weight="light" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[14px] font-medium text-foreground">Or use the desktop app</p>
-              <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted-foreground">It works without a browser, and it also has the Sound EQ.</p>
+              <p className="text-[14px] font-medium text-high">Or use the desktop app</p>
+              <p className="mt-0.5 text-[12.5px] leading-relaxed text-medium">It works without a browser, and it also has the Sound EQ.</p>
               <DesktopLink className="mt-2.5" />
             </div>
           </div>
@@ -133,11 +133,11 @@ function HelperSteps({ os, icon }: { os: string; icon: string }) {
   return (
     <div className="flex items-start gap-3" data-slot="helper-steps">
       <span className={icon}>
-        <Plugs size={18} weight="light" />
+        <Plugs size={16} weight="light" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[14px] font-medium text-foreground">Connect SYNQ Helper</p>
-        <ol className="mt-2 list-decimal space-y-1 pl-4 text-[12.5px] leading-relaxed text-muted-foreground marker:text-muted-foreground/80">
+        <p className="text-[14px] font-medium text-high">Connect SYNQ Helper</p>
+        <ol className="mt-2 list-decimal space-y-1 pl-4 text-[12.5px] leading-relaxed text-medium marker:text-medium">
           <li>Get the desktop app for {os} (the helper comes with it).</li>
           <li>In the app, turn on Settings, SYNQ Helper.</li>
           <li>Press Connect. Your browser may ask to let this page reach apps on this device, and the helper asks once whether to allow this site.</li>
@@ -148,12 +148,12 @@ function HelperSteps({ os, icon }: { os: string; icon: string }) {
             disabled={busy}
             onClick={() => void connect()}
             data-slot="helper-connect"
-            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-60"
+            className="inline-flex items-center gap-1.5 rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-60"
           >
-            <Plugs size={14} />
+            <Plugs size={12} />
             {busy ? "Waiting for the helper" : "Connect"}
           </button>
-          <DesktopLink className="bg-transparent text-foreground ring-1 ring-white/10 hover:bg-white/[0.06]" children="Get the desktop app" />
+          <DesktopLink className="bg-transparent text-high ring-1 ring-white/10 hover:bg-white/[0.06]" children="Get the desktop app" />
         </div>
         {error && <p className="pt-2 text-[12.5px] text-chart-3">{error}</p>}
       </div>

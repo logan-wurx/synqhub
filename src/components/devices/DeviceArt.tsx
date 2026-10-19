@@ -1,15 +1,16 @@
 // The one place that decides what picture a device gets, for the Devices home cards, the Overview of every
 // device and the little pictures in the switchers:
 //
-//   1. SYNQ's own renders (the hand-made ones for the developer's devices, src/assets/brand)
-//   2. the maker's product photo (src/assets/devices, loaded only when the device is shown)
+//   1. the maker's product photo (src/assets/devices, loaded only when the device is shown); for the sound output,
+//      the photo of the headphones the person picked for it
+//   2. SYNQ's own renders (the hand-made ones for the developer's devices, src/assets/brand), when there is no photo
 //   3. a keyboard drawn from its key layout, or a silhouette for anything else
 //
 // Product images are (c) their respective owners (src/assets/devices/SOURCES.json).
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { isSuperlight2 } from "@/lib/device-names";
-import { photoKeyFor } from "@/lib/device-images";
+import { headphoneModel, photoKeyFor } from "@/lib/device-images";
 import { loadDeviceImage } from "@/lib/device-images.generated";
 import { lampArrayDrawnAs, shapeClass, keyboardForm, type ShapeClass } from "@/lib/device-shape";
 import { formGeometry, type RenderGeometry } from "@/lib/keyboard-geometry";
@@ -33,8 +34,8 @@ export interface ArtSpec {
   form?: string | null;
   /** A Dynamic Lighting device: Windows' LampArrayKind, which picks its drawing. */
   lampKind?: number | null;
-  /** The sound card's own picture ("iems"). */
-  picture?: "iems" | null;
+  /** The sound output's picture: the photo key of the headphones picked for it, or "iems" (SYNQ's drawing). */
+  picture?: string | null;
 }
 
 /** A light's picture: found by maker and model ("Govee H6076"), drawn by its form when there is none. */
@@ -57,14 +58,15 @@ function idsOf(s: ArtSpec): { vid: string | null; pid: string | null } {
   return { vid: m?.[1] ?? null, pid: m?.[2] ?? null };
 }
 
-/** SYNQ's own renders: the developer's devices, and any per-model render dropped in src/assets/brand/models. */
+/** SYNQ's own renders: the developer's devices, and any per-model render dropped in src/assets/brand/models. Shown only
+ * where the device has no photo (useDeviceArt). */
 export function handmadeArt(s: ArtSpec): string | null {
   if (s.kind === "sound") return s.picture === "iems" ? deviceIems : null;
   if (s.kind === "controller" || s.kind === "light") return null;
   if (s.kind === "mouse") {
     // The developer's two Logitechs have renders of their own; another Logitech uses its photo, and one whose model isn't
     // known yet keeps the default render, as before.
-    if (s.family === "logitech") return isSuperlight2(s.name) ? deviceMouseSuperlight2 : /DEX/i.test(s.name) || !photoKeyOf(s) ? deviceMouse : null;
+    if (s.family === "logitech") return isSuperlight2(s.name) ? deviceMouseSuperlight2 : deviceMouse;
     if (s.family === "atk") return deviceMouseAtk;
     return modelRender(s.brand ?? "", s.name);
   }
@@ -75,7 +77,8 @@ export function handmadeArt(s: ArtSpec): string | null {
 
 /** The product photo's key, when the maker's picture of this device is bundled. */
 export function photoKeyOf(s: ArtSpec): string | null {
-  if (s.kind === "sound") return null;
+  // The sound output shows the headphones picked for it (the person says which; a name alone never picks one).
+  if (s.kind === "sound") return headphoneModel(s.picture)?.key ?? null;
   // A Dynamic Lighting device that is also a device SYNQ has a picture of (same USB id): that picture, whatever its kind.
   if (s.kind === "lamparray") return s.vid && s.pid ? photoKeyFor({ vid: s.vid, pid: s.pid, name: s.name }) : null;
   // RGB hubs have lighting-group pictures by USB id.
@@ -101,8 +104,8 @@ export type Art = { type: "image"; src: string; photo: boolean } | { type: "keyb
 
 /** The picture to show right now, and the better one once it has loaded. */
 export function useDeviceArt(s: ArtSpec): Art {
-  const handmade = handmadeArt(s);
-  const key = handmade ? null : photoKeyOf(s);
+  // The real photo first; SYNQ's render only stands in for a device without one (or whose photo didn't load).
+  const key = photoKeyOf(s);
   const [photo, setPhoto] = useState<{ key: string; src: string | null } | null>(null);
   useEffect(() => {
     if (!key) return;
@@ -112,11 +115,13 @@ export function useDeviceArt(s: ArtSpec): Art {
       live = false;
     };
   }, [key]);
+  const photoFailed = !!key && photo?.key === key && photo.src === null;
 
   const { vid, pid } = idsOf(s);
   // A Dynamic Lighting keyboard is drawn like any keyboard (its own layout when SYNQ knows its USB id).
   const keyboardLike = s.kind === "keyboard" || (s.kind === "lamparray" && lampArrayDrawnAs(s.lampKind) === "keyboard");
-  const wantsGeometry = keyboardLike && !handmade && !key;
+  const handmade = !key || photoFailed ? handmadeArt(s) : null;
+  const wantsGeometry = keyboardLike && !handmade && (!key || photoFailed);
   const [geo, setGeo] = useState<{ id: string; g: RenderGeometry } | null>(null);
   const geoId = `${vid ?? ""}:${pid ?? ""}|${s.name}`;
   useEffect(() => {
@@ -128,12 +133,12 @@ export function useDeviceArt(s: ArtSpec): Art {
     };
   }, [wantsGeometry, geoId, vid, pid, s.name]);
 
-  if (handmade) return { type: "image", src: handmade, photo: false };
-  if (key) {
+  if (key && !photoFailed) {
     if (photo?.key === key && photo.src) return { type: "image", src: photo.src, photo: true };
-    // Still loading: say nothing yet rather than flash a drawing and swap it. A picture that failed to load falls through.
-    if (!(photo?.key === key && photo.src === null)) return { type: "pending" };
+    // Still loading: say nothing yet rather than flash a drawing and swap it.
+    return { type: "pending" };
   }
+  if (handmade) return { type: "image", src: handmade, photo: false };
   if (keyboardLike) return { type: "keyboard", geometry: geo?.id === geoId ? geo.g : formGeometry(keyboardForm(s.name)) };
   return { type: "silhouette", shape: shapeClass({ kind: s.kind, name: s.name, brand: s.brand, form: s.form, lampKind: s.lampKind }) };
 }

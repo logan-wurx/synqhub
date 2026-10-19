@@ -14,7 +14,7 @@ import { forgotten, paired, useNetFinding, useNetLights, useNetLooked } from "@/
 import { netKey, netModel as modelName } from "@/lib/lighting/models";
 import { useLightingKeep } from "@/lib/lighting/saved";
 import { useKeptState } from "@/lib/keep";
-import { lightId, openDevice, useDeviceTab } from "@/lib/nav";
+import { LIGHT_TABS_LEGACY, lightId, openDevice, useDeviceTab } from "@/lib/nav";
 import { useWide } from "@/lib/viewport";
 import { summarize } from "@/lib/device-model";
 import { Card, CardHeader, type Notice } from "@/components/ui/matte";
@@ -29,10 +29,8 @@ import { DeviceArt, netLightArt } from "@/components/devices/DeviceArt";
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
 type Phase = "looking" | "missing" | "pair" | "empty" | "bridge" | "connecting" | "ready" | "failed";
 
-const TABS: TabDef[] = [
-  { id: "light", label: "Light" },
-  { id: "scenes", label: "Scenes" },
-];
+// One page: the colour and the light's own scenes together.
+const TABS: TabDef[] = [{ id: "light", label: "Light" }];
 const noStore = () => () => {};
 const noView = () => null;
 
@@ -104,7 +102,7 @@ export function NetLightPage({ id, notify }: { id: string; notify: Notify }) {
   const live = phase === "ready" && control && view ? { control, view } : null;
   // Scenes for the lights that have them (a Hue light, a Nanoleaf controller), once reached.
   const tabs = live && device && hasScenes(device) ? TABS : TABS.slice(0, 1);
-  const [tab, setTab] = useDeviceTab(lightId(id), tabs.map((x) => x.id));
+  const [tab, setTab] = useDeviceTab(lightId(id), tabs.map((x) => x.id), LIGHT_TABS_LEGACY);
   const onError = useCallback((why: string) => notifyRef.current({ tone: "error", title: "The light didn't take that", detail: why }, "net-light-write"), []);
 
   const keep = useLightingKeep();
@@ -137,11 +135,8 @@ export function NetLightPage({ id, notify }: { id: string; notify: Notify }) {
 
   const body = live ? (
     <>
-      {tab === "scenes" && device ? (
-        <NetScenesTab device={device} onError={onError} onRecalled={() => void live.control.refresh().catch(() => {})} />
-      ) : (
-        <LightTab control={live.control} view={live.view} />
-      )}
+      <LightTab control={live.control} view={live.view} compact={!!device} />
+      {device && <NetScenesTab device={device} onError={onError} onRecalled={() => void live.control.refresh().catch(() => {})} fill />}
       {device && (
         <AboutCard
           device={device}
@@ -208,8 +203,8 @@ export function NetLightPage({ id, notify }: { id: string; notify: Notify }) {
         {wide ? (
           body
         ) : (
-          <div className="grid grid-cols-[minmax(240px,300px)_minmax(0,1fr)] items-start gap-5">
-            {stage("sticky top-0 h-[min(560px,calc(100vh-260px))] min-h-[380px]")}
+          <div className="grid grow grid-cols-[minmax(240px,300px)_minmax(0,1fr)] gap-5">
+            {stage("sticky top-0 min-h-[380px] max-h-[calc(100dvh-280px)]")}
             <div className="flex min-w-0 flex-col gap-5">{body}</div>
           </div>
         )}
@@ -233,14 +228,14 @@ function AboutCard({ device, onForgot }: { device: NetDevice; onForgot: () => vo
   return (
     <Card innerClassName="pb-5">
       <CardHeader title="This light" hint={`${b.maker} ${modelName(device)}, reached on your network at ${device.host}. Nothing goes through ${b.maker}'s cloud or an account.`} />
-      <div className="mt-3 flex flex-col items-start gap-3 px-5 text-[12.5px] leading-relaxed text-muted-foreground">
+      <div className="mt-3 flex flex-col items-start gap-3 px-5 text-[12.5px] leading-relaxed text-medium">
         <p>{b.setup} SYNQ never changes a light's Wi-Fi.</p>
         {device.brand === "yeelight" && <p>{YEELIGHT_LAN}</p>}
         {keyed && (
           <button
             type="button"
             onClick={() => void forgetNetLight(device.brand, device.id).then(onForgot, () => {})}
-            className="mt-1 rounded-full bg-white/[0.04] px-3.5 py-1 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground"
+            className="mt-1 rounded-small bg-white/[0.04] px-3.5 py-1 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high"
           >
             Forget pairing
           </button>
@@ -290,10 +285,10 @@ function PairCard({ device, onPaired }: { device: NetDevice; onPaired: () => voi
   const running = left !== null;
   return (
     <Card innerClassName="flex flex-col items-start px-7 py-7">
-      <p className="text-[17px] font-medium text-foreground">Pair with {device.name}</p>
-      <ol className="mt-3 flex max-w-xl list-decimal flex-col gap-1.5 pl-4 text-[13.5px] leading-relaxed text-muted-foreground">
+      <p className="text-[17px] font-medium text-high">Pair with {device.name}</p>
+      <ol className="mt-3 flex max-w-xl list-decimal flex-col gap-1.5 pl-4 text-[13.5px] leading-relaxed text-medium">
         <li>Press Pair below.</li>
-        <li className={cn(running && "text-foreground")}>{b.pairingSteps}</li>
+        <li className={cn(running && "text-high")}>{b.pairingSteps}</li>
         <li>SYNQ asks for a key while pairing is open. The key stays on this PC, with SYNQ's bridge only.</li>
       </ol>
       {why && !running && <p className="mt-3 text-[12.5px] text-destructive">{why}</p>}
@@ -308,12 +303,12 @@ function PairCard({ device, onPaired }: { device: NetDevice; onPaired: () => voi
             } else setRun((n) => n + 1);
           }}
           data-testid="net-pair"
-          className="rounded-full bg-primary/[0.15] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-primary/40 transition-colors hover:bg-primary/[0.22]"
+          className="rounded-small bg-primary/[0.15] px-4 py-1.5 text-[13px] text-high ring-1 ring-primary/40 transition-colors hover:bg-primary/[0.22]"
         >
           {running ? "Cancel" : "Pair"}
         </button>
         {running && (
-          <span className="text-[13px] tabular-nums text-muted-foreground" aria-live="polite">
+          <span className="text-[13px] tabular-nums text-medium" aria-live="polite">
             {hue ? "Press the bridge's button now" : "Hold the power button now"} · {left} s
           </span>
         )}
@@ -342,8 +337,8 @@ function PhaseCard({
   const b = device ? NET_BRANDS[device.brand] : null;
   const card = (title: string, text: ReactNode, extra?: ReactNode) => (
     <Card innerClassName="flex flex-col items-start px-7 py-7">
-      <p className="text-[17px] font-medium text-foreground">{title}</p>
-      <div className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-muted-foreground">{text}</div>
+      <p className="text-[17px] font-medium text-high">{title}</p>
+      <div className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-medium">{text}</div>
       {extra}
     </Card>
   );
@@ -369,7 +364,7 @@ function PhaseCard({
             key={netKey(d)}
             type="button"
             onClick={() => openDevice(lightId(netKey(d)))}
-            className="rounded-full bg-white/[0.04] px-3 py-1 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground"
+            className="rounded-small bg-white/[0.04] px-3 py-1 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high"
           >
             {d.name}
           </button>
@@ -380,9 +375,9 @@ function PhaseCard({
     `Can't reach ${device?.name ?? "the light"}`,
     <>
       <p>{device?.brand === "yeelight" ? YEELIGHT_LAN : "It answered Find lights but not SYNQ. It may have just been switched off, or the network may be keeping it apart from this PC."}</p>
-      {failed && <p className="mt-2 text-[11.5px] text-muted-foreground/80">{failed}</p>}
+      {failed && <p className="mt-2 text-[11.5px] text-medium">{failed}</p>}
     </>,
-    <button type="button" onClick={onRetry} className="mt-5 rounded-full bg-white/[0.06] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-white/[0.1] transition-colors hover:bg-white/[0.1]">
+    <button type="button" onClick={onRetry} className="mt-5 rounded-small bg-white/[0.06] px-4 py-1.5 text-[13px] text-high ring-1 ring-white/[0.1] transition-colors hover:bg-white/[0.1]">
       Try again
     </button>,
   );

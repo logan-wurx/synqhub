@@ -466,7 +466,7 @@ const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
             strokeWidth={isActive ? 2 : 1.5}
             className={cn(
               "transition-[color,stroke-width] duration-80",
-              isActive ? "text-foreground" : "text-muted-foreground",
+              isActive ? "text-high" : "text-medium",
             )}
           />
         )}
@@ -483,7 +483,7 @@ const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
           <span
             className={cn(
               "col-start-1 row-start-1 transition-[color,font-variation-settings] duration-80 [text-box:trim-both_cap_alphabetic]",
-              isActive ? "text-foreground" : "text-muted-foreground",
+              isActive ? "text-high" : "text-medium",
             )}
             style={{
               fontVariationSettings: isSelected

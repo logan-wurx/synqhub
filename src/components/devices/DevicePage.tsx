@@ -37,12 +37,12 @@ export function DevicePage({ kind, devices }: { kind: "mouse" | "keyboard"; devi
   const plan = PLANS[kind];
   const found = devices.filter((d) => d.kind === plan.match);
   return (
-    <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-10 pt-7 [&>*]:shrink-0">
+    <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-[120px] pt-7 [&>*]:shrink-0">
       <header className="flex items-center gap-6">
         <div className="min-w-0 flex-1">
           <Eyebrow>{found.length ? "Connected" : "Not connected"}</Eyebrow>
-          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">{plan.title}</h1>
-          <p className="mt-2 text-[13.5px] text-muted-foreground">{plan.device}</p>
+          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">{plan.title}</h1>
+          <p className="mt-2 text-[13.5px] text-medium">{plan.device}</p>
         </div>
         <img
           src={kind === "keyboard" ? deviceKeyboard : deviceMouse}
@@ -59,17 +59,17 @@ export function DevicePage({ kind, devices }: { kind: "mouse" | "keyboard"; devi
             {found.length === 0 ? (
               <div className="flex items-center gap-4 py-1">
                 <PlugIn kind={kind} className="h-[96px] w-[128px] shrink-0" />
-                <p className="flex items-center gap-2 text-[13.5px] text-muted-foreground">
-                  <CircleDashed size={18} weight="light" /> Plug it in and it shows up here.
+                <p className="flex items-center gap-2 text-[13.5px] text-medium">
+                  <CircleDashed size={16} weight="light" /> Plug it in and it shows up here.
                 </p>
               </div>
             ) : (
               found.map((d) => (
                 <div key={d.pid} className="mb-1">
-                  <div className="flex items-center gap-2.5 py-2 text-[14px] text-foreground">
-                    <Usb size={18} weight="light" className="text-primary" />
+                  <div className="flex items-center gap-2.5 py-2 text-[14px] text-high">
+                    <Usb size={16} weight="light" className="text-primary" />
                     {d.reported ?? d.name}
-                    <span className="ml-auto size-2 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
+                    <span className="ml-auto size-2 rounded-full bg-live" />
                   </div>
                   <DetailRows
                     rows={[
@@ -85,7 +85,7 @@ export function DevicePage({ kind, devices }: { kind: "mouse" | "keyboard"; devi
 
         <Card>
           <CardHeader title="How it works" />
-          <p className="px-5 pb-5 pt-3 text-[13.5px] leading-relaxed text-muted-foreground">{plan.how}</p>
+          <p className="px-5 pb-5 pt-3 text-[13.5px] leading-relaxed text-medium">{plan.how}</p>
         </Card>
       </div>
 
@@ -94,7 +94,7 @@ export function DevicePage({ kind, devices }: { kind: "mouse" | "keyboard"; devi
           <CardHeader title="Coming next" />
           <ul className="px-5 pb-5 pt-3">
             {plan.features.map((f) => (
-              <li key={f} className="flex items-center gap-3 py-2 text-[13.5px] text-foreground">
+              <li key={f} className="flex items-center gap-3 py-2 text-[13.5px] text-high">
                 <span className="size-1.5 rounded-full bg-white/25" />
                 {f}
               </li>
@@ -105,7 +105,7 @@ export function DevicePage({ kind, devices }: { kind: "mouse" | "keyboard"; devi
           <CardHeader title="Safety" />
           <ul className="px-5 pb-5 pt-3">
             {plan.safety.map((f) => (
-              <li key={f} className="flex items-center gap-3 py-2 text-[13.5px] text-foreground">
+              <li key={f} className="flex items-center gap-3 py-2 text-[13.5px] text-high">
                 <Check size={16} weight="light" className="text-primary" />
                 {f}
               </li>

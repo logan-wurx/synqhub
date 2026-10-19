@@ -46,9 +46,9 @@ export function LightSlider({
 }) {
   return (
     <label className={cn("block", disabled && "opacity-50")}>
-      <span className="flex items-baseline justify-between gap-3 text-[12.5px] text-muted-foreground">
+      <span className="flex items-baseline justify-between gap-3 text-[12.5px] text-medium">
         <span className="truncate">{label}</span>
-        <span className="tabular shrink-0 text-foreground">{format(value)}</span>
+        <span className="tabular shrink-0 text-high">{format(value)}</span>
       </span>
       <input
         type="range"
@@ -80,7 +80,7 @@ export function Swatch({ colour, selected, onClick, onRemove, label, size = 26 }
         aria-pressed={selected}
         className={cn(
           "rounded-full shadow-[inset_0_0_0_1px_rgb(255_255_255/0.18)] transition-transform duration-300 ease-fluid hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-          selected && "ring-2 ring-white ring-offset-2 ring-offset-[#0b0b0e]",
+          selected && "ring-2 ring-white ring-offset-2 ring-offset-background",
         )}
         style={{ width: size, height: size, background: colour }}
       />
@@ -89,9 +89,9 @@ export function Swatch({ colour, selected, onClick, onRemove, label, size = 26 }
           type="button"
           onClick={onRemove}
           aria-label={`Forget ${label}`}
-          className="absolute -right-1.5 -top-1.5 hidden size-4 place-items-center rounded-full bg-[#1d1d22] text-muted-foreground ring-1 ring-white/15 hover:text-foreground group-hover/swatch:grid group-focus-within/swatch:grid"
+          className="absolute -right-1.5 -top-1.5 hidden size-4 place-items-center rounded-full bg-[#1d1d22] text-medium ring-1 ring-white/15 hover:text-high group-hover/swatch:grid group-focus-within/swatch:grid"
         >
-          <X size={9} weight="bold" />
+          <X size={10} weight="bold" />
         </button>
       )}
     </span>
@@ -111,7 +111,7 @@ export function Segmented<T extends string>({ value, options, onChange, label, w
           onClick={() => onChange(o.id)}
           className={cn(
             "h-7 whitespace-nowrap rounded-full px-3.5 text-[12.5px] transition-colors duration-300 ease-fluid",
-            o.id === value ? "bg-white/[0.09] text-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.08)] ring-1 ring-white/[0.08]" : "text-muted-foreground hover:text-foreground",
+            o.id === value ? "bg-white/[0.09] text-high shadow-[inset_0_1px_0_rgb(255_255_255/0.08)] ring-1 ring-white/[0.08]" : "text-medium hover:text-high",
           )}
         >
           {o.label}
@@ -125,7 +125,7 @@ export function Segmented<T extends string>({ value, options, onChange, label, w
 export function SubHead({ children, right }: { children: ReactNode; right?: ReactNode }) {
   return (
     <div className="flex items-center justify-between gap-3">
-      <p className="truncate text-[12px] text-muted-foreground">{children}</p>
+      <p className="truncate text-[12px] text-medium">{children}</p>
       {right}
     </div>
   );
@@ -140,7 +140,7 @@ export function IconButton({ label, onClick, disabled, children }: { label: stri
       aria-label={label}
       disabled={disabled}
       onClick={onClick}
-      className="grid size-7 shrink-0 place-items-center rounded-full bg-white/[0.04] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground disabled:cursor-not-allowed disabled:opacity-40"
+      className="grid size-7 shrink-0 place-items-center rounded-full bg-white/[0.04] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high disabled:cursor-not-allowed disabled:opacity-40"
     >
       {children}
     </button>
@@ -157,7 +157,7 @@ export function Chip({ on, small, onClick, children }: { on: boolean; small?: bo
       className={cn(
         "whitespace-nowrap rounded-full ring-1 transition-colors duration-300 ease-fluid",
         small ? "px-2.5 py-0.5 text-[12px]" : "px-3 py-1 text-[12.5px]",
-        on ? "bg-white/[0.1] text-foreground ring-white/25" : "bg-white/[0.03] text-muted-foreground ring-white/[0.08] hover:text-foreground",
+        on ? "bg-white/[0.1] text-high ring-white/25" : "bg-white/[0.03] text-medium ring-white/[0.08] hover:text-high",
       )}
     >
       {children}
@@ -175,11 +175,11 @@ export function PowerButton({ on, onClick }: { on: boolean; onClick: () => void 
       data-testid="light-power"
       className={cn(
         "group flex h-9 items-center gap-2 rounded-full pl-1.5 pr-4 text-[13px] ring-1 transition-colors duration-300 ease-fluid",
-        on ? "bg-primary/[0.12] text-foreground ring-primary/35 hover:bg-primary/[0.18]" : "bg-white/[0.05] text-muted-foreground ring-white/[0.08] hover:bg-white/[0.08] hover:text-foreground",
+        on ? "bg-primary/[0.12] text-high ring-primary/35 hover:bg-primary/[0.18]" : "bg-white/[0.05] text-medium ring-white/[0.08] hover:bg-white/[0.08] hover:text-high",
       )}
     >
       <span className={cn("grid size-6 place-items-center rounded-full", on ? "bg-primary text-primary-foreground shadow-[0_0_14px_-2px_var(--primary)]" : "bg-white/[0.08]")}>
-        <Power size={13} weight="bold" />
+        <Power size={12} weight="bold" />
       </span>
       {on ? "On" : "Off"}
     </button>

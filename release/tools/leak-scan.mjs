@@ -17,6 +17,7 @@
 // shell's own KEY/TOKEN/SECRET variables, which are searched for but never printed), debug ports.
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { homedir } from "node:os";
 import { brotliDecompressSync } from "node:zlib";
 
 const args = process.argv.slice(2);
@@ -120,6 +121,13 @@ function scan(buf, where, { binary = false } = {}) {
 const secretValues = Object.entries(process.env)
   .filter(([k, v]) => /KEY|TOKEN|SECRET|PASSWORD|PASSWD|CREDENTIAL/i.test(k) && v && v.length >= 8 && !/^(true|false|\d+)$/i.test(v) && !/PATH|DIR|HOME|FILE/i.test(k))
   .map(([k, v]) => [k, v]);
+// Plus the local secret files in ~/.config/synq (a bot token and the like), searched for the same way, never printed.
+const secretDir = join(homedir(), ".config", "synq");
+if (existsSync(secretDir))
+  for (const f of readdirSync(secretDir)) {
+    const v = readFileSync(join(secretDir, f), "utf8").trim();
+    if (v.length >= 8) secretValues.push([`~/.config/synq/${f}`, v]);
+  }
 function scanEnvSecrets(buf, where) {
   const hay = buf.toString("latin1");
   for (const [k, v] of secretValues) if (hay.includes(v)) note("secrets (this shell's own values)", `value of ${k}`, where, "(value not shown)");
@@ -131,7 +139,7 @@ if (!existsSync(exePath)) {
   process.exit(2);
 }
 const exe = readFileSync(exePath);
-console.log(`  ${exe.length} bytes, ${secretValues.length} secret-looking env vars checked for (names: ${secretValues.map(([k]) => k).join(", ") || "none"})`);
+console.log(`  ${exe.length} bytes, ${secretValues.length} secret-looking values checked for (env vars and ~/.config/synq files: ${secretValues.map(([k]) => k).join(", ") || "none"})`);
 scan(exe, "synq.exe", { binary: true });
 scanEnvSecrets(exe, "synq.exe");
 

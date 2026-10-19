@@ -5,7 +5,7 @@
 // except while SYNQ Helper has a game profile on that device (then what the panel reads is the game's
 // settings, not the everyday ones).
 import { invoke } from "@tauri-apps/api/core";
-import { isTauri } from "../runtime.ts";
+import { isTauri, viaHelper } from "../runtime.ts";
 import * as A from "../atk-protocol.ts";
 import { encode, familyOf, type AtkRows, type KnownDevice, type ProfileSettings, type X68Known } from "./encode.ts";
 import type { GamesFile } from "../helper.ts";
@@ -26,10 +26,12 @@ const keyOf = (device: unknown): string | null => {
 };
 
 function remember(k: KnownDevice) {
-  if (!isTauri) return;
-  void invoke("device_state_save", { id: k.key, json: JSON.stringify(k) })
-    .then(() => refreshProfiles(k))
-    .catch(() => undefined);
+  // The website keeps them only through SYNQ Helper (its device keys are the helper's, the ones profiles use).
+  void (async () => {
+    if (!isTauri && !(await viaHelper())) return;
+    await invoke("device_state_save", { id: k.key, json: JSON.stringify(k) });
+    await refreshProfiles(k);
+  })().catch(() => undefined);
 }
 
 /** The ATK panel read its rows (only for a mouse SYNQ may change). */
@@ -70,7 +72,7 @@ async function refreshProfiles(k: KnownDevice) {
 
 /** Every device SYNQ knows the settings of. */
 export async function knownDevices(): Promise<KnownDevice[]> {
-  if (!isTauri) return previewDevices();
+  if (!isTauri && !(await viaHelper())) return previewDevices();
   const list = await invoke<string[]>("device_states_load").catch(() => [] as string[]);
   const out: KnownDevice[] = [];
   for (const t of list) {

@@ -4,12 +4,14 @@
     "windows": [
       {
         "title": "SYNQ",
-        "width": 1240,
-        "height": 860,
+        "width": 1480,
+        "height": 920,
         "minWidth": 1040,
         "minHeight": 640,
         "center": true,
-        "backgroundColor": "#121113"
+        "visible": false,
+        "backgroundColor": "#0f0f0f",
+        "decorations": false
       }
     ]
   },

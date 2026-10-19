@@ -20,11 +20,11 @@ export function EngineChip({ status, open, onClick }: { status: EngineStatus | n
     <button
       onClick={onClick}
       aria-expanded={open}
-      className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] py-1 pl-2.5 pr-2.5 text-[12px] text-muted-foreground ring-1 ring-white/[0.06] transition-colors duration-300 ease-fluid hover:bg-white/[0.07] hover:text-foreground"
+      className="inline-flex items-center gap-2 rounded-small bg-white/[0.04] py-1 pl-2.5 pr-2.5 text-[12px] text-medium ring-1 ring-white/[0.06] transition-colors duration-300 ease-fluid hover:bg-white/[0.07] hover:text-high"
     >
       <span className={cn("size-1.5 rounded-full", !status ? "bg-white/15" : on ? "bg-primary shadow-[0_0_8px_var(--primary)]" : "bg-chart-3")} />
       <span>EQ engine: {status ? status.summary : "checking…"}</span>
-      <CaretDown size={11} className={cn("transition-transform duration-300 ease-fluid", open && "rotate-180")} />
+      <CaretDown size={12} className={cn("transition-transform duration-300 ease-fluid", open && "rotate-180")} />
     </button>
   );
 }
@@ -41,17 +41,17 @@ export function Banner({
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-2xl px-4 py-3 text-[13px] leading-relaxed ring-1",
+        "flex items-center gap-3 rounded-control px-4 py-3 text-[13px] leading-relaxed ring-1",
         tone === "warn" ? "bg-chart-3/[0.06] text-chart-3 ring-chart-3/20" : "bg-destructive/[0.07] text-destructive ring-destructive/25",
       )}
     >
-      <Warning size={18} weight="light" className="shrink-0" />
+      <Warning size={16} weight="light" className="shrink-0" />
       <span className="flex-1">{children}</span>
       {action && (
         <button
           onClick={action.onClick}
           disabled={action.busy}
-          className="shrink-0 rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50"
+          className="shrink-0 rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50"
         >
           {action.busy ? "Working…" : action.label}
         </button>
@@ -175,14 +175,14 @@ export function EnginePanel({
     <Card innerClassName="p-5">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-[14px] font-medium tracking-tight text-foreground">EQ engine</h3>
-          <p className="mt-0.5 max-w-[620px] text-[12.5px] leading-relaxed text-muted-foreground">
+          <h3 className="text-[14px] font-medium tracking-tight text-high">EQ engine</h3>
+          <p className="mt-0.5 max-w-[620px] text-[12.5px] leading-relaxed text-medium">
             It runs inside Windows' own sound system, so nothing extra runs in the background. SYNQ installs it, puts it on your
             outputs and fixes it. Your EQ plays on every output that has it.
           </p>
         </div>
-        <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground">
-          <X size={15} />
+        <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
+          <X size={16} weight="light" />
         </button>
       </div>
 
@@ -191,18 +191,18 @@ export function EnginePanel({
           {outputs.map((o) => (
             <li key={o.id} className="flex items-center gap-3 py-2 text-[13px]">
               <span className={cn("size-1.5 shrink-0 rounded-full", o.engine ? "bg-primary shadow-[0_0_8px_var(--primary)]" : "bg-white/15")} />
-              <span className="min-w-0 flex-1 truncate text-foreground">
+              <span className="min-w-0 flex-1 truncate text-high">
                 {o.name}
-                {o.isDefault && <span className="ml-2 text-[11.5px] text-muted-foreground">playing now</span>}
+                {o.isDefault && <span className="ml-2 text-[11.5px] text-medium">playing now</span>}
               </span>
-              <span className="text-[12px] text-muted-foreground">
+              <span className="text-[12px] text-medium">
                 {o.engine ? (o.enhancementsDisabled ? "EQ blocked" : "EQ on") : o.state === "unplugged" ? "Unplugged" : o.state === "disabled" ? "Turned off" : "No EQ"}
               </span>
               {!o.engine && o.canAdd && (
                 <button
                   disabled={busy}
                   onClick={() => onAction({ kind: "setup", output: o.id })}
-                  className="rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
+                  className="rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
                 >
                   Add
                 </button>
@@ -220,26 +220,26 @@ export function EnginePanel({
         </ul>
       )}
       {status.inputsWithEngine.length > 0 && (
-        <p className="mt-3 text-[12px] text-muted-foreground/80">Also on: {status.inputsWithEngine.join(", ")} (SYNQ leaves inputs alone).</p>
+        <p className="mt-3 text-[12px] text-medium">Also on: {status.inputsWithEngine.join(", ")} (SYNQ leaves inputs alone).</p>
       )}
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.05] pt-3 text-[12px] text-muted-foreground">
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.05] pt-3 text-[12px] text-medium">
         {status.canUndo && (
           <button
             disabled={busy}
             onClick={() => onAction({ kind: "undo" })}
-            className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
+            className="flex items-center gap-1.5 rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
           >
-            <ArrowCounterClockwise size={13} /> Undo the last engine change
+            <ArrowCounterClockwise size={12} /> Undo the last engine change
           </button>
         )}
         <span className="flex-1">
           EQ engine: Equalizer APO{status.version ? ` ${status.version}` : ""} by Jonas Thedering, free software under the GPL 2.0.
         </span>
-        <button onClick={() => setLicense(true)} className="underline decoration-white/20 underline-offset-2 hover:text-foreground">
+        <button onClick={() => setLicense(true)} className="underline decoration-white/20 underline-offset-2 hover:text-high">
           License
         </button>
-        <button onClick={() => openLink(SOURCE_URL)} className="underline decoration-white/20 underline-offset-2 hover:text-foreground">
+        <button onClick={() => openLink(SOURCE_URL)} className="underline decoration-white/20 underline-offset-2 hover:text-high">
           Source
         </button>
       </div>
@@ -256,15 +256,15 @@ function PipewirePanel({ status, busy, onAction, onClose }: { status: EngineStat
     <Card innerClassName="p-5">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-[14px] font-medium tracking-tight text-foreground">EQ engine</h3>
-          <p className="mt-0.5 max-w-[620px] text-[12.5px] leading-relaxed text-muted-foreground">
+          <h3 className="text-[14px] font-medium tracking-tight text-high">EQ engine</h3>
+          <p className="mt-0.5 max-w-[620px] text-[12.5px] leading-relaxed text-medium">
             It runs inside PipeWire, your desktop's sound system: a sound output called "SYNQ EQ" that plays into the output you pick, so nothing
             extra runs in the background. SYNQ writes its PipeWire config and makes it your default output; moving it to another output is
             instant.
           </p>
         </div>
-        <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground">
-          <X size={15} />
+        <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
+          <X size={16} weight="light" />
         </button>
       </div>
 
@@ -273,16 +273,16 @@ function PipewirePanel({ status, busy, onAction, onClose }: { status: EngineStat
           {status.outputs.map((o) => (
             <li key={o.id} className="flex items-center gap-3 py-2 text-[13px]">
               <span className={cn("size-1.5 shrink-0 rounded-full", o.engine ? "bg-primary shadow-[0_0_8px_var(--primary)]" : "bg-white/15")} />
-              <span className="min-w-0 flex-1 truncate text-foreground">
+              <span className="min-w-0 flex-1 truncate text-high">
                 {o.title}
-                {o.isDefault && <span className="ml-2 text-[11.5px] text-muted-foreground">playing now</span>}
+                {o.isDefault && <span className="ml-2 text-[11.5px] text-medium">playing now</span>}
               </span>
-              <span className="text-[12px] text-muted-foreground">{o.engine ? "EQ on" : "No EQ"}</span>
+              <span className="text-[12px] text-medium">{o.engine ? "EQ on" : "No EQ"}</span>
               {!o.engine && (
                 <button
                   disabled={busy}
                   onClick={() => onAction({ kind: "setup", output: o.id })}
-                  className="rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
+                  className="rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
                 >
                   Use
                 </button>
@@ -299,23 +299,23 @@ function PipewirePanel({ status, busy, onAction, onClose }: { status: EngineStat
           ))}
         </ul>
       )}
-      {pw?.configWritten && <p className="mt-3 break-all text-[12px] text-muted-foreground/80">Config: {pw.configPath}</p>}
+      {pw?.configWritten && <p className="mt-3 break-all text-[12px] text-medium">Config: {pw.configPath}</p>}
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.05] pt-3 text-[12px] text-muted-foreground">
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.05] pt-3 text-[12px] text-medium">
         {status.canUndo && (
           <button
             disabled={busy}
             onClick={() => onAction({ kind: "undo" })}
-            className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
+            className="flex items-center gap-1.5 rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
           >
-            <ArrowCounterClockwise size={13} /> Remove SYNQ's EQ
+            <ArrowCounterClockwise size={12} /> Remove SYNQ's EQ
           </button>
         )}
         <span className="flex-1">
           EQ engine: PipeWire{pw?.version ? ` ${pw.version}` : ""} (its filter-chain and built-in biquad filters), part of your system. Nothing is bundled or
           installed.
         </span>
-        <button onClick={() => openLink(PIPEWIRE_URL)} className="underline decoration-white/20 underline-offset-2 hover:text-foreground">
+        <button onClick={() => openLink(PIPEWIRE_URL)} className="underline decoration-white/20 underline-offset-2 hover:text-high">
           About PipeWire
         </button>
       </div>
@@ -335,16 +335,16 @@ export function LicenseDialog({ onClose }: { onClose: () => void }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-10 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-shade/60 p-10 backdrop-blur-sm" onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()} className="w-full max-w-[720px]">
         <Card innerClassName="flex max-h-[78vh] flex-col p-5">
           <div className="flex items-center justify-between pb-3">
-            <h3 className="text-[14px] font-medium text-foreground">Equalizer APO license (GNU GPL 2.0)</h3>
-            <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground">
-              <X size={15} />
+            <h3 className="text-[14px] font-medium text-high">Equalizer APO license (GNU GPL 2.0)</h3>
+            <button onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
+              <X size={16} weight="light" />
             </button>
           </div>
-          <pre className="min-h-0 flex-1 overflow-y-auto whitespace-pre-wrap font-sans text-[12px] leading-relaxed text-muted-foreground">{text ?? "Loading…"}</pre>
+          <pre className="min-h-0 flex-1 overflow-y-auto whitespace-pre-wrap font-sans text-[12px] leading-relaxed text-medium">{text ?? "Loading…"}</pre>
         </Card>
       </div>
     </div>

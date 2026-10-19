@@ -1,76 +1,64 @@
 @import "tailwindcss";
 @import "./assets/fonts/fonts.css";
 
-/* SYNQ theme ("Ambient"): a near-black room lit by soft colour from your own lights (src/components/ui/ambient.tsx),
-   glass panels, white type in Bricolage Grotesque with DM Mono labels, one vivid accent.
-   --primary is the accent (boosts, active things), --secondary the cool counter-colour (cuts).
-   The default accent is the room light's own colour (--room-accent, set with the pools' colours); html[data-accent]
-   picks a fixed one instead. */
+/* SYNQ theme: a flat near-black room, devices on lit grey tiles (real product photos), white type in Helvetica, and one
+   colour, the brand orange, kept for what is active: the device in use, its controls, a running EQ, the selected tab.
+   --primary is the orange; --secondary is a light neutral for the EQ's cuts (boosts are orange). Every neutral leans a
+   hair towards the orange (OKLCH chroma 0.004 to 0.008 at hue 40 to 60), so the greys read warm, never blue. */
 :root {
   color-scheme: dark;
-  --background: #070708;
-  --foreground: #f4f4f6;
-  --card: #0d0d10;
-  --card-foreground: #f4f4f6;
-  --popover: #0d0d10;
-  --popover-foreground: #f4f4f6;
-  --muted: #16161a;
-  --muted-foreground: #9c9ca6;
-  --accent: #1d1d22;
-  --accent-foreground: #f4f4f6;
+  --background: oklch(17% 0.004 50);
+  --foreground: oklch(97% 0.004 60);
+  --card: oklch(21.5% 0.004 50);
+  --card-foreground: oklch(97% 0.004 60);
+  --popover: oklch(22.5% 0.004 50);
+  --popover-foreground: oklch(97% 0.004 60);
+  --muted: oklch(27% 0.004 50);
+  --muted-foreground: oklch(73% 0.006 60);
+  --accent: oklch(28.5% 0.004 50);
+  --accent-foreground: oklch(97% 0.004 60);
   --destructive: #ff5d6c;
-  --destructive-foreground: #0a0a0c;
-  --border: rgb(255 255 255 / 0.07);
-  --input: rgb(255 255 255 / 0.09);
+  --destructive-foreground: #0a0a0a;
+  --border: rgb(255 255 255 / 0.09);
+  --input: rgb(255 255 255 / 0.1);
   --hover: rgb(255 255 255 / 0.06);
-  --chart-1: #6b6b74;
-  --chart-2: #9d9da8;
+  --chart-1: #6b6b6b;
+  --chart-2: #9d9d9d;
   --chart-3: #ffd27a;
-  --chart-4: #6b6b74;
-  --chart-5: #9d9da8;
-  --secondary-foreground: #08080a;
-  --font-sans: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --chart-4: #6b6b6b;
+  --chart-5: #9d9d9d;
+  --primary: #ff5e3a;
+  --primary-foreground: oklch(99% 0.006 45);
+  --secondary: oklch(87% 0.004 60);
+  --secondary-foreground: oklch(17% 0.004 50);
+  /* Connected / asleep dots. */
+  --live: oklch(79% 0.2 147);
+  --asleep: oklch(65% 0.004 60);
+  /* A device tile: lit from above, a fine light edge. */
+  --tile-top: oklch(34% 0.005 55);
+  --tile-bottom: oklch(29.5% 0.005 55);
+  --tile-edge: rgb(255 255 255 / 0.12);
+  /* A panel (settings cards, sheets): darker than a tile, warm at the top-left. */
+  --panel-top: oklch(26% 0.008 40);
+  --panel-bottom: oklch(21.5% 0.005 50);
+  /* Text by emphasis, one warm white at three strengths (Material's rule, so every surface keeps the same relation):
+     high 87% for headings, values and body copy; medium 60% for labels, hints and secondary lines; faint 38% for
+     what can't be used right now. Solid --foreground stays for fills (the white pill buttons). */
+  --text-high: oklch(97% 0.004 60 / 0.87);
+  --text-medium: oklch(97% 0.004 60 / 0.6);
+  --text-faint: oklch(97% 0.004 60 / 0.38);
+  /* Recessed wells and scrims (bg-shade/40 ...): a warm near-black, never #000 (The Warm Room Rule). */
+  --shade: oklch(11% 0.006 45);
+  --font-sans: "SYNQ Helvetica", "SYNQ Nimbus Sans", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
-  --radius: 1rem;
   --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
-
-  /* default accent: the room light (src/components/ui/ambient.tsx keeps --room-accent and --room-fg up to date) */
-  --room-fg: #08080a;
-  --primary: var(--room-accent);
-  --secondary: var(--glow-b);
-  --primary-foreground: var(--room-fg);
   --ring: var(--primary);
   --focus-ring: var(--primary);
-  transition:
-    --glow-a 1.6s var(--ease-fluid),
-    --glow-b 1.6s var(--ease-fluid),
-    --glow-c 1.6s var(--ease-fluid),
-    --room-accent 1.6s var(--ease-fluid);
+  /* Room the desktop app's window buttons take at the top right (src/components/ui/chrome.tsx TitleBar), and a gap. */
+  --wc: 0px;
 }
-:root[data-accent="iris"] {
-  --primary: #8b5cf6;
-  --secondary: #5ad3ee;
-  --primary-foreground: #08080a;
-}
-:root[data-accent="ice"] {
-  --primary-foreground: #08080a;
-  --primary: #42d4ff;
-  --secondary: #a395ff;
-}
-:root[data-accent="lime"] {
-  --primary-foreground: #08080a;
-  --primary: #c6f24e;
-  --secondary: #52d6c8;
-}
-:root[data-accent="ember"] {
-  --primary-foreground: #08080a;
-  --primary: #ff9e45;
-  --secondary: #5ad3ee;
-}
-:root[data-accent="rog"] {
-  --primary-foreground: #08080a;
-  --primary: #ff3d57;
-  --secondary: #6fb6ff;
+:root[data-frame="own"] {
+  --wc: 154px;
 }
 
 @theme inline {
@@ -99,13 +87,24 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-hover: var(--hover);
+  --color-live: var(--live);
+  --color-asleep: var(--asleep);
+  --color-shade: var(--shade);
+  --color-high: var(--text-high);
+  --color-medium: var(--text-medium);
+  --color-faint: var(--text-faint);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --ease-fluid: var(--ease-fluid);
-  --radius-sm: calc(var(--radius) - 6px);
-  --radius-md: calc(var(--radius) - 4px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Corners by role (DESIGN.md, The Concentric Corners Rule): a tile, panel or sheet; a menu or toast; a button,
+     input, well or box 36 px and up; the same under 36 px; a badge or tiny input. Inside something rounded, a corner
+     is the outer corner less the gap (rows in a menu, chips in a button); pills are for chips, tabs, toggles, status
+     tags and the dock. */
+  --radius-card: 18px;
+  --radius-popover: 14px;
+  --radius-control: 10px;
+  --radius-small: 8px;
+  --radius-tight: 6px;
 }
 
 @layer base {
@@ -120,22 +119,12 @@
   body {
     margin: 0;
     background-color: var(--background);
-    color: var(--foreground);
+    color: var(--text-high);
     font-family: var(--font-sans);
     font-size: 14px;
-    letter-spacing: -0.004em;
+    letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     user-select: none;
-  }
-  /* Film grain, fixed and click-through. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 60;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   /* While the window is in the background or minimized (src/lib/activity.ts), looping animations
      hold still, so an idle SYNQ draws nothing. They carry on when it's focused again. */
@@ -155,7 +144,7 @@
   }
   select {
     background: var(--muted);
-    color: var(--foreground);
+    color: var(--text-high);
   }
   ::selection {
     background: color-mix(in srgb, var(--primary) 35%, transparent);
@@ -175,85 +164,81 @@
   }
 }
 
+/* Figures that change in place (a level, a count): even-width digits, so they don't jitter. */
 @utility tabular {
-  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
 
-/* A small mono label over a value or a card ("DPI · PRO X 2 DEX", "MOUSE"). */
-@utility label-mono {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.04em;
+/* A small label over a value or a card ("MOUSE", "ACTIVE DEVICE"): capitals, spaced out. */
+@utility label-caps {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: var(--text-medium);
 }
 
-/* A big live number ("1600", "4K Hz"): Bricolage at display size, tight. */
+/* A big live number ("800", "4 kHz"): bold, tight. */
 @utility display-num {
   font-family: var(--font-sans);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   font-variant-numeric: tabular-nums;
 }
 
-/* The room light (src/components/ui/ambient.tsx): three soft pools whose colours follow the ones last set on your lights.
-   Registered so a new colour fades in instead of jumping. */
-@property --glow-a {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #ff5e3a;
+/* A page's headline ("Your setup."): heavy and tight. */
+@utility headline {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
 }
-@property --glow-b {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #8a5cf6;
+
+/* A device tile: lit from above with a fine light edge, the product photo on it. */
+@utility tile {
+  background: linear-gradient(180deg, var(--tile-top), var(--tile-bottom));
+  border: 1px solid var(--tile-edge);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.06),
+    0 24px 48px -28px rgb(0 0 0 / 0.7);
 }
-@property --glow-c {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #ff9f43;
+
+/* Glass: frosted over whatever is behind it (the orange slab under the active card, the tiles under the dock), with a
+   bright top edge and a faint sheen across the corner, the way light catches a pane. */
+@utility glass {
+  background:
+    linear-gradient(140deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.025) 34%, rgb(255 255 255 / 0) 62%),
+    oklch(20.5% 0.006 45 / 0.76);
+  backdrop-filter: blur(30px) saturate(165%);
+  border: 1px solid rgb(255 255 255 / 0.13);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    inset 0 -1px 0 rgb(0 0 0 / 0.3),
+    0 34px 70px -34px rgb(0 0 0 / 0.9);
 }
-/* The "Room light" accent: the first pool's colour, lifted where it's too dark to read (src/lib/lighting/glow.ts). */
-@property --room-accent {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #ff5e3a;
+
+/* The same glass, without the live blur: for a big pane over the still dot pattern (the Gear page's shelves), where a
+   blur would recompute on every frame of the backdrop for no visible gain. A touch more opaque to make up for it. */
+@utility glass-still {
+  background:
+    linear-gradient(140deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.025) 34%, rgb(255 255 255 / 0) 62%),
+    oklch(20.5% 0.006 45 / 0.84);
+  border: 1px solid rgb(255 255 255 / 0.13);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    inset 0 -1px 0 rgb(0 0 0 / 0.3),
+    0 34px 70px -34px rgb(0 0 0 / 0.9);
 }
-.ambient {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.ambient > span {
-  position: absolute;
-  border-radius: 50%;
-  aspect-ratio: 1;
-}
-.ambient > :nth-child(1) {
-  left: -12vw;
-  top: -29vh;
-  width: max(57vw, 520px);
-  background: radial-gradient(circle, var(--glow-a) 0%, transparent 62%);
-  opacity: 0.42;
-}
-.ambient > :nth-child(2) {
-  right: -15vw;
-  top: 13vh;
-  width: max(53vw, 480px);
-  background: radial-gradient(circle, var(--glow-b) 0%, transparent 62%);
-  opacity: 0.26;
-}
-.ambient > :nth-child(3) {
-  left: 29vw;
-  bottom: -47vh;
-  width: max(53vw, 480px);
-  background: radial-gradient(circle, var(--glow-c) 0%, transparent 62%);
-  opacity: 0.16;
+/* A panel: a settings card, a sheet. Darker than a tile. */
+@utility panel {
+  background: linear-gradient(160deg, var(--panel-top), var(--panel-bottom));
+  border: 1px solid rgb(255 255 255 / 0.09);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.05),
+    0 30px 60px -32px rgb(0 0 0 / 0.8);
 }
 
 /* A lamp page's slider on a coloured track (src/components/lighting/controls.tsx LightSlider): --track is the
@@ -351,4 +336,10 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* The battery cell's liquid while it charges: two periods of the wave, shifted by one. */
+@keyframes battery-wave {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

@@ -683,5 +683,14 @@
   "for": [
    "Govee H6139 and H6196: other lengths of the same light (Govee's product page lists them together)"
   ]
+ },
+ "sonix-vter-fighting68": {
+  "names": [
+   "sting68 lite"
+  ],
+  "ids": [],
+  "for": [
+   "STING68 LITE: the boards web driver (vter.driveall.cn) shows the Fighting68 picture for it"
+  ]
  }
 }

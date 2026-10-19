@@ -13,7 +13,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const application = process.env.ONBOARD_E2E_APP ?? path.resolve(here, "../src-tauri/target/debug/onboard");
+// The app's program is `synq` (tauri.conf.json mainBinaryName).
+const application = process.env.ONBOARD_E2E_APP ?? path.resolve(here, `../src-tauri/target/debug/synq${process.platform === "win32" ? ".exe" : ""}`);
 const driverPath = process.env.TAURI_DRIVER ?? path.resolve(os.homedir(), ".cargo", "bin", "tauri-driver");
 mkdirSync(path.join(here, "screenshots"), { recursive: true });
 

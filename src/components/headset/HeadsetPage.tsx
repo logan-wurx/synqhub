@@ -35,8 +35,8 @@ function SettingRow({ s, value, disabled, busy, onSet }: { s: SettingSpec; value
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
       <div className="min-w-[140px] flex-1">
-        <p className="text-[13.5px] text-foreground">{s.label}</p>
-        <p className="text-[11.5px] text-muted-foreground">{value === null ? "Not set from SYNQ yet" : `SYNQ set ${valueText(s, value)}`}</p>
+        <p className="text-[13.5px] text-high">{s.label}</p>
+        <p className="text-[11.5px] text-medium">{value === null ? "Not set from SYNQ yet" : `SYNQ set ${valueText(s, value)}`}</p>
       </div>
       {s.values.length <= 6 ? (
         <div className="flex flex-wrap gap-1.5">
@@ -159,9 +159,9 @@ export function HeadsetPage({ devices, notify, family }: { devices: Connected[];
       <Card innerClassName="flex items-center gap-5 px-6 py-5">
         <BatteryRing percent={view?.battery ?? null} charging={!!view?.charging} />
         <div className="min-w-0 flex-1">
-          <p className="text-[13px] text-muted-foreground">Battery</p>
-          <p className="mt-1 text-[15px] text-foreground">{view?.battery != null ? `${view.battery}%${view.charging ? ", charging" : ""}` : connected ? "The headset didn't say" : "Not read yet"}</p>
-          <button onClick={() => void read()} className="mt-2 inline-flex items-center gap-1.5 text-[12px] text-muted-foreground transition-colors hover:text-foreground">
+          <p className="text-[13px] text-medium">Battery</p>
+          <p className="mt-1 text-[15px] text-high">{view?.battery != null ? `${view.battery}%${view.charging ? ", charging" : ""}` : connected ? "The headset didn't say" : "Not read yet"}</p>
+          <button onClick={() => void read()} className="mt-2 inline-flex items-center gap-1.5 text-[12px] text-medium transition-colors hover:text-high">
             <ArrowClockwise size={12} /> Read again
           </button>
         </div>
@@ -212,8 +212,8 @@ export function HeadsetPage({ devices, notify, family }: { devices: Connected[];
                 ))}
               </div>
             </Card>
-            <p className="flex items-start gap-2 px-1 text-[11.5px] leading-relaxed text-muted-foreground/80">
-              <Info size={13} className="mt-0.5 shrink-0" />
+            <p className="flex items-start gap-2 px-1 text-[11.5px] leading-relaxed text-medium">
+              <Info size={12} className="mt-0.5 shrink-0" />
               <span title={SOURCE}>The protocol comes from HeadsetControl (GPL-3.0). SYNQ never sends firmware, pairing or reset commands to a headset.</span>
             </p>
           </>

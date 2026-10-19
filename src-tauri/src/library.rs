@@ -364,7 +364,7 @@ fn base64(bytes: &[u8]) -> String {
 /// Steam's public header image for an app id (two CDN layouts, newest first).
 pub fn steam_art_urls(appid: u32) -> [String; 2] {
     [
-        format!("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/{appid}/header.jpg"),
+        format!("https://shared.steamstatic.com/store_item_assets/steam/apps/{appid}/header.jpg"),
         format!("https://cdn.cloudflare.steamstatic.com/steam/apps/{appid}/header.jpg"),
     ]
 }

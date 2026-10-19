@@ -1,7 +1,7 @@
 """Normalize one vendor product image into SYNQ's device-picture format.
 
   load -> (transparent already? keep : cut the flat background with an edge flood fill + soft alpha)
-       -> trim to the subject -> fit to ~600 px on the long side -> WebP (15-40 KB target).
+       -> trim to the subject -> fit to ~900 px on the long side (never enlarged) -> WebP (at most 70 KB, most 25-70).
 
 proc(path, out_webp, bg="auto") returns a report dict; report["ok"] False means "skip this image" (with report["why"]).
 """
@@ -9,8 +9,8 @@ import io, sys, json
 import numpy as np
 from PIL import Image, ImageFilter
 
-LONG = 600          # target long side
-MAX_KB = 40
+LONG = 900          # target long side (the large studio tiles show a picture about 400 px tall, 800 on a HiDPI screen)
+MAX_KB = 70
 MIN_SRC = 220       # smaller than this on the long side is too soft to use
 
 def load_rgba(path):
@@ -203,13 +203,13 @@ def trim(im, pad_frac=0.02):
     return im.crop(box)
 
 def encode(im, kb=MAX_KB):
-    """Smallest-loss WebP under the size cap; shrinks the picture only when quality 55 still overshoots."""
+    """Smallest-loss WebP under the size cap; shrinks the picture only when quality 58 still overshoots."""
     best = None
-    for long_side in (LONG, 540, 480):
+    for long_side in (LONG, 800, 700):
         w, h = im.size
         s = long_side / max(w, h)
         r = im.resize((max(1, round(w * s)), max(1, round(h * s))), Image.LANCZOS) if s < 1.0 or max(w, h) > long_side else im
-        for q in (88, 82, 76, 70, 64, 58, 52):
+        for q in (90, 86, 82, 78, 74, 70, 64, 58):
             buf = io.BytesIO()
             r.save(buf, "WEBP", quality=q, alpha_quality=min(q + 8, 100), method=6)
             if buf.tell() <= kb * 1024:

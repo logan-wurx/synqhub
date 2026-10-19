@@ -49,16 +49,16 @@ export function NumberField({
       className={cn("flex flex-col gap-1", className)}
     >
       <Base.ScrubArea direction="horizontal" pixelSensitivity={3} className="cursor-ew-resize px-1" title="Drag sideways to adjust">
-        <span className="text-[11.5px] text-muted-foreground">{label}</span>
+        <span className="text-[11.5px] text-medium">{label}</span>
         <Base.ScrubAreaCursor className="drop-shadow-[0_1px_1px_#000]">
-          <svg width="22" height="10" viewBox="0 0 22 10" fill="currentColor" className="text-foreground">
+          <svg width="22" height="10" viewBox="0 0 22 10" fill="currentColor" className="text-high">
             <path d="M0 5 6 0v10L0 5Zm22 0-6 5V0l6 5Z" />
           </svg>
         </Base.ScrubAreaCursor>
       </Base.ScrubArea>
-      <Base.Group className="flex h-9 items-center rounded-xl bg-white/[0.04] ring-1 ring-white/[0.07] transition-colors focus-within:ring-primary/60 hover:bg-white/[0.06]">
-        <Base.Input className="tabular w-full min-w-0 bg-transparent px-2.5 text-[13.5px] text-foreground outline-none" />
-        {unit && <span className="pr-2.5 text-[11.5px] text-muted-foreground">{unit}</span>}
+      <Base.Group className="flex h-9 items-center rounded-control bg-white/[0.04] ring-1 ring-white/[0.07] transition-colors focus-within:ring-primary/60 hover:bg-white/[0.06]">
+        <Base.Input className="tabular w-full min-w-0 bg-transparent px-2.5 text-[13.5px] text-high outline-none" />
+        {unit && <span className="pr-2.5 text-[11.5px] text-medium">{unit}</span>}
       </Base.Group>
     </Base.Root>
   );

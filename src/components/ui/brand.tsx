@@ -44,7 +44,7 @@ export function MouseOutline({ className }: { className?: string }) {
       <g fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <path
           d="M251 239C251 197 278 174 314 174C352 174 378 202 378 244V329C378 369 348 391 314 391C277 391 251 365 251 329Z M314 175V247 M253 253H376"
-          stroke="rgb(231 231 239 / 0.55)"
+          stroke="rgb(240 235 230 / 0.55)"
         />
         <rect x="306" y="201" width="16" height="34" rx="8" stroke="var(--primary)" />
       </g>
@@ -57,7 +57,7 @@ export function KeyboardOutline({ className }: { className?: string }) {
   const rows = [14, 13, 12, 11];
   return (
     <svg viewBox="0 0 320 130" className={cn("pointer-events-none", className)} aria-hidden="true">
-      <g fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" stroke="rgb(231 231 239 / 0.5)">
+      <g fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" stroke="rgb(240 235 230 / 0.5)">
         <rect x="6" y="6" width="308" height="118" rx="16" />
         {rows.map((n, r) =>
           Array.from({ length: n }, (_, i) => {
@@ -75,7 +75,7 @@ export function KeyboardOutline({ className }: { className?: string }) {
 export function SoundOutline({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 200 180" className={cn("pointer-events-none", className)} aria-hidden="true">
-      <g fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" stroke="rgb(231 231 239 / 0.55)">
+      <g fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" stroke="rgb(240 235 230 / 0.55)">
         <path d="M30 108V96a70 70 0 0 1 140 0v12" />
         <rect x="20" y="104" width="34" height="56" rx="14" />
         <rect x="146" y="104" width="34" height="56" rx="14" />
@@ -86,7 +86,7 @@ export function SoundOutline({ className }: { className?: string }) {
 }
 
 /** The plug-in drawings' accent colour, swapped for the live accent. */
-const BRAND_VIOLET = "#8B5CF6";
+const BRAND_ORANGE = "#FF5E3A";
 /** SYNQ's colour, the room light's sunset orange (branding/synq/build.py): the app icon's tile. */
 export const SYNQ_ORANGE = "#FF5E3A";
 
@@ -121,8 +121,8 @@ export function AppTile({ size = 32 }: { size?: number }) {
 
 const PLUG = { mouse: plugMouse, keyboard: plugKeyboard, audio: plugAudio } as const;
 
-/** Text-free connection drawing; its violet details follow the accent. */
+/** Text-free connection drawing; its orange details follow the accent. */
 export function PlugIn({ kind, className }: { kind: keyof typeof PLUG; className?: string }) {
-  const svg = PLUG[kind].split(BRAND_VIOLET).join("var(--primary)").replace("<svg ", '<svg width="100%" height="100%" ');
+  const svg = PLUG[kind].split(BRAND_ORANGE).join("var(--primary)").replace("<svg ", '<svg width="100%" height="100%" ');
   return <div className={cn("pointer-events-none", className)} aria-hidden="true" dangerouslySetInnerHTML={{ __html: svg }} />;
 }

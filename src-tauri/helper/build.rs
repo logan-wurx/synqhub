@@ -5,6 +5,13 @@
 use std::{env, fs, io::Write, path::Path};
 
 fn main() {
+    // `--features with-app`: the SYNQ program to carry (src/standalone.rs), rebuilt when it changes.
+    println!("cargo:rerun-if-env-changed=SYNQ_APP_EXE");
+    if env::var_os("CARGO_FEATURE_WITH_APP").is_some() {
+        let app = env::var("SYNQ_APP_EXE").expect("--features with-app needs SYNQ_APP_EXE (the built synq.exe)");
+        assert!(Path::new(&app).is_file(), "SYNQ_APP_EXE isn't a file: {app}");
+        println!("cargo:rerun-if-changed={app}");
+    }
     if env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("windows") || env::var("CARGO_CFG_TARGET_ENV").as_deref() != Ok("msvc") {
         return;
     }

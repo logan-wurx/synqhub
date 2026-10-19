@@ -183,10 +183,11 @@ export interface EngineOutcome {
   restartedAudio: boolean;
 }
 
-/** The person's own name for the headphones on one output of this PC. */
+/** The person's own name for the headphones on one output of this PC, and which model they are. */
 export interface SoundName {
   name: string;
-  picture: "iems" | null;
+  /** The model's photo key in the picture library ("7hz-salnotes-zero-2"), "iems" for SYNQ's own drawing, or none. */
+  picture: string | null;
 }
 export type SoundNames = Record<string, SoundName>;
 
@@ -235,7 +236,7 @@ const mock = {
   presets: new Map<string, EqState>(),
   // Preview only: a sample PC with the engine on a USB headphone output and two monitors.
   outputs: PREVIEW_OUTPUTS.map((o, i) => ({ ...o, state: "active" as const, enhancementsDisabled: false, isDefault: i === 0, canAdd: !o.engine, issues: [] as EngineIssue[] })),
-  names: { [PREVIEW_OUTPUTS[0].id]: { name: "Headphones", picture: "iems" } } as SoundNames,
+  names: { [PREVIEW_OUTPUTS[0].id]: { name: "Headphones", picture: "7hz-salnotes-zero-2" } } as SoundNames,
   canUndo: isLinux,
   // Linux: the device rule isn't installed yet (as on a fresh AppImage).
   accessInstalled: false,

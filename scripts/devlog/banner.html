@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SYNQ dev log banner</title>
+<!-- The banner on top of each #dev-log post in SYNQ's Discord (post.mjs screenshots it at 1500x500, 2x): the ember dot
+     field of the website and the X header, the change's title, a line above it and the lockup. The field is drawn on a
+     2D canvas (the same maths as src/components/ui/shader.worker.ts's dither, on the CPU), so a headless browser
+     without a GPU renders it the same.   ?title=...&label=Dev log&seed=11 -->
+<style>
+@font-face { font-family: N; src: url(../../src/assets/fonts/nimbus-sans-regular.otf); font-weight: 400; }
+@font-face { font-family: N; src: url(../../src/assets/fonts/nimbus-sans-bold.otf); font-weight: 700; }
+:root { --bg: #120d0b; --hi: rgb(242 237 233 / 0.94); --mid: rgb(242 237 233 / 0.62); --orange: #ff5e3a; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1500px; height: 500px; background: var(--bg); overflow: hidden; }
+#stage { position: absolute; inset: 0; overflow: hidden; font-family: N, sans-serif; color: var(--hi); -webkit-font-smoothing: antialiased; }
+canvas { position: absolute; left: 0; top: 0; width: 1504px; height: 504px; image-rendering: pixelated; }
+#shade { position: absolute; inset: 0; background:
+  linear-gradient(90deg, rgb(18 13 11 / 0.92), rgb(18 13 11 / 0.78) 45%, rgb(18 13 11 / 0.2) 80%, transparent),
+  linear-gradient(0deg, rgb(18 13 11 / 0.5), transparent 45%); }
+.lockup { position: absolute; left: 72px; top: 64px; height: 40px; }
+.url { position: absolute; right: 72px; top: 72px; font-size: 22px; color: var(--mid); }
+.label { position: absolute; left: 76px; font-size: 22px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); }
+.title { position: absolute; left: 70px; width: 1180px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.98; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="field" width="188" height="63"></canvas>
+  <div id="shade"></div>
+  <img class="lockup" src="lockup.svg" alt="SYNQ">
+  <p class="url">synqhub.app</p>
+  <p class="label" id="label"></p>
+  <p class="title" id="title"></p>
+</div>
+<script>
+const P = new URLSearchParams(location.search);
+const label = document.getElementById("label");
+const title = document.getElementById("title");
+label.textContent = P.get("label") || "Dev log";
+title.textContent = P.get("title") || "New work on SYNQ";
+const SEED = Number(P.get("seed") ?? 11);
+
+// The dither field: fbm embers through an ordered threshold in four colours, one cell per 8 px.
+const EMBER = [[0x1c, 0x0b, 0x06], [0x4a, 0x16, 0x0a], [0xa5, 0x2e, 0x10], [0xff, 0x5e, 0x3a]];
+const fract = (x) => x - Math.floor(x);
+const hash = (x, y) => {
+  let a = fract(x * 234.34), b = fract(y * 435.345);
+  const d = a * (a + 34.23) + b * (b + 34.23);
+  a += d; b += d;
+  return fract(a * b);
+};
+const smooth = (t) => t * t * (3 - 2 * t);
+const noise = (x, y) => {
+  const ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy, u = smooth(fx), v = smooth(fy);
+  const a = hash(ix, iy), b = hash(ix + 1, iy), c = hash(ix, iy + 1), d = hash(ix + 1, iy + 1);
+  return (a + (b - a) * u) + ((c + (d - c) * u) - (a + (b - a) * u)) * v;
+};
+const fbm = (x, y) => {
+  let s = 0, amp = 0.5;
+  for (let i = 0; i < 5; i++) { s += amp * noise(x, y); x = x * 2.03 + 17; y = y * 2.03 + 9.2; amp *= 0.5; }
+  return s;
+};
+const ss = (t) => { t = Math.min(1, Math.max(0, t)); return t * t * (3 - 2 * t); };
+const mix = (a, b, t) => a.map((v, i) => v + (b[i] - v) * t);
+const palette = (x) => {
+  const f = Math.min(1, Math.max(0, x)) * 3;
+  let col = mix(EMBER[0], EMBER[1], ss(f));
+  col = mix(col, EMBER[2], ss(f - 1));
+  return mix(col, EMBER[3], ss(f - 2));
+};
+const cv = document.getElementById("field");
+const g = cv.getContext("2d");
+const img = g.createImageData(cv.width, cv.height);
+const scale = 1.3, intensity = 0.5, steps = 2 + 5 * intensity, freq = 1.7 + intensity * 4, m = Math.min(cv.width, cv.height);
+for (let j = 0; j < cv.height; j++) {
+  for (let i = 0; i < cv.width; i++) {
+    const fx = i + 0.5, fy = cv.height - j - 0.5; // WebGL's rows run bottom up
+    const px = ((fx - 0.5 * cv.width) / m) * scale * freq + SEED * 0.08;
+    const py = ((fy - 0.5 * cv.height) / m) * scale * freq - SEED * 0.05;
+    const level = fbm(px, py);
+    const threshold = fract(i * 0.75487766 + (cv.height - j - 1) * 0.56984029);
+    const [r, gg, b] = palette(Math.floor(level * steps + threshold) / steps);
+    const k = (j * cv.width + i) * 4;
+    img.data[k] = r; img.data[k + 1] = gg; img.data[k + 2] = b; img.data[k + 3] = 255;
+  }
+}
+g.putImageData(img, 0, 0);
+
+// The title: as big as two lines allow (96 px down to 56 px), sitting on the same baseline area as the channel banners.
+document.fonts.ready.then(() => {
+  let size = 96;
+  title.style.fontSize = size + "px";
+  while (size > 56 && title.scrollHeight > size * 2 * 0.98 + 4) { size -= 2; title.style.fontSize = size + "px"; }
+  const h = title.getBoundingClientRect().height;
+  title.style.top = `${396 - h}px`;
+  label.style.top = `${396 - h - 40}px`;
+  document.body.dataset.ready = "1";
+});
+</script>
+</body>
+</html>

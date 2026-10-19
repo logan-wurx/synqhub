@@ -2,11 +2,13 @@
 // volatile tests of a Sony or Nintendo pad (Lights & rumble). Opening the page opens the pad for the tester (that is
 // when a Bluetooth Sony pad or a Switch pad is switched to its full report); SYNQ lets go of it when its window
 // loses focus, so a game that starts never finds the pad held, and opens it again when the window is back.
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { DownloadSimple } from "@phosphor-icons/react";
 import { backend, isWeb, type Connected, type PadConflict } from "@/lib/backend";
 import { controllerEntries } from "@/lib/device-model";
-import { padId, useDeviceTab } from "@/lib/nav";
+import { PAD_TABS_LEGACY, padId, useDeviceTab } from "@/lib/nav";
+import { cn } from "@/lib/utils";
+import { Tilt } from "@/components/ui/tilt";
 import { findHidDevice, openPad } from "@/lib/controllers/connect";
 import type { PadLink } from "@/lib/controllers/link";
 import { useWindowFocus } from "@/lib/controllers/use-link";
@@ -36,7 +38,25 @@ const SETTINGS_TEXT = {
   none: "It has no settings of its own.",
 } as const;
 
-const VIA_TEXT = { hid: "HID (SYNQ reads its reports)", xinput: "XInput (Windows' Xbox driver)", gamepad: "the browser's Gamepad API" } as const;
+const VIA_TEXT = { hid: "Directly (HID)", xinput: "Windows' Xbox driver (XInput)", gamepad: "The browser's Gamepad API" } as const;
+
+/** A model's mode name as people write it ("usb" is "USB", "xinput + hid" is "XInput + HID"). */
+const sayMode = (p: string) =>
+  p
+    .replace(/\busb\b/gi, "USB")
+    .replace(/\bbluetooth le\b/gi, "Bluetooth LE")
+    .replace(/\bbluetooth\b/gi, "Bluetooth")
+    .replace(/\bxinput\b/gi, "XInput")
+    .replace(/\bd-input\b/gi, "DInput")
+    .replace(/\bhid\b/gi, "HID")
+    .replace(/\bplaystation\b/gi, "PlayStation")
+    .replace(/\bxbox\b/gi, "Xbox")
+    .replace(/\bpc\b/gi, "PC")
+    .replace(/^./, (c) => c.toUpperCase());
+
+/** The connection, plus the model's mode when it says something the connection doesn't ("usb or bluetooth" only names the id). */
+const connectionText = (connection: string, mode: string | null | undefined) =>
+  mode && !mode.includes(" or ") && mode.toLowerCase() !== connection.toLowerCase() ? `${connection} · ${sayMode(mode)}` : connection;
 
 /** Saves the bundle: a file in SYNQ's data folder on the desktop, a download on the website. */
 async function saveBundle(name: string, text: string): Promise<string> {
@@ -105,17 +125,14 @@ export function ControllerPage({ devices, notify, family }: { devices: Connected
   }, [deviceKey]);
 
   const link = phase.kind === "ready" ? phase.link : null;
+  // One page for the pad (its card, the live tester, polling, lights and rumble); a pad with settings or profiles of
+  // its own keeps them on a second tab.
   const tabs: TabDef[] = [
     { id: "overview", label: "Overview" },
-    ...(identity?.support === "detect" ? [] : [
-      { id: "test", label: "Test" },
-      { id: "polling", label: "Polling" },
-    ]),
-    ...(link?.tests ? [{ id: "lights", label: link.tests.lightbar || link.tests.playerLeds ? "Lights & rumble" : "Rumble" }] : []),
     ...(identity?.guard === "edge" && link?.hid ? [{ id: "profiles", label: "Profiles" }] : []),
     ...((identity?.guard.startsWith("gamesir-") || identity?.guard === "8bitdo" || identity?.guard === "flydigi") && link?.hid ? [{ id: "settings", label: "Settings" }] : []),
   ];
-  const [tab, setTab] = useDeviceTab(padId(family), tabs.map((t) => t.id));
+  const [tab, setTab] = useDeviceTab(padId(family), tabs.map((t) => t.id), PAD_TABS_LEGACY);
 
   if (!entry || !identity || !device) {
     return (
@@ -147,34 +164,23 @@ export function ControllerPage({ devices, notify, family }: { devices: Connected
     }
   };
 
-  const overview = (
+  const facts: [string, ReactNode][] = [
+    ["Maker", identity.brand || "Unknown"],
+    ["Reached through", VIA_TEXT[identity.via]],
+    ["Connection", connectionText(device.connection, identity.personality)],
+    ["USB id", `${device.vid.toUpperCase()}:${device.pid.toUpperCase()}`],
+    ...(link?.info.deviceType ? ([["Reports itself as", link.info.deviceType]] as [string, string][]) : []),
+    ...(link?.info.firmware ? ([["Firmware", `${link.info.firmware}${link.info.build ? `, built ${link.info.build.replace(/\s+\d{1,2}:\d{2}(:\d{2})?$/, "")}` : ""}`]] as [string, string][]) : []),
+    ...(link?.info.hardware ? ([["Hardware", link.info.hardware]] as [string, string][]) : []),
+    ...(link?.info.facts ?? []),
+    ...(link?.info.calibration ? ([["Stick calibration", link.info.calibration === "read" ? "Read from the pad (never written)" : "Not available"]] as [string, string][]) : []),
+    ["Its settings live", SETTINGS_TEXT[identity.settings]],
+    ...(identity.model?.tool ? ([["Configured with", identity.model.tool.url ? <a key="tool" className="underline decoration-white/20 underline-offset-2 hover:text-primary" href={identity.model.tool.url} target="_blank" rel="noreferrer">{identity.model.tool.name}</a> : identity.model.tool.name]] as [string, ReactNode][]) : []),
+  ];
+  const art = <DeviceArt spec={{ kind: "controller", family, name: identity.name, brand: identity.brand, vid: device.vid, pid: device.pid }} />;
+  const battery = link?.info.battery ?? null;
+  const banners = (
     <>
-      <OverviewHero
-        art={<DeviceArt spec={{ kind: "controller", family, name: identity.name, brand: identity.brand, vid: device.vid, pid: device.pid }} />}
-        connection={connection}
-        name={identity.name}
-        live={phase.kind === "ready"}
-        detail={identity.model?.guide ?? (identity.support === "detect" ? "SYNQ can name this controller here, nothing more yet." : "SYNQ's tester reads it; nothing is changed on the pad.")}
-        badges={<TierBadge tier={summary.tier} hint={summary.tierHint} />}
-      />
-      <Card innerClassName="px-5 py-3">
-        <DetailRows
-          rows={[
-            ["Maker", identity.brand || "Unknown"],
-            ["Reached through", VIA_TEXT[identity.via]],
-            ["Connection", `${device.connection}${identity.personality ? ` · ${identity.personality}` : ""}`],
-            ["USB id", `${device.vid.toUpperCase()}:${device.pid.toUpperCase()}`],
-            ...(link?.info.deviceType ? ([["Reports itself as", link.info.deviceType]] as [string, string][]) : []),
-            ...(link?.info.firmware ? ([["Firmware", `${link.info.firmware}${link.info.build ? ` (built ${link.info.build})` : ""}`]] as [string, string][]) : []),
-            ...(link?.info.hardware ? ([["Hardware", link.info.hardware]] as [string, string][]) : []),
-            ...(link?.info.facts ?? []),
-            ...(link?.info.battery ? ([["Battery", link.info.battery.text ?? (link.info.battery.percent !== null ? `${link.info.battery.percent}%${link.info.battery.charging ? " · charging" : ""}` : "–")]] as [string, string][]) : []),
-            ...(link?.info.calibration ? ([["Stick calibration", link.info.calibration === "read" ? "Read from the pad (never written)" : "Not available"]] as [string, string][]) : []),
-            ["Its settings live", SETTINGS_TEXT[identity.settings]],
-            ...(identity.model?.tool ? ([["Configured with", identity.model.tool.url ? <a key="tool" className="underline decoration-white/20 underline-offset-2 hover:text-primary" href={identity.model.tool.url} target="_blank" rel="noreferrer">{identity.model.tool.name}</a> : identity.model.tool.name]] as [string, ReactNode][]) : []),
-          ]}
-        />
-      </Card>
       {identity.mismatch && <Banner>{identity.mismatch}</Banner>}
       {modeNote && <Banner tone="info">Opening the tester switches this pad to its full report until it reconnects; an older game that reads the basic mode may need a reconnect.</Banner>}
       {conflicts.length > 0 && (
@@ -189,20 +195,54 @@ export function ControllerPage({ devices, notify, family }: { devices: Connected
     </>
   );
 
+  // A pad SYNQ only names: its picture and what is known about it.
+  const named = (
+    <>
+      <OverviewHero art={art} connection={connection} name={identity.name} live={phase.kind === "ready"} detail={identity.model?.guide ?? "SYNQ can name this controller here, nothing more yet."} badges={<TierBadge tier={summary.tier} hint={summary.tierHint} />} />
+      <Card innerClassName="px-5 py-3">
+        <DetailRows rows={facts} />
+      </Card>
+      {banners}
+    </>
+  );
+
+  // Everything else: the pad's card, polling and lights in a column, the live tester beside them.
+  const tester =
+    phase.kind === "connecting" ? (
+      <EmptyCard title="Opening the controller…" text="Reading what it is. Nothing is changed." art={<Gamepad className="h-full" />} />
+    ) : phase.kind === "paused" ? (
+      <EmptyCard title="Paused" text="SYNQ lets go of controllers while its window isn't focused, so a game never finds one held. Click back into SYNQ to go on." art={<Gamepad className="h-full" />} />
+    ) : phase.kind === "error" ? (
+      <EmptyCard title="Couldn't open the controller" text={phase.message} art={<Gamepad className="h-full" />} />
+    ) : link ? (
+      <TestTab link={link} notify={notify} />
+    ) : null;
+  const overview = (
+    <>
+      {banners}
+      {/* The pad's card and its polling check on the left; the live tester on the right, the lights and rumble tests
+          under it. */}
+      <div className="grid items-start gap-4 min-[1280px]:grid-cols-[380px_minmax(0,1fr)]">
+        <div className="flex min-w-0 flex-col gap-4">
+          <PadCard art={art} live={phase.kind === "ready"} connection={connection} detail={identity.model?.guide ?? "SYNQ's tester reads it; nothing is changed on the pad."} badges={<TierBadge tier={summary.tier} hint={summary.tierHint} />} battery={battery} facts={facts} />
+          {link && <PollingTab link={link} notify={notify} />}
+        </div>
+        <div className="flex min-w-0 flex-col gap-4">
+          {tester}
+          {link?.tests && <LightsTab link={link} notify={notify} />}
+        </div>
+      </div>
+    </>
+  );
+
   const body = (() => {
-    if (tab === "overview" || identity.support === "detect") return overview;
-    if (phase.kind === "connecting") return <EmptyCard title="Opening the controller…" text="Reading what it is. Nothing is changed." art={<Gamepad className="h-full" />} />;
-    if (phase.kind === "paused") return <EmptyCard title="Paused" text="SYNQ lets go of controllers while its window isn't focused, so a game never finds one held. Click back into SYNQ to go on." art={<Gamepad className="h-full" />} />;
-    if (phase.kind === "error") return <EmptyCard title="Couldn't open the controller" text={phase.message} art={<Gamepad className="h-full" />} />;
-    if (!link) return null;
-    if (tab === "polling") return <PollingTab link={link} notify={notify} />;
-    if (tab === "lights") return <LightsTab link={link} notify={notify} />;
+    if (identity.support === "detect") return named;
+    if (tab === "overview" || !link) return overview;
     if (tab === "profiles") return <EdgeProfilesTab link={link} notify={notify} />;
     if (tab === "settings")
       return identity.guard === "8bitdo" ? <EightBitDoSettingsTab link={link} notify={notify} /> : identity.guard === "flydigi" ? <FlydigiSettingsTab link={link} notify={notify} /> : <GamesirSettingsTab link={link} notify={notify} />;
-    return <TestTab link={link} notify={notify} />;
+    return overview;
   })();
-
   return (
     <DeviceFrame
       header={
@@ -235,7 +275,7 @@ export function ControllerPage({ devices, notify, family }: { devices: Connected
           actions={
             link && (
               <ActionButton testId="pad-save-diagnostics" busy={saving} onClick={() => void saveDiagnostics()}>
-                <DownloadSimple size={13} /> Save diagnostics
+                <DownloadSimple size={12} /> Save diagnostics
               </ActionButton>
             )
           }
@@ -249,5 +289,41 @@ export function ControllerPage({ devices, notify, family }: { devices: Connected
         {body}
       </div>
     </DeviceFrame>
+  );
+}
+
+/** The pad's card at the top of its column: the photo, how it's connected, its battery and what is known about it. */
+function PadCard({ art, live, connection, detail, badges, battery, facts }: { art: ReactNode; live: boolean; connection: string; detail: ReactNode; badges: ReactNode; battery: { percent: number | null; charging?: boolean; text?: string | null } | null; facts: [string, ReactNode][] }) {
+  const tile = useRef<HTMLElement>(null);
+  return (
+    <section ref={tile} aria-label="Controller" className="tile relative overflow-hidden rounded-card px-6 pb-5 pt-4">
+      <Tilt area={tile} className="flex h-[clamp(110px,calc(100dvh-900px),190px)] items-center justify-center">
+        <div className="flex size-full items-center justify-center [&>img]:max-h-full [&>img]:max-w-full [&>img]:drop-shadow-[0_24px_30px_rgb(0_0_0/0.5)] [&>svg]:max-h-full">{art}</div>
+      </Tilt>
+      <div className="mt-3 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <p className="flex items-center gap-2 text-[15px] font-medium text-high">
+            <span className={cn("size-2 shrink-0 rounded-full", live ? "bg-live" : "bg-asleep")} aria-hidden="true" />
+            {live ? `${connection} · Connected` : "Not connected"}
+          </p>
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-medium">{detail}</p>
+        </div>
+        {battery && battery.percent !== null && (
+          <div className="shrink-0 text-right">
+            <p className="text-[24px] font-bold leading-none tracking-[-0.035em] text-high">{battery.percent}%</p>
+            <p className="mt-1 text-[12px] text-medium">{battery.charging ? "Charging" : "Battery"}</p>
+          </div>
+        )}
+      </div>
+      <div className="mt-3 flex flex-wrap items-center gap-2">{badges}</div>
+      <dl className="mt-3.5 grid grid-cols-2 gap-x-5 gap-y-2 border-t border-white/[0.07] pt-3">
+        {facts.map(([k, v]) => (
+          <div key={k} className="flex min-w-0 flex-col-reverse">
+            <dt className="truncate text-[11.5px] text-faint">{k}</dt>
+            <dd className="text-[12.5px] leading-snug text-high [overflow-wrap:anywhere]">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 }

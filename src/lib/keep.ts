@@ -78,6 +78,11 @@ export function useKeptValues(keys: readonly string[]): readonly unknown[] {
   return useSyncExternalStore(subscribe, snapshot);
 }
 
+/** What a kept ref holds now (null when none was made), read from outside the component that keeps it. */
+export function peekKeptRef<T>(key: string): T | null {
+  return (refs.get(key)?.current as T | undefined) ?? null;
+}
+
 /** useRef that survives unmounting: every mount gets the same object. */
 export function useKeptRef<T>(key: string, init: T): RefObject<T> {
   let r = refs.get(key);

@@ -50,8 +50,8 @@ export function NumInput({
   };
   return (
     <label className={cn("flex flex-col gap-1", width)}>
-      <span className="px-1 text-[11.5px] text-muted-foreground">{label}</span>
-      <span className="flex h-9 items-center rounded-xl bg-white/[0.04] ring-1 ring-white/[0.07] transition-colors focus-within:ring-primary/60 hover:bg-white/[0.06]">
+      <span className="px-1 text-[11.5px] text-medium">{label}</span>
+      <span className="flex h-9 items-center rounded-control bg-white/[0.04] ring-1 ring-white/[0.07] transition-colors focus-within:ring-primary/60 hover:bg-white/[0.06]">
         <input
           inputMode="decimal"
           value={text}
@@ -66,9 +66,9 @@ export function NumInput({
           onKeyDown={(e) => {
             if (e.key === "Enter") e.currentTarget.blur();
           }}
-          className="tabular w-full min-w-0 bg-transparent px-2.5 text-[13.5px] text-foreground outline-none placeholder:text-muted-foreground/80"
+          className="tabular w-full min-w-0 bg-transparent px-2.5 text-[13.5px] text-high outline-none placeholder:text-medium"
         />
-        {unit && <span className="pr-2.5 text-[11.5px] text-muted-foreground">{unit}</span>}
+        {unit && <span className="pr-2.5 text-[11.5px] text-medium">{unit}</span>}
       </span>
     </label>
   );
@@ -89,13 +89,13 @@ export function OfferBanner({
   onDismiss: () => void;
 }) {
   return (
-    <div data-slot="feel-offer" className="flex items-center gap-3.5 rounded-2xl bg-primary/[0.06] px-4 py-3.5 ring-1 ring-primary/20">
-      <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-primary/[0.14] text-primary ring-1 ring-primary/25">
+    <div data-slot="feel-offer" className="flex items-center gap-3.5 rounded-control bg-primary/[0.06] px-4 py-3.5 ring-1 ring-primary/20">
+      <span className="grid size-8 shrink-0 place-items-center rounded-small bg-primary/[0.14] text-primary ring-1 ring-primary/25">
         <Sparkle size={16} weight="light" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[14px] font-medium text-foreground">{title}</p>
-        <p className="mt-0.5 truncate text-[12px] text-muted-foreground">{detail}</p>
+        <p className="text-[14px] font-medium text-high">{title}</p>
+        <p className="mt-0.5 truncate text-[12px] text-medium">{detail}</p>
       </div>
       <Pill primary onClick={onPrimary}>
         {primary}

@@ -1,6 +1,6 @@
 # {{APP_NAME}} {{VERSION}} release notes
 
-Public beta, {{DATE}}. Free software under the GNU AGPL 3.0 or later; source and issues at github.com/logan-wurx/synqhub.
+Release, {{DATE}}. Free software under the GNU AGPL 3.0 or later; source and issues at github.com/logan-wurx/synqhub.
 
 | | |
 |---|---|
@@ -11,8 +11,11 @@ Public beta, {{DATE}}. Free software under the GNU AGPL 3.0 or later; source and
 | Install type | Per machine (`C:\Program Files\{{APP_NAME}}`), one administrator prompt |
 | Signed? | No. Windows SmartScreen shows "Windows protected your PC": **More info**, then **Run anyway** |
 | Bundled | Equalizer APO {{EAPO_VERSION}} (`{{EAPO_FILE}}`, the official file, checked by size and SHA-256 before it is run) |
+| Linux | `{{APP_NAME}}_{{VERSION}}_amd64.deb` (Ubuntu 22.04+, Debian 12+ and relatives) or `{{APP_NAME}}_{{VERSION}}_amd64.AppImage` (other distributions), x86-64, SYNQ Helper included. Install steps and the device rule: `docs/linux.md` |
+| SYNQ Helper on its own | `synq-helper.exe` (Windows), for the website: installs itself in your user folder, no administrator |
+| Checksums | SHA-256 of every file: `SHA256SUMS.txt` on the release page |
 
-Installing, removing and sending feedback: `BETA-GUIDE.md`. The website is [synqhub.app](https://synqhub.app).
+Installing, removing and sending feedback: `BETA-GUIDE.md` (Windows) and `docs/linux.md` (Linux). The website is [synqhub.app](https://synqhub.app).
 
 {{NEW_IN}}## What's in it
 
@@ -73,7 +76,7 @@ Safety rules that apply to every device: every outgoing report passes an allowli
 Things we know about and are shipping anyway:
 
 - **Not code-signed.** SmartScreen warns, the permission prompt says "Unknown publisher", and the Apps list shows the publisher as "logan" (taken from the app id). Some antivirus tools are suspicious of unsigned installers; tell us if one removes the file.
-- **This exact build hasn't been run on a clean Windows install yet.** The installer's contents and the install script were checked statically, and a Windows Sandbox test kit is ready (`release/sandbox-test/`), but Sandbox isn't enabled on the build PC.
+- **Linux has been tested in CI only,** on Ubuntu 22.04 (every test, the .deb installed, the AppImage self-tested, the UI driven end to end), not yet on a Linux desktop with real devices. Reports from Linux users are very welcome.
 - **X68 HE untested on hardware** (above). Expect surprises in the Keyboard page for that board. Its polling-rate change makes the keyboard drop off USB for a moment, which is expected. Factory reset, firmware and switch calibration stay in illumipc.com on purpose.
 - **Superlight 2 untested in SYNQ** (above).
 - **EQ engine.** Setting it up needs administrator approval, restarts Windows Audio (sound blips for a second or two), and on some PCs Windows only loads it after a restart. Outputs with "Audio enhancements" turned off, or drivers without an effects slot, can't take the engine; the app says which. Equalizer APO's own Configuration Editor must not be left open at the same time.
@@ -82,7 +85,7 @@ Things we know about and are shipping anyway:
 - **Most of the new hardware support has never met real hardware** (above). Lights, headsets, monitors, webcams and hubs are Experimental until someone with one tries them; Hue's Entertainment stream (SYNQ's own DTLS client) is untested against a real bridge.
 - **Windows Dynamic Lighting** devices only take colours while {{APP_NAME}} is the window in front (Windows only gives background lighting to packaged apps), so they can't follow screen sync.
 - **Yeelight** needs LAN Control switched on once in Yeelight's own app; **first-time Wi-Fi setup** of any light is the maker's app.
-- **Windows 10/11 x64 only,** English only, no automatic updates (install the next beta over this one), no ARM build.
+- **x86-64 only** (Windows 10/11 and Linux), English only, no automatic updates (install the next version over this one), no ARM build.
 - **The window is drawn in software** on purpose (it saves about 110 MB of RAM); that can't be changed in this build.
 - **A few leftovers in the build,** none of them a risk to a tester: the preview-mode sample data for the browser UI (it includes the developer's own headphone name and DAC) is still in the shipped web bundle but is never used inside the real app, a USB-ID entry names one particular DAC as an "IEM output", and the embedded config still contains the dev-server address `http://localhost:1420`, which the release build never opens.
 
@@ -91,4 +94,6 @@ Things we know about and are shipping anyway:
 - Built with `node release/tools/build-release.mjs` (same `tauri build --bundles nsis` as always, separate target dir, build-machine folder names rewritten out of the exe). `perf-test` is off.
 - `release/tools/leak-scan.mjs` checks the exe and the web files inside it for personal paths, secrets and debug ports.
 - `release/tools/installer-contents.py` unpacks the installer in memory (nothing run) and confirms the app, the bundled Equalizer APO installer (size and SHA-256) and the hook that runs `--eq-engine install --only-if-missing`.
-- `release/sandbox-test/` is the fresh-install test for Windows Sandbox (install silently, check Equalizer APO, start the app, uninstall).
+- `release/sandbox-test/` is the fresh-install test for Windows Sandbox: SYNQ Helper on its own as the website hands it out (installs itself, every website command, the EQ engine's first setup, game profiles with no window, uninstall), then the desktop installer. This build passed it.
+- The Linux .deb and AppImage come from the same commit, built and tested by `.github/workflows/linux.yml` on Ubuntu 22.04: every test, the .deb installed and checked, the AppImage self-tested, and the UI driven end to end.
+- Hardware: game profiles were tried on the developer's own ATK X1, PRO X 2 DEX and ROG Falchion, with SYNQ open, minimized and closed.

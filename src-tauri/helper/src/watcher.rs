@@ -37,25 +37,9 @@ pub use ProcFs as Native;
 #[cfg(unix)]
 pub struct ProcFs;
 
-/// One process's names as games are matched by them: its command line's first word (path removed: a
-/// Proton game's is a Windows path, "Z:\...\Game.exe") and the kernel's short name (15 characters at
-/// most), each lower case and ending in .exe.
-#[cfg_attr(windows, allow(dead_code))]
-pub fn names_from(cmdline: &[u8], comm: &str) -> Vec<String> {
-    let mut out: Vec<String> = Vec::new();
-    let first = cmdline.split(|&b| b == 0).next().unwrap_or(&[]);
-    let first = String::from_utf8_lossy(first);
-    let base = first.rsplit(['/', '\\']).next().unwrap_or("").trim();
-    for raw in [base, comm.trim()] {
-        if !raw.is_empty() && !raw.contains(char::is_control) {
-            let n = crate::games::process_name(raw);
-            if !out.contains(&n) {
-                out.push(n);
-            }
-        }
-    }
-    out
-}
+/// One process's names as games are matched by them (shared with the app, src/games.rs).
+#[cfg_attr(windows, allow(unused_imports))]
+pub use crate::games::names_from;
 
 #[cfg(unix)]
 impl ProcFs {

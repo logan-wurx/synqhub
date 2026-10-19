@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import NumberFlow from "@number-flow/react";
-import { Lightning, Plus } from "@phosphor-icons/react";
+import { DpiConsole } from "./DpiConsole";
 import { goHome, MOUSE_TABS_LEGACY, mouseId, useDeviceTab } from "@/lib/nav";
 import { useWide } from "@/lib/viewport";
 import { isWeb, type Connected } from "@/lib/backend";
@@ -9,7 +8,8 @@ import { Card, CardHeader, Eyebrow, type Notice } from "@/components/ui/matte";
 import { GlassRadio } from "@/components/uiverse";
 import { deviceMouse, deviceMouseSuperlight2 } from "@/components/ui/brand";
 import { isSuperlight2, publishDeviceName, usePublishedNames } from "@/lib/device-names";
-import { forgetKept, peekKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { forgetKept, peekKept, peekKeptRef, setKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { sharePage, type Session } from "@/lib/profiles/live";
 import { endSession, track, useSessionHold } from "@/lib/device-session";
 import { genericHost } from "@/lib/generic-mice";
 import { familyOf, mouseFamilies, sessionKeyOf } from "@/lib/mouse-family";
@@ -18,8 +18,9 @@ import { markAnswering, refreshMice, useMouseAnswers } from "@/lib/mouse-probe";
 import { AtkMouse } from "./AtkMouse";
 import { InfoAdvanced } from "@/components/advanced";
 import { GenericMouse } from "./GenericMouse";
-import { Banner, DpiPresets, EmptyCard, MouseSwitcher, StageEditor, hzText, rateLabel, type MouseFamily } from "./parts";
+import { Banner, EmptyCard, MouseSwitcher, hzText, rateLabel, type MouseFamily } from "./parts";
 import { DeviceArt } from "@/components/devices/DeviceArt";
+import { LiftOffLevels } from "./lift-off";
 import { MouseOverview } from "./overview";
 import { BackButton, DeviceFrame, DeviceHeader, ReconnectButton, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { BOOTLOADER_NOTE } from "@/lib/bootloader-ids";
@@ -138,14 +139,14 @@ export function MousePage({ devices, notify, visible, family }: { devices: Conne
   const note = updating.length ? <Banner>{updating.map((d) => d.name).join(", ")}: {BOOTLOADER_NOTE}</Banner> : null;
   if (!present.length || (family && !present.includes(family))) {
     return (
-      <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-10 pt-5 [&>*]:shrink-0">
+      <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-[120px] pt-5 [&>*]:shrink-0">
         <header>
           <BackButton onClick={goHome}>Gear</BackButton>
           <div className="mt-5">
             <Eyebrow>Not connected</Eyebrow>
           </div>
-          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">Mouse</h1>
-          <p className="mt-2 text-[13.5px] text-muted-foreground">{family ? "This mouse isn't plugged in any more." : isWeb ? "SYNQ shows the mouse you added in this browser." : "SYNQ shows the mouse that's plugged into this PC."}</p>
+          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">Mouse</h1>
+          <p className="mt-2 text-[13.5px] text-medium">{family ? "This mouse isn't plugged in any more." : isWeb ? "SYNQ shows the mouse you added in this browser." : "SYNQ shows the mouse that's plugged into this PC."}</p>
         </header>
         {note}
         <EmptyCard title="Plug in your mouse" text="Connect its receiver or cable. SYNQ finds it as soon as it's there." plug />
@@ -154,11 +155,11 @@ export function MousePage({ devices, notify, visible, family }: { devices: Conne
   }
   if (!decided) {
     return (
-      <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-10 pt-7 [&>*]:shrink-0">
+      <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-[120px] pt-7 [&>*]:shrink-0">
         <header>
           <Eyebrow>Connecting</Eyebrow>
-          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">Mouse</h1>
-          <p className="mt-2 text-[13.5px] text-muted-foreground">{present.length} mice are plugged in.</p>
+          <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">Mouse</h1>
+          <p className="mt-2 text-[13.5px] text-medium">{present.length} mice are plugged in.</p>
         </header>
         <EmptyCard title="Looking for your mouse…" text="Checking which one is on. This takes a second." />
       </div>
@@ -208,6 +209,20 @@ const LOGI = "mouse.logitech";
 type Draft = { stages: number[]; defaultStage: number };
 const isDirty = (view: MouseView | null, draft: Draft | null) =>
   !!view && !!draft && (draft.defaultStage !== view.defaultStage || draft.stages.join() !== view.stages.join());
+
+// A game profile (src/lib/profiles/live.ts) goes on through this panel's session while it has one open, and shows here.
+sharePage((family) =>
+  family === "logitech"
+    ? {
+        session: () => peekKeptRef<Session>(`${LOGI}.session`),
+        busy: () => peekKept(`${LOGI}.busy`, false),
+        onView: (v: MouseView) => {
+          setKept(`${LOGI}.view`, v);
+          setKept<Draft | null>(`${LOGI}.draft`, { stages: v.stages, defaultStage: v.defaultStage });
+        },
+      }
+    : null,
+);
 
 function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connected[]; notify: Notify; visible: boolean; switcher: ReactNode }) {
   const session = useKeptRef<MouseSession | null>(`${LOGI}.session`, null);
@@ -357,10 +372,10 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
   const caps = view?.caps;
   const wide = useWide();
   const asideOn = wide && phase.kind === "ready" && !!view;
+  // Lift-off sits in the Overview's console; on a wide window the overview is an aside without the console, so a
+  // Settings tab holds it there instead.
   const tabs: TabDef[] = [
-    ...(asideOn ? [] : [{ id: "overview", label: "Overview" }]),
-    ...(asideOn ? [] : [{ id: "sensitivity", label: "Sensitivity" }]),
-    { id: "controls", label: asideOn ? "Settings" : "Controls" },
+    ...(asideOn ? [{ id: "controls", label: "Settings" }] : [{ id: "overview", label: "Overview" }]),
     { id: "advanced", label: "Advanced" },
   ];
   const [tab, setTab] = useDeviceTab(mouseId("logitech"), tabs.map((t) => t.id), MOUSE_TABS_LEGACY);
@@ -392,7 +407,9 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
   const overview = phase.kind === "ready" && !!view ? (
               <MouseOverview
                 feel={feel}
-                art={<DeviceArt spec={{ kind: "mouse", family: "logitech", name: view.name ?? "" }} />}
+                pollingInConsole={true}
+                liftOffInConsole={!asideOn}
+                art={<DeviceArt spec={{ kind: "mouse", family: "logitech", name: view.name ?? "", brand: "Logitech" }} />}
                 link={view.connection}
                 name={view.name}
                 detail={`${view.connectionDetail}. What the mouse reports right now is below.`}
@@ -468,7 +485,7 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
                 <button
                   disabled={busy}
                   onClick={() => run("Back on the mouse's memory", (s) => s.useOnboard())}
-                  className="ml-3 rounded-full bg-chart-3 px-3 py-1 text-[12px] font-medium text-black"
+                  className="ml-3 rounded-small bg-chart-3 px-3 py-1 text-[12px] font-medium text-black"
                 >
                   Use onboard memory
                 </button>
@@ -480,7 +497,7 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
                 <button
                   disabled={busy}
                   onClick={() => run("Saved settings applied", (s) => s.applySaved())}
-                  className="ml-3 rounded-full bg-chart-3 px-3 py-1 text-[12px] font-medium text-black"
+                  className="ml-3 rounded-small bg-chart-3 px-3 py-1 text-[12px] font-medium text-black"
                 >
                   Apply now
                 </button>
@@ -492,89 +509,49 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
 
             {tab === "overview" && overview}
 
-            {(tab === "sensitivity" || (asideOn && tab === "controls")) && (
+            {/* The Sensitivity console, on the Overview: most people come to change the DPI and go. */}
+            {tab === "overview" && (
               <>
-                <Card innerClassName="relative overflow-hidden px-6 pb-6 pt-5">
-                  <p className="text-[13px] text-muted-foreground">Sensitivity</p>
-                  <div className="mt-3 flex items-baseline gap-3">
-                    <NumberFlow
-                      value={view.dpi}
-                      className="tabular text-[86px] font-medium leading-none tracking-[-0.06em] text-foreground [text-shadow:0_0_28px_color-mix(in_srgb,var(--primary)_30%,transparent)]"
-                    />
-                    <span className="text-[18px] text-muted-foreground">DPI</span>
-                  </div>
-                  <DpiPresets value={view.dpi} disabled={busy || !view.writable} onPick={(dpi) => run(`Now running ${dpi} DPI`, (s) => s.setActiveDpi(dpi))} />
-                </Card>
-
-                <Card>
-                  <CardHeader
-                    title="DPI steps"
-                    hint="The mouse runs the starred step. Extra steps only matter if a button is set to cycle DPI; Logitech's PRO mice have no DPI button by default."
-                    right={
-                      <button
-                        disabled={!dirty || busy || !view.writable}
-                        onClick={() => run("DPI steps saved", (s) => s.saveStages(draft.stages, draft.defaultStage))}
-                        className="group flex h-9 items-center gap-2 rounded-full bg-foreground pl-4 pr-1.5 text-[13px] font-medium text-background transition-all duration-300 ease-fluid active:scale-[0.98] disabled:bg-white/[0.06] disabled:text-muted-foreground"
-                      >
-                        {busy ? "Saving…" : dirty ? "Save to mouse" : "Saved"}
-                        <span className="grid size-6 place-items-center rounded-full bg-black/10 transition-transform duration-500 ease-fluid group-hover:translate-x-0.5">
-                          <Lightning size={12} weight="fill" />
-                        </span>
-                      </button>
-                    }
-                  />
-                  <div className="flex flex-wrap items-stretch gap-3 px-5 pb-5 pt-4">
-                    {draft.stages.map((dpi, i) => (
-                      <StageEditor
-                        key={i}
-                        index={i}
-                        value={dpi}
-                        isDefault={i === draft.defaultStage}
-                        step={caps?.stepDpi ?? 50}
-                        min={caps?.minDpi ?? 100}
-                        max={caps?.maxDpi ?? 44000}
-                        disabled={!view.writable}
-                        onChange={(v) => setDraft({ ...draft, stages: draft.stages.map((x, j) => (j === i ? v : x)) })}
-                        onDefault={() => setDraft({ ...draft, defaultStage: i })}
-                        onRemove={
-                          draft.stages.length > 1
-                            ? () =>
-                                setDraft({
-                                  stages: draft.stages.filter((_, j) => j !== i),
-                                  defaultStage: Math.min(draft.defaultStage > i ? draft.defaultStage - 1 : draft.defaultStage, draft.stages.length - 2),
-                                })
-                            : undefined
-                        }
+                <DpiConsole
+                  polling={{ hz: view.pollingHz, options: view.pollingOptions, disabled: busy || !view.writable, hint: `Wireless rate, saved for cable too${view.pollingWiredHz && view.pollingWiredHz !== view.pollingHz ? ` (cable is ${rateLabel(view.pollingWiredHz)} Hz now)` : ""}.`, onPick: (hz) => run(`Polling rate set to ${rateLabel(hz)} Hz`, (s) => s.setPolling(hz)) }}
+                  dpi={view.dpi}
+                  range={{ min: caps?.minDpi ?? 100, max: caps?.maxDpi ?? 44000 }}
+                  pick={{ step: caps?.stepDpi ?? 50, disabled: busy || !view.writable, onPick: (dpi) => run(`Now running ${dpi} DPI`, (s) => s.setActiveDpi(dpi)) }}
+                  extras={
+                    view.lod && (
+                      <LiftOffLevels
+                        options={view.lods.length > 0 ? view.lods : [view.lod]}
+                        value={view.lod}
+                        label={(l) => l}
+                        disabled={busy || !view.writable}
+                        onPick={view.lods.length > 0 ? (v) => run(`Lift-off set to ${v.toLowerCase()}`, (s) => s.setLod(v)) : undefined}
                       />
-                    ))}
-                    {view.writable && draft.stages.length < (caps?.maxStages ?? 5) && (
-                      <button
-                        onClick={() => setDraft({ ...draft, stages: [...draft.stages, Math.min((draft.stages[draft.stages.length - 1] ?? 800) * 2, caps?.maxDpi ?? 44000)] })}
-                        className="flex w-[118px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/10 text-[12.5px] text-muted-foreground transition-colors hover:bg-white/[0.03] hover:text-foreground"
-                      >
-                        <Plus size={16} weight="light" /> Add step
-                      </button>
-                    )}
-                  </div>
-                </Card>
+                    )
+                  }
+                  steps={{
+                    stages: draft.stages,
+                    active: draft.defaultStage,
+                    min: caps?.minDpi ?? 100,
+                    max: caps?.maxDpi ?? 44000,
+                    step: caps?.stepDpi ?? 50,
+                    maxStages: caps?.maxStages ?? 5,
+                    editable: true,
+                    countEditable: true,
+                    disabled: !view.writable,
+                    hint: "Click a step to run it; the fader sets its speed. Extra steps only matter if a button is set to cycle DPI; Logitech's PRO mice have no DPI button by default.",
+                    dirty,
+                    busy,
+                    saveLabel: { dirty: "Save to mouse", clean: "Saved" },
+                    onChange: (stages, defaultStage) => setDraft({ stages, defaultStage }),
+                    onSave: () => run("DPI steps saved", (s) => s.saveStages(draft.stages, draft.defaultStage)),
+                  }}
+                />
               </>
             )}
 
+            {/* The polling rate and lift-off are on the Overview, with the DPI (this tab is the wide window's Settings). */}
             {tab === "controls" && (
-              <div className="grid grid-cols-[1.45fr_1fr] gap-5">
-                <Card>
-                  <CardHeader
-                    title="Polling rate"
-                    hint={`Wireless rate. Saved for cable too${view.pollingWiredHz && view.pollingWiredHz !== view.pollingHz ? ` (cable is ${rateLabel(view.pollingWiredHz)} Hz now)` : ""}.`}
-                  />
-                  <div className="px-5 pb-5 pt-4">
-                    <GlassRadio<string>
-                      value={String(view.pollingHz)}
-                      onChange={(v) => run(`Polling rate set to ${rateLabel(Number(v))} Hz`, (s) => s.setPolling(Number(v)))}
-                      options={view.pollingOptions.map((hz) => ({ value: String(hz), label: rateLabel(hz), hint: "Hz" }))}
-                    />
-                  </div>
-                </Card>
+              <div className="grid gap-5">
                 <Card>
                   <CardHeader title="Lift-off distance" hint="How high you can lift before it stops tracking." />
                   <div className="px-5 pb-5 pt-4">
@@ -585,7 +562,7 @@ function LogitechMouse({ devices, notify, visible, switcher }: { devices: Connec
                         options={view.lods.map((l) => ({ value: l, label: l }))}
                       />
                     ) : (
-                      <p className="py-2 text-[13px] text-muted-foreground">Not adjustable on this mouse.</p>
+                      <p className="py-2 text-[13px] text-medium">Not adjustable on this mouse.</p>
                     )}
                   </div>
                 </Card>

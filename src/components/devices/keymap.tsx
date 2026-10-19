@@ -94,7 +94,7 @@ export function KeyBoard({
   };
 
   return (
-    <div role="group" aria-label={label} className="mx-auto w-full rounded-[18px] bg-black/45 p-2.5 ring-1 ring-white/[0.05] shadow-[inset_0_2px_12px_rgb(0_0_0/0.55)]" style={{ maxWidth: MAX_MAP_WIDTH }}>
+    <div role="group" aria-label={label} className="mx-auto w-full rounded-control bg-shade/45 p-2.5 ring-1 ring-white/[0.05] shadow-[inset_0_2px_12px_rgb(0_0_0/0.55)]" style={{ maxWidth: MAX_MAP_WIDTH }}>
       <div className="relative w-full" style={{ aspectRatio: `${W} / ${H * ROW_RATIO}` }}>
         {layout.keys.map((k) => {
           const on = selected.includes(k.id);
@@ -132,7 +132,7 @@ export function KeyBoard({
             >
               <span className="w-full truncate text-[11px] leading-none">{k.label}</span>
               {k.mark?.text && (
-                <span className={cn("tabular w-full truncate text-right text-[10px] leading-none", k.mark.tone === "lit" ? "text-primary" : "text-muted-foreground/80")}>{k.mark.text}</span>
+                <span className={cn("tabular w-full truncate text-right text-[10px] leading-none", k.mark.tone === "lit" ? "text-primary" : "text-medium")}>{k.mark.text}</span>
               )}
             </button>
           );
@@ -147,7 +147,7 @@ function BarButton({ onClick, disabled, children }: { onClick: () => void; disab
     <button
       onClick={onClick}
       disabled={disabled}
-      className="h-8 whitespace-nowrap rounded-full bg-white/[0.05] px-3.5 text-[12.5px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09] disabled:pointer-events-none disabled:opacity-40"
+      className="h-8 whitespace-nowrap rounded-small bg-white/[0.05] px-3.5 text-[12.5px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09] disabled:pointer-events-none disabled:opacity-40"
     >
       {children}
     </button>
@@ -182,19 +182,19 @@ export function SelectionBar({
   children?: ReactNode;
 }) {
   return (
-    <div className="mt-4 rounded-2xl bg-white/[0.02] ring-1 ring-white/[0.05]">
+    <div className="mt-4 rounded-control bg-white/[0.02] ring-1 ring-white/[0.05]">
       <div className="flex flex-wrap items-center gap-3 px-4 py-3">
         <div className="min-w-[200px] flex-1">
           {count > 0 ? (
-            <p className="truncate text-[13px] text-foreground">
-              <span className="text-muted-foreground">{count === 1 ? "1 key selected" : `${count} keys selected`}</span>
+            <p className="truncate text-[13px] text-high">
+              <span className="text-medium">{count === 1 ? "1 key selected" : `${count} keys selected`}</span>
               {names && <span className="ml-2">{names}</span>}
             </p>
           ) : (
-            <p className="flex items-center gap-2 text-[13px] text-muted-foreground">
+            <p className="flex items-center gap-2 text-[13px] text-medium">
               <CursorClick size={16} weight="light" className="shrink-0" />
               <span>
-                {hint}. <span className="text-muted-foreground/80">{sub}</span>
+                {hint}. <span className="text-medium">{sub}</span>
               </span>
             </p>
           )}
@@ -236,9 +236,9 @@ export function MmSlider({
 }) {
   return (
     <label className={cn("flex min-w-[200px] flex-col gap-2", disabled && "opacity-60", className)}>
-      <span className="flex items-baseline justify-between text-[12.5px] text-muted-foreground">
+      <span className="flex items-baseline justify-between text-[12.5px] text-medium">
         {label}
-        <span className="tabular text-[13px] text-foreground">
+        <span className="tabular text-[13px] text-high">
           {value.toFixed(decimals)} {unit}
         </span>
       </span>
@@ -269,7 +269,7 @@ export function ModeSwitch<T extends string>({ options, value, onChange, label }
           onClick={() => o.id !== value && onChange(o.id)}
           className={cn(
             "h-7 whitespace-nowrap rounded-full px-3.5 text-[12.5px] transition-colors duration-300 ease-fluid",
-            o.id === value ? "bg-white/[0.09] text-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.08)]" : "text-muted-foreground hover:text-foreground",
+            o.id === value ? "bg-white/[0.09] text-high shadow-[inset_0_1px_0_rgb(255_255_255/0.08)]" : "text-medium hover:text-high",
           )}
         >
           {o.label}

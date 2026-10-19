@@ -28,8 +28,8 @@ export function LevelSlider({
   return (
     <label className={cn("block py-2.5", disabled && "opacity-50")}>
       <span className="flex items-baseline justify-between gap-3">
-        <span className="text-[13px] text-foreground">{label}</span>
-        <span className="tabular text-[13px] text-muted-foreground">{format(draft)}</span>
+        <span className="text-[13px] text-high">{label}</span>
+        <span className="tabular text-[13px] text-medium">{format(draft)}</span>
       </span>
       <input
         type="range"

@@ -68,8 +68,8 @@ function GearLine({ g }: { g: Gear }) {
         {art && <DeviceArt spec={art} className="max-h-11 max-w-16" />}
       </span>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-[13.5px] text-foreground">{e.name}</p>
-        <p className="truncate text-[12px] text-muted-foreground">{e.kind === "mouse" && !rawAvailable() ? "clicks and motion" : WHAT[e.kind]}</p>
+        <p className="truncate text-[13.5px] text-high">{e.name}</p>
+        <p className="truncate text-[12px] text-medium">{e.kind === "mouse" && !rawAvailable() ? "clicks and motion" : WHAT[e.kind]}</p>
       </div>
     </li>
   );
@@ -106,8 +106,8 @@ function ReportCard({ report, gear, onFix, onOpen }: { report: DeviceReport; gea
           {art && <DeviceArt spec={art} className="max-h-12 max-w-[72px]" />}
         </span>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-[15px] font-medium tracking-tight text-foreground">{report.name}</p>
-          <p className="truncate text-[12px] text-muted-foreground">{report.checked.length ? `Checked ${report.checked.join(", ")}` : "Checked"}</p>
+          <p className="truncate text-[15px] font-medium tracking-tight text-high">{report.name}</p>
+          <p className="truncate text-[12px] text-medium">{report.checked.length ? `Checked ${report.checked.join(", ")}` : "Checked"}</p>
         </div>
         <LevelPill level={report.level} />
       </div>
@@ -116,7 +116,7 @@ function ReportCard({ report, gear, onFix, onOpen }: { report: DeviceReport; gea
           <FindingRow key={f.id} f={f} fixed={!!f.fix && fixedRef === `${report.device}:${f.id}`} onFix={() => onFix(f)} onOpen={() => onOpen(f)} />
         ))}
       </ul>
-      {report.source && <p className="pt-2 text-[11px] text-muted-foreground/80">Timings from {report.source}.</p>}
+      {report.source && <p className="pt-2 text-[11px] text-medium">Timings from {report.source}.</p>}
     </Card>
   );
 }
@@ -221,13 +221,13 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
 
   return (
     <div className="h-full overflow-y-auto select-none" data-slot="checkup">
-      <div className="mx-auto flex min-h-full w-full max-w-[1500px] flex-col gap-6 px-8 pb-10 pt-5 [&>*]:shrink-0">
+      <div className="mx-auto flex min-h-full w-full max-w-[1500px] flex-col gap-6 px-8 pb-[120px] pt-5 [&>*]:shrink-0">
         <header>
           <BackButton onClick={() => (single ? openDevice(single.id) : goHome())}>{single ? single.name : "Gear"}</BackButton>
           <div className="mt-5">
             <Eyebrow>Checkup</Eyebrow>
-            <h1 className="display-num mt-3 text-[clamp(48px,5.4vw,84px)] text-foreground">{title}</h1>
-            <p className="mt-2 max-w-[640px] text-[13.5px] text-muted-foreground">
+            <h1 className="headline mt-3 text-[clamp(56px,6vw,104px)] text-high">{title}</h1>
+            <p className="mt-2 max-w-[640px] text-[13.5px] text-medium">
               {stepping
                 ? "SYNQ is listening for this step only."
                 : run?.phase === "report"
@@ -244,8 +244,8 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
                 <Stethoscope size={30} weight="light" className="text-primary" />
               </ProgressRing>
               <div className="min-w-0 flex-1">
-                <p className="text-[17px] font-medium tracking-tight text-foreground">{steps.length ? `${steps.length} short ${steps.length === 1 ? "step" : "steps"}, about ${secs} seconds` : "A quick look, no steps"}</p>
-                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
+                <p className="text-[17px] font-medium tracking-tight text-high">{steps.length ? `${steps.length} short ${steps.length === 1 ? "step" : "steps"}, about ${secs} seconds` : "A quick look, no steps"}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-medium">
                   {steps.length ? "Each step says exactly what to do. Clicks, mouse movement and only the keys it shows are listened to; nothing is saved or sent." : "Read from what SYNQ already has. Nothing plays."}
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-2.5">
@@ -263,7 +263,7 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
                 ))}
               </ul>
             ) : (
-              <p className="mt-6 border-t border-white/[0.05] pt-4 text-[13px] text-muted-foreground">Nothing to check: plug in a mouse, keyboard or controller.</p>
+              <p className="mt-6 border-t border-white/[0.05] pt-4 text-[13px] text-medium">Nothing to check: plug in a mouse, keyboard or controller.</p>
             )}
           </Card>
         )}
@@ -272,13 +272,13 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
           <Card className="w-full max-w-[860px]" innerClassName="px-7 py-7">
             <div className="flex items-center gap-5">
               <ProgressRing value={index / steps.length} size={64} stroke={5}>
-                <span className="tabular text-[13px] text-foreground">
+                <span className="tabular text-[13px] text-high">
                   {index + 1}/{steps.length}
                 </span>
               </ProgressRing>
               <motion.div key={step.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }} className="min-w-0 flex-1">
-                <p className="text-[21px] font-medium leading-tight tracking-[-0.01em] text-foreground">{step.title}</p>
-                <p className="mt-1 text-[13px] text-muted-foreground">{step.hint}</p>
+                <p className="text-[21px] font-medium leading-tight tracking-[-0.01em] text-high">{step.title}</p>
+                <p className="mt-1 text-[13px] text-medium">{step.hint}</p>
               </motion.div>
             </div>
             <div className="mt-7 grid min-h-[240px] place-items-center">
@@ -286,8 +286,8 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
                 <StepBody key={`${step.id}.${attempt}`} step={step} pads={pads} onDone={done} />
               ) : (
                 <div className="max-w-[420px] text-center">
-                  <p className="text-[15px] text-foreground">Paused</p>
-                  <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">SYNQ stops listening while it isn't the focused window. Click here to carry on; this step starts again.</p>
+                  <p className="text-[15px] text-high">Paused</p>
+                  <p className="mt-1 text-[12.5px] leading-relaxed text-medium">SYNQ stops listening while it isn't the focused window. Click here to carry on; this step starts again.</p>
                   <Pill className="mt-3" onClick={() => setAttempt((a) => a + 1)}>
                     Redo this step
                   </Pill>
@@ -310,8 +310,8 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
                 <HeadIcon level={head.level} />
               </ProgressRing>
               <div className="min-w-0 flex-1">
-                <p className="text-[21px] font-medium tracking-[-0.01em] text-foreground">{head.title}</p>
-                <p className="mt-1 text-[13px] text-muted-foreground">{head.sub}</p>
+                <p className="text-[21px] font-medium tracking-[-0.01em] text-high">{head.title}</p>
+                <p className="mt-1 text-[13px] text-medium">{head.sub}</p>
               </div>
               <div className="flex flex-wrap gap-2.5">
                 <Pill onClick={() => void start()}>Run again</Pill>
@@ -331,12 +331,12 @@ export function CheckupPage({ devices, notify }: { devices: Connected[]; notify:
             </div>
             {run.reports.some((r) => r.skipped) && (
               <div className="max-w-[860px] space-y-1.5 px-1">
-                <p className="text-[12.5px] text-muted-foreground">Not checked</p>
+                <p className="text-[12.5px] text-medium">Not checked</p>
                 {run.reports
                   .filter((r) => r.skipped)
                   .map((r) => (
-                    <p key={r.device} className="text-[12.5px] leading-relaxed text-muted-foreground/80">
-                      <span className="text-foreground/90">{r.name}</span> · {r.skipped}
+                    <p key={r.device} className="text-[12.5px] leading-relaxed text-medium">
+                      <span className="text-high">{r.name}</span> · {r.skipped}
                     </p>
                   ))}
               </div>

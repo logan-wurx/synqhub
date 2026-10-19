@@ -47,16 +47,16 @@ export function SegmentsTab({ control, view, segments }: { control: LampControl;
             ))}
             <span className="mx-1 h-5 w-px bg-white/10" aria-hidden="true" />
             <IconButton label="Add a stop" disabled={stops.length >= MAX_STOPS} onClick={() => apply([...stops, stops[stops.length - 1]], stops.length)}>
-              <Plus size={13} />
+              <Plus size={14} />
             </IconButton>
             <IconButton label="Remove the picked stop" disabled={stops.length <= 2} onClick={() => apply(stops.filter((_, i) => i !== at))}>
-              <Minus size={13} />
+              <Minus size={14} />
             </IconButton>
             <IconButton label="Reverse" onClick={() => apply([...stops].reverse(), stops.length - 1 - at)}>
-              <ArrowsLeftRight size={13} />
+              <ArrowsLeftRight size={14} />
             </IconButton>
             <IconButton label="Save this gradient" onClick={() => saveGradient(stops)}>
-              <FloppyDisk size={13} />
+              <FloppyDisk size={14} />
             </IconButton>
           </div>
           <div className="grid grid-cols-[minmax(130px,200px)_minmax(0,1fr)] items-start gap-6">
@@ -96,7 +96,7 @@ function GradientChip({ name, stops, onClick, onRemove }: { name: string; stops:
       <button
         type="button"
         onClick={onClick}
-        className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] py-1 pl-1 pr-3 text-[12.5px] text-muted-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-foreground"
+        className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] py-1 pl-1 pr-3 text-[12.5px] text-medium ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] hover:text-high"
       >
         <span className="h-4 w-8 rounded-full ring-1 ring-white/15" style={{ background: `linear-gradient(to right, ${stops.join(", ")})` }} />
         {name}
@@ -106,7 +106,7 @@ function GradientChip({ name, stops, onClick, onRemove }: { name: string; stops:
           type="button"
           onClick={onRemove}
           aria-label={`Forget ${name}`}
-          className="absolute -right-1 -top-1.5 hidden size-4 place-items-center rounded-full bg-[#1d1d22] text-[10px] leading-none text-muted-foreground ring-1 ring-white/15 hover:text-foreground group-hover/chip:grid group-focus-within/chip:grid"
+          className="absolute -right-1 -top-1.5 hidden size-4 place-items-center rounded-full bg-[#1d1d22] text-[10px] leading-none text-medium ring-1 ring-white/15 hover:text-high group-hover/chip:grid group-focus-within/chip:grid"
         >
           ×
         </button>
@@ -163,13 +163,13 @@ function SegmentBars({ values, colours, onChange }: { values: readonly number[];
             onKeyDown={key(i)}
             onFocus={() => setFocus(i)}
             onBlur={() => setFocus(null)}
-            className={cn("relative flex h-full flex-1 cursor-ns-resize items-end rounded-lg bg-white/[0.04] ring-1 ring-white/[0.06] outline-none", focus === i && "ring-2 ring-ring")}
+            className={cn("relative flex h-full flex-1 cursor-ns-resize items-end rounded-small bg-white/[0.04] ring-1 ring-white/[0.06] outline-none", focus === i && "ring-2 ring-ring")}
           >
-            <span className="block w-full rounded-lg transition-[height] duration-150" style={{ height: `${Math.max(v, 3)}%`, background: css(colours[i] ?? [255, 255, 255]), opacity: 0.35 + 0.65 * (v / 100) }} />
+            <span className="block w-full rounded-small transition-[height] duration-150" style={{ height: `${Math.max(v, 3)}%`, background: css(colours[i] ?? [255, 255, 255]), opacity: 0.35 + 0.65 * (v / 100) }} />
           </div>
         ))}
       </div>
-      <div className="tabular mt-2 flex gap-1.5 text-center text-[10.5px] text-muted-foreground" aria-hidden="true">
+      <div className="tabular mt-2 flex gap-1.5 text-center text-[10.5px] text-medium" aria-hidden="true">
         {values.map((v, i) => (
           <span key={i} className="min-w-0 flex-1 truncate" title={`${v}%`}>
             {i + 1}

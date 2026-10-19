@@ -4,7 +4,7 @@
 // anything until the person turns the helper on.
 import { invoke } from "@tauri-apps/api/core";
 import { inTauri } from "./backend";
-import { isLinux } from "./runtime";
+import { isLinux, viaHelper } from "./runtime";
 import type { Step } from "./profiles/encode";
 
 export type { Step };
@@ -127,6 +127,13 @@ async function previewSample(): Promise<GamesFile> {
   };
 }
 
+/** What the website may change of the helper's jobs (the rest is the desktop app's). */
+export interface HelperPrefs {
+  gameProfiles: boolean;
+  batteryAlerts: boolean;
+  batteryLevels: number[];
+}
+
 export const helper = {
   status: (): Promise<HelperStatus> => (inTauri ? invoke<HelperStatus>("helper_status") : Promise.resolve(structuredClone(previewStatus))),
   set: (settings: HelperSettings): Promise<HelperStatus> => {
@@ -135,22 +142,26 @@ export const helper = {
     return Promise.resolve(structuredClone(previewStatus));
   },
   forgetSites: (): Promise<HelperStatus> => (inTauri ? invoke<HelperStatus>("helper_forget_sites") : Promise.resolve(structuredClone(previewStatus))),
+  /** The website: the helper's game profiles and battery alerts. */
+  prefs: (): Promise<HelperPrefs> => invoke<HelperPrefs>("helper_prefs"),
+  prefsSet: (change: Partial<HelperPrefs>): Promise<HelperPrefs> => invoke<HelperPrefs>("helper_prefs_set", change),
   gamesLoad: async (): Promise<GamesFile> => {
-    if (inTauri) return invoke<GamesFile>("games_load");
+    if (inTauri || (await viaHelper())) return invoke<GamesFile>("games_load");
     if (!previewGames.games.length) previewGames = await previewSample();
     return structuredClone(previewGames);
   },
-  gamesSave: (file: GamesFile): Promise<void> => {
-    if (inTauri) return invoke<void>("games_save", { file });
+  gamesSave: async (file: GamesFile): Promise<void> => {
+    if (inTauri || (await viaHelper())) return invoke<void>("games_save", { file });
     previewGames = structuredClone(file);
-    return Promise.resolve();
   },
-  detect: (): Promise<Detected[]> => (inTauri ? invoke<Detected[]>("games_detect") : Promise.resolve(structuredClone(PREVIEW_LIBRARY))),
+  detect: async (): Promise<Detected[]> => (inTauri || (await viaHelper()) ? invoke<Detected[]>("games_detect") : structuredClone(PREVIEW_LIBRARY)),
   /** Cover art as a data URL (fetched once and kept by the app); the preview uses Steam's CDN directly. */
-  art: (id: string, appid: number | null, iconExe: string | null): Promise<string | null> => {
+  art: async (id: string, appid: number | null, iconExe: string | null): Promise<string | null> => {
     if (inTauri) return invoke<string | null>("game_art", { id, appid, iconExe });
+    // Through the helper: Steam's cover, fetched once and kept as the app keeps it (no program icons).
+    if (!previewArt.has(id) && (await viaHelper())) return invoke<string | null>("game_art", { id, appid });
     if (previewArt.has(id)) return Promise.resolve(previewArt.get(id)!);
-    return Promise.resolve(appid ? `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${appid}/header.jpg` : null);
+    return Promise.resolve(appid ? `https://shared.steamstatic.com/store_item_assets/steam/apps/${appid}/header.jpg` : null);
   },
   setArt: async (id: string, file: File): Promise<string> => {
     if (file.size > 2 * 1024 * 1024) throw new Error("Pick an image of 2 MB or less.");

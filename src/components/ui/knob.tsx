@@ -99,16 +99,16 @@ export function Knob({ value, min, max, onChange, onCommit, label = "Q", decimal
           })}
         </svg>
         <div
-          className="absolute rounded-full bg-gradient-to-b from-[#2a2a31] to-[#121216] shadow-[0_6px_14px_rgb(0_0_0/0.6),inset_0_1px_0_rgb(255_255_255/0.12)] ring-1 ring-white/[0.06]"
+          className="absolute rounded-full bg-gradient-to-b from-[#2e2a27] to-[#151210] shadow-[0_6px_14px_rgb(0_0_0/0.6),inset_0_1px_0_rgb(255_255_255/0.12)] ring-1 ring-white/[0.06]"
           style={{ inset: 10, transform: `rotate(${angle}deg)` }}
         >
           <span className="absolute left-1/2 top-1 h-2 w-[2px] -translate-x-1/2 rounded-full bg-primary shadow-[0_0_6px_var(--primary)]" />
         </div>
-        <span className="tabular pointer-events-none absolute inset-0 flex items-center justify-center text-[11.5px] text-foreground">
+        <span className="tabular pointer-events-none absolute inset-0 flex items-center justify-center text-[11.5px] text-high">
           {value.toFixed(decimals)}
         </span>
       </div>
-      <span className="text-[11.5px] text-muted-foreground">{label}</span>
+      <span className="text-[11.5px] text-medium">{label}</span>
     </div>
   );
 }

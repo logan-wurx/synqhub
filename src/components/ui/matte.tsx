@@ -1,24 +1,16 @@
-// SYNQ's surfaces: layered glass panels ("double bezel": a hairline tray holding an inner
-// plate), toggle rows, notices and small readouts. The dock and the room light are in ./ambient.tsx.
+// SYNQ's surfaces: panels (dark, a fine light edge, warm at the top-left), toggle rows, notices and small readouts.
+// Device tiles are the `tile` utility (index.css); the window bar and the dock are in ./chrome.tsx.
 import type { ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Icon } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 import { Switch } from "./switch";
 
-/** Outer tray + inner plate with concentric corners. */
+/** A panel; `innerClassName` lays out what's inside it. */
 export function Card({ className, innerClassName, children }: { className?: string; innerClassName?: string; children: ReactNode }) {
   return (
-    <div className={cn("rounded-[1.6rem] bg-white/[0.045] p-1.5 ring-1 ring-white/[0.09]", className)}>
-      <div
-        className={cn(
-          // Glass over the room light: dark enough under the text for AA contrast, a faint sheen from the top-left.
-          "h-full rounded-[calc(1.6rem-0.375rem)] bg-[#0c0c0f]/[0.62] bg-[linear-gradient(160deg,rgb(255_255_255/0.06),rgb(255_255_255/0.012)_55%)] shadow-[inset_0_1px_1px_rgb(255_255_255/0.1),0_20px_50px_-24px_rgb(0_0_0/0.8)]",
-          innerClassName,
-        )}
-      >
-        {children}
-      </div>
+    <div className={cn("panel rounded-card", className)}>
+      <div className={cn("h-full rounded-[inherit]", innerClassName)}>{children}</div>
     </div>
   );
 }
@@ -27,22 +19,17 @@ export function CardHeader({ title, hint, right }: { title: string; hint?: strin
   return (
     <div className="flex items-start justify-between gap-3 px-5 pt-4">
       <div className="min-w-0">
-        <h3 className="text-[14px] font-medium tracking-tight text-foreground">{title}</h3>
-        {hint && <p className="mt-0.5 text-[12.5px] text-muted-foreground">{hint}</p>}
+        <h3 className="text-[15px] font-semibold tracking-[-0.015em] text-high">{title}</h3>
+        {hint && <p className="mt-0.5 text-[13px] text-medium">{hint}</p>}
       </div>
       {right}
     </div>
   );
 }
 
-/** Small mono label that sits above a heading, with the accent's dot. */
+/** The small capitals label that sits above a heading ("ACTIVE DEVICE"). */
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <span className="label-mono inline-flex items-center gap-2">
-      <span className="size-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" aria-hidden="true" />
-      {children}
-    </span>
-  );
+  return <span className="label-caps inline-flex items-center gap-2">{children}</span>;
 }
 
 /** Icon + title + status line + switch. */
@@ -60,17 +47,17 @@ export function ToggleCard({
   onCheckedChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="group flex cursor-pointer items-center gap-3.5 rounded-2xl px-3 py-3 transition-colors duration-500 ease-fluid hover:bg-white/[0.03]">
+    <label className="group flex cursor-pointer items-center gap-3.5 rounded-control px-3 py-3 transition-colors duration-500 ease-fluid hover:bg-white/[0.03]">
       <span
         className={cn(
-          "flex size-10 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/[0.07] transition-colors duration-500 ease-fluid",
-          checked ? "bg-primary/15 text-primary" : "bg-white/[0.03] text-muted-foreground",
+          "flex size-10 shrink-0 items-center justify-center rounded-control ring-1 ring-white/[0.07] transition-colors duration-500 ease-fluid",
+          checked ? "bg-primary/15 text-primary" : "bg-white/[0.03] text-medium",
         )}
       >
         <IconCmp size={19} weight="light" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block text-[14px] text-foreground">{title}</span>
+        <span className="block text-[14px] text-high">{title}</span>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={status}
@@ -78,7 +65,7 @@ export function ToggleCard({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -3 }}
             transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
-            className="block truncate text-[12.5px] text-muted-foreground"
+            className="block truncate text-[12.5px] text-medium"
           >
             {status}
           </motion.span>
@@ -89,13 +76,17 @@ export function ToggleCard({
   );
 }
 
+/**
+ * Facts about a device (maker, connection, firmware): each value over its name, in as many columns as fit, never a
+ * name on the far left and its value on the far right of a wide card.
+ */
 export function DetailRows({ rows }: { rows: [string, ReactNode][] }) {
   return (
-    <dl className="divide-y divide-white/[0.05]">
+    <dl className="grid gap-x-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))]">
       {rows.map(([k, v]) => (
-        <div key={k} className="flex items-center justify-between gap-4 py-2.5 text-[13px]">
-          <dt className="text-muted-foreground">{k}</dt>
-          <dd className="truncate text-right text-foreground">{v}</dd>
+        <div key={k} className="flex min-w-0 flex-col-reverse justify-end border-t border-white/[0.06] py-3">
+          <dt className="mt-0.5 truncate text-[12px] text-medium">{k}</dt>
+          <dd className="text-[14px] font-medium text-high [overflow-wrap:anywhere]">{v}</dd>
         </div>
       ))}
     </dl>
@@ -113,7 +104,7 @@ export interface Notice {
 /** Floating glass pills at the bottom, with an optional action. */
 export function NoticeStack({ notices, onDismiss }: { notices: Notice[]; onDismiss: (id: number) => void }) {
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-[104px] z-50 flex flex-col items-center gap-2">
+    <div className="pointer-events-none fixed inset-x-0 bottom-[112px] z-50 flex flex-col items-center gap-2">
       <AnimatePresence initial={false}>
         {notices.map((n) => (
           <motion.div
@@ -123,19 +114,19 @@ export function NoticeStack({ notices, onDismiss }: { notices: Notice[]; onDismi
             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: 10, scale: 0.97, filter: "blur(4px)" }}
             transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
-            className="pointer-events-auto flex min-w-[340px] max-w-[580px] items-center gap-3 rounded-full bg-[#141418]/80 py-2 pl-4 pr-2 shadow-[0_18px_40px_-12px_rgb(0_0_0/0.7)] ring-1 ring-white/[0.08] backdrop-blur-xl"
+            className="pointer-events-auto flex min-w-[340px] max-w-[580px] items-center gap-3 rounded-popover bg-[#1c1c1c]/90 py-2 pl-4 pr-2 shadow-[0_18px_40px_-12px_rgb(0_0_0/0.7)] ring-1 ring-white/[0.1] backdrop-blur-xl"
           >
             <span
               className={cn(
                 "size-2 shrink-0 rounded-full",
-                n.tone === "ok" && "bg-primary shadow-[0_0_10px_var(--primary)]",
-                n.tone === "error" && "bg-destructive shadow-[0_0_10px_var(--destructive)]",
-                n.tone === "info" && "bg-secondary shadow-[0_0_10px_var(--secondary)]",
+                n.tone === "ok" && "bg-[var(--live)]",
+                n.tone === "error" && "bg-destructive",
+                n.tone === "info" && "bg-white/60",
               )}
             />
             <div className="min-w-0 flex-1 py-0.5">
-              <p className="truncate text-[13px] text-foreground">{n.title}</p>
-              {n.detail && <p className="truncate text-[12px] text-muted-foreground">{n.detail}</p>}
+              <p className="truncate text-[13px] text-high">{n.title}</p>
+              {n.detail && <p className="truncate text-[12px] text-medium">{n.detail}</p>}
             </div>
             {n.action && (
               <button
@@ -143,14 +134,14 @@ export function NoticeStack({ notices, onDismiss }: { notices: Notice[]; onDismi
                   n.action!.run();
                   onDismiss(n.id);
                 }}
-                className="rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
+                className="rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
               >
                 {n.action.label}
               </button>
             )}
             <button
               onClick={() => onDismiss(n.id)}
-              className="flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground"
+              className="flex size-7 items-center justify-center rounded-full text-medium transition-colors hover:bg-white/[0.06] hover:text-high"
               aria-label="Dismiss"
             >
               ×
@@ -162,22 +153,12 @@ export function NoticeStack({ notices, onDismiss }: { notices: Notice[]; onDismi
   );
 }
 
-export const ACCENTS = [
-  // The swatch is the room light's own colours (index.css), so it shows what the accent is right now.
-  { id: "room", color: "linear-gradient(135deg, var(--glow-a), var(--glow-b))", label: "Room light" },
-  { id: "iris", color: "#8b5cf6", label: "Violet" },
-  { id: "ice", color: "#42d4ff", label: "Ice" },
-  { id: "lime", color: "#c6f24e", label: "Lime" },
-  { id: "ember", color: "#ff9e45", label: "Ember" },
-  { id: "rog", color: "#ff3d57", label: "Red" },
-] as const;
-
 /** Label + value chip for headline numbers. */
 export function Readout({ label, value, tone = "default" }: { label: string; value: string; tone?: "default" | "ok" | "bad" }) {
   return (
     <div className="flex items-baseline gap-2 rounded-full bg-white/[0.03] px-3.5 py-1.5 ring-1 ring-white/[0.07]">
-      <span className="text-[12px] text-muted-foreground">{label}</span>
-      <span className={cn("tabular text-[13px]", tone === "ok" && "text-primary", tone === "bad" && "text-destructive", tone === "default" && "text-foreground")}>
+      <span className="text-[12px] text-medium">{label}</span>
+      <span className={cn("tabular text-[13px]", tone === "ok" && "text-primary", tone === "bad" && "text-destructive", tone === "default" && "text-high")}>
         {value}
       </span>
     </div>

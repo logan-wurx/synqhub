@@ -39,15 +39,15 @@ function Note({ open, onFind, onClose, up, className, children }: { open: boolea
     <div ref={box} className={cn("relative", className)}>
       {children}
       {open && (
-        <div role="dialog" aria-label="Find lights" data-state="open" className={cn("absolute left-0 z-30 w-[340px] max-w-[calc(100vw-48px)] rounded-2xl bg-[#141418] p-4 text-[12.5px] leading-relaxed text-muted-foreground shadow-[0_18px_40px_-12px_rgb(0_0_0/0.8)] ring-1 ring-white/[0.1]", up ? "bottom-[calc(100%+8px)]" : "top-[calc(100%+8px)]")}>
-          <p className="text-[13.5px] font-medium text-foreground">Find Wi-Fi lights</p>
+        <div role="dialog" aria-label="Find lights" data-state="open" className={cn("absolute left-0 z-30 w-[340px] max-w-[calc(100vw-48px)] rounded-popover bg-popover p-4 text-[12.5px] leading-relaxed text-medium shadow-[0_18px_40px_-12px_rgb(0_0_0/0.8)] ring-1 ring-white/[0.1]", up ? "bottom-[calc(100%+8px)]" : "top-[calc(100%+8px)]")}>
+          <p className="text-[13.5px] font-medium text-high">Find Wi-Fi lights</p>
           <p className="mt-1.5">SYNQ asks the devices on your home network which of them are lights, for a few seconds, only now. Nothing goes to the internet.</p>
           <p className="mt-1.5">Windows may ask whether SYNQ can use your network. SYNQ never changes your firewall settings.</p>
           <div className="mt-3 flex justify-end gap-2">
-            <button type="button" onClick={onClose} className="rounded-full px-3 py-1 text-[12.5px] text-muted-foreground hover:text-foreground">
+            <button type="button" onClick={onClose} className="rounded-small px-3 py-1 text-[12.5px] text-medium hover:text-high">
               Not now
             </button>
-            <button type="button" onClick={onFind} data-testid="find-lights-go" className="rounded-full bg-primary/[0.15] px-3.5 py-1 text-[12.5px] text-foreground ring-1 ring-primary/40 hover:bg-primary/[0.22]">
+            <button type="button" onClick={onFind} data-testid="find-lights-go" className="rounded-small bg-primary/[0.15] px-3.5 py-1 text-[12.5px] text-high ring-1 ring-primary/40 hover:bg-primary/[0.22]">
               Find lights
             </button>
           </div>
@@ -67,11 +67,11 @@ export function FindLights({ className }: { className?: string }) {
         onClick={f.press}
         title="Ask your home network for Wi-Fi lights (Hue, Nanoleaf, LIFX, WiZ, Elgato, Twinkly, Yeelight) for a few seconds"
         data-testid="find-lights"
-        className="group flex h-9 items-center gap-2 rounded-full bg-white/[0.05] pl-4 pr-1.5 text-[13px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] disabled:cursor-wait"
+        className="group flex h-9 items-center gap-2 rounded-control bg-white/[0.05] pl-4 pr-1.5 text-[13px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.08] disabled:cursor-wait"
       >
         {f.finding ? "Finding lights…" : f.none ? "No Wi-Fi lights found" : "Find lights"}
-        <span className="grid size-6 place-items-center rounded-full bg-white/[0.08] text-primary">
-          {f.finding ? <CircleNotch size={13} className="animate-spin" /> : <WifiHigh size={13} />}
+        <span className="grid size-6 place-items-center rounded bg-white/[0.08] text-primary">
+          {f.finding ? <CircleNotch size={12} className="animate-spin" /> : <WifiHigh size={12} />}
         </span>
       </button>
     </Note>
@@ -88,11 +88,11 @@ export function FindLightsTile() {
         disabled={f.finding}
         onClick={f.press}
         data-testid="find-lights-tile"
-        className="flex h-full min-h-[160px] w-full flex-col items-center justify-center gap-1.5 rounded-[1.6rem] border border-dashed border-white/[0.12] p-5 text-muted-foreground transition-colors hover:border-white/[0.2] hover:text-foreground disabled:cursor-wait"
+        className="flex h-full min-h-[160px] w-full flex-col items-center justify-center gap-1.5 rounded-card border border-dashed border-white/[0.12] p-5 text-medium transition-colors hover:border-white/[0.2] hover:text-high disabled:cursor-wait"
       >
-        {f.finding ? <CircleNotch size={20} className="animate-spin" /> : <WifiHigh size={20} />}
+        {f.finding ? <CircleNotch size={20} weight="light" className="animate-spin" /> : <WifiHigh size={20} weight="light" />}
         <span className="text-[13px]">{f.finding ? "Finding lights…" : f.none ? "No Wi-Fi lights found" : "Find Wi-Fi lights"}</span>
-        <span className="text-[11.5px] text-muted-foreground/80">Hue, Nanoleaf, Elgato and more</span>
+        <span className="text-[11.5px] text-medium">Hue, Nanoleaf, Elgato and more</span>
       </button>
     </Note>
   );

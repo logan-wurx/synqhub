@@ -5,17 +5,19 @@ import { backend, type BackupInfo, type EqSnapshot, type PresetInfo, type SoundN
 import { autoPreamp, formatDb, peakDb, EQ_CURVE_KEY, type EqCurve, type EqState, type Filter } from "@/lib/eq";
 import { setKept } from "@/lib/keep";
 import { refreshSound, setSoundNames, soundLabel, useSound } from "@/lib/sound";
-import { Card, CardHeader, Readout, ToggleCard, type Notice } from "@/components/ui/matte";
+import { Card, Readout, ToggleCard, type Notice } from "@/components/ui/matte";
+import { Segmented } from "@/components/lighting/controls";
 import { DeviceFrame, DeviceHeader, TAB_BODY, type TabDef } from "@/components/devices/shell";
 import { SOUND_ID, SOUND_TABS_LEGACY, useDeviceTab } from "@/lib/nav";
 import { useViewportHeight } from "@/lib/viewport";
-import { Switch } from "@/components/ui/switch";
 import { EqGraph } from "./EqGraph";
 import { BandStrip, PreampStrip } from "./BandStrip";
 import { BandFinder } from "./BandFinder";
 import { Banner, EngineBanner, EngineChip, EnginePanel, type EngineAction } from "./EqEngine";
 import { PowerSwitch } from "@/components/uiverse";
-import { deviceIems } from "@/components/ui/brand";
+import { DeviceArt } from "@/components/devices/DeviceArt";
+import { headphoneModel, headphonePhotoKeyFor } from "@/lib/device-images";
+import { HeadphonePicker } from "./HeadphonePicker";
 
 // AutoEq's presets by model name: its own chunk, loaded when "Find your headphones" is opened.
 const AutoEqFinder = lazy(() => import("./AutoEqFinder").then((m) => ({ default: m.AutoEqFinder })));
@@ -54,6 +56,8 @@ export function EqPage({ notify }: { notify: Notify }) {
   const [backups, setBackups] = useState<BackupInfo[]>([]);
   const [presetName, setPresetName] = useState("");
   const [finding, setFinding] = useState(false);
+  // The right column's one tool at a time.
+  const [tool, setTool] = useState<"presets" | "harsh" | "history">("presets");
   const [loadError, setLoadError] = useState<string | null>(null);
 
   // The EQ engine and the output it's playing through on this PC (shared with the sidebar).
@@ -369,11 +373,11 @@ export function EqPage({ notify }: { notify: Notify }) {
     return <div className="p-10 text-[14px] text-destructive">Couldn't read the EQ settings file: {loadError}</div>;
   }
   if (!snap || !limits) {
-    return <div className="p-10 text-[14px] text-muted-foreground">Loading your EQ…</div>;
+    return <div className="p-10 text-[14px] text-medium">Loading your EQ…</div>;
   }
 
   const activeBands = eq.filters.filter((f) => f.enabled).length;
-  const graphH = Math.max(300, Math.min(620, vh - 640));
+  const graphH = Math.max(200, Math.min(480, vh - 710));
   const shownTab = tabs.some((t) => t.id === tab) ? tab : "eq";
 
   return (
@@ -386,14 +390,14 @@ export function EqPage({ notify }: { notify: Notify }) {
           naming && label.output ? (
             <NameForm key={label.output.id} current={label.custom} placeholder={label.output.title} onSave={saveName} onCancel={() => setNaming(false)} />
           ) : (
-            <div className="group mt-3 flex min-w-0 items-center gap-2">
-              <h1 className="truncate text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">{engine ? label.title : "Sound"}</h1>
+            <div className="group flex min-w-0 items-center gap-2">
+              <h1 className="truncate pb-0.5 text-[clamp(30px,2.9vw,42px)] font-bold leading-[1.05] tracking-[-0.045em] text-high">{engine ? label.title : "Sound"}</h1>
               {label.output && (
                 <button
                   onClick={() => setNaming(true)}
-                  title="Name your headphones (only on this PC)"
+                  title="Name your headphones and pick the model (only on this PC)"
                   aria-label="Name your headphones"
-                  className="rounded-full p-1.5 text-muted-foreground/45 transition-colors duration-300 hover:bg-white/[0.06] hover:text-foreground group-hover:text-muted-foreground"
+                  className="rounded-full p-1.5 text-faint transition-colors duration-300 hover:bg-white/[0.06] hover:text-high group-hover:text-medium"
                 >
                   <PencilSimple size={16} weight="light" />
                 </button>
@@ -408,15 +412,15 @@ export function EqPage({ notify }: { notify: Notify }) {
               : bypass
                 ? "Bypassed: you're hearing it flat."
                 : `${activeBands} band${activeBands === 1 ? "" : "s"} shaping your sound.`}
-            {label.custom && label.output && <span className="text-muted-foreground/80"> · {label.output.name}</span>}
+            {label.custom && label.output && <span className="text-medium"> · {label.output.name}</span>}
           </>
         }
         pills={<EngineChip status={engine} open={shownTab === "engine"} onClick={() => setTab("engine")} />}
         actions={
           <>
-            {/* Only for headphones the person named here and chose the picture for. */}
-            {label.custom?.picture === "iems" && (
-              <img src={deviceIems} alt="" draggable={false} className="pointer-events-none -my-3 h-[76px] shrink-0 select-none object-contain" />
+            {/* The headphones the person picked for this output (their photo), when they picked any. */}
+            {label.custom?.picture && (
+              <DeviceArt spec={{ kind: "sound", name: label.title, picture: label.custom.picture }} className="pointer-events-none -my-3 h-[76px] w-auto max-w-[140px] shrink-0 select-none" />
             )}
             <Readout label="Peak" value={`${formatDb(peak)} dB`} tone={clipping ? "bad" : "ok"} />
             <Readout label="Preamp" value={`${formatDb(eq.preamp)} dB`} />
@@ -433,236 +437,247 @@ export function EqPage({ notify }: { notify: Notify }) {
 
         {shownTab === "eq" && (
           <>
-            {snap.editorOpen && (
-              <Banner tone="warn">
-                Close the Configuration Editor window. If you touch it while it's open, it overwrites what you set here.
-              </Banner>
-            )}
-            {snap.advanced && (
-              <Banner tone="warn">
-                {snap.advanced} SYNQ can show it but won't change it. Load a preset to start an editable EQ (the current file is backed up first).
-              </Banner>
-            )}
-            {!readOnly && clipping && auto && same(eq, applied.current) && (
-              // A caution, not an error: one click lowers the preamp and nothing else changes.
-              <Banner
-                tone="warn"
-                action={{
-                  label: "Fix it",
-                  onClick: () => {
-                    update(eq);
-                    commit();
-                  },
-                }}
-              >
-                Your EQ peaks at {formatDb(peak)} dB, so loud moments can distort. Fixing it only lowers the preamp to {formatDb(autoPreamp(eq, fs))} dB.
-              </Banner>
-            )}
-
-            <Card innerClassName="px-3 pb-2 pt-4">
-              <EqGraph
-                state={eq}
-                limits={limits}
-                selected={selected}
-                markers={markers}
-                onSelect={setSelected}
-                onFilterChange={readOnly ? () => {} : patchFilter}
-                onAdd={readOnly ? () => {} : addFilter}
-                onCommit={commit}
-                height={graphH}
-              />
-              <p className="px-4 pb-2 pt-1 text-[12px] text-muted-foreground/80">
-                Drag a point to move it · scroll on the selected point to change its width · double-click to add a band
-              </p>
-            </Card>
-
-            <div className="-mx-1 flex gap-2.5 overflow-x-auto px-1 pb-2">
-              <PreampStrip
-                value={eq.preamp}
-                auto={auto}
-                peak={peak}
-                max={maxPreamp}
-                limits={limits}
-                readOnly={readOnly}
-                onChange={(v) => setEq((cur) => ({ ...cur, preamp: Math.min(v, maxPreamp) }))}
-                onCommit={commit}
-              />
-              {eq.filters.map((f, i) => (
-                <BandStrip
-                  key={i}
-                  index={i}
-                  filter={f}
-                  limits={limits}
-                  selected={selected === i}
-                  readOnly={readOnly}
-                  onSelect={() => setSelected(i)}
-                  onChange={(patch) => patchFilter(i, patch)}
-                  onCommit={commit}
-                  onRemove={() => removeFilter(i)}
-                />
-              ))}
-              {!readOnly && eq.filters.length < limits.maxFilters && (
-                <button
-                  onClick={() => addFilter({ enabled: true, kind: "PK", freq: 1000, gain: -2, q: 1.41 })}
-                  className="group flex w-[84px] shrink-0 flex-col items-center justify-center gap-2 rounded-[1.35rem] text-muted-foreground border border-dashed border-white/10 transition-colors duration-500 ease-fluid hover:bg-white/[0.03] hover:text-foreground"
-                >
-                  <span className="grid size-9 place-items-center rounded-full bg-white/[0.05] ring-1 ring-white/10 transition-transform duration-500 ease-fluid group-hover:scale-105">
-                    <Plus size={16} weight="light" />
-                  </span>
-                  <span className="text-[12px]">Add band</span>
-                </button>
-              )}
-            </div>
-
-            <div className="grid grid-cols-[minmax(280px,0.85fr)_1.6fr] gap-5">
-              <Card innerClassName="flex flex-col gap-1 p-3">
-                <div className="flex items-center gap-4 rounded-2xl px-3 py-3">
-                  <PowerSwitch checked={!bypass} onChange={(on) => toggleBypass(!on)} size={50} label={bypass ? "Turn the EQ back on" : "Bypass the EQ"} />
-                  <div className="min-w-0">
-                    <p className="text-[14px] text-foreground">{bypass ? "EQ off" : "EQ on"}</p>
-                    <p className="text-[12.5px] text-muted-foreground">{bypass ? "Press to turn it back on" : "Press to compare with flat"}</p>
+            {/* A studio on a wide window: the curve and the channel strips on the left, the switch and one tool at a time
+                on the right (presets, harsh spots, history), so the whole EQ fits without scrolling. */}
+            <div className="grid items-start gap-4 min-[1280px]:grid-cols-[minmax(0,1fr)_380px]">
+              <div className="flex min-w-0 flex-col gap-4">
+                <Card innerClassName="px-3 pb-3 pt-4">
+                  {/* How it works, on hover (the line under the curve used to say it). */}
+                  <div title="Drag a point to move it. Scroll on the selected point to change its width. Double-click to add a band.">
+                  <EqGraph
+                    state={eq}
+                    limits={limits}
+                    selected={selected}
+                    markers={markers}
+                    onSelect={setSelected}
+                    onFilterChange={readOnly ? () => {} : patchFilter}
+                    onAdd={readOnly ? () => {} : addFilter}
+                    onCommit={commit}
+                    height={graphH}
+                  />
                   </div>
+                </Card>
+
+                <div className="-mx-1 flex gap-2.5 overflow-x-auto px-1 pb-1">
+                  <PreampStrip
+                    value={eq.preamp}
+                    auto={auto}
+                    peak={peak}
+                    max={maxPreamp}
+                    limits={limits}
+                    readOnly={readOnly}
+                    onChange={(v) => setEq((cur) => ({ ...cur, preamp: Math.min(v, maxPreamp) }))}
+                    onCommit={commit}
+                  />
+                  {eq.filters.map((f, i) => (
+                    <BandStrip
+                      key={i}
+                      index={i}
+                      filter={f}
+                      limits={limits}
+                      selected={selected === i}
+                      readOnly={readOnly}
+                      onSelect={() => setSelected(i)}
+                      onChange={(patch) => patchFilter(i, patch)}
+                      onCommit={commit}
+                      onRemove={() => removeFilter(i)}
+                    />
+                  ))}
+                  {!readOnly && eq.filters.length < limits.maxFilters && (
+                    <button
+                      onClick={() => addFilter({ enabled: true, kind: "PK", freq: 1000, gain: -2, q: 1.41 })}
+                      className="group flex w-[76px] shrink-0 flex-col items-center justify-center gap-2 rounded-control text-medium border border-dashed border-white/10 transition-colors duration-500 ease-fluid hover:bg-white/[0.03] hover:text-high"
+                    >
+                      <span className="grid size-9 place-items-center rounded-full bg-white/[0.05] ring-1 ring-white/10 transition-transform duration-500 ease-fluid group-hover:scale-105">
+                        <Plus size={16} weight="light" />
+                      </span>
+                      <span className="text-[12px]">Add band</span>
+                    </button>
+                  )}
                 </div>
-                <div className="mx-3 h-px bg-white/[0.06]" />
-                <ToggleCard
-                  icon={Gauge}
-                  title="Auto preamp"
-                  status={auto ? "Keeps it from distorting" : "You're setting it by hand"}
-                  checked={auto}
-                  onCheckedChange={toggleAuto}
-                />
-                <p className="px-3 pb-1 pt-2 text-[12px] leading-relaxed text-muted-foreground/80">
-                  Saves as you go. Never louder than the original, and every change is backed up.
-                </p>
-              </Card>
+              </div>
 
-              <Card innerClassName="p-4">
-                <p className="mb-3 text-[14px] font-medium tracking-tight text-foreground">Find harsh spots</p>
-                <BandFinder
-                  markers={markers}
-                  onMark={(f) => setMarkers((m) => (m.includes(f) ? m : [...m, f].sort((a, b) => a - b)))}
-                  onUnmark={(f) => setMarkers((m) => m.filter((x) => x !== f))}
-                  onCut={(f) => {
-                    setMarkers((m) => m.filter((x) => x !== f));
-                    if (!readOnly) addFilter({ enabled: true, kind: "PK", freq: f, gain: -3, q: 2 });
-                  }}
-                />
-              </Card>
-            </div>
-
-          <div className="grid grid-cols-[1.4fr_1fr] gap-5">
-            <Card>
-              <CardHeader
-                title="Presets"
-                hint="Save the sound you have now, or load one. Loading backs up the current file first."
-                right={
-                  <button
-                    onClick={() => setFinding(!finding)}
-                    aria-expanded={finding}
-                    className={cn(
-                      "flex h-8 shrink-0 items-center gap-1.5 rounded-full px-3 text-[12.5px] ring-1 transition-colors",
-                      finding ? "bg-white/[0.08] text-foreground ring-white/[0.12]" : "bg-white/[0.04] text-muted-foreground ring-white/[0.08] hover:text-foreground",
-                    )}
+              <div className="flex min-w-0 flex-col gap-4">
+                {/* Cautions sit at the top of this column, beside the curve, not across the page. */}
+                {snap.editorOpen && (
+                  <Banner tone="warn">
+                    Close the Configuration Editor window. If you touch it while it's open, it overwrites what you set here.
+                  </Banner>
+                )}
+                {snap.advanced && (
+                  <Banner tone="warn">
+                    {snap.advanced} SYNQ can show it but won't change it. Load a preset to start an editable EQ (the current file is backed up first).
+                  </Banner>
+                )}
+                {!readOnly && clipping && auto && same(eq, applied.current) && (
+                  // A caution, not an error: one click lowers the preamp and nothing else changes.
+                  <Banner
+                    tone="warn"
+                    action={{
+                      label: "Fix it",
+                      onClick: () => {
+                        update(eq);
+                        commit();
+                      },
+                    }}
                   >
-                    <MagnifyingGlass size={13} /> Find your headphones
-                  </button>
-                }
-              />
-              <div className="px-5 pb-5 pt-4">
-                {finding && (
-                  <div className="mb-4">
-                    <Suspense fallback={null}>
-                      <AutoEqFinder
-                        limits={limits}
-                        readOnly={readOnly}
-                        notify={notify}
-                        onSaved={refreshLists}
-                        onUse={(state, name) => {
-                          update(state);
-                          setSelected(null);
-                          commit();
-                          notify({ title: `Using ${name}`, detail: "Your previous EQ is in History.", tone: "ok" }, "preset");
+                    Your EQ peaks at {formatDb(peak)} dB, so loud moments can distort. Fixing it only lowers the preamp to {formatDb(autoPreamp(eq, fs))} dB.
+                  </Banner>
+                )}
+                <Card innerClassName="flex flex-col gap-1 p-3">
+                  <div className="flex items-center gap-4 rounded-control px-3 py-2">
+                    <PowerSwitch checked={!bypass} onChange={(on) => toggleBypass(!on)} size={50} label={bypass ? "Turn the EQ back on" : "Bypass the EQ"} />
+                    <div className="min-w-0">
+                      <p className="text-[14px] text-high">{bypass ? "EQ off" : "EQ on"}</p>
+                      <p className="text-[12.5px] text-medium">{bypass ? "Press to turn it back on" : "Press to compare with flat"}</p>
+                    </div>
+                  </div>
+                  <div className="mx-3 h-px bg-white/[0.06]" />
+                  <ToggleCard
+                    icon={Gauge}
+                    title="Auto preamp"
+                    status={auto ? "Keeps it from distorting" : "You're setting it by hand"}
+                    checked={auto}
+                    onCheckedChange={toggleAuto}
+                  />
+                  <p className="px-3 pb-1 text-[12px] leading-relaxed text-medium">Saves as you go. Never louder than the original, and every change is backed up.</p>
+                </Card>
+
+                <Card innerClassName="flex flex-col px-4 pb-4 pt-4">
+                  <Segmented
+                    label="EQ tools"
+                    value={tool}
+                    options={[
+                      { id: "presets", label: "Presets" },
+                      { id: "harsh", label: "Harsh spots" },
+                      { id: "history", label: "History" },
+                    ]}
+                    onChange={setTool}
+                  />
+                  {tool === "presets" && (
+                    <div className="mt-4 flex min-h-0 flex-col">
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-[12.5px] leading-relaxed text-medium">Save the sound you have now, or load one. Loading backs up the current file first.</p>
+                        <button
+                          onClick={() => setFinding(!finding)}
+                          aria-expanded={finding}
+                          className={cn(
+                            "flex h-8 shrink-0 items-center gap-1.5 rounded-small px-3 text-[12.5px] ring-1 transition-colors",
+                            finding ? "bg-white/[0.08] text-high ring-white/[0.12]" : "bg-white/[0.04] text-medium ring-white/[0.08] hover:text-high",
+                          )}
+                        >
+                          <MagnifyingGlass size={12} /> Find your headphones
+                        </button>
+                      </div>
+                      {finding && (
+                        <div className="mt-3">
+                          <Suspense fallback={null}>
+                            <AutoEqFinder
+                              limits={limits}
+                              readOnly={readOnly}
+                              notify={notify}
+                              onSaved={refreshLists}
+                              onUse={(state, name) => {
+                                update(state);
+                                setSelected(null);
+                                commit();
+                                notify({ title: `Using ${name}`, detail: "Your previous EQ is in History.", tone: "ok" }, "preset");
+                              }}
+                            />
+                          </Suspense>
+                        </div>
+                      )}
+                      <div className="mt-3 flex gap-2">
+                        <input
+                          value={presetName}
+                          onChange={(e) => setPresetName(e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && savePreset()}
+                          placeholder="Name this sound…"
+                          aria-label="Preset name"
+                          className="h-10 min-w-0 flex-1 rounded-control bg-white/[0.04] px-4 text-[13.5px] text-high outline-none ring-1 ring-white/[0.08] placeholder:text-medium focus:ring-primary/60"
+                        />
+                        <button
+                          onClick={savePreset}
+                          disabled={!presetName.trim() || clipping}
+                          className="group flex h-10 items-center gap-2 rounded-control bg-foreground pl-4 pr-1.5 text-[13px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.98] disabled:opacity-40"
+                        >
+                          Save
+                          <span className="grid size-7 place-items-center rounded bg-shade/10 transition-transform duration-500 ease-fluid group-hover:-translate-y-px group-hover:translate-x-0.5">
+                            <FloppyDisk size={12} weight="bold" />
+                          </span>
+                        </button>
+                      </div>
+                      <ul className="mt-3 max-h-[220px] divide-y divide-white/[0.05] overflow-y-auto">
+                        {presets.map((p) => (
+                          <li key={p.path} className="flex items-center gap-3 py-2 text-[13.5px]">
+                            <span className={cn("size-1.5 shrink-0 rounded-full", p.source === "onboard" ? "bg-primary" : "bg-secondary")} />
+                            <span className="min-w-0 flex-1 truncate">{p.name}</span>
+                            <button
+                              disabled={!p.editable || readOnly}
+                              onClick={() => loadPreset(p)}
+                              title={p.source === "onboard" ? "Saved here" : "From the EQ engine folder"}
+                              className="rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
+                            >
+                              Load
+                            </button>
+                            {p.source === "onboard" && (
+                              <button
+                                onClick={async () => {
+                                  await backend.eqPresetDelete(p.path);
+                                  refreshLists();
+                                }}
+                                className="rounded-full p-1.5 text-medium transition-colors hover:text-destructive"
+                                title="Delete preset"
+                              >
+                                <Trash size={16} weight="light" />
+                              </button>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {tool === "harsh" && (
+                    <div className="mt-4">
+                      <BandFinder
+                        markers={markers}
+                        onMark={(f) => setMarkers((m) => (m.includes(f) ? m : [...m, f].sort((a, b) => a - b)))}
+                        onUnmark={(f) => setMarkers((m) => m.filter((x) => x !== f))}
+                        onCut={(f) => {
+                          setMarkers((m) => m.filter((x) => x !== f));
+                          if (!readOnly) addFilter({ enabled: true, kind: "PK", freq: f, gain: -3, q: 2 });
                         }}
                       />
-                    </Suspense>
-                  </div>
-                )}
-                <div className="flex gap-2">
-                  <input
-                    value={presetName}
-                    onChange={(e) => setPresetName(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && savePreset()}
-                    placeholder="Name this sound…"
-                    aria-label="Preset name"
-                    className="h-10 flex-1 rounded-full bg-white/[0.04] px-4 text-[13.5px] text-foreground outline-none ring-1 ring-white/[0.08] placeholder:text-muted-foreground/80 focus:ring-primary/60"
-                  />
-                  <button
-                    onClick={savePreset}
-                    disabled={!presetName.trim() || clipping}
-                    className="group flex h-10 items-center gap-2 rounded-full bg-foreground pl-4 pr-1.5 text-[13px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.98] disabled:opacity-40"
-                  >
-                    Save
-                    <span className="grid size-7 place-items-center rounded-full bg-black/10 transition-transform duration-500 ease-fluid group-hover:-translate-y-px group-hover:translate-x-0.5">
-                      <FloppyDisk size={14} />
-                    </span>
-                  </button>
-                </div>
-                <ul className="mt-3 max-h-[360px] divide-y divide-white/[0.05] overflow-y-auto">
-                  {presets.map((p) => (
-                    <li key={p.path} className="flex items-center gap-3 py-2 text-[13.5px]">
-                      <span className={cn("size-1.5 rounded-full", p.source === "onboard" ? "bg-primary" : "bg-secondary")} />
-                      <span className="flex-1 truncate">{p.name}</span>
-                      <span className="text-[11.5px] text-muted-foreground">{p.source === "onboard" ? "Saved here" : "EQ engine folder"}</span>
-                      <button
-                        disabled={!p.editable || readOnly}
-                        onClick={() => loadPreset(p)}
-                        className="rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-40"
-                      >
-                        Load
-                      </button>
-                      {p.source === "onboard" && (
-                        <button
-                          onClick={async () => {
-                            await backend.eqPresetDelete(p.path);
-                            refreshLists();
-                          }}
-                          className="rounded-full p-1.5 text-muted-foreground transition-colors hover:text-destructive"
-                          title="Delete preset"
-                        >
-                          <Trash size={15} weight="light" />
-                        </button>
+                    </div>
+                  )}
+                  {tool === "history" && (
+                    <div className="mt-4">
+                      <p className="text-[12.5px] leading-relaxed text-medium">Every save shows up here, so you can always go back.</p>
+                      {backups.length === 0 ? (
+                        <p className="flex items-center gap-2 py-6 text-[13px] text-medium">
+                          <ClockCounterClockwise size={16} weight="light" /> Nothing saved yet.
+                        </p>
+                      ) : (
+                        <ul className="mt-2 max-h-[300px] divide-y divide-white/[0.05] overflow-y-auto">
+                          {backups.map((b) => (
+                            <li key={b.path} className="flex items-center gap-3 py-2 text-[13.5px]">
+                              <span className="min-w-0 flex-1 truncate text-medium">{new Date(b.modified * 1000).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}</span>
+                              <span className="shrink-0 text-[12px] text-medium">{ago(b.modified)}</span>
+                              <button
+                                onClick={() => restore(b)}
+                                className="flex shrink-0 items-center gap-1.5 rounded-small px-3 py-1 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]"
+                              >
+                                <ArrowCounterClockwise size={12} /> Restore
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
                       )}
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  )}
+                </Card>
               </div>
-            </Card>
-            <Card>
-              <CardHeader title="History" hint="Every save shows up here, so you can always go back." />
-              <div className="px-5 pb-5 pt-3">
-                {backups.length === 0 ? (
-                  <p className="flex items-center gap-2 py-6 text-[13px] text-muted-foreground">
-                    <ClockCounterClockwise size={16} weight="light" /> Nothing saved yet.
-                  </p>
-                ) : (
-                  <ul className="max-h-[360px] divide-y divide-white/[0.05] overflow-y-auto">
-                    {backups.map((b) => (
-                      <li key={b.path} className="flex items-center gap-3 py-2 text-[13.5px]">
-                        <span className="min-w-0 flex-1 truncate text-muted-foreground">{new Date(b.modified * 1000).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}</span>
-                        <span className="text-[12px] text-muted-foreground/80">{ago(b.modified)}</span>
-                        <button
-                          onClick={() => restore(b)}
-                          className="flex items-center gap-1.5 rounded-full px-3 py-1 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]"
-                        >
-                          <ArrowCounterClockwise size={13} /> Restore
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Card>
-          </div>
+            </div>
           </>
         )}
 
@@ -670,7 +685,7 @@ export function EqPage({ notify }: { notify: Notify }) {
           (engine ? (
             <EnginePanel status={engine} busy={engineBusy} onAction={runEngine} onClose={() => setTab("eq")} />
           ) : (
-            <Card innerClassName="px-6 py-8 text-[13.5px] text-muted-foreground">Reading the EQ engine…</Card>
+            <Card innerClassName="px-6 py-8 text-[13.5px] text-medium">Reading the EQ engine…</Card>
           ))}
       </div>
     </DeviceFrame>
@@ -678,8 +693,9 @@ export function EqPage({ notify }: { notify: Notify }) {
 }
 
 /**
- * "Name your headphones": what this PC calls the headphones on the current output, kept in this
- * PC's app data only. Empty goes back to the output's own name. The IEM picture is opt-in.
+ * "Name your headphones": what this PC calls the headphones on the current output and which model they are (its photo
+ * then stands for the output), kept in this PC's app data only. A name left empty takes the model's; both empty go
+ * back to the output's own name.
  */
 function NameForm({
   current,
@@ -693,8 +709,10 @@ function NameForm({
   onCancel: () => void;
 }) {
   const [name, setName] = useState(current?.name ?? "");
-  const [picture, setPicture] = useState(current?.picture === "iems");
-  const save = () => onSave(name, name.trim() && picture ? "iems" : null);
+  // The model the name points to ("Zero:2"), offered first; SYNQ's old IEM drawing becomes that model's photo.
+  const suggested = headphonePhotoKeyFor(name || placeholder);
+  const [picture, setPicture] = useState<string | null>(current?.picture === "iems" ? suggested : (current?.picture ?? null));
+  const save = () => onSave(name.trim() || headphoneModel(picture)?.name || "", picture);
   return (
     <div className="mt-3 flex flex-wrap items-center gap-3">
       <input
@@ -708,22 +726,19 @@ function NameForm({
         }}
         placeholder={placeholder}
         aria-label="Name your headphones"
-        className="h-11 w-[300px] rounded-full bg-white/[0.04] px-4 text-[18px] font-medium text-foreground outline-none ring-1 ring-white/[0.08] placeholder:text-muted-foreground/80 focus:ring-primary/60"
+        className="h-11 w-[300px] rounded-control bg-white/[0.04] px-4 text-[18px] font-medium text-high outline-none ring-1 ring-white/[0.08] placeholder:text-medium focus:ring-primary/60"
       />
-      <label className="flex cursor-pointer items-center gap-2 text-[12.5px] text-muted-foreground">
-        <Switch checked={picture} onCheckedChange={setPicture} aria-label="Show the IEM picture" />
-        IEM picture
-      </label>
+      <HeadphonePicker value={picture} suggested={suggested} onChange={setPicture} />
       <button
         onClick={save}
-        className="rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
+        className="rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
       >
         Save
       </button>
-      <button onClick={onCancel} className="rounded-full px-3 py-1.5 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground">
+      <button onClick={onCancel} className="rounded-small px-3 py-1.5 text-[12.5px] text-medium transition-colors hover:text-high">
         Cancel
       </button>
-      <p className="basis-full text-[12px] text-muted-foreground/80">Only on this PC. Leave it empty to use the output's own name.</p>
+      <p className="basis-full text-[12px] text-medium">Only on this PC. The model's photo stands for this output; leave the name empty to use the model's.</p>
     </div>
   );
 }

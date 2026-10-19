@@ -13,10 +13,10 @@ import { SceneTile } from "./SceneTile";
 /** A scene's swatches: its colours side by side, or a quiet panel when the light doesn't say them. */
 function Swatches({ colours }: { colours: readonly Rgb[] | null }) {
   const bg = colours?.length ? `linear-gradient(to right, ${colours.length === 1 ? `${css(colours[0])}, ${css(colours[0])}` : colours.map(css).join(", ")})` : "linear-gradient(135deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.02))";
-  return <span className="block h-14 w-full rounded-xl ring-1 ring-white/[0.06]" style={{ background: bg }} aria-hidden="true" />;
+  return <span className="block h-14 w-full rounded-small ring-1 ring-white/[0.06]" style={{ background: bg }} aria-hidden="true" />;
 }
 
-export function NetScenesTab({ device, onError, onRecalled }: { device: NetDevice; onError: (why: string) => void; onRecalled: () => void }) {
+export function NetScenesTab({ device, onError, onRecalled, fill = false }: { device: NetDevice; onError: (why: string) => void; onRecalled: () => void; fill?: boolean }) {
   const [scenes, setScenes] = useState<NetScene[] | null>(null);
   const [colours, setColours] = useState<Record<string, Rgb[]>>({});
   const [on, setOn] = useState<string | null>(null);
@@ -61,7 +61,8 @@ export function NetScenesTab({ device, onError, onRecalled }: { device: NetDevic
 
   const hue = device.brand === "hue";
   return (
-    <Card innerClassName="pb-5">
+    // `fill`: the rest of the column under the colour, the scenes scrolling inside the card.
+    <Card className={fill ? "flex min-h-[220px] flex-1 basis-0 flex-col" : undefined} innerClassName={fill ? "flex min-h-0 flex-1 flex-col pb-5" : "pb-5"}>
       <CardHeader
         title="Scenes"
         hint={
@@ -72,11 +73,11 @@ export function NetScenesTab({ device, onError, onRecalled }: { device: NetDevic
               : `${scenes.length} effects on the controller. Tap one to switch to it.`
         }
       />
-      <div className="mt-4 grid gap-3 px-5" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))" }} data-testid="net-scenes">
+      <div className={fill ? "mt-4 grid min-h-0 flex-1 content-start gap-3 overflow-y-auto px-5" : "mt-4 grid gap-3 px-5"} style={{ gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))" }} data-testid="net-scenes">
         {(scenes ?? []).map((s) => (
           <SceneTile key={s.id} name={s.name} picture={<Swatches colours={hue ? (colours[s.id] ?? null) : null} />} on={on === s.id} sending={sending === s.id} disabled={sending !== null} onClick={() => void recall(s)} />
         ))}
-        {scenes?.length === 0 && <p className="col-span-full py-6 text-center text-[13px] text-muted-foreground">{hue ? "No scene on the bridge includes this light. Scenes are made in the Hue app." : "No effects on the controller yet."}</p>}
+        {scenes?.length === 0 && <p className="col-span-full py-6 text-center text-[13px] text-medium">{hue ? "No scene on the bridge includes this light. Scenes are made in the Hue app." : "No effects on the controller yet."}</p>}
       </div>
     </Card>
   );

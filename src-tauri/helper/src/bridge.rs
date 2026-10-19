@@ -12,8 +12,11 @@
 //!   the device closes), and devices in update mode are never listed or opened. There is no firmware
 //!   path. EQ writes pass `eq::validate` (limits and the net peak) after a backup, as in the app.
 //! - A device is open in one tab at a time and is closed when that tab's connection ends.
+//! - Game profiles run in the background, so a site never saves them (or turns them on) by itself: the
+//!   helper shows the person what would change and saves only on their yes (`Consent::confirm`). The
+//!   profiles' reports go through the same guards when they are sent (profiles.rs).
 
-use crate::{devices, engine, eq, helper_cfg, hid};
+use crate::{devices, engine, eq, games, helper_cfg, hid};
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
@@ -33,13 +36,25 @@ const DECLINE_COOLDOWN: Duration = Duration::from_secs(60);
 
 pub const DESKTOP_ONLY: &str = "This needs the SYNQ desktop app.";
 #[cfg(windows)]
-const ENGINE_DESKTOP_ONLY: &str = "Setting up the EQ engine needs the SYNQ desktop app (Windows asks for administrator rights).";
+/// What SYNQ Helper's box says before the EQ engine's setup, after the site's request.
+const ENGINE_ASK: &str = "Windows then asks once for administrator rights. SYNQ Helper uses the official Equalizer APO installer (the one that came with SYNQ, or the official download), checks it's the genuine file, and runs it. Your sound may stop for a moment.";
 #[cfg(not(windows))]
-const ENGINE_DESKTOP_ONLY: &str = "Setting up the EQ engine needs the SYNQ desktop app (it restarts your sound once).";
+const ENGINE_ASK: &str = "Your sound restarts once (PipeWire's own EQ, for this login only; nothing is installed).";
 #[cfg(windows)]
 const PAUSED: &str = "SYNQ Helper is paused. Resume it from its icon in the taskbar.";
 #[cfg(not(windows))]
 const PAUSED: &str = "SYNQ Helper is paused. Resume it from its tray icon, or turn it off and on in SYNQ's Settings.";
+
+/// When a site last asked which games are running: the website is putting game profiles on itself
+/// (src/lib/profiles/runner.ts), so the helper doesn't also start SYNQ for them (main.rs `HiddenStart`).
+static SITE_RUNNER_AT: Mutex<Option<Instant>> = Mutex::new(None);
+/// A site that asked within this long is still putting profiles on.
+const SITE_RUNNER_FRESH: Duration = Duration::from_secs(10);
+
+/// Whether an open site is putting game profiles on now.
+pub fn site_running_profiles() -> bool {
+    SITE_RUNNER_AT.lock().ok().and_then(|t| *t).is_some_and(|t| t.elapsed() < SITE_RUNNER_FRESH)
+}
 
 /// The origins that may connect: the website, and in debug builds the local dev servers.
 pub fn allowed_origins() -> Vec<String> {
@@ -63,6 +78,8 @@ pub fn host_ok(host: Option<&str>, port: u16) -> bool {
 /// Asks the person whether a site may use the helper. The real one is a Windows dialog (main.rs).
 pub trait Consent: Send + Sync {
     fn ask(&self, origin: &str) -> bool;
+    /// A yes/no question about one change a paired site asked for (saving game profiles, turning them on).
+    fn confirm(&self, origin: &str, text: &str) -> bool;
 }
 
 #[derive(Serialize, Deserialize, Default, Clone, Debug)]
@@ -154,6 +171,65 @@ struct Ack {
 
 fn arg<T: serde::de::DeserializeOwned>(args: &Value, name: &str) -> Result<T, String> {
     serde_json::from_value(args.get(name).cloned().unwrap_or(Value::Null)).map_err(|e| format!("Argument {name}: {e}"))
+}
+
+/// An argument the call may leave out.
+fn opt<T: serde::de::DeserializeOwned>(args: &Value, name: &str) -> Result<Option<T>, String> {
+    match args.get(name) {
+        None | Some(Value::Null) => Ok(None),
+        Some(v) => serde_json::from_value(v.clone()).map(Some).map_err(|e| format!("Argument {name}: {e}")),
+    }
+}
+
+/// A file name from a device key: letters, digits and dashes (src-tauri/src/lib.rs `safe_name`).
+fn safe_name(raw: &str, fallback: &str) -> String {
+    let clean: String = raw.chars().filter(|c| c.is_ascii_alphanumeric() || *c == '-').take(60).collect();
+    if clean.is_empty() { fallback.to_string() } else { clean }
+}
+
+/// What a save of games.json changes, one line each, for the person to confirm. Nothing when only the
+/// save times differ.
+pub fn games_change(old: &games::GamesFile, new: &games::GamesFile) -> Vec<String> {
+    let find = |f: &games::GamesFile, id: &str| f.games.iter().find(|g| g.id == id).cloned();
+    let mut lines = Vec::new();
+    for g in &new.games {
+        let before = find(old, &g.id);
+        match &before {
+            None => lines.push(format!("Add the game {} ({})", g.name, g.exes.join(", "))),
+            Some(o) => {
+                if o.exes != g.exes {
+                    lines.push(format!("{}: watch for {}", g.name, g.exes.join(", ")));
+                }
+                if o.auto != g.auto && !g.profiles.is_empty() {
+                    lines.push(format!("{}: {}", g.name, if g.auto { "apply its profiles automatically" } else { "stop applying its profiles automatically" }));
+                }
+            }
+        }
+        let had = before.map(|o| o.profiles).unwrap_or_default();
+        for (key, p) in &g.profiles {
+            match had.get(key) {
+                None => lines.push(format!("{}: a new profile for {}", g.name, p.name)),
+                // A live profile has no reports: its feel (`settings`) is what changes.
+                Some(q) if q.steps != p.steps || q.restore != p.restore || (games::is_live(key) && q.settings != p.settings) => lines.push(format!("{}: a changed profile for {}", g.name, p.name)),
+                _ => {}
+            }
+        }
+        for (key, q) in &had {
+            if !g.profiles.contains_key(key) {
+                lines.push(format!("{}: remove the profile for {}", g.name, q.name));
+            }
+        }
+    }
+    for o in &old.games {
+        if find(new, &o.id).is_none() {
+            lines.push(format!("Remove the game {}", o.name));
+        }
+    }
+    lines
+}
+
+fn prefs_json(s: &helper_cfg::HelperSettings) -> Value {
+    json!({ "gameProfiles": s.game_profiles, "batteryAlerts": s.battery_alerts, "batteryLevels": crate::battery::levels(&s.battery_levels) })
 }
 
 impl Bridge {
@@ -255,6 +331,95 @@ impl Bridge {
         let d = self.data.as_ref().ok_or("No data folder.")?.join(sub);
         std::fs::create_dir_all(&d).map_err(|e| format!("Could not create {}: {e}", d.display()))?;
         Ok(d)
+    }
+
+    fn data_root(&self) -> Result<&PathBuf, String> {
+        self.data.as_ref().ok_or_else(|| "No data folder.".to_string())
+    }
+
+    /// The Games page's save from a site: checked as the app's is, shown to the person line by line, and
+    /// kept only on their yes. Then the helper's worker picks it up (the same signal the app sends).
+    fn games_save(&self, conn: &Conn, file: games::GamesFile) -> Result<Value, String> {
+        games::validate(&file)?;
+        let dir = self.data_root()?;
+        let old = games::load(dir).unwrap_or_default();
+        let lines = games_change(&old, &file);
+        if !lines.is_empty() {
+            let mut text = format!("{} wants to save game profiles in SYNQ Helper:\n\n", conn.origin);
+            for l in lines.iter().take(12) {
+                text.push_str(&format!("\u{2022}  {l}\n"));
+            }
+            if lines.len() > 12 {
+                text.push_str(&format!("\u{2022}  and {} more\n", lines.len() - 12));
+            }
+            text.push_str("\nWhen one of these games starts, its profile goes on the device, through the same safety checks as the SYNQ app, and your everyday settings come back when it closes.\n\nSave them?");
+            if !self.consent.confirm(&conn.origin, &text) {
+                return Err("Not saved: you chose No in SYNQ Helper.".into());
+            }
+        }
+        games::save(dir, &file)?;
+        helper_cfg::signal(helper_cfg::RELOAD_EVENT);
+        Ok(Value::Null)
+    }
+
+    /// The EQ engine from a site: what it does, in SYNQ Helper's box; then on Windows the system's own administrator
+    /// prompt runs this helper elevated (`--eq-engine`, src/engine), with only the command and a checked output id.
+    fn engine(&self, conn: &Conn, cmd: &str, args: &Value) -> Result<Value, String> {
+        let data = self.data_root()?.clone();
+        let output = match opt::<String>(args, "output")? {
+            Some(o) => Some(engine::output_id(&o).ok_or("That isn't a sound output id.")?),
+            None => None,
+        };
+        let what = match cmd {
+            "eq_engine_undo" => "put back what the EQ engine's last setup changed",
+            "eq_engine_setup" => "set the EQ engine up on your sound output",
+            _ => "install the EQ engine (Equalizer APO, free and open source) for your sound output",
+        };
+        if !self.consent.confirm(&conn.origin, &format!("{} wants to {what}.\n\n{ENGINE_ASK}\n\nGo ahead?", conn.origin)) {
+            return Err("Nothing changed: you chose No in SYNQ Helper.".into());
+        }
+        let command = cmd.trim_start_matches("eq_engine_");
+        // A test never sets up a real EQ engine, whatever its fake box answers.
+        if cfg!(test) {
+            return Err(format!("(test) would run the EQ engine: {command} {output:?}"));
+        }
+        #[cfg(windows)]
+        let outcome = engine::run_elevated(&data, command, &output.map(|o| vec!["--output".to_string(), o]).unwrap_or_default(), None);
+        #[cfg(not(windows))]
+        let outcome = engine::run(&data, command, output);
+        outcome.map(|o| json!(o))
+    }
+
+    /// Battery alerts (on or off, and their levels) and game profiles (on or off) from a site. Turning game
+    /// profiles on is a background change, so it asks first; the rest only changes notifications.
+    fn prefs_set(&self, conn: &Conn, args: &Value) -> Result<Value, String> {
+        let dir = self.data_root()?;
+        let mut s = helper_cfg::load_settings(dir);
+        if let Some(raw) = opt::<Vec<u8>>(args, "batteryLevels")? {
+            let mut wanted = raw.clone();
+            wanted.sort_unstable_by(|a, b| b.cmp(a));
+            wanted.dedup();
+            let clean = crate::battery::levels(&raw);
+            if clean != wanted {
+                return Err(format!("Pick 1 to {} levels between 1 and 50 %.", crate::battery::MAX_LEVELS));
+            }
+            s.battery_levels = clean;
+        }
+        if let Some(on) = opt::<bool>(args, "batteryAlerts")? {
+            s.battery_alerts = on;
+        }
+        if let Some(on) = opt::<bool>(args, "gameProfiles")? {
+            if on && !s.game_profiles {
+                let text = format!("{} wants to turn on game profiles in SYNQ Helper.\n\nWhile a game you set up is running, the helper sends that game's profile to your devices and puts your everyday settings back when it closes.\n\nTurn them on?", conn.origin);
+                if !self.consent.confirm(&conn.origin, &text) {
+                    return Err("Game profiles stay off: you chose No in SYNQ Helper.".into());
+                }
+            }
+            s.game_profiles = on;
+        }
+        helper_cfg::save_settings(dir, &s)?;
+        helper_cfg::signal(helper_cfg::RELOAD_EVENT);
+        Ok(prefs_json(&s))
     }
 
     /// One command, named and shaped as the desktop app's (src-tauri/src/lib.rs).
@@ -418,11 +583,104 @@ impl Bridge {
                 Ok(json!(eq::parse(&text)))
             }
             "eq_engine_status" => Ok(json!(engine::status(self.data.as_deref()))),
+            // The EQ's one-time setup, from a site: SYNQ Helper's own box first, then (Windows) the system's administrator
+            // prompt. Nothing runs without both.
+            "eq_engine_setup" | "eq_engine_install" | "eq_engine_undo" => self.engine(conn, cmd, args),
+            // The person's own presets (only ever in SYNQ's presets folder) and the EQ backups SYNQ made (as eq_apply
+            // writes the EQ itself, these are the same kind of change).
+            "eq_preset_save" => {
+                let state: eq::EqState = arg(args, "state")?;
+                eq::validate(&state)?;
+                let path = self.data_dir("eq-presets")?.join(eq::preset_file_name(&arg::<String>(args, "name")?)?);
+                eq::write_atomic(&path, &eq::serialize(&state))?;
+                Ok(json!(path.to_string_lossy()))
+            }
+            "eq_preset_delete" => {
+                let p = eq::inside(&arg::<String>(args, "path")?, &[self.data_dir("eq-presets")?])?;
+                std::fs::remove_file(p).map(|_| Value::Null).map_err(|e| e.to_string())
+            }
+            "eq_backups" => {
+                let mut out: Vec<(u64, String)> = std::fs::read_dir(self.data_dir("eq-backups")?)
+                    .map_err(|e| e.to_string())?
+                    .filter_map(|e| e.ok().map(|e| e.path()))
+                    .filter(|p| p.extension().is_some_and(|x| x == "txt"))
+                    .map(|p| (eq::modified_secs(&p), p.to_string_lossy().into_owned()))
+                    .collect();
+                out.sort_by(|a, b| b.0.cmp(&a.0));
+                Ok(json!(out.into_iter().map(|(modified, path)| json!({ "path": path, "modified": modified })).collect::<Vec<_>>()))
+            }
+            "eq_restore_backup" => {
+                let backups = self.data_dir("eq-backups")?;
+                let src = eq::inside(&arg::<String>(args, "path")?, std::slice::from_ref(&backups))?;
+                let text = std::fs::read_to_string(&src).map_err(|e| e.to_string())?;
+                let target = eq::config_file();
+                let parsed = eq::parse(&text);
+                #[cfg(not(windows))]
+                let live = engine::prepare(&parsed.state, parsed.bypassed)?;
+                let backup = eq::backup(&target, &backups)?;
+                eq::write_atomic(&target, &text)?;
+                #[cfg(not(windows))]
+                engine::push(&live, &parsed.state, parsed.bypassed, self.data.as_deref());
+                Ok(json!({ "peakDb": eq::peak_db(&parsed.state), "backup": backup.map(|b| b.to_string_lossy().into_owned()), "modified": eq::modified_secs(&target) }))
+            }
             "sound_names_load" => {
                 let path = self.data.as_ref().ok_or("No data folder.")?.join("sound-names.json");
                 Ok(std::fs::read_to_string(path).ok().and_then(|t| serde_json::from_str(&t).ok()).unwrap_or_else(|| json!({})))
             }
-            "eq_engine_setup" | "eq_engine_install" | "eq_engine_undo" => Err(ENGINE_DESKTOP_ONLY.into()),
+            // The Games page: the list, the installed games and their covers are read freely; a save (or
+            // turning profiles on) waits for the person's yes in the helper's own box.
+            "games_load" => games::load(self.data_root()?).map(|f| json!(f)),
+            "games_detect" => Ok(json!(crate::library::detect())),
+            "game_art" => Ok(json!(crate::library::art(&self.data_dir("game-art")?, &arg::<String>(args, "id")?, opt::<u32>(args, "appid")?, None))),
+            "games_save" => self.games_save(conn, arg(args, "file")?),
+            // Live game profiles from the site (src/lib/profiles/runner.ts): which games are running (by name,
+            // nothing else is read) and whether an awake SYNQ is putting them on (`app`: the site leaves them to it),
+            // and what the site keeps while a profile is on.
+            "games_running" => {
+                if let Ok(mut t) = SITE_RUNNER_AT.lock() {
+                    *t = Some(Instant::now());
+                }
+                let names = crate::watcher::ProcessSource::names(&mut crate::watcher::Native).unwrap_or_default();
+                let file = games::load(self.data_root()?).unwrap_or_default();
+                Ok(json!({ "ids": file.running(&names), "app": helper_cfg::profiles_claimed(self.data_root()?) }))
+            }
+            "live_held_load" => match std::fs::read_to_string(self.data_root()?.join(games::LIVE_HELD_FILE)) {
+                Ok(text) => Ok(json!(text)),
+                Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(Value::Null),
+                Err(e) => Err(e.to_string()),
+            },
+            "live_held_save" => {
+                let text: String = arg(args, "json")?;
+                games::live_held_ok(&text)?;
+                helper_cfg::write_atomic(&self.data_root()?.join(games::LIVE_HELD_FILE), &text).map(|_| Value::Null)
+            }
+            "helper_held" => {
+                let text = std::fs::read_to_string(self.data_root()?.join("helper-state.json")).unwrap_or_default();
+                Ok(json!(serde_json::from_str::<std::collections::BTreeMap<String, Value>>(&text).map(|m| m.into_keys().collect::<Vec<_>>()).unwrap_or_default()))
+            }
+            // Each device's last-read settings, which the Games page builds profiles from (as in the app).
+            "device_state_save" => {
+                let text: String = arg(args, "json")?;
+                if text.len() > 256 * 1024 {
+                    return Err("That device state is too large to keep.".into());
+                }
+                serde_json::from_str::<Value>(&text).map_err(|e| format!("Not a device state: {e}"))?;
+                let path = self.data_dir("device-state")?.join(format!("{}.json", safe_name(&arg::<String>(args, "id")?, "device")));
+                helper_cfg::write_atomic(&path, &text).map(|_| Value::Null)
+            }
+            "device_states_load" => {
+                let mut out = Vec::new();
+                for e in std::fs::read_dir(self.data_dir("device-state")?).map_err(|e| e.to_string())?.flatten() {
+                    if e.path().extension().is_some_and(|x| x == "json") {
+                        if let Ok(t) = std::fs::read_to_string(e.path()) {
+                            out.push(t);
+                        }
+                    }
+                }
+                Ok(json!(out))
+            }
+            "helper_prefs" => Ok(prefs_json(&helper_cfg::load_settings(self.data_root()?))),
+            "helper_prefs_set" => self.prefs_set(conn, args),
             _ => Err(DESKTOP_ONLY.into()),
         }
     }
@@ -595,6 +853,10 @@ mod tests {
             self.1.fetch_add(1, Ordering::SeqCst);
             self.0
         }
+        fn confirm(&self, _origin: &str, _text: &str) -> bool {
+            self.1.fetch_add(1, Ordering::SeqCst);
+            self.0
+        }
     }
 
     const SITE: &str = "https://synqhub.app";
@@ -692,9 +954,120 @@ mod tests {
     #[test]
     fn desktop_only_commands_stay_desktop_only() {
         let (b, _) = bridge(true);
-        for cmd in ["eq_engine_setup", "eq_engine_install", "eq_engine_undo", "eq_preset_save", "eq_restore_backup", "games_save", "helper_set", "hid_capture_start", "mouse_backup_save", "firmware_update"] {
+        for cmd in ["helper_set", "helper_forget_sites", "hid_capture_start", "mouse_backup_save", "firmware_update"] {
             assert!(b.dispatch(&conn(1), cmd, &json!({})).is_err(), "{cmd}");
         }
+    }
+
+    // ---- the Games page and battery alerts from the website
+
+    static NEXT_DIR: AtomicUsize = AtomicUsize::new(0);
+
+    fn bridge_in(yes: bool) -> (Arc<Bridge>, Arc<AtomicUsize>, PathBuf) {
+        let dir = std::env::temp_dir().join(format!("synq-bridge-{}-{}", std::process::id(), NEXT_DIR.fetch_add(1, Ordering::SeqCst)));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let asked = Arc::new(AtomicUsize::new(0));
+        let b = Bridge::new(0, vec![SITE.into()], Some(dir.clone()), Box::new(Answer(yes, asked.clone())), Arc::new(AtomicBool::new(false)));
+        (Arc::new(b), asked, dir)
+    }
+
+    fn with_new_game(dir: &std::path::Path) -> Value {
+        let mut f = games::load(dir).unwrap();
+        f.games.push(games::Game { id: "test-game".into(), name: "Test Game".into(), exes: vec!["testgame.exe".into()], builtin: false, appid: None, auto: true, profiles: Default::default() });
+        json!({ "file": f })
+    }
+
+    #[test]
+    fn the_eq_engine_waits_for_a_yes_and_takes_only_an_output_id() {
+        let (b, asked, _dir) = bridge_in(false);
+        let e = b.dispatch(&conn(1), "eq_engine_install", &json!({})).unwrap_err();
+        assert!(e.contains("chose No"), "{e}");
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+        let (b, asked, _dir) = bridge_in(true);
+        let e = b.dispatch(&conn(1), "eq_engine_setup", &json!({ "output": "{1F2E3D4C-5B6A-4789-8ABC-DEF012345678}\\..\\x" })).unwrap_err();
+        assert!(e.contains("output id"), "a bad output is refused before anything is asked: {e}");
+        assert_eq!(asked.load(Ordering::SeqCst), 0);
+        let e = b.dispatch(&conn(1), "eq_engine_undo", &json!({})).unwrap_err();
+        assert!(e.contains("(test) would run the EQ engine: undo"), "{e}");
+    }
+
+    #[test]
+    fn eq_presets_stay_in_the_presets_folder() {
+        let (b, _, dir) = bridge_in(true);
+        let saved = b.dispatch(&conn(1), "eq_preset_save", &json!({ "name": "My curve", "state": { "preamp": -3.0, "filters": [] } })).unwrap();
+        let path = saved.as_str().unwrap().to_string();
+        assert!(path.starts_with(&dir.join("eq-presets").to_string_lossy().into_owned()), "{path}");
+        b.dispatch(&conn(1), "eq_preset_delete", &json!({ "path": path })).unwrap();
+        assert!(b.dispatch(&conn(1), "eq_preset_delete", &json!({ "path": dir.join("games.json").to_string_lossy() })).is_err(), "nothing outside it");
+        assert!(b.dispatch(&conn(1), "eq_restore_backup", &json!({ "path": dir.join("games.json").to_string_lossy() })).is_err());
+    }
+
+    #[test]
+    fn a_games_save_waits_for_a_yes() {
+        let (b, asked, dir) = bridge_in(false);
+        let e = b.dispatch(&conn(1), "games_save", &with_new_game(&dir)).unwrap_err();
+        assert!(e.contains("chose No"), "{e}");
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+        assert!(games::load(&dir).unwrap().games.iter().all(|g| g.id != "test-game"), "nothing saved on a no");
+
+        let (b, asked, dir) = bridge_in(true);
+        b.dispatch(&conn(1), "games_save", &with_new_game(&dir)).unwrap();
+        assert!(games::load(&dir).unwrap().games.iter().any(|g| g.id == "test-game"), "saved on a yes");
+        // The file as it is saved now changes nothing, so nothing is asked.
+        b.dispatch(&conn(1), "games_save", &json!({ "file": games::load(&dir).unwrap() })).unwrap();
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn games_change_names_each_change() {
+        let old = games::GamesFile::default();
+        let mut new = old.clone();
+        new.games.push(games::Game { id: "x".into(), name: "X".into(), exes: vec!["x.exe".into()], builtin: false, appid: None, auto: true, profiles: Default::default() });
+        assert_eq!(games_change(&old, &new), vec!["Add the game X (x.exe)".to_string()]);
+        assert_eq!(games_change(&new, &old), vec!["Remove the game X".to_string()]);
+        assert!(games_change(&new, &new).is_empty());
+    }
+
+    #[test]
+    fn battery_alerts_change_without_a_question_and_levels_are_checked() {
+        let (b, asked, dir) = bridge_in(false);
+        let r = b.dispatch(&conn(1), "helper_prefs_set", &json!({ "batteryAlerts": false, "batteryLevels": [25, 5] })).unwrap();
+        assert_eq!(r["batteryAlerts"], json!(false));
+        assert_eq!(r["batteryLevels"], json!([25, 5]));
+        assert_eq!(asked.load(Ordering::SeqCst), 0);
+        let s = helper_cfg::load_settings(&dir);
+        assert!(!s.battery_alerts && s.battery_levels == vec![25, 5]);
+        for bad in [json!([]), json!([80]), json!([0]), json!([30, 25, 20, 15, 10, 5])] {
+            assert!(b.dispatch(&conn(1), "helper_prefs_set", &json!({ "batteryLevels": bad })).is_err(), "{bad}");
+        }
+        // Nothing else a site might send is taken: the helper stays as it was.
+        b.dispatch(&conn(1), "helper_prefs_set", &json!({ "enabled": false, "webBridge": false })).unwrap();
+        let after = helper_cfg::load_settings(&dir);
+        assert_eq!((after.enabled, after.web_bridge), (s.enabled, s.web_bridge));
+    }
+
+    #[test]
+    fn turning_game_profiles_on_asks_first() {
+        let (b, asked, dir) = bridge_in(false);
+        let mut s = helper_cfg::load_settings(&dir);
+        s.game_profiles = false;
+        helper_cfg::save_settings(&dir, &s).unwrap();
+        assert!(b.dispatch(&conn(1), "helper_prefs_set", &json!({ "gameProfiles": true })).unwrap_err().contains("chose No"));
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+        assert!(!helper_cfg::load_settings(&dir).game_profiles);
+        // Turning them off doesn't ask.
+        b.dispatch(&conn(1), "helper_prefs_set", &json!({ "gameProfiles": false })).unwrap();
+        assert_eq!(asked.load(Ordering::SeqCst), 1);
+    }
+
+    #[test]
+    fn device_states_round_trip_and_bad_ones_are_refused() {
+        let (b, _, _) = bridge_in(true);
+        assert!(b.dispatch(&conn(1), "device_state_save", &json!({ "id": "1:2:3:4", "json": "not json" })).is_err());
+        b.dispatch(&conn(1), "device_state_save", &json!({ "id": "../../evil", "json": "{\"family\":\"atk\"}" })).unwrap();
+        let all = b.dispatch(&conn(1), "device_states_load", &json!({})).unwrap();
+        assert_eq!(all, json!(["{\"family\":\"atk\"}"]));
     }
 
     #[test]
@@ -851,7 +1224,7 @@ mod tests {
         let token = r["ok"]["token"].as_str().unwrap().to_string();
         assert_eq!(asked.load(Ordering::SeqCst), 1);
         let r = call(&mut s, 3, "eq_engine_setup", json!({}));
-        assert!(r["err"].as_str().unwrap().contains("desktop app"));
+        assert!(r["err"].as_str().unwrap().contains("data folder"), "{r}");
         let r = call(&mut s, 4, "hid_send_report", json!({ "key": "nope", "reportId": 1, "data": [1, 2] }));
         assert!(r["err"].as_str().unwrap().contains("isn't open"));
         // Ping is answered with a pong.

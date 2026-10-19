@@ -207,12 +207,12 @@ function KeysStep({ step, onDone }: StepProps) {
   return (
     <div className="flex flex-col items-center gap-5">
       <KeyRow codes={KEYS.codes} done={done} down={down} />
-      <p className="text-[12px] text-muted-foreground">
+      <p className="text-[12px] text-medium">
         <span className="tabular">{done.size}</span> of {KEYS.codes.length}
         {done.size > 0 && done.size < KEYS.codes.length && (
           <>
             {" · "}
-            <button onClick={() => finishRef.current()} className="text-foreground underline-offset-4 hover:underline">
+            <button onClick={() => finishRef.current()} className="text-high underline-offset-4 hover:underline">
               One won't light? Go on
             </button>
           </>
@@ -315,7 +315,7 @@ function SticksStep({ step, pads, onDone }: StepProps) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  if (!pads.length) return <p className="text-[13px] text-muted-foreground">No controller could be listened to.</p>;
+  if (!pads.length) return <p className="text-[13px] text-medium">No controller could be listened to.</p>;
   return (
     <div className="flex flex-wrap items-center justify-center gap-6">
       {pads.slice(0, 2).map((p) => (

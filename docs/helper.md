@@ -9,7 +9,7 @@ sign-in entry.
 
 | | |
 |---|---|
-| Binary | ~0.95 MB (release, `opt-level = "s"`, LTO, stripped) |
+| Binary | ~2.7 MB (release, `opt-level = "s"`, LTO, stripped); the website's download also carries SYNQ's program, ~47 MB in all |
 | Threads | tray / message loop, one worker, the bridge's listener (+1 per open website tab, at most 4) |
 | Idle CPU | none: the worker sleeps until something is due (see below) |
 | Expected RAM | about 2–4 MB private working set (not yet measured on a real run) |
@@ -22,7 +22,10 @@ sign-in entry.
    back first), and the older one's profile comes back when it ends.
    A device plugged in mid-game gets its profile when it appears. Pause, Quit and turning the feature
    off all put the everyday settings back; a crash mid-game is restored on the next start
-   (`helper-state.json`).
+   (`helper-state.json`). That is for the profiles encoded ahead of time (ATK mice, the X68 HE). Every
+   other mouse and keyboard has a **live profile** that SYNQ itself puts on, through the device's own
+   session; with SYNQ closed or minimized, the helper starts it with no window for that (`pass.rs`, see
+   "Live profiles" below).
 2. **Battery alerts** (`battery.rs`). One Windows notification at each alert level, 20%, 10% and 5% by
    default (Settings > SYNQ Helper: 1 to 5 levels, 1 to 50%). Each level alerts once per discharge
    and comes back only after a charge (or a climb of 5 points above it); a big drop (25% to 4%) is one
@@ -63,7 +66,8 @@ kept in `device-state/`; nothing is read for it):
 |---|---|---|
 | ATK X1 (8K receiver) | DPI steps and the starting step, polling, lift-off, debounce, motion sync, angle snapping | `atk-protocol.ts` `buildWrite` + `withPair` / `packPaw3955Stage` on the rows as read |
 | X68 HE | actuation for every key, rapid trigger and its press / release sensitivity | `x68he-protocol.ts` `encodeTriggerWrites` |
-| Everything else | "Not supported for game profiles yet" | needs a live exchange to change a setting (Logitech's onboard-profile flash writes, brand keyboards' session handshakes) |
+| Every other mouse and keyboard SYNQ drives (Logitech, OpenMouse-driven mice, the Falchion, VIA / Wooting / other keyboards) | DPI steps and the starting step, polling, lift-off, debounce and the mouse's switches; actuation, rapid trigger and its sensitivity | none: a **live profile** (below) |
+| A device SYNQ doesn't drive | "Not supported for game profiles yet" | |
 
 Only rows that differ are written. The **restore set** is the same rows as the device last had them, so
 the helper puts the everyday settings back exactly; it's re-encoded whenever a panel reads a device again
@@ -77,6 +81,36 @@ firmware or bootloader frame can be in a profile.
 Profiles are kept in `%APPDATA%\com.logan.onboard\games.json` (version 2; checked on save and on load:
 sizes, names, program names). A profile that fails to send is retried 3 times, then the helper shows a
 notification and leaves the device alone until something changes.
+
+### Live profiles (every other mouse and keyboard)
+
+Logitech's onboard-profile writes and most keyboards' session handshakes need an exchange with the device, so
+their profiles can't be encoded ahead of time. A live profile (games.json key `live:<family>`, no reports,
+`settings` = `{kind: "feel", family, feel}`; `games::validate` refuses one with reports) is a "Keep your feel"
+feel (`src/lib/feel`) that SYNQ puts on through the device's own session, the same calls a change by hand makes
+(`src/lib/profiles/live.ts`, `drive.ts`): the tier and "Allow changes", one backup before the first write, a
+read-back after each change. While a device's page has its session open, the profile uses that session and the
+page shows the new settings.
+
+`src/lib/profiles/runner.ts` looks every 3 s (every 15 s while there's no live profile anywhere): the most recently
+started running game with a profile for a device and "Apply automatically" wins it, else its everyday settings.
+At a game's start it notes the device's everyday feel (`live-held.json`) **before** anything is written, then puts
+the game's on; at the end it puts the everyday feel back. A crash or restart mid-game is put right on the next
+look. A change that fails is tried 3 times, then a notification, until what is wanted changes. Games running come
+from `games_running` (process names only, as above).
+
+**Who puts them on** (one at a time: a named mutex `Local\SYNQ.GameProfiles`, a lock file on Linux):
+
+1. SYNQ's window, while it's awake. A minimized window whose page is suspended (`src/sleep.rs`) lets go.
+2. Else the website, while it's open with the helper connected (it asks `games_running` every few seconds;
+   `live_held_load` / `live_held_save` keep the same file).
+3. Else the helper starts **SYNQ with no window** (`synq --game-profiles`, `pass.rs`) when a game with a live
+   profile starts or ends: its window stays hidden (created hidden in `tauri.conf.json`, shown only on a normal
+   start), the page runs one pass (`src/lib/profiles/pass.ts`), at most 6 looks, and SYNQ exits (and in any
+   case after 120 s). What it couldn't do comes back on its output as `notice<TAB>title<TAB>text` lines, which
+   the helper shows as notifications. Turning game profiles off or pausing the helper starts one with `restore`
+   to put everyday settings back. Nothing takes focus. A helper installed from the website starts the SYNQ program
+   it keeps beside itself (`synq-profiles.exe`, see "The website's download" below) the same way.
 
 ## Anti-cheat
 
@@ -98,8 +132,14 @@ Why a poll and not WMI events: `Win32_ProcessStartTrace` needs admin rights, and
   (`send_report` / `send_report_to` / `send_feature_report`) and its guards. Advanced grants work exactly
   as in the app (one device, one scope, after the panel's confirmation, gone when the device closes).
 - No firmware or bootloader path; devices in update mode are never listed or opened (`hid::usable`).
-- EQ writes pass `eq::validate` (limits and the net peak) after a backup. Setting up the EQ engine
-  (admin prompt) stays in the desktop app.
+- EQ writes pass `eq::validate` (limits and the net peak) after a backup. Setting up the EQ engine from the
+  website (`eq_engine_install` / `_setup` / `_undo`) runs only after the person's yes in the helper's own box, then
+  Windows' own administrator prompt, which starts `synq-helper.exe --eq-engine ...` elevated (`src/engine`, the
+  same code as the app's): the official Equalizer APO installer (the app's bundled copy, or the official download),
+  checked against its size and SHA-256 before it runs. A site passes only the command and a checked output id.
+  On Linux it is PipeWire's own EQ for this login: the box, no administrator.
+- The website's presets save and delete only in SYNQ's presets folder (`eq::inside`), and an EQ backup restores
+  only from SYNQ's backups folder.
 
 ## The web bridge
 
@@ -114,6 +154,18 @@ Why a poll and not WMI events: `Win32_ProcessStartTrace` needs admin rights, and
 - A device is open in one tab at a time and closes when that tab's connection ends.
 - The website forwards exactly the commands the bridge answers (`scripts/helper-bridge.test.ts` checks
   both lists match); backups, logs and settings copies stay in the browser.
+- **Game profiles and battery alerts from the website**: the Games page reads the games, the installed
+  library, the covers and the devices' last-read settings through the bridge, and keeps them where the
+  app does. A save (`games_save`), or turning game profiles on (`helper_prefs_set`), happens only after
+  the person says yes in the helper's own dialog, which lists what changes game by game (`Consent::confirm`);
+  battery alerts and their levels change without asking (notifications only). The helper's other
+  settings (`helper_set`) stay the desktop app's.
+- **The website's download** (`release/synq-helper.exe`, about 47 MB) is the helper built with
+  `--features with-app`: SYNQ's own program is inside it, and when the helper installs itself (no administrator,
+  `%LOCALAPPDATA%\SYNQ Helper`) it puts that beside itself as `synq-profiles.exe`. It is never shown and has no
+  Start menu entry; the helper starts it with no window to put live game profiles on with the site closed (as for
+  the desktop app, above). Uninstalling removes the folder with it. The desktop installer's copy of the helper
+  (about 3 MB) leaves it out, since the app is beside it there.
 - On the website: Settings > SYNQ Helper > Connect (Chrome may ask to allow access to local network
   devices). The choice of transport is made once per page load; connecting reloads the page.
 - Without WebHID the website opens on a "Connect SYNQ Helper" page instead of the app

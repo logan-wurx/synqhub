@@ -26,6 +26,8 @@ interface EqBarSliderProps {
 
 const PADDING = 10;
 const BARS = 36;
+/** A bar and the gap after it need at least this much room; a narrow slider shows fewer bars rather than none. */
+const BAR_ROOM = 6;
 
 export function EqBarSlider({
   value,
@@ -68,6 +70,8 @@ export function EqBarSlider({
     return Number((Math.round(raw / step) * step).toFixed(decimals));
   };
   const toPct = (v: number) => (v - min) / (max - min);
+  // The track's inner width (px-4 each side) decides how many bars fit.
+  const bars = Math.max(8, Math.min(BARS, Math.floor((width - 32 + 3) / BAR_ROOM)));
   const zero = toPct(Math.max(min, Math.min(max, 0)));
   const current = toPct(value);
 
@@ -128,11 +132,11 @@ export function EqBarSlider({
             animate={{ opacity: 1, y: -34, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.85 }}
             transition={{ type: "spring", damping: 15, stiffness: 400 }}
-            className="tabular pointer-events-none absolute top-0 z-30 flex items-center gap-1 rounded-full bg-[#1d1d22] px-2.5 py-1 text-[12px] text-foreground shadow-[0_8px_20px_-6px_rgb(0_0_0/0.7)] ring-1 ring-white/10"
+            className="tabular pointer-events-none absolute top-0 z-30 flex items-center gap-1 rounded-full bg-[#1d1d22] px-2.5 py-1 text-[12px] text-high shadow-[0_8px_20px_-6px_rgb(0_0_0/0.7)] ring-1 ring-white/10"
             style={{ left: dragging ? `${current * 100}%` : tooltipLeft, translateX: "-50%" }}
           >
             <NumberFlow value={value} format={{ minimumFractionDigits: decimals, maximumFractionDigits: decimals, signDisplay: signed ? "exceptZero" : "auto" }} />
-            <span className="text-muted-foreground">{unit}</span>
+            <span className="text-medium">{unit}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -147,7 +151,7 @@ export function EqBarSlider({
         aria-disabled={disabled}
         {...aria}
         className={cn(
-          "relative flex h-10 cursor-pointer touch-none select-none items-end overflow-hidden rounded-full bg-black/30 px-4 pb-2.5 shadow-[inset_0_2px_6px_rgb(0_0_0/0.5)] outline-none ring-1 ring-white/[0.06]",
+          "relative flex h-10 cursor-pointer touch-none select-none items-end overflow-hidden rounded-full bg-shade/30 px-4 pb-2.5 shadow-[inset_0_2px_6px_rgb(0_0_0/0.5)] outline-none ring-1 ring-white/[0.06]",
           "focus-visible:ring-primary/60",
           disabled && "cursor-default opacity-40",
         )}
@@ -160,8 +164,8 @@ export function EqBarSlider({
         onKeyDown={onKeyDown}
       >
         <div className="flex w-full items-end gap-[3px]">
-          {Array.from({ length: BARS }).map((_, i) => {
-            const p = i / (BARS - 1);
+          {Array.from({ length: bars }).map((_, i) => {
+            const p = i / (bars - 1);
             const filled = boost ? p >= zero - 1e-9 && p <= current + 1e-9 : p <= zero + 1e-9 && p >= current - 1e-9;
             return (
               <Bar
@@ -171,7 +175,7 @@ export function EqBarSlider({
                 active={active}
                 width={width}
                 filled={filled}
-                isZero={Math.abs(p - zero) < 0.5 / (BARS - 1)}
+                isZero={Math.abs(p - zero) < 0.5 / (bars - 1)}
                 tone={boost ? "boost" : "cut"}
               />
             );

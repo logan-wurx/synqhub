@@ -879,8 +879,33 @@ async fn eq_engine_undo(app: AppHandle, window: WebviewWindow) -> Result<engine:
     engine_elevated(app, window, "undo", Vec::new()).await
 }
 
-/// What the person calls the headphones on one output of this PC, and whether to show the IEM
-/// picture for it. Kept per PC in app data, so nothing about one PC's gear shows on another.
+/// Gives the window its large icon (ICON_BIG) straight from synq.exe's own resource. Tauri sets only the small one,
+/// so the taskbar fell back to the icon Windows had cached for this path, which on a PC that ran an earlier SYNQ was
+/// still that build's violet icon.
+#[cfg(windows)]
+fn set_taskbar_icon(window: &tauri::WebviewWindow) {
+    use std::os::windows::ffi::OsStrExt;
+    use windows::core::PCWSTR;
+    use windows::Win32::Foundation::{HWND, LPARAM, WPARAM};
+    use windows::Win32::UI::Shell::ExtractIconExW;
+    use windows::Win32::UI::WindowsAndMessaging::{SendMessageW, HICON, ICON_BIG, WM_SETICON};
+    let (Ok(exe), Ok(hwnd)) = (std::env::current_exe(), window.hwnd()) else { return };
+    let path: Vec<u16> = exe.as_os_str().encode_wide().chain(std::iter::once(0)).collect();
+    let mut large = HICON::default();
+    // SAFETY: `path` is a NUL-terminated wide string that outlives the call; one icon is asked for, into `large`.
+    let got = unsafe { ExtractIconExW(PCWSTR(path.as_ptr()), 0, Some(&mut large), None, 1) };
+    if got == 0 || large.is_invalid() {
+        return;
+    }
+    // SAFETY: the window handle is this app's live main window; the icon stays loaded for the life of the process.
+    unsafe {
+        SendMessageW(HWND(hwnd.0), WM_SETICON, Some(WPARAM(ICON_BIG as usize)), Some(LPARAM(large.0 as isize)));
+    }
+}
+
+/// What the person calls the headphones on one output of this PC, and which model they are (the
+/// key of its photo in the app's picture library, or "iems" for SYNQ's own drawing). Kept per PC
+/// in app data, so nothing about one PC's gear shows on another.
 #[derive(Serialize, Deserialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
 struct SoundName {
@@ -889,7 +914,10 @@ struct SoundName {
 }
 
 const SOUND_NAMES_FILE: &str = "sound-names.json";
-const PICTURES: [&str; 1] = ["iems"];
+/// A picture the app can show: SYNQ's drawing, or a photo key from the library ("7hz-salnotes-zero-2").
+fn is_picture(p: &str) -> bool {
+    p == "iems" || (!p.is_empty() && p.len() <= 80 && p.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-') && !p.starts_with('-'))
+}
 
 fn read_sound_names(app: &AppHandle) -> Result<BTreeMap<String, SoundName>, String> {
     let path = app_data(app)?.join(SOUND_NAMES_FILE);
@@ -910,7 +938,7 @@ fn sound_names_load(app: AppHandle) -> Result<BTreeMap<String, SoundName>, Strin
 fn sound_name_save(app: AppHandle, output: String, name: String, picture: Option<String>) -> Result<BTreeMap<String, SoundName>, String> {
     let id = engine::output_id(&output).ok_or("That isn't a sound output id.")?;
     let name: String = name.trim().chars().filter(|c| !c.is_control()).take(40).collect();
-    let picture = picture.filter(|p| PICTURES.contains(&p.as_str()));
+    let picture = picture.filter(|p| is_picture(p));
     let mut names = read_sound_names(&app)?;
     if name.is_empty() {
         names.remove(&id);
@@ -1175,6 +1203,195 @@ fn helper_held(app: AppHandle) -> Result<Vec<String>, String> {
     Ok(serde_json::from_str::<BTreeMap<String, serde_json::Value>>(&text).map(|m| m.into_keys().collect()).unwrap_or_default())
 }
 
+/// Game profiles for every mouse and keyboard (src/lib/profiles/runner.ts): the games running now, by program name
+/// only (nothing reads, opens or touches a game's process). `app` is the website's question (is SYNQ open); here it's
+/// always false.
+#[derive(Serialize)]
+struct GamesRunning {
+    ids: Vec<String>,
+    app: bool,
+}
+
+#[tauri::command]
+async fn games_running(app: AppHandle) -> Result<GamesRunning, String> {
+    let dir = app_data(&app)?;
+    tauri::async_runtime::spawn_blocking(move || GamesRunning { ids: games::load(&dir).unwrap_or_default().running(&process_names()), app: false }).await.map_err(|e| e.to_string())
+}
+
+/// The running programs' names, lower case (Windows: one process snapshot, names only).
+#[cfg(windows)]
+fn process_names() -> std::collections::HashSet<String> {
+    use sysinfo::{ProcessRefreshKind, ProcessesToUpdate, System};
+    let mut sys = System::new();
+    sys.refresh_processes_specifics(ProcessesToUpdate::All, true, ProcessRefreshKind::nothing());
+    sys.processes().values().map(|p| p.name().to_string_lossy().to_ascii_lowercase()).collect()
+}
+
+/// Linux: each process's command line and short name from /proc, as the helper reads them (games::names_from).
+#[cfg(not(windows))]
+fn process_names() -> std::collections::HashSet<String> {
+    let mut out = std::collections::HashSet::new();
+    let Ok(dir) = std::fs::read_dir("/proc") else { return out };
+    for e in dir.flatten() {
+        if !e.file_name().to_str().is_some_and(|n| !n.is_empty() && n.bytes().all(|b| b.is_ascii_digit())) {
+            continue;
+        }
+        let cmdline = std::fs::read(e.path().join("cmdline")).unwrap_or_default();
+        let comm = std::fs::read_to_string(e.path().join("comm")).unwrap_or_default();
+        out.extend(games::names_from(&cmdline, &comm));
+    }
+    out
+}
+
+/// What SYNQ keeps while a live profile is on a device (what it holds, and its everyday feel to put back).
+#[tauri::command]
+fn live_held_load(app: AppHandle) -> Result<Option<String>, String> {
+    let path = app_data(&app)?.join(games::LIVE_HELD_FILE);
+    match std::fs::read_to_string(&path) {
+        Ok(text) => Ok(Some(text)),
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(None),
+        Err(e) => Err(format!("Could not read {}: {e}", path.display())),
+    }
+}
+
+#[tauri::command]
+fn live_held_save(app: AppHandle, json: String) -> Result<(), String> {
+    games::live_held_ok(&json)?;
+    eq::write_atomic(&app_data(&app)?.join(games::LIVE_HELD_FILE), &json)
+}
+
+/// One SYNQ at a time puts live profiles on (an open window, or the one the helper started with none): true once
+/// this one may. It keeps the claim while it runs and is awake; a minimized window whose page is suspended lets go
+/// (src/sleep.rs), so the helper can start SYNQ with no window for a game meanwhile (helper/src/pass.rs).
+#[tauri::command]
+fn profiles_claim(app: AppHandle) -> bool {
+    profile_lock::claim(&app_data(&app).unwrap_or_default())
+}
+
+#[cfg(windows)]
+pub(crate) mod profile_lock {
+    use std::sync::Mutex;
+    /// The named mutex's handle while this process has the claim.
+    static HELD: Mutex<Option<isize>> = Mutex::new(None);
+
+    /// A named mutex for this sign-in (helper_cfg::PROFILES_LOCK): whoever has a handle to it has the claim.
+    pub fn claim(_: &std::path::Path) -> bool {
+        use windows::Win32::Foundation::{CloseHandle, ERROR_ALREADY_EXISTS, GetLastError};
+        use windows::Win32::System::Threading::CreateMutexW;
+        let Ok(mut held) = HELD.lock() else { return false };
+        if held.is_some() {
+            return true;
+        }
+        let name: Vec<u16> = crate::helper_cfg::PROFILES_LOCK.encode_utf16().chain(std::iter::once(0)).collect();
+        // SAFETY: `name` is NUL-terminated and outlives the call; the handle is closed at once when another process
+        // has the claim, and otherwise kept until `release` (or the process exits).
+        unsafe {
+            let Ok(h) = CreateMutexW(None, false, windows::core::PCWSTR(name.as_ptr())) else { return false };
+            if GetLastError() == ERROR_ALREADY_EXISTS {
+                let _ = CloseHandle(h);
+                return false;
+            }
+            *held = Some(h.0 as isize);
+        }
+        true
+    }
+
+    /// Lets go of the claim (the page is suspended); the next `claim` takes it again if it's free.
+    pub fn release() {
+        use windows::Win32::Foundation::{CloseHandle, HANDLE};
+        if let Some(h) = HELD.lock().ok().and_then(|mut held| held.take()) {
+            // SAFETY: a handle this module opened and nothing else closes.
+            unsafe {
+                let _ = CloseHandle(HANDLE(h as *mut core::ffi::c_void));
+            }
+        }
+    }
+}
+
+#[cfg(not(windows))]
+pub(crate) mod profile_lock {
+    use std::sync::Mutex;
+    static HELD: Mutex<Option<std::fs::File>> = Mutex::new(None);
+
+    /// An exclusive lock on a file in the data folder (helper_cfg::PROFILES_LOCK_FILE), kept until `release`.
+    pub fn claim(dir: &std::path::Path) -> bool {
+        use std::os::fd::AsRawFd;
+        let Ok(mut held) = HELD.lock() else { return false };
+        if held.is_some() {
+            return true;
+        }
+        let Ok(f) = std::fs::OpenOptions::new().create(true).truncate(false).write(true).open(dir.join(crate::helper_cfg::PROFILES_LOCK_FILE)) else { return false };
+        // SAFETY: flock on a descriptor this function owns.
+        if unsafe { libc::flock(f.as_raw_fd(), libc::LOCK_EX | libc::LOCK_NB) } != 0 {
+            return false;
+        }
+        *held = Some(f);
+        true
+    }
+
+    #[allow(dead_code)]
+    pub fn release() {
+        if let Ok(mut held) = HELD.lock() {
+            held.take();
+        }
+    }
+}
+
+/// How this copy started: "app" (a window), "profiles" (SYNQ Helper started it with no window to put live game
+/// profiles on, `--game-profiles`) or "restore" (the same, only putting everyday settings back).
+#[tauri::command]
+fn launch_mode() -> &'static str {
+    match LAUNCH.get() {
+        Some(Launch::Profiles { restore: true }) => "restore",
+        Some(Launch::Profiles { restore: false }) => "profiles",
+        _ => "app",
+    }
+}
+
+#[derive(Clone, Copy)]
+enum Launch {
+    App,
+    Profiles { restore: bool },
+}
+static LAUNCH: std::sync::OnceLock<Launch> = std::sync::OnceLock::new();
+/// The exit code of a start with no window on a PC without WebView2 (src-tauri/helper/src/pass.rs `NO_WEBVIEW`).
+const PROFILES_NO_WEBVIEW: i32 = 3;
+
+/// Whether WebView2 (the Evergreen runtime, or a browser it can use) is on this PC: the same question Tauri's window
+/// asks before it is made.
+#[cfg(windows)]
+fn webview2_available() -> bool {
+    use webview2_com::Microsoft::Web::WebView2::Win32::GetAvailableCoreWebView2BrowserVersionString;
+    let mut version = windows::core::PWSTR::null();
+    // SAFETY: WebView2's own query; the version string it hands back is freed with CoTaskMemFree.
+    let found = unsafe { GetAvailableCoreWebView2BrowserVersionString(windows::core::PCWSTR::null(), &mut version) }.is_ok() && !version.is_null();
+    if !version.is_null() {
+        // SAFETY: allocated by WebView2's loader with CoTaskMemAlloc, freed once.
+        unsafe { windows::Win32::System::Com::CoTaskMemFree(Some(version.0 as *const core::ffi::c_void)) };
+    }
+    found
+}
+
+/// A start with no window ends by itself after this long, done or not (its pass normally takes a few seconds).
+const PROFILES_PASS_LIMIT: std::time::Duration = std::time::Duration::from_secs(120);
+
+/// The pass with no window is done: what it couldn't do goes to the helper (one line each, which it shows as
+/// notifications), then SYNQ exits.
+#[tauri::command]
+fn profiles_pass_done(app: AppHandle, notices: Vec<(String, String)>) {
+    use std::io::Write;
+    if !matches!(LAUNCH.get(), Some(Launch::Profiles { .. })) {
+        return;
+    }
+    let mut out = std::io::stdout().lock();
+    for (title, text) in notices.iter().take(8) {
+        let clean = |s: &str| s.chars().filter(|c| !c.is_control()).collect::<String>();
+        let _ = writeln!(out, "notice\t{}\t{}", clean(title), clean(text));
+    }
+    let _ = out.flush();
+    app.exit(0);
+}
+
 /// Saves the Games page (checked first), and tells a running helper to pick it up.
 #[tauri::command]
 fn games_save(app: AppHandle, file: games::GamesFile) -> Result<(), String> {
@@ -1228,8 +1445,30 @@ pub fn run() {
     if let Some(code) = engine::cli(&args) {
         std::process::exit(code);
     }
+    // The app's id, the one its Start menu shortcut carries, before any window exists: the taskbar then knows the
+    // window as that app (its icon, its pin) rather than as a bare program path, for which a PC that ran an earlier
+    // build keeps that build's icon.
+    #[cfg(windows)]
+    // SAFETY: a static NUL-terminated wide string; this only sets a property of this process.
+    unsafe {
+        let _ = windows::Win32::UI::Shell::SetCurrentProcessExplicitAppUserModelID(windows::core::w!("com.logan.onboard"));
+    }
     // `--self-test` (CI's smoke test) and `--print-udev-rules` (the Linux device-access command) also
     // exit before any window.
+    // `--game-profiles [restore]`: SYNQ Helper started this copy to put live game profiles on (or take them off) with
+    // no window. The window stays hidden; the page runs one pass (src/lib/profiles/pass.ts) and exits.
+    let _ = LAUNCH.set(match args.get(1).map(String::as_str) {
+        Some("--game-profiles") => Launch::Profiles { restore: args.get(2).is_some_and(|a| a == "restore") },
+        _ => Launch::App,
+    });
+    // A start with no window checks for WebView2 before anything else: without it no window can be made, and Windows
+    // would show an error box, the one thing that start must never do. It says why (SYNQ Helper shows that once) and
+    // exits with PROFILES_NO_WEBVIEW, after which the helper stops starting it until its settings change.
+    #[cfg(windows)]
+    if matches!(LAUNCH.get(), Some(Launch::Profiles { .. })) && !webview2_available() {
+        println!("notice\tGame profiles paused\tMicrosoft's WebView2 Runtime isn't on this PC, so profiles for most devices can't switch with SYNQ closed. Install it from Microsoft, then restart SYNQ Helper.");
+        std::process::exit(PROFILES_NO_WEBVIEW);
+    }
     match args.get(1).map(String::as_str) {
         Some("--self-test") => std::process::exit(selftest::run()),
         Some("--print-udev-rules") => {
@@ -1253,9 +1492,18 @@ pub fn run() {
         .manage(sleep::Sleep::default())
         .setup(|app| {
             migrate_old_data(app.handle());
+            let hidden = matches!(LAUNCH.get(), Some(Launch::Profiles { .. }));
+            if hidden {
+                // Done or not, a start with no window doesn't outstay its pass.
+                let handle = app.handle().clone();
+                std::thread::spawn(move || {
+                    std::thread::sleep(PROFILES_PASS_LIMIT);
+                    handle.exit(0);
+                });
+            }
             // The helper is on (the person turned it on) but not running in this session: start it.
             if let Ok(dir) = app_data(app.handle()) {
-                if helper_cfg::load_settings(&dir).enabled && !helper_cfg::helper_running() {
+                if !hidden && helper_cfg::load_settings(&dir).enabled && !helper_cfg::helper_running() {
                     let _ = start_helper();
                 }
                 // The Wi-Fi lights' pairing keys live next to the app's other data.
@@ -1263,6 +1511,12 @@ pub fn run() {
             }
             // Minimized: the page sleeps until the window is restored (src/sleep.rs).
             if let Some(window) = app.get_webview_window("main") {
+                // The window is made hidden (tauri.conf.json) and shown here, except for a start with no window.
+                if !hidden {
+                    let _ = window.show();
+                }
+                #[cfg(windows)]
+                set_taskbar_icon(&window);
                 let w = window.clone();
                 let handle = app.handle().clone();
                 window.on_window_event(move |event| match event {
@@ -1350,6 +1604,12 @@ pub fn run() {
             feel_load,
             feel_save,
             helper_held,
+            games_running,
+            live_held_load,
+            live_held_save,
+            profiles_claim,
+            launch_mode,
+            profiles_pass_done,
             mouse_backup_save,
             mouse_log,
             keyboard_state_load,
@@ -1382,6 +1642,17 @@ mod tests {
 
     fn slot(slot: u32, vid: u16, pid: u16) -> xinput::Slot {
         xinput::Slot { slot, vid, pid, sub_type: 1, wireless: false, battery: None }
+    }
+
+    #[test]
+    fn a_headphone_picture_is_the_drawing_or_a_photo_key() {
+        assert!(is_picture("iems"));
+        assert!(is_picture("7hz-salnotes-zero-2"));
+        assert!(!is_picture(""));
+        assert!(!is_picture("-x"));
+        assert!(!is_picture("../secret"));
+        assert!(!is_picture("Zero 2"));
+        assert!(!is_picture(&"a".repeat(81)));
     }
 
     #[test]

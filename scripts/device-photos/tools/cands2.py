@@ -1,7 +1,7 @@
 """cands2.py <vendor> [only,keys] [N]: like cands.py, but every candidate goes through proc2 (rembg for opaque pictures), prepared in parallel.
 Draws review sheets ../qa/c2-<vendor>-N.png (index on each thumbnail) and writes ../cand/<vendor>.json. Picks go in ../picks/<vendor>.json
 as {key: index | null}."""
-import inspect, sys, io, json, importlib, pathlib, concurrent.futures as cf
+import inspect, os, sys, io, json, importlib, pathlib, concurrent.futures as cf
 from PIL import Image, ImageDraw
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from common import ROOT, fetch
@@ -10,18 +10,18 @@ vendor = sys.argv[1]
 only = set(sys.argv[2].split(",")) if len(sys.argv) > 2 and sys.argv[2] else None
 N = int(sys.argv[3]) if len(sys.argv) > 3 else 6
 PER = 8
-T = 120
+T = int(os.environ.get("TILE", "120"))   # thumbnail size; TILE=200 for a closer look
 mod = importlib.import_module(f"vendors.{vendor}")
 
 
 def work(task):
-    key, i, url = task
+    key, i, url, flood = task
     import proc2
     try:
         raw = fetch(url)
     except Exception as e:
         return key, i, None, {"ok": False, "why": f"fetch: {str(e)[:50]}"}
-    im, rep = proc2.prepare(raw)
+    im, rep = proc2.prepare(raw, flood=flood)
     if im is None:
         return key, i, None, rep
     t = im.copy()
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # A source that can skip the models not asked for does (fewer requests: Shopify stores answer 429 to a burst).
     takes_only = "only" in inspect.signature(mod.candidates).parameters
     cands = [c for c in (mod.candidates(only=only) if takes_only else mod.candidates()) if not only or c["key"] in only]
-    tasks = [(c["key"], i, u) for c in cands for i, u in enumerate(c["urls"][:N])]
+    tasks = [(c["key"], i, u, bool(c.get("opts", {}).get("flood"))) for c in cands for i, u in enumerate(c["urls"][:N])]
     print(len(cands), "models,", len(tasks), "pictures", flush=True)
     res = {}
     with cf.ProcessPoolExecutor(max_workers=5) as ex:
@@ -45,7 +45,9 @@ if __name__ == "__main__":
     picks = json.load(open(picks_f)) if picks_f.exists() else {}
     index = {}
     for c in cands:
-        index[c["key"]] = {"n": len(c["urls"][:N]), "tiles": [{"i": i, "ok": bool(res.get((c["key"], i), (None, {}))[1].get("ok")), "why": res.get((c["key"], i), (None, {}))[1].get("why")} for i in range(len(c["urls"][:N]))]}
+        # The addresses as the sheet shows them: pin_picks.py turns an index pick into its address (archived and
+        # store listings can come back in another order on the next run).
+        index[c["key"]] = {"n": len(c["urls"][:N]), "urls": c["urls"][:N], "tiles": [{"i": i, "ok": bool(res.get((c["key"], i), (None, {}))[1].get("ok")), "why": res.get((c["key"], i), (None, {}))[1].get("why")} for i in range(len(c["urls"][:N]))]}
     json.dump(index, open(ROOT / "cand" / f"{vendor}.json", "w"), indent=1)
     LW = 190
     for s in range(0, len(cands), PER):

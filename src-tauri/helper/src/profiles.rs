@@ -81,7 +81,8 @@ impl Switcher {
 
     /// One look at the running programs, and whatever sending that calls for.
     pub fn tick(&mut self, file: &GamesFile, running: &HashSet<String>, devs: &mut dyn Devices, now: Instant) -> Vec<Event> {
-        let live: Vec<&str> = file.games.iter().filter(|g| g.auto && !g.profiles.is_empty() && g.exes.iter().any(|e| running.contains(e))).map(|g| g.id.as_str()).collect();
+        // Live profiles (`live:<family>`) are SYNQ's to put on through the device's session; only encoded ones are sent here.
+        let live: Vec<&str> = file.games.iter().filter(|g| g.auto && g.profiles.keys().any(|k| !games::is_live(k)) && g.exes.iter().any(|e| running.contains(e))).map(|g| g.id.as_str()).collect();
         self.order.retain(|id| live.contains(&id.as_str()));
         for id in live {
             if !self.order.iter().any(|o| o == id) {
@@ -103,7 +104,7 @@ impl Switcher {
         let active = self.active().and_then(|id| file.games.iter().find(|g| g.id == id));
         let mut keys: Vec<String> = self.on.keys().cloned().collect();
         if let Some(g) = active {
-            keys.extend(g.profiles.keys().cloned());
+            keys.extend(g.profiles.keys().filter(|k| !games::is_live(k)).cloned());
         }
         keys.sort();
         keys.dedup();
@@ -391,6 +392,22 @@ mod tests {
 
     /// The real device path, against a device that is "open" with no handles: profile steps go through
     /// the same guards as the app, so a step a guard refuses never reaches a device.
+    #[test]
+    fn live_profiles_are_left_to_synq() {
+        let live = || DeviceProfile { steps: vec![], restore: vec![], settings: serde_json::json!({ "kind": "feel", "family": "logitech", "feel": {} }), ..p("PRO X 2", &[], 1) };
+        let mut f = file();
+        // Valorant has only a live profile; CS2 has its encoded one and a live one.
+        f.games.iter_mut().find(|g| g.id == "valorant").unwrap().profiles.insert("live:logitech".into(), live());
+        f.games.iter_mut().find(|g| g.id == "cs2").unwrap().profiles.insert("live:logitech".into(), live());
+        let (mut d, mut procs, mut sw, t) = (sim(), FakeProcesses::default(), Switcher::default(), Instant::now());
+        procs.set(&["valorant-win64-shipping.exe"]);
+        assert!(run(&mut sw, &f, &mut procs, &mut d, t).is_empty());
+        assert_eq!((d.sends, d.scans, sw.active()), (0, 0, None), "a game with only live profiles isn't followed here");
+        procs.set(&["cs2.exe"]);
+        assert_eq!(run(&mut sw, &f, &mut procs, &mut d, t), vec![Event::Applied { game: "cs2".into(), device: "mouse".into() }]);
+        assert_eq!(sw.on().keys().map(String::as_str).collect::<Vec<_>>(), [MOUSE], "only the encoded profile is held");
+    }
+
     #[test]
     fn profile_steps_pass_the_guards() {
         let state = hid::HidState::new();

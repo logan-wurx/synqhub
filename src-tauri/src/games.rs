@@ -10,10 +10,15 @@
 //! Advanced grant; firmware and bootloader commands have no encoder and no guard lets them through.
 //!
 //! Games are recognised by their process name only; nothing reads, opens or touches a game's process.
+//!
+//! "Live" profiles (keys `live:<family>`) are the other kind, for every mouse and keyboard: a feel, no reports.
+//! SYNQ puts them on through the device's own session (src/lib/profiles/runner.ts), from the app, the website
+//! with the helper, or the app started with no window by the helper (`--game-profiles`). The helper's own
+//! switcher leaves them alone.
 
 use crate::hid::Step;
 use serde::{Deserialize, Serialize};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
 pub const VERSION: u32 = 2;
@@ -24,6 +29,16 @@ pub const MAX_EXE_LEN: usize = 64;
 pub const MAX_PROFILE_STEPS: usize = 400;
 /// One report's payload, at most.
 pub const MAX_STEP_BYTES: usize = 1024;
+/// The key of a live profile: this, then the device family (src/lib/profiles/runner.ts `LIVE_PREFIX`).
+pub const LIVE_PREFIX: &str = "live:";
+/// What SYNQ keeps while a live profile is on a device: what it holds and its everyday feel to put back.
+pub const LIVE_HELD_FILE: &str = "live-held.json";
+pub const LIVE_HELD_MAX_BYTES: usize = 64 * 1024;
+
+/// A live profile's key (put on by SYNQ through the device's session, not sent by the helper).
+pub fn is_live(key: &str) -> bool {
+    key.starts_with(LIVE_PREFIX)
+}
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 #[serde(rename_all = "camelCase")]
@@ -128,6 +143,17 @@ impl GamesFile {
     pub fn any_profile(&self) -> bool {
         self.games.iter().any(|g| g.auto && !g.profiles.is_empty())
     }
+
+    /// Ids of the games one of whose programs is running (names as `process_name` writes them).
+    pub fn running(&self, names: &HashSet<String>) -> Vec<String> {
+        self.games.iter().filter(|g| g.exes.iter().any(|e| names.contains(e))).map(|g| g.id.clone()).collect()
+    }
+
+    /// Ids of the running games followed with a live profile: when these change, SYNQ has profiles to put on
+    /// (or take off).
+    pub fn running_live(&self, names: &HashSet<String>) -> Vec<String> {
+        self.games.iter().filter(|g| g.auto && g.profiles.keys().any(|k| is_live(k)) && g.exes.iter().any(|e| names.contains(e))).map(|g| g.id.clone()).collect()
+    }
 }
 
 /// A process name a game may use: a bare file name ending in .exe, no path, not SYNQ's own or a
@@ -161,6 +187,26 @@ pub fn process_name(raw: &str) -> String {
     }
     let base = lower.strip_suffix(".x86_64").or_else(|| lower.strip_suffix(".x86")).unwrap_or(&lower);
     format!("{base}.exe")
+}
+
+/// One process's names as games are matched by them: its command line's first word (path removed: a
+/// Proton game's is a Windows path, "Z:\...\Game.exe") and the kernel's short name (15 characters at
+/// most), each lower case and ending in .exe.
+#[cfg_attr(windows, allow(dead_code))]
+pub fn names_from(cmdline: &[u8], comm: &str) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    let first = cmdline.split(|&b| b == 0).next().unwrap_or(&[]);
+    let first = String::from_utf8_lossy(first);
+    let base = first.rsplit(['/', '\\']).next().unwrap_or("").trim();
+    for raw in [base, comm.trim()] {
+        if !raw.is_empty() && !raw.contains(char::is_control) {
+            let n = process_name(raw);
+            if !out.contains(&n) {
+                out.push(n);
+            }
+        }
+    }
+    out
 }
 
 /// A game id: letters, digits and dashes, 1 to 40 (also a file name for its cover art).
@@ -215,6 +261,10 @@ pub fn validate(f: &GamesFile) -> Result<(), String> {
             }
             steps_ok(&d.steps)?;
             steps_ok(&d.restore)?;
+            // A live profile is a feel: it carries no reports, so nothing can send one as if it were encoded.
+            if is_live(key) && (!d.steps.is_empty() || !d.restore.is_empty() || d.settings.get("kind").and_then(|k| k.as_str()) != Some("feel")) {
+                return Err(format!("The profile for {} isn't a usable feel.", d.name));
+            }
         }
     }
     Ok(())
@@ -240,6 +290,22 @@ pub fn save(dir: &Path, f: &GamesFile) -> Result<(), String> {
     std::fs::create_dir_all(dir).map_err(|e| format!("Could not create {}: {e}", dir.display()))?;
     let text = serde_json::to_string(f).map_err(|e| e.to_string())?;
     crate::helper_cfg::write_atomic(&dir.join(crate::helper_cfg::GAMES_FILE), &text)
+}
+
+/// What SYNQ keeps while live profiles are on (`LIVE_HELD_FILE`): a JSON object of 64 KB at most, or nothing.
+pub fn live_held_ok(json: &str) -> Result<(), String> {
+    if json.len() > LIVE_HELD_MAX_BYTES {
+        return Err("That is too much to keep.".into());
+    }
+    match serde_json::from_str::<serde_json::Value>(json) {
+        Ok(serde_json::Value::Object(_)) => Ok(()),
+        _ => Err("Not what SYNQ keeps for game profiles.".into()),
+    }
+}
+
+/// Whether any device holds a live profile now (the file is there and not empty).
+pub fn live_held_any(dir: &Path) -> bool {
+    std::fs::read_to_string(dir.join(LIVE_HELD_FILE)).ok().and_then(|t| serde_json::from_str::<BTreeMap<String, serde_json::Value>>(&t).ok()).is_some_and(|m| !m.is_empty())
 }
 
 /// Whether a device key names a device that is plugged in now: the same key, or the same device
@@ -356,6 +422,36 @@ mod tests {
         let _ = std::fs::remove_dir_all(&dir);
         let empty = std::env::temp_dir().join(format!("onboard-games-none-{}", std::process::id()));
         assert_eq!(load(&empty).unwrap(), GamesFile::default());
+    }
+
+    fn live(feel: serde_json::Value) -> DeviceProfile {
+        DeviceProfile { steps: vec![], restore: vec![], settings: serde_json::json!({ "kind": "feel", "family": "logitech", "feel": feel }), ..profile(1) }
+    }
+
+    #[test]
+    fn live_profiles_carry_no_reports() {
+        let mut f = GamesFile::default();
+        f.games[0].profiles.insert("live:logitech".into(), live(serde_json::json!({ "stages": [800] })));
+        validate(&f).unwrap();
+        f.games[0].profiles.insert("live:atk".into(), DeviceProfile { steps: profile(1).steps, ..live(serde_json::json!({})) });
+        assert!(validate(&f).is_err(), "a live key with reports");
+        f.games[0].profiles.remove("live:atk");
+        f.games[0].profiles.insert("live:x68".into(), DeviceProfile { settings: serde_json::json!({ "family": "x68" }), ..live(serde_json::json!({})) });
+        assert!(validate(&f).is_err(), "a live key that isn't a feel");
+    }
+
+    #[test]
+    fn running_games_and_live_ones() {
+        let mut f = GamesFile::default();
+        f.games[0].profiles.insert("live:logitech".into(), live(serde_json::json!({})));
+        f.games[1].profiles.insert("373b:12a2:2:".into(), profile(1));
+        let names: HashSet<String> = ["cs2.exe", "valorant-win64-shipping.exe", "notepad.exe"].iter().map(|s| s.to_string()).collect();
+        assert_eq!(f.running(&names), ["cs2", "valorant"]);
+        assert_eq!(f.running_live(&names), ["cs2"], "only a game with a live profile");
+        f.games[0].auto = false;
+        assert!(f.running_live(&names).is_empty(), "Apply automatically off");
+        assert!(live_held_ok("{}").is_ok() && live_held_ok("[]").is_err() && live_held_ok("x").is_err());
+        assert!(live_held_ok(&format!("{{\"a\":\"{}\"}}", "x".repeat(70_000))).is_err());
     }
 
     #[test]

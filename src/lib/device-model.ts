@@ -62,6 +62,9 @@ export interface DeviceEntry {
   brand: string;
   /** How the detected list says it is attached ("USB cable", "8K receiver"). */
   connection: string;
+  /** A mouse's or keyboard's own full name, when the shown one is shortened ("ROG Falchion Ace HFX ZywOo" for
+   * "Falchion Ace HFX"): its photo is found by this, so an edition gets its own picture. */
+  reported?: string;
   /** The kept-state key of the panel's view, once the panel has read the device. */
   viewKey: string | null;
   /** A controller: what it is and the listed device behind it. */
@@ -114,13 +117,13 @@ export function buildEntries(
     const name =
       family === "logitech" ? (published.get("logitech") ?? d?.name ?? "Logitech mouse") : family === "atk" ? "X1 V2 Air+" : deDongle(d?.name ?? "Mouse");
     const key = family.startsWith("om:") ? `mouse.om.${family.slice(3)}` : `mouse.${family}`;
-    out.push({ id: mouseId(family), kind: "mouse", family, name, brand: brandOf(d, family), connection: d?.connection ?? "", viewKey: `${key}.view` });
+    out.push({ id: mouseId(family), kind: "mouse", family, name, brand: brandOf(d, family), connection: d?.connection ?? "", viewKey: `${key}.view`, reported: d?.name });
   }
   for (const family of keyboardFamilies(devices)) {
     const d = devices.find((x) => keyboardFamilyOf(x) === family);
     const name = SHORT_KEYBOARD[family] ?? deDongle(d?.name ?? "Keyboard");
     const key = family.startsWith("kb:") ? `keyboard.kb.${family.slice(3)}` : `keyboard.${family}`;
-    out.push({ id: keyboardId(family), kind: "keyboard", family, name, brand: brandOf(d, family), connection: d?.connection ?? "", viewKey: `${key}.view` });
+    out.push({ id: keyboardId(family), kind: "keyboard", family, name, brand: brandOf(d, family), connection: d?.connection ?? "", viewKey: `${key}.view`, reported: d?.name });
   }
   // Controllers: one card for each one plugged in (two of the same model get their own family).
   const seen = new Map<string, number>();

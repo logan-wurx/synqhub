@@ -3,7 +3,8 @@
 //!
 //! 1. per-game profiles: when a game starts, its mouse / keyboard profile (encoded by the app from the
 //!    settings picked on the Games page) is sent; when it ends, the everyday settings are put back
-//!    (profiles.rs, watcher.rs);
+//!    (profiles.rs, watcher.rs). Profiles for the other mice and keyboards are put on by SYNQ through the
+//!    device's own session; with SYNQ closed, the helper starts it with no window for that (pass.rs);
 //! 2. battery alerts: one notification at each level, 20%, 10% and 5% by default (battery.rs);
 //! 3. the web bridge: the SYNQ website can reach Razer, the EQ and the Advanced actions through it,
 //!    with the desktop app's own checks (bridge.rs, ws.rs).
@@ -60,6 +61,10 @@ mod eq_graph;
 #[path = "../../src/games.rs"]
 #[allow(dead_code)]
 mod games;
+// The Games page's library and covers, for the website through the bridge.
+#[path = "../../src/library.rs"]
+#[allow(dead_code)]
+mod library;
 #[path = "../../src/headsets.rs"]
 #[allow(dead_code)]
 mod headsets;
@@ -77,22 +82,19 @@ mod monitors;
 #[path = "../../src/webcams.rs"]
 #[allow(dead_code)]
 mod webcams;
-// Wi-Fi lights, USB hubs and screen sync across them (the website's, through the bridge).
+// Wi-Fi lights, USB hubs and screen sync across them (the website's, through the bridge). The path names the app's own
+// lighting folder, so the modules inside are found there: a path through `src/lighting/..` here (a folder that doesn't
+// exist) only works where the OS simplifies it on paper (Windows), not on Linux.
 #[allow(dead_code, unused_imports)]
+#[path = "../../src/lighting"]
 mod lighting {
-    #[path = "../../../src/lighting/hidrgb.rs"]
     pub mod hidrgb;
-    #[path = "../../../src/lighting/hubframes.rs"]
     pub mod hubframes;
-    #[path = "../../../src/lighting/screen.rs"]
     pub mod screen;
-    #[path = "../../../src/lighting/sync.rs"]
     pub mod sync;
-    #[path = "../../../src/lighting/net/mod.rs"]
     pub mod net;
     pub mod govee {
         #[cfg(windows)]
-        #[path = "../../../../src/lighting/govee/cipher.rs"]
         pub mod cipher;
     }
 }
@@ -110,6 +112,7 @@ mod battery;
 mod bridge;
 #[cfg(unix)]
 mod ipc;
+mod pass;
 mod profiles;
 // Installed on its own from the website (Windows): where a double-click runs it, its folder and apps entry.
 #[cfg_attr(not(windows), allow(dead_code))]
@@ -137,6 +140,11 @@ const STATE_FILE: &str = "helper-state.json";
 const LOG_FILE: &str = "helper-log.txt";
 /// The app's program name as the process list has it (watcher.rs gives Linux names the same .exe).
 const APP_EXE: &str = "synq.exe";
+/// SYNQ's program beside a helper installed from the website, for game profiles with no window (standalone.rs).
+#[cfg(windows)]
+pub const BACKGROUND_EXE: &str = standalone::BACKGROUND_EXE;
+#[cfg(not(windows))]
+pub const BACKGROUND_EXE: &str = "synq-profiles";
 
 fn log(data: &Path, line: &str) {
     use std::io::Write;
@@ -192,6 +200,14 @@ fn load_games(data: &Path) -> games::GamesFile {
     })
 }
 
+/// Game profiles off or the helper paused while a device holds a live profile: SYNQ puts its everyday settings
+/// back, with no window when it isn't open (SYNQ open, or a site, sees the change itself).
+fn restore_live(data: &Path, hidden: &mut pass::HiddenStart, start_pass: &dyn Fn(&mut pass::HiddenStart, bool)) {
+    if games::live_held_any(data) && hidden.now(helper_cfg::profiles_claimed(data), bridge::site_running_profiles()) {
+        start_pass(hidden, true);
+    }
+}
+
 /// The worker: process list (only while a profile exists), profile sends, battery readings. Sleeps
 /// until the next of those is due, or until the main thread sends a message.
 fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
@@ -208,6 +224,40 @@ fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
     let mut next_scan = Instant::now();
     let mut paused = false;
     let mut last_tip = String::new();
+    let mut hidden = pass::HiddenStart::default();
+    // One pass of SYNQ with no window, for the live profiles (pass.rs); `restore`: only put everyday settings back.
+    // SYNQ said it can't run here (no WebView2): no more passes until the settings change. Each notice once a session.
+    let unavailable = Arc::new(AtomicBool::new(false));
+    let told: Arc<std::sync::Mutex<HashSet<String>>> = Arc::default();
+    let start_pass = |hidden: &mut pass::HiddenStart, restore: bool| {
+        let Some(app) = pass::app_path() else { return };
+        if unavailable.load(Ordering::SeqCst) {
+            return;
+        }
+        let running = Arc::new(AtomicBool::new(false));
+        let (c, told, at) = (ctx.clone(), told.clone(), data.to_path_buf());
+        let notify = move |t: &str, x: &str| {
+            log(&at, &format!("live profiles: SYNQ says {t}: {x}"));
+            if told.lock().is_ok_and(|mut seen| seen.insert(format!("{t}\n{x}"))) {
+                c.notify(t, x);
+            }
+        };
+        // How it ended goes in the log (what a "profiles didn't switch" report needs); no WebView2 stops the passes.
+        let (unavailable, at) = (unavailable.clone(), data.to_path_buf());
+        let finished = move |code: Option<i32>| {
+            log(&at, &format!("live profiles: SYNQ finished (exit {})", code.map_or_else(|| "none".to_string(), |c| c.to_string())));
+            if code == Some(pass::NO_WEBVIEW) {
+                unavailable.store(true, Ordering::SeqCst);
+            }
+        };
+        match pass::start(&app, restore, running.clone(), notify, finished) {
+            Ok(()) => {
+                log(data, if restore { "live profiles: SYNQ started to put everyday settings back" } else { "live profiles: SYNQ started with no window" });
+                hidden.started(running);
+            }
+            Err(e) => log(data, &e),
+        }
+    };
 
     let handle = |events: Vec<profiles::Event>, sw: &profiles::Switcher, file: &games::GamesFile| {
         for e in &events {
@@ -225,13 +275,17 @@ fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
     loop {
         let now = Instant::now();
         let profiles_on = settings.enabled && settings.game_profiles && !paused;
-        let watching = profiles_on && (file.any_profile() || !sw.on().is_empty());
+        let watching = profiles_on && (file.any_profile() || !sw.on().is_empty() || games::live_held_any(data));
         let mut names: Option<HashSet<String>> = None;
         if watching {
             match procs.names() {
                 Ok(n) => {
                     let ev = sw.tick(&file, &n, &mut profiles::HidDevices { state: &hid_state }, now);
                     handle(ev, &sw, &file);
+                    // Live profiles: an awake SYNQ (or a SYNQ site) puts them on; with neither, SYNQ with no window.
+                    if hidden.tick(file.running_live(&n), games::live_held_any(data), helper_cfg::profiles_claimed(data), bridge::site_running_profiles()) {
+                        start_pass(&mut hidden, false);
+                    }
                     names = Some(n);
                 }
                 Err(e) => log(data, &format!("process list: {e}")),
@@ -265,7 +319,7 @@ fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
             if !due.is_empty() {
                 let names = names.take().or_else(|| procs.names().ok()).unwrap_or_default();
                 // The app is open: it shows the battery itself and may be talking to the device.
-                let app_open = watcher::names_include(&names, APP_EXE);
+                let app_open = watcher::names_include(&names, APP_EXE) || watcher::names_include(&names, BACKGROUND_EXE);
                 for key in due {
                     let Some((kind, name)) = kinds.get(&key).cloned() else { continue };
                     if app_open {
@@ -303,9 +357,14 @@ fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
                 settings = helper_cfg::load_settings(data);
                 file = load_games(data);
                 next_scan = Instant::now();
-                if !(settings.enabled && settings.game_profiles) && !sw.on().is_empty() {
-                    let ev = sw.restore_all(&file, &mut profiles::HidDevices { state: &hid_state }, Instant::now());
-                    handle(ev, &sw, &file);
+                // New settings: SYNQ may run now (WebView2 installed meanwhile), so passes may start again.
+                unavailable.store(false, Ordering::SeqCst);
+                if !(settings.enabled && settings.game_profiles) {
+                    if !sw.on().is_empty() {
+                        let ev = sw.restore_all(&file, &mut profiles::HidDevices { state: &hid_state }, Instant::now());
+                        handle(ev, &sw, &file);
+                    }
+                    restore_live(data, &mut hidden, &start_pass);
                 }
             }
             Ok(Msg::Pause(p)) => {
@@ -313,6 +372,7 @@ fn worker(ctx: Arc<Ctx>, rx: Receiver<Msg>) {
                 if p {
                     let ev = sw.restore_all(&file, &mut profiles::HidDevices { state: &hid_state }, Instant::now());
                     handle(ev, &sw, &file);
+                    restore_live(data, &mut hidden, &start_pass);
                 }
             }
             Ok(Msg::Quit(done)) => {
@@ -445,6 +505,13 @@ fn sync_autostart(settings: &HelperSettings) {
 }
 
 fn main() {
+    // `synq-helper --eq-engine ...`: the EQ engine's one-time setup, which a site asked for and the person allowed in
+    // SYNQ Helper's box; Windows' own administrator prompt started this copy for it (bridge.rs `engine`). It does that
+    // and exits, before anything else here runs.
+    #[cfg(windows)]
+    if let Some(code) = engine::cli(&std::env::args().collect::<Vec<_>>()) {
+        std::process::exit(code);
+    }
     let args: Vec<String> = std::env::args().skip(1).collect();
     let flag = |f: &str| args.iter().any(|a| a == f);
     let data = helper_cfg::app_data_dir();

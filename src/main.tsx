@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { MotionConfig } from "motion/react";
 import App from "./App";
+import { isTauri } from "./lib/runtime";
 import "./index.css";
 
 const WEB = typeof __ONBOARD_WEB__ !== "undefined" && __ONBOARD_WEB__ === true;
@@ -26,6 +27,12 @@ if (WEB) {
 }
 
 async function boot() {
+  // SYNQ Helper started this copy with no window, to put game profiles on (src/lib/profiles/pass.ts): nothing is drawn.
+  if (isTauri) {
+    const { invoke } = await import("@tauri-apps/api/core");
+    const mode = await invoke<string>("launch_mode").catch(() => "app");
+    if (mode !== "app") return (await import("./lib/profiles/pass")).runPass(mode === "restore");
+  }
   if (WEB) {
     if ("hid" in navigator && (navigator as Navigator & { hid?: unknown }).hid) {
       // From here on every `navigator.hid` the drivers see is the guarded one (src/lib/web/hid.ts).

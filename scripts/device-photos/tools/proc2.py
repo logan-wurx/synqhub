@@ -29,10 +29,24 @@ def matted(raw, force=False):
     return out, how
 
 
-def prepare(raw, bridge=5, force=False, soft=False):
-    """(trimmed RGBA, report) or (None, report with why). `soft` keeps the picture's own alpha whole (a lamp's glow): no largest-piece cut."""
+def flooded(raw):
+    """A white or grey studio ground cut with proc.py's edge flood fill instead of the matting model: better for a white
+    product on white, which the model reads as ground. (None, why) when the ground is not flat."""
+    im = proc.load_rgba(io.BytesIO(raw))
+    clear, edge = proc.alpha_stats(im)
+    if edge >= 0.5 or clear >= 0.002:
+        return im, "alpha"
+    cut, info = proc.cut_flat_bg(im)
+    return (cut, "flood") if cut is not None else (None, info)
+
+
+def prepare(raw, bridge=5, force=False, soft=False, flood=False):
+    """(trimmed RGBA, report) or (None, report with why). `soft` keeps the picture's own alpha whole (a lamp's glow): no largest-piece cut.
+    `flood` cuts a flat ground with the flood fill (a white product on white) and falls back to the matting model."""
     try:
-        im, how = matted(raw, force)
+        im, how = flooded(raw) if flood else (None, None)
+        if im is None:
+            im, how = matted(raw, force)
     except Exception as e:
         return None, {"ok": False, "why": f"unreadable: {str(e)[:60]}"}
     rep = {"srcSize": list(im.size), "how": how}
@@ -42,7 +56,8 @@ def prepare(raw, bridge=5, force=False, soft=False):
     a = np.asarray(im.getchannel("A"))
     cover = float((a > 128).mean())
     rep["cover"] = round(cover, 3)
-    if cover < 0.03 or cover > 0.97:
+    # A cut that kept almost everything failed; a picture that came transparent may simply be cropped tight to the product.
+    if cover < 0.03 or (cover > 0.97 and how != "alpha"):
         return None, {**rep, "ok": False, "why": f"subject coverage {cover:.2f}"}
     if not soft:
         im, other = proc.keep_largest(im, bridge)
@@ -57,8 +72,8 @@ def prepare(raw, bridge=5, force=False, soft=False):
     return im, rep
 
 
-def proc_file(raw, out, bridge=5, force=False, soft=False):
-    im, rep = prepare(raw, bridge, force, soft)
+def proc_file(raw, out, bridge=5, force=False, soft=False, flood=False):
+    im, rep = prepare(raw, bridge, force, soft, flood)
     if im is None:
         return rep
     data, q, size = proc.encode(im)

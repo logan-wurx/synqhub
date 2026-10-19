@@ -38,6 +38,8 @@ interface Prepared {
 }
 
 function prepare(dev: FeelDevice, device: Device, req: PendingRequest): Prepared {
+  // From the Gear page's active card: exactly what was set there.
+  if (req.kind === "set") return { title: "From the Gear page", sub: req.label, icon: "fix", steps: req.steps, blocked: null, summary: req.label, body: null };
   if (req.kind === "fix") {
     const r = dev.kind === "mouse" ? resolveMouseFix(req.intent, device as MouseDevice) : resolveKeyboardFix(req.intent, device as KeyboardDevice);
     if (!isResolved(r)) return { title: "Fix from your checkup", sub: req.label, icon: "fix", steps: [], blocked: r.reason, summary: "", body: null };
@@ -53,10 +55,10 @@ function prepare(dev: FeelDevice, device: Device, req: PendingRequest): Prepared
         <ul className="divide-y divide-white/[0.05]">
           {rows.map((row) => (
             <li key={row.label} className="flex items-baseline gap-3 py-2 first:pt-0 last:pb-0">
-              <span className="text-[12.5px] text-muted-foreground">{row.label}</span>
-              <span className="tabular ml-auto text-[14px] text-muted-foreground">{row.from}</span>
-              <span className="text-muted-foreground/80">→</span>
-              <span className="tabular text-[14px] text-foreground">{row.to}</span>
+              <span className="text-[12.5px] text-medium">{row.label}</span>
+              <span className="tabular ml-auto text-[14px] text-medium">{row.from}</span>
+              <span className="text-medium">→</span>
+              <span className="tabular text-[14px] text-high">{row.to}</span>
             </li>
           ))}
         </ul>
@@ -110,20 +112,20 @@ function SensToType({ sens }: { sens: NonNullable<AppliedResult["sens"]> }) {
     );
   };
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl bg-white/[0.03] px-4 py-3 ring-1 ring-white/[0.06]">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-control bg-white/[0.03] px-4 py-3 ring-1 ring-white/[0.06]">
       <div className="min-w-0">
-        <p className="text-[12px] text-muted-foreground">In {GAME_NAME[sens.game]}, set sensitivity to</p>
-        <p className="tabular mt-0.5 text-[24px] font-medium leading-none tracking-tight text-foreground">{text}</p>
+        <p className="text-[12px] text-medium">In {GAME_NAME[sens.game]}, set sensitivity to</p>
+        <p className="tabular mt-0.5 text-[24px] font-medium leading-none tracking-tight text-high">{text}</p>
       </div>
       <button
         onClick={copy}
-        className="flex h-8 items-center gap-1.5 rounded-full bg-white/[0.06] px-3 text-[12px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.1]"
+        className="flex h-8 items-center gap-1.5 rounded-small bg-white/[0.06] px-3 text-[12px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.1]"
         aria-label={`Copy ${text}`}
       >
-        {copied ? <Check size={13} className="text-emerald-300" /> : <Copy size={13} />}
+        {copied ? <Check size={12} className="text-emerald-300" /> : <Copy size={12} />}
         {copied ? "Copied" : "Copy"}
       </button>
-      <p className="basis-full text-[11.5px] text-muted-foreground/80">
+      <p className="basis-full text-[11.5px] text-medium">
         eDPI {fmtNum(sens.edpi, 1)} at {fmtNum(sens.dpi)} DPI. SYNQ doesn't edit game files: type it in the game's settings.
       </p>
     </div>
@@ -154,14 +156,14 @@ export function PendingPlan(dev: FeelDevice) {
         setPending(null);
         setResult({
           kind: pending.kind,
-          title: pending.kind === "fix" ? "Fixed" : `${prepared.title} is on your ${dev.name}`,
+          title: pending.kind === "fix" ? "Fixed" : pending.kind === "set" ? `${pending.label} on your ${dev.name}` : `${prepared.title} is on your ${dev.name}`,
           detail: prepared.summary,
           before,
           sens: prepared.sens,
           fromCheckup: pending.kind === "fix",
           ...(pending.kind === "fix" && pending.ref ? { ref: pending.ref } : {}),
         });
-        dev.notify({ title: pending.kind === "fix" ? "Fixed" : `${prepared.title} applied`, detail: `${prepared.summary}${dev.backup ?? true ? ", backed up first" : ""}`, tone: "ok" }, "pending");
+        dev.notify({ title: pending.kind === "fix" ? "Fixed" : pending.kind === "set" ? `${dev.name}: ${pending.label}` : `${prepared.title} applied`, detail: `${prepared.summary}${dev.backup ?? true ? ", backed up first" : ""}`, tone: "ok" }, "pending");
       } else {
         dev.notify({ title: "Stopped part way", detail: `${r.done} of ${r.total} went through. ${r.error ?? ""}`.trim(), tone: "error" }, "pending");
       }
@@ -203,16 +205,16 @@ export function PendingPlan(dev: FeelDevice) {
         <Card innerClassName="space-y-3.5 px-5 py-4">
           <div className="flex items-start gap-2.5">
             <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-emerald-300/[0.12] text-emerald-300 ring-1 ring-emerald-300/25">
-              {result.undone ? <ArrowCounterClockwise size={13} /> : <Check size={13} />}
+              {result.undone ? <ArrowCounterClockwise size={12} /> : <Check size={12} />}
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[14px] font-medium tracking-tight text-foreground">{result.undone ? "Put back as it was" : result.title}</p>
-              <p className="mt-0.5 text-[12.5px] text-muted-foreground">
+              <p className="text-[14px] font-medium tracking-tight text-high">{result.undone ? "Put back as it was" : result.title}</p>
+              <p className="mt-0.5 text-[12.5px] text-medium">
                 {result.undone ? "Your settings from before are back on the device." : `${result.detail}${dev.backup ?? true ? " · backed up first, read back" : ""}`}
               </p>
             </div>
-            <button onClick={() => setResult(null)} aria-label="Close" className="grid size-7 shrink-0 place-items-center rounded-full text-muted-foreground/80 transition-colors hover:bg-white/[0.06] hover:text-foreground">
-              <X size={13} />
+            <button onClick={() => setResult(null)} aria-label="Close" className="grid size-7 shrink-0 place-items-center rounded-full text-medium transition-colors hover:bg-white/[0.06] hover:text-high">
+              <X size={12} />
             </button>
           </div>
           {result.sens && !result.undone && <SensToType sens={result.sens} />}
@@ -223,7 +225,7 @@ export function PendingPlan(dev: FeelDevice) {
               </Pill>
             )}
             {result.fromCheckup && <Pill onClick={goCheckupResults}>Back to checkup results</Pill>}
-            {!result.before && !result.undone && <p className="text-[11.5px] text-muted-foreground/80">SYNQ couldn't read the old values, so there's no Undo here; the backup has them.</p>}
+            {!result.before && !result.undone && <p className="text-[11.5px] text-medium">SYNQ couldn't read the old values, so there's no Undo here; the backup has them.</p>}
           </div>
         </Card>
       </div>
@@ -239,22 +241,22 @@ export function PendingPlan(dev: FeelDevice) {
     <div ref={top} data-slot="pending-plan">
       <Card innerClassName="px-5 pb-5 pt-4">
         <div className="mb-3.5 flex items-center gap-2.5">
-          <Icon size={15} weight="light" className="text-primary" />
-          <h3 className="shrink-0 whitespace-nowrap text-[14px] font-medium tracking-tight text-foreground">{prepared?.title ?? "Waiting for the device"}</h3>
-          <span className="ml-auto truncate text-[11.5px] text-muted-foreground">{prepared?.sub}</span>
+          <Icon size={16} weight="light" className="text-primary" />
+          <h3 className="shrink-0 whitespace-nowrap text-[14px] font-medium tracking-tight text-high">{prepared?.title ?? "Waiting for the device"}</h3>
+          <span className="ml-auto truncate text-[11.5px] text-medium">{prepared?.sub}</span>
         </div>
         {!device ? (
-          <p className="text-[12.5px] text-muted-foreground">SYNQ is reading the {dev.kind} first.</p>
+          <p className="text-[12.5px] text-medium">SYNQ is reading the {dev.kind} first.</p>
         ) : blocked ? (
-          <p className="flex items-start gap-2 text-[12.5px] leading-relaxed text-muted-foreground">
-            <Warning size={15} weight="light" className="mt-0.5 shrink-0 text-chart-3" />
+          <p className="flex items-start gap-2 text-[12.5px] leading-relaxed text-medium">
+            <Warning size={16} weight="light" className="mt-0.5 shrink-0 text-chart-3" />
             {blocked}
           </p>
         ) : (
           <div className="space-y-4">
             {prepared?.body}
             {gateReason && (
-              <div className="rounded-2xl bg-chart-3/[0.06] px-4 py-3 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
+              <div className="rounded-control bg-chart-3/[0.06] px-4 py-3 text-[12.5px] leading-relaxed text-chart-3 ring-1 ring-chart-3/20">
                 <div className="flex gap-2.5">
                   <Warning size={16} weight="light" className="mt-0.5 shrink-0" />
                   <span className="min-w-0 flex-1">{gateReason}</span>
@@ -271,15 +273,15 @@ export function PendingPlan(dev: FeelDevice) {
             </Pill>
           )}
           {!blocked && device && prepared && prepared.steps.length === 0 && (
-            <p className="flex items-center gap-2 text-[13px] text-muted-foreground">
-              <Check size={15} className="shrink-0 text-emerald-300" /> Already set that way.
+            <p className="flex items-center gap-2 text-[13px] text-medium">
+              <Check size={14} className="shrink-0 text-emerald-300" /> Already set that way.
             </p>
           )}
           <Pill onClick={close} disabled={busy}>
             {blocked || prepared?.steps.length === 0 ? "Close" : "Not now"}
           </Pill>
           {!blocked && prepared && prepared.steps.length > 0 && gateReason === null && (
-            <p className="text-[11.5px] text-muted-foreground/80">{dev.backup ?? true ? "Backed up first, each change read back; Undo puts yours back." : "The device confirms each change; Undo puts yours back."}</p>
+            <p className="text-[11.5px] text-medium">{dev.backup ?? true ? "Backed up first, each change read back; Undo puts yours back." : "The device confirms each change; Undo puts yours back."}</p>
           )}
         </div>
       </Card>

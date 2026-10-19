@@ -2,9 +2,9 @@
 // the mouse's OpenMouse driver reports (MouseStatus and its `ui` hints), and shows only what the
 // driver supports. Every change goes through SafeMouse (src/lib/openmouse/safe-mouse.ts): backup
 // first, then the write, then a read-back. No Tauri here: the host comes in as a prop.
+import { DpiConsole } from "./DpiConsole";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import NumberFlow from "@number-flow/react";
-import { Lightning, LineSegment, Plus, Pulse, WaveSine, type Icon } from "@phosphor-icons/react";
+import { LineSegment, Pulse, WaveSine, type Icon } from "@phosphor-icons/react";
 import type { MouseLighting, MouseLightingMode } from "@openmouse/protocol/drivers";
 import { cn } from "@/lib/utils";
 import type { Connected } from "@/lib/backend";
@@ -16,13 +16,15 @@ import { Switch } from "@/components/ui/switch";
 import { GlassRadio } from "@/components/uiverse";
 import { MouseOutline } from "@/components/ui/brand";
 import { DeviceArt } from "@/components/devices/DeviceArt";
-import { Banner, DpiPresets, EmptyCard, StageEditor, hzText, rateLabel } from "./parts";
+import { Banner, EmptyCard, hzText, rateLabel } from "./parts";
+import { LiftOffLevels } from "./lift-off";
 import { MouseOverview } from "./overview";
 import { DeviceFrame, DeviceHeader, ReconnectButton, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { MOUSE_TABS_LEGACY, mouseId, useDeviceTab } from "@/lib/nav";
 import { useWide } from "@/lib/viewport";
 import { linkOf } from "@/lib/device-model";
-import { peekKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { peekKept, peekKeptRef, setKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { sharePage, type Session } from "@/lib/profiles/live";
 import { track, useSessionHold } from "@/lib/device-session";
 import { markAnswering } from "@/lib/mouse-probe";
 import { AdvancedCard } from "@/components/advanced";
@@ -49,6 +51,20 @@ const TOGGLES: Record<ToggleSetting, { title: string; icon: Icon; on: string; of
 };
 
 const seconds = (s: number) => (s >= 3600 ? `${+(s / 3600).toFixed(1)} h` : s >= 60 ? `${+(s / 60).toFixed(1)} min` : `${s} s`);
+
+// A game profile (src/lib/profiles/live.ts) goes on through this panel's session while it has one open, and shows here.
+sharePage((family) => {
+  if (!family.startsWith("om:")) return null;
+  const K = `mouse.om.${family.slice(3)}`;
+  return {
+    session: () => peekKeptRef<Session>(`${K}.session`),
+    busy: () => peekKept(`${K}.busy`, false),
+    onView: (v: GenericView) => {
+      setKept(`${K}.view`, v);
+      setKept<Draft | null>(`${K}.draft`, v.stages ? { stages: v.stages.values, active: v.stages.active } : null);
+    },
+  };
+});
 
 export function GenericMouse({
   id,
@@ -218,7 +234,6 @@ export function GenericMouse({
   const asideOn = wide && phase.kind === "ready" && !!view;
   const tabs: TabDef[] = [
     ...(asideOn ? [] : [{ id: "overview", label: "Overview" }]),
-    ...(wantsDpi && !asideOn ? [{ id: "sensitivity", label: "Sensitivity" }] : []),
     ...(wantsPerformance || wantsButtons || view?.lighting || (asideOn && wantsDpi) ? [{ id: "controls", label: asideOn ? "Settings" : "Controls" }] : []),
     { id: "advanced", label: "Advanced" },
   ];
@@ -248,6 +263,8 @@ export function GenericMouse({
   const overview = phase.kind === "ready" && !!view ? (
               <MouseOverview
                 feel={feel}
+                pollingInConsole={!!view.polling?.canSet && wantsDpi}
+                liftOffInConsole={!!view.lod && wantsDpi}
                 art={<DeviceArt spec={{ kind: "mouse", family: `om:${id}`, name: view.name, brand: view.brand }} />}
                 link={linkOf(view.connection ?? entry?.connection) ?? null}
                 name={view.name}
@@ -322,92 +339,59 @@ export function GenericMouse({
 
             {tab === "overview" && overview}
 
-            {(tab === "sensitivity" || (asideOn && tab === "controls")) && (
+            {/* The Sensitivity console, on the Overview: most people come to change the DPI and go. */}
+            {tab === "overview" && wantsDpi && (
               <>
-                <Card innerClassName="relative overflow-hidden px-6 pb-6 pt-5">
-                  <div className="flex items-center gap-2">
-                    <p className="text-[13px] text-muted-foreground">Sensitivity</p>
-                    {(view.dpi.canSet || view.stages?.canSet) && <Kept p={view.persistence[view.stages?.canSet ? "setDpiStageValue" : "setDpi"]} />}
-                  </div>
-                  <div className="mt-3 flex items-baseline gap-3">
-                    <NumberFlow
-                      value={view.dpi.value}
-                      className="tabular text-[86px] font-medium leading-none tracking-[-0.06em] text-foreground [text-shadow:0_0_28px_color-mix(in_srgb,var(--primary)_30%,transparent)]"
-                    />
-                    <span className="text-[18px] text-muted-foreground">DPI</span>
-                  </div>
-                  {view.dpi.canSet && !view.stages?.canSet && (
-                    <DpiPresets value={view.dpi.value} min={view.dpi.min} max={view.dpi.max} disabled={off(true)} onPick={(dpi) => run(`Now running ${dpi} DPI`, { kind: "dpi", dpi })} />
-                  )}
-                  <p className="mt-5 text-[12px] text-muted-foreground">
-                    {view.dpi.min}–{view.dpi.max} DPI
-                  </p>
-                </Card>
-
-                {view.stages && draft && (
-                  <Card>
-                    <CardHeader
-                      title="DPI steps"
-                      hint={view.stages.canSet ? "The mouse runs the starred step. The DPI button cycles through the rest." : "The steps the mouse holds. This driver can't change them."}
-                      right={
-                        view.stages.canSet && (
-                          <button
-                            disabled={!dirty || busy || locked}
-                            onClick={() => run("DPI steps changed", { kind: "stages", values: draft.stages, active: draft.active })}
-                            className="group flex h-9 items-center gap-2 rounded-full bg-foreground pl-4 pr-1.5 text-[13px] font-medium text-background transition-all duration-300 ease-fluid active:scale-[0.98] disabled:bg-white/[0.06] disabled:text-muted-foreground"
-                          >
-                            {busy ? "Saving…" : dirty ? "Send to mouse" : "Up to date"}
-                            <span className="grid size-6 place-items-center rounded-full bg-black/10">
-                              <Lightning size={12} weight="fill" />
-                            </span>
-                          </button>
-                        )
-                      }
-                    />
-                    <div className={cn("flex flex-wrap items-stretch gap-3 px-5 pb-5 pt-4", off(view.stages.canSet) && "opacity-60")}>
-                      {draft.stages.map((dpi, i) => (
-                        <StageEditor
-                          key={i}
-                          index={i}
-                          value={dpi}
-                          isDefault={i === draft.active}
-                          step={view.stages!.step}
-                          min={view.stages!.min}
-                          max={view.stages!.max}
-                          disabled={off(view.stages!.canSet)}
-                          starTitle="Run this step"
-                          onChange={(v) => setDraft({ ...draft, stages: draft.stages.map((x, j) => (j === i ? v : x)) })}
-                          onDefault={() => setDraft({ ...draft, active: i })}
-                          onRemove={
-                            view.stages!.countEditable && draft.stages.length > 1
-                              ? () =>
-                                  setDraft({
-                                    stages: draft.stages.filter((_, j) => j !== i),
-                                    active: Math.min(draft.active > i ? draft.active - 1 : draft.active, draft.stages.length - 2),
-                                  })
-                              : undefined
-                          }
-                        />
-                      ))}
-                      {!locked && view.stages.countEditable && draft.stages.length < view.stages.maxStages && (
-                        <button
-                          onClick={() => setDraft({ ...draft, stages: [...draft.stages, Math.min((draft.stages[draft.stages.length - 1] ?? 800) * 2, view.stages!.max)] })}
-                          className="flex w-[118px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/10 text-[12.5px] text-muted-foreground transition-colors hover:bg-white/[0.03] hover:text-foreground"
-                        >
-                          <Plus size={16} weight="light" /> Add step
-                        </button>
-                      )}
-                    </div>
-                  </Card>
-                )}
+                <DpiConsole
+                  polling={view.polling?.canSet ? { hz: view.polling.hz, options: view.polling.options, disabled: off(true), hint: view.polling.note ?? "Reports per second. Higher costs more battery and CPU.", badge: <Kept p={view.persistence.setPollingRate} />, onPick: (hz) => run(`Polling rate set to ${rateLabel(hz)} Hz`, { kind: "polling", hz }) } : undefined}
+                  dpi={view.dpi.value}
+                  range={{ min: view.dpi.min, max: view.dpi.max }}
+                  pick={view.dpi.canSet && !view.stages?.canSet ? { step: 50, disabled: off(true), onPick: (dpi) => run(`Now running ${dpi} DPI`, { kind: "dpi", dpi }) } : undefined}
+                  badge={(view.dpi.canSet || view.stages?.canSet) && <Kept p={view.persistence[view.stages?.canSet ? "setDpiStageValue" : "setDpi"]} />}
+                  footnote={`${view.dpi.min} to ${view.dpi.max} DPI`}
+                  extras={
+                    view.lod && (
+                      <LiftOffLevels
+                        options={view.lod.options}
+                        value={view.lod.value}
+                        label={(l) => l}
+                        disabled={off(view.lod.canSet)}
+                        onPick={view.lod.canSet ? (v) => run(`Lift-off set to ${v.toLowerCase()}`, { kind: "lod", value: v as never }) : undefined}
+                      />
+                    )
+                  }
+                  steps={
+                    view.stages && draft
+                      ? {
+                          stages: draft.stages,
+                          active: draft.active,
+                          min: view.stages.min,
+                          max: view.stages.max,
+                          step: view.stages.step,
+                          maxStages: view.stages.maxStages,
+                          editable: view.stages.canSet,
+                          countEditable: view.stages.countEditable,
+                          disabled: off(view.stages.canSet),
+                          hint: view.stages.canSet ? "Click a step to run it and change its speed here. The DPI button cycles through them." : "The steps the mouse holds. This driver can't change them.",
+                          dirty,
+                          busy,
+                          saveLabel: { dirty: "Send to mouse", clean: "Up to date" },
+                          onChange: (stages, active) => setDraft({ stages, active }),
+                          onSave: view.stages.canSet ? () => run("DPI steps changed", { kind: "stages", values: draft.stages, active: draft.active }) : undefined,
+                        }
+                      : undefined
+                  }
+                />
               </>
             )}
 
             {tab === "controls" && (
               <>
-                {(view.polling || view.lod) && (
-                  <div className={cn("grid gap-5", view.polling && view.lod ? "grid-cols-[1.45fr_1fr]" : "grid-cols-1")}>
-                    {view.polling && (
+                {/* A settable polling rate is on the Overview, with the DPI; one only shown stays here. */}
+                {/* Lift-off is in the Overview's console when the console is there. */}
+                {((view.polling && !view.polling.canSet) || (view.lod && !wantsDpi)) && (
+                  <div className={cn("grid gap-5", view.polling && !view.polling.canSet && view.lod && !wantsDpi ? "grid-cols-[1.45fr_1fr]" : "grid-cols-1")}>
+                    {view.polling && !view.polling.canSet && (
                       <Card>
                         <CardHeader title="Polling rate" hint={view.polling.note ?? "Reports per second. Higher costs more battery and CPU."} right={view.polling.canSet && <Kept p={view.persistence.setPollingRate} />} />
                         <div className={cn("px-5 pb-5 pt-4", off(view.polling.canSet) && "pointer-events-none opacity-60")}>
@@ -419,7 +403,7 @@ export function GenericMouse({
                         </div>
                       </Card>
                     )}
-                    {view.lod && (
+                    {view.lod && !wantsDpi && (
                       <Card>
                         <CardHeader title="Lift-off distance" hint="How high you can lift before it stops tracking." right={view.lod.canSet && <Kept p={view.persistence.setLiftOffDistance} />} />
                         <div className={cn("px-5 pb-5 pt-4", off(view.lod.canSet) && "pointer-events-none opacity-60")}>
@@ -471,7 +455,7 @@ export function GenericMouse({
                               })}
                             />
                           ) : (
-                            <p className="tabular text-[15px] text-foreground">{view.sleep.value === null ? "—" : seconds(view.sleep.value * view.sleep.secondsPerUnit)}</p>
+                            <p className="tabular text-[15px] text-high">{view.sleep.value === null ? "—" : seconds(view.sleep.value * view.sleep.secondsPerUnit)}</p>
                           )}
                         </div>
                       </Card>
@@ -494,7 +478,7 @@ export function GenericMouse({
                           options={view.debounce.options.slice(0, 8).map((ms) => ({ value: String(ms), label: String(ms), hint: "ms" }))}
                         />
                       ) : (
-                        <p className="tabular text-[15px] text-foreground">{view.debounce.ms === null ? "—" : `${view.debounce.ms} ms`}</p>
+                        <p className="tabular text-[15px] text-high">{view.debounce.ms === null ? "—" : `${view.debounce.ms} ms`}</p>
                       )}
                     </div>
                   </Card>
@@ -515,7 +499,7 @@ export function GenericMouse({
                         />
                       ))}
                     </div>
-                    <p className="px-5 pb-4 text-[12px] text-muted-foreground">Where this mouse supports calibration, it's under Advanced.</p>
+                    <p className="px-5 pb-4 text-[12px] text-medium">Where this mouse supports calibration, it's under Advanced.</p>
                   </Card>
                 )}
               </>
@@ -558,9 +542,9 @@ function Kept({ p }: { p: Persistence }) {
       title={p === "unknown" ? "SYNQ can't tell from this mouse's driver whether the mouse keeps this after it turns off." : undefined}
       className={cn(
         "inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] ring-1",
-        p === "saved" && "text-muted-foreground ring-white/[0.08]",
+        p === "saved" && "text-medium ring-white/[0.08]",
         p === "volatile" && "text-chart-3 ring-chart-3/25",
-        p === "unknown" && "text-muted-foreground/80 ring-white/[0.06]",
+        p === "unknown" && "text-medium ring-white/[0.06]",
       )}
     >
       <span className={cn("size-1 rounded-full", p === "saved" ? "bg-primary" : p === "volatile" ? "bg-chart-3" : "bg-white/30")} />
@@ -572,10 +556,10 @@ function Kept({ p }: { p: Persistence }) {
 function AllowCard({ allowed, onChange }: { allowed: boolean; onChange: (on: boolean) => void }) {
   if (allowed)
     return (
-      <div className="flex items-center gap-3 px-1 text-[12px] text-muted-foreground">
-        <span className="size-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" />
+      <div className="flex items-center gap-3 px-1 text-[12px] text-medium">
+        <span className="size-1.5 rounded-full bg-primary" />
         Changes are allowed. A backup is saved before the first one, and each is read back after.
-        <button onClick={() => onChange(false)} className="ml-auto text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+        <button onClick={() => onChange(false)} className="ml-auto text-medium underline-offset-2 hover:text-high hover:underline">
           Make read-only
         </button>
       </div>
@@ -583,8 +567,8 @@ function AllowCard({ allowed, onChange }: { allowed: boolean; onChange: (on: boo
   return (
     <Card innerClassName="flex items-center gap-5 px-6 py-5">
       <div className="min-w-0 flex-1">
-        <p className="text-[15px] font-medium text-foreground">Read-only until you allow changes</p>
-        <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground">
+        <p className="text-[15px] font-medium text-high">Read-only until you allow changes</p>
+        <p className="mt-1 text-[12.5px] leading-relaxed text-medium">
           SYNQ drives this mouse with OpenMouse's driver library. This model isn't marked tested yet, and SYNQ hasn't been tried on one. Everything below was read from your mouse.
           When you allow changes, SYNQ saves a backup first and reads every change back.
         </p>
@@ -600,8 +584,8 @@ function LightingZone({ zone, disabled, onApply }: { zone: MouseLighting; disabl
   const usesColor = !!zone.mode && zone.colorModes.includes(zone.mode);
   const pick = (mode: MouseLightingMode) => mode !== zone.mode && onApply({ ...zone, mode });
   return (
-    <div className={cn("flex flex-wrap items-center gap-3 rounded-2xl px-1 py-2", disabled && "pointer-events-none opacity-60")}>
-      <span className="w-20 shrink-0 text-[13px] text-foreground">{zone.zone}</span>
+    <div className={cn("flex flex-wrap items-center gap-3 rounded-control px-1 py-2", disabled && "pointer-events-none opacity-60")}>
+      <span className="w-20 shrink-0 text-[13px] text-high">{zone.zone}</span>
       <div className="flex flex-1 flex-wrap gap-1.5">
         {zone.modes.map((m) => (
           <button
@@ -609,7 +593,7 @@ function LightingZone({ zone, disabled, onApply }: { zone: MouseLighting; disabl
             onClick={() => pick(m)}
             className={cn(
               "rounded-full px-3 py-1 text-[12px] ring-1 transition-colors duration-500 ease-fluid",
-              m === zone.mode ? "bg-primary text-primary-foreground ring-primary" : "bg-white/[0.04] text-muted-foreground ring-white/[0.07] hover:bg-white/[0.08] hover:text-foreground",
+              m === zone.mode ? "bg-primary text-primary-foreground ring-primary" : "bg-white/[0.04] text-medium ring-white/[0.07] hover:bg-white/[0.08] hover:text-high",
             )}
           >
             {m}
@@ -620,13 +604,13 @@ function LightingZone({ zone, disabled, onApply }: { zone: MouseLighting; disabl
         <div className="flex items-center gap-2">
           <input type="color" value={color} onChange={(e) => setColor(e.target.value)} aria-label={`${zone.zone} colour`} className="size-8 cursor-pointer rounded-full bg-transparent" />
           {color.toLowerCase() !== (zone.color ?? "").toLowerCase() && (
-            <button onClick={() => onApply({ ...zone, color })} className="rounded-full bg-foreground px-3 py-1 text-[12px] font-medium text-background">
+            <button onClick={() => onApply({ ...zone, color })} className="rounded-small bg-foreground px-3 py-1 text-[12px] font-medium text-background">
               Apply
             </button>
           )}
         </div>
       )}
-      {zone.writeOnly && <span className="w-full pl-[92px] text-[11.5px] text-muted-foreground">This zone can't report its effect, so what's shown is the last one sent.</span>}
+      {zone.writeOnly && <span className="w-full pl-[92px] text-[11.5px] text-medium">This zone can't report its effect, so what's shown is the last one sent.</span>}
     </div>
   );
 }
@@ -654,26 +638,26 @@ function MagneticButton({
   useEffect(() => setLevel(button.rapidTrigger ?? rapid?.min ?? 0), [button.rapidTrigger, rapid?.min]);
   const step = (range.max - range.min) / 100;
   return (
-    <div className={cn("flex flex-col gap-3 rounded-2xl bg-white/[0.025] px-4 py-3 ring-1 ring-white/[0.06]", disabled && "pointer-events-none opacity-60")}>
+    <div className={cn("flex flex-col gap-3 rounded-control bg-white/[0.025] px-4 py-3 ring-1 ring-white/[0.06]", disabled && "pointer-events-none opacity-60")}>
       <div className="flex items-baseline justify-between">
-        <span className="text-[13px] text-foreground">{label}</span>
-        <span className="tabular text-[12.5px] text-muted-foreground">{button.triggerPoint === null ? "—" : `${+point.toFixed(2)}`} trigger</span>
+        <span className="text-[13px] text-high">{label}</span>
+        <span className="tabular text-[12.5px] text-medium">{button.triggerPoint === null ? "—" : `${+point.toFixed(2)}`} trigger</span>
       </div>
       <input type="range" aria-label={`${label} trigger point`} min={range.min} max={range.max} step={step} value={point} disabled={!view.canTrigger} onChange={(e) => setPoint(Number(e.target.value))} className="accent-[var(--primary)]" />
       {point !== button.triggerPoint && view.canTrigger && (
-        <button onClick={() => onTrigger(point)} className="self-start rounded-full bg-foreground px-3 py-1 text-[12px] font-medium text-background">
+        <button onClick={() => onTrigger(point)} className="self-start rounded-small bg-foreground px-3 py-1 text-[12px] font-medium text-background">
           Apply trigger point
         </button>
       )}
       {rapid && view.canRapid && (
         <div className="flex items-center gap-3">
-          <span className="text-[12.5px] text-muted-foreground">Rapid trigger</span>
+          <span className="text-[12.5px] text-medium">Rapid trigger</span>
           <input type="range" aria-label={`${label} rapid trigger sensitivity`} min={rapid.min} max={rapid.max} step={(rapid.max - rapid.min) / 100} value={level} onChange={(e) => setLevel(Number(e.target.value))} className="flex-1 accent-[var(--primary)]" />
           <Switch checked={button.rapidTriggerEnabled === true} onCheckedChange={(on) => onRapid(on, level)} aria-label={`${label} rapid trigger`} />
         </div>
       )}
       {rapid && view.canRapid && level !== button.rapidTrigger && button.rapidTriggerEnabled && (
-        <button onClick={() => onRapid(true, level)} className="self-start rounded-full bg-foreground px-3 py-1 text-[12px] font-medium text-background">
+        <button onClick={() => onRapid(true, level)} className="self-start rounded-small bg-foreground px-3 py-1 text-[12px] font-medium text-background">
           Apply rapid trigger
         </button>
       )}

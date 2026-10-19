@@ -210,4 +210,10 @@ impl crate::bridge::Consent for DialogConsent {
         );
         ask_with_notification(&text).or_else(|| ask_with_dialog(&format!("{text}\n\nAllow it?"))).unwrap_or(false)
     }
+
+    /// A change a paired site asked for: a dialog only (a notification can't show the list); no dialog
+    /// program means no.
+    fn confirm(&self, _origin: &str, text: &str) -> bool {
+        ask_with_dialog(text).unwrap_or(false)
+    }
 }

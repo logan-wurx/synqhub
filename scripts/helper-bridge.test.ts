@@ -39,10 +39,20 @@ test("browser-only commands never go to the helper", () => {
   for (const cmd of ["mouse_backup_save", "mouse_log", "kb_backup_save", "kb_log", "keyboard_log", "keyboard_state_load", "keyboard_state_save", "kb_definition_load", "kb_definition_save", "feel_load", "feel_save", "page_busy", "memory_trim"]) {
     assert.ok(!HELPER_COMMANDS.has(cmd), cmd);
   }
-  // Nor anything that would change the helper or the game profiles from a website.
-  for (const cmd of ["helper_set", "helper_forget_sites", "games_save", "games_load", "games_detect", "game_art_set", "device_state_save", "eq_preset_save", "eq_restore_backup"]) {
+  // Nor anything that would change the helper itself or forget its sites from a website.
+  for (const cmd of ["helper_set", "helper_forget_sites", "game_art_set", "game_art_clear"]) {
     assert.ok(!HELPER_COMMANDS.has(cmd), cmd);
   }
+});
+
+test("the Games page and battery alerts reach the helper, which asks before saving profiles", () => {
+  for (const cmd of ["games_load", "games_save", "games_detect", "game_art", "helper_held", "device_state_save", "device_states_load", "helper_prefs", "helper_prefs_set", "games_running", "live_held_load", "live_held_save"]) {
+    assert.ok(HELPER_COMMANDS.has(cmd), cmd);
+  }
+  const bridge = read("src-tauri/helper/src/bridge.rs");
+  assert.match(bridge, /fn games_save\(&self[\s\S]*?self\.consent\.confirm/, "a site's profile save waits for the person's yes");
+  assert.match(bridge, /fn engine\(&self[\s\S]*?self\.consent\.confirm[\s\S]*?run_elevated/, "the EQ engine's setup waits for the person's yes, then Windows' own prompt");
+  assert.match(bridge, /"helper_set"/, "the helper's own settings stay the desktop app's (desktop_only test)");
 });
 
 test("the website's security policy lets the page reach the helper (and the site is the helper's origin)", () => {

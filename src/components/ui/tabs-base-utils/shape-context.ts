@@ -1,4 +1,4 @@
 // Corner radii for the segmented control: outer container, sliding pill, focus ring.
 export function useShape() {
-  return { container: "rounded-xl", bg: "rounded-lg", focusRing: "rounded-[10px]" };
+  return { container: "rounded-full", bg: "rounded-full", focusRing: "rounded-full" };
 }

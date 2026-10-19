@@ -148,7 +148,7 @@ function Open-Bridge {
 function Send-Bridge {
   param($Ws, [int]$Id, [string]$Cmd, $CmdArgs)
   if ($CmdArgs -eq $null) { $CmdArgs = @{} }
-  $json = (@{ id = $Id; cmd = $Cmd; args = $CmdArgs } | ConvertTo-Json -Compress -Depth 8)
+  $json = (@{ id = $Id; cmd = $Cmd; args = $CmdArgs } | ConvertTo-Json -Compress -Depth 16)
   $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
   $seg = New-Object 'System.ArraySegment[byte]' -ArgumentList @(, $bytes)
   [void]$Ws.SendAsync($seg, [System.Net.WebSockets.WebSocketMessageType]::Text, $true, [Threading.CancellationToken]::None).Wait(5000)
@@ -205,6 +205,97 @@ if (-not $admin -and -not $SkipPartB -and -not $Elevated) {
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 
 # ---------------------------------------------------------------------------------------------
+# Live game profiles with SYNQ closed: a game with one starting (and ending) starts SYNQ with no window ($Exe: synq.exe
+# beside the app's helper, synq-profiles.exe beside the website's), which does its pass and exits. The Sandbox has no
+# mouse, so the pass finds nothing to change. "No window": no visible window of the pass at all, an error box included;
+# only the 16x16 transparent event window every Tauri program has doesn't count. Without WebView2 (Windows Sandbox
+# has none) SYNQ can't make a window, so the pass must leave at once without a word on screen, and SYNQ Helper must not
+# start it again for every game.
+# ---------------------------------------------------------------------------------------------
+Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
+public static class SynqWindows {
+  delegate bool EnumProc(IntPtr h, IntPtr l);
+  [DllImport("user32.dll")] static extern bool EnumWindows(EnumProc f, IntPtr l);
+  [DllImport("user32.dll")] static extern uint GetWindowThreadProcessId(IntPtr h, out uint pid);
+  [DllImport("user32.dll")] static extern bool IsWindowVisible(IntPtr h);
+  [DllImport("user32.dll", CharSet = CharSet.Unicode)] static extern int GetClassName(IntPtr h, StringBuilder s, int n);
+  public static bool Shown(uint want) {
+    bool shown = false;
+    EnumWindows((h, l) => {
+      uint pid; GetWindowThreadProcessId(h, out pid);
+      if (pid == want && IsWindowVisible(h)) { var c = new StringBuilder(64); GetClassName(h, c, 64); if (c.ToString() != "Tao Thread Event Target") shown = true; }
+      return true;
+    }, IntPtr.Zero);
+    return shown;
+  }
+}
+'@
+
+function Test-WebView2 {
+  $id = '{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}'
+  foreach ($k in "HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\$id", "HKLM:\SOFTWARE\Microsoft\EdgeUpdate\Clients\$id", "HKCU:\Software\Microsoft\EdgeUpdate\Clients\$id") {
+    $pv = (Get-ItemProperty -Path $k -ErrorAction SilentlyContinue).pv
+    if ($pv -and $pv -ne '0.0.0.0') { return [string]$pv }
+  }
+  return $null
+}
+
+function Test-LiveProfiles {
+  param($Ws, [string]$Tag, [string]$Exe)
+  $script:shownWin = $false
+  $wv = Test-WebView2
+  Add-Check "$Tag-webview2" "WebView2 Runtime on this PC (SYNQ's window needs it)" 'INFO' $(if ($wv) { "version $wv" } else { 'not installed' })
+  [void](Call-Bridge $Ws 'helper_prefs_set' @{ gameProfiles = $true })
+  $dlg = Find-HelperDialog 8
+  if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+  $feel = @{ stages = @(800); active = 0; pollingHz = $null; lod = $null; debounceMs = $null; angleSnapping = $null; motionSync = $null; ripple = $null }
+  $live = @{ name = 'Test mouse'; vendorId = 0; productId = 0; steps = @(); restore = @(); settings = @{ kind = 'feel'; family = 'logitech'; feel = $feel }; saved = 1 }
+  $file = @{ version = 2; games = @(@{ id = 'synqtest'; name = 'SYNQ test game'; exes = @('synqtestgame.exe'); builtin = $false; appid = $null; auto = $true; profiles = @{ 'live:logitech' = $live } }) }
+  Send-Bridge $Ws 40 'games_save' @{ file = $file }
+  $dlg = Find-HelperDialog 10
+  if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+  $r = Receive-Bridge $Ws 40 15000
+  Check "$Tag-live-save" 'A live profile saves from the website (after the yes in SYNQ Helper)' ($r -and -not $r.err) (Brief $r)
+
+  $passes = { @(Get-CimInstance Win32_Process -Filter "Name = '$Exe'" -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like '*--game-profiles*' }) }
+  # SYNQ Helper's log says when it starts SYNQ and how each run ended (a pass can be over in well under a second).
+  $hlog = Join-Path $env:APPDATA 'com.logan.onboard\helper-log.txt'
+  $count = { param($what) if (Test-Path $hlog) { @(Select-String -Path $hlog -SimpleMatch $what).Count } else { 0 } }
+  $started0 = & $count 'SYNQ started with no window'
+  $finished0 = & $count 'SYNQ finished'
+  $game = Join-Path $env:TEMP 'synqtestgame.exe'
+  Copy-Item (Join-Path $env:WINDIR 'System32\PING.EXE') $game -Force
+  $g = Start-Process -FilePath $game -ArgumentList '-n 60 127.0.0.1' -WindowStyle Hidden -PassThru
+  # Watch for the whole pass: nothing of SYNQ's may show on screen (any window or box).
+  $shown = $false
+  $end = (Get-Date).AddSeconds(20)
+  while ((Get-Date) -lt $end -and (& $count 'SYNQ finished') -le $finished0) {
+    foreach ($q in (& $passes)) { if ([SynqWindows]::Shown([uint32]$q.ProcessId)) { $shown = $true } }
+    Start-Sleep -Milliseconds 100
+  }
+  $started = (& $count 'SYNQ started with no window') -gt $started0
+  $exit = $(if ((& $count 'SYNQ finished') -gt $finished0) { (Select-String -Path $hlog -Pattern 'SYNQ finished \(exit (\S+)\)' | Select-Object -Last 1).Matches.Groups[1].Value } else { '' })
+  Check "$Tag-hidden-start" "The game starting starts SYNQ ($Exe), nothing shows on screen, and it ends by itself" ($started -and -not $shown -and $exit -ne '') ("started {0}, a window or box shown {1}, exit {2}" -f $started, $shown, $exit)
+  $usable = $exit -eq '0'
+  Add-Check "$Tag-webview2-used" 'SYNQ could use WebView2 here (exit 0; exit 3 = no usable WebView2, as in Windows Sandbox)' 'INFO' "exit $exit"
+  $startedMid = & $count 'SYNQ started with no window'
+  Stop-Process -Id $g.Id -Force -ErrorAction SilentlyContinue
+  Start-Sleep -Seconds 8
+  $again = (& $count 'SYNQ started with no window') -gt $startedMid
+  if ($usable) {
+    Check "$Tag-hidden-end" 'The game ending starts one more pass, which ends by itself' ($again -and (Wait-Until { (& $passes).Count -eq 0 } 60))
+  } else {
+    Check "$Tag-hidden-end" 'Without a usable WebView2, SYNQ Helper does not start SYNQ again for the game ending' (-not $again)
+    Check "$Tag-notice" "SYNQ said why (it's in SYNQ Helper's log, and one tray notice)" ((& $count 'Game profiles paused') -ge 1)
+  }
+  Check "$Tag-hidden-log" "SYNQ Helper's log says why it started SYNQ" ((Test-Path $hlog) -and ((Get-Content $hlog -Raw) -match 'SYNQ started with no window')) $hlog
+  if (Test-Path $hlog) { Copy-Item $hlog (Join-Path $OutDir "helper-log-$Tag.txt") -Force }
+}
+
+# ---------------------------------------------------------------------------------------------
 # Part A: a clean PC
 # ---------------------------------------------------------------------------------------------
 Write-Host '=== Part A: SYNQ Helper on a PC without the SYNQ app ===' -ForegroundColor Cyan
@@ -253,6 +344,9 @@ $sysErr = Find-SystemError
 if ($sysErr) { Add-Check 'starts' 'Windows could start it' 'FAIL' $sysErr }
 Check 'installed' "Installed itself in $ownDir" $installed
 if ($installed) { Check 'installed-same' 'The installed copy is the downloaded file' ((Get-Sha256 $ownExe) -eq $h) }
+# The website's download carries SYNQ's program for game profiles with the site closed; it goes beside the helper.
+$bg = Join-Path $ownDir 'synq-profiles.exe'
+Check 'installed-background' "SYNQ's background program is beside it (synq-profiles.exe)" ((Test-Path $bg) -and ((Get-Item $bg).Length -gt 10MB)) $(if (Test-Path $bg) { "$((Get-Item $bg).Length) bytes" } else { 'missing' })
 $running = Wait-Until { (Port-Open) -and (@(Helper-Processes | Where-Object { $_.Path -eq $ownExe }).Count -gt 0) } 20
 Check 'running' 'Running from its own folder and listening on 127.0.0.1:17860' $running ((Helper-Processes | ForEach-Object { $_.Path }) -join '; ')
 $dlg = Find-HelperDialog 2
@@ -313,7 +407,6 @@ if ($ws) {
     @('eq_presets', @{}, 'any'),
     @('eq_engine_status', @{}, 'any'),
     @('sound_names_load', @{}, 'any'),
-    @('eq_engine_setup', @{}, 'err:desktop app'),
     @('hid_send_report', @{ key = 'nope'; reportId = 1; data = @(1, 2) }, 'err'),
     @('rgbhub_read', @{ vid = '1e71'; pid = '2001'; timeoutMs = 10 }, 'any'),
     @('rgbhub_write', @{ vid = '1e71'; pid = '2001'; reportId = 153; data = @(1) }, 'err:Refused'),
@@ -344,6 +437,63 @@ if ($ws) {
     $r = Call-Bridge $ws 'monitor_caps' @{ id = $m.path } 20000
     Check 'cmd-monitor-real' "A listed monitor ($($m.name)): capabilities or a plain error" ([bool]$r) $(if ($r.err) { "error: $($r.err)" } else { Brief $r.ok }) 'FAIL'
   }
+  # The Games page from the website: the lists answer, and a profile save waits for the person's yes in the
+  # helper's own box, which names the change (bridge.rs games_save).
+  foreach ($c in @(@('games_detect', 'list'), @('helper_held', 'list'), @('device_states_load', 'list'), @('helper_prefs', 'any'))) {
+    $r = Call-Bridge $ws $c[0] @{}
+    Check "cmd-$($c[0])" "Website command $($c[0])" ($r -and -not $r.err) $(if ($r.err) { "error: $($r.err)" } else { Brief $r.ok })
+  }
+  $r = Call-Bridge $ws 'device_state_save' @{ id = 'sandbox'; json = 'not json' }
+  Check 'cmd-device_state_save' 'A device state that is not JSON is refused' ($r -and [bool]$r.err) (Brief $r)
+  $file = (Call-Bridge $ws 'games_load' @{}).ok
+  if ($file) {
+    $test = [pscustomobject]@{ id = 'sandbox-test'; name = 'Sandbox Test'; exes = @('sandboxtest.exe'); builtin = $false; appid = $null; auto = $true; profiles = @{} }
+    $with = [pscustomobject]@{ version = $file.version; games = @(@($file.games) + $test) }
+    foreach ($answer in @('No', 'Yes')) {
+      Send-Bridge $ws 900 'games_save' @{ file = $with }
+      $dlg = Find-HelperDialog 15
+      $text = if ($dlg) { Get-DialogText $dlg } else { '' }
+      Check "games-ask-$answer" 'A games save from the website asks first, naming the change' ($dlg -and $text -like '*Add the game Sandbox Test*') $text
+      if ($dlg) { [void](Press-DialogButton $dlg $answer) }
+      $r = Receive-Bridge $ws 900 15000
+      if ($answer -eq 'No') {
+        Check 'games-no' 'On No, nothing is saved' ($r -and ([string]$r.err) -like '*chose No*') (Brief $r)
+      } else {
+        $after = (Call-Bridge $ws 'games_load' @{}).ok
+        Check 'games-yes' 'On Yes, the game is saved' ($r -and -not $r.err -and @($after.games | Where-Object { $_.id -eq 'sandbox-test' }).Count -eq 1) (Brief $r)
+      }
+    }
+    # Back as it was (the box names the removal).
+    Send-Bridge $ws 901 'games_save' @{ file = $file }
+    $dlg = Find-HelperDialog 15
+    if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+    [void](Receive-Bridge $ws 901 15000)
+  } else { Add-Check 'games-load' 'The Games page loads its list from the website' 'FAIL' 'no answer' }
+  # Battery alerts: their levels change from the website with no question; a bad level is refused.
+  $r = Call-Bridge $ws 'helper_prefs_set' @{ batteryLevels = @(25, 5) }
+  Check 'prefs-levels' 'Battery alert levels change from the website, without a question' ($r -and -not $r.err -and (@($r.ok.batteryLevels) -join ',') -eq '25,5' -and -not (Find-HelperDialog 1)) (Brief $r)
+  $r = Call-Bridge $ws 'helper_prefs_set' @{ batteryLevels = @(80) }
+  Check 'prefs-bad' 'A battery level over 50% is refused' ($r -and [bool]$r.err) (Brief $r)
+  [void](Call-Bridge $ws 'helper_prefs_set' @{ batteryLevels = @(20, 10, 5) })
+  # The EQ on a PC that has never had it: the website asks SYNQ Helper to install the engine; the helper's box asks
+  # (answered Yes here), then Windows' administrator prompt (in the Sandbox: Yes by hand in its window, if it shows),
+  # and the official installer is downloaded, checked and run.
+  $st = Call-Bridge $ws 'eq_engine_status' @{}
+  Check 'eq-before' 'The EQ engine is not on this fresh PC yet' ($st -and $st.ok -and -not $st.ok.installed) (Brief $st)
+  Send-Bridge $ws 950 'eq_engine_install' @{}
+  $dlg = Find-HelperDialog 15
+  if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
+  Check 'eq-asked' "SYNQ Helper's own box asked before the EQ engine's setup" ([bool]$dlg)
+  Write-Host 'If Windows asks for administrator rights for SYNQ Helper, click Yes in the Sandbox window.' -ForegroundColor Yellow
+  $r = Receive-Bridge $ws 950 420000
+  $st = Call-Bridge $ws 'eq_engine_status' @{}
+  $log = $(if ($r -and $r.ok) { ($r.ok.log -join ' ') } else { '' })
+  # Windows Sandbox has no sound output, so the engine can be installed but not put on one; that's the Sandbox, not SYNQ.
+  $noOutput = $st -and $st.ok -and -not $st.ok.defaultOutput
+  Check 'eq-install' 'The website installs the EQ engine through SYNQ Helper (official installer, its SHA-256 checked)' ($r -and -not $r.err -and ($r.ok.ok -or ($noOutput -and $log -match 'SHA-256 match'))) $(if ($r -and $r.ok) { "$($r.ok.result): $($r.ok.message)" } else { Brief $r })
+  Check 'eq-after' 'The EQ engine is installed afterwards' ($st -and $st.ok -and $st.ok.installed) (Brief $st)
+  # The website-only path: game profiles with the site closed, through the SYNQ program the download put beside the helper.
+  Test-LiveProfiles $ws 'a' 'synq-profiles.exe'
   Check 'alive' 'Helper still running after every command' ((Helper-Processes).Count -eq 1 -and (Port-Open))
   try { [void]$ws.CloseAsync([System.Net.WebSockets.WebSocketCloseStatus]::NormalClosure, 'done', [Threading.CancellationToken]::None).Wait(3000) } catch { }
   $ws.Dispose()
@@ -383,6 +533,8 @@ if (-not $SkipPartB) {
     $loc = (Get-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\SYNQ' -ErrorAction SilentlyContinue).InstallLocation
     $appHelper = $(if ($loc) { Join-Path ($loc.Trim('"')) 'synq-helper.exe' } else { '' })
     Check 'b-app-helper' "The app's own helper is there" ($appHelper -and (Test-Path $appHelper)) $appHelper
+    $wv = Test-WebView2
+    Check 'b-webview2' 'WebView2 Runtime on the PC after the SYNQ installer (it installs it when missing)' ([bool]$wv) $(if ($wv) { "version $wv" } else { 'not installed' }) 'WARN'
     # The app's installer may have started its helper already; the test is what the download does.
     Get-Process -Name 'synq-helper' -ErrorAction SilentlyContinue | Stop-Process -Force
     Start-Sleep -Seconds 1
@@ -402,6 +554,8 @@ if (-not $SkipPartB) {
       $hello = Receive-Bridge $ws 3 20000
       $r = Call-Bridge $ws 'devices_list' @{}
       Check 'b-website' 'The website pairs with the app helper and lists devices' ($hello -and $hello.ok -and $r -and ($r.PSObject.Properties.Name -contains 'ok')) (Brief $r)
+
+      Test-LiveProfiles $ws 'b' 'synq.exe'
       $ws.Dispose()
     } else { Add-Check 'b-website' 'The website pairs with the app helper' 'FAIL' 'no connection' }
   }

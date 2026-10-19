@@ -149,7 +149,7 @@ export function LampArrayPage({ devices, notify, family }: { devices: Connected[
         detail={info ? `${info.lamps.length} lamps. ${WORDS.detail}` : "Reading its lamps."}
         badges={<TierBadge tier="experimental" hint="Dynamic Lighting is Windows' own standard, but SYNQ hasn't been tried on this device." />}
       />
-      {also && <p className="px-1 text-[12.5px] text-muted-foreground">SYNQ also lists it as {also.name}, with its own page.</p>}
+      {also && <p className="px-1 text-[12.5px] text-medium">SYNQ also lists it as {also.name}, with its own page.</p>}
     </>
   );
 
@@ -181,8 +181,8 @@ export function LampArrayPage({ devices, notify, family }: { devices: Connected[
           <>
             {!info.enabled && (
               <Card innerClassName="px-6 py-4">
-                <p className="text-[13px] text-foreground">Dynamic Lighting is off for this device</p>
-                <p className="mt-1 text-[12.5px] text-muted-foreground">Turn it on in Settings, Personalization, Dynamic Lighting, then come back.</p>
+                <p className="text-[13px] text-high">Dynamic Lighting is off for this device</p>
+                <p className="mt-1 text-[12.5px] text-medium">Turn it on in Settings, Personalization, Dynamic Lighting, then come back.</p>
               </Card>
             )}
             <Card innerClassName="pb-5">
@@ -198,7 +198,7 @@ export function LampArrayPage({ devices, notify, family }: { devices: Connected[
                 {effect !== "solid" && <Segmented label="Speed" value={speed} options={SPEEDS} onChange={setSpeed} />}
               </div>
             </Card>
-            <p className="px-1 text-[12px] leading-relaxed text-muted-foreground/80">{WORDS.note}</p>
+            <p className="px-1 text-[12px] leading-relaxed text-medium">{WORDS.note}</p>
           </>
         )}
       </div>

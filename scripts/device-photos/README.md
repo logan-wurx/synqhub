@@ -8,7 +8,8 @@ device and nothing downloaded is ever executed.
 2. `tools/build.py <vendor>` fetches the pictures (cached under `cache/`) and runs `tools/proc.py` on each: pictures that
    are already transparent are kept; a flat white or black background is cut with an edge flood fill and a soft alpha
    (the way `atk-cut/cut.py` did the X1); only the biggest piece is kept (dongles, captions and boxes go);
-   the result is trimmed and written as WebP, about 600 px on the long side and 15-40 KB.
+   the result is trimmed and written as WebP, about 600 px on the long side and 15-40 KB (since the final pass: about 900 px,
+   never enlarged, at most 70 KB; see "Final pass" at the end).
 3. Store pages show several photos per product, so `tools/cands.py <vendor>` draws review sheets with an index on each
    cut-out, and the chosen index per model goes in `picks/<vendor>.json` (a model with no usable top-down picture is
    left out and falls back to a drawing).
@@ -199,3 +200,61 @@ underside views). Regional sites didn't help: dell.com answers 403 on every regi
 Nautilus RS LCD screen module, which reports itself as the CORSAIR Nautilus LCD Cap (`1B1C:0C57`), from corsair.com
 galleries. Still drawn: the NZXT hubs (nzxt.com answered 429), the Lian Li Uni Hub SL (its page has only a line drawing of
 the controller), the other Corsair Lighting Node models (no page with the hub alone).
+
+## Final pass (every device shown large: the developer's devices, headphones, the rest of the gaps)
+
+The redesigned Devices home shows each device as a large photo on a dark tile, so pictures now come out at about 900 px on
+the long side (never enlarged), at most 70 KB (`proc.py` `LONG`, `MAX_KB`). Same steps as before; what is new:
+
+* `tools/rows.py`: the shared plumbing of this pass's vendor modules (`R()` rows, `make()` gives `candidates()` / `jobs()`).
+  Sources as in `pads.py` plus `shopq` (Shopify products by title), `retail` (the first matching product per dealer
+  store, open-box, bundle and accessory listings skipped), `wbgrab` (an archived page's pictures), `og` and `ids`. A pick
+  may be an address instead of an index; `tools/pin_picks.py <vendor>` turns index picks into the addresses the review
+  sheet showed (store listings and archived pages can change order), `tools/drop_picks.py` takes rejected ones out.
+* `proc2.py` `flood`: a white product on a white ground (the ATK X1 V2 Air+, LG monitors with a white logo on the screen)
+  is cut with the first pass's flood fill, which keeps what the matting model reads as ground.
+* `tools/darktiles.py <vendor>` draws a vendor's built pictures on dark tiles the size the new design shows them (and
+  `zoom` one at full size); `tools/assetsheet.py` does the same for pictures already merged. Every pick was looked at
+  there before `assemble2.py`.
+* `vendors/own.py`: the developer's own devices also get product photos now, found by name (their ids stay off the
+  pictures, so SYNQ's own renders still win where DeviceArt prefers them): PRO X SUPERLIGHT 2 and DEX
+  (logitechg.com), ROG Falchion Ace HFX ZywOo Edition (rog.asus.com), ATK X1 V2 Air+ (atk.store), and the webcam that
+  reports "PC-LM1E Camera" on 0458:6006: the AUKEY PC-LM1E 1080p webcam, made for AUKEY by KYE Systems (Genius), hence
+  Genius's vendor id (aukey.com's archived product page; the full-size pictures still answer on Shopify's CDN).
+* `vendors/phones.py`, kind `headphones`: about 120 IEMs, earbuds and headphones for the Sound page, the 7Hz Salnotes
+  Zero:2 first, from the makers' own stores and image servers (Kiwi Ears, TANGZU, KZ, ThieAudio, Koss, Grado, Etymotic,
+  Campfire, 64 Audio, Sennheiser, Beyerdynamic, Audio-Technica, Apple, Logitech G, HyperX, SteelSeries, Razer ...) or
+  authorised dealers' listings (headphones.com, Linsoul, Apos Audio, HiFiGo, Headphone Zone, Audio46, Bloom Audio,
+  Moon Audio, Audio Advice, Hifi Headphones). `src/lib/device-images.ts` `headphonePhotoKeyFor(name)` finds one by the
+  name a person gives a sound output ("Zero:2") or the AutoEq model they pick; `photoKeyFor({ kind: "sound" })` goes
+  through it. Gaming headset pictures (kind `headset`) answer it too. `vendors/phones2.py` builds the rows whose dealer
+  listings answered only later (Sony, Jabra, Final, Moondrop ...) without searching phones.py's listings again;
+  `node scripts/device-photos/tools/phonecheck.mts "<name>" ...` shows which picture a sound output's name finds.
+* `vendors/headsets2.py`: the rest of the headsets SYNQ drives (PRO X Wireless, G633 / G635 / G933 / G935 from
+  logitechg.com's archived pages, Cloud II Wireless).
+* `vendors/lights3.py`: more Govee models (found through us.govee.com's own search: each model's results name the page
+  that sells it, new or refurbished), Philips Hue lines (Signify's image server), Nanoleaf Canvas / Light Panels /
+  Elements, Elgato Key Light Air / Mini / Neo and Ring Light, NZXT RGB & Fan Controller and Corsair Commander Pro
+  (their makers' archived pages).
+* `vendors/pads3.py`, `vendors/displays3.py`, more `displayswb.py` rows: Xbox Adaptive Controller, the first Xbox Elite,
+  the Xbox 360 controller, HORIPAD for Steam, Machenike G5 Pro; ROG, TUF, LG UltraGear, ZOWIE, MOBIUZ, AOC, Dell and
+  Gigabyte monitors; Logitech, OBSBOT and Creative webcams.
+* `vendors/kb6.py`: Sonix / FCC white-label boards, from the boards' own web driver (vter.driveall.cn, the catalogue FCC
+  reads): its bundle, read as text and never run, names a picture per device name. Only a picture the driver shows for
+  one board alone is used. `vendors/kb7.py`: EWEADN ZAP68 and Onikuma G67 from their makers' stores.
+* `tools/reexport.py`: the earlier passes' pictures re-cut at the new size from the source SOURCES.json names (its own
+  alpha, the cached matte, or the flood fill the first pass used), only where the source is bigger;
+  `tools/reexport_check.py` compares each with the cut it replaces and puts back any that differ.
+  `vendors/fixes.py`: earlier cuts redone (Attack Shark X3, LG 27GR95QE / 27GS95QE) and HORI's Fighting Commander
+  OCTA taken again from its store's full-size rendition instead of a thumbnail.
+* Dell's image server (Scene7) renders a picture at whatever width the page asked for, and the archive kept several of
+  them: where the page's own copy was small, `tools/displayswb-urls.json` lists the archive's largest copy of the same
+  picture after the page's ones (found with the CDX API, prefix `i.dell.com/is/image/DellContent/.../<model>/`).
+  Where the archived page kept no picture at all (AW3423DW, AW2723DF, G2724D, S2722DGM, P2422H), the list is that folder's
+  archived pictures alone (`displayswb.py` `FROM_FOLDER`, and SOURCES.json says so).
+* The resolver no longer gives Microsoft's or Sony's controller to another maker's pad whose name only shares a
+  platform word ("PowerA Xbox Series X Controller"), and monitors whose EDID maker code is the brand ("GBT", "ACR",
+  "HPN", "LEN", "PHL", "VSC") are found by their maker's pictures.
+* `tools/coverage3.mts` counts everything that is not a mouse or keyboard: controllers, headsets, Govee lights and hubs
+  from the app's own tables; webcams, monitors, Wi-Fi lights and headphones from `tools/targets.json` (the common
+  models, with the name and id the app would see).

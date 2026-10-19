@@ -43,18 +43,18 @@ export function LightsSync(props: { members: readonly LightRef[]; look: LookCont
 function SyncNeedsHelper() {
   return (
     <Card innerClassName="px-7 py-6">
-      <p className="text-[15px] text-foreground">Screen sync needs SYNQ Helper</p>
-      <p className="mt-1 max-w-xl text-[13px] text-muted-foreground">
+      <p className="text-[15px] text-high">Screen sync needs SYNQ Helper</p>
+      <p className="mt-1 max-w-xl text-[13px] text-medium">
         Lights follow the screen while you play or watch, so a browser tab (in the background by then) can't read it. SYNQ Helper reads the screen edge on this PC and sends Wi-Fi lights and RGB hubs their colours; nothing is recorded.
       </p>
       <button
         type="button"
         onClick={goSettings}
-        className="mt-4 inline-flex items-center gap-2 rounded-full bg-foreground py-1.5 pl-4 pr-1.5 text-[13px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
+        className="mt-4 inline-flex items-center gap-2 rounded-small bg-foreground py-1.5 pl-4 pr-1.5 text-[13px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
       >
         Get SYNQ Helper
-        <span className="grid size-6 place-items-center rounded-full bg-background/10">
-          <ArrowUpRight size={13} weight="bold" />
+        <span className="grid size-6 place-items-center rounded bg-background/10">
+          <ArrowUpRight size={12} weight="bold" />
         </span>
       </button>
     </Card>
@@ -117,9 +117,9 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
           <div className="flex min-w-[260px] flex-1 flex-col items-start gap-3">
             <MonitorPicker monitors={monitors} value={monitor} onChange={setMonitorId} disabled={sync.running} />
             <Segmented wrap label="Part of the screen" value={edge} options={EDGES} onChange={setEdge} />
-            <label className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-foreground">
+            <label className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-high">
               <Switch checked={vivid} onCheckedChange={setVivid} aria-label="Vivid colours" />
-              Vivid colours <span className="text-[12px] text-muted-foreground">(edges tend to grey; this lifts them)</span>
+              Vivid colours <span className="text-[12px] text-medium">(edges tend to grey; this lifts them)</span>
             </label>
           </div>
           <button
@@ -128,8 +128,8 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
             onClick={() => void (sync.running ? run(stopLightsSync) : start())}
             data-testid="lights-sync-toggle"
             className={cn(
-              "inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2 text-[13.5px] ring-1 transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-60",
-              sync.running ? "bg-white/[0.06] text-foreground ring-white/[0.12] hover:bg-white/[0.1]" : "bg-primary/[0.15] text-foreground ring-primary/40 hover:bg-primary/[0.22]",
+              "inline-flex shrink-0 items-center gap-2 rounded-control px-5 py-2 text-[13.5px] ring-1 transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-60",
+              sync.running ? "bg-white/[0.06] text-high ring-white/[0.12] hover:bg-white/[0.1]" : "bg-primary/[0.15] text-high ring-primary/40 hover:bg-primary/[0.22]",
             )}
           >
             {sync.running ? <Stop size={14} weight="fill" /> : <Play size={14} weight="fill" />}
@@ -137,9 +137,9 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
           </button>
         </div>
         {(sync.running || sync.ended) && (
-          <div className="mx-5 mt-4 flex items-start gap-3 rounded-2xl bg-white/[0.03] px-4 py-3 text-[13px] leading-relaxed ring-1 ring-white/[0.07]" data-testid="lights-sync-status">
-            {sync.blind ? <EyeSlash size={17} className="mt-0.5 shrink-0 text-chart-3" /> : <Eye size={17} className="mt-0.5 shrink-0 text-primary" />}
-            <span className={sync.blind ? "text-chart-3" : "text-muted-foreground"}>
+          <div className="mx-5 mt-4 flex items-start gap-3 rounded-control bg-white/[0.03] px-4 py-3 text-[13px] leading-relaxed ring-1 ring-white/[0.07]" data-testid="lights-sync-status">
+            {sync.blind ? <EyeSlash size={16} weight="light" className="mt-0.5 shrink-0 text-chart-3" /> : <Eye size={16} weight="light" className="mt-0.5 shrink-0 text-primary" />}
+            <span className={sync.blind ? "text-chart-3" : "text-medium"}>
               {!sync.running
                 ? `Screen sync stopped: ${sync.ended}`
                 : sync.blind
@@ -166,7 +166,7 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
                     role="radio"
                     aria-checked={area?.id === a.id}
                     onClick={() => setAreaId(a.id)}
-                    className={cn("rounded-full px-3 py-1 text-[12.5px] ring-1 transition-colors", area?.id === a.id ? "bg-white/[0.09] text-foreground ring-white/25" : "text-muted-foreground ring-white/10 hover:text-foreground")}
+                    className={cn("rounded-full px-3 py-1 text-[12.5px] ring-1 transition-colors", area?.id === a.id ? "bg-white/[0.09] text-high ring-white/25" : "text-medium ring-white/10 hover:text-high")}
                   >
                     {a.name} · {a.lights.length} {a.lights.length === 1 ? "light" : "lights"}
                   </button>
@@ -174,13 +174,13 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
               </div>
             )}
             {areas.length === 0 && !confirming && (
-              <button type="button" onClick={() => setConfirming(true)} className="rounded-full bg-white/[0.06] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-white/[0.1] hover:bg-white/[0.1]">
+              <button type="button" onClick={() => setConfirming(true)} className="rounded-small bg-white/[0.06] px-4 py-1.5 text-[13px] text-high ring-1 ring-white/[0.1] hover:bg-white/[0.1]">
                 Set up Hue Entertainment
               </button>
             )}
             {confirming && (
-              <div className="rounded-2xl bg-white/[0.03] px-4 py-3 ring-1 ring-white/[0.08]">
-                <p className="text-foreground">SYNQ will add an Entertainment area named "SYNQ" to your Hue Bridge with these lights ({hueLights.length}). Nothing else on the bridge changes. You can remove it here any time.</p>
+              <div className="rounded-control bg-white/[0.03] px-4 py-3 ring-1 ring-white/[0.08]">
+                <p className="text-high">SYNQ will add an Entertainment area named "SYNQ" to your Hue Bridge with these lights ({hueLights.length}). Nothing else on the bridge changes. You can remove it here any time.</p>
                 <div className="mt-3 flex gap-2">
                   <button
                     type="button"
@@ -193,11 +193,11 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
                         setConfirming(false);
                       })
                     }
-                    className="rounded-full bg-primary/[0.15] px-4 py-1.5 text-[13px] text-foreground ring-1 ring-primary/40 hover:bg-primary/[0.22] disabled:opacity-60"
+                    className="rounded-small bg-primary/[0.15] px-4 py-1.5 text-[13px] text-high ring-1 ring-primary/40 hover:bg-primary/[0.22] disabled:opacity-60"
                   >
                     Create
                   </button>
-                  <button type="button" onClick={() => setConfirming(false)} className="rounded-full px-3 py-1.5 text-[13px] text-muted-foreground hover:text-foreground">
+                  <button type="button" onClick={() => setConfirming(false)} className="rounded-small px-3 py-1.5 text-[13px] text-medium hover:text-high">
                     Cancel
                   </button>
                 </div>
@@ -213,7 +213,7 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
                     setAreas(areas.filter((a) => !a.ours));
                   })
                 }
-                className="text-[12.5px] text-muted-foreground underline-offset-4 hover:text-foreground hover:underline disabled:opacity-50"
+                className="text-[12.5px] text-medium underline-offset-4 hover:text-high hover:underline disabled:opacity-50"
               >
                 Remove SYNQ's area
               </button>
@@ -236,12 +236,12 @@ function SyncPanel({ members, look, reached, onError }: { members: readonly Ligh
                 disabled={!!reason || sync.running}
                 onClick={() => setOff(on ? [...off, r.key] : off.filter((k) => k !== r.key))}
                 aria-pressed={on}
-                className="flex items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04] disabled:cursor-default disabled:hover:bg-transparent"
+                className="flex items-center gap-3 rounded-small px-2 py-1.5 text-left transition-colors hover:bg-white/[0.04] disabled:cursor-default disabled:hover:bg-transparent"
               >
-                <span className={cn("size-4 shrink-0 rounded-md ring-1", on ? "bg-primary ring-primary" : "ring-white/20", reason && "opacity-40")} />
+                <span className={cn("size-4 shrink-0 rounded ring-1", on ? "bg-primary ring-primary" : "ring-white/20", reason && "opacity-40")} />
                 <span className={cn("min-w-0 flex-1", reason && "opacity-50")}>
-                  <span className="block truncate text-[13px] text-foreground">{r.name}</span>
-                  <span className="block truncate text-[11.5px] text-muted-foreground">{dropped ? `Let go: ${dropped}` : (reason ?? r.detail)}</span>
+                  <span className="block truncate text-[13px] text-high">{r.name}</span>
+                  <span className="block truncate text-[11.5px] text-medium">{dropped ? `Let go: ${dropped}` : (reason ?? r.detail)}</span>
                 </span>
                 {sync.running && colour && on && <span className="size-4 shrink-0 rounded-full ring-1 ring-white/20" style={{ background: css(colour) }} aria-hidden="true" />}
               </button>
@@ -260,8 +260,8 @@ export function LightsSyncChip({ family, all, otherwise }: { family: string; all
   const sync = useLightsSync();
   if (!sync.running || !(all || sync.keys.includes(`wifi:${family}`))) return <>{otherwise}</>;
   return (
-    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-black/70 py-1 pl-3 pr-1 text-[12px] text-foreground ring-1 ring-primary/40 backdrop-blur-sm" data-testid="lights-sync-chip">
-      <span className="size-1.5 animate-pulse rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" aria-hidden="true" />
+    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-shade/70 py-1 pl-3 pr-1 text-[12px] text-high ring-1 ring-primary/40 backdrop-blur-sm" data-testid="lights-sync-chip">
+      <span className="size-1.5 animate-pulse rounded-full bg-primary" aria-hidden="true" />
       Syncing to the screen
       <button type="button" onClick={() => void stopLightsSync()} className="rounded-full bg-white/[0.1] px-2.5 py-0.5 text-[11.5px] ring-1 ring-white/15 transition-colors hover:bg-white/[0.18]">
         Stop

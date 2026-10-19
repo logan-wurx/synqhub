@@ -25,11 +25,11 @@ export function ScreenPicture({ edge, on, monitor }: { edge: SyncEdge; on: boole
   const strip = (where: string) => <span className={cn("absolute inset-y-1.5 w-1.5 rounded-full transition-colors duration-500", where, on ? "bg-primary shadow-[0_0_10px_var(--primary)]" : "bg-white/40")} />;
   const width = monitor && monitor.height > 0 ? Math.round(Math.min(124, Math.max(44, (72 * monitor.width) / monitor.height))) : 124;
   return (
-    <div aria-hidden="true" className="relative h-[72px] shrink-0 rounded-xl bg-white/[0.03] ring-1 ring-white/15 transition-[width] duration-300" style={{ width }}>
+    <div aria-hidden="true" className="relative h-[72px] shrink-0 rounded-tight bg-white/[0.03] ring-1 ring-white/15 transition-[width] duration-300" style={{ width }}>
       {(edge === "left" || edge === "both" || edge === "full") && strip("left-1.5")}
       {edge === "full" && strip("left-1/2 -translate-x-1/2")}
       {(edge === "right" || edge === "both" || edge === "full") && strip("right-1.5")}
-      <span className="absolute -bottom-2 left-1/2 h-1.5 w-8 -translate-x-1/2 rounded-b-md bg-white/15" />
+      <span className="absolute -bottom-2 left-1/2 h-1.5 w-8 -translate-x-1/2 rounded-b bg-white/15" />
     </div>
   );
 }
@@ -90,7 +90,7 @@ export function SyncTab({ control, view, onError }: { control: LampControl; view
                 if (running) void start(e, vivid);
               }}
             />
-            <label className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-foreground">
+            <label className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-high">
               <Switch
                 checked={vivid}
                 onCheckedChange={(v) => {
@@ -99,7 +99,7 @@ export function SyncTab({ control, view, onError }: { control: LampControl; view
                 }}
                 aria-label="Vivid colours"
               />
-              Vivid colours <span className="text-[12px] text-muted-foreground">(edges tend to grey; this lifts them)</span>
+              Vivid colours <span className="text-[12px] text-medium">(edges tend to grey; this lifts them)</span>
             </label>
           </div>
           <button
@@ -108,8 +108,8 @@ export function SyncTab({ control, view, onError }: { control: LampControl; view
             onClick={() => void (running ? run(() => control.stopSync()) : start(edge, vivid))}
             data-testid="sync-toggle"
             className={cn(
-              "inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2 text-[13.5px] ring-1 transition-colors duration-300 disabled:cursor-wait disabled:opacity-60",
-              running ? "bg-white/[0.06] text-foreground ring-white/[0.12] hover:bg-white/[0.1]" : "bg-primary/[0.15] text-foreground ring-primary/40 hover:bg-primary/[0.22]",
+              "inline-flex shrink-0 items-center gap-2 rounded-control px-5 py-2 text-[13.5px] ring-1 transition-colors duration-300 disabled:cursor-wait disabled:opacity-60",
+              running ? "bg-white/[0.06] text-high ring-white/[0.12] hover:bg-white/[0.1]" : "bg-primary/[0.15] text-high ring-primary/40 hover:bg-primary/[0.22]",
             )}
           >
             {running ? <Stop size={14} weight="fill" /> : <Play size={14} weight="fill" />}
@@ -117,9 +117,9 @@ export function SyncTab({ control, view, onError }: { control: LampControl; view
           </button>
         </div>
         {running && (
-          <div className="mx-5 mt-4 flex items-start gap-3 rounded-2xl bg-white/[0.03] px-4 py-3 text-[13px] leading-relaxed ring-1 ring-white/[0.07]" data-testid="sync-status">
-            {running.blind ? <EyeSlash size={17} className="mt-0.5 shrink-0 text-chart-3" /> : <Eye size={17} className="mt-0.5 shrink-0 text-primary" />}
-            <span className={running.blind ? "text-chart-3" : "text-muted-foreground"}>
+          <div className="mx-5 mt-4 flex items-start gap-3 rounded-control bg-white/[0.03] px-4 py-3 text-[13px] leading-relaxed ring-1 ring-white/[0.07]" data-testid="sync-status">
+            {running.blind ? <EyeSlash size={16} weight="light" className="mt-0.5 shrink-0 text-chart-3" /> : <Eye size={16} weight="light" className="mt-0.5 shrink-0 text-primary" />}
+            <span className={running.blind ? "text-chart-3" : "text-medium"}>
               {running.blind
                 ? "Can't see this window, holding colours. Games in exclusive full screen and protected video can't be read; the light keeps its last colours instead of going dark."
                 : "Syncing. The light stays connected until you stop it, even with SYNQ in the background; its card on the Devices home has a Stop button too."}
@@ -129,8 +129,8 @@ export function SyncTab({ control, view, onError }: { control: LampControl; view
       </Card>
       <Card innerClassName="px-5 py-4">
         <div className="flex items-start gap-3">
-          <Monitor size={17} className="mt-0.5 shrink-0 text-muted-foreground" />
-          <ul className="flex list-disc flex-col gap-1.5 pl-4 text-[12.5px] leading-relaxed text-muted-foreground">
+          <Monitor size={16} weight="light" className="mt-0.5 shrink-0 text-medium" />
+          <ul className="flex list-disc flex-col gap-1.5 pl-4 text-[12.5px] leading-relaxed text-medium">
             <li>SYNQ reads thin strips of one screen, the main one unless you pick another (1 % of its width), never the whole picture, about 6 times a second while it moves and twice a second once it stands still. Each read costs about 0.2 ms of CPU.</li>
             <li>Nothing is recorded or kept: only the colours go to the light, and only the segments that changed.</li>
             <li>It stops by itself when the screen locks, the PC sleeps, the displays change or the light stops answering, and when you change its colour, scene, effect or music.</li>

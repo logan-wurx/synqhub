@@ -20,9 +20,9 @@ export function HelperLink({ className }: { className?: string }) {
       type="button"
       onClick={() => goSettings()}
       data-slot="helper-link"
-      className={cn("inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]", className)}
+      className={cn("inline-flex items-center gap-1.5 rounded-small px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]", className)}
     >
-      <Plugs size={14} />
+      <Plugs size={12} />
       Use SYNQ Helper
     </button>
   );
@@ -35,7 +35,7 @@ export function DesktopLink({ className, children = "Get the desktop app" }: { c
       target="_blank"
       rel="noopener noreferrer"
       data-slot="desktop-app-link"
-      className={cn("inline-flex items-center rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]", className)}
+      className={cn("inline-flex items-center rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]", className)}
     >
       {children}
     </a>
@@ -46,12 +46,12 @@ export function DesktopLink({ className, children = "Get the desktop app" }: { c
 export function DesktopOnlyCard({ title, text, className }: { title: string; text: string; className?: string }) {
   return (
     <Card className={className} innerClassName="flex items-center gap-4 px-5 py-4">
-      <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/[0.04] text-muted-foreground ring-1 ring-white/[0.07]">
+      <span className="grid size-10 shrink-0 place-items-center rounded-control bg-white/[0.04] text-medium ring-1 ring-white/[0.07]">
         <Desktop size={20} weight="light" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="text-[14px] font-medium tracking-tight text-foreground">{title}</p>
-        <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted-foreground">{text}</p>
+        <p className="text-[14px] font-medium tracking-tight text-high">{title}</p>
+        <p className="mt-0.5 text-[12.5px] leading-relaxed text-medium">{text}</p>
       </div>
       <div className="flex shrink-0 flex-col items-end gap-2">
         <DesktopLink />
@@ -74,12 +74,12 @@ export function WebSoundPage({ notify }: { notify: (n: Omit<Notice, "id">, key?:
     <div className="flex h-full flex-col gap-5 overflow-y-auto px-8 pb-10 pt-7 [&>*]:shrink-0">
       <header>
         <Eyebrow>Desktop app</Eyebrow>
-        <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground">Sound</h1>
-        <p className="mt-2 text-[13.5px] text-muted-foreground">The EQ, your presets and the engine on your output.</p>
+        <h1 className="mt-3 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-high">Sound</h1>
+        <p className="mt-2 text-[13.5px] text-medium">The EQ, your presets and the engine on your output.</p>
       </header>
       <DesktopOnlyCard
         title="Install the helper to use this in the browser"
-        text="A browser can't reach your system's audio. SYNQ Helper can: get it from Settings here (one small file for Windows, it installs itself) and this page finds it. Or use the EQ in the desktop app."
+        text="A browser can't reach your system's audio. SYNQ Helper can: get it from Settings here (one file for Windows, it installs itself) and this page finds it. Or use the EQ in the desktop app."
       />
     </div>
   );

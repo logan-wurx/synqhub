@@ -56,11 +56,11 @@ export function AddDeviceButton({ notify, className, label = "Add device" }: { n
       disabled={busy}
       data-slot="add-device"
       className={cn(
-        "inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-[13px] font-medium text-background transition-[transform,opacity] duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50",
+        "inline-flex items-center gap-2 rounded-control bg-foreground px-4 py-2 text-[13px] font-medium text-background transition-[transform,opacity] duration-300 ease-fluid active:scale-[0.97] disabled:opacity-50",
         className,
       )}
     >
-      <Plus size={15} weight="bold" />
+      <Plus size={14} weight="bold" />
       {label}
     </button>
   );

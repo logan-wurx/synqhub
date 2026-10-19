@@ -37,14 +37,14 @@ export function ProPicker({ mice }: { mice: readonly DeviceEntry[] }) {
     <div className="grid gap-x-8 gap-y-5 min-[1100px]:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]" data-slot="pro-picker">
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2">
-          <label className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-xl bg-white/[0.04] px-3 ring-1 ring-white/[0.07] focus-within:ring-primary/60">
-            <MagnifyingGlass size={14} className="shrink-0 text-muted-foreground" />
+          <label className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-control bg-white/[0.04] px-3 ring-1 ring-white/[0.07] focus-within:ring-primary/60">
+            <MagnifyingGlass size={14} className="shrink-0 text-medium" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search a pro, team or mouse"
               aria-label="Search pros"
-              className="min-w-0 flex-1 bg-transparent text-[13px] text-foreground outline-none placeholder:text-muted-foreground/80"
+              className="min-w-0 flex-1 bg-transparent text-[13px] text-high outline-none placeholder:text-medium"
             />
           </label>
           <div className="flex gap-1.5">
@@ -62,22 +62,22 @@ export function ProPicker({ mice }: { mice: readonly DeviceEntry[] }) {
                 role="option"
                 aria-selected={picked?.id === p.id}
                 onClick={() => setPicked(p)}
-                className={cn("flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors", picked?.id === p.id ? "bg-white/[0.07] ring-1 ring-white/[0.1]" : "hover:bg-white/[0.04]")}
+                className={cn("flex w-full items-center gap-3 rounded-small px-3 py-2 text-left transition-colors", picked?.id === p.id ? "bg-white/[0.07] ring-1 ring-white/[0.1]" : "hover:bg-white/[0.04]")}
               >
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[13px] text-foreground">{p.name}</span>
-                  <span className="block truncate text-[11.5px] text-muted-foreground">
+                  <span className="block truncate text-[13px] text-high">{p.name}</span>
+                  <span className="block truncate text-[11.5px] text-medium">
                     {GAME_NAME[p.game]} · {p.team}
                   </span>
                 </span>
-                <span className="tabular shrink-0 text-right text-[11.5px] text-muted-foreground">
+                <span className="tabular shrink-0 text-right text-[11.5px] text-medium">
                   {p.dpi} · {fmtNum(p.sens)}
-                  <span className="block text-muted-foreground/80">eDPI {fmtNum(proEdpi(p), 1)}</span>
+                  <span className="block text-medium">eDPI {fmtNum(proEdpi(p), 1)}</span>
                 </span>
               </button>
             </li>
           ))}
-          {!list.length && <li className="px-3 py-4 text-[12.5px] text-muted-foreground">No pro matches that.</li>}
+          {!list.length && <li className="px-3 py-4 text-[12.5px] text-medium">No pro matches that.</li>}
         </ul>
       </div>
 
@@ -85,8 +85,8 @@ export function ProPicker({ mice }: { mice: readonly DeviceEntry[] }) {
         {picked ? (
           <div className="space-y-4">
             <div>
-              <p className="text-[15px] font-medium tracking-tight text-foreground">{picked.name}</p>
-              <p className="mt-0.5 text-[12px] text-muted-foreground">
+              <p className="text-[15px] font-medium tracking-tight text-high">{picked.name}</p>
+              <p className="mt-0.5 text-[12px] text-medium">
                 {picked.mouse} · {hzText(picked.pollingHz)}
               </p>
             </div>
@@ -100,7 +100,7 @@ export function ProPicker({ mice }: { mice: readonly DeviceEntry[] }) {
               </div>
             )}
             <ProDiff pro={picked} mouse={mouse ? { device, name: mouse.name } : undefined} />
-            <p className="text-[11.5px] leading-relaxed text-muted-foreground/80">
+            <p className="text-[11.5px] leading-relaxed text-medium">
               Keyboard: {picked.keyboard}. {picked.name} hasn't published actuation or rapid trigger values, so the keyboard stays as it is.
             </p>
             <div className="flex flex-wrap items-center gap-2.5">
@@ -109,16 +109,16 @@ export function ProPicker({ mice }: { mice: readonly DeviceEntry[] }) {
                   {device ? `Apply to ${mouse.name}` : `Open ${mouse.name} to apply`}
                 </Pill>
               ) : (
-                <p className="text-[12.5px] text-muted-foreground">Plug in a mouse to apply it.</p>
+                <p className="text-[12.5px] text-medium">Plug in a mouse to apply it.</p>
               )}
-              <span className="text-[11.5px] text-muted-foreground/80">Backed up first, with Undo. You type the sens in the game; SYNQ doesn't edit game files.</span>
+              <span className="text-[11.5px] text-medium">Backed up first, with Undo. You type the sens in the game; SYNQ doesn't edit game files.</span>
             </div>
-            <p className="text-[11px] text-muted-foreground/80" title={picked.source}>
+            <p className="text-[11px] text-medium" title={picked.source}>
               Values from {new URL(picked.source).hostname.replace(/^www\./, "")}, checked {checkedOn(picked.checked)}.
             </p>
           </div>
         ) : (
-          <p className="pt-2 text-[12.5px] leading-relaxed text-muted-foreground">Pick a pro to see their DPI, polling and sens next to yours, and what your own mouse can do of it.</p>
+          <p className="pt-2 text-[12.5px] leading-relaxed text-medium">Pick a pro to see their DPI, polling and sens next to yours, and what your own mouse can do of it.</p>
         )}
       </div>
     </div>

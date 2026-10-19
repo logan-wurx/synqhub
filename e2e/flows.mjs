@@ -47,12 +47,14 @@ async function openTab(t, label) {
 const display = (name, on = false) => `//*[@data-testid='sync-monitor']//button${on ? "[@aria-checked='true']" : ""}[starts-with(normalize-space(), ${xq(name)})]`;
 
 /**
- * Opens a device card and switches to its second tab; the first tab must give way, and the second tab's own
- * content (`content`, a title on it) must show: the sample device was read through the real driver code.
+ * Opens a device card: its Overview must show `content` (a title on it: the main controls live there, read through
+ * the real driver code); then its second tab must take over from the first.
  */
 async function openAndSwitchTabs(t, name, content, shotName) {
   await t.click(dock("Gear"));
   await t.click(card(name));
+  await t.waitFor(shown(content), { timeout: 30_000 });
+  await t.shot(shotName);
   await t.waitFor(TABS, { timeout: 30_000 });
   const n = await t.count(TABS);
   if (n < 2) throw new Error(`${name}: expected at least 2 tabs, found ${n}`);
@@ -60,8 +62,6 @@ async function openAndSwitchTabs(t, name, content, shotName) {
   await t.click(second);
   await t.waitFor(`(${TABS})[2][@aria-selected='true']`);
   if ((await t.attr(`(${TABS})[1]`, "aria-selected")) !== "false") throw new Error(`${name}: the first tab is still selected`);
-  await t.waitFor(shown(content), { timeout: 30_000 });
-  await t.shot(shotName);
 }
 
 export const scenarios = [
@@ -72,17 +72,16 @@ export const scenarios = [
       await t.shot("01-welcome");
       await t.click(welcomeButton("Next"));
       await t.waitFor(heading(2, "Turn on SYNQ Helper?"));
+      await t.shot("02-welcome-helper");
+      // The helper step is the last one: "Not now" leaves the helper off and closes the welcome.
       await t.click(welcomeButton("Not now"));
-      await t.waitFor(heading(2, "Pick your accent"));
-      await t.shot("02-welcome-accent");
-      await t.click(welcomeButton("Start"));
-      await t.waitFor(heading(2, "Pick your accent"), { gone: true });
+      await t.waitFor(heading(2, "Turn on SYNQ Helper?"), { gone: true });
     },
   },
   {
     name: "shows the Devices home with the sample devices",
     run: async (t) => {
-      await t.waitFor(heading(1, "Gear"));
+      await t.waitFor(heading(1, "Your setup."));
       await t.waitFor(card("X1 V2 Air+"));
       await t.waitFor(card("Falchion Ace HFX"));
       await t.waitFor(card("Headphones"));
@@ -100,7 +99,8 @@ export const scenarios = [
   },
   {
     name: "opens a mouse and switches its tabs",
-    run: (t) => openAndSwitchTabs(t, "X1 V2 Air+", "DPI steps", "05-mouse-tab"),
+    // "Pointer speed" heads the mouse console in every layout ("DPI steps" only shows on mice without the fader).
+    run: (t) => openAndSwitchTabs(t, "X1 V2 Air+", "Pointer speed", "05-mouse-tab"),
   },
   {
     name: "opens a keyboard and switches its tabs",
@@ -125,7 +125,7 @@ export const scenarios = [
     run: async (t, { linux }) => {
       await t.click(dock("Settings"));
       await t.waitFor(heading(1, "Settings"));
-      await t.waitFor(`//*[normalize-space()='Run SYNQ Helper']`);
+      await t.waitFor(`//*[@role='switch'][@aria-label='Run SYNQ Helper']`);
       if (linux) await t.waitFor(`//*[normalize-space()='Starts at login']`);
       await t.shot("09-settings");
     },
@@ -138,24 +138,20 @@ export const scenarios = [
       // 8BitDo receiver whose pad is off (greyed, last).
       await t.waitFor(card("DualSense"));
       await t.waitFor(card("GameSir G7 SE"));
+      // One page: the tester, polling and lights all on the Overview.
       await t.click(card("DualSense"));
-      await t.waitFor(TABS, { timeout: 30_000 });
-      await t.click(tab("Test"));
       await t.waitFor("[data-testid='pad-stick-0']", { timeout: 30_000 });
       await t.click("[data-testid='pad-measure-drift']");
       await t.waitFor("[data-testid='pad-stick-figures']", { timeout: 15_000 });
       await t.shot("10-controller-test");
-      await t.click(tab("Polling"));
       await t.click("[data-testid='pad-measure-polling']");
       await t.waitFor("[data-testid='pad-polling-hz']", { timeout: 20_000 });
       await t.shot("11-controller-polling");
-      await t.click(tab("Lights & rumble"));
       await t.click("[data-testid='pad-test-rumble']");
       await t.shot("12-controller-lights");
       // The developer's pad, through XInput: the polling figure from the sampler.
       await t.click(dock("Gear"));
       await t.click(card("GameSir G7 SE"));
-      await t.click(tab("Polling"));
       await t.click("[data-testid='pad-measure-polling']");
       await t.waitFor("[data-testid='pad-polling-hz']", { timeout: 20_000 });
       await t.shot("13-controller-xinput-polling");
@@ -183,8 +179,9 @@ export const scenarios = [
       await t.click(tab("Segments"));
       await t.click(button("Aurora"));
       await t.shot("16-lamp-gradient");
-      // A scene with data (uploaded, then switched on) and a DIY effect tried on the lamp.
-      await t.click(tab("Scenes"));
+      // A scene with data (uploaded, then switched on), from the scenes under the colour on the Light tab, and a DIY
+      // effect tried on the lamp.
+      await t.click(tab("Light"));
       await t.click("//*[@data-testid='light-scenes']//button[.//span[normalize-space()='Sunset']]");
       await t.waitFor("//*[@data-testid='light-scenes']//button[@aria-pressed='true'][.//span[normalize-space()='Sunset']]", { timeout: 15_000 });
       await t.click(tab("Effects"));
@@ -269,7 +266,7 @@ export const scenarios = [
     run: async (t) => {
       await t.click(dock("Displays"));
       await t.click(card("VG248"));
-      await openTab(t, "Picture");
+      // The picture and the input are on the monitor's one page.
       await t.waitFor(allowSwitch, { timeout: 30_000 });
       await t.click(allowSwitch);
       await t.click(button("HDMI"));
@@ -287,7 +284,6 @@ export const scenarios = [
     run: async (t) => {
       await t.click(dock("Gear"));
       await t.click(card("C920 HD Pro Webcam"));
-      await openTab(t, "Controls");
       await t.waitFor(shown("Camera controls"), { timeout: 30_000 });
       if (await t.count("//video")) throw new Error("the preview started without being asked");
       await t.click(allowSwitch);
@@ -345,7 +341,8 @@ export const scenarios = [
     name: "applies a pro's setup to a mouse and undoes it",
     run: async (t) => {
       await t.click(dock("Gear"));
-      await t.click(`//section[@data-slot='keep-your-feel']//button[@aria-expanded='false'][.//span[normalize-space()='Keep your feel']]`);
+      // "Keep your feel" opens in a sheet from the Gear page's link.
+      await t.click("[data-slot='feel-link']");
       await t.click(`//button[@aria-expanded][.//span[normalize-space()="Try a pro's setup"]]`);
       await t.click("(//*[@role='listbox'][@aria-label='Pros']//button[@role='option'])[1]");
       await t.click(`(//button[starts-with(normalize-space(), 'Apply to ') or (starts-with(normalize-space(), 'Open ') and contains(normalize-space(), ' to apply'))])[1]`);
@@ -390,18 +387,26 @@ export const scenarios = [
     },
   },
   {
-    name: "filters the Devices home by type; lights and monitors have their own tabs",
+    name: "switches the Gear layout (bento, shelves, spotlight); lights and monitors have their own tabs",
     run: async (t) => {
       await t.click(dock("Gear"));
-      // Lights and monitors aren't on the Devices page (each has its own tab), so neither is a type pill.
+      // Lights and monitors aren't on the Devices page: each has its own tab.
       if (await t.count(card("Floor Lamp 7A21"))) throw new Error("a lamp is shown under Devices");
       if (await t.count(card("VG248"))) throw new Error("a monitor is shown under Devices");
-      await t.click(radio("Controllers"));
+      // Bento, the default: a card per kind, every device in it.
+      await t.waitFor("[data-slot='gear-bento']");
+      await t.waitFor(`//section[@aria-label='Controllers']${card("DualSense")}`);
+      await t.click(radio("Shelves"));
+      await t.waitFor("[data-slot='gear-shelves']");
       await t.waitFor(card("DualSense"));
-      if (await t.count(card("X1 V2 Air+"))) throw new Error("a mouse is still shown under Controllers");
       await pause(900);
-      await t.shot("27-devices-filter-controllers");
-      await t.click(radio("All"));
+      await t.shot("27-gear-shelves");
+      await t.click(radio("Spotlight"));
+      await t.waitFor("[data-slot='gear-spotlight']");
+      await t.waitFor(`//nav[@aria-label='All devices']//button[@aria-label='Show DualSense']`);
+      await pause(900);
+      await t.shot("27a-gear-spotlight");
+      await t.click(radio("Bento"));
       await t.waitFor(card("X1 V2 Air+"));
       await t.click(dock("Lights"));
       await t.waitFor(card("Floor Lamp 7A21"));

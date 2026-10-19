@@ -61,6 +61,10 @@
   SetOutPath "$INSTDIR"
   File "/oname=synq-helper.exe" "${SYNQ_HELPER_EXE}"
   ExecWait '"$INSTDIR\synq-helper.exe" --register'
+
+  ; Tell Explorer the icons changed: a PC that had an earlier SYNQ (the violet icon) keeps showing the cached one on
+  ; its shortcuts and taskbar until it hears this (SHCNE_ASSOCCHANGED, SHCNF_IDLIST).
+  System::Call 'shell32::SHChangeNotify(i 0x08000000, i 0, p 0, p 0)'
 !macroend
 
 !macro NSIS_HOOK_PREUNINSTALL

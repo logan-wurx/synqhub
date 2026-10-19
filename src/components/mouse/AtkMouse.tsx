@@ -1,8 +1,8 @@
 // The ATK X1 V2 Air+ panel of the Mouse page. Same layout and feel as the Logitech one; every
 // change goes straight to the mouse's memory through src/lib/atk-mouse.ts and is read back.
+import { DpiConsole } from "./DpiConsole";
 import { useCallback, useEffect, type ReactNode } from "react";
-import NumberFlow from "@number-flow/react";
-import { Lightning, LineSegment, Plus, Pulse, WaveSine } from "@phosphor-icons/react";
+import { LineSegment, Pulse, WaveSine } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 import type { Connected } from "@/lib/backend";
 import { connectAtk, MouseAsleep, type AtkSession, type AtkView } from "@/lib/atk-mouse";
@@ -10,13 +10,15 @@ import { LIFT_OFF, SENSOR_MODES, type SensorMode } from "@/lib/atk-protocol";
 import { Card, CardHeader, ToggleCard, type Notice } from "@/components/ui/matte";
 import { GlassRadio } from "@/components/uiverse";
 import { MouseOutline, deviceMouseAtk } from "@/components/ui/brand";
-import { Banner, DpiPresets, EmptyCard, StageEditor, hzText, rateLabel } from "./parts";
+import { Banner, EmptyCard, hzText, rateLabel } from "./parts";
 import { DeviceArt } from "@/components/devices/DeviceArt";
 import { MouseOverview } from "./overview";
+import { LiftOffLevels } from "./lift-off";
 import { DeviceFrame, DeviceHeader, ReconnectButton, StatusPill, TAB_BODY, TierBadge, type TabDef } from "@/components/devices/shell";
 import { MOUSE_TABS_LEGACY, mouseId, useDeviceTab } from "@/lib/nav";
 import { useWide } from "@/lib/viewport";
-import { peekKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { peekKept, peekKeptRef, setKept, useKeptRef, useKeptScroll, useKeptState } from "@/lib/keep";
+import { sharePage, type Session } from "@/lib/profiles/live";
 import { track, useSessionHold } from "@/lib/device-session";
 import { AdvancedCard } from "@/components/advanced";
 import { markAnswering } from "@/lib/mouse-probe";
@@ -24,7 +26,6 @@ import type { FeelDevice } from "@/components/feel/FeelPanel";
 import { driveAtk, type ApplyOutcome } from "@/lib/feel/drive";
 import { feelStore } from "@/lib/feel/persist";
 import type { Step } from "@/lib/feel/types";
-import { arrowPick } from "@/lib/roving";
 
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
 type Phase = { kind: "connecting" } | { kind: "missing" } | { kind: "asleep" } | { kind: "error"; message: string } | { kind: "ready" };
@@ -37,6 +38,23 @@ const ATK = "mouse.atk";
 type Draft = { stages: number[]; activeStage: number };
 const isDirty = (view: AtkView | null, draft: Draft | null) =>
   !!view && !!draft && (draft.activeStage !== view.activeStage || draft.stages.join() !== view.stages.join());
+
+// A game profile (src/lib/profiles/live.ts) goes on through this panel's session while it has one open, and shows here.
+sharePage((family) =>
+  family === "atk"
+    ? {
+        session: () => peekKeptRef<Session>(`${ATK}.session`),
+        busy: () => peekKept(`${ATK}.busy`, false),
+        onView: (v: AtkView) => {
+          setKept(`${ATK}.view`, v);
+          setKept<Draft | null>(`${ATK}.draft`, { stages: v.stages, activeStage: v.activeStage });
+        },
+      }
+    : null,
+);
+
+/** 0.7 to 1.7 mm in 0.1 mm steps, the lift-off distances the mouse takes. */
+const LIFT_STEPS = Array.from({ length: LIFT_OFF.maxCode - LIFT_OFF.minCode + 1 }, (_, i) => Math.round((LIFT_OFF.minMm + i * LIFT_OFF.stepMm) * 10) / 10);
 
 export function AtkMouse({ devices, notify, visible, switcher }: { devices: Connected[]; notify: Notify; visible: boolean; switcher: ReactNode }) {
   const session = useKeptRef<AtkSession | null>(`${ATK}.session`, null);
@@ -191,7 +209,6 @@ export function AtkMouse({ devices, notify, visible, switcher }: { devices: Conn
   const asideOn = wide && phase.kind === "ready" && !!view;
   const tabs: TabDef[] = [
     ...(asideOn ? [] : [{ id: "overview", label: "Overview" }]),
-    ...(asideOn ? [] : [{ id: "sensitivity", label: "Sensitivity" }]),
     { id: "controls", label: asideOn ? "Settings" : "Controls" },
     { id: "advanced", label: "Advanced" },
   ];
@@ -216,7 +233,9 @@ export function AtkMouse({ devices, notify, visible, switcher }: { devices: Conn
   const overview = phase.kind === "ready" && !!view ? (
               <MouseOverview
                 feel={feel}
-                art={<DeviceArt spec={{ kind: "mouse", family: "atk", name: "X1 V2 Air+" }} />}
+                pollingInConsole={true}
+                liftOffInConsole={true}
+                art={<DeviceArt spec={{ kind: "mouse", family: "atk", name: "X1 V2 Air+", brand: "ATK" }} />}
                 link={view.connection}
                 name={view.name}
                 detail={`${view.connectionDetail}. What the mouse reports right now is below.`}
@@ -287,95 +306,47 @@ export function AtkMouse({ devices, notify, visible, switcher }: { devices: Conn
 
             {tab === "overview" && overview}
 
-            {(tab === "sensitivity" || (asideOn && tab === "controls")) && (
+            {/* The Sensitivity console, on the Overview: most people come to change the DPI and go. */}
+            {tab === "overview" && (
               <>
-                <Card innerClassName="relative overflow-hidden px-6 pb-6 pt-5">
-                  <p className="text-[13px] text-muted-foreground">Sensitivity</p>
-                  <div className="mt-3 flex items-baseline gap-3">
-                    <NumberFlow
-                      value={view.dpi}
-                      className="tabular text-[86px] font-medium leading-none tracking-[-0.06em] text-foreground [text-shadow:0_0_28px_color-mix(in_srgb,var(--primary)_30%,transparent)]"
+                <DpiConsole
+                  polling={{ hz: view.pollingHz, options: view.pollingOptions, disabled: busy || locked, hint: `Through the ${view.connectionDetail}. 2K and up cost more battery and CPU.`, onPick: (hz) => run(`Polling rate set to ${rateLabel(hz)} Hz`, (s) => s.setPolling(hz)) }}
+                  dpi={view.dpi}
+                  range={{ min: range.min, max: range.max }}
+                  pick={{ step: range.step, disabled: busy || locked, onPick: (dpi) => run(`Now running ${dpi} DPI`, (s) => s.setActiveDpi(dpi)) }}
+                  extras={
+                    <LiftOffLevels
+                      options={LIFT_STEPS}
+                      value={view.liftOffMm === null ? null : Math.round(view.liftOffMm * 10) / 10}
+                      label={(mm) => `${mm.toFixed(1)} mm`}
+                      disabled={busy || locked}
+                      onPick={(mm) => run(`Lift-off set to ${mm.toFixed(1)} mm`, (s) => s.setLiftOff(mm))}
                     />
-                    <span className="text-[18px] text-muted-foreground">DPI</span>
-                  </div>
-                  <DpiPresets value={view.dpi} disabled={busy || locked} onPick={(dpi) => run(`Now running ${dpi} DPI`, (s) => s.setActiveDpi(dpi))} />
-                </Card>
-
-                <Card>
-                  <CardHeader
-                    title="DPI steps"
-                    hint="The mouse runs the starred step. The DPI button cycles through the rest."
-                    right={
-                      <button
-                        disabled={!dirty || busy || locked}
-                        onClick={() => run("DPI steps saved", (s) => s.saveStages(draft.stages, draft.activeStage))}
-                        className="group flex h-9 items-center gap-2 rounded-full bg-foreground pl-4 pr-1.5 text-[13px] font-medium text-background transition-all duration-300 ease-fluid active:scale-[0.98] disabled:bg-white/[0.06] disabled:text-muted-foreground"
-                      >
-                        {busy ? "Saving…" : dirty ? "Save to mouse" : "Saved"}
-                        <span className="grid size-6 place-items-center rounded-full bg-black/10 transition-transform duration-500 ease-fluid group-hover:translate-x-0.5">
-                          <Lightning size={12} weight="fill" />
-                        </span>
-                      </button>
-                    }
-                  />
-                  <div className="flex flex-wrap items-stretch gap-3 px-5 pb-5 pt-4">
-                    {draft.stages.map((dpi, i) => (
-                      <StageEditor
-                        key={i}
-                        index={i}
-                        value={dpi}
-                        isDefault={i === draft.activeStage}
-                        step={range.step}
-                        min={range.min}
-                        max={range.max}
-                        disabled={locked}
-                        starTitle="Run this step"
-                        onChange={(v) => setDraft({ ...draft, stages: draft.stages.map((x, j) => (j === i ? v : x)) })}
-                        onDefault={() => setDraft({ ...draft, activeStage: i })}
-                        onRemove={
-                          draft.stages.length > 1
-                            ? () =>
-                                setDraft({
-                                  stages: draft.stages.filter((_, j) => j !== i),
-                                  activeStage: Math.min(draft.activeStage > i ? draft.activeStage - 1 : draft.activeStage, draft.stages.length - 2),
-                                })
-                            : undefined
-                        }
-                      />
-                    ))}
-                    {!locked && draft.stages.length < range.maxStages && (
-                      <button
-                        onClick={() => setDraft({ ...draft, stages: [...draft.stages, Math.min((draft.stages[draft.stages.length - 1] ?? 800) * 2, range.max)] })}
-                        className="flex w-[118px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/10 text-[12.5px] text-muted-foreground transition-colors hover:bg-white/[0.03] hover:text-foreground"
-                      >
-                        <Plus size={16} weight="light" /> Add step
-                      </button>
-                    )}
-                  </div>
-                </Card>
+                  }
+                  steps={{
+                    stages: draft.stages,
+                    active: draft.activeStage,
+                    min: range.min,
+                    max: range.max,
+                    step: range.step,
+                    maxStages: range.maxStages,
+                    editable: true,
+                    countEditable: true,
+                    disabled: locked,
+                    hint: "Click a step to run it; the fader sets its speed. The DPI button cycles through them.",
+                    dirty,
+                    busy,
+                    saveLabel: { dirty: "Save to mouse", clean: "Saved" },
+                    onChange: (stages, activeStage) => setDraft({ stages, activeStage }),
+                    onSave: () => run("DPI steps saved", (s) => s.saveStages(draft.stages, draft.activeStage)),
+                  }}
+                />
               </>
             )}
 
             {tab === "controls" && (
               <>
-                <div className="grid grid-cols-[1.45fr_1fr] gap-5">
-                  <Card>
-                    <CardHeader title="Polling rate" hint={`Through the ${view.connectionDetail}. 2K and up cost more battery and CPU.`} />
-                    <div className={cn("px-5 pb-5 pt-4", (busy || locked) && "pointer-events-none opacity-60")}>
-                      <GlassRadio<string>
-                        value={String(view.pollingHz)}
-                        onChange={(v) => run(`Polling rate set to ${rateLabel(Number(v))} Hz`, (s) => s.setPolling(Number(v)))}
-                        options={view.pollingOptions.map((hz) => ({ value: String(hz), label: rateLabel(hz), hint: "Hz" }))}
-                      />
-                    </div>
-                  </Card>
-                  <Card>
-                    <CardHeader title="Lift-off distance" hint="How high you can lift before it stops tracking." />
-                    <div className="px-5 pb-5 pt-4">
-                      <LiftOffScale value={view.liftOffMm} disabled={busy || locked} onChange={(mm) => run(`Lift-off set to ${mm.toFixed(1)} mm`, (s) => s.setLiftOff(mm))} />
-                    </div>
-                  </Card>
-                </div>
+                {/* The polling rate and lift-off are on the Overview, with the DPI. */}
                 <div className="grid grid-cols-[1.45fr_1fr] gap-5">
                   <Card>
                     <CardHeader title="Tracking" hint="Sensor filters, saved to the mouse the moment you flip them." />
@@ -430,7 +401,7 @@ export function AtkMouse({ devices, notify, visible, switcher }: { devices: Conn
                     options={view.debounceOptions.map((ms) => ({ value: String(ms), label: String(ms), hint: "ms" }))}
                   />
                 </div>
-                <p className="px-5 pb-4 text-[12px] text-muted-foreground">Button remapping and macros are under Advanced, with their own confirmations.</p>
+                <p className="px-5 pb-4 text-[12px] text-medium">Button remapping and macros are under Advanced, with their own confirmations.</p>
               </Card>
             )}
 
@@ -459,35 +430,4 @@ export function AtkMouse({ devices, notify, visible, switcher }: { devices: Conn
 /** The X1 render when it's in the assets folder, else the outline stand-in. */
 function hero(): { image?: string; art?: ReactNode } {
   return deviceMouseAtk ? { image: deviceMouseAtk } : { art: <MouseOutline className="h-full" /> };
-}
-
-/** 0.7 to 1.7 mm in 0.1 mm steps: one bar per step, taller for higher, the chosen one lit. */
-function LiftOffScale({ value, disabled, onChange }: { value: number | null; disabled: boolean; onChange: (mm: number) => void }) {
-  const steps = Array.from({ length: LIFT_OFF.maxCode - LIFT_OFF.minCode + 1 }, (_, i) => Math.round((LIFT_OFF.minMm + i * LIFT_OFF.stepMm) * 10) / 10);
-  const at = value === null ? -1 : steps.findIndex((s) => Math.abs(s - value) < 0.01);
-  return (
-    <div className={cn(disabled && "pointer-events-none opacity-60")}>
-      <div className="flex items-baseline gap-1.5">
-        <span className="tabular text-[30px] font-medium leading-none tracking-[-0.04em] text-foreground">{value === null ? "—" : value.toFixed(1)}</span>
-        <span className="text-[13px] text-muted-foreground">mm</span>
-      </div>
-      <div role="radiogroup" onKeyDown={arrowPick} aria-label="Lift-off distance" className="mt-4 flex h-12 items-end gap-1">
-        {steps.map((mm, i) => (
-          <button key={mm} role="radio" aria-checked={i === at} title={`${mm.toFixed(1)} mm`} onClick={() => i !== at && onChange(mm)} className="group flex h-full flex-1 items-end justify-center">
-            <span
-              style={{ height: `${28 + i * 7.2}%` }}
-              className={cn(
-                "w-2 rounded-full transition-colors duration-500 ease-fluid",
-                i === at ? "bg-primary shadow-[0_0_12px_-2px_var(--primary)]" : i < at ? "bg-primary/30" : "bg-white/[0.08] group-hover:bg-white/20",
-              )}
-            />
-          </button>
-        ))}
-      </div>
-      <div className="mt-2 flex justify-between text-[11.5px] text-muted-foreground">
-        <span>0.7 mm</span>
-        <span>1.7 mm</span>
-      </div>
-    </div>
-  );
 }

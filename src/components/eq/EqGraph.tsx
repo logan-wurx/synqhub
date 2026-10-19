@@ -279,7 +279,7 @@ export function EqGraph({ state, limits, selected, markers, onSelect, onFilterCh
                 cx={cx}
                 cy={cy}
                 r={isSel ? 7.5 : 6}
-                fill={f.enabled ? (isSel ? "#ffffff" : "#0b0b0e") : "#1a1a1f"}
+                fill={f.enabled ? (isSel ? "#ffffff" : "#110f0e") : "#1d1a18"}
                 stroke={f.enabled ? (isSel ? "#ffffff" : "var(--primary)") : "rgb(255 255 255 / 0.25)"}
                 strokeWidth="2"
               />
@@ -302,7 +302,7 @@ function CursorReadout({ bind }: { bind: React.RefObject<(text: string | null) =
   bind.current = setText;
   if (!text) return null;
   return (
-    <div className="tabular pointer-events-none absolute right-4 top-3 rounded-full bg-black/50 px-3 py-1 text-[11.5px] text-muted-foreground ring-1 ring-white/[0.06]">
+    <div className="tabular pointer-events-none absolute right-4 top-3 rounded-full bg-shade/50 px-3 py-1 text-[11.5px] text-medium ring-1 ring-white/[0.06]">
       {text}
     </div>
   );

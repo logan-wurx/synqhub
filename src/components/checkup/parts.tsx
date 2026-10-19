@@ -63,36 +63,36 @@ export function FindingRow({ f, onFix, onOpen, fixed }: { f: Finding; onFix?: ()
     <li className="flex gap-3 py-3 first:pt-1 last:pb-1" data-finding={f.id}>
       <Icon size={16} weight={f.level === "good" ? "bold" : "light"} className={cn("mt-0.5 shrink-0", t.text)} aria-label={t.label} />
       <div className="min-w-0 flex-1">
-        <p className="text-[13.5px] leading-snug text-foreground">{f.title}</p>
-        <p className="mt-0.5 text-[12.5px] leading-relaxed text-muted-foreground">{f.detail}</p>
-        {f.advice && <p className="mt-1 text-[12.5px] leading-relaxed text-muted-foreground/80">{f.advice}</p>}
+        <p className="text-[13.5px] leading-snug text-high">{f.title}</p>
+        <p className="mt-0.5 text-[12.5px] leading-relaxed text-medium">{f.detail}</p>
+        {f.advice && <p className="mt-1 text-[12.5px] leading-relaxed text-medium">{f.advice}</p>}
         {(f.fix || f.open) && (
           <div className="mt-2.5 flex flex-wrap items-center gap-2">
             {f.fix &&
               (fixed ? (
                 <span className="inline-flex items-center gap-1.5 text-[12px] text-emerald-300">
-                  <Check size={13} /> Fixed on the device
+                  <Check size={12} /> Fixed on the device
                 </span>
               ) : (
                 <button
                   onClick={onFix}
                   disabled={!!f.fix.blocked}
                   title={f.fix.blocked}
-                  className="group inline-flex h-8 items-center gap-2 rounded-full bg-foreground pl-3.5 pr-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.98] disabled:bg-white/[0.06] disabled:font-normal disabled:text-muted-foreground"
+                  className="group inline-flex h-8 items-center gap-2 rounded-small bg-foreground pl-3.5 pr-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.98] disabled:bg-white/[0.06] disabled:font-normal disabled:text-medium"
                 >
                   {f.fix.blocked && <Lock size={12} />}
                   Fix it: {f.fix.label.replace(/^./, (c) => c.toLowerCase())}
-                  <span className="grid size-5 place-items-center rounded-full bg-background/10 transition-transform duration-500 ease-fluid group-hover:translate-x-0.5 group-disabled:hidden">
-                    <ArrowRight size={11} />
+                  <span className="grid size-5 place-items-center rounded bg-background/10 transition-transform duration-500 ease-fluid group-hover:translate-x-0.5 group-disabled:hidden">
+                    <ArrowRight size={12} weight="bold" />
                   </span>
                 </button>
               ))}
             {f.open && (
-              <button onClick={onOpen} className="inline-flex h-8 items-center rounded-full bg-white/[0.05] px-3.5 text-[12.5px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09]">
+              <button onClick={onOpen} className="inline-flex h-8 items-center rounded-small bg-white/[0.05] px-3.5 text-[12.5px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09]">
                 {f.open.label}
               </button>
             )}
-            {f.fix?.blocked && !fixed && <span className="text-[11.5px] text-muted-foreground/80">{f.fix.blocked}</span>}
+            {f.fix?.blocked && !fixed && <span className="text-[11.5px] text-medium">{f.fix.blocked}</span>}
           </div>
         )}
       </div>
@@ -103,11 +103,11 @@ export function FindingRow({ f, onFix, onOpen, fixed }: { f: Finding; onFix?: ()
 /** The click pad: a big quiet target with the count in the middle. */
 export function ClickPad({ count, target }: { count: number; target: number }) {
   return (
-    <div className="grid h-[220px] w-full cursor-pointer select-none place-items-center rounded-[1.4rem] bg-white/[0.02] ring-1 ring-dashed ring-white/[0.08]" data-slot="click-pad">
+    <div className="grid h-[220px] w-full cursor-pointer select-none place-items-center rounded-control bg-white/[0.02] ring-1 ring-dashed ring-white/[0.08]" data-slot="click-pad">
       <ProgressRing value={count / target} size={148}>
         <motion.div key={count} initial={{ scale: 0.92, opacity: 0.6 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.18 }}>
-          <p className="tabular text-[34px] font-medium leading-none tracking-tight text-foreground">{count}</p>
-          <p className="mt-1 text-[11.5px] text-muted-foreground">of {target}</p>
+          <p className="tabular text-[34px] font-medium leading-none tracking-tight text-high">{count}</p>
+          <p className="mt-1 text-[11.5px] text-medium">of {target}</p>
         </motion.div>
       </ProgressRing>
     </div>
@@ -133,11 +133,11 @@ export function KeyRow({ codes, done, down }: { codes: readonly string[]; done: 
 export function HoldKey({ code, progress, down }: { code: string; progress: number; down: boolean }) {
   return (
     <div className="flex flex-col items-center gap-3" data-slot="hold-key">
-      <div className={cn("relative grid size-[88px] place-items-center overflow-hidden rounded-[18px] ring-1 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),inset_0_-3px_0_rgb(0_0_0/0.45)] transition-colors", down ? "bg-primary/[0.12] ring-primary/45" : "bg-white/[0.035] ring-white/[0.08]")}>
+      <div className={cn("relative grid size-[88px] place-items-center overflow-hidden rounded-control ring-1 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),inset_0_-3px_0_rgb(0_0_0/0.45)] transition-colors", down ? "bg-primary/[0.12] ring-primary/45" : "bg-white/[0.035] ring-white/[0.08]")}>
         <motion.span className="absolute inset-x-0 bottom-0 bg-primary/25" initial={false} animate={{ height: `${Math.min(1, progress) * 100}%` }} transition={{ duration: 0.12, ease: "linear" }} />
-        <span className="relative text-[26px] font-medium text-foreground">{keyLabel(code)}</span>
+        <span className="relative text-[26px] font-medium text-high">{keyLabel(code)}</span>
       </div>
-      <p className="text-[12px] text-muted-foreground">{down ? <span className="tabular">{(Math.min(1, progress) * 2).toFixed(1)} s</span> : progress >= 1 ? "Let go" : "Press and hold"}</p>
+      <p className="text-[12px] text-medium">{down ? <span className="tabular">{(Math.min(1, progress) * 2).toFixed(1)} s</span> : progress >= 1 ? "Let go" : "Press and hold"}</p>
     </div>
   );
 }
@@ -147,8 +147,8 @@ export function Countdown({ total, left, label }: { total: number; left: number;
   return (
     <ProgressRing value={1 - left / total} size={148}>
       <div>
-        <p className="tabular text-[34px] font-medium leading-none tracking-tight text-foreground">{Math.max(0, Math.ceil(left))}</p>
-        <p className="mt-1 text-[11.5px] text-muted-foreground">{label ?? "seconds"}</p>
+        <p className="tabular text-[34px] font-medium leading-none tracking-tight text-high">{Math.max(0, Math.ceil(left))}</p>
+        <p className="mt-1 text-[11.5px] text-medium">{label ?? "seconds"}</p>
       </div>
     </ProgressRing>
   );
@@ -162,7 +162,7 @@ export function CircleGuide({ moving }: { moving: boolean }) {
       <motion.span className="absolute inset-0" animate={{ rotate: 360 }} transition={{ duration: moving ? 0.9 : 2.4, ease: "linear", repeat: Infinity }}>
         <span className="absolute left-1/2 top-3 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_12px_var(--primary)]" />
       </motion.span>
-      <p className="text-[12px] text-muted-foreground">{moving ? "Keep going" : "Start moving"}</p>
+      <p className="text-[12px] text-medium">{moving ? "Keep going" : "Start moving"}</p>
     </div>
   );
 }

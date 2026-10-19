@@ -1,6 +1,6 @@
 [package]
 name = "synq-helper"
-version = "0.1.0-beta.7"
+version = "0.1.0"
 license = "AGPL-3.0-or-later"
 repository = "https://github.com/logan-wurx/synqhub"
 homepage = "https://synqhub.app"
@@ -14,6 +14,12 @@ publish = false
 [[bin]]
 name = "synq-helper"
 path = "src/main.rs"
+
+[features]
+# The website's download (release/tools/build-release.mjs): SYNQ's own program inside the helper, put next to it as
+# synq-profiles.exe when it installs itself, so game profiles for every device switch with the site closed
+# (src/pass.rs). The copy in the desktop installer leaves it out: the app is beside it there. Needs SYNQ_APP_EXE.
+with-app = []
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
@@ -38,6 +44,8 @@ windows = { version = "0.62", features = [
   "Win32_Storage_FileSystem",
   "Win32_System_Com",
   "Win32_System_Com_StructuredStorage",
+  # The Games page's Steam covers, for the website through the bridge (src/library.rs).
+  "Win32_System_Com_Urlmon",
   "Win32_System_Console",
   "Win32_System_Diagnostics_ToolHelp",
   "Win32_System_IO",

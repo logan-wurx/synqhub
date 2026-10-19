@@ -51,7 +51,7 @@ export function availability(device: DeviceRef, platform: Platform, helper = fal
       status: "desktop",
       code: "razer-windows-153",
       title: "Install the helper to use this in the browser",
-      message: `Chrome, Edge and Opera ${WINDOWS_PROTECTED_COLLECTIONS_FROM} and newer on Windows hide the channel Razer devices are set up through. SYNQ Helper reaches it for this page: get it from Settings here (one small file for Windows, it installs itself). Or use the desktop app.`,
+      message: `Chrome, Edge and Opera ${WINDOWS_PROTECTED_COLLECTIONS_FROM} and newer on Windows hide the channel Razer devices are set up through. SYNQ Helper reaches it for this page: get it from Settings here (one file for Windows, it installs itself). Or use the desktop app.`,
     };
   }
   if (!helper && brandDevice(device.vendorId, device.productId)?.guard === "rk-beiying") {

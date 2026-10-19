@@ -13,6 +13,7 @@ import { Card, type Notice } from "@/components/ui/matte";
 import { ADVANCED_SCOPES, type AdvancedScope } from "@/lib/advanced/core";
 import { infoOnlyPanel } from "@/lib/advanced/panel";
 import { splitVersion } from "@/lib/advanced/firmware";
+import { HoldButton } from "@/components/ui/hold-button";
 import type {
   AdvancedPanel,
   ButtonsState,
@@ -25,8 +26,8 @@ import type {
 type Notify = (n: Omit<Notice, "id">, key?: string) => void;
 
 const message = (e: unknown) => String(e).replace(/^Error: /, "");
-const btn = "rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-opacity disabled:opacity-40";
-const ghost = "rounded-full bg-white/[0.05] px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09] disabled:opacity-40";
+const btn = "rounded-small bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-opacity disabled:opacity-40";
+const ghost = "rounded-small bg-white/[0.05] px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/[0.08] transition-colors hover:bg-white/[0.09] disabled:opacity-40";
 
 const TITLES: Record<AdvancedScope, string> = {
   pair: "Pair with its receiver",
@@ -81,29 +82,29 @@ export function AdvancedCard({
   return (
     <Card>
       <button onClick={() => setOpen(!open)} className="flex w-full items-center gap-3 px-5 py-4 text-left" aria-expanded={open}>
-        <Warning size={18} weight="light" className="text-chart-3" />
+        <Warning size={16} weight="light" className="text-chart-3" />
         <span className="min-w-0 flex-1">
-          <span className="block text-[14px] font-medium text-foreground">Advanced</span>
-          <span className="block truncate text-[12.5px] text-muted-foreground">
+          <span className="block text-[14px] font-medium text-high">Advanced</span>
+          <span className="block truncate text-[12.5px] text-medium">
             {offered.length ? `Firmware info, ${offered.map((s) => TITLES[s].toLowerCase()).join(", ")}` : "Firmware info and the maker's updater"}
           </span>
         </span>
-        <CaretDown size={16} className={cn("text-muted-foreground transition-transform duration-500 ease-fluid", open && "rotate-180")} />
+        <CaretDown size={14} className={cn("text-medium transition-transform duration-500 ease-fluid", open && "rotate-180")} />
       </button>
       {open && (
         <div className="flex flex-col gap-5 px-5 pb-5">
           <Firmware panel={panel} />
 
           {offered.length > 0 && !unlocked && (
-            <div className="rounded-2xl bg-chart-3/[0.05] px-4 py-3.5 ring-1 ring-chart-3/20">
+            <div className="rounded-control bg-chart-3/[0.05] px-4 py-3.5 ring-1 ring-chart-3/20">
               <p className="text-[13px] leading-relaxed text-chart-3">
                 These actions change how your {panel.kind} behaves, and a factory reset wipes settings. SYNQ saves a backup before it changes anything and can put things back, but a mistake can still cost you a bit of setup.
               </p>
               {lockedReason ? (
-                <p className="mt-2 text-[12.5px] text-muted-foreground">{lockedReason} Turn on "Allow changes" above first.</p>
+                <p className="mt-2 text-[12.5px] text-medium">{lockedReason} Turn on "Allow changes" above first.</p>
               ) : (
                 <div className="mt-3 flex flex-wrap items-center gap-3">
-                  <label className="flex items-center gap-2 text-[12.5px] text-foreground">
+                  <label className="flex items-center gap-2 text-[12.5px] text-high">
                     <input type="checkbox" checked={ack} onChange={(e) => setAck(e.target.checked)} className="accent-[var(--primary)]" />I understand
                   </label>
                   <button className={btn} disabled={!ack} onClick={() => setUnlocked(true)}>
@@ -117,17 +118,17 @@ export function AdvancedCard({
           {offered.length > 0 && unlocked && (
             <div className="flex flex-col gap-2">
               {offered.map((s) => (
-                <div key={s} className="rounded-2xl bg-white/[0.025] ring-1 ring-white/[0.06]">
+                <div key={s} className="rounded-control bg-white/[0.025] ring-1 ring-white/[0.06]">
                   <button onClick={() => setWhich(which === s ? null : s)} className="flex w-full items-center gap-3 px-4 py-3 text-left" aria-expanded={which === s}>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-[13.5px] text-foreground">{TITLES[s]}</span>
-                      <span className="block text-[12px] text-muted-foreground">{BLURBS[s]}</span>
+                      <span className="block text-[13.5px] text-high">{TITLES[s]}</span>
+                      <span className="block text-[12px] text-medium">{BLURBS[s]}</span>
                     </span>
-                    <CaretDown size={14} className={cn("text-muted-foreground transition-transform", which === s && "rotate-180")} />
+                    <CaretDown size={12} className={cn("text-medium transition-transform", which === s && "rotate-180")} />
                   </button>
                   {which === s && (
                     <div className="border-t border-white/[0.05] px-4 pb-4 pt-3">
-                      <p className="mb-3 text-[11.5px] text-muted-foreground/80">Commands from {f[s].source}.</p>
+                      <p className="mb-3 text-[11.5px] text-medium">Commands from {f[s].source}.</p>
                       {s === "pair" && panel.pair && <PairFlow api={panel.pair} {...{ hold, notify, onChanged }} />}
                       {s === "remap" && panel.buttons && <ButtonsFlow api={panel.buttons} {...{ hold, notify, onChanged }} />}
                       {s === "remap" && panel.keymap && <KeymapFlow api={panel.keymap} renderKeys={renderKeys} {...{ hold, notify, onChanged }} />}
@@ -142,12 +143,12 @@ export function AdvancedCard({
           )}
 
           {hidden.length > 0 && (
-            <details className="text-[12.5px] text-muted-foreground">
-              <summary className="cursor-pointer select-none hover:text-foreground">Not available on this {panel.kind}</summary>
+            <details className="text-[12.5px] text-medium">
+              <summary className="cursor-pointer select-none hover:text-high">Not available on this {panel.kind}</summary>
               <ul className="mt-2 flex flex-col gap-1.5">
                 {hidden.map((s) => (
                   <li key={s}>
-                    <span className="text-foreground/80">{TITLES[s]}:</span> {f[s].why ?? "No documented commands."}
+                    <span className="text-high">{TITLES[s]}:</span> {f[s].why ?? "No documented commands."}
                   </li>
                 ))}
               </ul>
@@ -164,11 +165,11 @@ type FlowProps = { hold: <T>(p: Promise<T>) => Promise<T>; notify: Notify; onCha
 function Firmware({ panel }: { panel: AdvancedPanel }) {
   const fw = panel.firmware;
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl bg-white/[0.02] px-4 py-3 ring-1 ring-white/[0.05]">
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-control bg-white/[0.02] px-4 py-3 ring-1 ring-white/[0.05]">
       <div className="min-w-0 flex-1">
-        <p className="text-[13px] text-foreground">Firmware</p>
-        <p className="tabular text-[12.5px] text-muted-foreground">{fw.versions.length ? fw.versions.map((v) => (v.part === "Firmware" ? v.version : `${v.part} ${v.version}`)).join(" · ") : "This device didn't report a version."}</p>
-        <p className="text-[12px] text-muted-foreground/80">
+        <p className="text-[13px] text-high">Firmware</p>
+        <p className="tabular text-[12.5px] text-medium">{fw.versions.length ? fw.versions.map((v) => (v.part === "Firmware" ? v.version : `${v.part} ${v.version}`)).join(" · ") : "This device didn't report a version."}</p>
+        <p className="text-[12px] text-medium">
           {fw.latest ? `Newest known: ${fw.latest}.` : "SYNQ can't tell whether a newer version exists."} {fw.note}
         </p>
       </div>
@@ -177,7 +178,7 @@ function Firmware({ panel }: { panel: AdvancedPanel }) {
           Open {fw.updater.name}
         </button>
       ) : (
-        <span className="text-[12px] text-muted-foreground">No official updater on record. Check the maker's website.</span>
+        <span className="text-[12px] text-medium">No official updater on record. Check the maker's website.</span>
       )}
     </div>
   );
@@ -185,7 +186,7 @@ function Firmware({ panel }: { panel: AdvancedPanel }) {
 
 function Tick({ checked, onChange, children }: { checked: boolean; onChange: (v: boolean) => void; children: ReactNode }) {
   return (
-    <label className="flex items-start gap-2 text-[12.5px] leading-relaxed text-foreground">
+    <label className="flex items-start gap-2 text-[12.5px] leading-relaxed text-high">
       <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="mt-0.5 accent-[var(--primary)]" />
       <span>{children}</span>
     </label>
@@ -194,7 +195,7 @@ function Tick({ checked, onChange, children }: { checked: boolean; onChange: (v:
 
 function Steps({ steps }: { steps: readonly string[] }) {
   return (
-    <ol className="mb-3 list-decimal space-y-1 pl-5 text-[12.5px] text-muted-foreground">
+    <ol className="mb-3 list-decimal space-y-1 pl-5 text-[12.5px] text-medium">
       {steps.map((s) => (
         <li key={s}>{s}</li>
       ))}
@@ -236,7 +237,7 @@ function PairFlow({ api, hold, notify, onChanged }: { api: NonNullable<AdvancedP
             Stop
           </button>
         )}
-        {p && <span className={cn("text-[12.5px]", p.phase === "paired" ? "text-primary" : p.phase === "failed" || p.phase === "timeout" ? "text-destructive" : "text-muted-foreground")}>{p.message}</span>}
+        {p && <span className={cn("text-[12.5px]", p.phase === "paired" ? "text-primary" : p.phase === "failed" || p.phase === "timeout" ? "text-destructive" : "text-medium")}>{p.message}</span>}
       </div>
     </div>
   );
@@ -278,7 +279,7 @@ function ButtonsFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanc
     <div className="flex flex-col gap-2">
       {st.slots.map((s) => (
         <div key={s.id} className="flex items-center gap-3 text-[13px]">
-          <span className="w-44 shrink-0 text-foreground">
+          <span className="w-44 shrink-0 text-high">
             {s.label}
             {s.changed && <span className="ml-2 text-[11px] text-chart-3">changed</span>}
           </span>
@@ -287,7 +288,7 @@ function ButtonsFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanc
             value={s.action ?? ""}
             title={s.lockedWhy}
             onChange={(e) => run(() => api.set(s.id, e.target.value), `${s.label}: ${s.choices.find((c) => c.id === e.target.value)?.label ?? ""}`)}
-            className="h-8 min-w-44 rounded-full bg-white/[0.05] px-3 text-[12.5px] text-foreground ring-1 ring-white/[0.08] disabled:opacity-60"
+            className="h-8 min-w-44 rounded-small bg-white/[0.05] px-3 text-[12.5px] text-high ring-1 ring-white/[0.08] disabled:opacity-60"
           >
             {s.action === null && <option value="">{s.actionLabel}</option>}
             {s.choices.map((c) => (
@@ -296,7 +297,7 @@ function ButtonsFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanc
               </option>
             ))}
           </select>
-          {s.locked && s.lockedWhy && <span className="text-[11.5px] text-muted-foreground">{s.lockedWhy}</span>}
+          {s.locked && s.lockedWhy && <span className="text-[11.5px] text-medium">{s.lockedWhy}</span>}
         </div>
       ))}
       <div className="mt-2 flex items-center gap-3">
@@ -315,7 +316,7 @@ function ButtonsFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanc
         >
           Done
         </button>
-        <span className="text-[11.5px] text-muted-foreground">Backup: {st.backupPath}</span>
+        <span className="text-[11.5px] text-medium">Backup: {st.backupPath}</span>
       </div>
     </div>
   );
@@ -365,7 +366,7 @@ function KeymapFlow({ api, hold, notify, onChanged, renderKeys }: { api: NonNull
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-1.5">
         {Array.from({ length: st.layers }, (_, l) => (
-          <button key={l} onClick={() => setLayer(l)} className={cn("rounded-full px-3 py-1 text-[12px] ring-1", l === layer ? "bg-primary text-primary-foreground ring-primary" : "bg-white/[0.04] text-muted-foreground ring-white/[0.07]")}>
+          <button key={l} onClick={() => setLayer(l)} className={cn("rounded-full px-3 py-1 text-[12px] ring-1", l === layer ? "bg-primary text-primary-foreground ring-primary" : "bg-white/[0.04] text-medium ring-white/[0.07]")}>
             Layer {l}
             {st.changed[l]?.length ? ` · ${st.changed[l].length} changed` : ""}
           </button>
@@ -373,18 +374,18 @@ function KeymapFlow({ api, hold, notify, onChanged, renderKeys }: { api: NonNull
       </div>
       {renderKeys?.({ label: (i) => api.label(codes[i] ?? 0), selected: key, onPick: setKey, indexes })}
       {key !== null ? (
-        <div className="flex flex-col gap-2 rounded-2xl bg-white/[0.02] p-3 ring-1 ring-white/[0.05]">
-          <p className="text-[12.5px] text-foreground">
-            Key {key} on layer {layer}: <span className="text-muted-foreground">{api.label(codes[key] ?? 0) || "none"}</span>
+        <div className="flex flex-col gap-2 rounded-control bg-white/[0.02] p-3 ring-1 ring-white/[0.05]">
+          <p className="text-[12.5px] text-high">
+            Key {key} on layer {layer}: <span className="text-medium">{api.label(codes[key] ?? 0) || "none"}</span>
           </p>
           <div className="flex max-h-40 flex-col gap-2 overflow-y-auto">
             {groups.map((g) => (
               <div key={g} className="flex flex-wrap items-center gap-1">
-                <span className="w-20 shrink-0 text-[11px] text-muted-foreground">{g}</span>
+                <span className="w-20 shrink-0 text-[11px] text-medium">{g}</span>
                 {st.choices
                   .filter((c) => c.group === g)
                   .map((c) => (
-                    <button key={`${g}${c.code}`} disabled={busy} onClick={() => apply(c.code)} className="rounded-md bg-white/[0.05] px-2 py-0.5 text-[11.5px] text-foreground ring-1 ring-white/[0.07] hover:bg-white/[0.1]">
+                    <button key={`${g}${c.code}`} disabled={busy} onClick={() => apply(c.code)} className="rounded-tight bg-white/[0.05] px-2 py-0.5 text-[11.5px] text-high ring-1 ring-white/[0.07] hover:bg-white/[0.1]">
                       {c.label}
                     </button>
                   ))}
@@ -392,7 +393,7 @@ function KeymapFlow({ api, hold, notify, onChanged, renderKeys }: { api: NonNull
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <input value={hexCode} onChange={(e) => setHexCode(e.target.value)} placeholder="or a key code, e.g. 0x5221" aria-label="Key code" className="h-8 w-48 rounded-full bg-white/[0.05] px-3 text-[12.5px] text-foreground ring-1 ring-white/[0.08]" />
+            <input value={hexCode} onChange={(e) => setHexCode(e.target.value)} placeholder="or a key code, e.g. 0x5221" aria-label="Key code" className="h-8 w-48 rounded-small bg-white/[0.05] px-3 text-[12.5px] text-high ring-1 ring-white/[0.08]" />
             <button className={ghost} disabled={busy || typed === null || !!typedProblem} onClick={() => typed !== null && apply(typed)}>
               Set
             </button>
@@ -400,7 +401,7 @@ function KeymapFlow({ api, hold, notify, onChanged, renderKeys }: { api: NonNull
           </div>
         </div>
       ) : (
-        <p className="text-[12.5px] text-muted-foreground">Pick a key above.</p>
+        <p className="text-[12.5px] text-medium">Pick a key above.</p>
       )}
       <div className="flex items-center gap-3">
         <button className={ghost} disabled={busy || !st.changed.some((c) => c.length)} onClick={() => run(() => api.undoAll(), "Keys put back")}>
@@ -419,7 +420,7 @@ function KeymapFlow({ api, hold, notify, onChanged, renderKeys }: { api: NonNull
         >
           Done
         </button>
-        <span className="truncate text-[11.5px] text-muted-foreground">Backup: {st.backupPath}</span>
+        <span className="truncate text-[11.5px] text-medium">Backup: {st.backupPath}</span>
       </div>
     </div>
   );
@@ -461,7 +462,7 @@ function MacrosFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advance
     );
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-[11.5px] text-muted-foreground">
+      <p className="text-[11.5px] text-medium">
         Plain text types itself. {"{Enter}"} taps a key, {"{down Shift}"} / {"{up Shift}"} hold and release, {"{wait 100}"} waits 100 ms. {st.used} of {st.capacity} bytes used.
       </p>
       {st.slots.map((s) => {
@@ -469,15 +470,15 @@ function MacrosFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advance
         const c = api.check(draft);
         return (
           <div key={s.index} className="flex items-center gap-2">
-            <span className="tabular w-14 shrink-0 text-[12.5px] text-muted-foreground">Macro {s.index}</span>
+            <span className="tabular w-14 shrink-0 text-[12.5px] text-medium">Macro {s.index}</span>
             <input
               aria-label={`Macro ${s.index}`}
               disabled={!s.editable || busy}
               value={s.editable ? draft : "(has actions SYNQ can't show)"}
               onChange={(e) => setDrafts({ ...drafts, [s.index]: e.target.value })}
-              className="h-8 min-w-0 flex-1 rounded-full bg-white/[0.05] px-3 text-[12.5px] text-foreground ring-1 ring-white/[0.08] disabled:opacity-60"
+              className="h-8 min-w-0 flex-1 rounded-small bg-white/[0.05] px-3 text-[12.5px] text-high ring-1 ring-white/[0.08] disabled:opacity-60"
             />
-            <span className={cn("w-28 shrink-0 truncate text-[11.5px]", c.error ? "text-destructive" : "text-muted-foreground")} title={c.error ?? ""}>
+            <span className={cn("w-28 shrink-0 truncate text-[11.5px]", c.error ? "text-destructive" : "text-medium")} title={c.error ?? ""}>
               {c.error ? "Not valid" : `${c.bytes} bytes`}
             </span>
             <button className={ghost} disabled={busy || !s.editable || drafts[s.index] === undefined || !!c.error} onClick={() => run(() => api.save(s.index, draft), `Macro ${s.index} saved`)}>
@@ -502,7 +503,7 @@ function MacrosFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advance
         >
           Done
         </button>
-        <span className="truncate text-[11.5px] text-muted-foreground">Backup: {st.backupPath}</span>
+        <span className="truncate text-[11.5px] text-medium">Backup: {st.backupPath}</span>
       </div>
     </div>
   );
@@ -530,7 +531,7 @@ function CalibrateFlow({ api, hold, notify, onChanged }: { api: NonNullable<Adva
   return (
     <div>
       <Steps steps={api.steps} />
-      <p className="mb-3 text-[11.5px] text-muted-foreground">{api.restoreNote}</p>
+      <p className="mb-3 text-[11.5px] text-medium">{api.restoreNote}</p>
       <Tick checked={ack} onChange={setAck}>
         Save a backup and start calibrating. I'll stop if anything looks wrong, and it times out after {Math.round(api.timeoutSeconds / 60)} minutes.
       </Tick>
@@ -544,7 +545,7 @@ function CalibrateFlow({ api, hold, notify, onChanged }: { api: NonNullable<Adva
             Stop
           </button>
         )}
-        {p && <span className={cn("text-[12.5px]", p.phase === "done" ? "text-primary" : p.phase === "failed" ? "text-destructive" : "text-muted-foreground")}>{p.message}</span>}
+        {p && <span className={cn("text-[12.5px]", p.phase === "done" ? "text-primary" : p.phase === "failed" ? "text-destructive" : "text-medium")}>{p.message}</span>}
       </div>
       {p && p.targets.length > 0 && (
         <div className="mt-3">
@@ -553,12 +554,12 @@ function CalibrateFlow({ api, hold, notify, onChanged }: { api: NonNullable<Adva
           </div>
           <div className="flex flex-wrap gap-1">
             {p.targets.map((t) => (
-              <span key={t.id} className={cn("rounded-md px-1.5 py-0.5 text-[11px] ring-1", t.state === "done" ? "bg-primary/15 text-primary ring-primary/30" : t.state === "partial" ? "bg-chart-3/10 text-chart-3 ring-chart-3/25" : "bg-white/[0.03] text-muted-foreground ring-white/[0.06]")}>
+              <span key={t.id} className={cn("rounded-tight px-1.5 py-0.5 text-[11px] ring-1", t.state === "done" ? "bg-primary/15 text-primary ring-primary/30" : t.state === "partial" ? "bg-chart-3/10 text-chart-3 ring-chart-3/25" : "bg-white/[0.03] text-medium ring-white/[0.06]")}>
                 {t.label}
               </span>
             ))}
           </div>
-          <p className="mt-1.5 text-[11.5px] text-muted-foreground">
+          <p className="mt-1.5 text-[11.5px] text-medium">
             {done} of {p.targets.length} pressed fully{p.backupPath ? ` · backup: ${p.backupPath}` : ""}
           </p>
         </div>
@@ -574,7 +575,6 @@ function ResetFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanced
   const [word, setWord] = useState("");
   const [busy, setBusy] = useState(false);
   const [path, setPath] = useState<string | null>(null);
-  const [restoreAck, setRestoreAck] = useState(false);
   const go = async (work: () => Promise<void>, ok: string) => {
     setBusy(true);
     try {
@@ -589,7 +589,7 @@ function ResetFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanced
   };
   return (
     <div className="flex flex-col gap-3">
-      <ul className="list-disc space-y-1 pl-5 text-[12.5px] text-muted-foreground">
+      <ul className="list-disc space-y-1 pl-5 text-[12.5px] text-medium">
         {api.wipes.map((w) => (
           <li key={w}>{w}</li>
         ))}
@@ -598,11 +598,12 @@ function ResetFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanced
         Save a full backup of my settings first, then reset.
       </Tick>
       <div className="flex flex-wrap items-center gap-3">
-        <input value={word} onChange={(e) => setWord(e.target.value)} placeholder="Type RESET to confirm" aria-label="Type RESET to confirm" className="h-8 w-48 rounded-full bg-white/[0.05] px-3 text-[12.5px] text-foreground ring-1 ring-white/[0.08]" />
-        <button
-          className={cn(btn, "bg-destructive text-white")}
+        <input value={word} onChange={(e) => setWord(e.target.value)} placeholder="Type RESET to confirm" aria-label="Type RESET to confirm" className="h-8 w-48 rounded-small bg-white/[0.05] px-3 text-[12.5px] text-high ring-1 ring-white/[0.08]" />
+        {/* The last gate is a hold: the reset runs only after the button is held to the end (src/components/ui/hold-button.tsx). */}
+        <HoldButton
           disabled={!ack || word !== "RESET" || busy}
-          onClick={() =>
+          seconds={1.5}
+          onConfirm={() =>
             go(async () => {
               const r = await api.reset({ acknowledged: true, typed: word });
               setPath(r.backupPath);
@@ -611,19 +612,17 @@ function ResetFlow({ api, hold, notify, onChanged }: { api: NonNullable<Advanced
             }, "Reset done")
           }
         >
-          Back up and reset
-        </button>
+          Hold to back up and reset
+        </HoldButton>
       </div>
       {(path || api.canRestore()) && (
-        <div className="rounded-2xl bg-white/[0.02] p-3 ring-1 ring-white/[0.05]">
-          <p className="text-[12.5px] text-foreground">Your settings were saved{path ? ` to ${path}` : ""}.</p>
+        <div className="rounded-control bg-white/[0.02] p-3 ring-1 ring-white/[0.05]">
+          <p className="text-[12.5px] text-high">Your settings were saved{path ? ` to ${path}` : ""}.</p>
           <div className="mt-2 flex flex-wrap items-center gap-3">
-            <Tick checked={restoreAck} onChange={setRestoreAck}>
-              Put my saved settings back.
-            </Tick>
-            <button className={btn} disabled={!restoreAck || busy} onClick={() => go(() => api.restore({ acknowledged: true }), "Settings restored")}>
-              Restore my settings
-            </button>
+            {/* Holding it is the "yes, put them back". */}
+            <HoldButton tone="accent" disabled={busy} onConfirm={() => go(() => api.restore({ acknowledged: true }), "Settings restored")}>
+              Hold to put my settings back
+            </HoldButton>
           </div>
         </div>
       )}

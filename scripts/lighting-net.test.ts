@@ -135,7 +135,7 @@ test("a Wi-Fi light is pictured by the model it reports, and drawn when there is
   assert.equal(pic("nanoleaf", "NL59"), "nanoleaf-lines");
   assert.equal(pic("elgato", "Elgato Key Light"), "elgato-key-light");
   assert.equal(pic("elgato", "Elgato Light Strip"), "elgato-light-strip");
-  assert.equal(pic("elgato", "Elgato Key Light Air"), null, "another model: no picture rather than the wrong one");
+  assert.equal(pic("elgato", "Elgato Key Light Air"), "elgato-key-light-air", "its own picture, not the Key Light's");
   assert.equal(pic("twinkly", "Twinkly"), "twinkly-strings");
   assert.equal(pic("wiz", "WiZ light"), "wiz-color-bulb");
   assert.equal(pic("lifx", "LIFX light"), null, "LIFX has only packaging shots");

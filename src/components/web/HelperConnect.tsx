@@ -1,20 +1,31 @@
-// Settings on the website: SYNQ Helper, the small tray app that lets this page reach what a browser can't. Get it
-// (one file for Windows that installs itself, src-tauri/helper/src/standalone.rs) and the page finds it on its own
-// while it installs; or Connect one that's already running (the desktop app's). Once connected, the page reloads
-// onto it.
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { DownloadSimple, Plugs } from "@phosphor-icons/react";
-import { Card, CardHeader, DetailRows } from "@/components/ui/matte";
+// SYNQ Helper on the website: the small tray app that lets this page reach what a browser can't. Get it (one file for
+// Windows that installs itself, src-tauri/helper/src/standalone.rs) and the page finds it on its own while it
+// installs; or Connect one that's already running (the desktop app's). Once connected, the page reloads onto it.
+// `useHelperOffer` is the flow; `HelperConnect` is its card in Settings and
+// `HelperSteps` the same offer on the Gear page's first visit (./WebStart.tsx).
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { BatteryWarning, CheckCircle, DownloadSimple, GameController, Lightning, Monitor, Mouse, Plugs, Waveform, WifiHigh } from "@phosphor-icons/react";
+import { Job, LevelEditor } from "@/components/settings/HelperCard";
+import { helper, type HelperPrefs } from "@/lib/helper";
+import { cn } from "@/lib/utils";
 import { connectHelper, expectHelper, expectingHelper, forgetHelper, helperError, helperState, onHelperChange, waitForHelper, wantsHelper, HELPER_PORT } from "@/lib/web/helper";
 import { DESKTOP_APP_URL, HELPER_DOWNLOAD_URL } from "@/lib/web/links";
 import { currentPlatform } from "@/lib/web/platform";
 
-export function HelperConnect() {
+/** What the helper adds to this page, in the order people ask for it. */
+export const HELPER_UNLOCKS: readonly { icon: typeof Waveform; text: string }[] = [
+  { icon: Waveform, text: "The EQ for your headphones" },
+  { icon: Mouse, text: "Razer on Windows" },
+  { icon: Monitor, text: "Monitors and webcams" },
+  { icon: WifiHigh, text: "Wi-Fi lights" },
+  { icon: GameController, text: "Game profiles and battery alerts" },
+];
+
+export function useHelperOffer() {
   const state = useSyncExternalStore(onHelperChange, helperState);
   const [busy, setBusy] = useState(false);
   const [waiting, setWaiting] = useState(false);
   const stop = useRef<AbortController | null>(null);
-  const error = helperError();
   const os = currentPlatform().os;
 
   // Downloaded earlier and still not connected (the page was reloaded while it installed): keep looking.
@@ -36,102 +47,196 @@ export function HelperConnect() {
     if (ok) location.reload();
   }
 
-  const connect = async () => {
-    setBusy(true);
-    const ok = await connectHelper(true);
-    setBusy(false);
-    if (ok) location.reload();
+  return {
+    state,
+    os,
+    busy,
+    waiting,
+    error: helperError(),
+    ready: state === "ready",
+    status: state === "ready" ? "Connected" : waiting ? "Waiting for it to start" : state === "connecting" ? "Connecting" : wantsHelper() && state === "failed" ? "Not running" : "Not connected",
+    /** The download link was clicked: watch for the helper while it installs. */
+    got: () => {
+      expectHelper();
+      void look();
+    },
+    connect: async () => {
+      setBusy(true);
+      const ok = await connectHelper(true);
+      setBusy(false);
+      if (ok) location.reload();
+    },
+    disconnect: () => {
+      forgetHelper();
+      location.reload();
+    },
   };
-  const disconnect = () => {
-    forgetHelper();
-    location.reload();
-  };
-
-  const status = state === "ready" ? "Connected" : waiting ? "Waiting for it to start" : state === "connecting" ? "Connecting" : wantsHelper() && state === "failed" ? "Not running" : "Not connected";
-
-  return (
-    <Card>
-      <CardHeader
-        title="SYNQ Helper"
-        hint="Lets this page reach what a browser can't: monitors, webcams, Wi-Fi lights, Razer on Windows, the EQ and the Advanced actions."
-        right={
-          state === "ready" ? (
-            <button type="button" onClick={disconnect} className="rounded-full px-3 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]">
-              Disconnect
-            </button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                disabled={busy || waiting}
-                onClick={() => void connect()}
-                className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12.5px] text-foreground ring-1 ring-white/10 transition-colors hover:bg-white/[0.06] disabled:opacity-60"
-              >
-                <Plugs size={14} />
-                {busy ? "Waiting for the helper" : "Connect"}
-              </button>
-              {os === "windows" ? (
-                <a
-                  href={HELPER_DOWNLOAD_URL}
-                  onClick={() => {
-                    expectHelper();
-                    void look();
-                  }}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background transition-transform duration-300 ease-fluid active:scale-[0.97]"
-                >
-                  <DownloadSimple size={14} weight="bold" />
-                  Get SYNQ Helper
-                </a>
-              ) : (
-                os === "linux" && (
-                  <a href={DESKTOP_APP_URL} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-[12.5px] font-medium text-background">
-                    <DownloadSimple size={14} weight="bold" />
-                    Get SYNQ
-                  </a>
-                )
-              )}
-            </div>
-          )
-        }
-      />
-      <div className="px-5 pb-4 pt-2">
-        <DetailRows
-          rows={[
-            ["Status", status],
-            ["Where", `This PC only (127.0.0.1:${HELPER_PORT})`],
-            ["Checks", "The desktop app's own, in Rust"],
-          ]}
-        />
-        {state !== "ready" && (
-          <p className="pt-3 text-[12.5px] leading-relaxed text-muted-foreground">
-            {os === "windows"
-              ? "One small file. Run it and it installs itself (no administrator), starts with Windows and waits in the tray; this page finds it on its own. Windows may say the file is from an unknown publisher (it isn't signed yet): choose More info, then Run anyway. With the SYNQ desktop app installed, it turns that app's helper on instead."
-              : os === "linux"
-                ? "On Linux SYNQ Helper comes with the SYNQ app (.deb or AppImage): install it, turn the helper on in its Settings, then press Connect."
-                : "SYNQ Helper runs on Windows and Linux."}{" "}
-            Your browser may ask to let this page reach devices on your network (that's the helper on this PC), and the helper asks once whether to allow this site. Firmware is never touched.
-          </p>
-        )}
-        {waiting && <p className="pt-2 text-[12.5px] text-foreground">Looking for SYNQ Helper… run the file you downloaded.</p>}
-        {state === "failed" && !waiting && error && <p className="pt-2 text-[12.5px] text-chart-3">{error}</p>}
-      </div>
-    </Card>
-  );
 }
 
-/** The dock's Helper pill on the website: lit once connected; otherwise it says how to get one, and leads to Settings. */
-export function WebHelperChip({ onOpen }: { onOpen: () => void }) {
-  const state = useSyncExternalStore(onHelperChange, helperState);
-  const on = state === "ready";
+type Offer = ReturnType<typeof useHelperOffer>;
+
+/** The way to get it: one file on Windows, the app on Linux, nothing elsewhere. */
+function GetButton({ offer, className }: { offer: Offer; className?: string }) {
+  const cls = cn("inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-control bg-foreground px-4 text-[13.5px] font-semibold text-background transition-transform duration-300 ease-fluid active:scale-[0.97]", className);
+  if (offer.os === "windows")
+    return (
+      <a href={HELPER_DOWNLOAD_URL} onClick={offer.got} className={cls}>
+        <DownloadSimple size={14} weight="bold" />
+        Get SYNQ Helper
+      </a>
+    );
+  if (offer.os === "linux")
+    return (
+      <a href={DESKTOP_APP_URL} target="_blank" rel="noopener" className={cls}>
+        <DownloadSimple size={14} weight="bold" />
+        Get SYNQ
+      </a>
+    );
+  return null;
+}
+
+function ConnectButton({ offer }: { offer: Offer }) {
   return (
     <button
       type="button"
-      onClick={onOpen}
-      title={on ? "SYNQ Helper is connected: this page reaches monitors, webcams, Wi-Fi lights, Razer and the EQ through it." : "Get SYNQ Helper: the page reaches what a browser can't through it."}
-      className="flex h-11 items-center gap-2 rounded-full px-4 text-[14px] font-medium text-foreground/75 transition-colors duration-500 ease-fluid hover:text-foreground max-sm:hidden"
+      disabled={offer.busy || offer.waiting}
+      onClick={() => void offer.connect()}
+      className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-control px-4 text-[13.5px] text-high ring-1 ring-white/[0.14] transition-colors hover:bg-white/[0.06] disabled:opacity-60"
     >
-      <span className={on ? "size-1.5 shrink-0 rounded-full bg-primary shadow-[0_0_8px_var(--primary)]" : "size-1.5 shrink-0 rounded-full bg-white/25"} aria-hidden="true" />
-      {on ? "Helper" : "Get Helper"}
+      <Plugs size={14} />
+      {offer.busy ? "Looking…" : "It's running: connect"}
     </button>
+  );
+}
+
+/** The three steps, each lit as it's done: get it, run it, allow this site. */
+function Steps({ offer }: { offer: Offer }) {
+  const steps: { title: string; text: ReactNode }[] =
+    offer.os === "linux"
+      ? [
+          { title: "Get SYNQ", text: "The .deb or AppImage. SYNQ Helper comes with it." },
+          { title: "Turn the helper on", text: "In SYNQ's Settings." },
+          { title: "Connect", text: "Then allow this site once." },
+        ]
+      : [
+          { title: "Get it", text: "One file, no admin." },
+          { title: "Run it", text: "It installs itself, no administrator. Windows may warn it's unsigned: More info, then Run anyway." },
+          { title: "Allow this site", text: "The helper asks once. This page finds it on its own." },
+        ];
+  const reached = offer.ready ? 3 : offer.waiting ? 1 : 0;
+  return (
+    <ol className="grid gap-3 min-[900px]:grid-cols-3">
+      {steps.map((s, i) => {
+        const done = i < reached;
+        const now = i === reached && !offer.ready;
+        return (
+          <li key={s.title} className={cn("flex gap-3 rounded-control p-3.5 ring-1 transition-colors duration-500 ease-fluid", done ? "bg-primary/[0.08] ring-primary/30" : now ? "bg-white/[0.04] ring-white/[0.14]" : "bg-shade/20 ring-white/[0.06]")}>
+            <span className={cn("grid size-7 shrink-0 place-items-center rounded-full text-[12.5px] font-bold", done ? "bg-primary text-primary-foreground" : "bg-white/[0.08] text-high")}>{done ? <CheckCircle size={14} weight="fill" /> : i + 1}</span>
+            <span className="min-w-0">
+              <span className="block text-[13.5px] font-semibold text-high">{s.title}</span>
+              <span className="mt-0.5 block text-[12px] leading-snug text-medium">{s.text}</span>
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+/** The offer as the Gear page shows it on a first visit: what it unlocks, the steps, the buttons. */
+export function HelperSteps({ offer }: { offer: Offer }) {
+  return (
+    <div className="flex flex-col gap-4">
+      <ul className="flex flex-wrap gap-2">
+        {HELPER_UNLOCKS.map(({ icon: I, text }) => (
+          <li key={text} className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] py-1.5 pl-2.5 pr-3.5 text-[12.5px] text-high ring-1 ring-white/[0.08]">
+            <I size={14} className="text-primary" />
+            {text}
+          </li>
+        ))}
+      </ul>
+      {offer.os === "windows" || offer.os === "linux" ? <Steps offer={offer} /> : <p className="text-[13px] text-medium">SYNQ Helper runs on Windows and Linux.</p>}
+      {!offer.ready && (
+        <div className="flex flex-wrap items-center gap-3">
+          <GetButton offer={offer} />
+          <ConnectButton offer={offer} />
+          {offer.waiting && (
+            <span className="flex items-center gap-2 text-[12.5px] text-high">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary/70" />
+                <span className="relative inline-flex size-2 rounded-full bg-primary" />
+              </span>
+              Looking for SYNQ Helper: run the file you downloaded.
+            </span>
+          )}
+          {offer.state === "failed" && !offer.waiting && offer.error && <span className="text-[12.5px] text-chart-3">{offer.error}</span>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** With the helper connected: its two background jobs, as the desktop app's Settings has them. Turning game profiles
+ * on, like every profile save, is confirmed in SYNQ Helper's own box on this PC. */
+function HelperJobs() {
+  const [prefs, setPrefs] = useState<HelperPrefs | null>(null);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    helper.prefs().then(setPrefs, (e: unknown) => setError(e instanceof Error ? e.message : String(e)));
+  }, []);
+  const change = async (c: Partial<HelperPrefs>) => {
+    setError("");
+    try {
+      setPrefs(await helper.prefsSet(c));
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  };
+  if (!prefs) return error ? <p className="mt-4 text-[12.5px] text-chart-3">{error}</p> : null;
+  return (
+    <div className="mt-5 grid gap-3 min-[900px]:grid-cols-2">
+      <Job icon={GameController} title="Game profiles" text={prefs.gameProfiles ? "Follows the games on the Games page, by program name only. Each save asks you on this PC first." : "Off"} on={prefs.gameProfiles} onChange={(v) => void change({ gameProfiles: v })} />
+      <Job icon={BatteryWarning} title="Battery alerts" text={prefs.batteryAlerts ? "A notification at each level, once per charge." : "Off"} on={prefs.batteryAlerts} onChange={(v) => void change({ batteryAlerts: v })}>
+        {prefs.batteryAlerts && <LevelEditor levels={prefs.batteryLevels} onChange={(l) => void change({ batteryLevels: l })} />}
+      </Job>
+      {error && <p className="text-[12.5px] text-chart-3 min-[900px]:col-span-2">{error}</p>}
+    </div>
+  );
+}
+
+/** Settings on the website: the helper as a card like the desktop app's (src/components/settings/HelperCard.tsx). */
+export function HelperConnect() {
+  const offer = useHelperOffer();
+  return (
+    <section aria-label="SYNQ Helper" className="tile relative flex h-full flex-col overflow-hidden rounded-card px-7 pb-6 pt-7 max-sm:px-5">
+      <div className="flex items-start gap-5">
+        <span className={cn("grid size-14 shrink-0 place-items-center rounded-control transition-colors duration-500 ease-fluid", offer.ready ? "bg-primary text-primary-foreground" : "bg-white/[0.06] text-medium ring-1 ring-white/[0.1]")}>
+          <Lightning size={24} weight={offer.ready ? "fill" : "light"} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <h2 className="text-[28px] font-bold leading-tight tracking-[-0.035em] text-high">SYNQ Helper</h2>
+          <p className="mt-1 flex items-center gap-2 text-[14px] text-high">
+            <span className={cn("size-2 shrink-0 rounded-full", offer.ready ? "bg-live" : "bg-asleep")} aria-hidden="true" />
+            {offer.status}
+          </p>
+        </div>
+        {offer.ready && (
+          <button type="button" onClick={offer.disconnect} className="mt-2 rounded-small px-3.5 py-1.5 text-[12.5px] text-high ring-1 ring-white/10 transition-colors hover:bg-white/[0.06]">
+            Disconnect
+          </button>
+        )}
+      </div>
+      <p className="mt-4 max-w-[62ch] text-[14px] leading-relaxed text-medium">
+        {offer.ready
+          ? "Every device on this PC is listed through it. It checks every command the way the desktop app does, and never touches firmware."
+          : "A light tray app for this PC that lets this page reach what a browser can't. It checks every command the way the desktop app does, and never touches firmware."}
+      </p>
+      <div className="mt-5">
+        <HelperSteps offer={offer} />
+      </div>
+      {offer.ready && <HelperJobs />}
+      <div className="min-h-4 flex-1" aria-hidden="true" />
+      <p className="border-t border-white/[0.09] pt-3.5 text-[12px] text-faint">This PC only (127.0.0.1:{HELPER_PORT}). Your browser may ask to let this page reach local devices: that's the helper.</p>
+    </section>
   );
 }

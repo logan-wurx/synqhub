@@ -1,11 +1,6 @@
-// How the Devices home groups its cards: kinds that read as one group ("Sound" is the EQ output and any headset), the
-// order the groups come in, and when a list is long and mixed enough to be worth filtering. Pure; the filter itself is
-// src/components/devices/KindFilter.tsx.
-
-/** The filter appears from this many cards… */
-export const MIN_CARDS = 7;
-/** …of at least this many groups. */
-export const MIN_GROUPS = 3;
+// How the Devices home groups its devices: kinds that read as one group ("Sound" is the EQ output and any headset)
+// and the order the groups come in. Pure; the Gear page's layouts draw a card, a shelf or a rail group per group
+// (src/components/devices/gear/).
 
 const GROUPS: Readonly<Record<string, { id: string; label: string }>> = {
   mouse: { id: "mice", label: "Mice" },
@@ -57,12 +52,4 @@ export function groupsIn<T extends { kind: string }>(entries: readonly T[], coun
     if (counts(e)) c.n++;
   }
   return [...groups.values()].sort((a, b) => rank(a.id) - rank(b.id));
-}
-
-/** What the filter shows for a pick: whether it is offered at all, the pick in effect ("all" when the picked group is gone or the list is short), and the entries to draw. */
-export function filterEntries<T extends { kind: string }>(entries: readonly T[], picked: string, counts?: (e: T) => boolean) {
-  const groups = groupsIn(entries, counts);
-  const offered = entries.length >= MIN_CARDS && groups.length >= MIN_GROUPS;
-  const value = offered && groups.some((g) => g.id === picked) ? picked : "all";
-  return { offered, groups, value, shown: value === "all" ? [...entries] : entries.filter((e) => groupOf(e.kind).id === value) };
 }
