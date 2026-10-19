@@ -46,7 +46,8 @@ if (!commits.length) {
 
 // The banner: the newest change's title, how many came in this push, the date.
 const last = commits.at(-1);
-const date = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+// The developer's own calendar day (the release notes are dated the same way), not UTC's, which turns over in the evening here.
+const date = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 const label = `Dev log · ${commits.length > 1 ? `${commits.length} changes · ` : ""}${date}`;
 const seed = parseInt(last.sha.slice(0, 6), 16) % 97;
 const png = dry ? resolve(process.argv[process.argv.indexOf("--dry-run") + 1] ?? "devlog.png") : join(mkdtempSync(join(tmpdir(), "devlog-")), "banner.png");
