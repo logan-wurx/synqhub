@@ -134,7 +134,7 @@ jobs:
             src-tauri/target/release/bundle/appimage/*.AppImage
             self-test.json
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 2
 
       # ---- end-to-end UI tests (the real app with the preview's sample devices)
 
@@ -161,4 +161,4 @@ jobs:
           name: e2e-screenshots-${{ github.sha }}
           path: e2e/screenshots/
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 2
