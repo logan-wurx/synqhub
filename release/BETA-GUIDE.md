@@ -1,6 +1,6 @@
 # SYNQ: quick guide
 
-Thanks for trying SYNQ 0.1.0. It is a small Windows app that puts your headphone EQ, your mouse, keyboard, controller, headset, monitor, webcam and RGB light settings in one place. This is the first release, so if anything feels rough, tell us (see "Sending feedback" at the end).
+Thanks for trying SYNQ 0.1.1. It is a small Windows app that puts your headphone EQ, your mouse, keyboard, controller, headset, monitor, webcam and RGB light settings in one place. This is the first release, so if anything feels rough, tell us (see "Sending feedback" at the end).
 
 You need: Windows 10 or 11, 64-bit, and about 5 minutes. Installing asks for an administrator OK once.
 
@@ -8,9 +8,9 @@ You need: Windows 10 or 11, 64-bit, and about 5 minutes. Installing asks for an 
 
 ## 1. Install
 
-1. Download `SYNQ_0.1.0_x64-setup.exe` (about 49.5 MB). If your browser or chat app says the file "may be dangerous" or "isn't commonly downloaded", choose **Keep**. That is only because the app is new and unsigned.
-2. (Optional) Check you got the right file. In PowerShell run `Get-FileHash .\SYNQ_0.1.0_x64-setup.exe` and compare it with this line:
-   `95414e8b3f12f4d030fadb876a123f07119e54bc72174ea7db9ed4a9856de7ff`
+1. Download `SYNQ_0.1.1_x64-setup.exe` (about 49.5 MB). If your browser or chat app says the file "may be dangerous" or "isn't commonly downloaded", choose **Keep**. That is only because the app is new and unsigned.
+2. (Optional) Check you got the right file. In PowerShell run `Get-FileHash .\SYNQ_0.1.1_x64-setup.exe` and compare it with this line:
+   `eee90c70ec600ed26b07980ede6e3e71af0926f67b326c01c48f7311dc4b9f31`
 3. Double-click the installer.
 4. **Windows will show a blue box: "Windows protected your PC".** This is SmartScreen. It appears because the app isn't code-signed (we haven't bought a certificate yet), not because something was found in the file.
    - Click **More info**.
@@ -87,7 +87,7 @@ Open an issue at [github.com/logan-wurx/synqhub/issues](https://github.com/logan
 - What you did, what you expected, what happened instead (a sentence each is plenty).
 - Which device: mouse or keyboard model, and cable or wireless.
 - A screenshot (**Win + Shift + S**, then paste it into the issue).
-- Your Windows version (**Settings > System > About**) and the SYNQ version (in the Windows Apps list; it says 0.1.0).
+- Your Windows version (**Settings > System > About**) and the SYNQ version (in the Windows Apps list; it says 0.1.1).
 - For anything that went wrong with a device or the sound, the data folder zipped up. Open PowerShell and run this; it puts `SYNQ-feedback.zip` on your desktop:
 
   ```

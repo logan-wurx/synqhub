@@ -397,6 +397,8 @@ if ($ws) {
     if ($dlg) { [void](Press-DialogButton $dlg 'Yes') }
     $again = Receive-Bridge $fresh 1 20000
     Check 'paired-again' 'Paired after Yes' ([bool]($again -and $again.ok -and $again.ok.token)) (Brief $again)
+    # A site has one pairing: the newer token replaced the first, so the next visit uses it.
+    if ($again -and $again.ok -and $again.ok.token) { $token = $again.ok.token }
     $fresh.Dispose()
   } else { Add-Check 'consent' 'A new pairing asks' 'FAIL' 'no second connection' }
 }
